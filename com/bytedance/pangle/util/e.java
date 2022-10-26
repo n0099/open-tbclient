@@ -38,76 +38,31 @@ public final class e {
         d = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? b(a(str.getBytes(), "MD5")) : (String) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:18:0x0032 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v2 */
-    /* JADX WARN: Type inference failed for: r0v3 */
-    /* JADX WARN: Type inference failed for: r0v4, types: [java.io.Closeable] */
-    public static byte[] b(File file) {
-        InterceptResult invokeL;
-        FileInputStream fileInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65543, null, file)) != null) {
-            return (byte[]) invokeL.objValue;
-        }
-        ?? r0 = 0;
-        try {
-            if (file == null) {
-                return null;
-            }
-            try {
-                fileInputStream = new FileInputStream(file);
-                try {
-                    DigestInputStream digestInputStream = new DigestInputStream(fileInputStream, MessageDigest.getInstance("MD5"));
-                    do {
-                    } while (digestInputStream.read(new byte[262144]) > 0);
-                    byte[] digest = digestInputStream.getMessageDigest().digest();
-                    f.a(fileInputStream);
-                    return digest;
-                } catch (IOException e) {
-                    e = e;
-                    e.printStackTrace();
-                    f.a(fileInputStream);
-                    return null;
-                } catch (NoSuchAlgorithmException e2) {
-                    e = e2;
-                    e.printStackTrace();
-                    f.a(fileInputStream);
-                    return null;
-                }
-            } catch (IOException e3) {
-                e = e3;
-                fileInputStream = null;
-                e.printStackTrace();
-                f.a(fileInputStream);
-                return null;
-            } catch (NoSuchAlgorithmException e4) {
-                e = e4;
-                fileInputStream = null;
-                e.printStackTrace();
-                f.a(fileInputStream);
-                return null;
-            } catch (Throwable th) {
-                th = th;
-                f.a((Closeable) r0);
-                throw th;
-            }
-        } catch (Throwable th2) {
-            th = th2;
-            r0 = interceptable;
-        }
-    }
-
     public static String a(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) ? b(b(file)) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+            return b(b(file));
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return b(a(str.getBytes(), "MD5"));
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String a(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            return b(a(bArr, "MD5"));
+        }
+        return (String) invokeL.objValue;
     }
 
     public static byte[] a(byte[] bArr, String str) {
@@ -128,36 +83,9 @@ public final class e {
         return (byte[]) invokeLL.objValue;
     }
 
-    public static String a(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) ? b(a(bArr, "MD5")) : (String) invokeL.objValue;
-    }
-
-    public static String b(byte[] bArr) {
-        InterceptResult invokeL;
-        int length;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) {
-            if (bArr != null && (length = bArr.length) > 0) {
-                char[] cArr = new char[length << 1];
-                int i = 0;
-                for (int i2 = 0; i2 < length; i2++) {
-                    int i3 = i + 1;
-                    char[] cArr2 = d;
-                    cArr[i] = cArr2[(bArr[i2] >>> 4) & 15];
-                    i = i3 + 1;
-                    cArr[i3] = cArr2[bArr[i2] & 15];
-                }
-                return new String(cArr);
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
     public static String b(String str) {
         InterceptResult invokeL;
+        File file;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             boolean z = false;
@@ -170,8 +98,96 @@ public final class e {
                 }
             }
             z = true;
-            return a(z ? null : new File(str));
+            if (z) {
+                file = null;
+            } else {
+                file = new File(str);
+            }
+            return a(file);
         }
         return (String) invokeL.objValue;
+    }
+
+    public static String b(byte[] bArr) {
+        InterceptResult invokeL;
+        int length;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) {
+            if (bArr == null || (length = bArr.length) <= 0) {
+                return null;
+            }
+            char[] cArr = new char[length << 1];
+            int i = 0;
+            for (int i2 = 0; i2 < length; i2++) {
+                int i3 = i + 1;
+                char[] cArr2 = d;
+                cArr[i] = cArr2[(bArr[i2] >>> 4) & 15];
+                i = i3 + 1;
+                cArr[i3] = cArr2[bArr[i2] & 15];
+            }
+            return new String(cArr);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:18:0x0032 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v2 */
+    /* JADX WARN: Type inference failed for: r0v3 */
+    /* JADX WARN: Type inference failed for: r0v4, types: [java.io.Closeable] */
+    public static byte[] b(File file) {
+        InterceptResult invokeL;
+        FileInputStream fileInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, file)) == null) {
+            ?? r0 = 0;
+            try {
+                if (file == null) {
+                    return null;
+                }
+                try {
+                    fileInputStream = new FileInputStream(file);
+                    try {
+                        DigestInputStream digestInputStream = new DigestInputStream(fileInputStream, MessageDigest.getInstance("MD5"));
+                        do {
+                        } while (digestInputStream.read(new byte[262144]) > 0);
+                        byte[] digest = digestInputStream.getMessageDigest().digest();
+                        f.a(fileInputStream);
+                        return digest;
+                    } catch (IOException e) {
+                        e = e;
+                        e.printStackTrace();
+                        f.a(fileInputStream);
+                        return null;
+                    } catch (NoSuchAlgorithmException e2) {
+                        e = e2;
+                        e.printStackTrace();
+                        f.a(fileInputStream);
+                        return null;
+                    }
+                } catch (IOException e3) {
+                    e = e3;
+                    fileInputStream = null;
+                    e.printStackTrace();
+                    f.a(fileInputStream);
+                    return null;
+                } catch (NoSuchAlgorithmException e4) {
+                    e = e4;
+                    fileInputStream = null;
+                    e.printStackTrace();
+                    f.a(fileInputStream);
+                    return null;
+                } catch (Throwable th) {
+                    th = th;
+                    f.a((Closeable) r0);
+                    throw th;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                r0 = interceptable;
+            }
+        } else {
+            return (byte[]) invokeL.objValue;
+        }
     }
 }

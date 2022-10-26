@@ -5,7 +5,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.business.model.data.LiveSearchResultInfo;
 import com.baidu.live.feed.search.adapter.LiveFeedSearchSuggestionAdapter;
-import com.baidu.live.feed.search.model.data.LiveSearchSuggestion;
 import com.baidu.live.feed.search.recmore.ILiveRecSearchSugAdapter;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +38,17 @@ public final class LiveRecSearchSugAdapter implements ILiveRecSearchSugAdapter {
     }
 
     @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchSugAdapter
-    public RecyclerView.Adapter<RecyclerView.ViewHolder> createAdapter(Context context) {
+    public RecyclerView.Adapter getAdapter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.adapter;
+        }
+        return (RecyclerView.Adapter) invokeV.objValue;
+    }
+
+    @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchSugAdapter
+    public RecyclerView.Adapter createAdapter(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
@@ -77,26 +86,9 @@ public final class LiveRecSearchSugAdapter implements ILiveRecSearchSugAdapter {
                 public void jumpAuthorView(String str) {
                     ILiveRecSearchSugAdapter.OnSuggestionListener onSuggestionListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) || onSuggestionListener == null) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) && onSuggestionListener != null) {
+                        onSuggestionListener.jumpAuthorView(str);
                     }
-                    onSuggestionListener.jumpAuthorView(str);
-                }
-
-                /* JADX WARN: Code restructure failed: missing block: B:4:0x0004, code lost:
-                    r0 = r4.this$0.listener;
-                 */
-                @Override // com.baidu.live.feed.search.adapter.LiveFeedSearchSuggestionAdapter.OnSuggestionListener
-                /*
-                    Code decompiled incorrectly, please refer to instructions dump.
-                */
-                public void onFollowClick(LiveSearchResultInfo liveSearchResultInfo, int i) {
-                    ILiveRecSearchSugAdapter.OnSuggestionListener onSuggestionListener;
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, liveSearchResultInfo, i) == null) || onSuggestionListener == null) {
-                        return;
-                    }
-                    onSuggestionListener.onFollowClick(liveSearchResultInfo, i);
                 }
 
                 /* JADX WARN: Code restructure failed: missing block: B:4:0x0004, code lost:
@@ -109,10 +101,24 @@ public final class LiveRecSearchSugAdapter implements ILiveRecSearchSugAdapter {
                 public void onResultClick(LiveSearchResultInfo liveSearchResultInfo) {
                     ILiveRecSearchSugAdapter.OnSuggestionListener onSuggestionListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, liveSearchResultInfo) == null) || onSuggestionListener == null) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, liveSearchResultInfo) == null) && onSuggestionListener != null) {
+                        onSuggestionListener.onResultClick(liveSearchResultInfo);
                     }
-                    onSuggestionListener.onResultClick(liveSearchResultInfo);
+                }
+
+                /* JADX WARN: Code restructure failed: missing block: B:4:0x0004, code lost:
+                    r0 = r4.this$0.listener;
+                 */
+                @Override // com.baidu.live.feed.search.adapter.LiveFeedSearchSuggestionAdapter.OnSuggestionListener
+                /*
+                    Code decompiled incorrectly, please refer to instructions dump.
+                */
+                public void onFollowClick(LiveSearchResultInfo liveSearchResultInfo, int i) {
+                    ILiveRecSearchSugAdapter.OnSuggestionListener onSuggestionListener;
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, liveSearchResultInfo, i) == null) && onSuggestionListener != null) {
+                        onSuggestionListener.onFollowClick(liveSearchResultInfo, i);
+                    }
                 }
 
                 /* JADX WARN: Code restructure failed: missing block: B:4:0x0004, code lost:
@@ -125,10 +131,9 @@ public final class LiveRecSearchSugAdapter implements ILiveRecSearchSugAdapter {
                 public void onSuggestionClick(String str, int i) {
                     ILiveRecSearchSugAdapter.OnSuggestionListener onSuggestionListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLI(1048579, this, str, i) == null) || onSuggestionListener == null) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeLI(1048579, this, str, i) == null) && onSuggestionListener != null) {
+                        onSuggestionListener.onSuggestionClick(str, i);
                     }
-                    onSuggestionListener.onSuggestionClick(str, i);
                 }
 
                 /* JADX WARN: Code restructure failed: missing block: B:4:0x0004, code lost:
@@ -141,10 +146,9 @@ public final class LiveRecSearchSugAdapter implements ILiveRecSearchSugAdapter {
                 public void onSuggestionSelect(String str, int i) {
                     ILiveRecSearchSugAdapter.OnSuggestionListener onSuggestionListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLI(1048580, this, str, i) == null) || onSuggestionListener == null) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeLI(1048580, this, str, i) == null) && onSuggestionListener != null) {
+                        onSuggestionListener.onSuggestionSelect(str, i);
                     }
-                    onSuggestionListener.onSuggestionSelect(str, i);
                 }
 
                 /* JADX WARN: Code restructure failed: missing block: B:4:0x0004, code lost:
@@ -154,13 +158,12 @@ public final class LiveRecSearchSugAdapter implements ILiveRecSearchSugAdapter {
                 /*
                     Code decompiled incorrectly, please refer to instructions dump.
                 */
-                public void onUbcResult(List<? extends LiveSearchResultInfo> list, int i, String str) {
+                public void onUbcResult(List list, int i, String str) {
                     ILiveRecSearchSugAdapter.OnSuggestionListener onSuggestionListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLIL(1048581, this, list, i, str) == null) || onSuggestionListener == null) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeLIL(1048581, this, list, i, str) == null) && onSuggestionListener != null) {
+                        onSuggestionListener.onUbcResult(list, i, str);
                     }
-                    onSuggestionListener.onUbcResult(list, i, str);
                 }
             });
             this.adapter = liveFeedSearchSuggestionAdapter;
@@ -170,20 +173,12 @@ public final class LiveRecSearchSugAdapter implements ILiveRecSearchSugAdapter {
     }
 
     @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchSugAdapter
-    public RecyclerView.Adapter<RecyclerView.ViewHolder> getAdapter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.adapter : (RecyclerView.Adapter) invokeV.objValue;
-    }
-
-    @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchSugAdapter
     public void setFollowStatus(int i) {
         LiveFeedSearchSuggestionAdapter liveFeedSearchSuggestionAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (liveFeedSearchSuggestionAdapter = this.adapter) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (liveFeedSearchSuggestionAdapter = this.adapter) != null) {
+            liveFeedSearchSuggestionAdapter.setFollowStatus(i);
         }
-        liveFeedSearchSuggestionAdapter.setFollowStatus(i);
     }
 
     @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchSugAdapter
@@ -195,12 +190,11 @@ public final class LiveRecSearchSugAdapter implements ILiveRecSearchSugAdapter {
     }
 
     @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchSugAdapter
-    public void setSuggestions(List<? extends LiveSearchResultInfo> list, List<? extends LiveSearchSuggestion> list2, String str) {
+    public void setSuggestions(List list, List list2, String str) {
         LiveFeedSearchSuggestionAdapter liveFeedSearchSuggestionAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048580, this, list, list2, str) == null) || (liveFeedSearchSuggestionAdapter = this.adapter) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLLL(1048580, this, list, list2, str) == null) && (liveFeedSearchSuggestionAdapter = this.adapter) != null) {
+            liveFeedSearchSuggestionAdapter.setSuggestions(list, list2, str);
         }
-        liveFeedSearchSuggestionAdapter.setSuggestions(list, list2, str);
     }
 }

@@ -14,7 +14,7 @@ public interface t {
 
     void CP();
 
-    void b(a.InterfaceC0621a interfaceC0621a, a.c cVar);
+    void b(a.InterfaceC0617a interfaceC0617a, a.c cVar);
 
     void f(MessageSnapshot messageSnapshot);
 

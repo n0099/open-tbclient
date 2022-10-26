@@ -77,12 +77,12 @@ public final class RealCall implements Call {
                             }
                         } catch (IOException e2) {
                             e = e2;
-                            if (!z) {
-                                this.this$0.eventListener.callFailed(this.this$0, e);
-                                this.responseCallback.onFailure(this.this$0, e);
-                            } else {
+                            if (z) {
                                 Platform platform = Platform.get();
                                 platform.log(4, "Callback failure for " + this.this$0.toLoggableString(), e);
+                            } else {
+                                this.this$0.eventListener.callFailed(this.this$0, e);
+                                this.responseCallback.onFailure(this.this$0, e);
                             }
                         }
                     } finally {
@@ -98,19 +98,28 @@ public final class RealCall implements Call {
         public RealCall get() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.this$0 : (RealCall) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.this$0;
+            }
+            return (RealCall) invokeV.objValue;
         }
 
         public String host() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.this$0.originalRequest.url().host() : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.this$0.originalRequest.url().host();
+            }
+            return (String) invokeV.objValue;
         }
 
         public Request request() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.this$0.originalRequest : (Request) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.this$0.originalRequest;
+            }
+            return (Request) invokeV.objValue;
         }
     }
 
@@ -142,6 +151,66 @@ public final class RealCall implements Call {
         }
     }
 
+    @Override // okhttp3.Call
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.retryAndFollowUpInterceptor.cancel();
+        }
+    }
+
+    @Override // okhttp3.Call
+    public boolean isCanceled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.retryAndFollowUpInterceptor.isCanceled();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // okhttp3.Call
+    public synchronized boolean isExecuted() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            synchronized (this) {
+                z = this.executed;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String redactedUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.originalRequest.url().redact();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // okhttp3.Call
+    public Request request() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.originalRequest;
+        }
+        return (Request) invokeV.objValue;
+    }
+
+    public StreamAllocation streamAllocation() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.retryAndFollowUpInterceptor.streamAllocation();
+        }
+        return (StreamAllocation) invokeV.objValue;
+    }
+
     public static RealCall newRealCall(OkHttpClient okHttpClient, Request request, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
@@ -153,12 +222,15 @@ public final class RealCall implements Call {
         return (RealCall) invokeLLZ.objValue;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // okhttp3.Call
-    public void cancel() {
+    public RealCall clone() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.retryAndFollowUpInterceptor.cancel();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return newRealCall(this.client, this.originalRequest, this.forWebSocket);
         }
+        return (RealCall) invokeV.objValue;
     }
 
     @Override // okhttp3.Call
@@ -230,65 +302,29 @@ public final class RealCall implements Call {
         return (Response) invokeV.objValue;
     }
 
-    @Override // okhttp3.Call
-    public boolean isCanceled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.retryAndFollowUpInterceptor.isCanceled() : invokeV.booleanValue;
-    }
-
-    @Override // okhttp3.Call
-    public synchronized boolean isExecuted() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            synchronized (this) {
-                z = this.executed;
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String redactedUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.originalRequest.url().redact() : (String) invokeV.objValue;
-    }
-
-    @Override // okhttp3.Call
-    public Request request() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.originalRequest : (Request) invokeV.objValue;
-    }
-
-    public StreamAllocation streamAllocation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.retryAndFollowUpInterceptor.streamAllocation() : (StreamAllocation) invokeV.objValue;
-    }
-
     public String toLoggableString() {
         InterceptResult invokeV;
+        String str;
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append(isCanceled() ? "canceled " : "");
-            sb.append(this.forWebSocket ? "web socket" : NotificationCompat.CATEGORY_CALL);
+            if (isCanceled()) {
+                str = "canceled ";
+            } else {
+                str = "";
+            }
+            sb.append(str);
+            if (this.forWebSocket) {
+                str2 = "web socket";
+            } else {
+                str2 = NotificationCompat.CATEGORY_CALL;
+            }
+            sb.append(str2);
             sb.append(" to ");
             sb.append(redactedUrl());
             return sb.toString();
         }
         return (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // okhttp3.Call
-    public RealCall clone() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? newRealCall(this.client, this.originalRequest, this.forWebSocket) : (RealCall) invokeV.objValue;
     }
 }

@@ -108,42 +108,10 @@ public final class BitMatrixParser {
                 i10 |= 1;
             }
             int i11 = i10 << 1;
-            return readModule(3, i8, i, i2) ? i11 | 1 : i11;
-        }
-        return invokeII.intValue;
-    }
-
-    private int readCorner2(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65539, this, i, i2)) == null) {
-            int i3 = (readModule(i + (-3), 0, i, i2) ? 1 : 0) << 1;
-            if (readModule(i - 2, 0, i, i2)) {
-                i3 |= 1;
+            if (readModule(3, i8, i, i2)) {
+                return i11 | 1;
             }
-            int i4 = i3 << 1;
-            if (readModule(i - 1, 0, i, i2)) {
-                i4 |= 1;
-            }
-            int i5 = i4 << 1;
-            if (readModule(0, i2 - 4, i, i2)) {
-                i5 |= 1;
-            }
-            int i6 = i5 << 1;
-            if (readModule(0, i2 - 3, i, i2)) {
-                i6 |= 1;
-            }
-            int i7 = i6 << 1;
-            if (readModule(0, i2 - 2, i, i2)) {
-                i7 |= 1;
-            }
-            int i8 = i7 << 1;
-            int i9 = i2 - 1;
-            if (readModule(0, i9, i, i2)) {
-                i8 |= 1;
-            }
-            int i10 = i8 << 1;
-            return readModule(1, i9, i, i2) ? i10 | 1 : i10;
+            return i11;
         }
         return invokeII.intValue;
     }
@@ -181,7 +149,10 @@ public final class BitMatrixParser {
                 i12 |= 1;
             }
             int i13 = i12 << 1;
-            return readModule(1, i5, i, i2) ? i13 | 1 : i13;
+            if (readModule(1, i5, i, i2)) {
+                return i13 | 1;
+            }
+            return i13;
         }
         return invokeII.intValue;
     }
@@ -216,7 +187,48 @@ public final class BitMatrixParser {
                 i9 |= 1;
             }
             int i10 = i9 << 1;
-            return readModule(3, i7, i, i2) ? i10 | 1 : i10;
+            if (readModule(3, i7, i, i2)) {
+                return i10 | 1;
+            }
+            return i10;
+        }
+        return invokeII.intValue;
+    }
+
+    private int readCorner2(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65539, this, i, i2)) == null) {
+            int i3 = (readModule(i + (-3), 0, i, i2) ? 1 : 0) << 1;
+            if (readModule(i - 2, 0, i, i2)) {
+                i3 |= 1;
+            }
+            int i4 = i3 << 1;
+            if (readModule(i - 1, 0, i, i2)) {
+                i4 |= 1;
+            }
+            int i5 = i4 << 1;
+            if (readModule(0, i2 - 4, i, i2)) {
+                i5 |= 1;
+            }
+            int i6 = i5 << 1;
+            if (readModule(0, i2 - 3, i, i2)) {
+                i6 |= 1;
+            }
+            int i7 = i6 << 1;
+            if (readModule(0, i2 - 2, i, i2)) {
+                i7 |= 1;
+            }
+            int i8 = i7 << 1;
+            int i9 = i2 - 1;
+            if (readModule(0, i9, i, i2)) {
+                i8 |= 1;
+            }
+            int i10 = i8 << 1;
+            if (readModule(1, i9, i, i2)) {
+                return i10 | 1;
+            }
+            return i10;
         }
         return invokeII.intValue;
     }
@@ -272,7 +284,10 @@ public final class BitMatrixParser {
                 i14 |= 1;
             }
             int i15 = i14 << 1;
-            return readModule(i, i2, i3, i4) ? i15 | 1 : i15;
+            if (readModule(i, i2, i3, i4)) {
+                return i15 | 1;
+            }
+            return i15;
         }
         return invokeIIII.intValue;
     }
@@ -280,13 +295,19 @@ public final class BitMatrixParser {
     public static Version readVersion(BitMatrix bitMatrix) throws FormatException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bitMatrix)) == null) ? Version.getVersionForDimensions(bitMatrix.getHeight(), bitMatrix.getWidth()) : (Version) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bitMatrix)) == null) {
+            return Version.getVersionForDimensions(bitMatrix.getHeight(), bitMatrix.getWidth());
+        }
+        return (Version) invokeL.objValue;
     }
 
     public Version getVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.version : (Version) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.version;
+        }
+        return (Version) invokeV.objValue;
     }
 
     public byte[] readCodewords() throws FormatException {

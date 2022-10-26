@@ -17,7 +17,7 @@ import java.util.List;
 public class AlaMGetLiveStatusHttpResponseMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Long> mClosedIds;
+    public List mClosedIds;
     public long mInterval;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -38,16 +38,22 @@ public class AlaMGetLiveStatusHttpResponseMessage extends HttpResponsedMessage {
         }
     }
 
-    public List<Long> getClosedIds() {
+    public List getClosedIds() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mClosedIds : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mClosedIds;
+        }
+        return (List) invokeV.objValue;
     }
 
     public long getInterval() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mInterval : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mInterval;
+        }
+        return invokeV.longValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,11 +65,10 @@ public class AlaMGetLiveStatusHttpResponseMessage extends HttpResponsedMessage {
             AlaMgetLiveStatusResIdl alaMgetLiveStatusResIdl = (AlaMgetLiveStatusResIdl) new Wire(new Class[0]).parseFrom(bArr, AlaMgetLiveStatusResIdl.class);
             setError(alaMgetLiveStatusResIdl.error.errorno.intValue());
             setErrorString(alaMgetLiveStatusResIdl.error.usermsg);
-            if (getError() != 0 || (dataRes = alaMgetLiveStatusResIdl.data) == null || dataRes.close_live == null) {
-                return;
+            if (getError() == 0 && (dataRes = alaMgetLiveStatusResIdl.data) != null && dataRes.close_live != null) {
+                this.mInterval = dataRes.interval.longValue();
+                this.mClosedIds = new ArrayList(alaMgetLiveStatusResIdl.data.close_live);
             }
-            this.mInterval = dataRes.interval.longValue();
-            this.mClosedIds = new ArrayList(alaMgetLiveStatusResIdl.data.close_live);
         }
     }
 }

@@ -40,9 +40,8 @@ public class GroupActivityActivityConfig extends IntentConfig {
         getIntent().putExtra("activity_id", i);
         getIntent().putExtra("group_id", j);
         getIntent().putExtra("from", i2);
-        if (context instanceof Activity) {
-            return;
+        if (!(context instanceof Activity)) {
+            getIntent().addFlags(LaunchTaskConstants.OTHER_PROCESS);
         }
-        getIntent().addFlags(LaunchTaskConstants.OTHER_PROCESS);
     }
 }

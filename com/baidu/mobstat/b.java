@@ -49,9 +49,9 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             synchronized (this) {
-                String o = bw.o(context);
-                if (!TextUtils.isEmpty(o)) {
-                    k.a.a(System.currentTimeMillis(), o);
+                String m = bw.m(context);
+                if (!TextUtils.isEmpty(m)) {
+                    k.a.a(context, System.currentTimeMillis(), m);
                 }
             }
         }

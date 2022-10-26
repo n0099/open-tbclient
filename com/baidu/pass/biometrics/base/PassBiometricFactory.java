@@ -10,6 +10,8 @@ public abstract class PassBiometricFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract PassBiometric getBiometric(int i);
+
     public PassBiometricFactory() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -27,8 +29,9 @@ public abstract class PassBiometricFactory {
     public static PassBiometricFactory getDefaultFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? PassBiometricDefaultFactory.getInstance() : (PassBiometricFactory) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return PassBiometricDefaultFactory.getInstance();
+        }
+        return (PassBiometricFactory) invokeV.objValue;
     }
-
-    public abstract PassBiometric getBiometric(int i);
 }

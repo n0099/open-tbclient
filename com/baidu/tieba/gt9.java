@@ -1,245 +1,553 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapShader;
+import android.graphics.Canvas;
+import android.graphics.DashPathEffect;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.Rect;
+import android.graphics.Shader;
+import android.media.SoundPool;
+import android.text.StaticLayout;
+import android.text.TextPaint;
+import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ft9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire2.FieldEncoding;
-import com.squareup.wire2.Message;
-import com.squareup.wire2.Message.a;
-import com.squareup.wire2.ProtoAdapter;
-import com.squareup.wire2.WireField;
-import java.io.IOException;
-import java.lang.reflect.Field;
-import java.util.Collections;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import com.opensource.svgaplayer.SVGAVideoEntity;
+import com.opensource.svgaplayer.entities.SVGAVideoShapeEntity;
+import java.util.HashMap;
+import kotlin.TypeCastException;
+import kotlin.jvm.functions.Function2;
+import kotlin.jvm.functions.Function4;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes4.dex */
-public final class gt9<M extends Message<M, B>, B extends Message.a<M, B>> extends ProtoAdapter<M> {
+public final class gt9 extends ft9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Class<M> a;
-    public final Class<B> b;
-    public final Map<Integer, bt9<M, B>> c;
+    public final b c;
+    public final HashMap d;
+    public final a e;
+    public final float[] f;
+    public final ct9 g;
+
+    /* loaded from: classes4.dex */
+    public final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public final HashMap c;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = new HashMap();
+        }
+
+        public final Path a(SVGAVideoShapeEntity sVGAVideoShapeEntity) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sVGAVideoShapeEntity)) == null) {
+                if (!this.c.containsKey(sVGAVideoShapeEntity)) {
+                    Path path = new Path();
+                    path.set(sVGAVideoShapeEntity.b());
+                    this.c.put(sVGAVideoShapeEntity, path);
+                }
+                Object obj = this.c.get(sVGAVideoShapeEntity);
+                if (obj == null) {
+                    Intrinsics.throwNpe();
+                }
+                return (Path) obj;
+            }
+            return (Path) invokeL.objValue;
+        }
+
+        public final void b(Canvas canvas) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
+                if (this.a != canvas.getWidth() || this.b != canvas.getHeight()) {
+                    this.c.clear();
+                }
+                this.a = canvas.getWidth();
+                this.b = canvas.getHeight();
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Paint a;
+        public final Path b;
+        public final Path c;
+        public final Matrix d;
+        public final Matrix e;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new Paint();
+            this.b = new Path();
+            this.c = new Path();
+            this.d = new Matrix();
+            this.e = new Matrix();
+        }
+
+        public final Matrix a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                this.d.reset();
+                return this.d;
+            }
+            return (Matrix) invokeV.objValue;
+        }
+
+        public final Matrix b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                this.e.reset();
+                return this.e;
+            }
+            return (Matrix) invokeV.objValue;
+        }
+
+        public final Paint c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                this.a.reset();
+                return this.a;
+            }
+            return (Paint) invokeV.objValue;
+        }
+
+        public final Path d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                this.b.reset();
+                return this.b;
+            }
+            return (Path) invokeV.objValue;
+        }
+
+        public final Path e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                this.c.reset();
+                return this.c;
+            }
+            return (Path) invokeV.objValue;
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gt9(Class<M> cls, Class<B> cls2, Map<Integer, bt9<M, B>> map) {
-        super(FieldEncoding.LENGTH_DELIMITED, cls);
+    public gt9(SVGAVideoEntity sVGAVideoEntity, ct9 ct9Var) {
+        super(sVGAVideoEntity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cls, cls2, map};
+            Object[] objArr = {sVGAVideoEntity, ct9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FieldEncoding) objArr2[0], (Class) objArr2[1]);
+                super((SVGAVideoEntity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = cls;
-        this.b = cls2;
-        this.c = map;
+        this.g = ct9Var;
+        this.c = new b();
+        this.d = new HashMap();
+        this.e = new a();
+        this.f = new float[16];
     }
 
-    public static <M extends Message<M, B>, B extends Message.a<M, B>> gt9<M, B> a(Class<M> cls) {
-        InterceptResult invokeL;
-        Field[] declaredFields;
+    @Override // com.baidu.tieba.ft9
+    public void a(Canvas canvas, int i, ImageView.ScaleType scaleType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cls)) == null) {
-            Class e = e(cls);
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            for (Field field : cls.getDeclaredFields()) {
-                WireField wireField = (WireField) field.getAnnotation(WireField.class);
-                if (wireField != null) {
-                    linkedHashMap.put(Integer.valueOf(wireField.tag()), new bt9(wireField, field, e));
-                }
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, canvas, i, scaleType) == null) {
+            super.a(canvas, i, scaleType);
+            this.e.b(canvas);
+            for (ft9.a aVar : d(i)) {
+                h(aVar, canvas, i);
             }
-            return new gt9<>(cls, e, Collections.unmodifiableMap(linkedHashMap));
+            k(i);
         }
-        return (gt9) invokeL.objValue;
     }
 
-    public static <M extends Message<M, B>, B extends Message.a<M, B>> Class<B> e(Class<M> cls) {
-        InterceptResult invokeL;
+    public final void h(ft9.a aVar, Canvas canvas, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) {
-            try {
-                return (Class<B>) Class.forName(cls.getName() + "$Builder");
-            } catch (ClassNotFoundException unused) {
-                throw new IllegalArgumentException("No builder class found for message type " + cls.getName());
+        if (interceptable == null || interceptable.invokeLLI(1048580, this, aVar, canvas, i) == null) {
+            f(aVar, canvas);
+            g(aVar, canvas);
+            e(aVar, canvas, i);
+        }
+    }
+
+    public final void e(ft9.a aVar, Canvas canvas, int i) {
+        String b2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, canvas, i) == null) && (b2 = aVar.b()) != null) {
+            Function2 function2 = (Function2) this.g.a().get(b2);
+            if (function2 != null) {
+                Matrix l = l(aVar.a().e());
+                canvas.save();
+                canvas.concat(l);
+                function2.invoke(canvas, Integer.valueOf(i));
+                canvas.restore();
+            }
+            Function4 function4 = (Function4) this.g.b().get(b2);
+            if (function4 != null) {
+                Matrix l2 = l(aVar.a().e());
+                canvas.save();
+                canvas.concat(l2);
+                function4.invoke(canvas, Integer.valueOf(i), Integer.valueOf((int) aVar.a().b().b()), Integer.valueOf((int) aVar.a().b().a()));
+                canvas.restore();
             }
         }
-        return (Class) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: b */
-    public M decode(dt9 dt9Var) throws IOException {
-        InterceptResult invokeL;
-        ProtoAdapter<?> i;
+    public final void f(ft9.a aVar, Canvas canvas) {
+        String b2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, dt9Var)) != null) {
-            return (M) invokeL.objValue;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, canvas) != null) || (b2 = aVar.b()) == null || Intrinsics.areEqual((Boolean) this.g.c().get(b2), Boolean.TRUE)) {
+            return;
         }
-        B f = f();
-        long c = dt9Var.c();
-        while (true) {
-            int f2 = dt9Var.f();
-            if (f2 != -1) {
-                bt9<M, B> bt9Var = this.c.get(Integer.valueOf(f2));
-                if (bt9Var != null) {
-                    try {
-                        if (bt9Var.f()) {
-                            i = bt9Var.a();
-                        } else {
-                            i = bt9Var.i();
-                        }
-                        bt9Var.j(f, i.decode(dt9Var));
-                    } catch (ProtoAdapter.EnumConstantNotFoundException e) {
-                        f.addUnknownField(f2, FieldEncoding.VARINT, Long.valueOf(e.value));
-                    }
+        Bitmap bitmap = (Bitmap) this.g.d().get(b2);
+        if (bitmap == null) {
+            bitmap = (Bitmap) c().e().get(b2);
+        }
+        if (bitmap != null) {
+            Matrix l = l(aVar.a().e());
+            Paint c = this.c.c();
+            c.setAntiAlias(c().a());
+            c.setFilterBitmap(c().a());
+            c.setAlpha((int) (aVar.a().a() * 255));
+            if (aVar.a().c() != null) {
+                it9 c2 = aVar.a().c();
+                if (c2 != null) {
+                    canvas.save();
+                    c.reset();
+                    Path d = this.c.d();
+                    c2.a(d);
+                    d.transform(l);
+                    canvas.clipPath(d);
+                    l.preScale((float) (aVar.a().b().b() / bitmap.getWidth()), (float) (aVar.a().b().b() / bitmap.getWidth()));
+                    canvas.drawBitmap(bitmap, l, c);
+                    canvas.restore();
                 } else {
-                    FieldEncoding g = dt9Var.g();
-                    f.addUnknownField(f2, g, g.rawProtoAdapter().decode(dt9Var));
+                    return;
                 }
             } else {
-                dt9Var.d(c);
-                return (M) f.build();
+                l.preScale((float) (aVar.a().b().b() / bitmap.getWidth()), (float) (aVar.a().b().b() / bitmap.getWidth()));
+                canvas.drawBitmap(bitmap, l, c);
             }
+            i(canvas, bitmap, aVar, l);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: c */
-    public void encode(et9 et9Var, M m) throws IOException {
+    public final void g(ft9.a aVar, Canvas canvas) {
+        SVGAVideoShapeEntity.a c;
+        float[] c2;
+        String d;
+        String b2;
+        int a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, et9Var, m) == null) {
-            for (bt9<M, B> bt9Var : this.c.values()) {
-                Object b = bt9Var.b(m);
-                if (b != null) {
-                    bt9Var.a().encodeWithTag(et9Var, bt9Var.c, b);
-                }
-            }
-            et9Var.k(m.unknownFields());
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: d */
-    public int encodedSize(M m) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, m)) == null) {
-            int i = m.cachedSerializedSize;
-            if (i != 0) {
-                return i;
-            }
-            int i2 = 0;
-            for (bt9<M, B> bt9Var : this.c.values()) {
-                Object b = bt9Var.b(m);
-                if (b != null) {
-                    i2 += bt9Var.a().encodedSizeWithTag(bt9Var.c, b);
-                }
-            }
-            int size = i2 + m.unknownFields().size();
-            m.cachedSerializedSize = size;
-            return size;
-        }
-        return invokeL.intValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) ? (obj instanceof gt9) && ((gt9) obj).a == this.a : invokeL.booleanValue;
-    }
-
-    public B f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            try {
-                return this.b.newInstance();
-            } catch (IllegalAccessException | InstantiationException e) {
-                throw new AssertionError(e);
-            }
-        }
-        return (B) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: g */
-    public M redact(M m) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, m)) == null) {
-            Message.a<M, B> newBuilder = m.newBuilder();
-            for (bt9<M, B> bt9Var : this.c.values()) {
-                if (bt9Var.f && bt9Var.a == WireField.Label.REQUIRED) {
-                    throw new UnsupportedOperationException(String.format("Field '%s' in %s is required and cannot be redacted.", bt9Var.b, this.javaType.getName()));
-                }
-                boolean isAssignableFrom = Message.class.isAssignableFrom(bt9Var.i().javaType);
-                if (!bt9Var.f && (!isAssignableFrom || bt9Var.a.isRepeated())) {
-                    if (isAssignableFrom && bt9Var.a.isRepeated()) {
-                        it9.k((List) bt9Var.e(newBuilder), bt9Var.i());
+        if (interceptable == null || interceptable.invokeLL(1048579, this, aVar, canvas) == null) {
+            Matrix l = l(aVar.a().e());
+            for (SVGAVideoShapeEntity sVGAVideoShapeEntity : aVar.a().d()) {
+                sVGAVideoShapeEntity.a();
+                if (sVGAVideoShapeEntity.b() != null) {
+                    Paint c3 = this.c.c();
+                    c3.reset();
+                    c3.setAntiAlias(c().a());
+                    double d2 = 255;
+                    c3.setAlpha((int) (aVar.a().a() * d2));
+                    Path d3 = this.c.d();
+                    d3.reset();
+                    d3.addPath(this.e.a(sVGAVideoShapeEntity));
+                    Matrix b3 = this.c.b();
+                    b3.reset();
+                    Matrix d4 = sVGAVideoShapeEntity.d();
+                    if (d4 != null) {
+                        b3.postConcat(d4);
                     }
-                } else {
-                    Object e = bt9Var.e(newBuilder);
-                    if (e != null) {
-                        bt9Var.h(newBuilder, bt9Var.a().redact(e));
+                    b3.postConcat(l);
+                    d3.transform(b3);
+                    SVGAVideoShapeEntity.a c4 = sVGAVideoShapeEntity.c();
+                    if (c4 != null && (a2 = c4.a()) != 0) {
+                        c3.setStyle(Paint.Style.FILL);
+                        c3.setColor(a2);
+                        c3.setAlpha(Math.min(255, Math.max(0, (int) (aVar.a().a() * d2))));
+                        if (aVar.a().c() != null) {
+                            canvas.save();
+                        }
+                        it9 c5 = aVar.a().c();
+                        if (c5 != null) {
+                            Path e = this.c.e();
+                            c5.a(e);
+                            e.transform(l);
+                            canvas.clipPath(e);
+                        }
+                        canvas.drawPath(d3, c3);
+                        if (aVar.a().c() != null) {
+                            canvas.restore();
+                        }
+                    }
+                    SVGAVideoShapeEntity.a c6 = sVGAVideoShapeEntity.c();
+                    if (c6 != null) {
+                        float f = 0;
+                        if (c6.g() > f) {
+                            c3.setStyle(Paint.Style.STROKE);
+                            SVGAVideoShapeEntity.a c7 = sVGAVideoShapeEntity.c();
+                            if (c7 != null) {
+                                c3.setColor(c7.f());
+                                c3.setAlpha(Math.min(255, Math.max(0, (int) (aVar.a().a() * d2))));
+                            }
+                            float j = j(l);
+                            SVGAVideoShapeEntity.a c8 = sVGAVideoShapeEntity.c();
+                            if (c8 != null) {
+                                c3.setStrokeWidth(c8.g() * j);
+                            }
+                            SVGAVideoShapeEntity.a c9 = sVGAVideoShapeEntity.c();
+                            if (c9 != null && (b2 = c9.b()) != null) {
+                                if (StringsKt__StringsJVMKt.equals(b2, "butt", true)) {
+                                    c3.setStrokeCap(Paint.Cap.BUTT);
+                                } else if (StringsKt__StringsJVMKt.equals(b2, "round", true)) {
+                                    c3.setStrokeCap(Paint.Cap.ROUND);
+                                } else if (StringsKt__StringsJVMKt.equals(b2, "square", true)) {
+                                    c3.setStrokeCap(Paint.Cap.SQUARE);
+                                }
+                            }
+                            SVGAVideoShapeEntity.a c10 = sVGAVideoShapeEntity.c();
+                            if (c10 != null && (d = c10.d()) != null) {
+                                if (StringsKt__StringsJVMKt.equals(d, "miter", true)) {
+                                    c3.setStrokeJoin(Paint.Join.MITER);
+                                } else if (StringsKt__StringsJVMKt.equals(d, "round", true)) {
+                                    c3.setStrokeJoin(Paint.Join.ROUND);
+                                } else if (StringsKt__StringsJVMKt.equals(d, "bevel", true)) {
+                                    c3.setStrokeJoin(Paint.Join.BEVEL);
+                                }
+                            }
+                            if (sVGAVideoShapeEntity.c() != null) {
+                                c3.setStrokeMiter(c.e() * j);
+                            }
+                            SVGAVideoShapeEntity.a c11 = sVGAVideoShapeEntity.c();
+                            if (c11 != null && (c2 = c11.c()) != null && c2.length == 3 && (c2[0] > f || c2[1] > f)) {
+                                float[] fArr = new float[2];
+                                float f2 = 1.0f;
+                                if (c2[0] >= 1.0f) {
+                                    f2 = c2[0];
+                                }
+                                fArr[0] = f2 * j;
+                                float f3 = 0.1f;
+                                if (c2[1] >= 0.1f) {
+                                    f3 = c2[1];
+                                }
+                                fArr[1] = f3 * j;
+                                c3.setPathEffect(new DashPathEffect(fArr, c2[2] * j));
+                            }
+                            if (aVar.a().c() != null) {
+                                canvas.save();
+                            }
+                            it9 c12 = aVar.a().c();
+                            if (c12 != null) {
+                                Path e2 = this.c.e();
+                                c12.a(e2);
+                                e2.transform(l);
+                                canvas.clipPath(e2);
+                            }
+                            canvas.drawPath(d3, c3);
+                            if (aVar.a().c() != null) {
+                                canvas.restore();
+                            }
+                        }
                     }
                 }
             }
-            newBuilder.clearUnknownFields();
-            return newBuilder.build();
         }
-        return (M) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: h */
-    public String toString(M m) {
+    public final void i(Canvas canvas, Bitmap bitmap, ft9.a aVar, Matrix matrix) {
+        TextPaint drawingTextPaint;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048581, this, canvas, bitmap, aVar, matrix) == null) {
+            if (this.g.h()) {
+                this.d.clear();
+                this.g.i(false);
+            }
+            String b2 = aVar.b();
+            if (b2 != null) {
+                Bitmap bitmap2 = null;
+                String str = (String) this.g.f().get(b2);
+                if (str != null && (drawingTextPaint = (TextPaint) this.g.g().get(b2)) != null && (bitmap2 = (Bitmap) this.d.get(b2)) == null) {
+                    bitmap2 = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
+                    Canvas canvas2 = new Canvas(bitmap2);
+                    Intrinsics.checkExpressionValueIsNotNull(drawingTextPaint, "drawingTextPaint");
+                    drawingTextPaint.setAntiAlias(true);
+                    Rect rect = new Rect();
+                    drawingTextPaint.getTextBounds(str, 0, str.length(), rect);
+                    canvas2.drawText(str, (float) ((bitmap.getWidth() - rect.width()) / 2.0d), (((bitmap.getHeight() + 0) - drawingTextPaint.getFontMetrics().bottom) - drawingTextPaint.getFontMetrics().top) / 2, drawingTextPaint);
+                    HashMap hashMap = this.d;
+                    if (bitmap2 != null) {
+                        Bitmap bitmap3 = (Bitmap) hashMap.put(b2, bitmap2);
+                    } else {
+                        throw new TypeCastException("null cannot be cast to non-null type android.graphics.Bitmap");
+                    }
+                }
+                StaticLayout it = (StaticLayout) this.g.e().get(b2);
+                if (it != null && (bitmap2 = (Bitmap) this.d.get(b2)) == null) {
+                    Intrinsics.checkExpressionValueIsNotNull(it, "it");
+                    TextPaint paint = it.getPaint();
+                    Intrinsics.checkExpressionValueIsNotNull(paint, "it.paint");
+                    paint.setAntiAlias(true);
+                    StaticLayout staticLayout = new StaticLayout(it.getText(), 0, it.getText().length(), it.getPaint(), bitmap.getWidth(), it.getAlignment(), it.getSpacingMultiplier(), it.getSpacingAdd(), false);
+                    Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
+                    Canvas canvas3 = new Canvas(createBitmap);
+                    canvas3.translate(0.0f, (bitmap.getHeight() - staticLayout.getHeight()) / 2);
+                    staticLayout.draw(canvas3);
+                    HashMap hashMap2 = this.d;
+                    if (createBitmap != null) {
+                        Bitmap bitmap4 = (Bitmap) hashMap2.put(b2, createBitmap);
+                        bitmap2 = createBitmap;
+                    } else {
+                        throw new TypeCastException("null cannot be cast to non-null type android.graphics.Bitmap");
+                    }
+                }
+                if (bitmap2 != null) {
+                    Paint c = this.c.c();
+                    c.setAntiAlias(c().a());
+                    if (aVar.a().c() != null) {
+                        it9 c2 = aVar.a().c();
+                        if (c2 != null) {
+                            canvas.save();
+                            canvas.concat(matrix);
+                            canvas.clipRect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+                            Shader.TileMode tileMode = Shader.TileMode.REPEAT;
+                            c.setShader(new BitmapShader(bitmap2, tileMode, tileMode));
+                            Path d = this.c.d();
+                            c2.a(d);
+                            canvas.drawPath(d, c);
+                            canvas.restore();
+                            return;
+                        }
+                        return;
+                    }
+                    c.setFilterBitmap(c().a());
+                    canvas.drawBitmap(bitmap2, matrix, c);
+                }
+            }
+        }
+    }
+
+    public final float j(Matrix matrix) {
+        InterceptResult invokeL;
+        float f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, matrix)) == null) {
+            matrix.getValues(this.f);
+            float[] fArr = this.f;
+            if (fArr[0] == 0.0f) {
+                return 0.0f;
+            }
+            double d = fArr[0];
+            double d2 = fArr[3];
+            double d3 = fArr[1];
+            double d4 = fArr[4];
+            if (d * d4 == d2 * d3) {
+                return 0.0f;
+            }
+            double sqrt = Math.sqrt((d * d) + (d2 * d2));
+            double d5 = d / sqrt;
+            double d6 = d2 / sqrt;
+            double d7 = (d5 * d3) + (d6 * d4);
+            double d8 = d3 - (d5 * d7);
+            double d9 = d4 - (d7 * d6);
+            double sqrt2 = Math.sqrt((d8 * d8) + (d9 * d9));
+            if (d5 * (d9 / sqrt2) < d6 * (d8 / sqrt2)) {
+                sqrt = -sqrt;
+            }
+            if (b().a()) {
+                f = (float) sqrt;
+            } else {
+                f = (float) sqrt2;
+            }
+            return Math.abs(f);
+        }
+        return invokeL.floatValue;
+    }
+
+    public final void k(int i) {
+        SoundPool f;
+        Integer c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            for (ht9 ht9Var : c().b()) {
+                if (ht9Var.d() == i && (f = c().f()) != null && (c = ht9Var.c()) != null) {
+                    ht9Var.e(Integer.valueOf(f.play(c.intValue(), 1.0f, 1.0f, 1, 0, 1.0f)));
+                }
+                if (ht9Var.a() <= i) {
+                    Integer b2 = ht9Var.b();
+                    if (b2 != null) {
+                        int intValue = b2.intValue();
+                        SoundPool f2 = c().f();
+                        if (f2 != null) {
+                            f2.stop(intValue);
+                        }
+                    }
+                    ht9Var.e(null);
+                }
+            }
+        }
+    }
+
+    public final Matrix l(Matrix matrix) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, m)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (bt9<M, B> bt9Var : this.c.values()) {
-                Object b = bt9Var.b(m);
-                if (b != null) {
-                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                    sb.append(bt9Var.b);
-                    sb.append('=');
-                    if (bt9Var.f) {
-                        b = "██";
-                    }
-                    sb.append(b);
-                }
-            }
-            sb.replace(0, 2, this.a.getSimpleName() + '{');
-            sb.append('}');
-            return sb.toString();
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, matrix)) == null) {
+            Matrix a2 = this.c.a();
+            a2.postScale(b().b(), b().c());
+            a2.postTranslate(b().d(), b().e());
+            a2.preConcat(matrix);
+            return a2;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.a.hashCode() : invokeV.intValue;
+        return (Matrix) invokeL.objValue;
     }
 }

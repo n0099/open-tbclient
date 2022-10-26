@@ -15,20 +15,6 @@ public interface IDownloadManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
         @Override // com.baidu.searchbox.pms.download.IDownloadManager
         public void cancel(PackageInfo packageInfo) {
             Interceptable interceptable = $ic;
@@ -61,9 +47,23 @@ public interface IDownloadManager {
         }
 
         @Override // com.baidu.searchbox.pms.download.IDownloadManager
-        public void start(List<PackageInfo> list, DownloadOptions downloadOptions, DownloadCallback downloadCallback) {
+        public void start(List list, DownloadOptions downloadOptions, DownloadCallback downloadCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048580, this, list, downloadOptions, downloadCallback) == null) {
+            }
+        }
+
+        {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
     };
@@ -76,5 +76,5 @@ public interface IDownloadManager {
 
     void resume(PackageInfo packageInfo);
 
-    void start(List<PackageInfo> list, DownloadOptions downloadOptions, DownloadCallback downloadCallback);
+    void start(List list, DownloadOptions downloadOptions, DownloadCallback downloadCallback);
 }

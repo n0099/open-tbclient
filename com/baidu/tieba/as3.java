@@ -1,15 +1,9 @@
 package com.baidu.tieba;
+
+import android.view.View;
 /* loaded from: classes3.dex */
 public interface as3 {
-    void onCompletion();
+    void d(String str, String str2);
 
-    boolean onError();
-
-    void onPause();
-
-    void onPrepared();
-
-    void onResume();
-
-    void onStart();
+    void f(View view2);
 }

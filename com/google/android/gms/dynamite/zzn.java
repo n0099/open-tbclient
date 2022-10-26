@@ -11,6 +11,9 @@ public final class zzn {
     public transient /* synthetic */ FieldHolder $fh;
     public Cursor zza;
 
+    public /* synthetic */ zzn(zzm zzmVar) {
+    }
+
     public zzn() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -23,8 +26,5 @@ public final class zzn {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public /* synthetic */ zzn(zzm zzmVar) {
     }
 }

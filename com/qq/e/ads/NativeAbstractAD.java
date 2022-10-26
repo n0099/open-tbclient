@@ -11,7 +11,7 @@ import com.qq.e.comm.pi.ADI;
 import com.qq.e.comm.util.AdError;
 import com.qq.e.comm.util.GDTLogger;
 /* loaded from: classes8.dex */
-public abstract class NativeAbstractAD<T extends ADI> extends AbstractAD<T> {
+public abstract class NativeAbstractAD extends AbstractAD {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public DownAPPConfirmPolicy f;
@@ -35,20 +35,15 @@ public abstract class NativeAbstractAD<T extends ADI> extends AbstractAD<T> {
         }
     }
 
-    public void a(T t) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.qq.e.ads.AbstractAD
+    public void a(ADI adi) {
         DownAPPConfirmPolicy downAPPConfirmPolicy;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, t) == null) || (downAPPConfirmPolicy = this.f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, adi) == null) || (downAPPConfirmPolicy = this.f) == null) {
             return;
         }
         setDownAPPConfirmPolicy(downAPPConfirmPolicy);
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.qq.e.ads.NativeAbstractAD<T extends com.qq.e.comm.pi.ADI> */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.qq.e.ads.AbstractAD
-    public /* bridge */ /* synthetic */ void a(Object obj) {
-        a((NativeAbstractAD<T>) ((ADI) obj));
     }
 
     @Deprecated
@@ -63,11 +58,11 @@ public abstract class NativeAbstractAD<T extends ADI> extends AbstractAD<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, downAPPConfirmPolicy) == null) {
             this.f = downAPPConfirmPolicy;
-            T t = this.a;
-            if (t == 0 || downAPPConfirmPolicy == null) {
+            Object obj = this.a;
+            if (obj == null || downAPPConfirmPolicy == null) {
                 return;
             }
-            ((ADI) t).setDownAPPConfirmPolicy(downAPPConfirmPolicy);
+            ((ADI) obj).setDownAPPConfirmPolicy(downAPPConfirmPolicy);
         }
     }
 }

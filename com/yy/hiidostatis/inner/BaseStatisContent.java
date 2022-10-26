@@ -26,7 +26,7 @@ public class BaseStatisContent {
     public static final String AUTOID = "hd_autoid";
     public static final String BDCUID = "bdcuid";
     public static final String CHANNEL = "chn";
-    public static final Comparator<String> COMPARATOR;
+    public static final Comparator COMPARATOR;
     public static final String CREPID = "hd_crepid";
     public static final String CURPID = "hd_curpid";
     public static final String FROM = "from";
@@ -57,7 +57,7 @@ public class BaseStatisContent {
     public static final String TIMEZONE = "timezone";
     public static final String VER = "ver";
     public transient /* synthetic */ FieldHolder $fh;
-    public TreeMap<String, String> raw;
+    public TreeMap raw;
 
     static {
         InterceptResult invokeClinit;
@@ -72,7 +72,7 @@ public class BaseStatisContent {
                 return;
             }
         }
-        COMPARATOR = new Comparator<String>() { // from class: com.yy.hiidostatis.inner.BaseStatisContent.1
+        COMPARATOR = new Comparator() { // from class: com.yy.hiidostatis.inner.BaseStatisContent.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -98,18 +98,18 @@ public class BaseStatisContent {
                 if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
                     boolean equals = "act".equals(str);
                     boolean equals2 = "act".equals(str2);
-                    if (equals || equals2) {
-                        if (equals || !equals2) {
-                            if (!equals || equals2) {
-                                if (!equals || equals2) {
-                                }
-                                return 0;
-                            }
-                            return -1;
-                        }
+                    if (!equals && !equals2) {
+                        return str.compareTo(str2);
+                    }
+                    if (!equals && equals2) {
                         return 1;
                     }
-                    return str.compareTo(str2);
+                    if (equals && !equals2) {
+                        return -1;
+                    }
+                    if (!equals || equals2) {
+                    }
+                    return 0;
                 }
                 return invokeLL.intValue;
             }
@@ -129,13 +129,7 @@ public class BaseStatisContent {
                 return;
             }
         }
-        this.raw = new TreeMap<>(COMPARATOR);
-    }
-
-    public boolean containsKey(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.raw.containsKey(str) : invokeL.booleanValue;
+        this.raw = new TreeMap(COMPARATOR);
     }
 
     public BaseStatisContent copy() {
@@ -143,7 +137,7 @@ public class BaseStatisContent {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             BaseStatisContent baseStatisContent = new BaseStatisContent();
-            TreeMap<String, String> treeMap = new TreeMap<>(COMPARATOR);
+            TreeMap treeMap = new TreeMap(COMPARATOR);
             baseStatisContent.raw = treeMap;
             treeMap.putAll(this.raw);
             return baseStatisContent;
@@ -151,10 +145,40 @@ public class BaseStatisContent {
         return (BaseStatisContent) invokeV.objValue;
     }
 
+    public boolean isEmpty() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.raw.isEmpty();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return getContent();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean containsKey(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return this.raw.containsKey(str);
+        }
+        return invokeL.booleanValue;
+    }
+
     public String get(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.raw.get(str) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return (String) this.raw.get(str);
+        }
+        return (String) invokeL.objValue;
     }
 
     public synchronized String getContent() {
@@ -163,15 +187,15 @@ public class BaseStatisContent {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             synchronized (this) {
                 StringBuilder sb = new StringBuilder();
-                for (Map.Entry<String, String> entry : this.raw.entrySet()) {
-                    String value = entry.getValue();
-                    if (Util.empty(value)) {
+                for (Map.Entry entry : this.raw.entrySet()) {
+                    String str = (String) entry.getValue();
+                    if (Util.empty(str)) {
                         L.verbose(this, "No value for key %s", entry.getKey());
                     } else {
-                        sb.append(entry.getKey());
+                        sb.append((String) entry.getKey());
                         sb.append("=");
                         try {
-                            sb.append(URLEncoder.encode(value, "UTF-8"));
+                            sb.append(URLEncoder.encode(str, "UTF-8"));
                         } catch (UnsupportedEncodingException unused) {
                             L.debug(this, "encoding fail for key %s", entry.getKey());
                         }
@@ -194,58 +218,31 @@ public class BaseStatisContent {
         return (String) invokeV.objValue;
     }
 
-    public boolean isEmpty() {
-        InterceptResult invokeV;
+    public String put(String str, double d) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.raw.isEmpty() : invokeV.booleanValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, Double.valueOf(d)})) == null) {
+            return put(str, String.valueOf(d));
+        }
+        return (String) invokeCommon.objValue;
     }
 
     public String put(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, str, i)) == null) ? put(str, String.valueOf(i)) : (String) invokeLI.objValue;
-    }
-
-    public synchronized void putContent(BaseStatisContent baseStatisContent, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048586, this, baseStatisContent, z) == null) {
-            synchronized (this) {
-                if (baseStatisContent != null) {
-                    if (!baseStatisContent.isEmpty()) {
-                        for (Map.Entry<String, String> entry : baseStatisContent.raw.entrySet()) {
-                            if (z) {
-                                String put = put(entry.getKey(), entry.getValue());
-                                if (put != null) {
-                                    L.brief("value-cover:isCover=%b,key=%s,old-value=%s,new-value=%s", Boolean.valueOf(z), entry.getKey(), put, entry.getValue());
-                                }
-                            } else if (containsKey(entry.getKey())) {
-                                L.brief("value-cover:isCover=%b,key=%s,old-value=%s,new-value=%s,ignore-value=%s", Boolean.valueOf(z), entry.getKey(), get(entry.getKey()), get(entry.getKey()), entry.getValue());
-                            } else {
-                                put(entry.getKey(), entry.getValue());
-                            }
-                        }
-                    }
-                }
-            }
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, str, i)) == null) {
+            return put(str, String.valueOf(i));
         }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? getContent() : (String) invokeV.objValue;
+        return (String) invokeLI.objValue;
     }
 
     public String put(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048583, this, str, j)) == null) ? put(str, String.valueOf(j)) : (String) invokeLJ.objValue;
-    }
-
-    public String put(String str, double d) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, Double.valueOf(d)})) == null) ? put(str, String.valueOf(d)) : (String) invokeCommon.objValue;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048583, this, str, j)) == null) {
+            return put(str, String.valueOf(j));
+        }
+        return (String) invokeLJ.objValue;
     }
 
     public synchronized String put(String str, String str2) {
@@ -257,7 +254,7 @@ public class BaseStatisContent {
                     L.debug("BaseStatisContent", "key is invalid for value %s", str2);
                     return null;
                 }
-                return this.raw.put(str, Util.asEmptyOnNull(str2));
+                return (String) this.raw.put(str, Util.asEmptyOnNull(str2));
             }
         }
         return (String) invokeLL.objValue;
@@ -274,14 +271,38 @@ public class BaseStatisContent {
                 }
                 String asEmptyOnNull = Util.asEmptyOnNull(str2);
                 if (z) {
-                    return this.raw.put(str, asEmptyOnNull);
+                    return (String) this.raw.put(str, asEmptyOnNull);
                 }
                 if (this.raw.containsKey(str)) {
-                    return this.raw.get(str);
+                    return (String) this.raw.get(str);
                 }
-                return this.raw.put(str, asEmptyOnNull);
+                return (String) this.raw.put(str, asEmptyOnNull);
             }
         }
         return (String) invokeLLZ.objValue;
+    }
+
+    public synchronized void putContent(BaseStatisContent baseStatisContent, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048586, this, baseStatisContent, z) == null) {
+            synchronized (this) {
+                if (baseStatisContent != null) {
+                    if (!baseStatisContent.isEmpty()) {
+                        for (Map.Entry entry : baseStatisContent.raw.entrySet()) {
+                            if (z) {
+                                String put = put((String) entry.getKey(), (String) entry.getValue());
+                                if (put != null) {
+                                    L.brief("value-cover:isCover=%b,key=%s,old-value=%s,new-value=%s", Boolean.valueOf(z), entry.getKey(), put, entry.getValue());
+                                }
+                            } else if (!containsKey((String) entry.getKey())) {
+                                put((String) entry.getKey(), (String) entry.getValue());
+                            } else {
+                                L.brief("value-cover:isCover=%b,key=%s,old-value=%s,new-value=%s,ignore-value=%s", Boolean.valueOf(z), entry.getKey(), get((String) entry.getKey()), get((String) entry.getKey()), entry.getValue());
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

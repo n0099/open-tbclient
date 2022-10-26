@@ -4,6 +4,7 @@ import android.accounts.NetworkErrorException;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.text.TextUtils;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -47,8 +48,8 @@ public class v implements Runnable {
     public int f;
     public int g;
     public boolean h;
-    public List<Integer> i;
-    public Map<Integer, a> j;
+    public List i;
+    public Map j;
 
     /* loaded from: classes7.dex */
     public class a {
@@ -169,7 +170,7 @@ public class v implements Runnable {
                         StringBuilder sb2 = new StringBuilder();
                         sb2.append(length);
                         hashMap.put("len", sb2.toString());
-                        hashMap.put("l", "T");
+                        hashMap.put("l", ExifInterface.GPS_DIRECTION_TRUE);
                         h1.a(this.a, "1002001", hashMap);
                         a2 = false;
                     } else {
@@ -190,7 +191,7 @@ public class v implements Runnable {
                     hashMap2.put("m", tVar.j);
                     obj = "e";
                     hashMap2.put(obj, "download fail");
-                    hashMap2.put("l", "T");
+                    hashMap2.put("l", ExifInterface.GPS_DIRECTION_TRUE);
                     h1.a(this.a, "1002001", hashMap2);
                     this.j.put(Integer.valueOf(tVar.a), new a(this, 3));
                 }
@@ -227,7 +228,7 @@ public class v implements Runnable {
                 StringBuilder sb4 = new StringBuilder();
                 sb4.append(j);
                 hashMap3.put("len", sb4.toString());
-                hashMap3.put("l", "T");
+                hashMap3.put("l", ExifInterface.GPS_DIRECTION_TRUE);
                 h1.a(this.a, "1002001", hashMap3);
             } catch (Throwable unused) {
                 this.b.a(tVar.a, tVar.d, (PackageInfo) null);
@@ -386,7 +387,7 @@ public class v implements Runnable {
                                         arrayList2.add(b2);
                                     }
                                 } else {
-                                    t tVar = b.get(indexOf);
+                                    t tVar = (t) b.get(indexOf);
                                     if (n3.b(b2.d, tVar.d)) {
                                         if (b2.x != tVar.x) {
                                             this.c.c(b2.a, b2.x);

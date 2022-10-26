@@ -53,23 +53,24 @@ public class b {
         }
     }
 
-    private void a(Collection<File> collection, File file) throws Exception {
+    private void a(Collection collection, File file) throws Exception {
         ZipOutputStream zipOutputStream = new ZipOutputStream(new BufferedOutputStream(new FileOutputStream(file), 1048576));
-        for (File file2 : collection) {
-            a(file2, zipOutputStream, "");
+        Iterator it = collection.iterator();
+        while (it.hasNext()) {
+            a((File) it.next(), zipOutputStream, "");
         }
         zipOutputStream.close();
     }
 
-    public boolean a(List<String> list) throws Exception {
+    public boolean a(List list) throws Exception {
         if (!this.a.exists()) {
             this.a.getParentFile().mkdirs();
         }
         ArrayList arrayList = new ArrayList();
         String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
-        Iterator<String> it = list.iterator();
+        Iterator it = list.iterator();
         while (it.hasNext()) {
-            File file = new File(absolutePath + it.next());
+            File file = new File(absolutePath + ((String) it.next()));
             if (file.exists()) {
                 arrayList.add(file);
             }

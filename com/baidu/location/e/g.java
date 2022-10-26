@@ -71,8 +71,8 @@ public class g implements Runnable {
                 try {
                     URL url = new URL(this.c.h);
                     StringBuffer stringBuffer = new StringBuffer();
-                    for (Map.Entry<String, Object> entry : this.c.k.entrySet()) {
-                        stringBuffer.append(entry.getKey());
+                    for (Map.Entry entry : this.c.k.entrySet()) {
+                        stringBuffer.append((String) entry.getKey());
                         stringBuffer.append("=");
                         stringBuffer.append(entry.getValue());
                         stringBuffer.append("&");

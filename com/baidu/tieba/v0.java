@@ -12,19 +12,26 @@ public class v0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
-    public b7<r0> b;
-    public z0<r0> c;
-    public x7<Class<?>, r0> d;
+    public b7 b;
+    public z0 c;
+    public x7 d;
     public c e;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes6.dex */
-    public static class b implements Comparator<r0> {
+    public interface c {
+        void a(r0 r0Var);
+
+        void b(r0 r0Var);
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Comparator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -42,6 +49,10 @@ public class v0 {
             }
         }
 
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -54,21 +65,13 @@ public class v0 {
                 if (i > i2) {
                     return 1;
                 }
-                return i == i2 ? 0 : -1;
+                if (i == i2) {
+                    return 0;
+                }
+                return -1;
             }
             return invokeLL.intValue;
         }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface c {
-        void a(r0 r0Var);
-
-        void b(r0 r0Var);
     }
 
     public v0(c cVar) {
@@ -87,10 +90,10 @@ public class v0 {
             }
         }
         this.a = new b(null);
-        b7<r0> b7Var = new b7<>(true, 16);
+        b7 b7Var = new b7(true, 16);
         this.b = b7Var;
-        this.c = new z0<>(b7Var);
-        this.d = new x7<>();
+        this.c = new z0(b7Var);
+        this.d = new x7();
         this.e = cVar;
     }
 
@@ -109,16 +112,13 @@ public class v0 {
         }
     }
 
-    public <T extends r0> T b(Class<T> cls) {
+    public r0 b(Class cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) ? (T) this.d.c(cls) : (T) invokeL.objValue;
-    }
-
-    public z0<r0> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (z0) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) {
+            return (r0) this.d.c(cls);
+        }
+        return (r0) invokeL.objValue;
     }
 
     public void d(r0 r0Var) {
@@ -127,5 +127,14 @@ public class v0 {
             this.d.k(r0Var.getClass());
             this.e.a(r0Var);
         }
+    }
+
+    public z0 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (z0) invokeV.objValue;
     }
 }

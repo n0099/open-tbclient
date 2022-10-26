@@ -15,17 +15,24 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.fuseable.FuseToObservable;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public final class ObservableIgnoreElementsCompletable<T> extends Completable implements FuseToObservable<T> {
+public final class ObservableIgnoreElementsCompletable extends Completable implements FuseToObservable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ObservableSource<T> source;
+    public final ObservableSource source;
 
     /* loaded from: classes8.dex */
-    public static final class IgnoreObservable<T> implements Observer<T>, Disposable {
+    public final class IgnoreObservable implements Observer, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final CompletableObserver actual;
         public Disposable d;
+
+        @Override // io.reactivex.Observer
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+            }
+        }
 
         public IgnoreObservable(CompletableObserver completableObserver) {
             Interceptable interceptable = $ic;
@@ -45,6 +52,23 @@ public final class ObservableIgnoreElementsCompletable<T> extends Completable im
             this.actual = completableObserver;
         }
 
+        @Override // io.reactivex.Observer
+        public void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
+                this.actual.onError(th);
+            }
+        }
+
+        @Override // io.reactivex.Observer
+        public void onSubscribe(Disposable disposable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) {
+                this.d = disposable;
+                this.actual.onSubscribe(this);
+            }
+        }
+
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
             Interceptable interceptable = $ic;
@@ -57,7 +81,10 @@ public final class ObservableIgnoreElementsCompletable<T> extends Completable im
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d.isDisposed() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.d.isDisposed();
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
@@ -67,33 +94,9 @@ public final class ObservableIgnoreElementsCompletable<T> extends Completable im
                 this.actual.onComplete();
             }
         }
-
-        @Override // io.reactivex.Observer
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-                this.actual.onError(th);
-            }
-        }
-
-        @Override // io.reactivex.Observer
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-            }
-        }
-
-        @Override // io.reactivex.Observer
-        public void onSubscribe(Disposable disposable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) {
-                this.d = disposable;
-                this.actual.onSubscribe(this);
-            }
-        }
     }
 
-    public ObservableIgnoreElementsCompletable(ObservableSource<T> observableSource) {
+    public ObservableIgnoreElementsCompletable(ObservableSource observableSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,18 +114,21 @@ public final class ObservableIgnoreElementsCompletable<T> extends Completable im
         this.source = observableSource;
     }
 
-    @Override // io.reactivex.internal.fuseable.FuseToObservable
-    public Observable<T> fuseToObservable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? RxJavaPlugins.onAssembly(new ObservableIgnoreElements(this.source)) : (Observable) invokeV.objValue;
-    }
-
     @Override // io.reactivex.Completable
     public void subscribeActual(CompletableObserver completableObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, completableObserver) == null) {
             this.source.subscribe(new IgnoreObservable(completableObserver));
         }
+    }
+
+    @Override // io.reactivex.internal.fuseable.FuseToObservable
+    public Observable fuseToObservable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return RxJavaPlugins.onAssembly(new ObservableIgnoreElements(this.source));
+        }
+        return (Observable) invokeV.objValue;
     }
 }

@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PurchaseInfo;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import org.json.JSONException;
@@ -102,28 +103,6 @@ public class JsonDataParerUtil {
         return (String) invokeL.objValue;
     }
 
-    public static String getGPOrderId(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            String str2 = "";
-            if (str != null) {
-                try {
-                    String string = new JSONObject(str).getString("orderId");
-                    if (string != null) {
-                        str2 = string;
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    RLog.error("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser fail --getPurchaseTime--PayCallbackProxy data =%s , Exception =%s", str, e.getMessage()), new Object[0]);
-                }
-            }
-            RLog.info("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser success ---PayCallbackProxy data =%s , orderId =%s", str, str2));
-            return str2;
-        }
-        return (String) invokeL.objValue;
-    }
-
     public static String getPayLoad(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -143,6 +122,28 @@ public class JsonDataParerUtil {
             }
             RLog.info("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser success ---PayCallbackProxy data =%s , getPayLoad =%s", str, ""));
             return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String getGPOrderId(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            String str2 = "";
+            if (str != null) {
+                try {
+                    String string = new JSONObject(str).getString("orderId");
+                    if (string != null) {
+                        str2 = string;
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    RLog.error("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser fail --getPurchaseTime--PayCallbackProxy data =%s , Exception =%s", str, e.getMessage()), new Object[0]);
+                }
+            }
+            RLog.info("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser success ---PayCallbackProxy data =%s , orderId =%s", str, str2));
+            return str2;
         }
         return (String) invokeL.objValue;
     }
@@ -169,24 +170,6 @@ public class JsonDataParerUtil {
         return (String) invokeL.objValue;
     }
 
-    public static PurchaseInfo getPurchaseInfoByProductId(String str, List<PurchaseInfo> list) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, list)) == null) {
-            for (PurchaseInfo purchaseInfo : list) {
-                try {
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                if (str == new JSONObject(purchaseInfo.data).optString("productId")) {
-                    return purchaseInfo;
-                }
-            }
-            return null;
-        }
-        return (PurchaseInfo) invokeLL.objValue;
-    }
-
     public static long getPurchaseTime(String str) {
         InterceptResult invokeL;
         long j;
@@ -207,5 +190,25 @@ public class JsonDataParerUtil {
             return j;
         }
         return invokeL.longValue;
+    }
+
+    public static PurchaseInfo getPurchaseInfoByProductId(String str, List list) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, list)) == null) {
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                PurchaseInfo purchaseInfo = (PurchaseInfo) it.next();
+                try {
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                if (str == new JSONObject(purchaseInfo.data).optString("productId")) {
+                    return purchaseInfo;
+                }
+            }
+            return null;
+        }
+        return (PurchaseInfo) invokeLL.objValue;
     }
 }

@@ -5,7 +5,7 @@ import android.net.http.SslError;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.core.INoProGuard;
-import com.baidu.tieba.bx;
+import com.baidu.tieba.cx;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,13 +16,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebKitClient;
 import com.baidu.webkit.sdk.WebView;
 /* loaded from: classes.dex */
-public class BdSailorClient extends WebKitClient implements INoProGuard, ISailorUrlPushService, bx {
+public class BdSailorClient extends WebKitClient implements INoProGuard, ISailorUrlPushService, cx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class DownloadTaskType {
+    public final class DownloadTaskType {
         public static final /* synthetic */ DownloadTaskType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final DownloadTaskType BROWSER;

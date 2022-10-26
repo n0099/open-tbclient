@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import com.badlogic.gdx.math.Matrix4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -11,7 +10,7 @@ public class c5 {
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public c7<String, Matrix4> c;
+    public c7 c;
 
     public c5() {
         Interceptable interceptable = $ic;

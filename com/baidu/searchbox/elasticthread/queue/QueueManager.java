@@ -45,14 +45,14 @@ public class QueueManager implements Recordable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (getQueue(0).isEmpty()) {
-                double d = 0.0d;
-                for (int i = 0; i < 4; i++) {
-                    d += this.mEnabledQueues[i].getCurrentWaitingTime() * ElasticConfig.ELASTIC_QUEUE_BLOCK_WEIGHT[i];
-                }
-                return d / 1000.0d;
+            if (!getQueue(0).isEmpty()) {
+                return 9999999.0d;
             }
-            return 9999999.0d;
+            double d = 0.0d;
+            for (int i = 0; i < 4; i++) {
+                d += this.mEnabledQueues[i].getCurrentWaitingTime() * ElasticConfig.ELASTIC_QUEUE_BLOCK_WEIGHT[i];
+            }
+            return d / 1000.0d;
         }
         return invokeV.doubleValue;
     }
@@ -69,34 +69,6 @@ public class QueueManager implements Recordable {
             return null;
         }
         return (ElasticTask) invokeV.objValue;
-    }
-
-    public ElasticQueue getQueue(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) != null) {
-            return (ElasticQueue) invokeI.objValue;
-        }
-        int i2 = 0;
-        while (true) {
-            int[] iArr = ElasticConfig.ELASTIC_QUEUE_INDEX_PRIORITY_TABLE;
-            if (i2 < iArr.length) {
-                if (iArr[i2] == i) {
-                    return this.mEnabledQueues[i2];
-                }
-                i2++;
-            } else {
-                ElasticQueue[] elasticQueueArr = this.mEnabledQueues;
-                return elasticQueueArr[elasticQueueArr.length - 1];
-            }
-        }
-    }
-
-    public void insertTask(Runnable runnable, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048579, this, runnable, str, i) == null) {
-            getQueue(i).insertTask(runnable, str, i);
-        }
     }
 
     @Override // com.baidu.searchbox.elasticthread.statistic.Recordable
@@ -119,10 +91,39 @@ public class QueueManager implements Recordable {
         }
     }
 
+    public ElasticQueue getQueue(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            int i2 = 0;
+            while (true) {
+                int[] iArr = ElasticConfig.ELASTIC_QUEUE_INDEX_PRIORITY_TABLE;
+                if (i2 < iArr.length) {
+                    if (iArr[i2] == i) {
+                        return this.mEnabledQueues[i2];
+                    }
+                    i2++;
+                } else {
+                    ElasticQueue[] elasticQueueArr = this.mEnabledQueues;
+                    return elasticQueueArr[elasticQueueArr.length - 1];
+                }
+            }
+        } else {
+            return (ElasticQueue) invokeI.objValue;
+        }
+    }
+
     public void removeTask(ElasticTask elasticTask) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, elasticTask) == null) {
             getQueue(elasticTask.getPriority()).remove(elasticTask);
+        }
+    }
+
+    public void insertTask(Runnable runnable, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048579, this, runnable, str, i) == null) {
+            getQueue(i).insertTask(runnable, str, i);
         }
     }
 }

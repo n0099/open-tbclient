@@ -20,16 +20,16 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class LambdaSubscriber<T> extends AtomicReference<Subscription> implements FlowableSubscriber<T>, Subscription, Disposable, LambdaConsumerIntrospection {
+public final class LambdaSubscriber extends AtomicReference implements FlowableSubscriber, Subscription, Disposable, LambdaConsumerIntrospection {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -7251123623727029452L;
     public transient /* synthetic */ FieldHolder $fh;
     public final Action onComplete;
-    public final Consumer<? super Throwable> onError;
-    public final Consumer<? super T> onNext;
-    public final Consumer<? super Subscription> onSubscribe;
+    public final Consumer onError;
+    public final Consumer onNext;
+    public final Consumer onSubscribe;
 
-    public LambdaSubscriber(Consumer<? super T> consumer, Consumer<? super Throwable> consumer2, Action action, Consumer<? super Subscription> consumer3) {
+    public LambdaSubscriber(Consumer consumer, Consumer consumer2, Action action, Consumer consumer3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -70,23 +70,35 @@ public final class LambdaSubscriber<T> extends AtomicReference<Subscription> imp
     public boolean hasCustomOnError() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.onError != Functions.ON_ERROR_MISSING : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.onError != Functions.ON_ERROR_MISSING) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // io.reactivex.disposables.Disposable
     public boolean isDisposed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? get() == SubscriptionHelper.CANCELLED : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (get() == SubscriptionHelper.CANCELLED) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // org.reactivestreams.Subscriber
     public void onComplete() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            Subscription subscription = get();
+            Object obj = get();
             SubscriptionHelper subscriptionHelper = SubscriptionHelper.CANCELLED;
-            if (subscription != subscriptionHelper) {
+            if (obj != subscriptionHelper) {
                 lazySet(subscriptionHelper);
                 try {
                     this.onComplete.run();
@@ -102,9 +114,9 @@ public final class LambdaSubscriber<T> extends AtomicReference<Subscription> imp
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, th) == null) {
-            Subscription subscription = get();
+            Object obj = get();
             SubscriptionHelper subscriptionHelper = SubscriptionHelper.CANCELLED;
-            if (subscription != subscriptionHelper) {
+            if (obj != subscriptionHelper) {
                 lazySet(subscriptionHelper);
                 try {
                     this.onError.accept(th);
@@ -120,17 +132,16 @@ public final class LambdaSubscriber<T> extends AtomicReference<Subscription> imp
     }
 
     @Override // org.reactivestreams.Subscriber
-    public void onNext(T t) {
+    public void onNext(Object obj) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, t) == null) || isDisposed()) {
-            return;
-        }
-        try {
-            this.onNext.accept(t);
-        } catch (Throwable th) {
-            Exceptions.throwIfFatal(th);
-            get().cancel();
-            onError(th);
+        if ((interceptable == null || interceptable.invokeL(1048582, this, obj) == null) && !isDisposed()) {
+            try {
+                this.onNext.accept(obj);
+            } catch (Throwable th) {
+                Exceptions.throwIfFatal(th);
+                ((Subscription) get()).cancel();
+                onError(th);
+            }
         }
     }
 
@@ -152,7 +163,7 @@ public final class LambdaSubscriber<T> extends AtomicReference<Subscription> imp
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            get().request(j);
+            ((Subscription) get()).request(j);
         }
     }
 }

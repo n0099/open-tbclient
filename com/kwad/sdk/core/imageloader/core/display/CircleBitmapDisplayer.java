@@ -20,7 +20,7 @@ public class CircleBitmapDisplayer implements BitmapDisplayer {
     public final float strokeWidth;
 
     /* loaded from: classes7.dex */
-    public static class CircleDrawable extends Drawable {
+    public class CircleDrawable extends Drawable {
         public final BitmapShader bitmapShader;
         public final RectF mBitmapRect;
         public final RectF mRect = new RectF();

@@ -35,7 +35,7 @@ public class PassFaceRecogResult extends PassBiometricResult {
     public String faceimage;
     public String imgdigests;
     public String originalImage;
-    public List<String> originalImageList;
+    public List originalImageList;
     public String video;
 
     static {

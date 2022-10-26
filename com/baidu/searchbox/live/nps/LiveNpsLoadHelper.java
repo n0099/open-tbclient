@@ -51,26 +51,39 @@ public final class LiveNpsLoadHelper {
 
     public final int getLiveNpsPluginWillLoadVersion() {
         InterceptResult invokeV;
+        BundleInfo bundleInfo;
+        BundleInfo bundleInfo2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (LiveMediaPluginManager.getInstance().isLoaded("com.baidu.searchbox.livenps")) {
                 return LiveMediaPluginManager.getInstance().getInstallPluginVersion("com.baidu.searchbox.livenps");
             }
             BundleInfoGroup bundleGroup = NPSPackageManager.getInstance().getBundleGroup("com.baidu.searchbox.livenps");
-            BundleInfo bundleByType = bundleGroup != null ? bundleGroup.getBundleByType(1) : null;
-            if (bundleByType != null && bundleByType.needForceUpdate()) {
-                return bundleByType.getVersionCode();
+            BundleInfo bundleInfo3 = null;
+            if (bundleGroup != null) {
+                bundleInfo = bundleGroup.getBundleByType(1);
+            } else {
+                bundleInfo = null;
             }
-            BundleInfo bundleByType2 = bundleGroup != null ? bundleGroup.getBundleByType(2) : null;
-            if (bundleByType2 != null) {
-                return bundleByType2.getVersionCode();
+            if (bundleInfo != null && bundleInfo.needForceUpdate()) {
+                return bundleInfo.getVersionCode();
             }
-            BundleInfo bundleByType3 = bundleGroup != null ? bundleGroup.getBundleByType(3) : null;
-            if (bundleByType3 != null) {
-                return bundleByType3.getVersionCode();
+            if (bundleGroup != null) {
+                bundleInfo2 = bundleGroup.getBundleByType(2);
+            } else {
+                bundleInfo2 = null;
             }
-            if (bundleByType != null) {
-                return bundleByType.getVersionCode();
+            if (bundleInfo2 != null) {
+                return bundleInfo2.getVersionCode();
+            }
+            if (bundleGroup != null) {
+                bundleInfo3 = bundleGroup.getBundleByType(3);
+            }
+            if (bundleInfo3 != null) {
+                return bundleInfo3.getVersionCode();
+            }
+            if (bundleInfo != null) {
+                return bundleInfo.getVersionCode();
             }
             return 0;
         }

@@ -7,7 +7,6 @@ import android.view.VelocityTracker;
 import android.view.ViewConfiguration;
 import android.view.ViewParent;
 import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,7 +35,7 @@ public class HorizonMotionEventCaptureView extends FrameLayout {
     public VelocityTracker mVelocityTracker;
 
     /* loaded from: classes2.dex */
-    public static class CaptureEvent {
+    public class CaptureEvent {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ACTION_INTERCEPT = 1;
         public static final int ACTION_MOVE = 2;
@@ -66,7 +65,7 @@ public class HorizonMotionEventCaptureView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HorizonMotionEventCaptureView(@NonNull Context context) {
+    public HorizonMotionEventCaptureView(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -80,6 +79,30 @@ public class HorizonMotionEventCaptureView extends FrameLayout {
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mBeingDraggedDirection = -1;
+        this.mActivePointerId = -1;
+        init();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public HorizonMotionEventCaptureView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
@@ -123,9 +146,21 @@ public class HorizonMotionEventCaptureView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             int i = this.mBeingDraggedDirection;
-            return i == 1 || i == 2;
+            if (i == 1 || i == 2) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
+    }
+
+    private void recycleVelocityTracker() {
+        VelocityTracker velocityTracker;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65543, this) == null) && (velocityTracker = this.mVelocityTracker) != null) {
+            velocityTracker.recycle();
+            this.mVelocityTracker = null;
+        }
     }
 
     private void move(int i, int i2) {
@@ -143,16 +178,6 @@ public class HorizonMotionEventCaptureView extends FrameLayout {
         }
     }
 
-    private void recycleVelocityTracker() {
-        VelocityTracker velocityTracker;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65543, this) == null) || (velocityTracker = this.mVelocityTracker) == null) {
-            return;
-        }
-        velocityTracker.recycle();
-        this.mVelocityTracker = null;
-    }
-
     private void up(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65544, this, i) == null) {
@@ -164,6 +189,20 @@ public class HorizonMotionEventCaptureView extends FrameLayout {
             if (iEventAdapter != null) {
                 iEventAdapter.onEvent(captureEvent);
             }
+        }
+    }
+
+    public void setCapture(ICapture iCapture) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iCapture) == null) {
+            this.mCapture = iCapture;
+        }
+    }
+
+    public void setEventAdapter(IEventAdapter iEventAdapter) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, iEventAdapter) == null) {
+            this.mEventAdapter = iEventAdapter;
         }
     }
 
@@ -256,6 +295,7 @@ public class HorizonMotionEventCaptureView extends FrameLayout {
             }
             initVelocityTrackerIfNotExists();
             int actionMasked = motionEvent.getActionMasked();
+            int i = 0;
             if (actionMasked != 0) {
                 if (actionMasked != 1) {
                     if (actionMasked == 2) {
@@ -263,24 +303,24 @@ public class HorizonMotionEventCaptureView extends FrameLayout {
                         if (findPointerIndex != -1) {
                             int x = (int) motionEvent.getX(findPointerIndex);
                             int y = (int) motionEvent.getY(findPointerIndex);
-                            int i = x - this.mLastMotionX;
-                            if (!isBeingDragged() && Math.abs(i) > this.mTouchSlop && Math.abs(i) * 0.5f > Math.abs(y - this.mInitialMotionY)) {
+                            int i2 = x - this.mLastMotionX;
+                            if (!isBeingDragged() && Math.abs(i2) > this.mTouchSlop && Math.abs(i2) * 0.5f > Math.abs(y - this.mInitialMotionY)) {
                                 ViewParent parent2 = getParent();
                                 if (parent2 != null) {
                                     parent2.requestDisallowInterceptTouchEvent(true);
                                 }
-                                if (i > 0) {
+                                if (i2 > 0) {
                                     this.mBeingDraggedDirection = 2;
-                                    i -= this.mTouchSlop;
+                                    i2 -= this.mTouchSlop;
                                 } else {
                                     this.mBeingDraggedDirection = 1;
-                                    i += this.mTouchSlop;
+                                    i2 += this.mTouchSlop;
                                 }
                                 intercept();
                             }
                             if (isBeingDragged()) {
                                 this.mLastMotionX = x;
-                                move(i, x - this.mInitialMotionX);
+                                move(i2, x - this.mInitialMotionX);
                             }
                         }
                     }
@@ -289,7 +329,10 @@ public class HorizonMotionEventCaptureView extends FrameLayout {
                     VelocityTracker velocityTracker = this.mVelocityTracker;
                     velocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
                     int xVelocity = (int) velocityTracker.getXVelocity(this.mActivePointerId);
-                    up(Math.abs(xVelocity) > this.mMinimumVelocity ? xVelocity : 0);
+                    if (Math.abs(xVelocity) > this.mMinimumVelocity) {
+                        i = xVelocity;
+                    }
+                    up(i);
                     this.mActivePointerId = -1;
                     this.mBeingDraggedDirection = -1;
                     recycleVelocityTracker();
@@ -312,43 +355,5 @@ public class HorizonMotionEventCaptureView extends FrameLayout {
             return true;
         }
         return invokeL.booleanValue;
-    }
-
-    public void setCapture(ICapture iCapture) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iCapture) == null) {
-            this.mCapture = iCapture;
-        }
-    }
-
-    public void setEventAdapter(IEventAdapter iEventAdapter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, iEventAdapter) == null) {
-            this.mEventAdapter = iEventAdapter;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HorizonMotionEventCaptureView(@NonNull Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mBeingDraggedDirection = -1;
-        this.mActivePointerId = -1;
-        init();
     }
 }

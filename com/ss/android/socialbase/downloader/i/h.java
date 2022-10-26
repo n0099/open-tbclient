@@ -3,20 +3,11 @@ package com.ss.android.socialbase.downloader.i;
 import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes8.dex */
-public class h<K, T> extends LinkedHashMap<K, T> {
+public class h extends LinkedHashMap {
     public int a;
 
     public h() {
         this(4, 4);
-    }
-
-    public void a(int i) {
-        this.a = i;
-    }
-
-    @Override // java.util.LinkedHashMap
-    public boolean removeEldestEntry(Map.Entry<K, T> entry) {
-        return size() > this.a;
     }
 
     public h(int i, int i2) {
@@ -26,5 +17,17 @@ public class h<K, T> extends LinkedHashMap<K, T> {
     public h(int i, int i2, boolean z) {
         super(i, 0.75f, z);
         a(i2);
+    }
+
+    public void a(int i) {
+        this.a = i;
+    }
+
+    @Override // java.util.LinkedHashMap
+    public boolean removeEldestEntry(Map.Entry entry) {
+        if (size() > this.a) {
+            return true;
+        }
+        return false;
     }
 }

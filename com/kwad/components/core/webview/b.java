@@ -6,7 +6,6 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.view.ViewParent;
-import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -93,7 +92,6 @@ public class b extends ApiWebView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @RequiresApi(api = 21)
     public b(Context context, AttributeSet attributeSet, int i, int i2) {
         super(aw(Wrapper.unwrapContextIfNeed(context)), attributeSet, i, i2);
         Interceptable interceptable = $ic;

@@ -1,7 +1,6 @@
 package com.kwad.components.offline.api.core.network;
 
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +24,7 @@ public abstract class OfflineCompoRequest implements IOfflineCompoRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final JSONObject mBodyParams;
-    public final Map<String, String> mHeader;
+    public final Map mHeader;
     public d mHostRequest;
 
     public OfflineCompoRequest() {
@@ -67,7 +66,6 @@ public abstract class OfflineCompoRequest implements IOfflineCompoRequest {
             }
 
             @Override // com.kwad.sdk.core.network.b, com.kwad.sdk.core.network.g
-            @Nullable
             public SceneImpl getScene() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -113,7 +111,7 @@ public abstract class OfflineCompoRequest implements IOfflineCompoRequest {
     }
 
     @Override // com.kwad.components.offline.api.core.network.IOfflineCompoRequest
-    public Map<String, String> getBodyMap() {
+    public Map getBodyMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -123,7 +121,7 @@ public abstract class OfflineCompoRequest implements IOfflineCompoRequest {
     }
 
     @Override // com.kwad.components.offline.api.core.network.IOfflineCompoRequest
-    public Map<String, String> getHeader() {
+    public Map getHeader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -141,7 +139,6 @@ public abstract class OfflineCompoRequest implements IOfflineCompoRequest {
     }
 
     @Override // com.kwad.components.offline.api.core.network.IOfflineCompoRequest
-    @Nullable
     public final KsScene getScene() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -200,7 +197,7 @@ public abstract class OfflineCompoRequest implements IOfflineCompoRequest {
         }
     }
 
-    public void putBody(String str, List<? extends IOfflineCompoJsonParse> list) {
+    public void putBody(String str, List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048590, this, str, list) == null) {
             JsonHelper.putValue(this.mBodyParams, str, list);

@@ -2,7 +2,6 @@ package androidx.core.os;
 
 import android.os.Build;
 import android.os.PersistableBundle;
-import androidx.annotation.RequiresApi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,7 +16,6 @@ public final class PersistableBundleKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @RequiresApi(21)
     public static final PersistableBundle persistableBundleOf(Pair<String, ? extends Object>... pairArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -60,12 +58,14 @@ public final class PersistableBundleKt {
                         Intrinsics.throwNpe();
                     }
                     Intrinsics.checkExpressionValueIsNotNull(componentType, "value::class.java.componentType!!");
-                    if (!String.class.isAssignableFrom(componentType)) {
-                        throw new IllegalArgumentException("Illegal value array type " + componentType.getCanonicalName() + " for key \"" + component1 + Typography.quote);
-                    } else if (component2 == null) {
-                        throw new TypeCastException("null cannot be cast to non-null type kotlin.Array<kotlin.String>");
+                    if (String.class.isAssignableFrom(componentType)) {
+                        if (component2 != null) {
+                            persistableBundle.putStringArray(component1, (String[]) component2);
+                        } else {
+                            throw new TypeCastException("null cannot be cast to non-null type kotlin.Array<kotlin.String>");
+                        }
                     } else {
-                        persistableBundle.putStringArray(component1, (String[]) component2);
+                        throw new IllegalArgumentException("Illegal value array type " + componentType.getCanonicalName() + " for key \"" + component1 + Typography.quote);
                     }
                 } else {
                     throw new IllegalArgumentException("Illegal value type " + component2.getClass().getCanonicalName() + " for key \"" + component1 + Typography.quote);

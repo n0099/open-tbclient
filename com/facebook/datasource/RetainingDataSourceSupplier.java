@@ -12,66 +12,57 @@ import java.util.Collections;
 import java.util.Set;
 import java.util.WeakHashMap;
 import javax.annotation.Nullable;
-import javax.annotation.concurrent.GuardedBy;
-import javax.annotation.concurrent.NotThreadSafe;
-@NotThreadSafe
 /* loaded from: classes7.dex */
-public class RetainingDataSourceSupplier<T> implements Supplier<DataSource<T>> {
+public class RetainingDataSourceSupplier implements Supplier {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public Supplier<DataSource<T>> mCurrentDataSourceSupplier;
-    public final Set<RetainingDataSource> mDataSources;
+    public Supplier mCurrentDataSourceSupplier;
+    public final Set mDataSources;
 
     /* renamed from: com.facebook.datasource.RetainingDataSourceSupplier$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    public RetainingDataSourceSupplier() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mDataSources = Collections.newSetFromMap(new WeakHashMap());
-        this.mCurrentDataSourceSupplier = null;
-    }
-
-    public void replaceSupplier(Supplier<DataSource<T>> supplier) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, supplier) == null) {
-            this.mCurrentDataSourceSupplier = supplier;
-            for (RetainingDataSource retainingDataSource : this.mDataSources) {
-                if (!retainingDataSource.isClosed()) {
-                    retainingDataSource.setSupplier(supplier);
-                }
-            }
-        }
     }
 
     /* loaded from: classes7.dex */
-    public static class RetainingDataSource<T> extends AbstractDataSource<T> {
+    public class RetainingDataSource extends AbstractDataSource {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @GuardedBy("RetainingDataSource.this")
         @Nullable
-        public DataSource<T> mDataSource;
+        public DataSource mDataSource;
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public void onDataSourceFailed(DataSource dataSource) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(65542, this, dataSource) == null) {
+            }
+        }
+
+        @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.DataSource
+        public boolean hasMultipleResults() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
 
         /* loaded from: classes7.dex */
-        public class InternalDataSubscriber implements DataSubscriber<T> {
+        public class InternalDataSubscriber implements DataSubscriber {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ RetainingDataSource this$0;
+
+            @Override // com.facebook.datasource.DataSubscriber
+            public void onCancellation(DataSource dataSource) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
+                }
+            }
 
             public InternalDataSubscriber(RetainingDataSource retainingDataSource) {
                 Interceptable interceptable = $ic;
@@ -92,38 +83,36 @@ public class RetainingDataSourceSupplier<T> implements Supplier<DataSource<T>> {
             }
 
             @Override // com.facebook.datasource.DataSubscriber
-            public void onCancellation(DataSource<T> dataSource) {
+            public void onFailure(DataSource dataSource) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
+                if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource) != null) {
+                    return;
                 }
+                this.this$0.onDataSourceFailed(dataSource);
             }
 
             @Override // com.facebook.datasource.DataSubscriber
-            public void onFailure(DataSource<T> dataSource) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource) == null) {
-                    this.this$0.onDataSourceFailed(dataSource);
-                }
-            }
-
-            @Override // com.facebook.datasource.DataSubscriber
-            public void onNewResult(DataSource<T> dataSource) {
+            public void onNewResult(DataSource dataSource) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataSource) == null) {
-                    if (dataSource.hasResult()) {
-                        this.this$0.onDataSourceNewResult(dataSource);
-                    } else if (dataSource.isFinished()) {
+                    if (!dataSource.hasResult()) {
+                        if (!dataSource.isFinished()) {
+                            return;
+                        }
                         this.this$0.onDataSourceFailed(dataSource);
+                        return;
                     }
+                    this.this$0.onDataSourceNewResult(dataSource);
                 }
             }
 
             @Override // com.facebook.datasource.DataSubscriber
-            public void onProgressUpdate(DataSource<T> dataSource) {
+            public void onProgressUpdate(DataSource dataSource) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048579, this, dataSource) == null) {
-                    this.this$0.onDatasourceProgress(dataSource);
+                if (interceptable != null && interceptable.invokeL(1048579, this, dataSource) != null) {
+                    return;
                 }
+                this.this$0.onDatasourceProgress(dataSource);
             }
 
             public /* synthetic */ InternalDataSubscriber(RetainingDataSource retainingDataSource, AnonymousClass1 anonymousClass1) {
@@ -147,50 +136,19 @@ public class RetainingDataSourceSupplier<T> implements Supplier<DataSource<T>> {
             this.mDataSource = null;
         }
 
-        public static <T> void closeSafely(DataSource<T> dataSource) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(65541, null, dataSource) == null) || dataSource == null) {
-                return;
-            }
-            dataSource.close();
-        }
-
-        /* JADX INFO: Access modifiers changed from: private */
-        public void onDataSourceFailed(DataSource<T> dataSource) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65542, this, dataSource) == null) {
-            }
-        }
-
-        /* JADX INFO: Access modifiers changed from: private */
-        public void onDataSourceNewResult(DataSource<T> dataSource) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(65543, this, dataSource) == null) && dataSource == this.mDataSource) {
-                setResult(null, false, dataSource.getExtras());
-            }
-        }
-
-        /* JADX INFO: Access modifiers changed from: private */
-        public void onDatasourceProgress(DataSource<T> dataSource) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(65544, this, dataSource) == null) && dataSource == this.mDataSource) {
-                setProgress(dataSource.getProgress());
-            }
-        }
-
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.DataSource
         public boolean close() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 synchronized (this) {
-                    if (super.close()) {
-                        DataSource<T> dataSource = this.mDataSource;
-                        this.mDataSource = null;
-                        closeSafely(dataSource);
-                        return true;
+                    if (!super.close()) {
+                        return false;
                     }
-                    return false;
+                    DataSource dataSource = this.mDataSource;
+                    this.mDataSource = null;
+                    closeSafely(dataSource);
+                    return true;
                 }
             }
             return invokeV.booleanValue;
@@ -198,27 +156,21 @@ public class RetainingDataSourceSupplier<T> implements Supplier<DataSource<T>> {
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.DataSource
         @Nullable
-        public synchronized T getResult() {
+        public synchronized Object getResult() {
             InterceptResult invokeV;
-            T result;
+            Object obj;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 synchronized (this) {
-                    result = this.mDataSource != null ? this.mDataSource.getResult() : null;
+                    if (this.mDataSource != null) {
+                        obj = this.mDataSource.getResult();
+                    } else {
+                        obj = null;
+                    }
                 }
-                return result;
+                return obj;
             }
-            return (T) invokeV.objValue;
-        }
-
-        @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.DataSource
-        public boolean hasMultipleResults() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
+            return invokeV.objValue;
         }
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.DataSource
@@ -229,26 +181,61 @@ public class RetainingDataSourceSupplier<T> implements Supplier<DataSource<T>> {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 synchronized (this) {
                     if (this.mDataSource != null) {
-                        z = this.mDataSource.hasResult();
+                        if (this.mDataSource.hasResult()) {
+                            z = true;
+                        }
                     }
+                    z = false;
                 }
                 return z;
             }
             return invokeV.booleanValue;
         }
 
-        public void setSupplier(@Nullable Supplier<DataSource<T>> supplier) {
+        public /* synthetic */ RetainingDataSource(AnonymousClass1 anonymousClass1) {
+            this();
+        }
+
+        public static void closeSafely(DataSource dataSource) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, supplier) == null) || isClosed()) {
+            if ((interceptable == null || interceptable.invokeL(65541, null, dataSource) == null) && dataSource != null) {
+                dataSource.close();
+            }
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public void onDataSourceNewResult(DataSource dataSource) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(65543, this, dataSource) == null) && dataSource == this.mDataSource) {
+                setResult(null, false, dataSource.getExtras());
+            }
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public void onDatasourceProgress(DataSource dataSource) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(65544, this, dataSource) == null) && dataSource == this.mDataSource) {
+                setProgress(dataSource.getProgress());
+            }
+        }
+
+        public void setSupplier(@Nullable Supplier supplier) {
+            DataSource dataSource;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048580, this, supplier) != null) || isClosed()) {
                 return;
             }
-            DataSource<T> dataSource = supplier != null ? supplier.get() : null;
+            if (supplier != null) {
+                dataSource = (DataSource) supplier.get();
+            } else {
+                dataSource = null;
+            }
             synchronized (this) {
                 if (isClosed()) {
                     closeSafely(dataSource);
                     return;
                 }
-                DataSource<T> dataSource2 = this.mDataSource;
+                DataSource dataSource2 = this.mDataSource;
                 this.mDataSource = dataSource;
                 if (dataSource != null) {
                     dataSource.subscribe(new InternalDataSubscriber(this, null), CallerThreadExecutor.getInstance());
@@ -256,15 +243,28 @@ public class RetainingDataSourceSupplier<T> implements Supplier<DataSource<T>> {
                 closeSafely(dataSource2);
             }
         }
+    }
 
-        public /* synthetic */ RetainingDataSource(AnonymousClass1 anonymousClass1) {
-            this();
+    public RetainingDataSourceSupplier() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+        this.mDataSources = Collections.newSetFromMap(new WeakHashMap());
+        this.mCurrentDataSourceSupplier = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.Supplier
-    public DataSource<T> get() {
+    public DataSource get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -274,5 +274,17 @@ public class RetainingDataSourceSupplier<T> implements Supplier<DataSource<T>> {
             return retainingDataSource;
         }
         return (DataSource) invokeV.objValue;
+    }
+
+    public void replaceSupplier(Supplier supplier) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, supplier) == null) {
+            this.mCurrentDataSourceSupplier = supplier;
+            for (RetainingDataSource retainingDataSource : this.mDataSources) {
+                if (!retainingDataSource.isClosed()) {
+                    retainingDataSource.setSupplier(supplier);
+                }
+            }
+        }
     }
 }

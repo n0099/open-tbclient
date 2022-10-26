@@ -35,19 +35,6 @@ public class RequestInfo {
         this.data = jSONObject;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                return "RequestInfo{sKey='" + this.sKey + "', xDeviceId='" + this.xDeviceId + "', data=" + this.data + ", path='" + this.path + "'}";
-            } catch (Throwable unused) {
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
     public RequestInfo(String str, String str2, JSONObject jSONObject, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -67,5 +54,18 @@ public class RequestInfo {
         this.xDeviceId = str2;
         this.data = jSONObject;
         this.path = str3;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                return "RequestInfo{sKey='" + this.sKey + "', xDeviceId='" + this.xDeviceId + "', data=" + this.data + ", path='" + this.path + "'}";
+            } catch (Throwable unused) {
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
     }
 }

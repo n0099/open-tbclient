@@ -16,22 +16,22 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 /* loaded from: classes8.dex */
-public final class FlowableConcatWithMaybe<T> extends AbstractFlowableWithUpstream<T, T> {
+public final class FlowableConcatWithMaybe extends AbstractFlowableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MaybeSource<? extends T> other;
+    public final MaybeSource other;
 
     /* loaded from: classes8.dex */
-    public static final class ConcatWithSubscriber<T> extends SinglePostCompleteSubscriber<T, T> implements MaybeObserver<T> {
+    public final class ConcatWithSubscriber extends SinglePostCompleteSubscriber implements MaybeObserver {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7346385463600070225L;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean inMaybe;
-        public MaybeSource<? extends T> other;
-        public final AtomicReference<Disposable> otherDisposable;
+        public MaybeSource other;
+        public final AtomicReference otherDisposable;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ConcatWithSubscriber(Subscriber<? super T> subscriber, MaybeSource<? extends T> maybeSource) {
+        public ConcatWithSubscriber(Subscriber subscriber, MaybeSource maybeSource) {
             super(subscriber);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -49,7 +49,7 @@ public final class FlowableConcatWithMaybe<T> extends AbstractFlowableWithUpstre
                 }
             }
             this.other = maybeSource;
-            this.otherDisposable = new AtomicReference<>();
+            this.otherDisposable = new AtomicReference();
         }
 
         @Override // io.reactivex.internal.subscribers.SinglePostCompleteSubscriber, org.reactivestreams.Subscription
@@ -71,7 +71,7 @@ public final class FlowableConcatWithMaybe<T> extends AbstractFlowableWithUpstre
                 }
                 this.inMaybe = true;
                 this.s = SubscriptionHelper.CANCELLED;
-                MaybeSource<? extends T> maybeSource = this.other;
+                MaybeSource maybeSource = this.other;
                 this.other = null;
                 maybeSource.subscribe(this);
             }
@@ -86,11 +86,11 @@ public final class FlowableConcatWithMaybe<T> extends AbstractFlowableWithUpstre
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
                 this.produced++;
-                this.actual.onNext(t);
+                this.actual.onNext(obj);
             }
         }
 
@@ -103,16 +103,16 @@ public final class FlowableConcatWithMaybe<T> extends AbstractFlowableWithUpstre
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(T t) {
+        public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
-                complete(t);
+            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
+                complete(obj);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableConcatWithMaybe(Flowable<T> flowable, MaybeSource<? extends T> maybeSource) {
+    public FlowableConcatWithMaybe(Flowable flowable, MaybeSource maybeSource) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -133,7 +133,7 @@ public final class FlowableConcatWithMaybe<T> extends AbstractFlowableWithUpstre
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super T> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new ConcatWithSubscriber(subscriber, this.other));

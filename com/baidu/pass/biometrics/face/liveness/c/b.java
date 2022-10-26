@@ -1,6 +1,5 @@
 package com.baidu.pass.biometrics.face.liveness.c;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -28,19 +27,40 @@ public class b {
     public long e;
     public float f;
 
+    /* renamed from: com.baidu.pass.biometrics.face.liveness.c.b$b  reason: collision with other inner class name */
+    /* loaded from: classes2.dex */
+    public interface InterfaceC0119b {
+        void a(float f);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1791500355, "Lcom/baidu/pass/biometrics/face/liveness/c/b;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1791500355, "Lcom/baidu/pass/biometrics/face/liveness/c/b;");
+        }
+    }
+
     /* loaded from: classes2.dex */
     public class a implements SensorEventListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ InterfaceC0118b a;
+        public final /* synthetic */ InterfaceC0119b a;
         public final /* synthetic */ b b;
 
-        public a(b bVar, InterfaceC0118b interfaceC0118b) {
+        public a(b bVar, InterfaceC0119b interfaceC0119b) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, interfaceC0118b};
+                Object[] objArr = {bVar, interfaceC0119b};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -51,7 +71,7 @@ public class b {
                 }
             }
             this.b = bVar;
-            this.a = interfaceC0118b;
+            this.a = interfaceC0119b;
         }
 
         @Override // android.hardware.SensorEventListener
@@ -76,32 +96,11 @@ public class b {
                     Log.w(str2, "onSensorChanged() event.values[0]:" + this.b.f);
                 }
                 this.b.e = System.currentTimeMillis();
-                InterfaceC0118b interfaceC0118b = this.a;
-                if (interfaceC0118b != null) {
-                    interfaceC0118b.a(this.b.a());
+                InterfaceC0119b interfaceC0119b = this.a;
+                if (interfaceC0119b != null) {
+                    interfaceC0119b.a(this.b.a());
                 }
             }
-        }
-    }
-
-    /* renamed from: com.baidu.pass.biometrics.face.liveness.c.b$b  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC0118b {
-        void a(float f);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1791500355, "Lcom/baidu/pass/biometrics/face/liveness/c/b;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1791500355, "Lcom/baidu/pass/biometrics/face/liveness/c/b;");
         }
     }
 
@@ -125,23 +124,9 @@ public class b {
         this.a = context;
     }
 
-    @TargetApi(3)
-    public void b() {
+    public void a(InterfaceC0119b interfaceC0119b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Log.w(g, "unRegisterSensorListener()");
-            SensorManager sensorManager = this.b;
-            if (sensorManager == null || this.c == null) {
-                return;
-            }
-            sensorManager.unregisterListener(this.d);
-        }
-    }
-
-    @TargetApi(3)
-    public void a(InterfaceC0118b interfaceC0118b) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0118b) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0119b) == null) {
             SensorManager sensorManager = (SensorManager) this.a.getSystemService("sensor");
             this.b = sensorManager;
             if (sensorManager == null) {
@@ -153,7 +138,7 @@ public class b {
             if (defaultSensor == null) {
                 return;
             }
-            a aVar = new a(this, interfaceC0118b);
+            a aVar = new a(this, interfaceC0119b);
             this.d = aVar;
             this.b.registerListener(aVar, this.c, 3);
         }
@@ -169,5 +154,16 @@ public class b {
             return this.f;
         }
         return invokeV.floatValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            Log.w(g, "unRegisterSensorListener()");
+            SensorManager sensorManager = this.b;
+            if (sensorManager != null && this.c != null) {
+                sensorManager.unregisterListener(this.d);
+            }
+        }
     }
 }

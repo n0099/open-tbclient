@@ -47,31 +47,6 @@ public final class MiniPluginBundleInfo {
         }
     }
 
-    public MiniPluginBundleInfo(String str, Integer num, Boolean bool, Boolean bool2, Boolean bool3, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, num, bool, bool2, bool3, str2, str3, str4};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.packageName = str;
-        this.versionCode = num;
-        this.needUpdate = bool;
-        this.isMainBundle = bool2;
-        this.isSubBundle = bool3;
-        this.mainBundle = str2;
-        this.subBundle = str3;
-        this.ext = str4;
-    }
-
     public final String component1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -142,42 +117,6 @@ public final class MiniPluginBundleInfo {
         return invokeL.booleanValue;
     }
 
-    public final String getExt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.ext : (String) invokeV.objValue;
-    }
-
-    public final String getMainBundle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mainBundle : (String) invokeV.objValue;
-    }
-
-    public final Boolean getNeedUpdate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.needUpdate : (Boolean) invokeV.objValue;
-    }
-
-    public final String getPackageName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.packageName : (String) invokeV.objValue;
-    }
-
-    public final String getSubBundle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.subBundle : (String) invokeV.objValue;
-    }
-
-    public final Integer getVersionCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.versionCode : (Integer) invokeV.objValue;
-    }
-
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -202,16 +141,151 @@ public final class MiniPluginBundleInfo {
         return invokeV.intValue;
     }
 
+    public MiniPluginBundleInfo(String str, Integer num, Boolean bool, Boolean bool2, Boolean bool3, String str2, String str3, String str4) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, num, bool, bool2, bool3, str2, str3, str4};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.packageName = str;
+        this.versionCode = num;
+        this.needUpdate = bool;
+        this.isMainBundle = bool2;
+        this.isSubBundle = bool3;
+        this.mainBundle = str2;
+        this.subBundle = str3;
+        this.ext = str4;
+    }
+
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public /* synthetic */ MiniPluginBundleInfo(String str, Integer num, Boolean bool, Boolean bool2, Boolean bool3, String str2, String str3, String str4, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(r1, r3, r4, r5, r6, r7, r8, (i & 128) == 0 ? str4 : "");
+        String str5;
+        Integer num2;
+        Boolean bool4;
+        Boolean bool5;
+        Boolean bool6;
+        String str6;
+        String str7;
+        if ((i & 1) != 0) {
+            str5 = "";
+        } else {
+            str5 = str;
+        }
+        if ((i & 2) != 0) {
+            num2 = 0;
+        } else {
+            num2 = num;
+        }
+        if ((i & 4) != 0) {
+            bool4 = Boolean.FALSE;
+        } else {
+            bool4 = bool;
+        }
+        if ((i & 8) != 0) {
+            bool5 = Boolean.FALSE;
+        } else {
+            bool5 = bool2;
+        }
+        if ((i & 16) != 0) {
+            bool6 = Boolean.FALSE;
+        } else {
+            bool6 = bool3;
+        }
+        if ((i & 32) != 0) {
+            str6 = "";
+        } else {
+            str6 = str2;
+        }
+        if ((i & 64) != 0) {
+            str7 = "";
+        } else {
+            str7 = str3;
+        }
+    }
+
+    public final String getExt() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.ext;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String getMainBundle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mainBundle;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final Boolean getNeedUpdate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.needUpdate;
+        }
+        return (Boolean) invokeV.objValue;
+    }
+
+    public final String getPackageName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.packageName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String getSubBundle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.subBundle;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final Integer getVersionCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.versionCode;
+        }
+        return (Integer) invokeV.objValue;
+    }
+
     public final Boolean isMainBundle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.isMainBundle : (Boolean) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.isMainBundle;
+        }
+        return (Boolean) invokeV.objValue;
     }
 
     public final Boolean isSubBundle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.isSubBundle : (Boolean) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.isSubBundle;
+        }
+        return (Boolean) invokeV.objValue;
     }
 
     public String toString() {
@@ -221,9 +295,5 @@ public final class MiniPluginBundleInfo {
             return "PluginBundleInfo{ packageName=" + this.packageName + ", versionCode=" + this.versionCode + ", needUpdate=" + this.needUpdate + StringUtil.ARRAY_ELEMENT_SEPARATOR + "isMainBundle=" + this.isMainBundle + ", isSubBundle=" + this.isSubBundle + StringUtil.ARRAY_ELEMENT_SEPARATOR + "mainBundle=" + this.mainBundle + ", subBundle=" + this.subBundle + StringUtil.ARRAY_ELEMENT_SEPARATOR + "ext=" + this.ext + " }";
         }
         return (String) invokeV.objValue;
-    }
-
-    public /* synthetic */ MiniPluginBundleInfo(String str, Integer num, Boolean bool, Boolean bool2, Boolean bool3, String str2, String str3, String str4, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i & 1) != 0 ? "" : str, (i & 2) != 0 ? 0 : num, (i & 4) != 0 ? Boolean.FALSE : bool, (i & 8) != 0 ? Boolean.FALSE : bool2, (i & 16) != 0 ? Boolean.FALSE : bool3, (i & 32) != 0 ? "" : str2, (i & 64) != 0 ? "" : str3, (i & 128) == 0 ? str4 : "");
     }
 }

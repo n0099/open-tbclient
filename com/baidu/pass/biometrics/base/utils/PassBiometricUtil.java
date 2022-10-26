@@ -1,6 +1,5 @@
 package com.baidu.pass.biometrics.base.utils;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -54,6 +53,43 @@ public class PassBiometricUtil {
         }
     }
 
+    public static String getOSModel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (!TextUtils.isEmpty(Build.MODEL)) {
+                return Build.MODEL;
+            }
+            return "-1";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getOSVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (!TextUtils.isEmpty(Build.VERSION.RELEASE)) {
+                return Build.VERSION.RELEASE;
+            }
+            return "-1";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getUUID() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            String uuid = UUID.randomUUID().toString();
+            if (!TextUtils.isEmpty(uuid)) {
+                return uuid.replace("-", "");
+            }
+            return uuid;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public static Rect a(int[] iArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -94,128 +130,29 @@ public class PassBiometricUtil {
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, options, i2, i3)) == null) {
             int i4 = options.outHeight;
             int i5 = options.outWidth;
-            if (i4 > i3 || i5 > i2) {
-                int round = Math.round(i4 / i3);
-                int round2 = Math.round(i5 / i2);
-                return round < round2 ? round : round2;
+            if (i4 <= i3 && i5 <= i2) {
+                return 1;
             }
-            return 1;
+            int round = Math.round(i4 / i3);
+            int round2 = Math.round(i5 / i2);
+            if (round < round2) {
+                return round;
+            }
+            return round2;
         }
         return invokeLII.intValue;
     }
 
-    @TargetApi(23)
     public static boolean checkRequestPermission(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) ? (Build.VERSION.SDK_INT >= 23 && context.checkSelfPermission(str) == 0) || (Build.VERSION.SDK_INT < 23 && context.checkCallingOrSelfPermission(str) == 0) : invokeLL.booleanValue;
-    }
-
-    public static String getAppName(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            try {
-                PackageManager packageManager = context.getPackageManager();
-                return packageManager.getPackageInfo(context.getPackageName(), 0).applicationInfo.loadLabel(packageManager).toString();
-            } catch (Throwable unused) {
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
+            if ((Build.VERSION.SDK_INT >= 23 && context.checkSelfPermission(str) == 0) || (Build.VERSION.SDK_INT < 23 && context.checkCallingOrSelfPermission(str) == 0)) {
+                return true;
             }
+            return false;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static Rect getFaceInsideRoundRect(int[] iArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, iArr)) == null) {
-            if (iArr != null && iArr.length == 2) {
-                int i2 = ((iArr[0] * 480) / k) / 2;
-                int i3 = ((iArr[1] * f) / 1335) / 2;
-                Point point = new Point();
-                point.set(iArr[0] / 2, (iArr[1] * i) / 1335);
-                int i4 = point.x;
-                int i5 = point.y;
-                return new Rect(i4 - i2, i5 - i3, i4 + i2, i5 + i3);
-            }
-            return new Rect(0, 0, 0, 0);
-        }
-        return (Rect) invokeL.objValue;
-    }
-
-    public static String getOSModel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? !TextUtils.isEmpty(Build.MODEL) ? Build.MODEL : "-1" : (String) invokeV.objValue;
-    }
-
-    public static String getOSVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? !TextUtils.isEmpty(Build.VERSION.RELEASE) ? Build.VERSION.RELEASE : "-1" : (String) invokeV.objValue;
-    }
-
-    public static String getPackageSign(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) {
-            if (context == null || TextUtils.isEmpty(str)) {
-                return "";
-            }
-            try {
-                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
-                return packageInfo.signatures.length > 0 ? SecurityUtil.md5(packageInfo.signatures[0].toByteArray(), false) : "";
-            } catch (Throwable th) {
-                Log.e(th);
-                return "";
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String getUA(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, context, str)) == null) {
-            return "pass_bio-p-android-p-" + str + "-p-" + getVersionCode(context) + "-p-" + getVersionName(context) + "-p-" + PassBiometricDefaultFactory.VERSION_NAME + "-p-" + getOSModel() + "-p-" + getOSVersion();
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String getUUID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            String uuid = UUID.randomUUID().toString();
-            return !TextUtils.isEmpty(uuid) ? uuid.replace("-", "") : uuid;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static int getVersionCode(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
-            try {
-                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
-            } catch (Exception unused) {
-                return 0;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    public static String getVersionName(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
-            try {
-                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (Exception unused) {
-                return "0";
-            }
-        }
-        return (String) invokeL.objValue;
+        return invokeLL.booleanValue;
     }
 
     public static boolean isFaceInsideRound(int[] iArr, int[] iArr2) {
@@ -227,7 +164,10 @@ public class PassBiometricUtil {
             }
             Rect a2 = a(iArr);
             Rect faceInsideRoundRect = getFaceInsideRoundRect(iArr2);
-            return faceInsideRoundRect.bottom > a2.bottom && faceInsideRoundRect.top < a2.top;
+            if (faceInsideRoundRect.bottom <= a2.bottom || faceInsideRoundRect.top >= a2.top) {
+                return false;
+            }
+            return true;
         }
         return invokeLL.booleanValue;
     }
@@ -260,5 +200,93 @@ public class PassBiometricUtil {
             return false;
         }
         return invokeLL.booleanValue;
+    }
+
+    public static String getAppName(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            try {
+                PackageManager packageManager = context.getPackageManager();
+                return packageManager.getPackageInfo(context.getPackageName(), 0).applicationInfo.loadLabel(packageManager).toString();
+            } catch (Throwable unused) {
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static int getVersionCode(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
+            try {
+                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
+            } catch (Exception unused) {
+                return 0;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public static String getVersionName(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
+            try {
+                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+            } catch (Exception unused) {
+                return "0";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static Rect getFaceInsideRoundRect(int[] iArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, iArr)) == null) {
+            if (iArr != null && iArr.length == 2) {
+                int i2 = ((iArr[0] * 480) / k) / 2;
+                int i3 = ((iArr[1] * f) / 1335) / 2;
+                Point point = new Point();
+                point.set(iArr[0] / 2, (iArr[1] * i) / 1335);
+                int i4 = point.x;
+                int i5 = point.y;
+                return new Rect(i4 - i2, i5 - i3, i4 + i2, i5 + i3);
+            }
+            return new Rect(0, 0, 0, 0);
+        }
+        return (Rect) invokeL.objValue;
+    }
+
+    public static String getPackageSign(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) {
+            if (context == null || TextUtils.isEmpty(str)) {
+                return "";
+            }
+            try {
+                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
+                if (packageInfo.signatures.length <= 0) {
+                    return "";
+                }
+                return SecurityUtil.md5(packageInfo.signatures[0].toByteArray(), false);
+            } catch (Throwable th) {
+                Log.e(th);
+                return "";
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String getUA(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, context, str)) == null) {
+            return "pass_bio-p-android-p-" + str + "-p-" + getVersionCode(context) + "-p-" + getVersionName(context) + "-p-" + PassBiometricDefaultFactory.VERSION_NAME + "-p-" + getOSModel() + "-p-" + getOSVersion();
+        }
+        return (String) invokeLL.objValue;
     }
 }

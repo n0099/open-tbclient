@@ -10,6 +10,8 @@ public class BuiltinAudioDecoderFactoryFactory implements AudioDecoderFactoryFac
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static native long nativeCreateBuiltinAudioDecoderFactory();
+
     public BuiltinAudioDecoderFactoryFactory() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -24,12 +26,13 @@ public class BuiltinAudioDecoderFactoryFactory implements AudioDecoderFactoryFac
         }
     }
 
-    public static native long nativeCreateBuiltinAudioDecoderFactory();
-
     @Override // org.webrtc.AudioDecoderFactoryFactory
     public long createNativeAudioDecoderFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? nativeCreateBuiltinAudioDecoderFactory() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return nativeCreateBuiltinAudioDecoderFactory();
+        }
+        return invokeV.longValue;
     }
 }

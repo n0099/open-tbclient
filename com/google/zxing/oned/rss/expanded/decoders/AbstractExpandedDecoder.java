@@ -17,6 +17,8 @@ public abstract class AbstractExpandedDecoder {
     public final GeneralAppIdDecoder generalDecoder;
     public final BitArray information;
 
+    public abstract String parseInformation() throws NotFoundException, FormatException;
+
     public AbstractExpandedDecoder(BitArray bitArray) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -87,14 +89,18 @@ public abstract class AbstractExpandedDecoder {
     public final GeneralAppIdDecoder getGeneralDecoder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.generalDecoder : (GeneralAppIdDecoder) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.generalDecoder;
+        }
+        return (GeneralAppIdDecoder) invokeV.objValue;
     }
 
     public final BitArray getInformation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.information : (BitArray) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.information;
+        }
+        return (BitArray) invokeV.objValue;
     }
-
-    public abstract String parseInformation() throws NotFoundException, FormatException;
 }

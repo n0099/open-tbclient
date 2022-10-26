@@ -1,7 +1,6 @@
 package androidx.viewpager2.widget;
 
 import android.view.View;
-import androidx.annotation.NonNull;
 import androidx.viewpager2.widget.ViewPager2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,14 +31,14 @@ public final class CompositePageTransformer implements ViewPager2.PageTransforme
         this.mTransformers = new ArrayList();
     }
 
-    public void addTransformer(@NonNull ViewPager2.PageTransformer pageTransformer) {
+    public void addTransformer(ViewPager2.PageTransformer pageTransformer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, pageTransformer) == null) {
             this.mTransformers.add(pageTransformer);
         }
     }
 
-    public void removeTransformer(@NonNull ViewPager2.PageTransformer pageTransformer) {
+    public void removeTransformer(ViewPager2.PageTransformer pageTransformer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pageTransformer) == null) {
             this.mTransformers.remove(pageTransformer);
@@ -47,7 +46,7 @@ public final class CompositePageTransformer implements ViewPager2.PageTransforme
     }
 
     @Override // androidx.viewpager2.widget.ViewPager2.PageTransformer
-    public void transformPage(@NonNull View view2, float f) {
+    public void transformPage(View view2, float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, view2, f) == null) {
             for (ViewPager2.PageTransformer pageTransformer : this.mTransformers) {

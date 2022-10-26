@@ -4,7 +4,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -72,7 +71,6 @@ public abstract class AbsHandlerTask implements ITimerTask {
     }
 
     @Override // com.baidu.searchbox.player.helper.ITimerTask
-    @PublicMethod
     public void cancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -81,22 +79,19 @@ public abstract class AbsHandlerTask implements ITimerTask {
     }
 
     @Override // com.baidu.searchbox.player.helper.ITimerTask
-    @PublicMethod
-    public void setInterval(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || i <= 0) {
-            return;
-        }
-        this.mInterval = i;
-    }
-
-    @Override // com.baidu.searchbox.player.helper.ITimerTask
-    @PublicMethod
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             cancel();
             this.mHandler.obtainMessage(1).sendToTarget();
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.helper.ITimerTask
+    public void setInterval(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && i > 0) {
+            this.mInterval = i;
         }
     }
 }

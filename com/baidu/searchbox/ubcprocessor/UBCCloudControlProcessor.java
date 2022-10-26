@@ -10,8 +10,8 @@ import com.baidu.searchbox.cloudcontrol.ICloudControlUBCCallBack;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlRequestInfo;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlResponseInfo;
 import com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor;
-import com.baidu.tieba.o99;
-import com.baidu.tieba.s99;
+import com.baidu.tieba.ga9;
+import com.baidu.tieba.ka9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,6 +48,30 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
         }
     }
 
+    private JSONObject generateFailStatisticData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("items", new JSONArray());
+                jSONObject.put("count", "0,0,0");
+            } catch (JSONException unused) {
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public static SharedPrefsWrapper sharedPrefsWrapper() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return new SharedPrefsWrapper(KVStorageFactory.getSharedPreferences(SP_UBC_FILE_NAME));
+        }
+        return (SharedPrefsWrapper) invokeV.objValue;
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public boolean checkStatisticData(JSONObject jSONObject) {
         InterceptResult invokeL;
@@ -70,98 +94,81 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
         return invokeL.booleanValue;
     }
 
-    private JSONObject generateFailStatisticData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("items", new JSONArray());
-                jSONObject.put("count", "0,0,0");
-            } catch (JSONException unused) {
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public static SharedPrefsWrapper sharedPrefsWrapper() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? new SharedPrefsWrapper(KVStorageFactory.getSharedPreferences(SP_UBC_FILE_NAME)) : (SharedPrefsWrapper) invokeV.objValue;
-    }
-
     @Override // com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor
     public CloudControlRequestInfo getPostData(String str, boolean z, JSONObject jSONObject) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), jSONObject})) == null) {
-            if (jSONObject == null || jSONObject.length() != 0) {
-                return new CloudControlRequestInfo(UBC_KEY, sharedPrefsWrapper().getString(UBC_CLOUDCONFIG_VERSION, "0"), null, "");
+            if (jSONObject != null && jSONObject.length() == 0) {
+                return null;
             }
-            return null;
+            return new CloudControlRequestInfo(UBC_KEY, sharedPrefsWrapper().getString(UBC_CLOUDCONFIG_VERSION, "0"), null, "");
         }
         return (CloudControlRequestInfo) invokeCommon.objValue;
     }
 
     @Override // com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor
     public void processServiceData(CloudControlResponseInfo cloudControlResponseInfo, ICloudControlUBCCallBack iCloudControlUBCCallBack) throws JSONException {
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cloudControlResponseInfo, iCloudControlUBCCallBack) == null) {
             JSONObject option = cloudControlResponseInfo.getOption();
             JSONObject serviceData = cloudControlResponseInfo.getServiceData();
-            if (TextUtils.equals(cloudControlResponseInfo.getServiceName(), UBC_KEY) && serviceData != null) {
-                boolean z = !"0".equals(option != null ? option.optString("version_asc") : "0");
-                s99 s99Var = new s99("", serviceData);
-                if (s99Var.l()) {
-                    ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).registerConfig(s99Var, z, new o99(this, iCloudControlUBCCallBack, s99Var.g()) { // from class: com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ UBCCloudControlProcessor this$0;
-                        public final /* synthetic */ ICloudControlUBCCallBack val$cloudControlUBCCallBack;
-                        public final /* synthetic */ String val$step;
+            if (!TextUtils.equals(cloudControlResponseInfo.getServiceName(), UBC_KEY) || serviceData == null) {
+                return;
+            }
+            if (option == null) {
+                str = "0";
+            } else {
+                str = option.optString("version_asc");
+            }
+            boolean z = !"0".equals(str);
+            ka9 ka9Var = new ka9("", serviceData);
+            if (ka9Var.l()) {
+                ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).registerConfig(ka9Var, z, new ga9(this, iCloudControlUBCCallBack, ka9Var.g()) { // from class: com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ UBCCloudControlProcessor this$0;
+                    public final /* synthetic */ ICloudControlUBCCallBack val$cloudControlUBCCallBack;
+                    public final /* synthetic */ String val$step;
 
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, iCloudControlUBCCallBack, r8};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                            this.val$cloudControlUBCCallBack = iCloudControlUBCCallBack;
-                            this.val$step = r8;
-                        }
-
-                        @Override // com.baidu.tieba.o99
-                        public void setUBCConfigStatisticData(JSONObject jSONObject) {
-                            ICloudControlUBCCallBack iCloudControlUBCCallBack2;
-                            Interceptable interceptable2 = $ic;
-                            if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) || jSONObject == null || (iCloudControlUBCCallBack2 = this.val$cloudControlUBCCallBack) == null) {
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, iCloudControlUBCCallBack, r8};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
                             }
+                        }
+                        this.this$0 = this;
+                        this.val$cloudControlUBCCallBack = iCloudControlUBCCallBack;
+                        this.val$step = r8;
+                    }
+
+                    @Override // com.baidu.tieba.ga9
+                    public void setUBCConfigStatisticData(JSONObject jSONObject) {
+                        ICloudControlUBCCallBack iCloudControlUBCCallBack2;
+                        Interceptable interceptable2 = $ic;
+                        if ((interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && (iCloudControlUBCCallBack2 = this.val$cloudControlUBCCallBack) != null) {
                             iCloudControlUBCCallBack2.setServiceInfo(jSONObject);
-                            if (!this.this$0.checkStatisticData(jSONObject) || TextUtils.isEmpty(this.val$step)) {
-                                return;
+                            if (this.this$0.checkStatisticData(jSONObject) && !TextUtils.isEmpty(this.val$step)) {
+                                UBCCloudControlProcessor.sharedPrefsWrapper().putString(UBCCloudControlProcessor.UBC_CLOUDCONFIG_VERSION, this.val$step);
                             }
-                            UBCCloudControlProcessor.sharedPrefsWrapper().putString(UBCCloudControlProcessor.UBC_CLOUDCONFIG_VERSION, this.val$step);
                         }
-                    });
-                } else if (iCloudControlUBCCallBack != null) {
-                    iCloudControlUBCCallBack.setServiceInfo(generateFailStatisticData());
-                }
-                List<UBCCloudConfigObserver> list = new UBCCloudConfigObservers().mObservers.getList();
-                if (list == null || list.isEmpty()) {
-                    return;
-                }
+                    }
+                });
+            } else if (iCloudControlUBCCallBack != null) {
+                iCloudControlUBCCallBack.setServiceInfo(generateFailStatisticData());
+            }
+            List<UBCCloudConfigObserver> list = new UBCCloudConfigObservers().mObservers.getList();
+            if (list != null && !list.isEmpty()) {
                 String jSONObject = serviceData.toString();
                 for (UBCCloudConfigObserver uBCCloudConfigObserver : list) {
                     try {

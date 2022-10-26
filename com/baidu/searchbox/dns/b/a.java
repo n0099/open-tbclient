@@ -11,18 +11,18 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static List<String> g(String str) {
+    public static List g(String str) {
         InterceptResult invokeL;
-        Map<String, com.baidu.searchbox.dns.d.a.a> B;
+        Map B;
         com.baidu.searchbox.dns.d.a.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
             com.baidu.searchbox.dns.d.a.b x = new c(false, str, 2).x();
-            if (x == null || x.B() == null || (B = x.B()) == null || B.isEmpty() || (aVar = B.get(str)) == null) {
-                return null;
+            if (x != null && x.B() != null && (B = x.B()) != null && !B.isEmpty() && (aVar = (com.baidu.searchbox.dns.d.a.a) B.get(str)) != null) {
+                com.baidu.searchbox.dns.a.a.e().a(str, aVar);
+                return aVar.getIpList();
             }
-            com.baidu.searchbox.dns.a.a.e().a(str, aVar);
-            return aVar.getIpList();
+            return null;
         }
         return (List) invokeL.objValue;
     }

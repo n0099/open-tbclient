@@ -13,6 +13,12 @@ public class ColorUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static int getColorRes(boolean z, int i, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) ? (!z || i == 0 || i == Integer.MAX_VALUE) ? i2 : i : invokeCommon.intValue;
+    }
+
     public ColorUtils() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -25,12 +31,6 @@ public class ColorUtils {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public static int getColorRes(boolean z, int i, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) ? (!z || i == 0 || i == Integer.MAX_VALUE) ? i2 : i : invokeCommon.intValue;
     }
 
     public static int parseColor(String str) {

@@ -2,7 +2,7 @@ package io.reactivex.internal.fuseable;
 
 import java.util.concurrent.Callable;
 /* loaded from: classes8.dex */
-public interface ScalarCallable<T> extends Callable<T> {
+public interface ScalarCallable extends Callable {
     @Override // java.util.concurrent.Callable
-    T call();
+    Object call();
 }

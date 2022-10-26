@@ -13,6 +13,13 @@ public final class u extends v {
     public long a;
     public int b;
 
+    @Override // com.vivo.push.b.s, com.vivo.push.o
+    public final String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "OnUndoMsgCommand" : (String) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public u() {
         super(20);
@@ -42,10 +49,23 @@ public final class u extends v {
         }
     }
 
+    @Override // com.vivo.push.b.v, com.vivo.push.b.s, com.vivo.push.o
+    public final void d(com.vivo.push.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            super.d(aVar);
+            this.a = aVar.b("undo_msg_v1", this.a);
+            this.b = aVar.b("undo_msg_type_v1", 0);
+        }
+    }
+
     public final long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.longValue;
     }
 
     public final String e() {
@@ -59,22 +79,5 @@ public final class u extends v {
             return null;
         }
         return (String) invokeV.objValue;
-    }
-
-    @Override // com.vivo.push.b.s, com.vivo.push.o
-    public final String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "OnUndoMsgCommand" : (String) invokeV.objValue;
-    }
-
-    @Override // com.vivo.push.b.v, com.vivo.push.b.s, com.vivo.push.o
-    public final void d(com.vivo.push.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            super.d(aVar);
-            this.a = aVar.b("undo_msg_v1", this.a);
-            this.b = aVar.b("undo_msg_type_v1", 0);
-        }
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.location.c;
 
-import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -194,8 +193,8 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{hVar, hVar2, Float.valueOf(f)})) == null) {
             if (hVar != null && hVar2 != null) {
-                List<ScanResult> list = hVar.a;
-                List<ScanResult> list2 = hVar2.a;
+                List list = hVar.a;
+                List list2 = hVar2.a;
                 if (list == list2) {
                     return true;
                 }
@@ -208,14 +207,14 @@ public class i {
                     if (size != 0 && size2 != 0) {
                         int i = 0;
                         for (int i2 = 0; i2 < size; i2++) {
-                            String str = list.get(i2) != null ? list.get(i2).BSSID : null;
+                            String str = list.get(i2) != null ? ((ScanResult) list.get(i2)).BSSID : null;
                             if (str != null) {
                                 int i3 = 0;
                                 while (true) {
                                     if (i3 >= size2) {
                                         break;
                                     }
-                                    String str2 = list2.get(i3) != null ? list2.get(i3).BSSID : null;
+                                    String str2 = list2.get(i3) != null ? ((ScanResult) list2.get(i3)).BSSID : null;
                                     if (str2 != null && str.equals(str2)) {
                                         i++;
                                         break;
@@ -356,7 +355,6 @@ public class i {
         return invokeV.booleanValue;
     }
 
-    @SuppressLint({"NewApi"})
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -382,7 +380,6 @@ public class i {
         return (String) invokeV.objValue;
     }
 
-    @SuppressLint({"NewApi"})
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -406,7 +403,6 @@ public class i {
         return invokeV.booleanValue;
     }
 
-    @SuppressLint({"NewApi"})
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

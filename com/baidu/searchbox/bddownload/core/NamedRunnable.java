@@ -10,6 +10,12 @@ public abstract class NamedRunnable implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
     public final String name;
 
+    public abstract void execute() throws InterruptedException;
+
+    public abstract void finished();
+
+    public abstract void interrupted(InterruptedException interruptedException);
+
     public NamedRunnable(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -27,12 +33,6 @@ public abstract class NamedRunnable implements Runnable {
         }
         this.name = str;
     }
-
-    public abstract void execute() throws InterruptedException;
-
-    public abstract void finished();
-
-    public abstract void interrupted(InterruptedException interruptedException);
 
     @Override // java.lang.Runnable
     public final void run() {

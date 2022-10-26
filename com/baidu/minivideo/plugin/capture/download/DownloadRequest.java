@@ -19,13 +19,13 @@ public class DownloadRequest {
 
     /* renamed from: com.baidu.minivideo.plugin.capture.download.DownloadRequest$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public static class Builder {
+    public class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public CharSequence mDescription;
@@ -50,7 +50,10 @@ public class DownloadRequest {
         public DownloadRequest build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new DownloadRequest(this.mUri, this.mFolder, this.mName, this.mDescription, null) : (DownloadRequest) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new DownloadRequest(this.mUri, this.mFolder, this.mName, this.mDescription, null);
+            }
+            return (DownloadRequest) invokeV.objValue;
         }
 
         public Builder setDescription(CharSequence charSequence) {
@@ -94,20 +97,36 @@ public class DownloadRequest {
         }
     }
 
-    public /* synthetic */ DownloadRequest(String str, File file, CharSequence charSequence, CharSequence charSequence2, AnonymousClass1 anonymousClass1) {
-        this(str, file, charSequence, charSequence2);
+    public DownloadRequest() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
     public CharSequence getDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mDescription : (CharSequence) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mDescription;
+        }
+        return (CharSequence) invokeV.objValue;
     }
 
     public File getFolder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mFolder : (File) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mFolder;
+        }
+        return (File) invokeV.objValue;
     }
 
     public CharSequence getName() {
@@ -125,21 +144,10 @@ public class DownloadRequest {
     public String getUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mUri : (String) invokeV.objValue;
-    }
-
-    public DownloadRequest() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mUri;
         }
+        return (String) invokeV.objValue;
     }
 
     public DownloadRequest(String str, File file, CharSequence charSequence, CharSequence charSequence2) {
@@ -161,5 +169,9 @@ public class DownloadRequest {
         this.mFolder = file;
         this.mName = charSequence;
         this.mDescription = charSequence2;
+    }
+
+    public /* synthetic */ DownloadRequest(String str, File file, CharSequence charSequence, CharSequence charSequence2, AnonymousClass1 anonymousClass1) {
+        this(str, file, charSequence, charSequence2);
     }
 }

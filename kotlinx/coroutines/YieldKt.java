@@ -17,7 +17,7 @@ public final class YieldKt {
         }
     }
 
-    public static final Object yield(Continuation<? super Unit> continuation) {
+    public static final Object yield(Continuation continuation) {
         Object obj;
         CoroutineContext context = continuation.getContext();
         checkCompletion(context);
@@ -33,7 +33,11 @@ public final class YieldKt {
                 YieldContext yieldContext = new YieldContext();
                 dispatchedContinuation.dispatchYield$kotlinx_coroutines_core(context.plus(yieldContext), Unit.INSTANCE);
                 if (yieldContext.dispatcherWasUnconfined) {
-                    obj = DispatchedContinuationKt.yieldUndispatched(dispatchedContinuation) ? IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED() : Unit.INSTANCE;
+                    if (DispatchedContinuationKt.yieldUndispatched(dispatchedContinuation)) {
+                        obj = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
+                    } else {
+                        obj = Unit.INSTANCE;
+                    }
                 }
             }
             obj = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
@@ -43,6 +47,9 @@ public final class YieldKt {
         if (obj == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
             DebugProbesKt.probeCoroutineSuspended(continuation);
         }
-        return obj == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED() ? obj : Unit.INSTANCE;
+        if (obj == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
+            return obj;
+        }
+        return Unit.INSTANCE;
     }
 }

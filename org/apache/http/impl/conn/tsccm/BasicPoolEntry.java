@@ -18,7 +18,7 @@ public class BasicPoolEntry extends AbstractPoolEntry {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BasicPoolEntry(ClientConnectionOperator clientConnectionOperator, HttpRoute httpRoute, ReferenceQueue<Object> referenceQueue) {
+    public BasicPoolEntry(ClientConnectionOperator clientConnectionOperator, HttpRoute httpRoute, ReferenceQueue referenceQueue) {
         super(null, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

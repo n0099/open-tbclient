@@ -3,6 +3,7 @@ package com.baidu.searchbox.live.model.net;
 import android.os.Handler;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.arch.thread.MiniElasticExecutor;
 import com.baidu.live.arch.utils.MiniUiThreadUtil;
@@ -52,35 +53,42 @@ public final class MixNetwork {
     public final UBCManager ubc;
     public String url;
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000,\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\t\b\u0086\b\u0018\u0000*\u0004\b\u0000\u0010\u0001B\u0019\u0012\u0006\u0010\u0007\u001a\u00020\u0002\u0012\b\u0010\b\u001a\u0004\u0018\u00018\u0000¢\u0006\u0004\b\u001a\u0010\u001bJ\u0010\u0010\u0003\u001a\u00020\u0002HÆ\u0003¢\u0006\u0004\b\u0003\u0010\u0004J\u0012\u0010\u0005\u001a\u0004\u0018\u00018\u0000HÆ\u0003¢\u0006\u0004\b\u0005\u0010\u0006J,\u0010\t\u001a\b\u0012\u0004\u0012\u00028\u00000\u00002\b\b\u0002\u0010\u0007\u001a\u00020\u00022\n\b\u0002\u0010\b\u001a\u0004\u0018\u00018\u0000HÆ\u0001¢\u0006\u0004\b\t\u0010\nJ\u001a\u0010\u000e\u001a\u00020\r2\b\u0010\f\u001a\u0004\u0018\u00010\u000bHÖ\u0003¢\u0006\u0004\b\u000e\u0010\u000fJ\u0010\u0010\u0011\u001a\u00020\u0010HÖ\u0001¢\u0006\u0004\b\u0011\u0010\u0012J\u0010\u0010\u0014\u001a\u00020\u0013HÖ\u0001¢\u0006\u0004\b\u0014\u0010\u0015R\u001b\u0010\b\u001a\u0004\u0018\u00018\u00008\u0006@\u0006¢\u0006\f\n\u0004\b\b\u0010\u0016\u001a\u0004\b\u0017\u0010\u0006R\u0019\u0010\u0007\u001a\u00020\u00028\u0006@\u0006¢\u0006\f\n\u0004\b\u0007\u0010\u0018\u001a\u0004\b\u0019\u0010\u0004¨\u0006\u001c"}, d2 = {"Lcom/baidu/searchbox/live/model/net/MixNetwork$Response;", "T", "Lcom/baidu/searchbox/live/interfaces/net/NetResponse;", "component1", "()Lcom/baidu/searchbox/live/interfaces/net/NetResponse;", "component2", "()Ljava/lang/Object;", "response", "data", "copy", "(Lcom/baidu/searchbox/live/interfaces/net/NetResponse;Ljava/lang/Object;)Lcom/baidu/searchbox/live/model/net/MixNetwork$Response;", "", ImageViewerConfig.FROM_OTHER, "", "equals", "(Ljava/lang/Object;)Z", "", TTDownloadField.TT_HASHCODE, "()I", "", "toString", "()Ljava/lang/String;", "Ljava/lang/Object;", "getData", "Lcom/baidu/searchbox/live/interfaces/net/NetResponse;", "getResponse", "<init>", "(Lcom/baidu/searchbox/live/interfaces/net/NetResponse;Ljava/lang/Object;)V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(796391272, "Lcom/baidu/searchbox/live/model/net/MixNetwork;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(796391272, "Lcom/baidu/searchbox/live/model/net/MixNetwork;");
+                return;
+            }
+        }
+        $$delegatedProperties = new KProperty[]{Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(MixNetwork.class), "handler", "getHandler()Landroid/os/Handler;"))};
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public final Handler getHandler() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+            Lazy lazy = this.handler$delegate;
+            KProperty kProperty = $$delegatedProperties[0];
+            return (Handler) lazy.getValue();
+        }
+        return (Handler) invokeV.objValue;
+    }
+
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000,\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\t\b\u0086\b\u0018\u0000*\u0004\b\u0000\u0010\u0001B\u0019\u0012\u0006\u0010\u0007\u001a\u00020\u0002\u0012\b\u0010\b\u001a\u0004\u0018\u00018\u0000¢\u0006\u0004\b\u001a\u0010\u001bJ\u0010\u0010\u0003\u001a\u00020\u0002HÆ\u0003¢\u0006\u0004\b\u0003\u0010\u0004J\u0012\u0010\u0005\u001a\u0004\u0018\u00018\u0000HÆ\u0003¢\u0006\u0004\b\u0005\u0010\u0006J,\u0010\t\u001a\b\u0012\u0004\u0012\u00028\u00000\u00002\b\b\u0002\u0010\u0007\u001a\u00020\u00022\n\b\u0002\u0010\b\u001a\u0004\u0018\u00018\u0000HÆ\u0001¢\u0006\u0004\b\t\u0010\nJ\u001a\u0010\u000e\u001a\u00020\r2\b\u0010\f\u001a\u0004\u0018\u00010\u000bHÖ\u0003¢\u0006\u0004\b\u000e\u0010\u000fJ\u0010\u0010\u0011\u001a\u00020\u0010HÖ\u0001¢\u0006\u0004\b\u0011\u0010\u0012J\u0010\u0010\u0014\u001a\u00020\u0013HÖ\u0001¢\u0006\u0004\b\u0014\u0010\u0015R\u001b\u0010\b\u001a\u0004\u0018\u00018\u00008\u0006@\u0006¢\u0006\f\n\u0004\b\b\u0010\u0016\u001a\u0004\b\u0017\u0010\u0006R\u0019\u0010\u0007\u001a\u00020\u00028\u0006@\u0006¢\u0006\f\n\u0004\b\u0007\u0010\u0018\u001a\u0004\b\u0019\u0010\u0004¨\u0006\u001c"}, d2 = {"Lcom/baidu/searchbox/live/model/net/MixNetwork$Response;", ExifInterface.GPS_DIRECTION_TRUE, "Lcom/baidu/searchbox/live/interfaces/net/NetResponse;", "component1", "()Lcom/baidu/searchbox/live/interfaces/net/NetResponse;", "component2", "()Ljava/lang/Object;", "response", "data", "copy", "(Lcom/baidu/searchbox/live/interfaces/net/NetResponse;Ljava/lang/Object;)Lcom/baidu/searchbox/live/model/net/MixNetwork$Response;", "", ImageViewerConfig.FROM_OTHER, "", "equals", "(Ljava/lang/Object;)Z", "", TTDownloadField.TT_HASHCODE, "()I", "", "toString", "()Ljava/lang/String;", "Ljava/lang/Object;", "getData", "Lcom/baidu/searchbox/live/interfaces/net/NetResponse;", "getResponse", "<init>", "(Lcom/baidu/searchbox/live/interfaces/net/NetResponse;Ljava/lang/Object;)V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public static final class Response<T> {
+    public final class Response {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final T data;
+        public final Object data;
         public final NetResponse response;
 
-        public Response(NetResponse netResponse, T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {netResponse, t};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.response = netResponse;
-            this.data = t;
-        }
-
-        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.searchbox.live.model.net.MixNetwork$Response */
-        /* JADX WARN: Multi-variable type inference failed */
         public static /* synthetic */ Response copy$default(Response response, NetResponse netResponse, Object obj, int i, Object obj2) {
             if ((i & 1) != 0) {
                 netResponse = response.response;
@@ -97,16 +105,16 @@ public final class MixNetwork {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.response : (NetResponse) invokeV.objValue;
         }
 
-        public final T component2() {
+        public final Object component2() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.data : (T) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.data : invokeV.objValue;
         }
 
-        public final Response<T> copy(NetResponse netResponse, T t) {
+        public final Response copy(NetResponse netResponse, Object obj) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, netResponse, t)) == null) ? new Response<>(netResponse, t) : (Response) invokeLL.objValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, netResponse, obj)) == null) ? new Response(netResponse, obj) : (Response) invokeLL.objValue;
         }
 
         public boolean equals(Object obj) {
@@ -125,26 +133,14 @@ public final class MixNetwork {
             return invokeL.booleanValue;
         }
 
-        public final T getData() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.data : (T) invokeV.objValue;
-        }
-
-        public final NetResponse getResponse() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.response : (NetResponse) invokeV.objValue;
-        }
-
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
                 NetResponse netResponse = this.response;
                 int hashCode = (netResponse != null ? netResponse.hashCode() : 0) * 31;
-                T t = this.data;
-                return hashCode + (t != null ? t.hashCode() : 0);
+                Object obj = this.data;
+                return hashCode + (obj != null ? obj.hashCode() : 0);
             }
             return invokeV.intValue;
         }
@@ -157,25 +153,47 @@ public final class MixNetwork {
             }
             return (String) invokeV.objValue;
         }
-    }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(796391272, "Lcom/baidu/searchbox/live/model/net/MixNetwork;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        public Response(NetResponse netResponse, Object obj) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {netResponse, obj};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(796391272, "Lcom/baidu/searchbox/live/model/net/MixNetwork;");
-                return;
-            }
+            this.response = netResponse;
+            this.data = obj;
         }
-        $$delegatedProperties = new KProperty[]{Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(MixNetwork.class), "handler", "getHandler()Landroid/os/Handler;"))};
+
+        public final Object getData() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.data;
+            }
+            return invokeV.objValue;
+        }
+
+        public final NetResponse getResponse() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.response;
+            }
+            return (NetResponse) invokeV.objValue;
+        }
     }
 
     public MixNetwork() {
+        INetWork iNetWork;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -190,20 +208,185 @@ public final class MixNetwork {
         }
         this.handler$delegate = LazyKt__LazyJVMKt.lazy(MixNetwork$handler$2.INSTANCE);
         NetworkAgentService networkAgentService = (NetworkAgentService) ServiceManager.getService(NetworkAgentService.SERVICE_REFERENCE);
-        this.netImpl = networkAgentService != null ? networkAgentService.buildNetworkInstance() : null;
+        if (networkAgentService != null) {
+            iNetWork = networkAgentService.buildNetworkInstance();
+        } else {
+            iNetWork = null;
+        }
+        this.netImpl = iNetWork;
         this.ubc = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public final Handler getHandler() {
-        InterceptResult invokeV;
+    public final void setConnectTimeout(int i) {
+        INetWork iNetWork;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            Lazy lazy = this.handler$delegate;
-            KProperty kProperty = $$delegatedProperties[0];
-            return (Handler) lazy.getValue();
+        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (iNetWork = this.netImpl) != null) {
+            iNetWork.setConnectTimeout(i);
         }
-        return (Handler) invokeV.objValue;
+    }
+
+    public final void setExtra(Map map) {
+        INetWork iNetWork;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, map) == null) && (iNetWork = this.netImpl) != null) {
+            iNetWork.setExtra(map);
+        }
+    }
+
+    public final void setHeaderData(HashMap hashMap) {
+        INetWork iNetWork;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048586, this, hashMap) == null) && (iNetWork = this.netImpl) != null) {
+            iNetWork.setHeaderData(hashMap);
+        }
+    }
+
+    public final void setReadTimeout(int i) {
+        INetWork iNetWork;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048587, this, i) == null) && (iNetWork = this.netImpl) != null) {
+            iNetWork.setReadTimeout(i);
+        }
+    }
+
+    public final void setRetryCount(int i) {
+        INetWork iNetWork;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048588, this, i) == null) && (iNetWork = this.netImpl) != null) {
+            iNetWork.setRetryCount(i);
+        }
+    }
+
+    public final void setUrl(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            this.url = str;
+            INetWork iNetWork = this.netImpl;
+            if (iNetWork != null) {
+                iNetWork.setUrl(str);
+            }
+        }
+    }
+
+    public final void get(final Map map, final MixNetCallback mixNetCallback) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, map, mixNetCallback) == null) && (str = this.url) != null && (!StringsKt__StringsJVMKt.isBlank(str)) && this.netImpl != null) {
+            MiniElasticExecutor.INSTANCE.execute(new Runnable(this, map, mixNetCallback) { // from class: com.baidu.searchbox.live.model.net.MixNetwork$get$1
+                public static /* synthetic */ Interceptable $ic;
+                public final /* synthetic */ MixNetCallback $callback;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ Map $params;
+                public final /* synthetic */ MixNetwork this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, map, mixNetCallback};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.$params = map;
+                    this.$callback = mixNetCallback;
+                }
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    INetWork iNetWork;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        NetStatData netStatData = new NetStatData();
+                        netStatData.requestTimestamp = System.currentTimeMillis();
+                        iNetWork = this.this$0.netImpl;
+                        if (iNetWork == null) {
+                            Intrinsics.throwNpe();
+                        }
+                        NetResponse res = iNetWork.getSync(this.$params);
+                        netStatData.responseTimestamp = System.currentTimeMillis();
+                        res.statData = netStatData;
+                        Object obj = null;
+                        try {
+                            MixNetCallback mixNetCallback2 = this.$callback;
+                            if (mixNetCallback2 != null) {
+                                obj = mixNetCallback2.onParseResponseInBackground(res);
+                            }
+                        } catch (Exception unused) {
+                        }
+                        Intrinsics.checkExpressionValueIsNotNull(res, "res");
+                        MiniUiThreadUtil.INSTANCE.runOnUiThread(new Runnable(this, new MixNetwork.Response(res, obj), res) { // from class: com.baidu.searchbox.live.model.net.MixNetwork$get$1.1
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+                            public final /* synthetic */ MixNetwork.Response $it;
+                            public final /* synthetic */ NetResponse $res;
+                            public final /* synthetic */ MixNetwork$get$1 this$0;
+
+                            {
+                                Interceptable interceptable3 = $ic;
+                                if (interceptable3 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {this, r7, res};
+                                    interceptable3.invokeUnInit(65536, newInitContext);
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable3.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.this$0 = this;
+                                this.$it = r7;
+                                this.$res = res;
+                            }
+
+                            @Override // java.lang.Runnable
+                            public final void run() {
+                                NetResponse netResponse;
+                                Interceptable interceptable3 = $ic;
+                                if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                    MixNetCallback mixNetCallback3 = this.this$0.$callback;
+                                    if (mixNetCallback3 != null) {
+                                        MixNetwork.Response response = this.$it;
+                                        Object obj2 = null;
+                                        if (response != null) {
+                                            netResponse = response.getResponse();
+                                        } else {
+                                            netResponse = null;
+                                        }
+                                        MixNetwork.Response response2 = this.$it;
+                                        if (response2 != null) {
+                                            obj2 = response2.getData();
+                                        }
+                                        mixNetCallback3.onNetResponse(netResponse, obj2);
+                                    }
+                                    MixNetwork mixNetwork = this.this$0.this$0;
+                                    NetResponse res2 = this.$res;
+                                    Intrinsics.checkExpressionValueIsNotNull(res2, "res");
+                                    mixNetwork.sendUbcByReqFailed(res2);
+                                }
+                            }
+                        });
+                    }
+                }
+            });
+        }
+    }
+
+    public final void post(Map map, MixNetCallback mixNetCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, map, mixNetCallback) == null) {
+            post(map, mixNetCallback, false);
+        }
     }
 
     public static /* synthetic */ void post$default(MixNetwork mixNetwork, Map map, MixNetCallback mixNetCallback, boolean z, int i, Object obj) {
@@ -216,10 +399,17 @@ public final class MixNetwork {
     public final void cancel() {
         INetWork iNetWork;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (iNetWork = this.netImpl) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (iNetWork = this.netImpl) != null) {
+            iNetWork.cancel();
         }
-        iNetWork.cancel();
+    }
+
+    public final void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            cancel();
+            getHandler().removeCallbacksAndMessages(null);
+        }
     }
 
     public final void download(final Object obj, String str, final MixNetDownloadCallback mixNetDownloadCallback) {
@@ -258,10 +448,9 @@ public final class MixNetwork {
                     public final void run() {
                         MixNetDownloadCallback mixNetDownloadCallback2;
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (mixNetDownloadCallback2 = this.$callback) == null) {
-                            return;
+                        if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && (mixNetDownloadCallback2 = this.$callback) != null) {
+                            mixNetDownloadCallback2.onFileDownloaded(this.$key, -1, -1, "env error");
                         }
-                        mixNetDownloadCallback2.onFileDownloaded(this.$key, -1, -1, "env error");
                     }
                 });
             }
@@ -311,10 +500,9 @@ public final class MixNetwork {
                     public final void run() {
                         MixNetDownloadCallback mixNetDownloadCallback2;
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (mixNetDownloadCallback2 = this.$callback) == null) {
-                            return;
+                        if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && (mixNetDownloadCallback2 = this.$callback) != null) {
+                            mixNetDownloadCallback2.onFileDownloaded(this.$key, -1, -1, "env error 1");
                         }
-                        mixNetDownloadCallback2.onFileDownloaded(this.$key, -1, -1, "env error 1");
                     }
                 });
             } else if (!(!StringsKt__StringsJVMKt.isBlank(str))) {
@@ -347,10 +535,9 @@ public final class MixNetwork {
                     public final void run() {
                         MixNetDownloadCallback mixNetDownloadCallback2;
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (mixNetDownloadCallback2 = this.$callback) == null) {
-                            return;
+                        if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && (mixNetDownloadCallback2 = this.$callback) != null) {
+                            mixNetDownloadCallback2.onFileDownloaded(this.$key, -1, -1, "env error 2");
                         }
-                        mixNetDownloadCallback2.onFileDownloaded(this.$key, -1, -1, "env error 2");
                     }
                 });
             } else if (this.netImpl == null) {
@@ -383,10 +570,9 @@ public final class MixNetwork {
                     public final void run() {
                         MixNetDownloadCallback mixNetDownloadCallback2;
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (mixNetDownloadCallback2 = this.$callback) == null) {
-                            return;
+                        if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && (mixNetDownloadCallback2 = this.$callback) != null) {
+                            mixNetDownloadCallback2.onFileDownloaded(this.$key, -1, -1, "env error 3");
                         }
-                        mixNetDownloadCallback2.onFileDownloaded(this.$key, -1, -1, "env error 3");
                     }
                 });
             } else {
@@ -419,134 +605,128 @@ public final class MixNetwork {
                     public final void run() {
                         MixNetDownloadCallback mixNetDownloadCallback2;
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (mixNetDownloadCallback2 = this.$callback) == null) {
-                            return;
+                        if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && (mixNetDownloadCallback2 = this.$callback) != null) {
+                            mixNetDownloadCallback2.onFileDownloaded(this.$key, -1, -1, "env error");
                         }
-                        mixNetDownloadCallback2.onFileDownloaded(this.$key, -1, -1, "env error");
                     }
                 });
             }
         }
     }
 
-    public final <ResponseDataT> void get(final Map<String, ? extends Object> map, final MixNetCallback<ResponseDataT> mixNetCallback) {
+    public final void post(final Map map, final MixNetCallback mixNetCallback, final boolean z) {
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, map, mixNetCallback) == null) || (str = this.url) == null || !(!StringsKt__StringsJVMKt.isBlank(str)) || this.netImpl == null) {
-            return;
-        }
-        MiniElasticExecutor.INSTANCE.execute(new Runnable(this, map, mixNetCallback) { // from class: com.baidu.searchbox.live.model.net.MixNetwork$get$1
-            public static /* synthetic */ Interceptable $ic;
-            public final /* synthetic */ MixNetCallback $callback;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Map $params;
-            public final /* synthetic */ MixNetwork this$0;
+        if ((interceptable == null || interceptable.invokeLLZ(1048581, this, map, mixNetCallback, z) == null) && (str = this.url) != null && (!StringsKt__StringsJVMKt.isBlank(str)) && this.netImpl != null) {
+            MiniElasticExecutor.INSTANCE.execute(new Runnable(this, map, mixNetCallback, z) { // from class: com.baidu.searchbox.live.model.net.MixNetwork$post$1
+                public static /* synthetic */ Interceptable $ic;
+                public final /* synthetic */ MixNetCallback $callback;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ Map $params;
+                public final /* synthetic */ boolean $postImmediate;
+                public final /* synthetic */ MixNetwork this$0;
 
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, map, mixNetCallback};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-                this.$params = map;
-                this.$callback = mixNetCallback;
-            }
-
-            @Override // java.lang.Runnable
-            public final void run() {
-                INetWork iNetWork;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    NetStatData netStatData = new NetStatData();
-                    netStatData.requestTimestamp = System.currentTimeMillis();
-                    iNetWork = this.this$0.netImpl;
-                    if (iNetWork == null) {
-                        Intrinsics.throwNpe();
-                    }
-                    NetResponse res = iNetWork.getSync(this.$params);
-                    netStatData.responseTimestamp = System.currentTimeMillis();
-                    res.statData = netStatData;
-                    Object obj = null;
-                    try {
-                        MixNetCallback mixNetCallback2 = this.$callback;
-                        if (mixNetCallback2 != null) {
-                            obj = mixNetCallback2.onParseResponseInBackground(res);
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, map, mixNetCallback, Boolean.valueOf(z)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
                         }
-                    } catch (Exception unused) {
                     }
-                    Intrinsics.checkExpressionValueIsNotNull(res, "res");
-                    MiniUiThreadUtil.INSTANCE.runOnUiThread(new Runnable(this, new MixNetwork.Response(res, obj), res) { // from class: com.baidu.searchbox.live.model.net.MixNetwork$get$1.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ MixNetwork.Response $it;
-                        public final /* synthetic */ NetResponse $res;
-                        public final /* synthetic */ MixNetwork$get$1 this$0;
+                    this.this$0 = this;
+                    this.$params = map;
+                    this.$callback = mixNetCallback;
+                    this.$postImmediate = z;
+                }
 
-                        {
-                            Interceptable interceptable3 = $ic;
-                            if (interceptable3 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, r7, res};
-                                interceptable3.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable3.invokeInitBody(65536, newInitContext);
-                                    return;
+                @Override // java.lang.Runnable
+                public final void run() {
+                    INetWork iNetWork;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        NetStatData netStatData = new NetStatData();
+                        netStatData.requestTimestamp = System.currentTimeMillis();
+                        iNetWork = this.this$0.netImpl;
+                        if (iNetWork == null) {
+                            Intrinsics.throwNpe();
+                        }
+                        NetResponse res = iNetWork.postSync(this.$params);
+                        netStatData.responseTimestamp = System.currentTimeMillis();
+                        res.statData = netStatData;
+                        Object obj = null;
+                        try {
+                            MixNetCallback mixNetCallback2 = this.$callback;
+                            if (mixNetCallback2 != null) {
+                                obj = mixNetCallback2.onParseResponseInBackground(res);
+                            }
+                        } catch (Exception unused) {
+                        }
+                        Intrinsics.checkExpressionValueIsNotNull(res, "res");
+                        MiniUiThreadUtil.INSTANCE.runOnUiThread(new Runnable(this, new MixNetwork.Response(res, obj), res) { // from class: com.baidu.searchbox.live.model.net.MixNetwork$post$1.1
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+                            public final /* synthetic */ MixNetwork.Response $it;
+                            public final /* synthetic */ NetResponse $res;
+                            public final /* synthetic */ MixNetwork$post$1 this$0;
+
+                            {
+                                Interceptable interceptable3 = $ic;
+                                if (interceptable3 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {this, r7, res};
+                                    interceptable3.invokeUnInit(65536, newInitContext);
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable3.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.this$0 = this;
+                                this.$it = r7;
+                                this.$res = res;
+                            }
+
+                            @Override // java.lang.Runnable
+                            public final void run() {
+                                NetResponse netResponse;
+                                Interceptable interceptable3 = $ic;
+                                if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                    MixNetCallback mixNetCallback3 = this.this$0.$callback;
+                                    if (mixNetCallback3 != null) {
+                                        MixNetwork.Response response = this.$it;
+                                        Object obj2 = null;
+                                        if (response != null) {
+                                            netResponse = response.getResponse();
+                                        } else {
+                                            netResponse = null;
+                                        }
+                                        MixNetwork.Response response2 = this.$it;
+                                        if (response2 != null) {
+                                            obj2 = response2.getData();
+                                        }
+                                        mixNetCallback3.onNetResponse(netResponse, obj2);
+                                    }
+                                    MixNetwork mixNetwork = this.this$0.this$0;
+                                    NetResponse res2 = this.$res;
+                                    Intrinsics.checkExpressionValueIsNotNull(res2, "res");
+                                    mixNetwork.sendUbcByReqFailed(res2);
                                 }
                             }
-                            this.this$0 = this;
-                            this.$it = r7;
-                            this.$res = res;
-                        }
-
-                        @Override // java.lang.Runnable
-                        public final void run() {
-                            Interceptable interceptable3 = $ic;
-                            if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                MixNetCallback mixNetCallback3 = this.this$0.$callback;
-                                if (mixNetCallback3 != null) {
-                                    MixNetwork.Response response = this.$it;
-                                    NetResponse response2 = response != null ? response.getResponse() : null;
-                                    MixNetwork.Response response3 = this.$it;
-                                    mixNetCallback3.onNetResponse(response2, response3 != null ? response3.getData() : null);
-                                }
-                                MixNetwork mixNetwork = this.this$0.this$0;
-                                NetResponse res2 = this.$res;
-                                Intrinsics.checkExpressionValueIsNotNull(res2, "res");
-                                mixNetwork.sendUbcByReqFailed(res2);
-                            }
-                        }
-                    });
+                        }, this.$postImmediate);
+                    }
                 }
-            }
-        });
-    }
-
-    public final <ResponseDataT> void post(Map<String, ? extends Object> map, MixNetCallback<ResponseDataT> mixNetCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, map, mixNetCallback) == null) {
-            post(map, mixNetCallback, false);
-        }
-    }
-
-    public final void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            cancel();
-            getHandler().removeCallbacksAndMessages(null);
+            });
         }
     }
 
@@ -578,12 +758,12 @@ public final class MixNetwork {
                     JSONObject optJSONObject = jSONObject.optJSONObject("error");
                     i = optJSONObject.optInt("errno");
                     str = optJSONObject.optString("errmsg");
-                } else if (jSONObject.has("errno") && jSONObject.has("errmsg")) {
-                    i = jSONObject.optInt("errno");
-                    str = jSONObject.optString("errmsg");
-                } else {
+                } else if (!jSONObject.has("errno") || !jSONObject.has("errmsg")) {
                     str = "";
                     i = 0;
+                } else {
+                    i = jSONObject.optInt("errno");
+                    str = jSONObject.optString("errmsg");
                 }
                 String optString = jSONObject.optString("logid");
                 JSONObject jSONObject2 = new JSONObject();
@@ -644,169 +824,5 @@ public final class MixNetwork {
                 e.printStackTrace();
             }
         }
-    }
-
-    public final void setConnectTimeout(int i) {
-        INetWork iNetWork;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) || (iNetWork = this.netImpl) == null) {
-            return;
-        }
-        iNetWork.setConnectTimeout(i);
-    }
-
-    public final void setExtra(Map<String, ? extends Object> map) {
-        INetWork iNetWork;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, map) == null) || (iNetWork = this.netImpl) == null) {
-            return;
-        }
-        iNetWork.setExtra(map);
-    }
-
-    public final void setHeaderData(HashMap<String, String> hashMap) {
-        INetWork iNetWork;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, hashMap) == null) || (iNetWork = this.netImpl) == null) {
-            return;
-        }
-        iNetWork.setHeaderData(hashMap);
-    }
-
-    public final void setReadTimeout(int i) {
-        INetWork iNetWork;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048587, this, i) == null) || (iNetWork = this.netImpl) == null) {
-            return;
-        }
-        iNetWork.setReadTimeout(i);
-    }
-
-    public final void setRetryCount(int i) {
-        INetWork iNetWork;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048588, this, i) == null) || (iNetWork = this.netImpl) == null) {
-            return;
-        }
-        iNetWork.setRetryCount(i);
-    }
-
-    public final void setUrl(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.url = str;
-            INetWork iNetWork = this.netImpl;
-            if (iNetWork != null) {
-                iNetWork.setUrl(str);
-            }
-        }
-    }
-
-    public final <ResponseDataT> void post(final Map<String, ? extends Object> map, final MixNetCallback<ResponseDataT> mixNetCallback, final boolean z) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(1048581, this, map, mixNetCallback, z) == null) || (str = this.url) == null || !(!StringsKt__StringsJVMKt.isBlank(str)) || this.netImpl == null) {
-            return;
-        }
-        MiniElasticExecutor.INSTANCE.execute(new Runnable(this, map, mixNetCallback, z) { // from class: com.baidu.searchbox.live.model.net.MixNetwork$post$1
-            public static /* synthetic */ Interceptable $ic;
-            public final /* synthetic */ MixNetCallback $callback;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Map $params;
-            public final /* synthetic */ boolean $postImmediate;
-            public final /* synthetic */ MixNetwork this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, map, mixNetCallback, Boolean.valueOf(z)};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-                this.$params = map;
-                this.$callback = mixNetCallback;
-                this.$postImmediate = z;
-            }
-
-            @Override // java.lang.Runnable
-            public final void run() {
-                INetWork iNetWork;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    NetStatData netStatData = new NetStatData();
-                    netStatData.requestTimestamp = System.currentTimeMillis();
-                    iNetWork = this.this$0.netImpl;
-                    if (iNetWork == null) {
-                        Intrinsics.throwNpe();
-                    }
-                    NetResponse res = iNetWork.postSync(this.$params);
-                    netStatData.responseTimestamp = System.currentTimeMillis();
-                    res.statData = netStatData;
-                    Object obj = null;
-                    try {
-                        MixNetCallback mixNetCallback2 = this.$callback;
-                        if (mixNetCallback2 != null) {
-                            obj = mixNetCallback2.onParseResponseInBackground(res);
-                        }
-                    } catch (Exception unused) {
-                    }
-                    Intrinsics.checkExpressionValueIsNotNull(res, "res");
-                    MiniUiThreadUtil.INSTANCE.runOnUiThread(new Runnable(this, new MixNetwork.Response(res, obj), res) { // from class: com.baidu.searchbox.live.model.net.MixNetwork$post$1.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ MixNetwork.Response $it;
-                        public final /* synthetic */ NetResponse $res;
-                        public final /* synthetic */ MixNetwork$post$1 this$0;
-
-                        {
-                            Interceptable interceptable3 = $ic;
-                            if (interceptable3 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, r7, res};
-                                interceptable3.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable3.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                            this.$it = r7;
-                            this.$res = res;
-                        }
-
-                        @Override // java.lang.Runnable
-                        public final void run() {
-                            Interceptable interceptable3 = $ic;
-                            if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                MixNetCallback mixNetCallback3 = this.this$0.$callback;
-                                if (mixNetCallback3 != null) {
-                                    MixNetwork.Response response = this.$it;
-                                    NetResponse response2 = response != null ? response.getResponse() : null;
-                                    MixNetwork.Response response3 = this.$it;
-                                    mixNetCallback3.onNetResponse(response2, response3 != null ? response3.getData() : null);
-                                }
-                                MixNetwork mixNetwork = this.this$0.this$0;
-                                NetResponse res2 = this.$res;
-                                Intrinsics.checkExpressionValueIsNotNull(res2, "res");
-                                mixNetwork.sendUbcByReqFailed(res2);
-                            }
-                        }
-                    }, this.$postImmediate);
-                }
-            }
-        });
     }
 }

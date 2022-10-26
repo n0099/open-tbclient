@@ -27,7 +27,7 @@ public class NetworkParam {
     public static final String NET_TYPE_ID_DISCONNECT = "5_0";
     public static String TAG = null;
     public static final int UNKOWN_NET_TYPE = 5;
-    public static HashMap<String, Integer> netType2Id;
+    public static HashMap netType2Id;
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
 
@@ -46,7 +46,7 @@ public class NetworkParam {
         }
         DEBUG = AppConfig.isDebug();
         TAG = "networkparam";
-        HashMap<String, Integer> hashMap = new HashMap<>();
+        HashMap hashMap = new HashMap();
         netType2Id = hashMap;
         hashMap.put("WIFI", 1);
         netType2Id.put("3GNET", 21);
@@ -57,6 +57,39 @@ public class NetworkParam {
         netType2Id.put("CMWAP", 41);
         netType2Id.put("UNIWAP", 42);
         netType2Id.put("CTWAP", 43);
+    }
+
+    public String getCurrentNetTypeId() {
+        InterceptResult invokeV;
+        long j;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (DEBUG) {
+                j = SystemClock.uptimeMillis();
+            } else {
+                j = 0;
+            }
+            ConnectManager connectManager = new ConnectManager(this.mContext);
+            String netType = connectManager.getNetType();
+            int subType = connectManager.getSubType();
+            if (!TextUtils.isEmpty(netType)) {
+                netType = netType.toUpperCase();
+                int i = (Integer) netType2Id.get(netType);
+                if (i == null) {
+                    i = 5;
+                }
+                str = i + "_" + subType;
+            } else {
+                str = ((Object) 5) + "_" + subType;
+            }
+            if (DEBUG) {
+                long uptimeMillis = SystemClock.uptimeMillis();
+                Log.i(TAG, "getCurrentNetTypeId cost " + (uptimeMillis - j) + "ms, current net type: " + netType + ", type id: " + str + ", subtype id: " + subType + ", subtype name: " + connectManager.getSubTypeName());
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
     }
 
     public NetworkParam() {
@@ -84,46 +117,18 @@ public class NetworkParam {
                 if (TextUtils.equals(currentNetTypeId, NET_TYPE_ID_DISCONNECT)) {
                     return UrlUtil.addParam(str, "network", PreferenceManager.getDefaultSharedPreferences(this.mContext.getApplicationContext()).getString(LAST_NETWORK_TYPE, NET_TYPE_ID_DISCONNECT));
                 }
-                if (TextUtils.isEmpty(currentNetTypeId)) {
-                    return str;
+                if (!TextUtils.isEmpty(currentNetTypeId)) {
+                    if (!TextUtils.equals(currentNetTypeId, NET_TYPE_ID_DISCONNECT)) {
+                        SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this.mContext.getApplicationContext()).edit();
+                        edit.putString(LAST_NETWORK_TYPE, currentNetTypeId);
+                        edit.apply();
+                    }
+                    return UrlUtil.addParam(str, "network", currentNetTypeId);
                 }
-                if (!TextUtils.equals(currentNetTypeId, NET_TYPE_ID_DISCONNECT)) {
-                    SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this.mContext.getApplicationContext()).edit();
-                    edit.putString(LAST_NETWORK_TYPE, currentNetTypeId);
-                    edit.apply();
-                }
-                return UrlUtil.addParam(str, "network", currentNetTypeId);
+                return str;
             }
             return UrlUtil.addParam(str, "network", getCurrentNetTypeId());
         }
         return (String) invokeLZ.objValue;
-    }
-
-    public String getCurrentNetTypeId() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long uptimeMillis = DEBUG ? SystemClock.uptimeMillis() : 0L;
-            ConnectManager connectManager = new ConnectManager(this.mContext);
-            String netType = connectManager.getNetType();
-            int subType = connectManager.getSubType();
-            if (!TextUtils.isEmpty(netType)) {
-                netType = netType.toUpperCase();
-                Integer num = netType2Id.get(netType);
-                if (num == null) {
-                    num = 5;
-                }
-                str = num + "_" + subType;
-            } else {
-                str = ((Object) 5) + "_" + subType;
-            }
-            if (DEBUG) {
-                long uptimeMillis2 = SystemClock.uptimeMillis();
-                Log.i(TAG, "getCurrentNetTypeId cost " + (uptimeMillis2 - uptimeMillis) + "ms, current net type: " + netType + ", type id: " + str + ", subtype id: " + subType + ", subtype name: " + connectManager.getSubTypeName());
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
     }
 }

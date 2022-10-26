@@ -1,48 +1,40 @@
 package com.airbnb.lottie.value;
 
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation;
 /* loaded from: classes.dex */
-public class LottieValueCallback<T> {
-    @Nullable
-    public BaseKeyframeAnimation<?, ?> animation;
-    public final LottieFrameInfo<T> frameInfo;
-    @Nullable
-    public T value;
+public class LottieValueCallback {
+    public BaseKeyframeAnimation animation;
+    public final LottieFrameInfo frameInfo;
+    public Object value;
 
     public LottieValueCallback() {
-        this.frameInfo = new LottieFrameInfo<>();
+        this.frameInfo = new LottieFrameInfo();
         this.value = null;
     }
 
-    @Nullable
-    public T getValue(LottieFrameInfo<T> lottieFrameInfo) {
+    public LottieValueCallback(Object obj) {
+        this.frameInfo = new LottieFrameInfo();
+        this.value = null;
+        this.value = obj;
+    }
+
+    public Object getValue(LottieFrameInfo lottieFrameInfo) {
         return this.value;
     }
 
-    @Nullable
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public final T getValueInternal(float f, float f2, T t, T t2, float f3, float f4, float f5) {
-        return getValue(this.frameInfo.set(f, f2, t, t2, f3, f4, f5));
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public final void setAnimation(@Nullable BaseKeyframeAnimation<?, ?> baseKeyframeAnimation) {
+    public final void setAnimation(BaseKeyframeAnimation baseKeyframeAnimation) {
         this.animation = baseKeyframeAnimation;
     }
 
-    public final void setValue(@Nullable T t) {
-        this.value = t;
-        BaseKeyframeAnimation<?, ?> baseKeyframeAnimation = this.animation;
+    public final void setValue(Object obj) {
+        this.value = obj;
+        BaseKeyframeAnimation baseKeyframeAnimation = this.animation;
         if (baseKeyframeAnimation != null) {
             baseKeyframeAnimation.notifyListeners();
         }
     }
 
-    public LottieValueCallback(@Nullable T t) {
-        this.frameInfo = new LottieFrameInfo<>();
-        this.value = null;
-        this.value = t;
+    public final Object getValueInternal(float f, float f2, Object obj, Object obj2, float f3, float f4, float f5) {
+        return getValue(this.frameInfo.set(f, f2, obj, obj2, f3, f4, f5));
     }
 }

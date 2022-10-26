@@ -31,18 +31,11 @@ public class BIMRtcTrackManager {
         }
     }
 
-    public static void clearRtcTrack(Context context, BIMRtcPbGenerator bIMRtcPbGenerator) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, context, bIMRtcPbGenerator) == null) {
-            bIMRtcPbGenerator.clearRtcActions(context);
-        }
-    }
-
     public static void requestRtcUpload(Context context) {
         BIMRtcPbGenerator bIMRtcPbGenerator;
         byte[] generateRtcClient;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) || (generateRtcClient = (bIMRtcPbGenerator = new BIMRtcPbGenerator()).generateRtcClient(context)) == null) {
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) != null) || (generateRtcClient = (bIMRtcPbGenerator = new BIMRtcPbGenerator()).generateRtcClient(context)) == null) {
             return;
         }
         IMPushUploadManager.getInstance(context).requestUpload(null, generateRtcClient, "", new IMPushUploadResponseListener(context, bIMRtcPbGenerator) { // from class: com.baidu.android.imrtc.upload.BIMRtcTrackManager.2
@@ -75,9 +68,10 @@ public class BIMRtcTrackManager {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str) == null) {
                     LogUtils.d(BIMRtcTrackManager.TAG, "requestRtcUpload response :" + i + ", msg :" + str);
-                    if (i == 0) {
-                        BIMRtcTrackManager.clearRtcTrack(this.val$context, this.val$action);
+                    if (i != 0) {
+                        return;
                     }
+                    BIMRtcTrackManager.clearRtcTrack(this.val$context, this.val$action);
                 }
             }
         });
@@ -117,6 +111,13 @@ public class BIMRtcTrackManager {
                     }
                 }
             });
+        }
+    }
+
+    public static void clearRtcTrack(Context context, BIMRtcPbGenerator bIMRtcPbGenerator) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, context, bIMRtcPbGenerator) == null) {
+            bIMRtcPbGenerator.clearRtcActions(context);
         }
     }
 }

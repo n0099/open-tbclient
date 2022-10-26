@@ -38,6 +38,23 @@ public class ActionMessageFormat0SampleEntryBox extends AbstractSampleEntry {
         }
     }
 
+    @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
+    public long getSize() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            long containerSize = getContainerSize() + 8;
+            if (!this.largeBox && containerSize < 4294967296L) {
+                i = 8;
+            } else {
+                i = 16;
+            }
+            return containerSize + i;
+        }
+        return invokeV.longValue;
+    }
+
     @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
     public void getBox(WritableByteChannel writableByteChannel) throws IOException {
         Interceptable interceptable = $ic;
@@ -49,17 +66,6 @@ public class ActionMessageFormat0SampleEntryBox extends AbstractSampleEntry {
             writableByteChannel.write((ByteBuffer) allocate.rewind());
             writeContainer(writableByteChannel);
         }
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
-    public long getSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long containerSize = getContainerSize() + 8;
-            return containerSize + ((this.largeBox || containerSize >= 4294967296L) ? 16 : 8);
-        }
-        return invokeV.longValue;
     }
 
     @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box

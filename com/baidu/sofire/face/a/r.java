@@ -32,25 +32,26 @@ public class r implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                this.a.E = false;
-                Camera camera = this.a.x;
-                if (camera != null) {
-                    if (com.baidu.sofire.face.d.c.f) {
-                        try {
-                            camera.lock();
-                        } catch (Throwable unused) {
-                        }
+        if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+            return;
+        }
+        try {
+            this.a.E = false;
+            Camera camera = this.a.x;
+            if (camera != null) {
+                if (com.baidu.sofire.face.d.c.f) {
+                    try {
+                        camera.lock();
+                    } catch (Throwable unused) {
                     }
-                    this.a.x.setErrorCallback(null);
-                    this.a.x.setPreviewCallback(null);
-                    this.a.x.stopPreview();
-                    a.a(this.a.x);
-                    this.a.x = null;
                 }
-            } catch (Throwable unused2) {
+                this.a.x.setErrorCallback(null);
+                this.a.x.setPreviewCallback(null);
+                this.a.x.stopPreview();
+                a.a(this.a.x);
+                this.a.x = null;
             }
+        } catch (Throwable unused2) {
         }
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelReader;
 /* loaded from: classes7.dex */
-public final class zzb implements Parcelable.Creator<ConnectionResult> {
+public final class zzb implements Parcelable.Creator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,9 +27,8 @@ public final class zzb implements Parcelable.Creator<ConnectionResult> {
         }
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // android.os.Parcelable.Creator
-    public final /* bridge */ /* synthetic */ ConnectionResult createFromParcel(Parcel parcel) {
+    public final /* bridge */ /* synthetic */ Object createFromParcel(Parcel parcel) {
         int validateObjectHeader = SafeParcelReader.validateObjectHeader(parcel);
         PendingIntent pendingIntent = null;
         String str = null;
@@ -38,25 +37,30 @@ public final class zzb implements Parcelable.Creator<ConnectionResult> {
         while (parcel.dataPosition() < validateObjectHeader) {
             int readHeader = SafeParcelReader.readHeader(parcel);
             int fieldId = SafeParcelReader.getFieldId(readHeader);
-            if (fieldId == 1) {
-                i = SafeParcelReader.readInt(parcel, readHeader);
-            } else if (fieldId == 2) {
-                i2 = SafeParcelReader.readInt(parcel, readHeader);
-            } else if (fieldId == 3) {
-                pendingIntent = (PendingIntent) SafeParcelReader.createParcelable(parcel, readHeader, PendingIntent.CREATOR);
-            } else if (fieldId != 4) {
-                SafeParcelReader.skipUnknownField(parcel, readHeader);
+            if (fieldId != 1) {
+                if (fieldId != 2) {
+                    if (fieldId != 3) {
+                        if (fieldId != 4) {
+                            SafeParcelReader.skipUnknownField(parcel, readHeader);
+                        } else {
+                            str = SafeParcelReader.createString(parcel, readHeader);
+                        }
+                    } else {
+                        pendingIntent = (PendingIntent) SafeParcelReader.createParcelable(parcel, readHeader, PendingIntent.CREATOR);
+                    }
+                } else {
+                    i2 = SafeParcelReader.readInt(parcel, readHeader);
+                }
             } else {
-                str = SafeParcelReader.createString(parcel, readHeader);
+                i = SafeParcelReader.readInt(parcel, readHeader);
             }
         }
         SafeParcelReader.ensureAtEnd(parcel, validateObjectHeader);
         return new ConnectionResult(i, i2, pendingIntent, str);
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
     @Override // android.os.Parcelable.Creator
-    public final /* synthetic */ ConnectionResult[] newArray(int i) {
+    public final /* synthetic */ Object[] newArray(int i) {
         return new ConnectionResult[i];
     }
 }

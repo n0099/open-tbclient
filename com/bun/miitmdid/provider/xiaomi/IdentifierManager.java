@@ -1,7 +1,6 @@
 package com.bun.miitmdid.provider.xiaomi;
 
 import android.content.Context;
-import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,21 +9,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
-@Keep
 /* loaded from: classes7.dex */
 public class IdentifierManager {
     public static /* synthetic */ Interceptable $ic;
-    @Keep
-    public static Class<?> sClass;
-    @Keep
+    public static Class sClass;
     public static Method sGetAAID;
-    @Keep
     public static Method sGetOAID;
-    @Keep
     public static Method sGetUDID;
-    @Keep
     public static Method sGetVAID;
-    @Keep
     public static Object sIdProivderImpl;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -68,21 +60,15 @@ public class IdentifierManager {
         }
     }
 
-    @Keep
     public static native String getAAID(Context context);
 
-    @Keep
     public static native String getOAID(Context context);
 
-    @Keep
     public static native String getUDID(Context context);
 
-    @Keep
     public static native String getVAID(Context context);
 
-    @Keep
     public static native String invokeMethod(Context context, Method method);
 
-    @Keep
     public static native boolean isSupported();
 }

@@ -2,8 +2,6 @@ package com.bytedance.pangle.fragment;
 
 import android.app.Application;
 import android.content.Context;
-import androidx.annotation.Keep;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +13,6 @@ import com.bytedance.pangle.Zeus;
 import com.bytedance.pangle.transform.ZeusTransformUtils;
 import com.bytedance.pangle.util.MethodUtils;
 import java.lang.reflect.InvocationTargetException;
-@Keep
 /* loaded from: classes7.dex */
 public class ZeusFragmentV4 extends Fragment {
     public static /* synthetic */ Interceptable $ic;
@@ -39,8 +36,16 @@ public class ZeusFragmentV4 extends Fragment {
         a.a(ZeusFragmentV4.class);
     }
 
+    @Override // androidx.fragment.app.Fragment
+    public void onDetach() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            Zeus.getAppApplication().unregisterActivityLifecycleCallbacks(this.callbacks);
+            super.onDetach();
+        }
+    }
+
     @Override // androidx.fragment.app.Fragment, com.baidu.tieba.h2
-    @Nullable
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -67,15 +72,6 @@ public class ZeusFragmentV4 extends Fragment {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             super.onAttach(context);
             Zeus.getAppApplication().registerActivityLifecycleCallbacks(this.callbacks);
-        }
-    }
-
-    @Override // androidx.fragment.app.Fragment
-    public void onDetach() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Zeus.getAppApplication().unregisterActivityLifecycleCallbacks(this.callbacks);
-            super.onDetach();
         }
     }
 }

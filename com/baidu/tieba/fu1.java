@@ -1,10 +1,9 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
+import android.media.AudioManager;
+import android.util.Pair;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,88 +12,121 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public abstract class fu1 implements hu1 {
+public class fu1 extends st1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public AudioManager f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947776519, "Lcom/baidu/tieba/fu1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947776519, "Lcom/baidu/tieba/fu1;");
-                return;
-            }
-        }
-        a = l33.v;
+    @Override // com.baidu.tieba.pr1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "VolumeApi" : (String) invokeV.objValue;
     }
 
-    public fu1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fu1(nr1 nr1Var) {
+        super(nr1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {nr1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((nr1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.hu1
-    public lv1 a() {
+    public mv1 x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (l33.b0() == null) {
-                if (a) {
-                    Log.d("AbsMenuButtonHandle", "handleBoundsResult swanApp is null");
-                }
-                return d(1001);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            q("#getMediaVolume", false);
+            m33 b0 = m33.b0();
+            if (b0 == null) {
+                return new mv1(1001, "swan app is null");
             }
-            u22 V = yo2.U().V();
-            if (V == null) {
-                if (a) {
-                    Log.d("AbsMenuButtonHandle", "handleBoundsResult fmManager is null");
-                }
-                return d(1001);
+            SwanAppActivity w = b0.w();
+            if (w == null) {
+                m02.c("VolumeApi", "swan activity is null");
+                return new mv1(1001, "swan activity is null");
             }
-            r22 m = V.m();
-            if (m == null) {
-                if (a) {
-                    Log.d("AbsMenuButtonHandle", "handleBoundsResult fragment is null");
-                }
-                return d(1001);
+            if (this.f == null) {
+                this.f = (AudioManager) w.getSystemService("audio");
             }
-            return c(m);
-        }
-        return (lv1) invokeV.objValue;
-    }
-
-    public JSONObject b(int i, int i2, int i3, int i4) throws JSONException {
-        InterceptResult invokeIIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4)) == null) {
+            float streamMaxVolume = this.f.getStreamMaxVolume(3);
+            float streamVolume = this.f.getStreamVolume(3);
             JSONObject jSONObject = new JSONObject();
-            jSONObject.putOpt("width", Integer.valueOf(i3 - i));
-            jSONObject.putOpt("height", Integer.valueOf(i4 - i2));
-            jSONObject.putOpt("left", Integer.valueOf(i));
-            jSONObject.putOpt("right", Integer.valueOf(i3));
-            jSONObject.putOpt("top", Integer.valueOf(i2));
-            jSONObject.putOpt("bottom", Integer.valueOf(i4));
-            return jSONObject;
+            try {
+                jSONObject.put("value", streamVolume / streamMaxVolume);
+                return new mv1(0, jSONObject);
+            } catch (JSONException unused) {
+                return new mv1(1001, "make result json error");
+            }
         }
-        return (JSONObject) invokeIIII.objValue;
+        return (mv1) invokeV.objValue;
     }
 
-    public abstract lv1 c(@NonNull r22 r22Var);
+    public final int y(float f, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Integer.valueOf(i)})) == null) {
+            int round = Math.round(i * f);
+            if (round == 0 && f > 0.0f) {
+                return 1;
+            }
+            return round;
+        }
+        return invokeCommon.intValue;
+    }
 
-    public abstract lv1 d(int i);
+    public mv1 z(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            q("#setMediaVolume", false);
+            m33 b0 = m33.b0();
+            if (b0 == null) {
+                return new mv1(1001, "swan app is null");
+            }
+            SwanAppActivity w = b0.w();
+            if (w == null) {
+                m02.c("VolumeApi", "swan activity is null");
+                return new mv1(1001, "swan activity is null");
+            }
+            Pair s = s(str);
+            mv1 mv1Var = (mv1) s.first;
+            if (!mv1Var.isSuccess()) {
+                return mv1Var;
+            }
+            try {
+                float parseFloat = Float.parseFloat(((JSONObject) s.second).optString("value"));
+                if (this.f == null) {
+                    this.f = (AudioManager) w.getSystemService("audio");
+                }
+                int streamMaxVolume = this.f.getStreamMaxVolume(3);
+                int y = y(parseFloat, streamMaxVolume);
+                if (y >= 0 && y <= streamMaxVolume) {
+                    try {
+                        this.f.setStreamVolume(3, y, 1);
+                        return mv1.f();
+                    } catch (SecurityException unused) {
+                        return new mv1(1001, "Cannot set volume under silent mode.");
+                    }
+                }
+                return new mv1(202, "value is illegal.");
+            } catch (NumberFormatException unused2) {
+                m02.c("VolumeApi", "illegal argument type");
+                return new mv1(202, "value is illegal.");
+            }
+        }
+        return (mv1) invokeL.objValue;
+    }
 }

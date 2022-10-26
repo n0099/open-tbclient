@@ -8,7 +8,6 @@ import android.view.ViewConfiguration;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -58,6 +57,24 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
     public final ClampedScroller mScroller;
     public final View mTarget;
 
+    public static float constrain(float f, float f2, float f3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) ? f > f3 ? f3 : f < f2 ? f2 : f : invokeCommon.floatValue;
+    }
+
+    public static int constrain(int i, int i2, int i3) {
+        InterceptResult invokeIII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2, i3)) == null) ? i > i3 ? i3 : i < i2 ? i2 : i : invokeIII.intValue;
+    }
+
+    public abstract boolean canTargetScrollHorizontally(int i);
+
+    public abstract boolean canTargetScrollVertically(int i);
+
+    public abstract void scrollTargetBy(int i, int i2);
+
     /* loaded from: classes.dex */
     public static class ClampedScroller {
         public static /* synthetic */ Interceptable $ic;
@@ -73,6 +90,12 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
         public float mStopValue;
         public float mTargetVelocityX;
         public float mTargetVelocityY;
+
+        private float interpolateValue(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeF = interceptable.invokeF(65538, this, f)) == null) ? ((-4.0f) * f * f) + (f * 4.0f) : invokeF.floatValue;
+        }
 
         public ClampedScroller() {
             Interceptable interceptable = $ic;
@@ -94,6 +117,22 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
             this.mDeltaY = 0;
         }
 
+        public void computeScrollDelta() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.mDeltaTime != 0) {
+                    long currentAnimationTimeMillis = AnimationUtils.currentAnimationTimeMillis();
+                    float interpolateValue = interpolateValue(getValueAt(currentAnimationTimeMillis));
+                    this.mDeltaTime = currentAnimationTimeMillis;
+                    float f = ((float) (currentAnimationTimeMillis - this.mDeltaTime)) * interpolateValue;
+                    this.mDeltaX = (int) (this.mTargetVelocityX * f);
+                    this.mDeltaY = (int) (f * this.mTargetVelocityY);
+                    return;
+                }
+                throw new RuntimeException("Cannot compute scroll delta before calling start()");
+            }
+        }
+
         private float getValueAt(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
@@ -112,38 +151,22 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
             return invokeJ.floatValue;
         }
 
-        private float interpolateValue(float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeF = interceptable.invokeF(65538, this, f)) == null) ? ((-4.0f) * f * f) + (f * 4.0f) : invokeF.floatValue;
-        }
-
-        public void computeScrollDelta() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.mDeltaTime != 0) {
-                    long currentAnimationTimeMillis = AnimationUtils.currentAnimationTimeMillis();
-                    float interpolateValue = interpolateValue(getValueAt(currentAnimationTimeMillis));
-                    this.mDeltaTime = currentAnimationTimeMillis;
-                    float f = ((float) (currentAnimationTimeMillis - this.mDeltaTime)) * interpolateValue;
-                    this.mDeltaX = (int) (this.mTargetVelocityX * f);
-                    this.mDeltaY = (int) (f * this.mTargetVelocityY);
-                    return;
-                }
-                throw new RuntimeException("Cannot compute scroll delta before calling start()");
-            }
-        }
-
         public int getDeltaX() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDeltaX : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.mDeltaX;
+            }
+            return invokeV.intValue;
         }
 
         public int getDeltaY() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mDeltaY : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.mDeltaY;
+            }
+            return invokeV.intValue;
         }
 
         public int getHorizontalDirection() {
@@ -169,7 +192,13 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
         public boolean isFinished() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mStopTime > 0 && AnimationUtils.currentAnimationTimeMillis() > this.mStopTime + ((long) this.mEffectiveRampDown) : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                if (this.mStopTime > 0 && AnimationUtils.currentAnimationTimeMillis() > this.mStopTime + this.mEffectiveRampDown) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         public void requestStop() {
@@ -179,6 +208,19 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
                 this.mEffectiveRampDown = AutoScrollHelper.constrain((int) (currentAnimationTimeMillis - this.mStartTime), 0, this.mRampDownDuration);
                 this.mStopValue = getValueAt(currentAnimationTimeMillis);
                 this.mStopTime = currentAnimationTimeMillis;
+            }
+        }
+
+        public void start() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+                long currentAnimationTimeMillis = AnimationUtils.currentAnimationTimeMillis();
+                this.mStartTime = currentAnimationTimeMillis;
+                this.mStopTime = -1L;
+                this.mDeltaTime = currentAnimationTimeMillis;
+                this.mStopValue = 0.5f;
+                this.mDeltaX = 0;
+                this.mDeltaY = 0;
             }
         }
 
@@ -201,19 +243,6 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
             if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
                 this.mTargetVelocityX = f;
                 this.mTargetVelocityY = f2;
-            }
-        }
-
-        public void start() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-                long currentAnimationTimeMillis = AnimationUtils.currentAnimationTimeMillis();
-                this.mStartTime = currentAnimationTimeMillis;
-                this.mStopTime = -1L;
-                this.mDeltaTime = currentAnimationTimeMillis;
-                this.mStopValue = 0.5f;
-                this.mDeltaX = 0;
-                this.mDeltaY = 0;
             }
         }
     }
@@ -247,25 +276,26 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 AutoScrollHelper autoScrollHelper = this.this$0;
-                if (autoScrollHelper.mAnimating) {
-                    if (autoScrollHelper.mNeedsReset) {
-                        autoScrollHelper.mNeedsReset = false;
-                        autoScrollHelper.mScroller.start();
-                    }
-                    ClampedScroller clampedScroller = this.this$0.mScroller;
-                    if (!clampedScroller.isFinished() && this.this$0.shouldAnimate()) {
-                        AutoScrollHelper autoScrollHelper2 = this.this$0;
-                        if (autoScrollHelper2.mNeedsCancel) {
-                            autoScrollHelper2.mNeedsCancel = false;
-                            autoScrollHelper2.cancelTargetTouch();
-                        }
-                        clampedScroller.computeScrollDelta();
-                        this.this$0.scrollTargetBy(clampedScroller.getDeltaX(), clampedScroller.getDeltaY());
-                        ViewCompat.postOnAnimation(this.this$0.mTarget, this);
-                        return;
-                    }
-                    this.this$0.mAnimating = false;
+                if (!autoScrollHelper.mAnimating) {
+                    return;
                 }
+                if (autoScrollHelper.mNeedsReset) {
+                    autoScrollHelper.mNeedsReset = false;
+                    autoScrollHelper.mScroller.start();
+                }
+                ClampedScroller clampedScroller = this.this$0.mScroller;
+                if (!clampedScroller.isFinished() && this.this$0.shouldAnimate()) {
+                    AutoScrollHelper autoScrollHelper2 = this.this$0;
+                    if (autoScrollHelper2.mNeedsCancel) {
+                        autoScrollHelper2.mNeedsCancel = false;
+                        autoScrollHelper2.cancelTargetTouch();
+                    }
+                    clampedScroller.computeScrollDelta();
+                    this.this$0.scrollTargetBy(clampedScroller.getDeltaX(), clampedScroller.getDeltaY());
+                    ViewCompat.postOnAnimation(this.this$0.mTarget, this);
+                    return;
+                }
+                this.this$0.mAnimating = false;
             }
         }
     }
@@ -286,7 +316,61 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
         DEFAULT_ACTIVATION_DELAY = ViewConfiguration.getTapTimeout();
     }
 
-    public AutoScrollHelper(@NonNull View view2) {
+    private void requestStop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
+            if (this.mNeedsReset) {
+                this.mAnimating = false;
+            } else {
+                this.mScroller.requestStop();
+            }
+        }
+    }
+
+    public void cancelTargetTouch() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            long uptimeMillis = SystemClock.uptimeMillis();
+            MotionEvent obtain = MotionEvent.obtain(uptimeMillis, uptimeMillis, 3, 0.0f, 0.0f, 0);
+            this.mTarget.onTouchEvent(obtain);
+            obtain.recycle();
+        }
+    }
+
+    public boolean isEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mEnabled;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isExclusive() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mExclusive;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean shouldAnimate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            ClampedScroller clampedScroller = this.mScroller;
+            int verticalDirection = clampedScroller.getVerticalDirection();
+            int horizontalDirection = clampedScroller.getHorizontalDirection();
+            if ((verticalDirection != 0 && canTargetScrollVertically(verticalDirection)) || (horizontalDirection != 0 && canTargetScrollHorizontally(horizontalDirection))) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public AutoScrollHelper(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -344,43 +428,6 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
         return invokeCommon.floatValue;
     }
 
-    public static float constrain(float f, float f2, float f3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) ? f > f3 ? f3 : f < f2 ? f2 : f : invokeCommon.floatValue;
-    }
-
-    public static int constrain(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2, i3)) == null) ? i > i3 ? i3 : i < i2 ? i2 : i : invokeIII.intValue;
-    }
-
-    private float constrainEdgeValue(float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            if (f2 == 0.0f) {
-                return 0.0f;
-            }
-            int i = this.mEdgeType;
-            if (i == 0 || i == 1) {
-                if (f < f2) {
-                    if (f >= 0.0f) {
-                        return 1.0f - (f / f2);
-                    }
-                    if (this.mAnimating && this.mEdgeType == 1) {
-                        return 1.0f;
-                    }
-                }
-            } else if (i == 2 && f < 0.0f) {
-                return f / (-f2);
-            }
-            return 0.0f;
-        }
-        return invokeCommon.floatValue;
-    }
-
     private float getEdgeValue(float f, float f2, float f3, float f4) {
         InterceptResult invokeCommon;
         float interpolation;
@@ -400,15 +447,29 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
         return invokeCommon.floatValue;
     }
 
-    private void requestStop() {
+    private float constrainEdgeValue(float f, float f2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            if (this.mNeedsReset) {
-                this.mAnimating = false;
-            } else {
-                this.mScroller.requestStop();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            if (f2 == 0.0f) {
+                return 0.0f;
             }
+            int i = this.mEdgeType;
+            if (i != 0 && i != 1) {
+                if (i == 2 && f < 0.0f) {
+                    return f / (-f2);
+                }
+            } else if (f < f2) {
+                if (f >= 0.0f) {
+                    return 1.0f - (f / f2);
+                }
+                if (this.mAnimating && this.mEdgeType == 1) {
+                    return 1.0f;
+                }
+            }
+            return 0.0f;
         }
+        return invokeCommon.floatValue;
     }
 
     private void startAnimating() {
@@ -429,32 +490,6 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
         }
     }
 
-    public abstract boolean canTargetScrollHorizontally(int i);
-
-    public abstract boolean canTargetScrollVertically(int i);
-
-    public void cancelTargetTouch() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            long uptimeMillis = SystemClock.uptimeMillis();
-            MotionEvent obtain = MotionEvent.obtain(uptimeMillis, uptimeMillis, 3, 0.0f, 0.0f, 0);
-            this.mTarget.onTouchEvent(obtain);
-            obtain.recycle();
-        }
-    }
-
-    public boolean isEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mEnabled : invokeV.booleanValue;
-    }
-
-    public boolean isExclusive() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mExclusive : invokeV.booleanValue;
-    }
-
     /* JADX WARN: Code restructure failed: missing block: B:13:0x0017, code lost:
         if (r0 != 3) goto L14;
      */
@@ -465,35 +500,32 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
     public boolean onTouch(View view2, MotionEvent motionEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(1048581, this, view2, motionEvent)) != null) {
-            return invokeLL.booleanValue;
-        }
-        if (!this.mEnabled) {
-            return false;
-        }
-        int actionMasked = motionEvent.getActionMasked();
-        if (actionMasked != 0) {
-            if (actionMasked != 1) {
-                if (actionMasked != 2) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, view2, motionEvent)) == null) {
+            if (!this.mEnabled) {
+                return false;
+            }
+            int actionMasked = motionEvent.getActionMasked();
+            if (actionMasked != 0) {
+                if (actionMasked != 1) {
+                    if (actionMasked != 2) {
+                    }
+                }
+                requestStop();
+                if (!this.mExclusive && this.mAnimating) {
+                    return true;
                 }
             }
-            requestStop();
-            return this.mExclusive && this.mAnimating;
+            this.mNeedsCancel = true;
+            this.mAlreadyDelayed = false;
+            this.mScroller.setTargetVelocity(computeTargetVelocity(0, motionEvent.getX(), view2.getWidth(), this.mTarget.getWidth()), computeTargetVelocity(1, motionEvent.getY(), view2.getHeight(), this.mTarget.getHeight()));
+            if (!this.mAnimating && shouldAnimate()) {
+                startAnimating();
+            }
+            return !this.mExclusive ? false : false;
         }
-        this.mNeedsCancel = true;
-        this.mAlreadyDelayed = false;
-        this.mScroller.setTargetVelocity(computeTargetVelocity(0, motionEvent.getX(), view2.getWidth(), this.mTarget.getWidth()), computeTargetVelocity(1, motionEvent.getY(), view2.getHeight(), this.mTarget.getHeight()));
-        if (!this.mAnimating && shouldAnimate()) {
-            startAnimating();
-        }
-        if (this.mExclusive) {
-            return false;
-        }
+        return invokeLL.booleanValue;
     }
 
-    public abstract void scrollTargetBy(int i, int i2);
-
-    @NonNull
     public AutoScrollHelper setActivationDelay(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -504,7 +536,6 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
         return (AutoScrollHelper) invokeI.objValue;
     }
 
-    @NonNull
     public AutoScrollHelper setEdgeType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -538,7 +569,26 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
         return (AutoScrollHelper) invokeZ.objValue;
     }
 
-    @NonNull
+    public AutoScrollHelper setRampDownDuration(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
+            this.mScroller.setRampDownDuration(i);
+            return this;
+        }
+        return (AutoScrollHelper) invokeI.objValue;
+    }
+
+    public AutoScrollHelper setRampUpDuration(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
+            this.mScroller.setRampUpDuration(i);
+            return this;
+        }
+        return (AutoScrollHelper) invokeI.objValue;
+    }
+
     public AutoScrollHelper setMaximumEdges(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -551,55 +601,6 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
         return (AutoScrollHelper) invokeCommon.objValue;
     }
 
-    @NonNull
-    public AutoScrollHelper setMaximumVelocity(float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            float[] fArr = this.mMaximumVelocity;
-            fArr[0] = f / 1000.0f;
-            fArr[1] = f2 / 1000.0f;
-            return this;
-        }
-        return (AutoScrollHelper) invokeCommon.objValue;
-    }
-
-    @NonNull
-    public AutoScrollHelper setMinimumVelocity(float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            float[] fArr = this.mMinimumVelocity;
-            fArr[0] = f / 1000.0f;
-            fArr[1] = f2 / 1000.0f;
-            return this;
-        }
-        return (AutoScrollHelper) invokeCommon.objValue;
-    }
-
-    @NonNull
-    public AutoScrollHelper setRampDownDuration(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
-            this.mScroller.setRampDownDuration(i);
-            return this;
-        }
-        return (AutoScrollHelper) invokeI.objValue;
-    }
-
-    @NonNull
-    public AutoScrollHelper setRampUpDuration(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
-            this.mScroller.setRampUpDuration(i);
-            return this;
-        }
-        return (AutoScrollHelper) invokeI.objValue;
-    }
-
-    @NonNull
     public AutoScrollHelper setRelativeEdges(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -612,7 +613,30 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
         return (AutoScrollHelper) invokeCommon.objValue;
     }
 
-    @NonNull
+    public AutoScrollHelper setMaximumVelocity(float f, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            float[] fArr = this.mMaximumVelocity;
+            fArr[0] = f / 1000.0f;
+            fArr[1] = f2 / 1000.0f;
+            return this;
+        }
+        return (AutoScrollHelper) invokeCommon.objValue;
+    }
+
+    public AutoScrollHelper setMinimumVelocity(float f, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            float[] fArr = this.mMinimumVelocity;
+            fArr[0] = f / 1000.0f;
+            fArr[1] = f2 / 1000.0f;
+            return this;
+        }
+        return (AutoScrollHelper) invokeCommon.objValue;
+    }
+
     public AutoScrollHelper setRelativeVelocity(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -623,17 +647,5 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
             return this;
         }
         return (AutoScrollHelper) invokeCommon.objValue;
-    }
-
-    public boolean shouldAnimate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            ClampedScroller clampedScroller = this.mScroller;
-            int verticalDirection = clampedScroller.getVerticalDirection();
-            int horizontalDirection = clampedScroller.getHorizontalDirection();
-            return (verticalDirection != 0 && canTargetScrollVertically(verticalDirection)) || (horizontalDirection != 0 && canTargetScrollHorizontally(horizontalDirection));
-        }
-        return invokeV.booleanValue;
     }
 }

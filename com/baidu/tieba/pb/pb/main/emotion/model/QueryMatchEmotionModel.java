@@ -11,7 +11,6 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.pb.pb.main.emotion.message.QueryMatchEmotionResponseMessage;
 import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -27,10 +26,27 @@ import java.util.Map;
 /* loaded from: classes5.dex */
 public class QueryMatchEmotionModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
-    public static LinkedHashMap<String, List<EmotionImageData>> c;
+    public static LinkedHashMap c;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
     public final HttpMessageListener b;
+
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(String str, List list);
+
+        void onFail(int i, String str);
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
@@ -63,25 +79,21 @@ public class QueryMatchEmotionModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003369 && (httpResponsedMessage instanceof QueryMatchEmotionResponseMessage) && this.a.a != null) {
-                QueryMatchEmotionResponseMessage queryMatchEmotionResponseMessage = (QueryMatchEmotionResponseMessage) httpResponsedMessage;
-                if (queryMatchEmotionResponseMessage.getData() == null) {
-                    this.a.a.onFail(queryMatchEmotionResponseMessage.getError(), queryMatchEmotionResponseMessage.getErrorString());
-                } else if (httpResponsedMessage.getOrginalMessage() == null || !(httpResponsedMessage.getOrginalMessage().getExtra() instanceof String)) {
-                } else {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003369 || !(httpResponsedMessage instanceof QueryMatchEmotionResponseMessage) || this.a.a == null) {
+                return;
+            }
+            QueryMatchEmotionResponseMessage queryMatchEmotionResponseMessage = (QueryMatchEmotionResponseMessage) httpResponsedMessage;
+            if (queryMatchEmotionResponseMessage.getData() != null) {
+                if (httpResponsedMessage.getOrginalMessage() != null && (httpResponsedMessage.getOrginalMessage().getExtra() instanceof String)) {
                     String str = (String) httpResponsedMessage.getOrginalMessage().getExtra();
                     this.a.a.a(str, queryMatchEmotionResponseMessage.getData());
                     this.a.D(str, queryMatchEmotionResponseMessage.getData());
+                    return;
                 }
+                return;
             }
+            this.a.a.onFail(queryMatchEmotionResponseMessage.getError(), queryMatchEmotionResponseMessage.getErrorString());
         }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(String str, List<EmotionImageData> list);
-
-        void onFail(int i, String str);
     }
 
     static {
@@ -97,11 +109,23 @@ public class QueryMatchEmotionModel extends BdBaseModel {
                 return;
             }
         }
-        c = new LinkedHashMap<>();
+        c = new LinkedHashMap();
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            MessageManager.getInstance().unRegisterListener(this.b);
+            MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_PB_QUERY_MATCH_EMOTION);
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public QueryMatchEmotionModel(r9<Object> r9Var) {
+    public QueryMatchEmotionModel(r9 r9Var) {
         super(r9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -124,15 +148,15 @@ public class QueryMatchEmotionModel extends BdBaseModel {
         registerListener(this.b);
     }
 
-    public final List<EmotionImageData> B(String str) {
+    public final List B(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            LinkedHashMap<String, List<EmotionImageData>> linkedHashMap = c;
-            if (linkedHashMap == null || !linkedHashMap.containsKey(str)) {
-                return null;
+            LinkedHashMap linkedHashMap = c;
+            if (linkedHashMap != null && linkedHashMap.containsKey(str)) {
+                return (List) c.get(str);
             }
-            return c.get(str);
+            return null;
         }
         return (List) invokeL.objValue;
     }
@@ -145,7 +169,7 @@ public class QueryMatchEmotionModel extends BdBaseModel {
                 return;
             }
             if (!ListUtils.isEmpty(B(str))) {
-                this.a.a(str, c.get(str));
+                this.a.a(str, (List) c.get(str));
                 return;
             }
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_PB_QUERY_MATCH_EMOTION);
@@ -155,48 +179,25 @@ public class QueryMatchEmotionModel extends BdBaseModel {
         }
     }
 
-    public final void D(String str, List<EmotionImageData> list) {
+    public final void D(String str, List list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, list) == null) || TextUtils.isEmpty(str) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        if (c == null) {
-            c = new LinkedHashMap<>();
-        }
-        if (c.containsKey(str)) {
-            return;
-        }
-        if (c.size() > 10) {
-            Map.Entry<String, List<EmotionImageData>> next = c.entrySet().iterator().next();
-            if (next != null) {
-                c.remove(next.getKey());
-            } else {
-                c.clear();
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, list) == null) && !TextUtils.isEmpty(str) && !ListUtils.isEmpty(list)) {
+            if (c == null) {
+                c = new LinkedHashMap();
             }
+            if (c.containsKey(str)) {
+                return;
+            }
+            if (c.size() > 10) {
+                Map.Entry entry = (Map.Entry) c.entrySet().iterator().next();
+                if (entry != null) {
+                    c.remove(entry.getKey());
+                } else {
+                    c.clear();
+                }
+            }
+            c.put(str, list);
         }
-        c.put(str, list);
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.b);
-            MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_PB_QUERY_MATCH_EMOTION);
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 
     public final void registerTask() {

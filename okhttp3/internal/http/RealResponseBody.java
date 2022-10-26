@@ -43,7 +43,10 @@ public final class RealResponseBody extends ResponseBody {
     public long contentLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.contentLength : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.contentLength;
+        }
+        return invokeV.longValue;
     }
 
     @Override // okhttp3.ResponseBody
@@ -64,6 +67,9 @@ public final class RealResponseBody extends ResponseBody {
     public BufferedSource source() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.source : (BufferedSource) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.source;
+        }
+        return (BufferedSource) invokeV.objValue;
     }
 }

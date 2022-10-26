@@ -46,6 +46,10 @@ public enum CharCategory {
         public Companion() {
         }
 
+        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
         public final CharCategory valueOf(int i) {
             if (i >= 0 && 16 >= i) {
                 return CharCategory.values()[i];
@@ -55,10 +59,6 @@ public enum CharCategory {
             }
             throw new IllegalArgumentException("Category #" + i + " is not defined.");
         }
-
-        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
     }
 
     CharCategory(int i, String str) {
@@ -67,7 +67,10 @@ public enum CharCategory {
     }
 
     public final boolean contains(char c) {
-        return Character.getType(c) == this.value;
+        if (Character.getType(c) == this.value) {
+            return true;
+        }
+        return false;
     }
 
     public final String getCode() {

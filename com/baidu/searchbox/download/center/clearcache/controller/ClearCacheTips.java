@@ -34,7 +34,13 @@ public class ClearCacheTips {
     public static String buildTips(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? TextUtils.isEmpty(str) ? "" : str : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
     }
 
     public static void notifyTips(long j) {

@@ -21,12 +21,12 @@ public class v3 implements i7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final a a;
-    public b7<d4> b;
+    public b7 b;
     public boolean c;
     public boolean d;
 
     /* loaded from: classes6.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -79,6 +79,34 @@ public class v3 implements i7 {
             e(k3Var, z);
         }
 
+        public void i(float f, float f2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+                if (f != 0.0f) {
+                    if (f2 != 0.0f) {
+                        float f3 = f / this.n;
+                        float f4 = f2 / this.o;
+                        this.i *= f4;
+                        this.s *= f3;
+                        this.t *= f4;
+                        this.j *= f4;
+                        this.k *= f4;
+                        this.l *= f4;
+                        this.m *= f4;
+                        this.h *= f3;
+                        this.f *= f3;
+                        this.e *= f4;
+                        this.g *= f4;
+                        this.n = f;
+                        this.o = f2;
+                        return;
+                    }
+                    throw new IllegalArgumentException("scaleY cannot be 0.");
+                }
+                throw new IllegalArgumentException("scaleX cannot be 0.");
+            }
+        }
+
         public b a() {
             InterceptResult invokeV;
             b[][] bVarArr;
@@ -115,13 +143,39 @@ public class v3 implements i7 {
         public String c(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.b[i] : (String) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                return this.b[i];
+            }
+            return (String) invokeI.objValue;
+        }
+
+        public void h(float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeF(1048583, this, f) == null) {
+                i(f, f);
+            }
         }
 
         public String[] d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (String[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.b;
+            }
+            return (String[]) invokeV.objValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                String str = this.a;
+                if (str == null) {
+                    return super.toString();
+                }
+                return str;
+            }
+            return (String) invokeV.objValue;
         }
 
         /* JADX WARN: Removed duplicated region for block: B:118:0x02d5 A[Catch: Exception -> 0x0452, all -> 0x0476, TryCatch #1 {all -> 0x0476, blocks: (B:137:0x0348, B:140:0x0357, B:142:0x0371, B:145:0x0379, B:147:0x03c1, B:149:0x03da, B:151:0x03ed, B:152:0x03f0, B:154:0x03f6, B:155:0x0400, B:157:0x0404, B:159:0x0408, B:148:0x03cc, B:144:0x0376, B:116:0x02c9, B:106:0x02a5, B:108:0x02a9, B:110:0x02af, B:113:0x02b4, B:115:0x02c2, B:180:0x045d, B:181:0x0475, B:119:0x02dc, B:121:0x02eb, B:123:0x02f3, B:118:0x02d5, B:127:0x0307, B:133:0x032e, B:135:0x0340, B:160:0x0416, B:161:0x041f, B:162:0x0420, B:163:0x0429, B:164:0x042a, B:165:0x0433, B:166:0x0434, B:167:0x043d, B:168:0x043e, B:169:0x0447, B:170:0x0448, B:171:0x0451), top: B:193:0x0020 }] */
@@ -579,137 +633,91 @@ public class v3 implements i7 {
             float f;
             float f2;
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLL(1048582, this, bVar, d4Var) != null) {
-                return;
-            }
-            Texture f3 = d4Var.f();
-            float x = 1.0f / f3.x();
-            float u = 1.0f / f3.u();
-            float f4 = d4Var.b;
-            float f5 = d4Var.c;
-            float c = d4Var.c();
-            float b = d4Var.b();
-            float f6 = 0.0f;
-            if (d4Var instanceof c4.a) {
-                c4.a aVar = (c4.a) d4Var;
-                f = aVar.j;
-                f2 = (aVar.o - aVar.m) - aVar.k;
-            } else {
-                f = 0.0f;
-                f2 = 0.0f;
-            }
-            int i = bVar.b;
-            float f7 = i;
-            int i2 = bVar.d;
-            float f8 = i + i2;
-            int i3 = bVar.c;
-            float f9 = i3;
-            float f10 = i3 + bVar.e;
-            if (f > 0.0f) {
-                f7 -= f;
-                if (f7 < 0.0f) {
-                    bVar.d = (int) (i2 + f7);
-                    bVar.j = (int) (bVar.j - f7);
-                    f7 = 0.0f;
+            if (interceptable == null || interceptable.invokeLL(1048582, this, bVar, d4Var) == null) {
+                Texture f3 = d4Var.f();
+                float x = 1.0f / f3.x();
+                float u = 1.0f / f3.u();
+                float f4 = d4Var.b;
+                float f5 = d4Var.c;
+                float c = d4Var.c();
+                float b = d4Var.b();
+                float f6 = 0.0f;
+                if (d4Var instanceof c4.a) {
+                    c4.a aVar = (c4.a) d4Var;
+                    f = aVar.j;
+                    f2 = (aVar.o - aVar.m) - aVar.k;
+                } else {
+                    f = 0.0f;
+                    f2 = 0.0f;
                 }
-                f8 -= f;
-                if (f8 > c) {
-                    bVar.d = (int) (bVar.d - (f8 - c));
-                    if (f2 > 0.0f) {
-                        float f11 = f9 - f2;
-                        if (f11 < 0.0f) {
-                            int i4 = (int) (bVar.e + f11);
-                            bVar.e = i4;
-                            if (i4 < 0) {
-                                bVar.e = 0;
+                int i = bVar.b;
+                float f7 = i;
+                int i2 = bVar.d;
+                float f8 = i + i2;
+                int i3 = bVar.c;
+                float f9 = i3;
+                float f10 = i3 + bVar.e;
+                if (f > 0.0f) {
+                    f7 -= f;
+                    if (f7 < 0.0f) {
+                        bVar.d = (int) (i2 + f7);
+                        bVar.j = (int) (bVar.j - f7);
+                        f7 = 0.0f;
+                    }
+                    f8 -= f;
+                    if (f8 > c) {
+                        bVar.d = (int) (bVar.d - (f8 - c));
+                        if (f2 > 0.0f) {
+                            float f11 = f9 - f2;
+                            if (f11 < 0.0f) {
+                                int i4 = (int) (bVar.e + f11);
+                                bVar.e = i4;
+                                if (i4 < 0) {
+                                    bVar.e = 0;
+                                }
+                            } else {
+                                f6 = f11;
                             }
-                        } else {
-                            f6 = f11;
-                        }
-                        f10 -= f2;
-                        if (f10 > b) {
-                            float f12 = f10 - b;
-                            bVar.e = (int) (bVar.e - f12);
-                            bVar.k = (int) (bVar.k + f12);
-                            f9 = f6;
-                            bVar.f = (f7 * x) + f4;
-                            bVar.h = f4 + (c * x);
-                            if (this.d) {
-                                bVar.g = (f9 * u) + f5;
-                                bVar.i = f5 + (b * u);
+                            f10 -= f2;
+                            if (f10 > b) {
+                                float f12 = f10 - b;
+                                bVar.e = (int) (bVar.e - f12);
+                                bVar.k = (int) (bVar.k + f12);
+                                f9 = f6;
+                                bVar.f = (f7 * x) + f4;
+                                bVar.h = f4 + (c * x);
+                                if (this.d) {
+                                    bVar.g = (f9 * u) + f5;
+                                    bVar.i = f5 + (b * u);
+                                    return;
+                                }
+                                bVar.i = (f9 * u) + f5;
+                                bVar.g = f5 + (b * u);
                                 return;
                             }
-                            bVar.i = (f9 * u) + f5;
-                            bVar.g = f5 + (b * u);
-                            return;
+                            f9 = f6;
                         }
-                        f9 = f6;
+                        b = f10;
+                        bVar.f = (f7 * x) + f4;
+                        bVar.h = f4 + (c * x);
+                        if (this.d) {
+                        }
                     }
-                    b = f10;
-                    bVar.f = (f7 * x) + f4;
-                    bVar.h = f4 + (c * x);
-                    if (this.d) {
-                    }
+                }
+                c = f8;
+                if (f2 > 0.0f) {
+                }
+                b = f10;
+                bVar.f = (f7 * x) + f4;
+                bVar.h = f4 + (c * x);
+                if (this.d) {
                 }
             }
-            c = f8;
-            if (f2 > 0.0f) {
-            }
-            b = f10;
-            bVar.f = (f7 * x) + f4;
-            bVar.h = f4 + (c * x);
-            if (this.d) {
-            }
-        }
-
-        public void h(float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(1048583, this, f) == null) {
-                i(f, f);
-            }
-        }
-
-        public void i(float f, float f2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-                if (f == 0.0f) {
-                    throw new IllegalArgumentException("scaleX cannot be 0.");
-                }
-                if (f2 != 0.0f) {
-                    float f3 = f / this.n;
-                    float f4 = f2 / this.o;
-                    this.i *= f4;
-                    this.s *= f3;
-                    this.t *= f4;
-                    this.j *= f4;
-                    this.k *= f4;
-                    this.l *= f4;
-                    this.m *= f4;
-                    this.h *= f3;
-                    this.f *= f3;
-                    this.e *= f4;
-                    this.g *= f4;
-                    this.n = f;
-                    this.o = f2;
-                    return;
-                }
-                throw new IllegalArgumentException("scaleY cannot be 0.");
-            }
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-                String str = this.a;
-                return str != null ? str : super.toString();
-            }
-            return (String) invokeV.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class b {
+    public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -743,6 +751,15 @@ public class v3 implements i7 {
             this.n = 0;
         }
 
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return Character.toString((char) this.a);
+            }
+            return (String) invokeV.objValue;
+        }
+
         public void a(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
@@ -758,12 +775,6 @@ public class v3 implements i7 {
                 }
                 bArr2[i & 511] = (byte) i2;
             }
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Character.toString((char) this.a) : (String) invokeV.objValue;
         }
     }
 
@@ -784,71 +795,6 @@ public class v3 implements i7 {
                 return;
             }
         }
-    }
-
-    public float a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.j : invokeV.floatValue;
-    }
-
-    @Override // com.baidu.tieba.i7
-    public void dispose() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !this.d) {
-            return;
-        }
-        int i = 0;
-        while (true) {
-            b7<d4> b7Var = this.b;
-            if (i >= b7Var.b) {
-                return;
-            }
-            b7Var.get(i).f().dispose();
-            i++;
-        }
-    }
-
-    public a f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (a) invokeV.objValue;
-    }
-
-    public void g(a aVar) {
-        b[][] bVarArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            for (b[] bVarArr2 : aVar.q) {
-                if (bVarArr2 != null) {
-                    for (b bVar : bVarArr2) {
-                        if (bVar != null) {
-                            aVar.g(bVar, this.b.get(bVar.n));
-                        }
-                    }
-                }
-            }
-            b bVar2 = aVar.r;
-            if (bVar2 != null) {
-                aVar.g(bVar2, this.b.get(bVar2.n));
-            }
-        }
-    }
-
-    public w3 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new w3(this, this.c) : (w3) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            String str = this.a.a;
-            return str != null ? str : super.toString();
-        }
-        return (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -888,27 +834,6 @@ public class v3 implements i7 {
                 this((a) objArr2[0], (d4) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public v3(k3 k3Var, boolean z) {
-        this(new a(k3Var, z), (d4) null, true);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {k3Var, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65541, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((a) objArr2[0], (d4) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65541, newInitContext);
                 return;
             }
         }
@@ -958,27 +883,27 @@ public class v3 implements i7 {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public v3(a aVar, d4 d4Var, boolean z) {
-        this(aVar, d4Var != null ? b7.o(d4Var) : null, z);
+    public v3(k3 k3Var, boolean z) {
+        this(new a(k3Var, z), (d4) null, true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, d4Var, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65543, newInitContext);
+            Object[] objArr = {k3Var, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65541, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((a) objArr2[0], (b7) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
+                this((a) objArr2[0], (d4) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65543, newInitContext);
+                interceptable.invokeInitBody(65541, newInitContext);
                 return;
             }
         }
     }
 
-    public v3(a aVar, b7<d4> b7Var, boolean z) {
+    public v3(a aVar, b7 b7Var, boolean z) {
         k3 d;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1004,7 +929,7 @@ public class v3 implements i7 {
             String[] strArr = aVar.b;
             if (strArr != null) {
                 int length = strArr.length;
-                this.b = new b7<>(length);
+                this.b = new b7(length);
                 for (int i3 = 0; i3 < length; i3++) {
                     k3 k3Var = aVar.c;
                     if (k3Var == null) {
@@ -1021,5 +946,112 @@ public class v3 implements i7 {
         }
         h();
         g(aVar);
+    }
+
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public v3(a aVar, d4 d4Var, boolean z) {
+        this(aVar, r10, z);
+        b7 b7Var;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar, d4Var, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65543, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((a) objArr2[0], (b7) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65543, newInitContext);
+                return;
+            }
+        }
+        if (d4Var != null) {
+            b7Var = b7.o(d4Var);
+        } else {
+            b7Var = null;
+        }
+    }
+
+    public float a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.j;
+        }
+        return invokeV.floatValue;
+    }
+
+    @Override // com.baidu.tieba.i7
+    public void dispose() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.d) {
+            int i = 0;
+            while (true) {
+                b7 b7Var = this.b;
+                if (i < b7Var.b) {
+                    ((d4) b7Var.get(i)).f().dispose();
+                    i++;
+                } else {
+                    return;
+                }
+            }
+        }
+    }
+
+    public a f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (a) invokeV.objValue;
+    }
+
+    public w3 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return new w3(this, this.c);
+        }
+        return (w3) invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            String str = this.a.a;
+            if (str == null) {
+                return super.toString();
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void g(a aVar) {
+        b[][] bVarArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            for (b[] bVarArr2 : aVar.q) {
+                if (bVarArr2 != null) {
+                    for (b bVar : bVarArr2) {
+                        if (bVar != null) {
+                            aVar.g(bVar, (d4) this.b.get(bVar.n));
+                        }
+                    }
+                }
+            }
+            b bVar2 = aVar.r;
+            if (bVar2 != null) {
+                aVar.g(bVar2, (d4) this.b.get(bVar2.n));
+            }
+        }
     }
 }

@@ -18,7 +18,7 @@ import java.util.jar.JarFile;
 /* loaded from: classes7.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
-    public static final AtomicReference<byte[]> a;
+    public static final AtomicReference a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public final class a {
                 return;
             }
         }
-        a = new AtomicReference<>();
+        a = new AtomicReference();
     }
 
     public static o a(String str) {
@@ -133,13 +133,13 @@ public final class a {
                 try {
                     InputStream inputStream3 = jarFile.getInputStream(jarEntry);
                     try {
-                        byte[] andSet = a.getAndSet(null);
-                        if (andSet == null) {
-                            andSet = new byte[4096];
+                        byte[] bArr = (byte[]) a.getAndSet(null);
+                        if (bArr == null) {
+                            bArr = new byte[4096];
                         }
                         do {
-                        } while (inputStream3.read(andSet, 0, andSet.length) != -1);
-                        a.set(andSet);
+                        } while (inputStream3.read(bArr, 0, bArr.length) != -1);
+                        a.set(bArr);
                         Certificate[][] certificateArr = {jarEntry.getCertificates()};
                         if (inputStream3 != null) {
                             try {

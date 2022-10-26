@@ -61,18 +61,36 @@ public final class Priority {
     public static Priority getHigherPriority(@Nullable Priority priority, @Nullable Priority priority2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, priority, priority2)) == null) ? priority == null ? priority2 : (priority2 != null && priority.ordinal() <= priority2.ordinal()) ? priority2 : priority : (Priority) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, priority, priority2)) == null) {
+            if (priority == null) {
+                return priority2;
+            }
+            if (priority2 == null) {
+                return priority;
+            }
+            if (priority.ordinal() > priority2.ordinal()) {
+                return priority;
+            }
+            return priority2;
+        }
+        return (Priority) invokeLL.objValue;
     }
 
     public static Priority valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (Priority) Enum.valueOf(Priority.class, str) : (Priority) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (Priority) Enum.valueOf(Priority.class, str);
+        }
+        return (Priority) invokeL.objValue;
     }
 
     public static Priority[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (Priority[]) $VALUES.clone() : (Priority[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return (Priority[]) $VALUES.clone();
+        }
+        return (Priority[]) invokeV.objValue;
     }
 }

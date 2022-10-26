@@ -3,7 +3,7 @@ package com.baidu.tieba.hottopic.message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.w67;
+import com.baidu.tieba.e77;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.Hottopic.HottopicResIdl;
 public class ResponseHttpHotTopicMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public w67 topicData;
+    public e77 topicData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseHttpHotTopicMessage() {
@@ -36,12 +36,6 @@ public class ResponseHttpHotTopicMessage extends TbHttpResponsedMessage {
         this.topicData = null;
     }
 
-    public w67 getHotTopicData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.topicData : (w67) invokeV.objValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
@@ -56,21 +50,32 @@ public class ResponseHttpHotTopicMessage extends TbHttpResponsedMessage {
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         HottopicResIdl hottopicResIdl;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) || (hottopicResIdl = (HottopicResIdl) new Wire(new Class[0]).parseFrom(bArr, HottopicResIdl.class)) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) && (hottopicResIdl = (HottopicResIdl) new Wire(new Class[0]).parseFrom(bArr, HottopicResIdl.class)) != null) {
+            setError(hottopicResIdl.error.errorno.intValue());
+            setErrorString(hottopicResIdl.error.usermsg);
+            if (getError() != 0) {
+                return;
+            }
+            Integer num = null;
+            Object extra = getOrginalMessage().getExtra();
+            if (extra instanceof Integer) {
+                num = (Integer) extra;
+            }
+            e77 e77Var = new e77();
+            this.topicData = e77Var;
+            if (num != null) {
+                e77Var.p = num.intValue();
+            }
+            this.topicData.h(hottopicResIdl.data);
         }
-        setError(hottopicResIdl.error.errorno.intValue());
-        setErrorString(hottopicResIdl.error.usermsg);
-        if (getError() != 0) {
-            return;
+    }
+
+    public e77 getHotTopicData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.topicData;
         }
-        Object extra = getOrginalMessage().getExtra();
-        Integer num = extra instanceof Integer ? (Integer) extra : null;
-        w67 w67Var = new w67();
-        this.topicData = w67Var;
-        if (num != null) {
-            w67Var.p = num.intValue();
-        }
-        this.topicData.h(hottopicResIdl.data);
+        return (e77) invokeV.objValue;
     }
 }

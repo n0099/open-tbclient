@@ -12,6 +12,16 @@ public interface IKVStorageProxy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
+        @Override // com.baidu.android.util.IKVStorageProxy
+        public SharedPreferences getProxy(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return null;
+            }
+            return (SharedPreferences) invokeL.objValue;
+        }
+
         {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -24,16 +34,6 @@ public interface IKVStorageProxy {
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-        }
-
-        @Override // com.baidu.android.util.IKVStorageProxy
-        public SharedPreferences getProxy(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                return null;
-            }
-            return (SharedPreferences) invokeL.objValue;
         }
     };
 

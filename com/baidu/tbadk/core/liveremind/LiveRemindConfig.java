@@ -20,7 +20,7 @@ public class LiveRemindConfig {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public static final class Scene {
+    public final class Scene {
         public static final /* synthetic */ Scene[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Scene LIVE_BUBBLE;
@@ -68,13 +68,19 @@ public class LiveRemindConfig {
         public static Scene valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Scene) Enum.valueOf(Scene.class, str) : (Scene) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Scene) Enum.valueOf(Scene.class, str);
+            }
+            return (Scene) invokeL.objValue;
         }
 
         public static Scene[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Scene[]) $VALUES.clone() : (Scene[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Scene[]) $VALUES.clone();
+            }
+            return (Scene[]) invokeV.objValue;
         }
     }
 
@@ -111,28 +117,36 @@ public class LiveRemindConfig {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
     }
 
     public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.longValue;
     }
 
     public void e(LiveRemindRecommendData liveRemindRecommendData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, liveRemindRecommendData) == null) || liveRemindRecommendData == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, liveRemindRecommendData) == null) && liveRemindRecommendData != null) {
+            this.a = liveRemindRecommendData.getDayMaxNum();
+            this.b = liveRemindRecommendData.getSingleOpenMaxNum();
+            this.c = liveRemindRecommendData.getMinStepSecond();
         }
-        this.a = liveRemindRecommendData.getDayMaxNum();
-        this.b = liveRemindRecommendData.getSingleOpenMaxNum();
-        this.c = liveRemindRecommendData.getMinStepSecond();
     }
 }

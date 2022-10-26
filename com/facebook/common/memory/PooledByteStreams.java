@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
-import com.facebook.common.internal.VisibleForTesting;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -40,30 +39,8 @@ public class PooledByteStreams {
         }
     }
 
-    public long copy(InputStream inputStream, OutputStream outputStream) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(1048576, this, inputStream, outputStream)) != null) {
-            return invokeLL.longValue;
-        }
-        byte[] bArr = this.mByteArrayPool.get(this.mTempBufSize);
-        long j = 0;
-        while (true) {
-            try {
-                int read = inputStream.read(bArr, 0, this.mTempBufSize);
-                if (read == -1) {
-                    return j;
-                }
-                outputStream.write(bArr, 0, read);
-                j += read;
-            } finally {
-                this.mByteArrayPool.release(bArr);
-            }
-        }
-    }
-
-    @VisibleForTesting
     public PooledByteStreams(ByteArrayPool byteArrayPool, int i) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,18 +55,52 @@ public class PooledByteStreams {
                 return;
             }
         }
-        Preconditions.checkArgument(i > 0);
+        if (i > 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        Preconditions.checkArgument(z);
         this.mTempBufSize = i;
         this.mByteArrayPool = byteArrayPool;
     }
 
+    public long copy(InputStream inputStream, OutputStream outputStream) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, inputStream, outputStream)) == null) {
+            byte[] bArr = (byte[]) this.mByteArrayPool.get(this.mTempBufSize);
+            long j = 0;
+            while (true) {
+                try {
+                    int read = inputStream.read(bArr, 0, this.mTempBufSize);
+                    if (read == -1) {
+                        return j;
+                    }
+                    outputStream.write(bArr, 0, read);
+                    j += read;
+                } finally {
+                    this.mByteArrayPool.release(bArr);
+                }
+            }
+        } else {
+            return invokeLL.longValue;
+        }
+    }
+
     public long copy(InputStream inputStream, OutputStream outputStream, long j) throws IOException {
         InterceptResult invokeCommon;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{inputStream, outputStream, Long.valueOf(j)})) == null) {
             long j2 = 0;
-            Preconditions.checkState(j > 0);
-            byte[] bArr = this.mByteArrayPool.get(this.mTempBufSize);
+            if (j > 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Preconditions.checkState(z);
+            byte[] bArr = (byte[]) this.mByteArrayPool.get(this.mTempBufSize);
             while (j2 < j) {
                 try {
                     int read = inputStream.read(bArr, 0, (int) Math.min(this.mTempBufSize, j - j2));

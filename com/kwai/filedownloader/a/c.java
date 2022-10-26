@@ -23,7 +23,7 @@ public final class c implements a {
     public final b atT;
     public final d atU;
     public final long atV;
-    public volatile List<Integer> atW;
+    public volatile List atW;
     public AtomicInteger atX;
     public volatile Thread atY;
     public Handler handler;
@@ -136,7 +136,7 @@ public final class c implements a {
     }
 
     @Override // com.kwai.filedownloader.a.a
-    public final a.InterfaceC0622a Dh() {
+    public final a.InterfaceC0618a Dh() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -144,7 +144,7 @@ public final class c implements a {
             b bVar = this.atT;
             return dVar.a(bVar.atQ, bVar.atR);
         }
-        return (a.InterfaceC0622a) invokeV.objValue;
+        return (a.InterfaceC0618a) invokeV.objValue;
     }
 
     @Override // com.kwai.filedownloader.a.a
@@ -260,7 +260,7 @@ public final class c implements a {
     }
 
     @Override // com.kwai.filedownloader.a.a
-    public final List<com.kwai.filedownloader.c.a> ce(int i) {
+    public final List ce(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) ? this.atT.ce(i) : (List) invokeI.objValue;

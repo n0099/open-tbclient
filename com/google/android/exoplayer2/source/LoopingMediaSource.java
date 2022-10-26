@@ -23,7 +23,7 @@ public final class LoopingMediaSource implements MediaSource {
     public final int loopCount;
 
     /* loaded from: classes7.dex */
-    public static final class InfinitelyLoopingTimeline extends ForwardingTimeline {
+    public final class InfinitelyLoopingTimeline extends ForwardingTimeline {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -53,7 +53,10 @@ public final class LoopingMediaSource implements MediaSource {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
                 int nextWindowIndex = this.timeline.getNextWindowIndex(i, i2, z);
-                return nextWindowIndex == -1 ? getFirstWindowIndex(z) : nextWindowIndex;
+                if (nextWindowIndex == -1) {
+                    return getFirstWindowIndex(z);
+                }
+                return nextWindowIndex;
             }
             return invokeCommon.intValue;
         }
@@ -64,14 +67,17 @@ public final class LoopingMediaSource implements MediaSource {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
                 int previousWindowIndex = this.timeline.getPreviousWindowIndex(i, i2, z);
-                return previousWindowIndex == -1 ? getLastWindowIndex(z) : previousWindowIndex;
+                if (previousWindowIndex == -1) {
+                    return getLastWindowIndex(z);
+                }
+                return previousWindowIndex;
             }
             return invokeCommon.intValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public static final class LoopingTimeline extends AbstractConcatenatedTimeline {
+    public final class LoopingTimeline extends AbstractConcatenatedTimeline {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int childPeriodCount;
@@ -82,6 +88,7 @@ public final class LoopingMediaSource implements MediaSource {
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public LoopingTimeline(Timeline timeline, int i) {
             super(new ShuffleOrder.UnshuffledShuffleOrder(i));
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,7 +110,12 @@ public final class LoopingMediaSource implements MediaSource {
             this.loopCount = i;
             int i4 = this.childPeriodCount;
             if (i4 > 0) {
-                Assertions.checkState(i <= Integer.MAX_VALUE / i4, "LoopingMediaSource contains too many periods");
+                if (i <= Integer.MAX_VALUE / i4) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                Assertions.checkState(z, "LoopingMediaSource contains too many periods");
             }
         }
 
@@ -112,10 +124,10 @@ public final class LoopingMediaSource implements MediaSource {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                if (obj instanceof Integer) {
-                    return ((Integer) obj).intValue();
+                if (!(obj instanceof Integer)) {
+                    return -1;
                 }
-                return -1;
+                return ((Integer) obj).intValue();
             }
             return invokeL.intValue;
         }
@@ -124,56 +136,80 @@ public final class LoopingMediaSource implements MediaSource {
         public int getChildIndexByPeriodIndex(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? i / this.childPeriodCount : invokeI.intValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return i / this.childPeriodCount;
+            }
+            return invokeI.intValue;
         }
 
         @Override // com.google.android.exoplayer2.source.AbstractConcatenatedTimeline
         public int getChildIndexByWindowIndex(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? i / this.childWindowCount : invokeI.intValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                return i / this.childWindowCount;
+            }
+            return invokeI.intValue;
         }
 
         @Override // com.google.android.exoplayer2.source.AbstractConcatenatedTimeline
         public Object getChildUidByChildIndex(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? Integer.valueOf(i) : invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+                return Integer.valueOf(i);
+            }
+            return invokeI.objValue;
         }
 
         @Override // com.google.android.exoplayer2.source.AbstractConcatenatedTimeline
         public int getFirstPeriodIndexByChildIndex(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i * this.childPeriodCount : invokeI.intValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+                return i * this.childPeriodCount;
+            }
+            return invokeI.intValue;
         }
 
         @Override // com.google.android.exoplayer2.source.AbstractConcatenatedTimeline
         public int getFirstWindowIndexByChildIndex(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i * this.childWindowCount : invokeI.intValue;
-        }
-
-        @Override // com.google.android.exoplayer2.Timeline
-        public int getPeriodCount() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.childPeriodCount * this.loopCount : invokeV.intValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+                return i * this.childWindowCount;
+            }
+            return invokeI.intValue;
         }
 
         @Override // com.google.android.exoplayer2.source.AbstractConcatenatedTimeline
         public Timeline getTimelineByChildIndex(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? this.childTimeline : (Timeline) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+                return this.childTimeline;
+            }
+            return (Timeline) invokeI.objValue;
+        }
+
+        @Override // com.google.android.exoplayer2.Timeline
+        public int getPeriodCount() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return this.childPeriodCount * this.loopCount;
+            }
+            return invokeV.intValue;
         }
 
         @Override // com.google.android.exoplayer2.Timeline
         public int getWindowCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.childWindowCount * this.loopCount : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                return this.childWindowCount * this.loopCount;
+            }
+            return invokeV.intValue;
         }
     }
 
@@ -198,6 +234,32 @@ public final class LoopingMediaSource implements MediaSource {
         }
     }
 
+    public LoopingMediaSource(MediaSource mediaSource, int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mediaSource, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        if (i > 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        Assertions.checkArgument(z);
+        this.childSource = mediaSource;
+        this.loopCount = i;
+    }
+
     @Override // com.google.android.exoplayer2.source.MediaSource
     public MediaPeriod createPeriod(MediaSource.MediaPeriodId mediaPeriodId, Allocator allocator) {
         InterceptResult invokeLL;
@@ -212,10 +274,26 @@ public final class LoopingMediaSource implements MediaSource {
     }
 
     @Override // com.google.android.exoplayer2.source.MediaSource
+    public void releasePeriod(MediaPeriod mediaPeriod) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, mediaPeriod) == null) {
+            this.childSource.releasePeriod(mediaPeriod);
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.source.MediaSource
     public void maybeThrowSourceInfoRefreshError() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.childSource.maybeThrowSourceInfoRefreshError();
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.source.MediaSource
+    public void releaseSource() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.childSource.releaseSource();
         }
     }
 
@@ -250,49 +328,19 @@ public final class LoopingMediaSource implements MediaSource {
 
                 @Override // com.google.android.exoplayer2.source.MediaSource.Listener
                 public void onSourceInfoRefreshed(MediaSource mediaSource, Timeline timeline, Object obj) {
+                    Timeline infinitelyLoopingTimeline;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, mediaSource, timeline, obj) == null) {
                         this.this$0.childPeriodCount = timeline.getPeriodCount();
-                        this.val$listener.onSourceInfoRefreshed(this.this$0, this.this$0.loopCount != Integer.MAX_VALUE ? new LoopingTimeline(timeline, this.this$0.loopCount) : new InfinitelyLoopingTimeline(timeline), obj);
+                        if (this.this$0.loopCount != Integer.MAX_VALUE) {
+                            infinitelyLoopingTimeline = new LoopingTimeline(timeline, this.this$0.loopCount);
+                        } else {
+                            infinitelyLoopingTimeline = new InfinitelyLoopingTimeline(timeline);
+                        }
+                        this.val$listener.onSourceInfoRefreshed(this.this$0, infinitelyLoopingTimeline, obj);
                     }
                 }
             });
         }
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaSource
-    public void releasePeriod(MediaPeriod mediaPeriod) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, mediaPeriod) == null) {
-            this.childSource.releasePeriod(mediaPeriod);
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaSource
-    public void releaseSource() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.childSource.releaseSource();
-        }
-    }
-
-    public LoopingMediaSource(MediaSource mediaSource, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mediaSource, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        Assertions.checkArgument(i > 0);
-        this.childSource = mediaSource;
-        this.loopCount = i;
     }
 }

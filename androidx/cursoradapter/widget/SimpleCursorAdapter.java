@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,11 +18,9 @@ public class SimpleCursorAdapter extends ResourceCursorAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CursorToStringConverter mCursorToStringConverter;
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public int[] mFrom;
     public String[] mOriginalFrom;
     public int mStringConversionColumn;
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public int[] mTo;
     public ViewBinder mViewBinder;
 
@@ -63,6 +60,31 @@ public class SimpleCursorAdapter extends ResourceCursorAdapter {
         findColumns(cursor, strArr);
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public SimpleCursorAdapter(Context context, int i, Cursor cursor, String[] strArr, int[] iArr, int i2) {
+        super(context, i, cursor, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i), cursor, strArr, iArr, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue(), (Cursor) objArr2[2], ((Integer) objArr2[3]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mStringConversionColumn = -1;
+        this.mTo = iArr;
+        this.mOriginalFrom = strArr;
+        findColumns(cursor, strArr);
+    }
+
     private void findColumns(Cursor cursor, String[] strArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, this, cursor, strArr) == null) {
@@ -81,8 +103,27 @@ public class SimpleCursorAdapter extends ResourceCursorAdapter {
         }
     }
 
+    public void setViewImage(ImageView imageView, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, imageView, str) == null) {
+            try {
+                imageView.setImageResource(Integer.parseInt(str));
+            } catch (NumberFormatException unused) {
+                imageView.setImageURI(Uri.parse(str));
+            }
+        }
+    }
+
+    public void setViewText(TextView textView, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, textView, str) == null) {
+            textView.setText(str);
+        }
+    }
+
     @Override // androidx.cursoradapter.widget.CursorAdapter
     public void bindView(View view2, Context context, Cursor cursor) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, view2, context, cursor) == null) {
             ViewBinder viewBinder = this.mViewBinder;
@@ -92,7 +133,12 @@ public class SimpleCursorAdapter extends ResourceCursorAdapter {
             for (int i = 0; i < length; i++) {
                 View findViewById = view2.findViewById(iArr[i]);
                 if (findViewById != null) {
-                    if (viewBinder != null ? viewBinder.setViewValue(findViewById, cursor, iArr2[i]) : false) {
+                    if (viewBinder != null) {
+                        z = viewBinder.setViewValue(findViewById, cursor, iArr2[i]);
+                    } else {
+                        z = false;
+                    }
+                    if (z) {
                         continue;
                     } else {
                         String string = cursor.getString(iArr2[i]);
@@ -140,24 +186,6 @@ public class SimpleCursorAdapter extends ResourceCursorAdapter {
         return (CharSequence) invokeL.objValue;
     }
 
-    public CursorToStringConverter getCursorToStringConverter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mCursorToStringConverter : (CursorToStringConverter) invokeV.objValue;
-    }
-
-    public int getStringConversionColumn() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mStringConversionColumn : invokeV.intValue;
-    }
-
-    public ViewBinder getViewBinder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mViewBinder : (ViewBinder) invokeV.objValue;
-    }
-
     public void setCursorToStringConverter(CursorToStringConverter cursorToStringConverter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, cursorToStringConverter) == null) {
@@ -179,24 +207,6 @@ public class SimpleCursorAdapter extends ResourceCursorAdapter {
         }
     }
 
-    public void setViewImage(ImageView imageView, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, imageView, str) == null) {
-            try {
-                imageView.setImageResource(Integer.parseInt(str));
-            } catch (NumberFormatException unused) {
-                imageView.setImageURI(Uri.parse(str));
-            }
-        }
-    }
-
-    public void setViewText(TextView textView, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, textView, str) == null) {
-            textView.setText(str);
-        }
-    }
-
     @Override // androidx.cursoradapter.widget.CursorAdapter
     public Cursor swapCursor(Cursor cursor) {
         InterceptResult invokeL;
@@ -208,28 +218,30 @@ public class SimpleCursorAdapter extends ResourceCursorAdapter {
         return (Cursor) invokeL.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SimpleCursorAdapter(Context context, int i, Cursor cursor, String[] strArr, int[] iArr, int i2) {
-        super(context, i, cursor, i2);
+    public CursorToStringConverter getCursorToStringConverter() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), cursor, strArr, iArr, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue(), (Cursor) objArr2[2], ((Integer) objArr2[3]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mCursorToStringConverter;
         }
-        this.mStringConversionColumn = -1;
-        this.mTo = iArr;
-        this.mOriginalFrom = strArr;
-        findColumns(cursor, strArr);
+        return (CursorToStringConverter) invokeV.objValue;
+    }
+
+    public int getStringConversionColumn() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mStringConversionColumn;
+        }
+        return invokeV.intValue;
+    }
+
+    public ViewBinder getViewBinder() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mViewBinder;
+        }
+        return (ViewBinder) invokeV.objValue;
     }
 }

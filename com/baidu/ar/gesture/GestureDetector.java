@@ -231,7 +231,7 @@ public class GestureDetector extends com.baidu.ar.b.a.a {
     public com.baidu.ar.b.b.c d(FramePixels framePixels) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, framePixels)) == null) ? new com.baidu.ar.b.b.c<a>(this, this.oU, framePixels) { // from class: com.baidu.ar.gesture.GestureDetector.3
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, framePixels)) == null) ? new com.baidu.ar.b.b.c(this, this.oU, framePixels) { // from class: com.baidu.ar.gesture.GestureDetector.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ GestureDetector qs;

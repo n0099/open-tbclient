@@ -110,6 +110,45 @@ public class WebViewGlueCommunicator {
         }
     }
 
+    public static InvocationHandler fetchGlueProviderFactoryImpl() throws IllegalAccessException, InvocationTargetException, ClassNotFoundException, NoSuchMethodException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return (InvocationHandler) Class.forName(GLUE_FACTORY_PROVIDER_FETCHER_CLASS, false, getWebViewClassLoader()).getDeclaredMethod(GLUE_FACTORY_PROVIDER_FETCHER_METHOD, new Class[0]).invoke(null, new Object[0]);
+        }
+        return (InvocationHandler) invokeV.objValue;
+    }
+
+    public static WebkitToCompatConverter getCompatConverter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return LAZY_COMPAT_CONVERTER_HOLDER.INSTANCE;
+        }
+        return (WebkitToCompatConverter) invokeV.objValue;
+    }
+
+    public static WebViewProviderFactory getFactory() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return LAZY_FACTORY_HOLDER.INSTANCE;
+        }
+        return (WebViewProviderFactory) invokeV.objValue;
+    }
+
+    public static ClassLoader getWebViewClassLoader() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 28) {
+                return WebView.getWebViewClassLoader();
+            }
+            return getWebViewProviderFactory().getClass().getClassLoader();
+        }
+        return (ClassLoader) invokeV.objValue;
+    }
+
     public static WebViewProviderFactory createGlueProviderFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -130,36 +169,6 @@ public class WebViewGlueCommunicator {
             }
         }
         return (WebViewProviderFactory) invokeV.objValue;
-    }
-
-    public static InvocationHandler fetchGlueProviderFactoryImpl() throws IllegalAccessException, InvocationTargetException, ClassNotFoundException, NoSuchMethodException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (InvocationHandler) Class.forName(GLUE_FACTORY_PROVIDER_FETCHER_CLASS, false, getWebViewClassLoader()).getDeclaredMethod(GLUE_FACTORY_PROVIDER_FETCHER_METHOD, new Class[0]).invoke(null, new Object[0]) : (InvocationHandler) invokeV.objValue;
-    }
-
-    public static WebkitToCompatConverter getCompatConverter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? LAZY_COMPAT_CONVERTER_HOLDER.INSTANCE : (WebkitToCompatConverter) invokeV.objValue;
-    }
-
-    public static WebViewProviderFactory getFactory() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? LAZY_FACTORY_HOLDER.INSTANCE : (WebViewProviderFactory) invokeV.objValue;
-    }
-
-    public static ClassLoader getWebViewClassLoader() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 28) {
-                return WebView.getWebViewClassLoader();
-            }
-            return getWebViewProviderFactory().getClass().getClassLoader();
-        }
-        return (ClassLoader) invokeV.objValue;
     }
 
     public static Object getWebViewProviderFactory() {

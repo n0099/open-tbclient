@@ -19,11 +19,18 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class GroupStarJoinMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<GroupStarJoinMsg> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public int groupnum;
-    public ArrayList<String> memPushoutBuids;
-    public ArrayList<String> memberbuid;
+    public ArrayList memPushoutBuids;
+    public ArrayList memberbuid;
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public String getRecommendDescription() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "你收到了一条系统消息" : (String) invokeV.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +45,7 @@ public class GroupStarJoinMsg extends NotifyMsg implements Parcelable, NoProGuar
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<GroupStarJoinMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.GroupStarJoinMsg.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.GroupStarJoinMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -57,21 +64,25 @@ public class GroupStarJoinMsg extends NotifyMsg implements Parcelable, NoProGuar
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public GroupStarJoinMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new GroupStarJoinMsg(parcel) : (GroupStarJoinMsg) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new GroupStarJoinMsg(parcel);
+                }
+                return (GroupStarJoinMsg) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public GroupStarJoinMsg[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new GroupStarJoinMsg[i] : (GroupStarJoinMsg[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new GroupStarJoinMsg[i];
+                }
+                return (GroupStarJoinMsg[]) invokeI.objValue;
             }
         };
     }
@@ -95,26 +106,55 @@ public class GroupStarJoinMsg extends NotifyMsg implements Parcelable, NoProGuar
     public int getGroupnum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.groupnum : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.groupnum;
+        }
+        return invokeV.intValue;
     }
 
-    public ArrayList<String> getMemberBuid() {
+    public ArrayList getMemberBuid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.memberbuid : (ArrayList) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.memberbuid;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 
-    public ArrayList<String> getPushoutBuid() {
+    public ArrayList getPushoutBuid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.memPushoutBuids : (ArrayList) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.memPushoutBuids;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 
-    @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    public String getRecommendDescription() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public GroupStarJoinMsg(Parcel parcel) {
+        super(parcel);
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "你收到了一条系统消息" : (String) invokeV.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Parcel) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.groupnum = parcel.readInt();
+        ArrayList arrayList = new ArrayList();
+        this.memberbuid = arrayList;
+        parcel.readList(arrayList, String.class.getClassLoader());
+        ArrayList arrayList2 = new ArrayList();
+        this.memPushoutBuids = arrayList2;
+        parcel.readList(arrayList2, String.class.getClassLoader());
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
@@ -126,12 +166,12 @@ public class GroupStarJoinMsg extends NotifyMsg implements Parcelable, NoProGuar
                 JSONObject jSONObject = new JSONObject(getMsgContent());
                 this.groupnum = jSONObject.optInt("group_num");
                 JSONArray jSONArray = jSONObject.getJSONArray("member");
-                this.memberbuid = new ArrayList<>();
+                this.memberbuid = new ArrayList();
                 for (int i = 0; i < jSONArray.length(); i++) {
                     this.memberbuid.add(String.valueOf(jSONArray.getLong(i)));
                 }
                 if (jSONObject.has("del_member")) {
-                    this.memPushoutBuids = new ArrayList<>();
+                    this.memPushoutBuids = new ArrayList();
                     JSONArray jSONArray2 = jSONObject.getJSONArray("del_member");
                     for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
                         this.memPushoutBuids.add(String.valueOf(jSONArray2.getLong(i2)));
@@ -155,32 +195,5 @@ public class GroupStarJoinMsg extends NotifyMsg implements Parcelable, NoProGuar
             parcel.writeList(this.memberbuid);
             parcel.writeList(this.memPushoutBuids);
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GroupStarJoinMsg(Parcel parcel) {
-        super(parcel);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Parcel) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.groupnum = parcel.readInt();
-        ArrayList<String> arrayList = new ArrayList<>();
-        this.memberbuid = arrayList;
-        parcel.readList(arrayList, String.class.getClassLoader());
-        ArrayList<String> arrayList2 = new ArrayList<>();
-        this.memPushoutBuids = arrayList2;
-        parcel.readList(arrayList2, String.class.getClassLoader());
     }
 }

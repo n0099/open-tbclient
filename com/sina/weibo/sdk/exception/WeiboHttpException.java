@@ -36,6 +36,9 @@ public class WeiboHttpException extends WeiboException {
     public int getStatusCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mStatusCode : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mStatusCode;
+        }
+        return invokeV.intValue;
     }
 }

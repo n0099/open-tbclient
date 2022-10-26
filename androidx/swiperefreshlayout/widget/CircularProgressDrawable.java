@@ -14,8 +14,6 @@ import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
-import androidx.annotation.NonNull;
-import androidx.annotation.RestrictTo;
 import androidx.core.util.Preconditions;
 import androidx.core.view.InputDeviceCompat;
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
@@ -61,9 +59,31 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
     public float mRotationCount;
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes.dex */
     public @interface ProgressDrawableSize {
+    }
+
+    private int evaluateColorChange(float f, int i, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            int i3 = (i >> 24) & 255;
+            int i4 = (i >> 16) & 255;
+            int i5 = (i >> 8) & 255;
+            int i6 = i & 255;
+            return ((i3 + ((int) ((((i2 >> 24) & 255) - i3) * f))) << 24) | ((i4 + ((int) ((((i2 >> 16) & 255) - i4) * f))) << 16) | ((i5 + ((int) ((((i2 >> 8) & 255) - i5) * f))) << 8) | (i6 + ((int) (f * ((i2 & 255) - i6))));
+        }
+        return invokeCommon.intValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public int getOpacity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return -3;
+        }
+        return invokeV.intValue;
     }
 
     /* loaded from: classes.dex */
@@ -179,115 +199,172 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
         public int getAlpha() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mAlpha : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.mAlpha;
+            }
+            return invokeV.intValue;
         }
 
         public float getArrowHeight() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mArrowHeight : invokeV.floatValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.mArrowHeight;
+            }
+            return invokeV.floatValue;
         }
 
         public float getArrowScale() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mArrowScale : invokeV.floatValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.mArrowScale;
+            }
+            return invokeV.floatValue;
         }
 
         public float getArrowWidth() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mArrowWidth : invokeV.floatValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.mArrowWidth;
+            }
+            return invokeV.floatValue;
         }
 
         public int getBackgroundColor() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mCirclePaint.getColor() : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return this.mCirclePaint.getColor();
+            }
+            return invokeV.intValue;
         }
 
         public float getCenterRadius() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mRingCenterRadius : invokeV.floatValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return this.mRingCenterRadius;
+            }
+            return invokeV.floatValue;
         }
 
         public int[] getColors() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mColors : (int[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                return this.mColors;
+            }
+            return (int[]) invokeV.objValue;
         }
 
         public float getEndTrim() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mEndTrim : invokeV.floatValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                return this.mEndTrim;
+            }
+            return invokeV.floatValue;
         }
 
         public int getNextColor() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mColors[getNextColorIndex()] : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                return this.mColors[getNextColorIndex()];
+            }
+            return invokeV.intValue;
         }
 
         public int getNextColorIndex() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? (this.mColorIndex + 1) % this.mColors.length : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+                return (this.mColorIndex + 1) % this.mColors.length;
+            }
+            return invokeV.intValue;
         }
 
         public float getRotation() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mRotation : invokeV.floatValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+                return this.mRotation;
+            }
+            return invokeV.floatValue;
         }
 
         public boolean getShowArrow() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mShowArrow : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+                return this.mShowArrow;
+            }
+            return invokeV.booleanValue;
         }
 
         public float getStartTrim() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mStartTrim : invokeV.floatValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+                return this.mStartTrim;
+            }
+            return invokeV.floatValue;
         }
 
         public int getStartingColor() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mColors[this.mColorIndex] : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+                return this.mColors[this.mColorIndex];
+            }
+            return invokeV.intValue;
         }
 
         public float getStartingEndTrim() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.mStartingEndTrim : invokeV.floatValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+                return this.mStartingEndTrim;
+            }
+            return invokeV.floatValue;
         }
 
         public float getStartingRotation() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mStartingRotation : invokeV.floatValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+                return this.mStartingRotation;
+            }
+            return invokeV.floatValue;
         }
 
         public float getStartingStartTrim() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.mStartingStartTrim : invokeV.floatValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+                return this.mStartingStartTrim;
+            }
+            return invokeV.floatValue;
         }
 
         public Paint.Cap getStrokeCap() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.mPaint.getStrokeCap() : (Paint.Cap) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+                return this.mPaint.getStrokeCap();
+            }
+            return (Paint.Cap) invokeV.objValue;
         }
 
         public float getStrokeWidth() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.mStrokeWidth : invokeV.floatValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+                return this.mStrokeWidth;
+            }
+            return invokeV.floatValue;
         }
 
         public void goToNextColor() {
@@ -309,6 +386,15 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
             }
         }
 
+        public void storeOriginals() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
+                this.mStartingStartTrim = this.mStartTrim;
+                this.mStartingEndTrim = this.mEndTrim;
+                this.mStartingRotation = this.mRotation;
+            }
+        }
+
         public void setAlpha(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
@@ -316,20 +402,11 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
             }
         }
 
-        public void setArrowDimensions(float f, float f2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-                this.mArrowWidth = (int) f;
-                this.mArrowHeight = (int) f2;
-            }
-        }
-
         public void setArrowScale(float f) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeF(1048601, this, f) == null) || f == this.mArrowScale) {
-                return;
+            if ((interceptable == null || interceptable.invokeF(1048601, this, f) == null) && f != this.mArrowScale) {
+                this.mArrowScale = f;
             }
-            this.mArrowScale = f;
         }
 
         public void setBackgroundColor(int i) {
@@ -368,7 +445,7 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
             }
         }
 
-        public void setColors(@NonNull int[] iArr) {
+        public void setColors(int[] iArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048607, this, iArr) == null) {
                 this.mColors = iArr;
@@ -392,10 +469,9 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
 
         public void setShowArrow(boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048610, this, z) == null) || this.mShowArrow == z) {
-                return;
+            if ((interceptable == null || interceptable.invokeZ(1048610, this, z) == null) && this.mShowArrow != z) {
+                this.mShowArrow = z;
             }
-            this.mShowArrow = z;
         }
 
         public void setStartTrim(float f) {
@@ -420,12 +496,11 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
             }
         }
 
-        public void storeOriginals() {
+        public void setArrowDimensions(float f, float f2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
-                this.mStartingStartTrim = this.mStartTrim;
-                this.mStartingEndTrim = this.mEndTrim;
-                this.mStartingRotation = this.mRotation;
+            if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+                this.mArrowWidth = (int) f;
+                this.mArrowHeight = (int) f2;
             }
         }
     }
@@ -446,77 +521,6 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
         LINEAR_INTERPOLATOR = new LinearInterpolator();
         MATERIAL_INTERPOLATOR = new FastOutSlowInInterpolator();
         COLORS = new int[]{-16777216};
-    }
-
-    public CircularProgressDrawable(@NonNull Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mResources = ((Context) Preconditions.checkNotNull(context)).getResources();
-        Ring ring = new Ring();
-        this.mRing = ring;
-        ring.setColors(COLORS);
-        setStrokeWidth(2.5f);
-        setupAnimators();
-    }
-
-    private void applyFinishTranslation(float f, Ring ring) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Float.valueOf(f), ring}) == null) {
-            updateRingColor(f, ring);
-            ring.setStartTrim(ring.getStartingStartTrim() + (((ring.getStartingEndTrim() - 0.01f) - ring.getStartingStartTrim()) * f));
-            ring.setEndTrim(ring.getStartingEndTrim());
-            ring.setRotation(ring.getStartingRotation() + ((((float) (Math.floor(ring.getStartingRotation() / 0.8f) + 1.0d)) - ring.getStartingRotation()) * f));
-        }
-    }
-
-    private int evaluateColorChange(float f, int i, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            int i3 = (i >> 24) & 255;
-            int i4 = (i >> 16) & 255;
-            int i5 = (i >> 8) & 255;
-            int i6 = i & 255;
-            return ((i3 + ((int) ((((i2 >> 24) & 255) - i3) * f))) << 24) | ((i4 + ((int) ((((i2 >> 16) & 255) - i4) * f))) << 16) | ((i5 + ((int) ((((i2 >> 8) & 255) - i5) * f))) << 8) | (i6 + ((int) (f * ((i2 & 255) - i6))));
-        }
-        return invokeCommon.intValue;
-    }
-
-    private float getRotation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? this.mRotation : invokeV.floatValue;
-    }
-
-    private void setRotation(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(65541, this, f) == null) {
-            this.mRotation = f;
-        }
-    }
-
-    private void setSizeParameters(float f, float f2, float f3, float f4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            Ring ring = this.mRing;
-            float f5 = this.mResources.getDisplayMetrics().density;
-            ring.setStrokeWidth(f2 * f5);
-            ring.setCenterRadius(f * f5);
-            ring.setColorIndex(0);
-            ring.setArrowDimensions(f3 * f5, f4 * f5);
-        }
     }
 
     private void setupAnimators() {
@@ -569,6 +573,20 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
                 public final /* synthetic */ CircularProgressDrawable this$0;
                 public final /* synthetic */ Ring val$ring;
 
+                @Override // android.animation.Animator.AnimatorListener
+                public void onAnimationCancel(Animator animator) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
+                    }
+                }
+
+                @Override // android.animation.Animator.AnimatorListener
+                public void onAnimationEnd(Animator animator) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
+                    }
+                }
+
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
@@ -586,20 +604,6 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
                     }
                     this.this$0 = this;
                     this.val$ring = ring;
-                }
-
-                @Override // android.animation.Animator.AnimatorListener
-                public void onAnimationCancel(Animator animator) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
-                    }
-                }
-
-                @Override // android.animation.Animator.AnimatorListener
-                public void onAnimationEnd(Animator animator) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                    }
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
@@ -634,28 +638,193 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
         }
     }
 
-    public void applyTransformation(float f, Ring ring, boolean z) {
-        float interpolation;
-        float f2;
+    public CircularProgressDrawable(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), ring, Boolean.valueOf(z)}) == null) {
-            if (this.mFinishing) {
-                applyFinishTranslation(f, ring);
-            } else if (f != 1.0f || z) {
-                float startingRotation = ring.getStartingRotation();
-                if (f < 0.5f) {
-                    interpolation = ring.getStartingStartTrim();
-                    f2 = (MATERIAL_INTERPOLATOR.getInterpolation(f / 0.5f) * 0.79f) + 0.01f + interpolation;
-                } else {
-                    float startingStartTrim = ring.getStartingStartTrim() + 0.79f;
-                    interpolation = startingStartTrim - (((1.0f - MATERIAL_INTERPOLATOR.getInterpolation((f - 0.5f) / 0.5f)) * 0.79f) + 0.01f);
-                    f2 = startingStartTrim;
-                }
-                ring.setStartTrim(interpolation);
-                ring.setEndTrim(f2);
-                ring.setRotation(startingRotation + (0.20999998f * f));
-                setRotation((f + this.mRotationCount) * 216.0f);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        this.mResources = ((Context) Preconditions.checkNotNull(context)).getResources();
+        Ring ring = new Ring();
+        this.mRing = ring;
+        ring.setColors(COLORS);
+        setStrokeWidth(2.5f);
+        setupAnimators();
+    }
+
+    private void applyFinishTranslation(float f, Ring ring) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Float.valueOf(f), ring}) == null) {
+            updateRingColor(f, ring);
+            ring.setStartTrim(ring.getStartingStartTrim() + (((ring.getStartingEndTrim() - 0.01f) - ring.getStartingStartTrim()) * f));
+            ring.setEndTrim(ring.getStartingEndTrim());
+            ring.setRotation(ring.getStartingRotation() + ((((float) (Math.floor(ring.getStartingRotation() / 0.8f) + 1.0d)) - ring.getStartingRotation()) * f));
+        }
+    }
+
+    private float getRotation() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+            return this.mRotation;
+        }
+        return invokeV.floatValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public int getAlpha() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mRing.getAlpha();
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean getArrowEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mRing.getShowArrow();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public float getArrowHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mRing.getArrowHeight();
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getArrowScale() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mRing.getArrowScale();
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getArrowWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mRing.getArrowWidth();
+        }
+        return invokeV.floatValue;
+    }
+
+    public int getBackgroundColor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mRing.getBackgroundColor();
+        }
+        return invokeV.intValue;
+    }
+
+    public float getCenterRadius() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mRing.getCenterRadius();
+        }
+        return invokeV.floatValue;
+    }
+
+    public int[] getColorSchemeColors() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mRing.getColors();
+        }
+        return (int[]) invokeV.objValue;
+    }
+
+    public float getEndTrim() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mRing.getEndTrim();
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getProgressRotation() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.mRing.getRotation();
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getStartTrim() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.mRing.getStartTrim();
+        }
+        return invokeV.floatValue;
+    }
+
+    public Paint.Cap getStrokeCap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.mRing.getStrokeCap();
+        }
+        return (Paint.Cap) invokeV.objValue;
+    }
+
+    public float getStrokeWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.mRing.getStrokeWidth();
+        }
+        return invokeV.floatValue;
+    }
+
+    @Override // android.graphics.drawable.Animatable
+    public boolean isRunning() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.mAnimator.isRunning();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.graphics.drawable.Animatable
+    public void stop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
+            this.mAnimator.cancel();
+            setRotation(0.0f);
+            this.mRing.setShowArrow(false);
+            this.mRing.setColorIndex(0);
+            this.mRing.resetOriginals();
+            invalidateSelf();
+        }
+    }
+
+    private void setRotation(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(65541, this, f) == null) {
+            this.mRotation = f;
         }
     }
 
@@ -672,116 +841,10 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public int getAlpha() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mRing.getAlpha() : invokeV.intValue;
-    }
-
-    public boolean getArrowEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mRing.getShowArrow() : invokeV.booleanValue;
-    }
-
-    public float getArrowHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mRing.getArrowHeight() : invokeV.floatValue;
-    }
-
-    public float getArrowScale() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mRing.getArrowScale() : invokeV.floatValue;
-    }
-
-    public float getArrowWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mRing.getArrowWidth() : invokeV.floatValue;
-    }
-
-    public int getBackgroundColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mRing.getBackgroundColor() : invokeV.intValue;
-    }
-
-    public float getCenterRadius() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mRing.getCenterRadius() : invokeV.floatValue;
-    }
-
-    @NonNull
-    public int[] getColorSchemeColors() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mRing.getColors() : (int[]) invokeV.objValue;
-    }
-
-    public float getEndTrim() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mRing.getEndTrim() : invokeV.floatValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public int getOpacity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return -3;
-        }
-        return invokeV.intValue;
-    }
-
-    public float getProgressRotation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mRing.getRotation() : invokeV.floatValue;
-    }
-
-    public float getStartTrim() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mRing.getStartTrim() : invokeV.floatValue;
-    }
-
-    @NonNull
-    public Paint.Cap getStrokeCap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mRing.getStrokeCap() : (Paint.Cap) invokeV.objValue;
-    }
-
-    public float getStrokeWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mRing.getStrokeWidth() : invokeV.floatValue;
-    }
-
-    @Override // android.graphics.drawable.Animatable
-    public boolean isRunning() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.mAnimator.isRunning() : invokeV.booleanValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
     public void setAlpha(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
             this.mRing.setAlpha(i);
-            invalidateSelf();
-        }
-    }
-
-    public void setArrowDimensions(float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            this.mRing.setArrowDimensions(f, f2);
             invalidateSelf();
         }
     }
@@ -827,7 +890,7 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
         }
     }
 
-    public void setColorSchemeColors(@NonNull int... iArr) {
+    public void setColorSchemeColors(int... iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, iArr) == null) {
             this.mRing.setColors(iArr);
@@ -844,16 +907,7 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
         }
     }
 
-    public void setStartEndTrim(float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            this.mRing.setStartTrim(f);
-            this.mRing.setEndTrim(f2);
-            invalidateSelf();
-        }
-    }
-
-    public void setStrokeCap(@NonNull Paint.Cap cap) {
+    public void setStrokeCap(Paint.Cap cap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, cap) == null) {
             this.mRing.setStrokeCap(cap);
@@ -881,6 +935,60 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
         }
     }
 
+    private void setSizeParameters(float f, float f2, float f3, float f4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+            Ring ring = this.mRing;
+            float f5 = this.mResources.getDisplayMetrics().density;
+            ring.setStrokeWidth(f2 * f5);
+            ring.setCenterRadius(f * f5);
+            ring.setColorIndex(0);
+            ring.setArrowDimensions(f3 * f5, f4 * f5);
+        }
+    }
+
+    public void applyTransformation(float f, Ring ring, boolean z) {
+        float interpolation;
+        float f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), ring, Boolean.valueOf(z)}) == null) {
+            if (this.mFinishing) {
+                applyFinishTranslation(f, ring);
+            } else if (f != 1.0f || z) {
+                float startingRotation = ring.getStartingRotation();
+                if (f < 0.5f) {
+                    interpolation = ring.getStartingStartTrim();
+                    f2 = (MATERIAL_INTERPOLATOR.getInterpolation(f / 0.5f) * 0.79f) + 0.01f + interpolation;
+                } else {
+                    float startingStartTrim = ring.getStartingStartTrim() + 0.79f;
+                    interpolation = startingStartTrim - (((1.0f - MATERIAL_INTERPOLATOR.getInterpolation((f - 0.5f) / 0.5f)) * 0.79f) + 0.01f);
+                    f2 = startingStartTrim;
+                }
+                ring.setStartTrim(interpolation);
+                ring.setEndTrim(f2);
+                ring.setRotation(startingRotation + (0.20999998f * f));
+                setRotation((f + this.mRotationCount) * 216.0f);
+            }
+        }
+    }
+
+    public void setArrowDimensions(float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            this.mRing.setArrowDimensions(f, f2);
+            invalidateSelf();
+        }
+    }
+
+    public void setStartEndTrim(float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            this.mRing.setStartTrim(f);
+            this.mRing.setEndTrim(f2);
+            invalidateSelf();
+        }
+    }
+
     @Override // android.graphics.drawable.Animatable
     public void start() {
         Interceptable interceptable = $ic;
@@ -897,19 +1005,6 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
             this.mRing.resetOriginals();
             this.mAnimator.setDuration(1332L);
             this.mAnimator.start();
-        }
-    }
-
-    @Override // android.graphics.drawable.Animatable
-    public void stop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
-            this.mAnimator.cancel();
-            setRotation(0.0f);
-            this.mRing.setShowArrow(false);
-            this.mRing.setColorIndex(0);
-            this.mRing.resetOriginals();
-            invalidateSelf();
         }
     }
 

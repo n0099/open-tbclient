@@ -34,6 +34,23 @@ public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
     public String mResourceId;
     public String mSource;
 
+    @Override // com.baidu.android.imrtc.request.BaseHttpRequest, com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
+    public String getMethod() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "POST" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
+    public boolean shouldAbort() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -48,6 +65,19 @@ public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
             }
         }
         hexDigits = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    }
+
+    @Override // com.baidu.android.imrtc.request.BaseHttpRequest, com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
+    public String getHost() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (Utility.readIntData(this.mContext, Constants.KEY_ENV, 0) != 0) {
+                return "http://rd-im-server.bcc-szth.baidu.com:8080/rtc/rest/1.0/room/create";
+            }
+            return "https://pim.baidu.com/rtc/rest/1.0/room/create";
+        }
+        return (String) invokeV.objValue;
     }
 
     public BIMRtcCreateRoomRequest(Context context, String str, BIMRtcTokenListener bIMRtcTokenListener) {
@@ -68,6 +98,27 @@ public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
         this.mContext = context;
         this.mListener = bIMRtcTokenListener;
         this.mSource = str;
+    }
+
+    public BIMRtcCreateRoomRequest(Context context, String str, String str2, BIMRtcTokenListener bIMRtcTokenListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, str2, bIMRtcTokenListener};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mContext = context;
+        this.mListener = bIMRtcTokenListener;
+        this.mSource = str;
+        this.mResourceId = str2;
     }
 
     public static String byte2Hex(byte[] bArr) {
@@ -102,30 +153,13 @@ public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
     }
 
     @Override // com.baidu.android.imrtc.request.BaseHttpRequest, com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
-    public Map<String, String> getHeaders() {
+    public Map getHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new HashMap() : (Map) invokeV.objValue;
-    }
-
-    @Override // com.baidu.android.imrtc.request.BaseHttpRequest, com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
-    public String getHost() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (Utility.readIntData(this.mContext, Constants.KEY_ENV, 0) != 0) {
-                return "http://rd-im-server.bcc-szth.baidu.com:8080/rtc/rest/1.0/room/create";
-            }
-            return "https://pim.baidu.com/rtc/rest/1.0/room/create";
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new HashMap();
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.android.imrtc.request.BaseHttpRequest, com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
-    public String getMethod() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "POST" : (String) invokeV.objValue;
+        return (Map) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
@@ -166,12 +200,11 @@ public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
     @Override // com.baidu.android.imrtc.request.HttpExecutor.ResponseHandler
     public void onFailure(int i, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) || this.mListener == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) && this.mListener != null) {
+            report(-10, i);
+            this.mListener.onResult(i, str, new BIMRtcTokenListener.BIMRTCGetTokeResult());
+            trackRequest(i, "room/create");
         }
-        report(-10, i);
-        this.mListener.onResult(i, str, new BIMRtcTokenListener.BIMRTCGetTokeResult());
-        trackRequest(i, "room/create");
     }
 
     /* JADX WARN: Removed duplicated region for block: B:15:0x007d  */
@@ -237,36 +270,5 @@ public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
                 trackRequest(i, "room/create");
             }
         }
-    }
-
-    @Override // com.baidu.android.imrtc.request.HttpExecutor.HttpRequest
-    public boolean shouldAbort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public BIMRtcCreateRoomRequest(Context context, String str, String str2, BIMRtcTokenListener bIMRtcTokenListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, str2, bIMRtcTokenListener};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mContext = context;
-        this.mListener = bIMRtcTokenListener;
-        this.mSource = str;
-        this.mResourceId = str2;
     }
 }

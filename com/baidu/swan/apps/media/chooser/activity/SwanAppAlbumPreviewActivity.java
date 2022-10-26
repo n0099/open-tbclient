@@ -2,7 +2,6 @@ package com.baidu.swan.apps.media.chooser.activity;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -37,16 +36,16 @@ import com.baidu.swan.apps.media.chooser.model.MediaModel;
 import com.baidu.swan.apps.view.DragView;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.br2;
 import com.baidu.tieba.cr2;
-import com.baidu.tieba.d33;
-import com.baidu.tieba.er2;
-import com.baidu.tieba.fh3;
-import com.baidu.tieba.jr2;
-import com.baidu.tieba.kg3;
-import com.baidu.tieba.vj1;
-import com.baidu.tieba.w13;
-import com.baidu.tieba.yq2;
+import com.baidu.tieba.dr2;
+import com.baidu.tieba.e33;
+import com.baidu.tieba.fr2;
+import com.baidu.tieba.gh3;
+import com.baidu.tieba.kr2;
+import com.baidu.tieba.lg3;
+import com.baidu.tieba.wj1;
+import com.baidu.tieba.x13;
+import com.baidu.tieba.zq2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -59,7 +58,7 @@ import com.google.protobuf.CodedInputStream;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
-public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements DragView.b, View.OnClickListener, er2, jr2 {
+public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements DragView.b, View.OnClickListener, fr2, kr2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean J;
     public transient /* synthetic */ FieldHolder $fh;
@@ -70,7 +69,7 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
     public boolean E;
     public String F;
     public int G;
-    public ArrayList<MediaModel> H;
+    public ArrayList H;
     public ViewPager.OnPageChangeListener I;
     public View m;
     public ViewPager n;
@@ -84,8 +83,15 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
     public TextView v;
     public View w;
     public View x;
-    public w13 y;
+    public x13 y;
     public SwanAppAlbumPreviewAdapter z;
+
+    @Override // com.baidu.swan.apps.view.DragView.b
+    public void f(MotionEvent motionEvent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, motionEvent) == null) {
+        }
+    }
 
     /* loaded from: classes2.dex */
     public class a extends LinearLayoutManager {
@@ -95,13 +101,13 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
 
         /* renamed from: com.baidu.swan.apps.media.chooser.activity.SwanAppAlbumPreviewActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0174a extends LinearSmoothScroller {
+        public class C0175a extends LinearSmoothScroller {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0174a(a aVar, Context context) {
+            public C0175a(a aVar, Context context) {
                 super(context);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -125,14 +131,20 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
             public float calculateSpeedPerPixel(DisplayMetrics displayMetrics) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, displayMetrics)) == null) ? (this.a.a.getResources().getDisplayMetrics().density * 0.3f) / displayMetrics.density : invokeL.floatValue;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, displayMetrics)) == null) {
+                    return (this.a.a.getResources().getDisplayMetrics().density * 0.3f) / displayMetrics.density;
+                }
+                return invokeL.floatValue;
             }
 
             @Override // androidx.recyclerview.widget.RecyclerView.SmoothScroller
             public PointF computeScrollVectorForPosition(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? super.computeScrollVectorForPosition(i) : (PointF) invokeI.objValue;
+                if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                    return super.computeScrollVectorForPosition(i);
+                }
+                return (PointF) invokeI.objValue;
             }
         }
 
@@ -161,9 +173,9 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
         public void smoothScrollToPosition(RecyclerView recyclerView, RecyclerView.State state, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048576, this, recyclerView, state, i) == null) {
-                C0174a c0174a = new C0174a(this, recyclerView.getContext());
-                c0174a.setTargetPosition(i);
-                startSmoothScroll(c0174a);
+                C0175a c0175a = new C0175a(this, recyclerView.getContext());
+                c0175a.setTargetPosition(i);
+                startSmoothScroll(c0175a);
             }
         }
     }
@@ -172,18 +184,18 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
     public class b extends SwanAppThumbnailClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yq2 c;
+        public final /* synthetic */ zq2 c;
         public final /* synthetic */ ItemTouchHelper d;
         public final /* synthetic */ SwanAppAlbumPreviewActivity e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(SwanAppAlbumPreviewActivity swanAppAlbumPreviewActivity, RecyclerView recyclerView, yq2 yq2Var, ItemTouchHelper itemTouchHelper) {
+        public b(SwanAppAlbumPreviewActivity swanAppAlbumPreviewActivity, RecyclerView recyclerView, zq2 zq2Var, ItemTouchHelper itemTouchHelper) {
             super(recyclerView);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {swanAppAlbumPreviewActivity, recyclerView, yq2Var, itemTouchHelper};
+                Object[] objArr = {swanAppAlbumPreviewActivity, recyclerView, zq2Var, itemTouchHelper};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -195,14 +207,14 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
                 }
             }
             this.e = swanAppAlbumPreviewActivity;
-            this.c = yq2Var;
+            this.c = zq2Var;
             this.d = itemTouchHelper;
         }
 
         @Override // com.baidu.swan.apps.media.chooser.listener.SwanAppThumbnailClickListener
         public void b(RecyclerView.ViewHolder viewHolder) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, viewHolder) == null) || this.e.H == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, viewHolder) != null) || this.e.H == null) {
                 return;
             }
             MediaModel d = this.e.A.d(viewHolder.getAdapterPosition());
@@ -221,11 +233,10 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
         public void c(RecyclerView.ViewHolder viewHolder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewHolder) == null) {
-                ArrayList<MediaModel> e = this.e.A.e();
-                if (viewHolder.getLayoutPosition() < 0 || e == null || viewHolder.getLayoutPosition() == e.size()) {
-                    return;
+                ArrayList e = this.e.A.e();
+                if (viewHolder.getLayoutPosition() >= 0 && e != null && viewHolder.getLayoutPosition() != e.size()) {
+                    this.d.startDrag(viewHolder);
                 }
-                this.d.startDrag(viewHolder);
             }
         }
     }
@@ -235,6 +246,13 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SwanAppAlbumPreviewActivity a;
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrolled(int i, float f, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
+            }
+        }
 
         public c(SwanAppAlbumPreviewActivity swanAppAlbumPreviewActivity) {
             Interceptable interceptable = $ic;
@@ -263,20 +281,14 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrolled(int i, float f, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
-            }
-        }
-
-        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                this.a.C = i;
-                this.a.X();
-                this.a.T();
+            if (interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) {
+                return;
             }
+            this.a.C = i;
+            this.a.X();
+            this.a.T();
         }
     }
 
@@ -325,6 +337,27 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SwanAppAlbumPreviewActivity a;
 
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationCancel(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+            }
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationRepeat(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
+            }
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationStart(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
+            }
+        }
+
         public e(SwanAppAlbumPreviewActivity swanAppAlbumPreviewActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -344,19 +377,27 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
         }
 
         @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) != null) {
+                return;
+            }
+            this.a.E = false;
+            SwanAppAlbumPreviewActivity swanAppAlbumPreviewActivity = this.a;
+            swanAppAlbumPreviewActivity.D = !swanAppAlbumPreviewActivity.D;
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class f implements Animator.AnimatorListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SwanAppAlbumPreviewActivity a;
+
+        @Override // android.animation.Animator.AnimatorListener
         public void onAnimationCancel(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.a.E = false;
-                SwanAppAlbumPreviewActivity swanAppAlbumPreviewActivity = this.a;
-                swanAppAlbumPreviewActivity.D = !swanAppAlbumPreviewActivity.D;
             }
         }
 
@@ -373,13 +414,6 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
             if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
             }
         }
-    }
-
-    /* loaded from: classes2.dex */
-    public class f implements Animator.AnimatorListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppAlbumPreviewActivity a;
 
         public f(SwanAppAlbumPreviewActivity swanAppAlbumPreviewActivity) {
             Interceptable interceptable = $ic;
@@ -400,34 +434,14 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
         }
 
         @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationCancel(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.a.E = false;
-                SwanAppAlbumPreviewActivity swanAppAlbumPreviewActivity = this.a;
-                swanAppAlbumPreviewActivity.D = !swanAppAlbumPreviewActivity.D;
+            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) != null) {
+                return;
             }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationRepeat(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-            }
+            this.a.E = false;
+            SwanAppAlbumPreviewActivity swanAppAlbumPreviewActivity = this.a;
+            swanAppAlbumPreviewActivity.D = !swanAppAlbumPreviewActivity.D;
         }
     }
 
@@ -444,7 +458,73 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
                 return;
             }
         }
-        J = vj1.a;
+        J = wj1.a;
+    }
+
+    public final void M() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && TextUtils.equals(this.F, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_OUTSIDE)) {
+            this.u.setVisibility(8);
+            this.w.setVisibility(8);
+        }
+    }
+
+    public final void N() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Intent intent = new Intent();
+            intent.putExtra("isRefresh", true);
+            setResult(-1, intent);
+        }
+    }
+
+    public final void W() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            Window window = getWindow();
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            attributes.flags |= CodedInputStream.DEFAULT_SIZE_LIMIT;
+            window.setAttributes(attributes);
+        }
+    }
+
+    @Override // com.baidu.tieba.fr2
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            if (!this.E && this.D) {
+                c();
+            } else if (!this.E) {
+                e();
+            }
+        }
+    }
+
+    @Override // com.baidu.swan.apps.view.DragView.b
+    public void onClose() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            finish();
+            overridePendingTransition(R.anim.obfuscated_res_0x7f01013b, R.anim.obfuscated_res_0x7f01001c);
+        }
+    }
+
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            super.onDestroy();
+            SwanAppAlbumPreviewAdapter swanAppAlbumPreviewAdapter = this.z;
+            if (swanAppAlbumPreviewAdapter != null) {
+                swanAppAlbumPreviewAdapter.k();
+                this.z = null;
+            }
+            this.A = null;
+            this.y = null;
+            if (this.H != null) {
+                this.H = null;
+            }
+        }
     }
 
     public SwanAppAlbumPreviewActivity() {
@@ -467,52 +547,89 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
         this.I = new c(this);
     }
 
-    public final void M() {
+    public final String P(MediaModel mediaModel) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && TextUtils.equals(this.F, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_OUTSIDE)) {
-            this.u.setVisibility(8);
-            this.w.setVisibility(8);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, mediaModel)) == null) {
+            return String.valueOf(dr2.c(mediaModel) + 1);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final void U(int i) {
+        float f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            if (i == 0) {
+                f2 = 0.0f;
+            } else {
+                f2 = 1.0f;
+            }
+            View view2 = this.w;
+            if (view2 != null) {
+                view2.setAlpha(1.0f - f2);
+            }
+            View view3 = this.x;
+            if (view3 != null) {
+                view3.setAlpha(1.0f - f2);
+            }
         }
     }
 
-    public final void N() {
+    public void V(Drawable drawable) {
+        View view2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Intent intent = new Intent();
-            intent.putExtra("isRefresh", true);
-            setResult(-1, intent);
+        if ((interceptable == null || interceptable.invokeL(1048585, this, drawable) == null) && (view2 = this.m) != null) {
+            view2.setBackground(drawable);
         }
     }
 
-    public final yq2 O(ViewPager viewPager) {
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048598, this, i, keyEvent)) == null) {
+            if (i == 4) {
+                N();
+            }
+            return super.onKeyDown(i, keyEvent);
+        }
+        return invokeIL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.kr2
+    public void onMove(int i, int i2) {
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeII(1048599, this, i, i2) == null) && (arrayList = this.H) != null && this.C < arrayList.size()) {
+            this.v.setText(P((MediaModel) this.H.get(this.C)));
+        }
+    }
+
+    public final zq2 O(ViewPager viewPager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewPager)) == null) {
-            yq2 yq2Var = new yq2(viewPager.getContext());
+            zq2 zq2Var = new zq2(viewPager.getContext());
             try {
                 Field declaredField = ViewPager.class.getDeclaredField("mScroller");
                 declaredField.setAccessible(true);
-                declaredField.set(viewPager, yq2Var);
+                declaredField.set(viewPager, zq2Var);
             } catch (Exception e2) {
                 if (J) {
                     e2.printStackTrace();
                 }
             }
-            return yq2Var;
+            return zq2Var;
         }
-        return (yq2) invokeL.objValue;
-    }
-
-    public final String P(MediaModel mediaModel) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, mediaModel)) == null) ? String.valueOf(cr2.c(mediaModel) + 1) : (String) invokeL.objValue;
+        return (zq2) invokeL.objValue;
     }
 
     public final void Q() {
+        ArrayList e2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.p = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0921d0);
+            this.p = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0921ba);
             this.q = findViewById(R.id.obfuscated_res_0x7f09025d);
             a aVar = new a(this, this);
             aVar.setOrientation(0);
@@ -520,10 +637,15 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
             SwanAppThumbnailAdapter swanAppThumbnailAdapter = new SwanAppThumbnailAdapter(this);
             this.A = swanAppThumbnailAdapter;
             this.p.setAdapter(swanAppThumbnailAdapter);
-            this.A.i(cr2.e() == null ? null : cr2.e());
+            if (dr2.e() == null) {
+                e2 = null;
+            } else {
+                e2 = dr2.e();
+            }
+            this.A.i(e2);
             ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new SwanAppThumbnailTouchCallback(this, this.A));
             itemTouchHelper.attachToRecyclerView(this.p);
-            yq2 O = O(this.n);
+            zq2 O = O(this.n);
             RecyclerView recyclerView = this.p;
             recyclerView.addOnItemTouchListener(new b(this, recyclerView, O, itemTouchHelper));
             Y();
@@ -531,12 +653,79 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
         }
     }
 
+    public final void T() {
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || (arrayList = this.H) == null) {
+            return;
+        }
+        MediaModel mediaModel = null;
+        if (this.C < arrayList.size()) {
+            mediaModel = (MediaModel) this.H.get(this.C);
+        }
+        if (mediaModel == null) {
+            return;
+        }
+        if (dr2.g(mediaModel)) {
+            this.v.setVisibility(0);
+            this.v.setText(P((MediaModel) this.H.get(this.C)));
+            this.v.setBackgroundResource(R.drawable.obfuscated_res_0x7f08119a);
+            return;
+        }
+        this.v.setVisibility(8);
+        if (cr2.f(cr2.d, mediaModel)) {
+            this.r.setImageResource(R.drawable.obfuscated_res_0x7f08119c);
+        } else {
+            this.r.setImageResource(R.drawable.obfuscated_res_0x7f08119b);
+        }
+    }
+
+    @Override // com.baidu.tieba.fr2
+    public void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048590, this) != null) || !this.D) {
+            return;
+        }
+        this.E = true;
+        float y = this.x.getY();
+        float y2 = this.w.getY();
+        View view2 = this.x;
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, "y", y, y - view2.getHeight());
+        ofFloat.setDuration(this.G);
+        ofFloat.addListener(new e(this));
+        ofFloat.start();
+        View view3 = this.w;
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view3, "y", y2, y2 + view3.getHeight());
+        ofFloat2.setDuration(this.G);
+        ofFloat2.start();
+    }
+
+    @Override // com.baidu.tieba.fr2
+    public void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048591, this) != null) || this.D) {
+            return;
+        }
+        this.E = true;
+        float y = this.x.getY();
+        float y2 = this.w.getY();
+        View view2 = this.x;
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, "y", y, y + view2.getHeight());
+        ofFloat.setDuration(this.G);
+        ofFloat.addListener(new f(this));
+        ofFloat.start();
+        View view3 = this.w;
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view3, "y", y2, y2 - view3.getHeight());
+        ofFloat2.setDuration(this.G);
+        ofFloat2.start();
+    }
+
     public final void R() {
         String string;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.m = findViewById(R.id.obfuscated_res_0x7f090258);
-            DragView dragView = (DragView) findViewById(R.id.obfuscated_res_0x7f090853);
+            DragView dragView = (DragView) findViewById(R.id.obfuscated_res_0x7f09085c);
             this.o = dragView;
             dragView.setOnCloseListener(this);
             this.o.setBackgroundColor(-16777216);
@@ -557,12 +746,12 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
             this.z.v(this);
             this.n.setCurrentItem(this.C);
             this.s.setOnClickListener(this);
-            this.u.setBackgroundResource(R.drawable.obfuscated_res_0x7f081188);
+            this.u.setBackgroundResource(R.drawable.obfuscated_res_0x7f081199);
             this.u.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060a9c));
-            if (cr2.d() != 0) {
-                string = getString(R.string.obfuscated_res_0x7f0f12c4) + "(" + cr2.d() + SmallTailInfo.EMOTION_SUFFIX;
+            if (dr2.d() != 0) {
+                string = getString(R.string.obfuscated_res_0x7f0f12d8) + "(" + dr2.d() + SmallTailInfo.EMOTION_SUFFIX;
             } else {
-                string = getString(R.string.obfuscated_res_0x7f0f12c4);
+                string = getString(R.string.obfuscated_res_0x7f0f12d8);
             }
             this.u.setText(string);
         }
@@ -577,11 +766,16 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             int abs = Math.abs(i);
+            int i3 = 0;
             if (abs >= 0) {
                 float f2 = abs;
                 if (f2 < 300.0f) {
                     i2 = (int) (255.0f - ((f2 / 300.0f) * 20.0f));
-                    this.m.getBackground().mutate().setAlpha(i2 >= 0 ? i2 : 0);
+                    Drawable mutate = this.m.getBackground().mutate();
+                    if (i2 >= 0) {
+                        i3 = i2;
+                    }
+                    mutate.setAlpha(i3);
                 }
             }
             float f3 = abs;
@@ -591,99 +785,10 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
             } else {
                 i2 = 0;
             }
-            this.m.getBackground().mutate().setAlpha(i2 >= 0 ? i2 : 0);
-        }
-    }
-
-    public final void T() {
-        ArrayList<MediaModel> arrayList;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (arrayList = this.H) == null) {
-            return;
-        }
-        MediaModel mediaModel = this.C < arrayList.size() ? this.H.get(this.C) : null;
-        if (mediaModel == null) {
-            return;
-        }
-        if (cr2.g(mediaModel)) {
-            this.v.setVisibility(0);
-            this.v.setText(P(this.H.get(this.C)));
-            this.v.setBackgroundResource(R.drawable.obfuscated_res_0x7f081189);
-            return;
-        }
-        this.v.setVisibility(8);
-        if (br2.f(br2.d, mediaModel)) {
-            this.r.setImageResource(R.drawable.obfuscated_res_0x7f08118b);
-        } else {
-            this.r.setImageResource(R.drawable.obfuscated_res_0x7f08118a);
-        }
-    }
-
-    public final void U(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            float f2 = i == 0 ? 0.0f : 1.0f;
-            View view2 = this.w;
-            if (view2 != null) {
-                view2.setAlpha(1.0f - f2);
+            Drawable mutate2 = this.m.getBackground().mutate();
+            if (i2 >= 0) {
             }
-            View view3 = this.x;
-            if (view3 != null) {
-                view3.setAlpha(1.0f - f2);
-            }
-        }
-    }
-
-    public void V(Drawable drawable) {
-        View view2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, drawable) == null) || (view2 = this.m) == null) {
-            return;
-        }
-        view2.setBackground(drawable);
-    }
-
-    @TargetApi(19)
-    public final void W() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            Window window = getWindow();
-            WindowManager.LayoutParams attributes = window.getAttributes();
-            attributes.flags |= CodedInputStream.DEFAULT_SIZE_LIMIT;
-            window.setAttributes(attributes);
-        }
-    }
-
-    public final void X() {
-        int h;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.A == null || this.C >= this.H.size() || (h = this.A.h(this.H.get(this.C))) < 0) {
-            return;
-        }
-        int i = h + 1;
-        if (i < this.A.getItemCount()) {
-            this.p.smoothScrollToPosition(i);
-        } else {
-            this.p.smoothScrollToPosition(h);
-        }
-        this.p.postDelayed(new d(this, h), 300L);
-    }
-
-    public final void Y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            ArrayList<MediaModel> e2 = cr2.e();
-            ViewGroup.LayoutParams layoutParams = this.w.getLayoutParams();
-            int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706cd);
-            if (e2 != null && e2.size() > 0) {
-                this.p.setVisibility(0);
-                this.q.setVisibility(0);
-                layoutParams.height = dimensionPixelSize;
-                return;
-            }
-            this.p.setVisibility(8);
-            this.q.setVisibility(8);
-            layoutParams.height = (dimensionPixelSize - getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706b7)) - getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706d8);
+            mutate2.setAlpha(i3);
         }
     }
 
@@ -714,68 +819,41 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
         }
     }
 
-    @Override // com.baidu.tieba.er2
-    public void c() {
+    public final void X() {
+        int h;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && this.D) {
-            this.E = true;
-            float y = this.x.getY();
-            float y2 = this.w.getY();
-            View view2 = this.x;
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, "y", y, y - view2.getHeight());
-            ofFloat.setDuration(this.G);
-            ofFloat.addListener(new e(this));
-            ofFloat.start();
-            View view3 = this.w;
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view3, "y", y2, y2 + view3.getHeight());
-            ofFloat2.setDuration(this.G);
-            ofFloat2.start();
-        }
-    }
-
-    @Override // com.baidu.tieba.er2
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || this.D) {
-            return;
-        }
-        this.E = true;
-        float y = this.x.getY();
-        float y2 = this.w.getY();
-        View view2 = this.x;
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, "y", y, y + view2.getHeight());
-        ofFloat.setDuration(this.G);
-        ofFloat.addListener(new f(this));
-        ofFloat.start();
-        View view3 = this.w;
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view3, "y", y2, y2 - view3.getHeight());
-        ofFloat2.setDuration(this.G);
-        ofFloat2.start();
-    }
-
-    @Override // com.baidu.swan.apps.view.DragView.b
-    public void f(MotionEvent motionEvent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, motionEvent) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.er2
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            if (!this.E && this.D) {
-                c();
-            } else if (this.E) {
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.A != null && this.C < this.H.size() && (h = this.A.h((MediaModel) this.H.get(this.C))) >= 0) {
+            int i = h + 1;
+            if (i < this.A.getItemCount()) {
+                this.p.smoothScrollToPosition(i);
             } else {
-                e();
+                this.p.smoothScrollToPosition(h);
             }
+            this.p.postDelayed(new d(this, h), 300L);
+        }
+    }
+
+    public final void Y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            ArrayList e2 = dr2.e();
+            ViewGroup.LayoutParams layoutParams = this.w.getLayoutParams();
+            int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706cd);
+            if (e2 != null && e2.size() > 0) {
+                this.p.setVisibility(0);
+                this.q.setVisibility(0);
+                layoutParams.height = dimensionPixelSize;
+                return;
+            }
+            this.p.setVisibility(8);
+            this.q.setVisibility(8);
+            layoutParams.height = (dimensionPixelSize - getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706b7)) - getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706d8);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        ArrayList<MediaModel> arrayList;
+        ArrayList arrayList;
         String string;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, view2) == null) {
@@ -784,106 +862,102 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
                 finish();
                 return;
             }
-            ArrayList<MediaModel> arrayList2 = this.H;
-            if (arrayList2 == null || this.C >= arrayList2.size()) {
-                return;
-            }
-            MediaModel mediaModel = this.H.get(this.C);
-            if (view2 == this.s) {
-                if (cr2.f(mediaModel)) {
-                    this.A.notifyItemRemoved(cr2.c(mediaModel));
-                    cr2.h(mediaModel);
-                    if (cr2.d() == 0) {
-                        this.A.i(null);
+            ArrayList arrayList2 = this.H;
+            if (arrayList2 != null && this.C < arrayList2.size()) {
+                MediaModel mediaModel = (MediaModel) this.H.get(this.C);
+                if (view2 == this.s) {
+                    if (dr2.f(mediaModel)) {
+                        this.A.notifyItemRemoved(dr2.c(mediaModel));
+                        dr2.h(mediaModel);
+                        if (dr2.d() == 0) {
+                            this.A.i(null);
+                        }
+                        this.v.setVisibility(8);
+                        this.r.setImageResource(R.drawable.obfuscated_res_0x7f08119b);
+                        if (dr2.d() > 0) {
+                            string = getString(R.string.obfuscated_res_0x7f0f12d8) + "(" + dr2.d() + SmallTailInfo.EMOTION_SUFFIX;
+                        } else {
+                            string = getString(R.string.obfuscated_res_0x7f0f12d8);
+                        }
+                        this.u.setText(string);
+                        Y();
+                        return;
                     }
-                    this.v.setVisibility(8);
-                    this.r.setImageResource(R.drawable.obfuscated_res_0x7f08118a);
-                    if (cr2.d() > 0) {
-                        string = getString(R.string.obfuscated_res_0x7f0f12c4) + "(" + cr2.d() + SmallTailInfo.EMOTION_SUFFIX;
+                    int d2 = dr2.d();
+                    if (d2 == cr2.c) {
+                        cr2.j(cr2.d);
+                    } else if (d2 > 0 && TextUtils.equals(cr2.d, "single") && !TextUtils.equals(dr2.b(), mediaModel.getType())) {
+                        e33.f(this, R.string.obfuscated_res_0x7f0f12c7).G();
+                    } else if (mediaModel.getSize() > 52428800 && TextUtils.equals(mediaModel.getType(), "image")) {
+                        e33.f(this, R.string.obfuscated_res_0x7f0f12c6).G();
                     } else {
-                        string = getString(R.string.obfuscated_res_0x7f0f12c4);
+                        int d3 = dr2.d();
+                        this.A.notifyItemInserted(d3);
+                        dr2.i(mediaModel);
+                        if (this.A.e() == null) {
+                            this.A.i(dr2.e());
+                        }
+                        this.p.smoothScrollToPosition(d3);
+                        this.v.setVisibility(0);
+                        this.v.setText(P(mediaModel));
+                        this.v.setBackgroundResource(R.drawable.obfuscated_res_0x7f08119a);
+                        this.u.setText(getString(R.string.obfuscated_res_0x7f0f12d8) + "(" + dr2.d() + SmallTailInfo.EMOTION_SUFFIX);
+                        this.u.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060a9c));
+                        Y();
                     }
-                    this.u.setText(string);
-                    Y();
-                    return;
-                }
-                int d2 = cr2.d();
-                if (d2 == br2.c) {
-                    br2.j(br2.d);
-                } else if (d2 > 0 && TextUtils.equals(br2.d, "single") && !TextUtils.equals(cr2.b(), mediaModel.getType())) {
-                    d33.f(this, R.string.obfuscated_res_0x7f0f12b3).G();
-                } else if (mediaModel.getSize() > 52428800 && TextUtils.equals(mediaModel.getType(), "image")) {
-                    d33.f(this, R.string.obfuscated_res_0x7f0f12b2).G();
-                } else {
-                    int d3 = cr2.d();
-                    this.A.notifyItemInserted(d3);
-                    cr2.i(mediaModel);
-                    if (this.A.e() == null) {
-                        this.A.i(cr2.e());
+                } else if (view2 == this.u) {
+                    if (dr2.d() == 0 && (arrayList = this.H) != null && arrayList.size() > 0 && this.C < this.H.size()) {
+                        dr2.i(mediaModel);
                     }
-                    this.p.smoothScrollToPosition(d3);
-                    this.v.setVisibility(0);
-                    this.v.setText(P(mediaModel));
-                    this.v.setBackgroundResource(R.drawable.obfuscated_res_0x7f081189);
-                    this.u.setText(getString(R.string.obfuscated_res_0x7f0f12c4) + "(" + cr2.d() + SmallTailInfo.EMOTION_SUFFIX);
-                    this.u.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060a9c));
-                    Y();
+                    Bundle bundle = new Bundle();
+                    bundle.putBoolean("compressed", cr2.e);
+                    bundle.putString("swanAppId", cr2.f);
+                    bundle.putParcelableArrayList("mediaModels", dr2.e());
+                    bundle.putString("swanTmpPath", cr2.j);
+                    cr2.g(this, bundle);
                 }
-            } else if (view2 == this.u) {
-                if (cr2.d() == 0 && (arrayList = this.H) != null && arrayList.size() > 0 && this.C < this.H.size()) {
-                    cr2.i(mediaModel);
-                }
-                Bundle bundle = new Bundle();
-                bundle.putBoolean("compressed", br2.e);
-                bundle.putString("swanAppId", br2.f);
-                bundle.putParcelableArrayList("mediaModels", cr2.e());
-                bundle.putString("swanTmpPath", br2.j);
-                br2.g(this, bundle);
             }
         }
     }
 
-    @Override // com.baidu.swan.apps.view.DragView.b
-    public void onClose() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            finish();
-            overridePendingTransition(R.anim.obfuscated_res_0x7f01013b, R.anim.obfuscated_res_0x7f01001c);
-        }
-    }
-
-    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.tieba.bh4, android.app.Activity
+    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.tieba.ch4, android.app.Activity
     public void onCreate(Bundle bundle) {
+        ArrayList parcelableArrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, bundle) == null) {
-            int c0 = fh3.c0(this);
+            int c0 = gh3.c0(this);
             super.onCreate(bundle);
-            fh3.g(this, c0);
+            gh3.g(this, c0);
             W();
-            w13 w13Var = new w13(this);
-            this.y = w13Var;
-            w13Var.b(false);
+            x13 x13Var = new x13(this);
+            this.y = x13Var;
+            x13Var.b(false);
             getWindow().setFlags(1024, 1024);
             if (!Fresco.hasBeenInitialized()) {
                 Fresco.initialize(getApplicationContext());
             }
-            setContentView(R.layout.obfuscated_res_0x7f0d0827);
+            setContentView(R.layout.obfuscated_res_0x7f0d0828);
             if (getIntent() != null) {
-                Bundle e2 = kg3.e(getIntent(), "launchParams");
-                this.C = kg3.f(e2, "previewPosition", 0);
-                String g = kg3.g(e2, "previewFrom");
+                Bundle e2 = lg3.e(getIntent(), "launchParams");
+                this.C = lg3.f(e2, "previewPosition", 0);
+                String g = lg3.g(e2, "previewFrom");
                 this.F = g;
                 if (TextUtils.equals(g, "bottomPreview")) {
-                    ArrayList<MediaModel> arrayList = new ArrayList<>();
+                    ArrayList arrayList = new ArrayList();
                     this.H = arrayList;
-                    arrayList.addAll(cr2.e());
+                    arrayList.addAll(dr2.e());
                 } else if (TextUtils.equals(this.F, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_OUTSIDE)) {
-                    this.H = e2 == null ? null : e2.getParcelableArrayList("mediaModels");
+                    if (e2 == null) {
+                        parcelableArrayList = null;
+                    } else {
+                        parcelableArrayList = e2.getParcelableArrayList("mediaModels");
+                    }
+                    this.H = parcelableArrayList;
                 } else {
-                    this.H = br2.c();
+                    this.H = cr2.c();
                 }
                 if (this.H == null) {
-                    this.H = new ArrayList<>();
+                    this.H = new ArrayList();
                 }
             }
             R();
@@ -891,46 +965,5 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
             Q();
             M();
         }
-    }
-
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            super.onDestroy();
-            SwanAppAlbumPreviewAdapter swanAppAlbumPreviewAdapter = this.z;
-            if (swanAppAlbumPreviewAdapter != null) {
-                swanAppAlbumPreviewAdapter.k();
-                this.z = null;
-            }
-            this.A = null;
-            this.y = null;
-            if (this.H != null) {
-                this.H = null;
-            }
-        }
-    }
-
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048598, this, i, keyEvent)) == null) {
-            if (i == 4) {
-                N();
-            }
-            return super.onKeyDown(i, keyEvent);
-        }
-        return invokeIL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.jr2
-    public void onMove(int i, int i2) {
-        ArrayList<MediaModel> arrayList;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048599, this, i, i2) == null) || (arrayList = this.H) == null || this.C >= arrayList.size()) {
-            return;
-        }
-        this.v.setText(P(this.H.get(this.C)));
     }
 }

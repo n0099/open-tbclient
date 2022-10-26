@@ -45,40 +45,6 @@ public class c0 {
     public int x;
     public long y;
 
-    public c0(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = Collections.synchronizedList(new ArrayList());
-        this.h = 0L;
-        this.i = new W(this);
-        this.j = false;
-        this.k = 0L;
-        this.a = context;
-        r1 r1Var = new r1(context, str, L.f);
-        this.b = r1Var;
-        r1Var.g = this.i;
-        this.g = new m2(context);
-    }
-
-    public static /* synthetic */ void a(c0 c0Var, View view2) {
-        if (c0Var.t <= 0 || c0Var.u <= 0) {
-            c0Var.u = view2.getHeight();
-            c0Var.t = view2.getWidth();
-        }
-    }
-
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -141,9 +107,44 @@ public class c0 {
         return (HashMap) invokeV.objValue;
     }
 
-    public void a(View view2, PBMediaView pBMediaView, List list) {
+    public c0(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, pBMediaView, list) == null) || view2 == null || list == null || list.size() == 0 || !b()) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.e = Collections.synchronizedList(new ArrayList());
+        this.h = 0L;
+        this.i = new W(this);
+        this.j = false;
+        this.k = 0L;
+        this.a = context;
+        r1 r1Var = new r1(context, str, L.f);
+        this.b = r1Var;
+        r1Var.g = this.i;
+        this.g = new m2(context);
+    }
+
+    public static /* synthetic */ void a(c0 c0Var, View view2) {
+        if (c0Var.t <= 0 || c0Var.u <= 0) {
+            c0Var.u = view2.getHeight();
+            c0Var.t = view2.getWidth();
+        }
+    }
+
+    public void a(View view2, PBMediaView pBMediaView, List list) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, pBMediaView, list) != null) || view2 == null || list == null || list.size() == 0 || !b()) {
             return;
         }
         this.h = 0L;
@@ -172,7 +173,12 @@ public class c0 {
             try {
                 if (pBMediaView.getHtmlWebView() != null) {
                     g0 htmlWebView = pBMediaView.getHtmlWebView();
-                    htmlWebView.a(b() ? this.c.getLoad() : "", this.c);
+                    if (b()) {
+                        str = this.c.getLoad();
+                    } else {
+                        str = "";
+                    }
+                    htmlWebView.a(str, this.c);
                     if (this.c.isNat()) {
                         htmlWebView.c.setOnTouchListener(new Z(this));
                     }

@@ -11,5 +11,5 @@ public interface IARPEngine3D {
 
     void sceneWorldPositionToOrigin();
 
-    void updateNodeUniform(String str, HashMap<String, Object> hashMap);
+    void updateNodeUniform(String str, HashMap hashMap);
 }

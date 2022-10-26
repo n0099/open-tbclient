@@ -1,8 +1,6 @@
 package androidx.media2.common;
 
 import android.net.Uri;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.util.Preconditions;
 import androidx.media2.common.MediaItem;
 import com.baidu.android.imsdk.internal.Constants;
@@ -35,7 +33,7 @@ public class UriMediaItem extends MediaItem {
         public Map<String, String> mUriHeader;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public Builder(@NonNull Uri uri) {
+        public Builder(Uri uri) {
             this(uri, null, null);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -55,7 +53,7 @@ public class UriMediaItem extends MediaItem {
             }
         }
 
-        public Builder(@NonNull Uri uri, @Nullable Map<String, String> map, @Nullable List<HttpCookie> list) {
+        public Builder(Uri uri, Map<String, String> map, List<HttpCookie> list) {
             CookieHandler cookieHandler;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -87,38 +85,46 @@ public class UriMediaItem extends MediaItem {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.media2.common.MediaItem.Builder
-        @NonNull
         public UriMediaItem build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new UriMediaItem(this) : (UriMediaItem) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return new UriMediaItem(this);
+            }
+            return (UriMediaItem) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.media2.common.MediaItem.Builder
-        @NonNull
         public Builder setEndPosition(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) ? (Builder) super.setEndPosition(j) : (Builder) invokeJ.objValue;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
+                return (Builder) super.setEndPosition(j);
+            }
+            return (Builder) invokeJ.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.media2.common.MediaItem.Builder
-        @NonNull
-        public Builder setMetadata(@Nullable MediaMetadata mediaMetadata) {
+        public Builder setMetadata(MediaMetadata mediaMetadata) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, mediaMetadata)) == null) ? (Builder) super.setMetadata(mediaMetadata) : (Builder) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, mediaMetadata)) == null) {
+                return (Builder) super.setMetadata(mediaMetadata);
+            }
+            return (Builder) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.media2.common.MediaItem.Builder
-        @NonNull
         public Builder setStartPosition(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) ? (Builder) super.setStartPosition(j) : (Builder) invokeJ.objValue;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
+                return (Builder) super.setStartPosition(j);
+            }
+            return (Builder) invokeJ.objValue;
         }
     }
 
@@ -145,14 +151,15 @@ public class UriMediaItem extends MediaItem {
         this.mUriCookies = builder.mUriCookies;
     }
 
-    @NonNull
     public Uri getUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mUri : (Uri) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mUri;
+        }
+        return (Uri) invokeV.objValue;
     }
 
-    @Nullable
     public List<HttpCookie> getUriCookies() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -165,7 +172,6 @@ public class UriMediaItem extends MediaItem {
         return (List) invokeV.objValue;
     }
 
-    @Nullable
     public Map<String, String> getUriHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

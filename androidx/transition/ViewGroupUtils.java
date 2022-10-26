@@ -1,10 +1,7 @@
 package androidx.transition;
 
-import android.annotation.SuppressLint;
 import android.os.Build;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -52,7 +49,7 @@ public class ViewGroupUtils {
         }
     }
 
-    public static int getChildDrawingOrder(@NonNull ViewGroup viewGroup, int i) {
+    public static int getChildDrawingOrder(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, viewGroup, i)) == null) {
@@ -80,7 +77,7 @@ public class ViewGroupUtils {
         return invokeLI.intValue;
     }
 
-    public static ViewGroupOverlayImpl getOverlay(@NonNull ViewGroup viewGroup) {
+    public static ViewGroupOverlayImpl getOverlay(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, viewGroup)) == null) {
@@ -92,9 +89,7 @@ public class ViewGroupUtils {
         return (ViewGroupOverlayImpl) invokeL.objValue;
     }
 
-    @RequiresApi(18)
-    @SuppressLint({"NewApi"})
-    public static void hiddenSuppressLayout(@NonNull ViewGroup viewGroup, boolean z) {
+    public static void hiddenSuppressLayout(ViewGroup viewGroup, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, viewGroup, z) == null) && sTryHiddenSuppressLayout) {
             try {
@@ -105,7 +100,7 @@ public class ViewGroupUtils {
         }
     }
 
-    public static void suppressLayout(@NonNull ViewGroup viewGroup, boolean z) {
+    public static void suppressLayout(ViewGroup viewGroup, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65541, null, viewGroup, z) == null) {
             int i = Build.VERSION.SDK_INT;

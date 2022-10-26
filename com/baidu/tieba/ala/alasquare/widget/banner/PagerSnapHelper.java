@@ -4,13 +4,11 @@ import android.content.Context;
 import android.graphics.PointF;
 import android.util.DisplayMetrics;
 import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.LinearSmoothScroller;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ow5;
+import com.baidu.tieba.vw5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,10 +18,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PagerSnapHelper extends SnapHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public ow5 c;
-    @Nullable
-    public ow5 d;
+    public vw5 c;
+    public vw5 d;
 
     /* loaded from: classes3.dex */
     public class a extends LinearSmoothScroller {
@@ -56,14 +52,20 @@ public class PagerSnapHelper extends SnapHelper {
         public float calculateSpeedPerPixel(DisplayMetrics displayMetrics) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, displayMetrics)) == null) ? 100.0f / displayMetrics.densityDpi : invokeL.floatValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, displayMetrics)) == null) {
+                return 100.0f / displayMetrics.densityDpi;
+            }
+            return invokeL.floatValue;
         }
 
         @Override // androidx.recyclerview.widget.LinearSmoothScroller
         public int calculateTimeForScrolling(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? Math.min(100, super.calculateTimeForScrolling(i)) : invokeI.intValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return Math.min(100, super.calculateTimeForScrolling(i));
+            }
+            return invokeI.intValue;
         }
 
         @Override // androidx.recyclerview.widget.LinearSmoothScroller, androidx.recyclerview.widget.RecyclerView.SmoothScroller
@@ -96,42 +98,41 @@ public class PagerSnapHelper extends SnapHelper {
         }
     }
 
-    public final int a(@NonNull RecyclerView.LayoutManager layoutManager, @NonNull View view2, ow5 ow5Var) {
+    public final int a(RecyclerView.LayoutManager layoutManager, View view2, vw5 vw5Var) {
         InterceptResult invokeLLL;
         int e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, layoutManager, view2, ow5Var)) == null) {
-            int d = ow5Var.d(view2) + (ow5Var.c(view2) / 2);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, layoutManager, view2, vw5Var)) == null) {
+            int d = vw5Var.d(view2) + (vw5Var.c(view2) / 2);
             if (layoutManager.getClipToPadding()) {
-                e = ow5Var.f() + (ow5Var.g() / 2);
+                e = vw5Var.f() + (vw5Var.g() / 2);
             } else {
-                e = ow5Var.e() / 2;
+                e = vw5Var.e() / 2;
             }
             return d - e;
         }
         return invokeLLL.intValue;
     }
 
-    @Nullable
-    public final View b(RecyclerView.LayoutManager layoutManager, ow5 ow5Var) {
+    public final View b(RecyclerView.LayoutManager layoutManager, vw5 vw5Var) {
         InterceptResult invokeLL;
         int e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, layoutManager, ow5Var)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, layoutManager, vw5Var)) == null) {
             int childCount = layoutManager.getChildCount();
             View view2 = null;
             if (childCount == 0) {
                 return null;
             }
             if (layoutManager.getClipToPadding()) {
-                e = ow5Var.f() + (ow5Var.g() / 2);
+                e = vw5Var.f() + (vw5Var.g() / 2);
             } else {
-                e = ow5Var.e() / 2;
+                e = vw5Var.e() / 2;
             }
             int i = Integer.MAX_VALUE;
             for (int i2 = 0; i2 < childCount; i2++) {
                 View childAt = layoutManager.getChildAt(i2);
-                int abs = Math.abs((ow5Var.d(childAt) + (ow5Var.c(childAt) / 2)) - e);
+                int abs = Math.abs((vw5Var.d(childAt) + (vw5Var.c(childAt) / 2)) - e);
                 if (abs < i) {
                     view2 = childAt;
                     i = abs;
@@ -142,11 +143,10 @@ public class PagerSnapHelper extends SnapHelper {
         return (View) invokeLL.objValue;
     }
 
-    @Nullable
-    public final View c(RecyclerView.LayoutManager layoutManager, ow5 ow5Var) {
+    public final View c(RecyclerView.LayoutManager layoutManager, vw5 vw5Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, layoutManager, ow5Var)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, layoutManager, vw5Var)) == null) {
             int childCount = layoutManager.getChildCount();
             View view2 = null;
             if (childCount == 0) {
@@ -155,7 +155,7 @@ public class PagerSnapHelper extends SnapHelper {
             int i = Integer.MAX_VALUE;
             for (int i2 = 0; i2 < childCount; i2++) {
                 View childAt = layoutManager.getChildAt(i2);
-                int d = ow5Var.d(childAt);
+                int d = vw5Var.d(childAt);
                 if (d < i) {
                     view2 = childAt;
                     i = d;
@@ -167,8 +167,7 @@ public class PagerSnapHelper extends SnapHelper {
     }
 
     @Override // com.baidu.tieba.ala.alasquare.widget.banner.SnapHelper
-    @Nullable
-    public int[] calculateDistanceToFinalSnap(@NonNull RecyclerView.LayoutManager layoutManager, @NonNull View view2) {
+    public int[] calculateDistanceToFinalSnap(RecyclerView.LayoutManager layoutManager, View view2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, layoutManager, view2)) == null) {
@@ -193,44 +192,41 @@ public class PagerSnapHelper extends SnapHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, layoutManager)) == null) {
-            if (layoutManager instanceof RecyclerView.SmoothScroller.ScrollVectorProvider) {
-                return new a(this, this.a.getContext());
+            if (!(layoutManager instanceof RecyclerView.SmoothScroller.ScrollVectorProvider)) {
+                return null;
             }
-            return null;
+            return new a(this, this.a.getContext());
         }
         return (LinearSmoothScroller) invokeL.objValue;
     }
 
-    @NonNull
-    public final ow5 d(@NonNull RecyclerView.LayoutManager layoutManager) {
+    public final vw5 d(RecyclerView.LayoutManager layoutManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, layoutManager)) == null) {
-            ow5 ow5Var = this.d;
-            if (ow5Var == null || ow5Var.a != layoutManager) {
-                this.d = ow5.a(layoutManager);
+            vw5 vw5Var = this.d;
+            if (vw5Var == null || vw5Var.a != layoutManager) {
+                this.d = vw5.a(layoutManager);
             }
             return this.d;
         }
-        return (ow5) invokeL.objValue;
+        return (vw5) invokeL.objValue;
     }
 
-    @NonNull
-    public final ow5 e(@NonNull RecyclerView.LayoutManager layoutManager) {
+    public final vw5 e(RecyclerView.LayoutManager layoutManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, layoutManager)) == null) {
-            ow5 ow5Var = this.c;
-            if (ow5Var == null || ow5Var.a != layoutManager) {
-                this.c = ow5.b(layoutManager);
+            vw5 vw5Var = this.c;
+            if (vw5Var == null || vw5Var.a != layoutManager) {
+                this.c = vw5.b(layoutManager);
             }
             return this.c;
         }
-        return (ow5) invokeL.objValue;
+        return (vw5) invokeL.objValue;
     }
 
     @Override // com.baidu.tieba.ala.alasquare.widget.banner.SnapHelper
-    @Nullable
     public View findSnapView(RecyclerView.LayoutManager layoutManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -250,6 +246,7 @@ public class PagerSnapHelper extends SnapHelper {
     public int findTargetSnapPosition(RecyclerView.LayoutManager layoutManager, int i, int i2) {
         InterceptResult invokeLII;
         int position;
+        boolean z;
         PointF computeScrollVectorForPosition;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutManager, i, i2)) == null) {
@@ -266,12 +263,25 @@ public class PagerSnapHelper extends SnapHelper {
             if (view2 == null || (position = layoutManager.getPosition(view2)) == -1) {
                 return -1;
             }
-            boolean z = false;
-            boolean z2 = !layoutManager.canScrollHorizontally() ? i2 <= 0 : i <= 0;
-            if ((layoutManager instanceof RecyclerView.SmoothScroller.ScrollVectorProvider) && (computeScrollVectorForPosition = ((RecyclerView.SmoothScroller.ScrollVectorProvider) layoutManager).computeScrollVectorForPosition(itemCount - 1)) != null && (computeScrollVectorForPosition.x < 0.0f || computeScrollVectorForPosition.y < 0.0f)) {
+            boolean z2 = false;
+            if (!layoutManager.canScrollHorizontally() ? i2 > 0 : i > 0) {
                 z = true;
+            } else {
+                z = false;
             }
-            return z ? z2 ? position - 1 : position : z2 ? position + 1 : position;
+            if ((layoutManager instanceof RecyclerView.SmoothScroller.ScrollVectorProvider) && (computeScrollVectorForPosition = ((RecyclerView.SmoothScroller.ScrollVectorProvider) layoutManager).computeScrollVectorForPosition(itemCount - 1)) != null && (computeScrollVectorForPosition.x < 0.0f || computeScrollVectorForPosition.y < 0.0f)) {
+                z2 = true;
+            }
+            if (z2) {
+                if (z) {
+                    return position - 1;
+                }
+                return position;
+            } else if (z) {
+                return position + 1;
+            } else {
+                return position;
+            }
         }
         return invokeLII.intValue;
     }

@@ -1,25 +1,199 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.stat.ShareLoginStat;
-import com.baidu.searchbox.player.ubc.VideoPlayerUbcConstants;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.io2;
+import com.baidu.tieba.uk4;
+import com.baidu.tieba.xl2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class sk4 extends qk4 {
+public class sk4 extends rk4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int A;
+    public uk4 z;
+
+    @Override // com.baidu.tieba.rk4
+    public void C0(int i, int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, str) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.rk4
+    public void D0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.xl2
+    public void N(ZeusPluginFactory.Invoker invoker) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, invoker) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.rk4, com.baidu.tieba.xl2
+    public void U() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.rk4, com.baidu.tieba.xl2
+    public void b0(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.xl2
+    public ZeusPluginFactory.Invoker f0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return null;
+        }
+        return (ZeusPluginFactory.Invoker) invokeV.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements uk4.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sk4 a;
+
+        public a(sk4 sk4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sk4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = sk4Var;
+        }
+
+        @Override // com.baidu.tieba.uk4.b
+        public void a(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+                this.a.z0();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements fi3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sk4 a;
+
+        public b(sk4 sk4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sk4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = sk4Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.fi3
+        /* renamed from: b */
+        public void a(Integer num) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, num) == null) {
+                if (num.intValue() == 2) {
+                    if (rk4.x) {
+                        Log.d("SwanInlineLiveWidget", this.a.f + "-" + hashCode() + " authorize deny => onError 0");
+                    }
+                    xl2.a aVar = this.a.i;
+                    if (aVar != null) {
+                        aVar.onError(0);
+                        return;
+                    }
+                    return;
+                }
+                if (rk4.x) {
+                    Log.d("SwanInlineLiveWidget", this.a.f + "-" + hashCode() + " real do prepareAsync");
+                }
+                sk4.super.prepareAsync();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements fi3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fi3 a;
+        public final /* synthetic */ sk4 b;
+
+        public c(sk4 sk4Var, fi3 fi3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sk4Var, fi3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = sk4Var;
+            this.a = fi3Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.fi3
+        /* renamed from: b */
+        public void a(p83 p83Var) {
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p83Var) == null) {
+                boolean h = k83.h(p83Var);
+                if (rk4.x) {
+                    Log.d("SwanInlineLiveWidget", this.b.f + "-" + hashCode() + " authorize: " + h);
+                }
+                sk4 sk4Var = this.b;
+                if (h) {
+                    i = 1;
+                } else {
+                    i = 2;
+                }
+                sk4Var.A = i;
+                this.a.a(Integer.valueOf(this.b.A));
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public sk4(ZeusPluginFactory.Invoker invoker, String str) {
@@ -40,138 +214,72 @@ public class sk4 extends qk4 {
                 return;
             }
         }
+        this.A = 0;
+        uk4 uk4Var = new uk4();
+        this.z = uk4Var;
+        uk4Var.e(this.c);
+        this.z.f(new a(this));
     }
 
-    @Override // com.baidu.tieba.qk4, com.baidu.tieba.wl2
-    public void C() {
+    public final void M0(Context context, fi3 fi3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.qk4
-    public void C0(int i, int i2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, str) == null) {
-            try {
-                JSONObject J0 = J0();
-                JSONObject K0 = K0();
-                K0.put(ShareLoginStat.MakeShareLoginStat.KEY_ERRNO, i);
-                K0.put("sub_errorNo", i2);
-                K0.put("errorInfo", str);
-                J0.put("ext", K0.toString());
-                ri4.l(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR, J0);
-            } catch (Exception e) {
-                if (qk4.x) {
-                    e.printStackTrace();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, fi3Var) == null) {
+            if (rk4.x) {
+                Log.d("SwanInlineLiveWidget", this.f + "-" + hashCode() + " start authorize");
+            }
+            m33 b0 = m33.b0();
+            if (b0 == null) {
+                if (!rk4.x) {
+                    fi3Var.a(0);
+                    return;
                 }
+                throw new RuntimeException("inline live authorize: swan app is null");
+            } else if (lz2.r()) {
+                this.A = 1;
+                if (rk4.x) {
+                    Log.d("SwanInlineLiveWidget", this.f + "-" + hashCode() + " authorize debug: true");
+                }
+                fi3Var.a(Integer.valueOf(this.A));
+            } else {
+                b0.e0().g(context, "mapp_i_live_player", new c(this, fi3Var));
             }
         }
     }
 
-    @Override // com.baidu.tieba.qk4
-    public void D0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            try {
-                JSONObject J0 = J0();
-                J0.put("type", "first_frame");
-                J0.put("ext", K0().toString());
-                ri4.l(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_SUCCESS, J0);
-            } catch (Exception e) {
-                if (qk4.x) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.qk4, com.baidu.tieba.wl2
-    public void H() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    @NonNull
-    public final JSONObject J0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("from", "video");
-                jSONObject.put("network", SwanAppNetworkUtils.e());
-            } catch (Exception e) {
-                if (qk4.x) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    @NonNull
-    public final JSONObject K0() {
+    @Override // com.baidu.tieba.rk4, com.baidu.tieba.xl2
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("ext_from", "aiapp");
-                jSONObject.put("appid", l33.g0());
-                jSONObject.put("url", this.b);
-                jSONObject.put(TiebaStatic.Params.VID, this.b);
-                jSONObject.put("isInline", true);
-                String str = "";
-                l33 M = l33.M();
-                if (M != null) {
-                    str = M.w0() ? SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME : "swan";
-                    io2.a Y = M.Y();
-                    if (Y != null && Y.u1() > 0) {
-                        jSONObject.put("ext_start", Y.u1());
-                    }
-                }
-                jSONObject.put("ext_page", str);
-            } catch (Exception e) {
-                if (qk4.x) {
-                    e.printStackTrace();
-                }
+            return this.A;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.rk4, com.baidu.tieba.xl2
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            super.release();
+            uk4 uk4Var = this.z;
+            if (uk4Var != null) {
+                uk4Var.g();
+                this.z = null;
             }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.wl2
-    public void N(ZeusPluginFactory.Invoker invoker) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, invoker) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.qk4, com.baidu.tieba.wl2
-    public void U() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.wl2
-    public ZeusPluginFactory.Invoker f0() {
+    @Override // com.baidu.tieba.rk4, com.baidu.tieba.xl2
+    public boolean prepareAsync() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return null;
+            if (rk4.x) {
+                Log.d("SwanInlineLiveWidget", this.f + "-" + hashCode() + " start prepareAsync");
+            }
+            M0(this.c, new b(this));
+            return true;
         }
-        return (ZeusPluginFactory.Invoker) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qk4, com.baidu.tieba.wl2
-    public void n0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-        }
+        return invokeV.booleanValue;
     }
 }

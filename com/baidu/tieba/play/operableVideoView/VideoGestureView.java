@@ -62,116 +62,6 @@ public class VideoGestureView extends RelativeLayout {
         e();
     }
 
-    public void a(Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048576, this, context, z) == null) {
-            if (this.m != 2) {
-                this.d.setVisibility(8);
-                this.a.setVisibility(0);
-                this.c.setMax(255);
-                setBackgroundDrawable(null);
-                this.l = Settings.System.getInt(context.getContentResolver(), "screen_brightness", 255);
-                this.m = 2;
-            }
-            if (z) {
-                this.l += 2;
-            } else {
-                this.l -= 2;
-            }
-            int i = this.l;
-            if (i < 1) {
-                this.l = 1;
-            } else if (i > 255) {
-                this.l = 255;
-            }
-            int i2 = this.l;
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.b, i2 <= 43 ? R.drawable.obfuscated_res_0x7f08062c : i2 <= 128 ? R.drawable.obfuscated_res_0x7f08063c : R.drawable.obfuscated_res_0x7f080630, R.color.CAM_X0622, null);
-            Window window = ((Activity) context).getWindow();
-            WindowManager.LayoutParams attributes = window.getAttributes();
-            attributes.screenBrightness = this.l / 255.0f;
-            window.setAttributes(attributes);
-            this.c.setProgress(this.l);
-        }
-    }
-
-    public void b(boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str) == null) {
-            if (this.m != 3) {
-                this.d.setVisibility(0);
-                this.a.setVisibility(8);
-                setBackgroundResource(R.color.CAM_X0605);
-                this.m = 3;
-            }
-            this.f.setText(str);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, z ? R.drawable.obfuscated_res_0x7f080634 : R.drawable.obfuscated_res_0x7f08062e, R.color.CAM_X0622, null);
-        }
-    }
-
-    public void c(Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, context, z) == null) {
-            d(context, z, 1);
-        }
-    }
-
-    public void d(Context context, boolean z, int i) {
-        int i2;
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            if (this.m != 1) {
-                this.d.setVisibility(8);
-                this.a.setVisibility(0);
-                this.c.setMax(100);
-                setBackgroundDrawable(null);
-                this.i = this.g.getStreamVolume(3);
-                this.m = 1;
-            }
-            if (z && (i3 = this.k) < 100) {
-                this.k = i3 + i;
-            }
-            if (!z && (i2 = this.k) > 0) {
-                this.k = i2 - i;
-            }
-            if (this.k > 100) {
-                this.k = 100;
-            }
-            if (this.k < 0) {
-                this.k = 0;
-            }
-            int i4 = this.k;
-            this.i = (int) (i4 / this.j);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.b, i4 == 0 ? R.drawable.obfuscated_res_0x7f080635 : i4 < 50 ? R.drawable.obfuscated_res_0x7f08063a : R.drawable.obfuscated_res_0x7f080639, R.color.CAM_X0622, null);
-            this.g.setStreamVolume(3, this.i, 0);
-            this.c.setProgress(this.k);
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0693, this);
-            this.a = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09252c);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09252b);
-            this.c = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f09252a);
-            this.d = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f092529);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f092527);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092528);
-            this.a.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(getResources().getDimensionPixelOffset(R.dimen.tbds37), getResources().getColor(R.color.CAM_X0605)));
-            AudioManager audioManager = (AudioManager) getContext().getSystemService("audio");
-            this.g = audioManager;
-            if (audioManager != null) {
-                this.h = audioManager.getStreamMaxVolume(3);
-                int streamVolume = this.g.getStreamVolume(3);
-                this.i = streamVolume;
-                int i = this.h;
-                this.j = 100 / i;
-                this.k = (streamVolume * 100) / i;
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoGestureView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -220,5 +110,139 @@ public class VideoGestureView extends RelativeLayout {
         this.j = 1.0f;
         this.m = 0;
         e();
+    }
+
+    public void a(Context context, boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, context, z) == null) {
+            if (this.m != 2) {
+                this.d.setVisibility(8);
+                this.a.setVisibility(0);
+                this.c.setMax(255);
+                setBackgroundDrawable(null);
+                this.l = Settings.System.getInt(context.getContentResolver(), "screen_brightness", 255);
+                this.m = 2;
+            }
+            if (z) {
+                this.l += 2;
+            } else {
+                this.l -= 2;
+            }
+            int i2 = this.l;
+            if (i2 < 1) {
+                this.l = 1;
+            } else if (i2 > 255) {
+                this.l = 255;
+            }
+            int i3 = this.l;
+            if (i3 <= 43) {
+                i = R.drawable.obfuscated_res_0x7f08062d;
+            } else if (i3 <= 128) {
+                i = R.drawable.obfuscated_res_0x7f08063d;
+            } else {
+                i = R.drawable.obfuscated_res_0x7f080631;
+            }
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.b, i, R.color.CAM_X0622, null);
+            Window window = ((Activity) context).getWindow();
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            attributes.screenBrightness = this.l / 255.0f;
+            window.setAttributes(attributes);
+            this.c.setProgress(this.l);
+        }
+    }
+
+    public void b(boolean z, String str) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str) == null) {
+            if (this.m != 3) {
+                this.d.setVisibility(0);
+                this.a.setVisibility(8);
+                setBackgroundResource(R.color.CAM_X0605);
+                this.m = 3;
+            }
+            this.f.setText(str);
+            SvgManager svgManager = SvgManager.getInstance();
+            ImageView imageView = this.e;
+            if (z) {
+                i = R.drawable.obfuscated_res_0x7f080635;
+            } else {
+                i = R.drawable.obfuscated_res_0x7f08062f;
+            }
+            svgManager.setPureDrawableWithDayNightModeAutoChange(imageView, i, R.color.CAM_X0622, null);
+        }
+    }
+
+    public void c(Context context, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, context, z) == null) {
+            d(context, z, 1);
+        }
+    }
+
+    public void d(Context context, boolean z, int i) {
+        int i2;
+        int i3;
+        int i4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            if (this.m != 1) {
+                this.d.setVisibility(8);
+                this.a.setVisibility(0);
+                this.c.setMax(100);
+                setBackgroundDrawable(null);
+                this.i = this.g.getStreamVolume(3);
+                this.m = 1;
+            }
+            if (z && (i4 = this.k) < 100) {
+                this.k = i4 + i;
+            }
+            if (!z && (i3 = this.k) > 0) {
+                this.k = i3 - i;
+            }
+            if (this.k > 100) {
+                this.k = 100;
+            }
+            if (this.k < 0) {
+                this.k = 0;
+            }
+            int i5 = this.k;
+            this.i = (int) (i5 / this.j);
+            if (i5 == 0) {
+                i2 = R.drawable.obfuscated_res_0x7f080636;
+            } else if (i5 < 50) {
+                i2 = R.drawable.obfuscated_res_0x7f08063b;
+            } else {
+                i2 = R.drawable.obfuscated_res_0x7f08063a;
+            }
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.b, i2, R.color.CAM_X0622, null);
+            this.g.setStreamVolume(3, this.i, 0);
+            this.c.setProgress(this.k);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0693, this);
+            this.a = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f092516);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f092515);
+            this.c = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f092514);
+            this.d = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f092513);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f092511);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092512);
+            this.a.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(getResources().getDimensionPixelOffset(R.dimen.tbds37), getResources().getColor(R.color.CAM_X0605)));
+            AudioManager audioManager = (AudioManager) getContext().getSystemService("audio");
+            this.g = audioManager;
+            if (audioManager != null) {
+                this.h = audioManager.getStreamMaxVolume(3);
+                int streamVolume = this.g.getStreamVolume(3);
+                this.i = streamVolume;
+                int i = this.h;
+                this.j = 100 / i;
+                this.k = (streamVolume * 100) / i;
+            }
+        }
     }
 }

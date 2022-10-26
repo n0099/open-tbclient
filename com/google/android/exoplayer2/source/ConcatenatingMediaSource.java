@@ -28,12 +28,12 @@ public final class ConcatenatingMediaSource implements MediaSource {
     public final Object[] manifests;
     public final MediaSource[] mediaSources;
     public final ShuffleOrder shuffleOrder;
-    public final Map<MediaPeriod, Integer> sourceIndexByMediaPeriod;
+    public final Map sourceIndexByMediaPeriod;
     public ConcatenatedTimeline timeline;
     public final Timeline[] timelines;
 
     /* loaded from: classes7.dex */
-    public static final class ConcatenatedTimeline extends AbstractConcatenatedTimeline {
+    public final class ConcatenatedTimeline extends AbstractConcatenatedTimeline {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final boolean isAtomic;
@@ -44,6 +44,7 @@ public final class ConcatenatingMediaSource implements MediaSource {
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ConcatenatedTimeline(Timeline[] timelineArr, boolean z, ShuffleOrder shuffleOrder) {
             super(shuffleOrder);
+            boolean z2;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,7 +67,12 @@ public final class ConcatenatingMediaSource implements MediaSource {
             for (int i4 = 0; i4 < timelineArr.length; i4++) {
                 Timeline timeline = timelineArr[i4];
                 j += timeline.getPeriodCount();
-                Assertions.checkState(j <= 2147483647L, "ConcatenatingMediaSource children contain too many periods");
+                if (j <= 2147483647L) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                Assertions.checkState(z2, "ConcatenatingMediaSource children contain too many periods");
                 iArr[i4] = (int) j;
                 i3 += timeline.getWindowCount();
                 iArr2[i4] = i3;
@@ -82,10 +88,10 @@ public final class ConcatenatingMediaSource implements MediaSource {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                if (obj instanceof Integer) {
-                    return ((Integer) obj).intValue();
+                if (!(obj instanceof Integer)) {
+                    return -1;
                 }
-                return -1;
+                return ((Integer) obj).intValue();
             }
             return invokeL.intValue;
         }
@@ -94,21 +100,30 @@ public final class ConcatenatingMediaSource implements MediaSource {
         public int getChildIndexByPeriodIndex(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? Util.binarySearchFloor(this.sourcePeriodOffsets, i + 1, false, false) + 1 : invokeI.intValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return Util.binarySearchFloor(this.sourcePeriodOffsets, i + 1, false, false) + 1;
+            }
+            return invokeI.intValue;
         }
 
         @Override // com.google.android.exoplayer2.source.AbstractConcatenatedTimeline
         public int getChildIndexByWindowIndex(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? Util.binarySearchFloor(this.sourceWindowOffsets, i + 1, false, false) + 1 : invokeI.intValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                return Util.binarySearchFloor(this.sourceWindowOffsets, i + 1, false, false) + 1;
+            }
+            return invokeI.intValue;
         }
 
         @Override // com.google.android.exoplayer2.source.AbstractConcatenatedTimeline
         public Object getChildUidByChildIndex(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? Integer.valueOf(i) : invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+                return Integer.valueOf(i);
+            }
+            return invokeI.objValue;
         }
 
         @Override // com.google.android.exoplayer2.source.AbstractConcatenatedTimeline
@@ -127,9 +142,15 @@ public final class ConcatenatingMediaSource implements MediaSource {
         @Override // com.google.android.exoplayer2.source.AbstractConcatenatedTimeline, com.google.android.exoplayer2.Timeline
         public int getFirstWindowIndex(boolean z) {
             InterceptResult invokeZ;
+            boolean z2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-                return super.getFirstWindowIndex(!this.isAtomic && z);
+                if (!this.isAtomic && z) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                return super.getFirstWindowIndex(z2);
             }
             return invokeZ.intValue;
         }
@@ -150,11 +171,27 @@ public final class ConcatenatingMediaSource implements MediaSource {
         @Override // com.google.android.exoplayer2.source.AbstractConcatenatedTimeline, com.google.android.exoplayer2.Timeline
         public int getLastWindowIndex(boolean z) {
             InterceptResult invokeZ;
+            boolean z2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
-                return super.getLastWindowIndex(!this.isAtomic && z);
+                if (!this.isAtomic && z) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                return super.getLastWindowIndex(z2);
             }
             return invokeZ.intValue;
+        }
+
+        @Override // com.google.android.exoplayer2.source.AbstractConcatenatedTimeline
+        public Timeline getTimelineByChildIndex(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
+                return this.timelines[i];
+            }
+            return (Timeline) invokeI.objValue;
         }
 
         @Override // com.google.android.exoplayer2.source.AbstractConcatenatedTimeline, com.google.android.exoplayer2.Timeline
@@ -171,17 +208,6 @@ public final class ConcatenatingMediaSource implements MediaSource {
             return invokeCommon.intValue;
         }
 
-        @Override // com.google.android.exoplayer2.Timeline
-        public int getPeriodCount() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-                int[] iArr = this.sourcePeriodOffsets;
-                return iArr[iArr.length - 1];
-            }
-            return invokeV.intValue;
-        }
-
         @Override // com.google.android.exoplayer2.source.AbstractConcatenatedTimeline, com.google.android.exoplayer2.Timeline
         public int getPreviousWindowIndex(int i, int i2, boolean z) {
             InterceptResult invokeCommon;
@@ -196,11 +222,15 @@ public final class ConcatenatingMediaSource implements MediaSource {
             return invokeCommon.intValue;
         }
 
-        @Override // com.google.android.exoplayer2.source.AbstractConcatenatedTimeline
-        public Timeline getTimelineByChildIndex(int i) {
-            InterceptResult invokeI;
+        @Override // com.google.android.exoplayer2.Timeline
+        public int getPeriodCount() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) ? this.timelines[i] : (Timeline) invokeI.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                int[] iArr = this.sourcePeriodOffsets;
+                return iArr[iArr.length - 1];
+            }
+            return invokeV.intValue;
         }
 
         @Override // com.google.android.exoplayer2.Timeline
@@ -212,6 +242,55 @@ public final class ConcatenatingMediaSource implements MediaSource {
                 return iArr[iArr.length - 1];
             }
             return invokeV.intValue;
+        }
+    }
+
+    public ConcatenatingMediaSource(boolean z, ShuffleOrder shuffleOrder, MediaSource... mediaSourceArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), shuffleOrder, mediaSourceArr};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        for (MediaSource mediaSource : mediaSourceArr) {
+            Assertions.checkNotNull(mediaSource);
+        }
+        Assertions.checkArgument(shuffleOrder.getLength() == mediaSourceArr.length);
+        this.mediaSources = mediaSourceArr;
+        this.isAtomic = z;
+        this.shuffleOrder = shuffleOrder;
+        this.timelines = new Timeline[mediaSourceArr.length];
+        this.manifests = new Object[mediaSourceArr.length];
+        this.sourceIndexByMediaPeriod = new HashMap();
+        this.duplicateFlags = buildDuplicateFlags(mediaSourceArr);
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public ConcatenatingMediaSource(boolean z, MediaSource... mediaSourceArr) {
+        this(z, new ShuffleOrder.DefaultShuffleOrder(mediaSourceArr.length), mediaSourceArr);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), mediaSourceArr};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(((Boolean) objArr2[0]).booleanValue(), (ShuffleOrder) objArr2[1], (MediaSource[]) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
     }
 
@@ -285,6 +364,63 @@ public final class ConcatenatingMediaSource implements MediaSource {
     }
 
     @Override // com.google.android.exoplayer2.source.MediaSource
+    public void prepareSource(ExoPlayer exoPlayer, boolean z, MediaSource.Listener listener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{exoPlayer, Boolean.valueOf(z), listener}) == null) {
+            this.listener = listener;
+            if (this.mediaSources.length == 0) {
+                listener.onSourceInfoRefreshed(this, Timeline.EMPTY, null);
+                return;
+            }
+            int i = 0;
+            while (true) {
+                MediaSource[] mediaSourceArr = this.mediaSources;
+                if (i < mediaSourceArr.length) {
+                    if (!this.duplicateFlags[i]) {
+                        mediaSourceArr[i].prepareSource(exoPlayer, false, new MediaSource.Listener(this, i) { // from class: com.google.android.exoplayer2.source.ConcatenatingMediaSource.1
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+                            public final /* synthetic */ ConcatenatingMediaSource this$0;
+                            public final /* synthetic */ int val$index;
+
+                            {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {this, Integer.valueOf(i)};
+                                    interceptable2.invokeUnInit(65536, newInitContext);
+                                    int i2 = newInitContext.flag;
+                                    if ((i2 & 1) != 0) {
+                                        int i3 = i2 & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable2.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.this$0 = this;
+                                this.val$index = i;
+                            }
+
+                            @Override // com.google.android.exoplayer2.source.MediaSource.Listener
+                            public void onSourceInfoRefreshed(MediaSource mediaSource, Timeline timeline, Object obj) {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 != null && interceptable2.invokeLLL(1048576, this, mediaSource, timeline, obj) != null) {
+                                    return;
+                                }
+                                this.this$0.handleSourceInfoRefreshed(this.val$index, timeline, obj);
+                            }
+                        });
+                    }
+                    i++;
+                } else {
+                    return;
+                }
+            }
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.source.MediaSource
     public MediaPeriod createPeriod(MediaSource.MediaPeriodId mediaPeriodId, Allocator allocator) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -300,75 +436,38 @@ public final class ConcatenatingMediaSource implements MediaSource {
     @Override // com.google.android.exoplayer2.source.MediaSource
     public void maybeThrowSourceInfoRefreshError() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
-            return;
-        }
-        int i = 0;
-        while (true) {
-            MediaSource[] mediaSourceArr = this.mediaSources;
-            if (i >= mediaSourceArr.length) {
-                return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            int i = 0;
+            while (true) {
+                MediaSource[] mediaSourceArr = this.mediaSources;
+                if (i < mediaSourceArr.length) {
+                    if (!this.duplicateFlags[i]) {
+                        mediaSourceArr[i].maybeThrowSourceInfoRefreshError();
+                    }
+                    i++;
+                } else {
+                    return;
+                }
             }
-            if (!this.duplicateFlags[i]) {
-                mediaSourceArr[i].maybeThrowSourceInfoRefreshError();
-            }
-            i++;
         }
     }
 
     @Override // com.google.android.exoplayer2.source.MediaSource
-    public void prepareSource(ExoPlayer exoPlayer, boolean z, MediaSource.Listener listener) {
+    public void releaseSource() {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{exoPlayer, Boolean.valueOf(z), listener}) != null) {
-            return;
-        }
-        this.listener = listener;
-        if (this.mediaSources.length == 0) {
-            listener.onSourceInfoRefreshed(this, Timeline.EMPTY, null);
-            return;
-        }
-        int i = 0;
-        while (true) {
-            MediaSource[] mediaSourceArr = this.mediaSources;
-            if (i >= mediaSourceArr.length) {
-                return;
-            }
-            if (!this.duplicateFlags[i]) {
-                mediaSourceArr[i].prepareSource(exoPlayer, false, new MediaSource.Listener(this, i) { // from class: com.google.android.exoplayer2.source.ConcatenatingMediaSource.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ ConcatenatingMediaSource this$0;
-                    public final /* synthetic */ int val$index;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, Integer.valueOf(i)};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$index = i;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            int i = 0;
+            while (true) {
+                MediaSource[] mediaSourceArr = this.mediaSources;
+                if (i < mediaSourceArr.length) {
+                    if (!this.duplicateFlags[i]) {
+                        mediaSourceArr[i].releaseSource();
                     }
-
-                    @Override // com.google.android.exoplayer2.source.MediaSource.Listener
-                    public void onSourceInfoRefreshed(MediaSource mediaSource, Timeline timeline, Object obj) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, mediaSource, timeline, obj) == null) {
-                            this.this$0.handleSourceInfoRefreshed(this.val$index, timeline, obj);
-                        }
-                    }
-                });
+                    i++;
+                } else {
+                    return;
+                }
             }
-            i++;
         }
     }
 
@@ -376,77 +475,9 @@ public final class ConcatenatingMediaSource implements MediaSource {
     public void releasePeriod(MediaPeriod mediaPeriod) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, mediaPeriod) == null) {
-            int intValue = this.sourceIndexByMediaPeriod.get(mediaPeriod).intValue();
+            int intValue = ((Integer) this.sourceIndexByMediaPeriod.get(mediaPeriod)).intValue();
             this.sourceIndexByMediaPeriod.remove(mediaPeriod);
             this.mediaSources[intValue].releasePeriod(mediaPeriod);
         }
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaSource
-    public void releaseSource() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048580, this) != null) {
-            return;
-        }
-        int i = 0;
-        while (true) {
-            MediaSource[] mediaSourceArr = this.mediaSources;
-            if (i >= mediaSourceArr.length) {
-                return;
-            }
-            if (!this.duplicateFlags[i]) {
-                mediaSourceArr[i].releaseSource();
-            }
-            i++;
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ConcatenatingMediaSource(boolean z, MediaSource... mediaSourceArr) {
-        this(z, new ShuffleOrder.DefaultShuffleOrder(mediaSourceArr.length), mediaSourceArr);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), mediaSourceArr};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Boolean) objArr2[0]).booleanValue(), (ShuffleOrder) objArr2[1], (MediaSource[]) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public ConcatenatingMediaSource(boolean z, ShuffleOrder shuffleOrder, MediaSource... mediaSourceArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), shuffleOrder, mediaSourceArr};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        for (MediaSource mediaSource : mediaSourceArr) {
-            Assertions.checkNotNull(mediaSource);
-        }
-        Assertions.checkArgument(shuffleOrder.getLength() == mediaSourceArr.length);
-        this.mediaSources = mediaSourceArr;
-        this.isAtomic = z;
-        this.shuffleOrder = shuffleOrder;
-        this.timelines = new Timeline[mediaSourceArr.length];
-        this.manifests = new Object[mediaSourceArr.length];
-        this.sourceIndexByMediaPeriod = new HashMap();
-        this.duplicateFlags = buildDuplicateFlags(mediaSourceArr);
     }
 }

@@ -32,7 +32,7 @@ public abstract class c implements d {
         }
     }
 
-    public static List<Message> a(Context context, Intent intent) {
+    public static List a(Context context, Intent intent) {
         InterceptResult invokeLL;
         Message a;
         Interceptable interceptable = $ic;

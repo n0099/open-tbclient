@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.t21;
+import com.baidu.tieba.u21;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,9 +28,19 @@ public class BDSplashActionView extends RelativeLayout {
     public int d;
 
     /* loaded from: classes2.dex */
-    public static class BaseActionLayout extends RelativeLayout {
+    public class BaseActionLayout extends RelativeLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // android.view.View
+        public boolean onTouchEvent(MotionEvent motionEvent) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public BaseActionLayout(Context context) {
@@ -51,20 +61,10 @@ public class BDSplashActionView extends RelativeLayout {
                 }
             }
         }
-
-        @Override // android.view.View
-        public boolean onTouchEvent(MotionEvent motionEvent) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
     }
 
     /* loaded from: classes2.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -106,7 +106,10 @@ public class BDSplashActionView extends RelativeLayout {
         public BDSplashActionView k(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? new BDSplashActionView(context, this) : (BDSplashActionView) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+                return new BDSplashActionView(context, this);
+            }
+            return (BDSplashActionView) invokeL.objValue;
         }
 
         public a l(String str) {
@@ -193,6 +196,34 @@ public class BDSplashActionView extends RelativeLayout {
         setOnClickListener(aVar.b);
     }
 
+    public final LinearLayout d(Context context, a aVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, aVar)) == null) {
+            LinearLayout linearLayout = new LinearLayout(context);
+            TextView textView = new TextView(context);
+            textView.setText(aVar.a);
+            textView.setTextSize(aVar.f);
+            textView.setTextColor(aVar.g);
+            textView.setTypeface(aVar.h);
+            textView.setIncludeFontPadding(false);
+            TextView textView2 = new TextView(context);
+            textView2.setText(">>");
+            textView2.setTextColor(aVar.g);
+            textView2.setTextSize((int) (aVar.f * 1.2d));
+            textView2.setIncludeFontPadding(false);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+            layoutParams.gravity = 16;
+            linearLayout.addView(textView, layoutParams);
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
+            layoutParams2.leftMargin = u21.c.a(this.a, 10.0f);
+            layoutParams2.gravity = 16;
+            linearLayout.addView(textView2, layoutParams2);
+            return linearLayout;
+        }
+        return (LinearLayout) invokeLL.objValue;
+    }
+
     public void a(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) {
@@ -215,9 +246,9 @@ public class BDSplashActionView extends RelativeLayout {
             layoutParams.addRule(12);
             layoutParams.addRule(14);
             if (this.c) {
-                layoutParams.bottomMargin = t21.c.a(this.a, this.d);
+                layoutParams.bottomMargin = u21.c.a(this.a, this.d);
             } else {
-                layoutParams.bottomMargin = t21.c.a(this.a, this.d);
+                layoutParams.bottomMargin = u21.c.a(this.a, this.d);
             }
             baseActionLayout.addView(this, layoutParams);
         }
@@ -226,7 +257,10 @@ public class BDSplashActionView extends RelativeLayout {
     public final GradientDrawable b(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3)) == null) ? c(i, i2, i3, i3, i3, i3) : (GradientDrawable) invokeIII.objValue;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3)) == null) {
+            return c(i, i2, i3, i3, i3, i3);
+        }
+        return (GradientDrawable) invokeIII.objValue;
     }
 
     public final GradientDrawable c(int i, int i2, int i3, int i4, int i5, int i6) {
@@ -247,33 +281,5 @@ public class BDSplashActionView extends RelativeLayout {
             return gradientDrawable;
         }
         return (GradientDrawable) invokeCommon.objValue;
-    }
-
-    public final LinearLayout d(Context context, a aVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, aVar)) == null) {
-            LinearLayout linearLayout = new LinearLayout(context);
-            TextView textView = new TextView(context);
-            textView.setText(aVar.a);
-            textView.setTextSize(aVar.f);
-            textView.setTextColor(aVar.g);
-            textView.setTypeface(aVar.h);
-            textView.setIncludeFontPadding(false);
-            TextView textView2 = new TextView(context);
-            textView2.setText(">>");
-            textView2.setTextColor(aVar.g);
-            textView2.setTextSize((int) (aVar.f * 1.2d));
-            textView2.setIncludeFontPadding(false);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.gravity = 16;
-            linearLayout.addView(textView, layoutParams);
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams2.leftMargin = t21.c.a(this.a, 10.0f);
-            layoutParams2.gravity = 16;
-            linearLayout.addView(textView2, layoutParams2);
-            return linearLayout;
-        }
-        return (LinearLayout) invokeLL.objValue;
     }
 }

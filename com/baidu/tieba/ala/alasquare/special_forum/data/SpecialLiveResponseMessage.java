@@ -4,8 +4,8 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.rv5;
-import com.baidu.tieba.xv5;
+import com.baidu.tieba.ew5;
+import com.baidu.tieba.fw5;
 import com.baidu.tieba.yv5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,7 +19,7 @@ import org.json.JSONObject;
 public class SpecialLiveResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xv5 mData;
+    public ew5 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SpecialLiveResponseMessage() {
@@ -39,6 +39,15 @@ public class SpecialLiveResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
+    public ew5 getData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mData;
+        }
+        return (ew5) invokeV.objValue;
+    }
+
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         Interceptable interceptable = $ic;
@@ -47,13 +56,14 @@ public class SpecialLiveResponseMessage extends JsonHttpResponsedMessage {
             if (jSONObject == null) {
                 return;
             }
-            this.mData = new xv5();
+            this.mData = new ew5();
             jSONObject.optInt("concern_live_show");
+            boolean z = true;
             JSONObject optJSONObject = jSONObject.optJSONObject("head_live");
             if (optJSONObject != null) {
-                rv5 rv5Var = new rv5();
-                rv5Var.a(optJSONObject);
-                this.mData.a = rv5Var;
+                yv5 yv5Var = new yv5();
+                yv5Var.a(optJSONObject);
+                this.mData.a = yv5Var;
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("tab_info");
             if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -74,19 +84,17 @@ public class SpecialLiveResponseMessage extends JsonHttpResponsedMessage {
                 alaUserInfoData.parserJson(optJSONObject2);
                 this.mData.d = alaUserInfoData;
             }
-            this.mData.c = jSONObject.optInt("is_like") == 1;
+            ew5 ew5Var = this.mData;
+            if (jSONObject.optInt("is_like") != 1) {
+                z = false;
+            }
+            ew5Var.c = z;
             JSONObject optJSONObject3 = jSONObject.optJSONObject("user_sign_info");
             if (optJSONObject2 != null) {
-                yv5 yv5Var = new yv5();
-                yv5Var.a(optJSONObject3);
-                this.mData.e = yv5Var;
+                fw5 fw5Var = new fw5();
+                fw5Var.a(optJSONObject3);
+                this.mData.e = fw5Var;
             }
         }
-    }
-
-    public xv5 getData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (xv5) invokeV.objValue;
     }
 }

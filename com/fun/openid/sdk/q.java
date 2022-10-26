@@ -60,27 +60,6 @@ public class q {
         }
     }
 
-    public static void a() {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            try {
-                try {
-                    Class<?> cls = Class.forName("android.os.SystemProperties");
-                    str = (String) cls.getMethod("get", String.class, String.class).invoke(cls, IdentifierIdClient.SYS_IDENTIFIERID_SUPPORTED, "unknown");
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                    str = "0";
-                    b = "1".equals(str);
-                }
-            } catch (Throwable unused) {
-                str = "0";
-                b = "1".equals(str);
-            }
-            b = "1".equals(str);
-        }
-    }
-
     public static q a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -107,6 +86,27 @@ public class q {
         return (q) invokeL.objValue;
     }
 
+    public static void a() {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            try {
+                try {
+                    Class<?> cls = Class.forName("android.os.SystemProperties");
+                    str = (String) cls.getMethod("get", String.class, String.class).invoke(cls, IdentifierIdClient.SYS_IDENTIFIERID_SUPPORTED, "unknown");
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                    str = "0";
+                    b = "1".equals(str);
+                }
+            } catch (Throwable unused) {
+                str = "0";
+                b = "1".equals(str);
+            }
+            b = "1".equals(str);
+        }
+    }
+
     public void a(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
@@ -127,19 +127,21 @@ public class q {
                     e2.printStackTrace();
                 }
                 if (SystemClock.uptimeMillis() - uptimeMillis < 2000) {
-                    if (i2 == 0) {
-                        h = g;
-                    } else if (i2 != 1) {
-                        if (i2 != 2) {
-                            if (i2 != 4) {
+                    if (i2 != 0) {
+                        if (i2 != 1) {
+                            if (i2 != 2) {
+                                if (i2 != 4) {
+                                }
+                            } else if (g != null) {
+                                g = null;
+                            } else {
+                                Log.e("VMS_IDLG_SDK_Client", "get aaid failed");
                             }
-                        } else if (g != null) {
-                            g = null;
-                        } else {
-                            Log.e("VMS_IDLG_SDK_Client", "get aaid failed");
+                        } else if (g == null) {
+                            Log.e("VMS_IDLG_SDK_Client", "get vaid failed");
                         }
-                    } else if (g == null) {
-                        Log.e("VMS_IDLG_SDK_Client", "get vaid failed");
+                    } else {
+                        h = g;
                     }
                     g = null;
                 } else {

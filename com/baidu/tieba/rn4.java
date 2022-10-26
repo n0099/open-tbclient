@@ -11,17 +11,17 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
 public class rn4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final AtomicReference<Object> a;
+    public static final AtomicReference a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes5.dex */
-    public static class b {
+    public class b {
         public static /* synthetic */ Interceptable $ic;
         public static rn4 a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -56,18 +56,8 @@ public class rn4 {
                 return;
             }
         }
-        a = new AtomicReference<>(null);
+        a = new AtomicReference(null);
         a();
-    }
-
-    public /* synthetic */ rn4(a aVar) {
-        this();
-    }
-
-    public static rn4 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (rn4) invokeV.objValue;
     }
 
     public rn4() {
@@ -82,5 +72,18 @@ public class rn4 {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    public static rn4 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (rn4) invokeV.objValue;
+    }
+
+    public /* synthetic */ rn4(a aVar) {
+        this();
     }
 }

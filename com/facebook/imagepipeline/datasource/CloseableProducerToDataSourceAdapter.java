@@ -14,15 +14,13 @@ import com.facebook.imagepipeline.producers.ProducerContext;
 import com.facebook.imagepipeline.producers.SettableProducerContext;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import javax.annotation.Nullable;
-import javax.annotation.concurrent.ThreadSafe;
-@ThreadSafe
 /* loaded from: classes7.dex */
-public class CloseableProducerToDataSourceAdapter<T> extends AbstractProducerToDataSourceAdapter<CloseableReference<T>> {
+public class CloseableProducerToDataSourceAdapter extends AbstractProducerToDataSourceAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CloseableProducerToDataSourceAdapter(Producer<CloseableReference<T>> producer, SettableProducerContext settableProducerContext, RequestListener2 requestListener2) {
+    public CloseableProducerToDataSourceAdapter(Producer producer, SettableProducerContext settableProducerContext, RequestListener2 requestListener2) {
         super(producer, settableProducerContext, requestListener2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -42,7 +40,7 @@ public class CloseableProducerToDataSourceAdapter<T> extends AbstractProducerToD
         }
     }
 
-    public static <T> DataSource<CloseableReference<T>> create(Producer<CloseableReference<T>> producer, SettableProducerContext settableProducerContext, RequestListener2 requestListener2) {
+    public static DataSource create(Producer producer, SettableProducerContext settableProducerContext, RequestListener2 requestListener2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, producer, settableProducerContext, requestListener2)) == null) {
@@ -58,36 +56,33 @@ public class CloseableProducerToDataSourceAdapter<T> extends AbstractProducerToD
         return (DataSource) invokeLLL.objValue;
     }
 
-    @Override // com.facebook.datasource.AbstractDataSource
-    public /* bridge */ /* synthetic */ void closeResult(Object obj) {
-        closeResult((CloseableReference) ((CloseableReference) obj));
-    }
-
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.datasource.AbstractProducerToDataSourceAdapter
-    public /* bridge */ /* synthetic */ void onNewResultImpl(Object obj, int i, ProducerContext producerContext) {
-        onNewResultImpl((CloseableReference) ((CloseableReference) obj), i, producerContext);
+    public void onNewResultImpl(CloseableReference closeableReference, int i, ProducerContext producerContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, closeableReference, i, producerContext) == null) {
+            super.onNewResultImpl((Object) CloseableReference.cloneOrNull(closeableReference), i, producerContext);
+        }
     }
 
-    public void closeResult(CloseableReference<T> closeableReference) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.facebook.datasource.AbstractDataSource
+    public void closeResult(CloseableReference closeableReference) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, closeableReference) == null) {
-            CloseableReference.closeSafely((CloseableReference<?>) closeableReference);
+            CloseableReference.closeSafely(closeableReference);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.DataSource
     @Nullable
-    public CloseableReference<T> getResult() {
+    public CloseableReference getResult() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? CloseableReference.cloneOrNull((CloseableReference) super.getResult()) : (CloseableReference) invokeV.objValue;
-    }
-
-    public void onNewResultImpl(CloseableReference<T> closeableReference, int i, ProducerContext producerContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, closeableReference, i, producerContext) == null) {
-            super.onNewResultImpl((CloseableProducerToDataSourceAdapter<T>) CloseableReference.cloneOrNull(closeableReference), i, producerContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return CloseableReference.cloneOrNull((CloseableReference) super.getResult());
         }
+        return (CloseableReference) invokeV.objValue;
     }
 }

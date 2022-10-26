@@ -67,12 +67,18 @@ public final class DeviceSnapshotType {
     public static DeviceSnapshotType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (DeviceSnapshotType) Enum.valueOf(DeviceSnapshotType.class, str) : (DeviceSnapshotType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (DeviceSnapshotType) Enum.valueOf(DeviceSnapshotType.class, str);
+        }
+        return (DeviceSnapshotType) invokeL.objValue;
     }
 
     public static DeviceSnapshotType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (DeviceSnapshotType[]) $VALUES.clone() : (DeviceSnapshotType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (DeviceSnapshotType[]) $VALUES.clone();
+        }
+        return (DeviceSnapshotType[]) invokeV.objValue;
     }
 }

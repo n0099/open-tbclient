@@ -25,11 +25,46 @@ public final class DeviceInfoIPCServiceManager {
     public static IDeviceInfoService sDeviceInfoService;
     public transient /* synthetic */ FieldHolder $fh;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(915427056, "Lcom/baidu/searchbox/common/security/DeviceInfoIPCServiceManager;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(915427056, "Lcom/baidu/searchbox/common/security/DeviceInfoIPCServiceManager;");
+                return;
+            }
+        }
+        Companion = new Companion(null);
+    }
+
+    @JvmStatic
+    public static final void addIPCService() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            Companion.addIPCService();
+        }
+    }
+
+    @JvmStatic
+    public static final IDeviceInfoService getIPCService() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? Companion.getIPCService() : (IDeviceInfoService) invokeV.objValue;
+    }
+
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0007\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\r\u0010\u0003J\u000f\u0010\u0002\u001a\u00020\u0001H\u0007¢\u0006\u0004\b\u0002\u0010\u0003J\u0011\u0010\u0005\u001a\u0004\u0018\u00010\u0004H\u0007¢\u0006\u0004\b\u0005\u0010\u0006R\u0016\u0010\b\u001a\u00020\u00078\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\b\u0010\tR\u001e\u0010\n\u001a\u0004\u0018\u00010\u00048\u0002@\u0002X\u0083\u000e¢\u0006\f\n\u0004\b\n\u0010\u000b\u0012\u0004\b\f\u0010\u0003¨\u0006\u000e"}, d2 = {"Lcom/baidu/searchbox/common/security/DeviceInfoIPCServiceManager$Companion;", "", "addIPCService", "()V", "Lcom/baidu/searchbox/common/security/IDeviceInfoService;", "getIPCService", "()Lcom/baidu/searchbox/common/security/IDeviceInfoService;", "", "IPC_SERVICE_NAME", "Ljava/lang/String;", "sDeviceInfoService", "Lcom/baidu/searchbox/common/security/IDeviceInfoService;", "getSDeviceInfoService$annotations", "<init>", "lib-security-framework_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public static final class Companion {
+    public final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @JvmStatic
+        public static /* synthetic */ void getSDeviceInfoService$annotations() {
+        }
 
         public Companion() {
             Interceptable interceptable = $ic;
@@ -43,10 +78,6 @@ public final class DeviceInfoIPCServiceManager {
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-        }
-
-        @JvmStatic
-        public static /* synthetic */ void getSDeviceInfoService$annotations() {
         }
 
         @JvmStatic
@@ -85,19 +116,6 @@ public final class DeviceInfoIPCServiceManager {
                     }
 
                     @Override // com.baidu.searchbox.common.security.IDeviceInfoService
-                    public DeviceIdBagMap getDeviceInfos(String scene, String purpose, int i, boolean z) {
-                        InterceptResult invokeCommon;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{scene, purpose, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-                            Intrinsics.checkNotNullParameter(scene, "scene");
-                            Intrinsics.checkNotNullParameter(purpose, "purpose");
-                            DeviceInfoManager deviceInfoManager = DeviceInfoManager.INSTANCE;
-                            return deviceInfoManager.getDeviceInfo(deviceInfoManager.getContext$lib_security_framework_release(), scene, purpose, i, z);
-                        }
-                        return (DeviceIdBagMap) invokeCommon.objValue;
-                    }
-
-                    @Override // com.baidu.searchbox.common.security.IDeviceInfoService
                     public DeviceIdBag getHarmonyVersion(String scene, String purpose) {
                         InterceptResult invokeLL;
                         Interceptable interceptable2 = $ic;
@@ -108,19 +126,6 @@ public final class DeviceInfoIPCServiceManager {
                             return deviceInfoManager.getHarmonyVersion(deviceInfoManager.getContext$lib_security_framework_release(), scene, purpose);
                         }
                         return (DeviceIdBag) invokeLL.objValue;
-                    }
-
-                    @Override // com.baidu.searchbox.common.security.IDeviceInfoService
-                    public DeviceIdBag getIMEI(String scene, String purpose, boolean z) {
-                        InterceptResult invokeLLZ;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeLLZ = interceptable2.invokeLLZ(1048579, this, scene, purpose, z)) == null) {
-                            Intrinsics.checkNotNullParameter(scene, "scene");
-                            Intrinsics.checkNotNullParameter(purpose, "purpose");
-                            DeviceInfoManager deviceInfoManager = DeviceInfoManager.INSTANCE;
-                            return deviceInfoManager.getIMEI(deviceInfoManager.getContext$lib_security_framework_release(), scene, purpose, z);
-                        }
-                        return (DeviceIdBag) invokeLLZ.objValue;
                     }
 
                     @Override // com.baidu.searchbox.common.security.IDeviceInfoService
@@ -173,6 +178,44 @@ public final class DeviceInfoIPCServiceManager {
                     }
 
                     @Override // com.baidu.searchbox.common.security.IDeviceInfoService
+                    public DeviceIdBag getOsVersion(String scene, String purpose) {
+                        InterceptResult invokeLL;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048585, this, scene, purpose)) == null) {
+                            Intrinsics.checkNotNullParameter(scene, "scene");
+                            Intrinsics.checkNotNullParameter(purpose, "purpose");
+                            return DeviceInfoManager.INSTANCE.getOsVersion(scene, purpose);
+                        }
+                        return (DeviceIdBag) invokeLL.objValue;
+                    }
+
+                    @Override // com.baidu.searchbox.common.security.IDeviceInfoService
+                    public DeviceIdBagMap getDeviceInfos(String scene, String purpose, int i, boolean z) {
+                        InterceptResult invokeCommon;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{scene, purpose, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+                            Intrinsics.checkNotNullParameter(scene, "scene");
+                            Intrinsics.checkNotNullParameter(purpose, "purpose");
+                            DeviceInfoManager deviceInfoManager = DeviceInfoManager.INSTANCE;
+                            return deviceInfoManager.getDeviceInfo(deviceInfoManager.getContext$lib_security_framework_release(), scene, purpose, i, z);
+                        }
+                        return (DeviceIdBagMap) invokeCommon.objValue;
+                    }
+
+                    @Override // com.baidu.searchbox.common.security.IDeviceInfoService
+                    public DeviceIdBag getIMEI(String scene, String purpose, boolean z) {
+                        InterceptResult invokeLLZ;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeLLZ = interceptable2.invokeLLZ(1048579, this, scene, purpose, z)) == null) {
+                            Intrinsics.checkNotNullParameter(scene, "scene");
+                            Intrinsics.checkNotNullParameter(purpose, "purpose");
+                            DeviceInfoManager deviceInfoManager = DeviceInfoManager.INSTANCE;
+                            return deviceInfoManager.getIMEI(deviceInfoManager.getContext$lib_security_framework_release(), scene, purpose, z);
+                        }
+                        return (DeviceIdBag) invokeLLZ.objValue;
+                    }
+
+                    @Override // com.baidu.searchbox.common.security.IDeviceInfoService
                     public DeviceIdBag getOperator(String scene, String purpose, boolean z) {
                         InterceptResult invokeLLZ;
                         Interceptable interceptable2 = $ic;
@@ -184,20 +227,12 @@ public final class DeviceInfoIPCServiceManager {
                         }
                         return (DeviceIdBag) invokeLLZ.objValue;
                     }
-
-                    @Override // com.baidu.searchbox.common.security.IDeviceInfoService
-                    public DeviceIdBag getOsVersion(String scene, String purpose) {
-                        InterceptResult invokeLL;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048585, this, scene, purpose)) == null) {
-                            Intrinsics.checkNotNullParameter(scene, "scene");
-                            Intrinsics.checkNotNullParameter(purpose, "purpose");
-                            return DeviceInfoManager.INSTANCE.getOsVersion(scene, purpose);
-                        }
-                        return (DeviceIdBag) invokeLL.objValue;
-                    }
                 }, false);
             }
+        }
+
+        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
         }
 
         @JvmStatic
@@ -217,26 +252,6 @@ public final class DeviceInfoIPCServiceManager {
             }
             return (IDeviceInfoService) invokeV.objValue;
         }
-
-        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(915427056, "Lcom/baidu/searchbox/common/security/DeviceInfoIPCServiceManager;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(915427056, "Lcom/baidu/searchbox/common/security/DeviceInfoIPCServiceManager;");
-                return;
-            }
-        }
-        Companion = new Companion(null);
     }
 
     public DeviceInfoIPCServiceManager() {
@@ -251,20 +266,5 @@ public final class DeviceInfoIPCServiceManager {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-    }
-
-    @JvmStatic
-    public static final void addIPCService() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            Companion.addIPCService();
-        }
-    }
-
-    @JvmStatic
-    public static final IDeviceInfoService getIPCService() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? Companion.getIPCService() : (IDeviceInfoService) invokeV.objValue;
     }
 }

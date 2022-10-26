@@ -1,24 +1,23 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.widget.richText.TbRichText;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
+import tbclient.GetLockWindowMsg.LockWindowThreadInfo;
 /* loaded from: classes3.dex */
 public class ad8 {
     public static /* synthetic */ Interceptable $ic;
-    public static ad8 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, String> a;
-    public HashMap<String, String> b;
-    public ConcurrentHashMap<String, bd8> c;
+    public long a;
+    public String b;
+    public int c;
+    public TbRichText d;
 
     public ad8() {
         Interceptable interceptable = $ic;
@@ -30,159 +29,56 @@ public class ad8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = new HashMap<>();
-        this.c = new ConcurrentHashMap<>();
     }
 
-    public static ad8 a() {
+    public TbRichText a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (d == null) {
-                synchronized (ad8.class) {
-                    if (d == null) {
-                        d = new ad8();
-                    }
-                }
-            }
-            return d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
-        return (ad8) invokeV.objValue;
+        return (TbRichText) invokeV.objValue;
     }
 
-    public ConcurrentHashMap<String, bd8> b() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (ConcurrentHashMap) invokeV.objValue;
-    }
-
-    public bd8 c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            HashMap<String, String> hashMap = this.a;
-            if (hashMap == null || this.c == null) {
-                return null;
-            }
-            String str2 = hashMap.get(str);
-            if (TextUtils.isEmpty(str2)) {
-                return null;
-            }
-            return this.c.get(str2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        return (bd8) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    public bd8 d(String str) {
-        InterceptResult invokeL;
+    public long c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            ConcurrentHashMap<String, bd8> concurrentHashMap = this.c;
-            if (concurrentHashMap == null) {
-                return null;
-            }
-            return concurrentHashMap.get(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
-        return (bd8) invokeL.objValue;
+        return invokeV.longValue;
     }
 
-    public String e(String str) {
-        InterceptResult invokeL;
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            HashMap<String, String> hashMap = this.b;
-            if (hashMap == null) {
-                return null;
-            }
-            return hashMap.get(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
         }
-        return (String) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void f(String str) {
-        ConcurrentHashMap<String, bd8> concurrentHashMap;
+    public void e(LockWindowThreadInfo lockWindowThreadInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || TextUtils.isEmpty(str) || (concurrentHashMap = this.c) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, lockWindowThreadInfo) != null) || lockWindowThreadInfo == null) {
             return;
         }
-        Iterator<String> it = concurrentHashMap.keySet().iterator();
-        while (it.hasNext()) {
-            bd8 bd8Var = this.c.get(it.next());
-            if (bd8Var != null && str.equals(bd8Var.b)) {
-                it.remove();
-            }
-        }
-    }
-
-    public void g(boolean z) {
-        ConcurrentHashMap<String, bd8> concurrentHashMap;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (concurrentHashMap = this.c) == null) {
-            return;
-        }
-        for (String str : concurrentHashMap.keySet()) {
-            bd8 bd8Var = this.c.get(str);
-            if (bd8Var != null) {
-                bd8Var.e = z;
-            }
-        }
-    }
-
-    public void h(boolean z, String str) {
-        ConcurrentHashMap<String, bd8> concurrentHashMap;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZL(1048582, this, z, str) == null) || TextUtils.isEmpty(str) || (concurrentHashMap = this.c) == null) {
-            return;
-        }
-        for (String str2 : concurrentHashMap.keySet()) {
-            bd8 bd8Var = this.c.get(str2);
-            if (bd8Var != null && str.equals(bd8Var.b)) {
-                bd8Var.e = z;
-            }
-        }
-    }
-
-    public void i(HashMap<String, bd8> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, hashMap) == null) {
-            this.c.clear();
-            if (hashMap == null) {
-                return;
-            }
-            this.c.putAll(hashMap);
-        }
-    }
-
-    public void j(String str, String str2) {
-        HashMap<String, String> hashMap;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || (hashMap = this.a) == null) {
-            return;
-        }
-        hashMap.put(str, str2);
-    }
-
-    public void k(String str, String str2) {
-        HashMap<String, String> hashMap;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || (hashMap = this.b) == null) {
-            return;
-        }
-        hashMap.put(str, str2);
-    }
-
-    public void l(String str, HashMap<String, bd8> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, str, hashMap) == null) {
-            if (this.c == null) {
-                this.c = new ConcurrentHashMap<>();
-            }
-            f(str);
-            this.c.putAll(hashMap);
+        this.a = lockWindowThreadInfo.tid.longValue();
+        this.b = lockWindowThreadInfo.title;
+        this.c = lockWindowThreadInfo.post_num.intValue();
+        if (!ListUtils.isEmpty(lockWindowThreadInfo.content)) {
+            this.d = TbRichTextView.X(lockWindowThreadInfo.content, true);
         }
     }
 }

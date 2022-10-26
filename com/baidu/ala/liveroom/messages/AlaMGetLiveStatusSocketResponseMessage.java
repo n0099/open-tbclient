@@ -2,7 +2,6 @@ package com.baidu.ala.liveroom.messages;
 
 import alaim.AlaMgetLiveStatus.AlaMgetLiveStatusResIdl;
 import alaim.AlaMgetLiveStatus.DataRes;
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.ala.AlaCmdConfigSocket;
 import com.baidu.android.imsdk.internal.Constants;
@@ -18,7 +17,7 @@ import java.util.List;
 public class AlaMGetLiveStatusSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Long> mCloseIds;
+    public List mCloseIds;
     public long mInterval;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -39,34 +38,42 @@ public class AlaMGetLiveStatusSocketResponseMessage extends SocketResponsedMessa
         }
     }
 
+    public List getClosedIds() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mCloseIds;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public long getInterval() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mInterval;
+        }
+        return invokeV.longValue;
+    }
+
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
-        DataRes dataRes;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
             AlaMgetLiveStatusResIdl alaMgetLiveStatusResIdl = (AlaMgetLiveStatusResIdl) new Wire(new Class[0]).parseFrom(bArr, AlaMgetLiveStatusResIdl.class);
             setError(alaMgetLiveStatusResIdl.error.errorno.intValue());
             setErrorString(alaMgetLiveStatusResIdl.error.usermsg);
-            if (getError() == 0 && (dataRes = alaMgetLiveStatusResIdl.data) != null && dataRes.close_live != null) {
+            if (getError() != 0) {
+                return alaMgetLiveStatusResIdl;
+            }
+            DataRes dataRes = alaMgetLiveStatusResIdl.data;
+            if (dataRes != null && dataRes.close_live != null) {
                 this.mInterval = dataRes.interval.longValue();
                 this.mCloseIds = new ArrayList(alaMgetLiveStatusResIdl.data.close_live);
             }
             return alaMgetLiveStatusResIdl;
         }
         return invokeIL.objValue;
-    }
-
-    public List<Long> getClosedIds() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mCloseIds : (List) invokeV.objValue;
-    }
-
-    public long getInterval() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mInterval : invokeV.longValue;
     }
 }

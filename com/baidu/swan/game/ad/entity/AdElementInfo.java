@@ -1,6 +1,5 @@
 package com.baidu.swan.game.ad.entity;
 
-import android.annotation.SuppressLint;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
@@ -28,7 +27,7 @@ public class AdElementInfo implements Parcelable {
     public static final int ACTION_TYPE_DOWNLOAD = 2;
     public static final int ACTION_TYPE_LANDING_PAGE = 1;
     public static final int CLOSE_TYPE_TO_NEW_STRATEGY = 6;
-    public static final Parcelable.Creator<AdElementInfo> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final String TAG = "AdElementInfo";
     public transient /* synthetic */ FieldHolder $fh;
     public long createTime;
@@ -42,9 +41,9 @@ public class AdElementInfo implements Parcelable {
     public long mAppSize;
     public String mBannerHtml;
     public String mClickUrl;
-    public Set<String> mCloseTrackers;
+    public Set mCloseTrackers;
     public int mCloseType;
-    public Set<String> mConversionUrls;
+    public Set mConversionUrls;
     public String mDescription;
     public int mDuration;
     public String mEndFrameHtml;
@@ -54,9 +53,9 @@ public class AdElementInfo implements Parcelable {
     public String mFbAct;
     public boolean mGdtAd;
     public String mIconUrl;
-    public Set<String> mImpressionUrls;
+    public Set mImpressionUrls;
     public String mLandBannerHtml;
-    public Set<String> mMonitorClickers;
+    public Set mMonitorClickers;
     public String mPackageName;
     public String mPage;
     public String mPermissionUrl;
@@ -67,10 +66,10 @@ public class AdElementInfo implements Parcelable {
     public int mRewardTimeDefault;
     public int mSkipTime;
     public int mSkipTimeDefault;
-    public Set<String> mSkipTrackers;
-    public Set<String> mStartTrackers;
-    public Set<String> mThirdClickMonitorTrackers;
-    public Set<String> mThirdImpMonitorTrackers;
+    public Set mSkipTrackers;
+    public Set mStartTrackers;
+    public Set mThirdClickMonitorTrackers;
+    public Set mThirdImpMonitorTrackers;
     public String mTitle;
     public String mType;
     public String mUniqueId;
@@ -79,8 +78,18 @@ public class AdElementInfo implements Parcelable {
     public String mVideoUrl;
     public int mVideoWidth;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes3.dex */
-    public static class a implements Parcelable.Creator<AdElementInfo> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -104,7 +113,10 @@ public class AdElementInfo implements Parcelable {
         public AdElementInfo createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new AdElementInfo(parcel, (a) null) : (AdElementInfo) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new AdElementInfo(parcel, (a) null);
+            }
+            return (AdElementInfo) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -113,7 +125,10 @@ public class AdElementInfo implements Parcelable {
         public AdElementInfo[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new AdElementInfo[i] : (AdElementInfo[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new AdElementInfo[i];
+            }
+            return (AdElementInfo[]) invokeI.objValue;
         }
     }
 
@@ -133,236 +148,247 @@ public class AdElementInfo implements Parcelable {
         CREATOR = new a();
     }
 
-    public /* synthetic */ AdElementInfo(Parcel parcel, a aVar) {
-        this(parcel);
-    }
-
-    private void addCloseMonitorTrackers(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, this, str) == null) || str == null || str.equals("")) {
-            return;
-        }
-        this.mCloseTrackers.add(str);
-    }
-
-    private void addConversionUrls(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, this, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        this.mConversionUrls.add(str);
-    }
-
-    private void addMonitorClickTrackers(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, this, str) == null) || str == null || str.equals("")) {
-            return;
-        }
-        this.mMonitorClickers.add(str);
-    }
-
-    private void addSkipMonitorTrackers(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65544, this, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        this.mSkipTrackers.add(str);
-    }
-
-    private void addStartMonitorTrackers(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65545, this, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        this.mStartTrackers.add(str);
-    }
-
-    private void addThirdClickMonitorTrackers(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65546, this, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        this.mThirdClickMonitorTrackers.add(str);
-    }
-
-    private void addThirdImpMonitorTrackers(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65547, this, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        this.mThirdImpMonitorTrackers.add(str);
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
     public int getActionType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mActionType : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mActionType;
+        }
+        return invokeV.intValue;
     }
 
     public String getAdId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mAdId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mAdId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public JSONObject getAdJsonObject() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mAdJsonObject : (JSONObject) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mAdJsonObject;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 
     public JSONObject getAdMonitors() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mAdMonitors : (JSONObject) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mAdMonitors;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 
     public int getAntiTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mAntiTag : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mAntiTag;
+        }
+        return invokeV.intValue;
     }
 
     public String getAppName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mAppName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mAppName;
+        }
+        return (String) invokeV.objValue;
     }
 
     public long getAppSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mAppSize : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mAppSize;
+        }
+        return invokeV.longValue;
     }
 
     public String getBannerHtml() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mBannerHtml : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mBannerHtml;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getClickUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mClickUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mClickUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
-    public List<String> getCloseTrackers() {
+    public List getCloseTrackers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? new ArrayList(this.mCloseTrackers) : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return new ArrayList(this.mCloseTrackers);
+        }
+        return (List) invokeV.objValue;
     }
 
     public int getCloseType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mCloseType : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mCloseType;
+        }
+        return invokeV.intValue;
     }
 
-    public List<String> getConversionUrls() {
+    public List getConversionUrls() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? new ArrayList(this.mConversionUrls) : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return new ArrayList(this.mConversionUrls);
+        }
+        return (List) invokeV.objValue;
     }
 
     public long getCreateTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.createTime : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.createTime;
+        }
+        return invokeV.longValue;
     }
 
     public String getDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mDescription : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.mDescription;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mDuration : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.mDuration;
+        }
+        return invokeV.intValue;
     }
 
     public String getEndFrameHtml() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.mEndFrameHtml : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.mEndFrameHtml;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getEndFrameUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mEndFrameUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.mEndFrameUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getExpired() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.mExpire : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.mExpire;
+        }
+        return invokeV.intValue;
     }
 
     public String getIconUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.mIconUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.mIconUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
-    public List<String> getImpressionUrls() {
+    public List getImpressionUrls() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? new ArrayList(this.mImpressionUrls) : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return new ArrayList(this.mImpressionUrls);
+        }
+        return (List) invokeV.objValue;
     }
 
     public String getLandBannerHtml() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.mLandBannerHtml : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return this.mLandBannerHtml;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getPackageName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.mPackageName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return this.mPackageName;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getPage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.mPage : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.mPage;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getPermissionUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.mPermissionUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return this.mPermissionUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getPictureUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.mPictureUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return this.mPictureUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getPrivacyUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.mPrivacyUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return this.mPrivacyUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getQueryKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.mQueryKey : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            return this.mQueryKey;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getRewardTime() {
@@ -389,106 +415,165 @@ public class AdElementInfo implements Parcelable {
         return invokeV.intValue;
     }
 
-    public List<String> getSkipTrackers() {
+    public List getSkipTrackers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? new ArrayList(this.mSkipTrackers) : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            return new ArrayList(this.mSkipTrackers);
+        }
+        return (List) invokeV.objValue;
     }
 
-    public List<String> getStartTrackers() {
+    public List getStartTrackers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? new ArrayList(this.mStartTrackers) : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+            return new ArrayList(this.mStartTrackers);
+        }
+        return (List) invokeV.objValue;
     }
 
-    public List<String> getThirdClickTrackingUrls() {
+    public List getThirdClickTrackingUrls() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? new ArrayList(this.mThirdClickMonitorTrackers) : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            return new ArrayList(this.mThirdClickMonitorTrackers);
+        }
+        return (List) invokeV.objValue;
     }
 
-    public List<String> getThirdImpressionTrackingUrls() {
+    public List getThirdImpressionTrackingUrls() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? new ArrayList(this.mThirdImpMonitorTrackers) : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+            return new ArrayList(this.mThirdImpMonitorTrackers);
+        }
+        return (List) invokeV.objValue;
     }
 
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.mTitle : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+            return this.mTitle;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.mType : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+            return this.mType;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getUniqueId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.mUniqueId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
+            return this.mUniqueId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getVideoHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.mVideoHeight : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+            return this.mVideoHeight;
+        }
+        return invokeV.intValue;
     }
 
     public String getVideoUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.mVideoUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+            return this.mVideoUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getVideoWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.mVideoWidth : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+            return this.mVideoWidth;
+        }
+        return invokeV.intValue;
     }
 
     public boolean isGdtAd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.mGdtAd : invokeV.booleanValue;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048617, this, parcel, i) == null) {
-            parcel.writeString(this.mQueryKey);
-            parcel.writeString(this.mAdId);
-            parcel.writeString(this.mTitle);
-            parcel.writeString(this.mDescription);
-            parcel.writeString(this.mIconUrl);
-            parcel.writeString(this.mType);
-            parcel.writeInt(this.mActionType);
-            parcel.writeInt(this.mAntiTag);
-            parcel.writeString(this.mClickUrl);
-            parcel.writeString(this.mPictureUrl);
-            parcel.writeString(this.mVideoUrl);
-            parcel.writeInt(this.mVideoWidth);
-            parcel.writeInt(this.mVideoHeight);
-            parcel.writeInt(this.mDuration);
-            parcel.writeInt(this.mCloseType);
-            parcel.writeInt(this.mExpire);
-            parcel.writeString(this.mAppName);
-            parcel.writeString(this.mPackageName);
-            parcel.writeString(this.mApkName);
-            parcel.writeLong(this.mAppSize);
-            parcel.writeString(this.mPage);
-            parcel.writeString(this.mVersion);
-            parcel.writeString(this.mFallback);
-            parcel.writeString(this.mFbAct);
-            parcel.writeInt(this.mRewardTime);
-            parcel.writeInt(this.mSkipTime);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
+            return this.mGdtAd;
         }
+        return invokeV.booleanValue;
     }
 
-    @SuppressLint({"DefaultLocale"})
+    public AdElementInfo(Parcel parcel) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mAdId = "-1";
+        this.mImpressionUrls = new HashSet();
+        this.mVideoWidth = 0;
+        this.mVideoHeight = 0;
+        this.mThirdImpMonitorTrackers = new HashSet();
+        this.mThirdClickMonitorTrackers = new HashSet();
+        this.mStartTrackers = new HashSet();
+        this.mSkipTrackers = new HashSet();
+        this.mCloseTrackers = new HashSet();
+        this.mMonitorClickers = new HashSet();
+        this.mRewardTimeDefault = 15;
+        this.mSkipTimeDefault = 5;
+        this.mConversionUrls = new HashSet();
+        this.mQueryKey = parcel.readString();
+        this.mAdId = parcel.readString();
+        this.mTitle = parcel.readString();
+        this.mDescription = parcel.readString();
+        this.mIconUrl = parcel.readString();
+        this.mType = parcel.readString();
+        this.mActionType = parcel.readInt();
+        this.mAntiTag = parcel.readInt();
+        this.mClickUrl = parcel.readString();
+        this.mPictureUrl = parcel.readString();
+        this.mVideoUrl = parcel.readString();
+        this.mVideoWidth = parcel.readInt();
+        this.mVideoHeight = parcel.readInt();
+        this.mDuration = parcel.readInt();
+        this.mCloseType = parcel.readInt();
+        this.mExpire = parcel.readInt();
+        this.mAppName = parcel.readString();
+        this.mPackageName = parcel.readString();
+        this.mApkName = parcel.readString();
+        this.mAppSize = parcel.readLong();
+        this.mPage = parcel.readString();
+        this.mVersion = parcel.readString();
+        this.mFallback = parcel.readString();
+        this.mFbAct = parcel.readString();
+        this.mRewardTime = parcel.readInt();
+        this.mSkipTime = parcel.readInt();
+    }
+
+    public /* synthetic */ AdElementInfo(Parcel parcel, a aVar) {
+        this(parcel);
+    }
+
     public AdElementInfo(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -698,59 +783,85 @@ public class AdElementInfo implements Parcelable {
         }
     }
 
-    public AdElementInfo(Parcel parcel) {
+    private void addCloseMonitorTrackers(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if ((interceptable == null || interceptable.invokeL(65541, this, str) == null) && str != null && !str.equals("")) {
+            this.mCloseTrackers.add(str);
         }
-        this.mAdId = "-1";
-        this.mImpressionUrls = new HashSet();
-        this.mVideoWidth = 0;
-        this.mVideoHeight = 0;
-        this.mThirdImpMonitorTrackers = new HashSet();
-        this.mThirdClickMonitorTrackers = new HashSet();
-        this.mStartTrackers = new HashSet();
-        this.mSkipTrackers = new HashSet();
-        this.mCloseTrackers = new HashSet();
-        this.mMonitorClickers = new HashSet();
-        this.mRewardTimeDefault = 15;
-        this.mSkipTimeDefault = 5;
-        this.mConversionUrls = new HashSet();
-        this.mQueryKey = parcel.readString();
-        this.mAdId = parcel.readString();
-        this.mTitle = parcel.readString();
-        this.mDescription = parcel.readString();
-        this.mIconUrl = parcel.readString();
-        this.mType = parcel.readString();
-        this.mActionType = parcel.readInt();
-        this.mAntiTag = parcel.readInt();
-        this.mClickUrl = parcel.readString();
-        this.mPictureUrl = parcel.readString();
-        this.mVideoUrl = parcel.readString();
-        this.mVideoWidth = parcel.readInt();
-        this.mVideoHeight = parcel.readInt();
-        this.mDuration = parcel.readInt();
-        this.mCloseType = parcel.readInt();
-        this.mExpire = parcel.readInt();
-        this.mAppName = parcel.readString();
-        this.mPackageName = parcel.readString();
-        this.mApkName = parcel.readString();
-        this.mAppSize = parcel.readLong();
-        this.mPage = parcel.readString();
-        this.mVersion = parcel.readString();
-        this.mFallback = parcel.readString();
-        this.mFbAct = parcel.readString();
-        this.mRewardTime = parcel.readInt();
-        this.mSkipTime = parcel.readInt();
+    }
+
+    private void addConversionUrls(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65542, this, str) == null) && !TextUtils.isEmpty(str)) {
+            this.mConversionUrls.add(str);
+        }
+    }
+
+    private void addMonitorClickTrackers(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65543, this, str) == null) && str != null && !str.equals("")) {
+            this.mMonitorClickers.add(str);
+        }
+    }
+
+    private void addSkipMonitorTrackers(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65544, this, str) == null) && !TextUtils.isEmpty(str)) {
+            this.mSkipTrackers.add(str);
+        }
+    }
+
+    private void addStartMonitorTrackers(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65545, this, str) == null) && !TextUtils.isEmpty(str)) {
+            this.mStartTrackers.add(str);
+        }
+    }
+
+    private void addThirdClickMonitorTrackers(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65546, this, str) == null) && !TextUtils.isEmpty(str)) {
+            this.mThirdClickMonitorTrackers.add(str);
+        }
+    }
+
+    private void addThirdImpMonitorTrackers(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65547, this, str) == null) && !TextUtils.isEmpty(str)) {
+            this.mThirdImpMonitorTrackers.add(str);
+        }
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048617, this, parcel, i) == null) {
+            parcel.writeString(this.mQueryKey);
+            parcel.writeString(this.mAdId);
+            parcel.writeString(this.mTitle);
+            parcel.writeString(this.mDescription);
+            parcel.writeString(this.mIconUrl);
+            parcel.writeString(this.mType);
+            parcel.writeInt(this.mActionType);
+            parcel.writeInt(this.mAntiTag);
+            parcel.writeString(this.mClickUrl);
+            parcel.writeString(this.mPictureUrl);
+            parcel.writeString(this.mVideoUrl);
+            parcel.writeInt(this.mVideoWidth);
+            parcel.writeInt(this.mVideoHeight);
+            parcel.writeInt(this.mDuration);
+            parcel.writeInt(this.mCloseType);
+            parcel.writeInt(this.mExpire);
+            parcel.writeString(this.mAppName);
+            parcel.writeString(this.mPackageName);
+            parcel.writeString(this.mApkName);
+            parcel.writeLong(this.mAppSize);
+            parcel.writeString(this.mPage);
+            parcel.writeString(this.mVersion);
+            parcel.writeString(this.mFallback);
+            parcel.writeString(this.mFbAct);
+            parcel.writeInt(this.mRewardTime);
+            parcel.writeInt(this.mSkipTime);
+        }
     }
 }

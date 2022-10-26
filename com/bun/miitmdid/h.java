@@ -1,36 +1,24 @@
 package com.bun.miitmdid;
 
-import androidx.annotation.Keep;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Keep
 /* loaded from: classes7.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Keep
-    public Class<?> a;
-    @Nullable
-    @Keep
+    public Class a;
     public Object b;
-    @Keep
     public String c;
-    @Keep
-    public Class<?>[] d;
-    @Keep
+    public Class[] d;
     public Object[] e;
-    @Nullable
-    @Keep
-    public Class<?> f;
-    @Keep
+    public Class f;
     public boolean g;
 
-    public h(Class<?> cls, @Nullable Object obj, String str, Class<?>[] clsArr, Object[] objArr) {
+    public h(Class cls, Object obj, String str, Class[] clsArr, Object[] objArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,7 +41,7 @@ public class h {
         this.e = objArr;
     }
 
-    public h(Class<?> cls, @Nullable Object obj, String str, Class<?>[] clsArr, Object[] objArr, Class<?> cls2) {
+    public h(Class cls, Object obj, String str, Class[] clsArr, Object[] objArr, Class cls2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -77,16 +65,13 @@ public class h {
         this.f = cls2;
     }
 
-    @Keep
     public native Object a();
 
-    @Nullable
-    public Class<?> b() {
+    public Class b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (Class) invokeV.objValue;
     }
 
-    @Keep
     public native boolean c();
 }

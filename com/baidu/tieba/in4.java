@@ -8,9 +8,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 /* loaded from: classes4.dex */
-public class in4 extends en4 {
+public class in4 extends fn4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.en4
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "h" : (String) invokeV.objValue;
+    }
 
     public in4() {
         Interceptable interceptable = $ic;
@@ -26,28 +33,18 @@ public class in4 extends en4 {
         }
     }
 
-    @Override // com.baidu.tieba.dn4
-    public String a(String[] strArr, Map<String, String> map) {
+    @Override // com.baidu.tieba.en4
+    public String a(String[] strArr, Map map) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, strArr, map)) == null) {
-            if (strArr == null || strArr.length == 0) {
-                return null;
+            if (strArr != null && strArr.length != 0) {
+                StringBuilder sb = new StringBuilder("com.baidu.tieba://unidispatch/home");
+                c(strArr, sb, map, 1);
+                return sb.toString();
             }
-            String substring = strArr[0].substring(1);
-            StringBuilder sb = new StringBuilder("com.baidu.tieba://unidispatch/item");
-            sb.append("?item_id=");
-            sb.append(substring);
-            c(strArr, sb, map, 1);
-            return sb.toString();
+            return null;
         }
         return (String) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.dn4
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "i" : (String) invokeV.objValue;
     }
 }

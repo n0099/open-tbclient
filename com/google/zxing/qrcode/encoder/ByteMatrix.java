@@ -51,25 +51,37 @@ public final class ByteMatrix {
     public byte get(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) ? this.bytes[i2][i] : invokeII.byteValue;
+        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
+            return this.bytes[i2][i];
+        }
+        return invokeII.byteValue;
     }
 
     public byte[][] getArray() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.bytes : (byte[][]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.bytes;
+        }
+        return (byte[][]) invokeV.objValue;
     }
 
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.height : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.height;
+        }
+        return invokeV.intValue;
     }
 
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.width : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.width;
+        }
+        return invokeV.intValue;
     }
 
     public void set(int i, int i2, byte b) {
@@ -77,29 +89,6 @@ public final class ByteMatrix {
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Byte.valueOf(b)}) == null) {
             this.bytes[i2][i] = b;
         }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            StringBuilder sb = new StringBuilder((this.width * 2 * this.height) + 2);
-            for (int i = 0; i < this.height; i++) {
-                for (int i2 = 0; i2 < this.width; i2++) {
-                    byte b = this.bytes[i][i2];
-                    if (b == 0) {
-                        sb.append(" 0");
-                    } else if (b != 1) {
-                        sb.append(GlideException.IndentedAppendable.INDENT);
-                    } else {
-                        sb.append(" 1");
-                    }
-                }
-                sb.append('\n');
-            }
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
     }
 
     public void set(int i, int i2, int i3) {
@@ -114,5 +103,30 @@ public final class ByteMatrix {
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             this.bytes[i2][i] = z ? (byte) 1 : (byte) 0;
         }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            StringBuilder sb = new StringBuilder((this.width * 2 * this.height) + 2);
+            for (int i = 0; i < this.height; i++) {
+                for (int i2 = 0; i2 < this.width; i2++) {
+                    byte b = this.bytes[i][i2];
+                    if (b != 0) {
+                        if (b != 1) {
+                            sb.append(GlideException.IndentedAppendable.INDENT);
+                        } else {
+                            sb.append(" 1");
+                        }
+                    } else {
+                        sb.append(" 0");
+                    }
+                }
+                sb.append('\n');
+            }
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

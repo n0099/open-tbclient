@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public class GetSugMatchWordsResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> mData;
+    public List mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetSugMatchWordsResponseMessage(int i) {
@@ -38,7 +38,7 @@ public class GetSugMatchWordsResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    private List<String> parseSugMatchWordsData(JSONArray jSONArray) {
+    private List parseSugMatchWordsData(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, jSONArray)) == null) {
@@ -69,9 +69,12 @@ public class GetSugMatchWordsResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public List<String> getData() {
+    public List getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mData;
+        }
+        return (List) invokeV.objValue;
     }
 }

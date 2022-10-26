@@ -12,9 +12,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.ny4;
-import com.baidu.tieba.yq4;
+import com.baidu.tieba.ar4;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.ty4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -56,10 +56,9 @@ public class ExtraLayout extends RelativeLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.d == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.d != null) {
+                this.a.d.onClick(view2);
             }
-            this.a.d.onClick(view2);
         }
     }
 
@@ -83,65 +82,6 @@ public class ExtraLayout extends RelativeLayout {
         }
         this.e = new a(this);
         b(context);
-    }
-
-    public final void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0196, (ViewGroup) this, true);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09096c);
-            this.b = textView;
-            textView.setCompoundDrawablePadding(ej.f(context, R.dimen.tbds10));
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09096b);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f090968);
-            this.a = tBSpecificationBtn;
-            tBSpecificationBtn.setOnClickListener(this.e);
-            ny4 ny4Var = new ny4();
-            ny4Var.r(R.color.CAM_X0302);
-            this.a.setConfig(ny4Var);
-            this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0518));
-        }
-    }
-
-    public void setData(yq4 yq4Var) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yq4Var) == null) {
-            ThreadData threadData = yq4Var.getThreadData();
-            boolean z2 = true;
-            if (!TextUtils.isEmpty(threadData.extraText)) {
-                this.b.setVisibility(0);
-                this.b.setText(threadData.extraText);
-                this.b.setOnClickListener(null);
-                z = true;
-            } else {
-                this.b.setVisibility(8);
-                z = false;
-            }
-            if (!TextUtils.isEmpty(threadData.extraTag)) {
-                this.c.setVisibility(0);
-                this.c.setText(threadData.extraTag);
-                this.c.setOnClickListener(null);
-                z = true;
-            } else {
-                this.c.setVisibility(8);
-            }
-            if (!TextUtils.isEmpty(threadData.buttonText)) {
-                this.a.setVisibility(0);
-                this.a.setText(threadData.buttonText);
-            } else {
-                this.a.setVisibility(4);
-                z2 = z;
-            }
-            setVisibility(z2 ? 0 : 8);
-        }
-    }
-
-    public void setOnAfterClickListener(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.d = onClickListener;
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -188,5 +128,68 @@ public class ExtraLayout extends RelativeLayout {
         }
         this.e = new a(this);
         b(context);
+    }
+
+    public void setOnAfterClickListener(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
+            this.d = onClickListener;
+        }
+    }
+
+    public final void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0195, (ViewGroup) this, true);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090976);
+            this.b = textView;
+            textView.setCompoundDrawablePadding(fj.f(context, R.dimen.tbds10));
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090975);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f090972);
+            this.a = tBSpecificationBtn;
+            tBSpecificationBtn.setOnClickListener(this.e);
+            ty4 ty4Var = new ty4();
+            ty4Var.r(R.color.CAM_X0302);
+            this.a.setConfig(ty4Var);
+            this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0520));
+        }
+    }
+
+    public void setData(ar4 ar4Var) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ar4Var) == null) {
+            ThreadData threadData = ar4Var.getThreadData();
+            boolean z2 = true;
+            int i = 8;
+            if (!TextUtils.isEmpty(threadData.extraText)) {
+                this.b.setVisibility(0);
+                this.b.setText(threadData.extraText);
+                this.b.setOnClickListener(null);
+                z = true;
+            } else {
+                this.b.setVisibility(8);
+                z = false;
+            }
+            if (!TextUtils.isEmpty(threadData.extraTag)) {
+                this.c.setVisibility(0);
+                this.c.setText(threadData.extraTag);
+                this.c.setOnClickListener(null);
+                z = true;
+            } else {
+                this.c.setVisibility(8);
+            }
+            if (!TextUtils.isEmpty(threadData.buttonText)) {
+                this.a.setVisibility(0);
+                this.a.setText(threadData.buttonText);
+            } else {
+                this.a.setVisibility(4);
+                z2 = z;
+            }
+            if (z2) {
+                i = 0;
+            }
+            setVisibility(i);
+        }
     }
 }

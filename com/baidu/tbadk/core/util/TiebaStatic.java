@@ -20,18 +20,18 @@ import com.baidu.searchbox.launch.TTIStats;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ah5;
-import com.baidu.tieba.bi;
-import com.baidu.tieba.dj;
+import com.baidu.tieba.ci;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.tieba.gh5;
-import com.baidu.tieba.jj;
-import com.baidu.tieba.oh;
-import com.baidu.tieba.ox4;
-import com.baidu.tieba.qc5;
-import com.baidu.tieba.qd5;
-import com.baidu.tieba.qg5;
-import com.baidu.tieba.wg;
+import com.baidu.tieba.kj;
+import com.baidu.tieba.mh5;
+import com.baidu.tieba.ph;
+import com.baidu.tieba.ux4;
+import com.baidu.tieba.vc5;
+import com.baidu.tieba.wd5;
+import com.baidu.tieba.wg5;
+import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,16 +54,23 @@ public class TiebaStatic {
     public static final String PRODUCTNAME = "tieba";
     public static final String SHOW_COST = "show_cost";
     public static final String SUB_PRODUCT = "tieba_android";
-    public static final ArrayList<String> immediatelyUploadKeys;
+    public static final ArrayList immediatelyUploadKeys;
     public static long lastLogOperateMsgTime = 0;
     public static Object lock = null;
     public static int operateMsgUploadCount = 0;
     public static final long operateMsgUploadInterval = 86400000;
-    public static Set<TiebaStatisticCallback> statisticCallbacks;
+    public static Set statisticCallbacks;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static class AgreeFunnerValue {
+    public interface TiebaStatisticCallback {
+        void onLog(StatisticItem statisticItem);
+
+        void onLog(String str);
+    }
+
+    /* loaded from: classes3.dex */
+    public class AgreeFunnerValue {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int LOC_CANT_CLICK_NUM = 5;
         public static final int LOC_CLICK = 1;
@@ -90,7 +97,7 @@ public class TiebaStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class AgreeNotifyValues {
+    public class AgreeNotifyValues {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TYPE_NOT_SHOW_RED_DOT = 2;
         public static final int TYPE_SHOW_RED_DOT = 1;
@@ -112,7 +119,7 @@ public class TiebaStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class CardImgClickValues {
+    public class CardImgClickValues {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int JUMP_TO_IMAGE_VIEWER = 2;
         public static final int JUMP_TO_PB = 1;
@@ -134,7 +141,7 @@ public class TiebaStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class DQPay extends LogFields {
+    public class DQPay extends LogFields {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TYPE_VALUE = "pay";
         public transient /* synthetic */ FieldHolder $fh;
@@ -155,7 +162,7 @@ public class TiebaStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class ErrorKey {
+    public class ErrorKey {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String OP_ALADIN_PORT_ERROR = "op_aladin_port_error";
         public transient /* synthetic */ FieldHolder $fh;
@@ -176,7 +183,7 @@ public class TiebaStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class FileKey {
+    public class FileKey {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FILE_SD_SIZE = "sd_size";
         public static final String FILE_SD_STATE = "sd_state";
@@ -198,7 +205,7 @@ public class TiebaStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class IM extends LogFields {
+    public class IM extends LogFields {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TYPE_VALUE = "im";
         public transient /* synthetic */ FieldHolder $fh;
@@ -219,7 +226,7 @@ public class TiebaStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class LogFields {
+    public class LogFields {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String ACTION = "action";
         public static final String CMD = "cmd";
@@ -259,7 +266,7 @@ public class TiebaStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class NetApiName {
+    public class NetApiName {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -279,7 +286,7 @@ public class TiebaStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class NetKey {
+    public class NetKey {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String NET_IMG = "img";
         public transient /* synthetic */ FieldHolder $fh;
@@ -300,7 +307,7 @@ public class TiebaStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class OpKey {
+    public class OpKey {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String OP_FORUM_ENTER = "op_forum_enter";
         public static final String OP_FRS_ENTER = "op_frs_enter";
@@ -328,7 +335,7 @@ public class TiebaStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class Params {
+    public class Params {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String ABTEST = "abtest";
         public static final String ABTEST_RESULT = "newabtest_result";
@@ -478,7 +485,7 @@ public class TiebaStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class RDValues {
+    public class RDValues {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int AGREE_FUNNER = 5;
         public static final int FRS_WHITE_TIME = 4;
@@ -503,7 +510,7 @@ public class TiebaStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class ReplyFunnerValue {
+    public class ReplyFunnerValue {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int LOC_BJH_ANTI = 3;
         public static final int LOC_BJH_WILL_SHOW_INPUT = 7;
@@ -544,7 +551,7 @@ public class TiebaStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class StampShareValues {
+    public class StampShareValues {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int LOCATE_FRS = 1;
         public static final int LOCATE_MINE_PAGE = 3;
@@ -573,14 +580,7 @@ public class TiebaStatic {
     }
 
     /* loaded from: classes3.dex */
-    public interface TiebaStatisticCallback {
-        void onLog(StatisticItem statisticItem);
-
-        void onLog(String str);
-    }
-
-    /* loaded from: classes3.dex */
-    public static class YYParams {
+    public class YYParams {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String HDID = "hdid";
         public static final String LIVEID = "liveid";
@@ -607,7 +607,7 @@ public class TiebaStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class YYValues {
+    public class YYValues {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String YY_LIVE = "yylive";
         public transient /* synthetic */ FieldHolder $fh;
@@ -645,7 +645,7 @@ public class TiebaStatic {
         operateMsgUploadCount = 0;
         lock = new Object();
         statisticCallbacks = new LinkedHashSet();
-        ArrayList<String> arrayList = new ArrayList<>();
+        ArrayList arrayList = new ArrayList();
         immediatelyUploadKeys = arrayList;
         arrayList.add(TbadkCoreStatisticKey.PUSH_CCLICK);
         immediatelyUploadKeys.add(TbadkCoreStatisticKey.HOST_START);
@@ -653,6 +653,32 @@ public class TiebaStatic {
         immediatelyUploadKeys.add(CommonStatisticKey.KEY_NEW_SCHEME_PULL_UP);
         immediatelyUploadKeys.add(TbadkCoreStatisticKey.KEY_AIAPPS_CALL_NATIVE);
         immediatelyUploadKeys.add("c13390");
+    }
+
+    public static void saveAndUploadMsg() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65563, null) == null) {
+            synchronized (lock) {
+                long currentTimeMillis = System.currentTimeMillis();
+                if (0 == lastLogOperateMsgTime) {
+                    lastLogOperateMsgTime = ux4.k().m("operate_msg_arrive_click_date", 0L);
+                    operateMsgUploadCount = ux4.k().l("operate_msg_arrive_click_count", 0);
+                }
+                if (lastLogOperateMsgTime > 0) {
+                    if (currentTimeMillis - lastLogOperateMsgTime < 86400000 && operateMsgUploadCount > 3) {
+                        return;
+                    }
+                    ux4.k().x("operate_msg_arrive_click_date", currentTimeMillis);
+                    if (currentTimeMillis - lastLogOperateMsgTime >= 86400000) {
+                        operateMsgUploadCount = 0;
+                    }
+                }
+                lastLogOperateMsgTime = currentTimeMillis;
+                operateMsgUploadCount++;
+                ux4.k().w("operate_msg_arrive_click_count", operateMsgUploadCount);
+                BdStatisticsManager.getInstance().saveAndUploadlog("msg");
+            }
+        }
     }
 
     public TiebaStatic() {
@@ -669,187 +695,13 @@ public class TiebaStatic {
         }
     }
 
-    public static void addStatExtra(StatisticItem statisticItem) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, statisticItem) == null) || statisticItem == null) {
-            return;
-        }
-        String sampleId = TbSingleton.getInstance().getSampleId();
-        if (!StringUtils.isNull(sampleId)) {
-            statisticItem.param(Params.SAMPLE_ID, sampleId);
-        }
-        String c = qg5.d().c();
-        if (!StringUtils.isNull(c)) {
-            statisticItem.param(Params.ABTEST_RESULT, c);
-        }
-        qc5.f().e(statisticItem);
-        statisticItem.addParam("session_id", gh5.g().i());
-    }
-
-    public static void crash(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            try {
-                BdStatisticsManager.getInstance().crash(str, null, null, new Object[0]);
-            } catch (Exception e) {
-                BdLog.e(e.toString());
-            }
-        }
-    }
-
-    public static void deleteParamByKey(StatisticItem statisticItem, String str) {
-        int indexOf;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, statisticItem, str) == null) || (indexOf = statisticItem.getParams().indexOf(str)) == -1) {
-            return;
-        }
-        statisticItem.getParams().remove(indexOf);
-        statisticItem.getParams().remove(indexOf);
-    }
-
-    public static void eventStat(Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, context, str, str2) == null) {
-            try {
-                BdStatisticsManager.getInstance().eventStat(context, str, str2, 1, new Object[0]);
-            } catch (Exception e) {
-                BdLog.e(e.toString());
-            }
-        }
-    }
-
-    public static void file(Exception exc) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, exc) == null) {
-            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-            if (stackTrace.length >= 5) {
-                StackTraceElement stackTraceElement = stackTrace[4];
-                str = dj.join(stackTraceElement.getClassName(), ".", stackTraceElement.getMethodName());
-            } else {
-                str = null;
-            }
-            file(exc, str);
-        }
-    }
-
-    public static String getCua(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            return ej.k(context) + "_" + ej.i(context) + "_android_" + TbConfig.getVersion() + "_" + ej.h(context);
-        }
-        return (String) invokeL.objValue;
-    }
-
     public static String getSdState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? Environment.getExternalStorageState() : (String) invokeV.objValue;
-    }
-
-    public static String getStatLog(StatisticItem statisticItem) {
-        InterceptResult invokeL;
-        int size;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, statisticItem)) == null) {
-            StringBuffer stringBuffer = new StringBuffer();
-            if (statisticItem == null) {
-                return "";
-            }
-            stringBuffer.append("RD_STAT_LOG: ");
-            stringBuffer.append("key=");
-            stringBuffer.append(statisticItem.getKey());
-            stringBuffer.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            List<Object> params = statisticItem.getParams();
-            if (params != null && (size = params.size()) > 0) {
-                for (int i = 0; i < size; i++) {
-                    stringBuffer.append(params.get(i));
-                    if (i % 2 == 0) {
-                        stringBuffer.append("=");
-                    } else if (i != size - 1) {
-                        stringBuffer.append(",");
-                    }
-                }
-            }
-            return stringBuffer.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return Environment.getExternalStorageState();
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static void init(Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65549, null, context, z) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            try {
-                try {
-                    oh ohVar = new oh();
-                    ohVar.a = "tieba";
-                    ohVar.b = SUB_PRODUCT;
-                    ohVar.c = TbConfig.getVersion();
-                    ohVar.d = TbConfig.getFrom();
-                    ohVar.e = TbConfig.getCurrentFrom();
-                    ohVar.f = TbadkCoreApplication.getClientId();
-                    if (PermissionUtil.isAgreePrivacyPolicy()) {
-                        ohVar.g = TbadkCoreApplication.getInst().getCuid();
-                        ohVar.h = TbadkCoreApplication.getInst().getCuidGalaxy2();
-                    }
-                    TbadkCoreApplication.getInst().getCuidGid();
-                    ohVar.i = TbadkCoreApplication.getInst().getImei();
-                    ohVar.j = TbConfig.getSubappType();
-                    ohVar.r = ah5.c().f(context) + "_" + ah5.c().e(context);
-                    ohVar.v = TbadkCoreApplication.getInst().getAndroidId();
-                    ohVar.s = getCua(context);
-                    ohVar.t = PermissionUtil.getLastCachedOid(context);
-                    ohVar.u = PermissionUtil.getLocalMacAddress(context);
-                    ohVar.w = ah5.c().a();
-                    ohVar.x = ah5.c().g() + "_" + ah5.c().h();
-                    ohVar.z = TbSingleton.getInstance().getBaiduIdForAnti();
-                    ohVar.A = String.valueOf(TbSingleton.getInstance().getActiveTimeStamp());
-                    ohVar.B = String.valueOf(TbSingleton.getInstance().getAppFirstInstallTime());
-                    ohVar.C = String.valueOf(TbSingleton.getInstance().getAppLastUpdateTime());
-                    ohVar.D = TbSingleton.getInstance().getData();
-                    boolean z2 = true;
-                    if (ox4.k().l("KEY_LOG_REAL_TIME_UPLOAD_SWITCH", 1) != 1) {
-                        z2 = false;
-                    }
-                    long m = z2 ? ox4.k().m("KEY_UPLOAD_LOG_INTERVAL", AppConfig.TIMESTAMP_AVAILABLE_DURATION) : 3600000L;
-                    BdStatisticsManager.getInstance().init(context, z, TbConfig.LOG_SYNC_SWITCH, TbConfig.getTempDirName(), "newStat", TbConfig.SERVER_ADDRESS + TbConfig.LOG_UPLOAD_URL, ohVar, BdLogSetting.getInstance(), m, TbConfig.SERVER_ADDRESS + TbConfig.TRACK_LOG_UPLOAD_URL);
-                    jj jjVar = new jj() { // from class: com.baidu.tbadk.core.util.TiebaStatic.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                }
-                            }
-                        }
-
-                        @Override // com.baidu.tieba.jj
-                        public boolean isAgreePrivacyPolicy() {
-                            InterceptResult invokeV;
-                            Interceptable interceptable2 = $ic;
-                            return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? PermissionUtil.isAgreePrivacyPolicy() : invokeV.booleanValue;
-                        }
-                    };
-                    BdStatisticsManager.getInstance().setPermissionUtil(jjVar);
-                    bi.o().A(jjVar);
-                    bi.o().p();
-                } catch (Exception e) {
-                    BdLog.e(e.toString());
-                }
-            } finally {
-                TTIStats.record("TiebaStatic.init", System.currentTimeMillis() - currentTimeMillis);
-            }
-        }
+        return (String) invokeV.objValue;
     }
 
     public static boolean isDebugMode() {
@@ -864,10 +716,53 @@ public class TiebaStatic {
         return invokeV.booleanValue;
     }
 
-    public static boolean isImmediatelyKey(String str) {
+    public static void save() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65562, null) == null) {
+            try {
+                xg.g();
+                wd5.d();
+                BdStatisticsManager.getInstance().save();
+                sendMultiProcessBroadcast();
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
+        }
+    }
+
+    public static void sendMultiProcessBroadcast() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65564, null) == null) {
+            Intent intent = new Intent("com.baidu.adp.stats.background");
+            intent.setPackage(BdBaseApplication.getInst().getPackageName());
+            TbadkCoreApplication.getInst().getApp().sendBroadcast(intent);
+        }
+    }
+
+    public static void addStatExtra(StatisticItem statisticItem) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65538, null, statisticItem) != null) || statisticItem == null) {
+            return;
+        }
+        String sampleId = TbSingleton.getInstance().getSampleId();
+        if (!StringUtils.isNull(sampleId)) {
+            statisticItem.param(Params.SAMPLE_ID, sampleId);
+        }
+        String c = wg5.d().c();
+        if (!StringUtils.isNull(c)) {
+            statisticItem.param(Params.ABTEST_RESULT, c);
+        }
+        vc5.f().e(statisticItem);
+        statisticItem.addParam("session_id", mh5.g().i());
+    }
+
+    public static String getCua(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65551, null, str)) == null) ? TbSingleton.getInstance().isStartStatUploadImmediately && immediatelyUploadKeys.contains(str) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
+            return fj.k(context) + "_" + fj.i(context) + "_android_" + TbConfig.getVersion() + "_" + fj.h(context);
+        }
+        return (String) invokeL.objValue;
     }
 
     public static void log(String str) {
@@ -892,7 +787,7 @@ public class TiebaStatic {
 
     public static void logPagePV(StatisticItem statisticItem) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65554, null, statisticItem) == null) || statisticItem == null) {
+        if ((interceptable != null && interceptable.invokeL(65554, null, statisticItem) != null) || statisticItem == null) {
             return;
         }
         try {
@@ -932,33 +827,280 @@ public class TiebaStatic {
         return invokeL.longValue;
     }
 
+    public static void crash(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            try {
+                BdStatisticsManager.getInstance().crash(str, null, null, new Object[0]);
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
+        }
+    }
+
+    public static boolean isImmediatelyKey(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, str)) == null) {
+            if (TbSingleton.getInstance().isStartStatUploadImmediately && immediatelyUploadKeys.contains(str)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void log(StatisticItem statisticItem) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65552, null, statisticItem) == null) {
+            logWithBackTime(statisticItem);
+        }
+    }
+
+    public static void noticeStatisticCallback(StatisticItem statisticItem) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65556, null, statisticItem) == null) && !statisticCallbacks.isEmpty()) {
+            for (TiebaStatisticCallback tiebaStatisticCallback : statisticCallbacks) {
+                if (tiebaStatisticCallback != null) {
+                    tiebaStatisticCallback.onLog(statisticItem);
+                }
+            }
+        }
+    }
+
+    public static void deleteParamByKey(StatisticItem statisticItem, String str) {
+        int indexOf;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, statisticItem, str) == null) && (indexOf = statisticItem.getParams().indexOf(str)) != -1) {
+            statisticItem.getParams().remove(indexOf);
+            statisticItem.getParams().remove(indexOf);
+        }
+    }
+
+    public static void file(Exception exc, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65544, null, exc, str) == null) {
+            if (exc != null) {
+                file(exc.getMessage(), str);
+            } else {
+                file("", str);
+            }
+        }
+    }
+
+    public static void eventStat(Context context, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65541, null, context, str, str2) == null) {
+            try {
+                BdStatisticsManager.getInstance().eventStat(context, str, str2, 1, new Object[0]);
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
+        }
+    }
+
+    public static void setUserInfo(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65565, null, str, str2, str3) == null) {
+            try {
+                BdStatisticsManager.getInstance().setUser(str2, str, str3);
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
+        }
+    }
+
+    public static void eventStat(Context context, String str, String str2, int i, Object... objArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, str, str2, Integer.valueOf(i), objArr}) == null) {
+            try {
+                BdStatisticsManager.getInstance().eventStat(context, str, str2, i, objArr);
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
+        }
+    }
+
+    public static void file(Exception exc) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, exc) == null) {
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            if (stackTrace.length >= 5) {
+                StackTraceElement stackTraceElement = stackTrace[4];
+                str = ej.join(stackTraceElement.getClassName(), ".", stackTraceElement.getMethodName());
+            } else {
+                str = null;
+            }
+            file(exc, str);
+        }
+    }
+
+    public static void file(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) {
+            String currentActivity = TiebaStaticHelper.getCurrentActivity();
+            try {
+                if (FileHelper.checkSD()) {
+                    BdStatisticsManager.getInstance().file(str2, currentActivity, -27, str, FileKey.FILE_SD_STATE, getSdState(), FileKey.FILE_SD_SIZE, Long.valueOf(FileHelper.getAvailableSize()));
+                } else {
+                    BdStatisticsManager.getInstance().file(str2, currentActivity, -23, str, FileKey.FILE_SD_STATE, getSdState());
+                }
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
+        }
+    }
+
+    public static String getStatLog(StatisticItem statisticItem) {
+        InterceptResult invokeL;
+        int size;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, statisticItem)) == null) {
+            StringBuffer stringBuffer = new StringBuffer();
+            if (statisticItem == null) {
+                return "";
+            }
+            stringBuffer.append("RD_STAT_LOG: ");
+            stringBuffer.append("key=");
+            stringBuffer.append(statisticItem.getKey());
+            stringBuffer.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            List<Object> params = statisticItem.getParams();
+            if (params != null && (size = params.size()) > 0) {
+                for (int i = 0; i < size; i++) {
+                    stringBuffer.append(params.get(i));
+                    if (i % 2 == 0) {
+                        stringBuffer.append("=");
+                    } else if (i != size - 1) {
+                        stringBuffer.append(",");
+                    }
+                }
+            }
+            return stringBuffer.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void init(Context context, boolean z) {
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65549, null, context, z) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            try {
+                try {
+                    ph phVar = new ph();
+                    phVar.a = "tieba";
+                    phVar.b = SUB_PRODUCT;
+                    phVar.c = TbConfig.getVersion();
+                    phVar.d = TbConfig.getFrom();
+                    phVar.e = TbConfig.getCurrentFrom();
+                    phVar.f = TbadkCoreApplication.getClientId();
+                    if (PermissionUtil.isAgreePrivacyPolicy()) {
+                        phVar.g = TbadkCoreApplication.getInst().getCuid();
+                        phVar.h = TbadkCoreApplication.getInst().getCuidGalaxy2();
+                    }
+                    TbadkCoreApplication.getInst().getCuidGid();
+                    phVar.i = TbadkCoreApplication.getInst().getImei();
+                    phVar.j = TbConfig.getSubappType();
+                    phVar.r = gh5.c().f(context) + "_" + gh5.c().e(context);
+                    phVar.v = TbadkCoreApplication.getInst().getAndroidId();
+                    phVar.s = getCua(context);
+                    phVar.t = PermissionUtil.getLastCachedOid(context);
+                    phVar.u = PermissionUtil.getLocalMacAddress(context);
+                    phVar.w = gh5.c().a();
+                    phVar.x = gh5.c().g() + "_" + gh5.c().h();
+                    phVar.z = TbSingleton.getInstance().getBaiduIdForAnti();
+                    phVar.A = String.valueOf(TbSingleton.getInstance().getActiveTimeStamp());
+                    phVar.B = String.valueOf(TbSingleton.getInstance().getAppFirstInstallTime());
+                    phVar.C = String.valueOf(TbSingleton.getInstance().getAppLastUpdateTime());
+                    phVar.D = TbSingleton.getInstance().getData();
+                    boolean z2 = true;
+                    if (ux4.k().l("KEY_LOG_REAL_TIME_UPLOAD_SWITCH", 1) != 1) {
+                        z2 = false;
+                    }
+                    if (z2) {
+                        j = ux4.k().m("KEY_UPLOAD_LOG_INTERVAL", AppConfig.TIMESTAMP_AVAILABLE_DURATION);
+                    } else {
+                        j = 3600000;
+                    }
+                    long j2 = j;
+                    BdStatisticsManager.getInstance().init(context, z, TbConfig.LOG_SYNC_SWITCH, TbConfig.getTempDirName(), "newStat", TbConfig.SERVER_ADDRESS + TbConfig.LOG_UPLOAD_URL, phVar, BdLogSetting.getInstance(), j2, TbConfig.SERVER_ADDRESS + TbConfig.TRACK_LOG_UPLOAD_URL);
+                    kj kjVar = new kj() { // from class: com.baidu.tbadk.core.util.TiebaStatic.1
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                }
+                            }
+                        }
+
+                        @Override // com.baidu.tieba.kj
+                        public boolean isAgreePrivacyPolicy() {
+                            InterceptResult invokeV;
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                                return PermissionUtil.isAgreePrivacyPolicy();
+                            }
+                            return invokeV.booleanValue;
+                        }
+                    };
+                    BdStatisticsManager.getInstance().setPermissionUtil(kjVar);
+                    ci.o().A(kjVar);
+                    ci.o().p();
+                } catch (Exception e) {
+                    BdLog.e(e.toString());
+                }
+            } finally {
+                TTIStats.record("TiebaStatic.init", System.currentTimeMillis() - currentTimeMillis);
+            }
+        }
+    }
+
     public static void noticeStatisticCallback(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65557, null, str) == null) || statisticCallbacks.isEmpty()) {
-            return;
-        }
-        for (TiebaStatisticCallback tiebaStatisticCallback : statisticCallbacks) {
-            if (tiebaStatisticCallback != null) {
-                tiebaStatisticCallback.onLog(str);
+        if ((interceptable == null || interceptable.invokeL(65557, null, str) == null) && !statisticCallbacks.isEmpty()) {
+            for (TiebaStatisticCallback tiebaStatisticCallback : statisticCallbacks) {
+                if (tiebaStatisticCallback != null) {
+                    tiebaStatisticCallback.onLog(str);
+                }
             }
         }
     }
 
     public static void page(String str, long j, long j2, long j3, long j4, long j5) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65558, null, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) == null) || j <= 0 || j3 <= 0 || j2 < 0 || j4 < 0 || j5 < 0) {
-            return;
+        if ((interceptable == null || interceptable.invokeCommon(65558, null, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) == null) && j > 0 && j3 > 0 && j2 >= 0 && j4 >= 0 && j5 >= 0) {
+            try {
+                BdStatisticsManager.getInstance().op(str, null, j3, 0, null, ALL_COST, Long.valueOf(j), PRE_COST, Long.valueOf(j2), CON_COST, Long.valueOf(j4), SHOW_COST, Long.valueOf(j5));
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
         }
-        try {
-            BdStatisticsManager.getInstance().op(str, null, j3, 0, null, ALL_COST, Long.valueOf(j), PRE_COST, Long.valueOf(j2), CON_COST, Long.valueOf(j4), SHOW_COST, Long.valueOf(j5));
-        } catch (Exception e) {
-            BdLog.e(e.toString());
+    }
+
+    public static void printDBExceptionLog(String str, int i, String str2, Object... objArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(65559, null, str, i, str2, objArr) == null) {
+            try {
+                BdStatisticsManager.getInstance().db(str, TiebaStaticHelper.getCurrentActivity(), i, str2, objArr);
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
         }
     }
 
     public static void printDBExceptionLog(Throwable th, String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65560, null, th, str, objArr) == null) || th == null) {
+        if ((interceptable != null && interceptable.invokeLLL(65560, null, th, str, objArr) != null) || th == null) {
             return;
         }
         if (th instanceof SQLiteDatabaseCorruptException) {
@@ -985,139 +1127,11 @@ public class TiebaStatic {
         }
     }
 
-    public static void save() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65562, null) == null) {
-            try {
-                wg.g();
-                qd5.d();
-                BdStatisticsManager.getInstance().save();
-                sendMultiProcessBroadcast();
-            } catch (Exception e) {
-                BdLog.e(e.toString());
-            }
-        }
-    }
-
-    public static void saveAndUploadMsg() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65563, null) == null) {
-            synchronized (lock) {
-                long currentTimeMillis = System.currentTimeMillis();
-                if (0 == lastLogOperateMsgTime) {
-                    lastLogOperateMsgTime = ox4.k().m("operate_msg_arrive_click_date", 0L);
-                    operateMsgUploadCount = ox4.k().l("operate_msg_arrive_click_count", 0);
-                }
-                if (lastLogOperateMsgTime > 0) {
-                    if (currentTimeMillis - lastLogOperateMsgTime < 86400000 && operateMsgUploadCount > 3) {
-                        return;
-                    }
-                    ox4.k().x("operate_msg_arrive_click_date", currentTimeMillis);
-                    if (currentTimeMillis - lastLogOperateMsgTime >= 86400000) {
-                        operateMsgUploadCount = 0;
-                    }
-                }
-                lastLogOperateMsgTime = currentTimeMillis;
-                operateMsgUploadCount++;
-                ox4.k().w("operate_msg_arrive_click_count", operateMsgUploadCount);
-                BdStatisticsManager.getInstance().saveAndUploadlog("msg");
-            }
-        }
-    }
-
-    public static void sendMultiProcessBroadcast() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65564, null) == null) {
-            Intent intent = new Intent("com.baidu.adp.stats.background");
-            intent.setPackage(BdBaseApplication.getInst().getPackageName());
-            TbadkCoreApplication.getInst().getApp().sendBroadcast(intent);
-        }
-    }
-
-    public static void setUserInfo(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65565, null, str, str2, str3) == null) {
-            try {
-                BdStatisticsManager.getInstance().setUser(str2, str, str3);
-            } catch (Exception e) {
-                BdLog.e(e.toString());
-            }
-        }
-    }
-
     public static void voiceError(int i, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(65566, null, i, str, str2) == null) {
             try {
                 BdStatisticsManager.getInstance().voiceErr(OpKey.OP_VOICE, TiebaStaticHelper.getCurrentActivity(), i, str, "voice_inf", str2);
-            } catch (Exception e) {
-                BdLog.e(e.toString());
-            }
-        }
-    }
-
-    public static void eventStat(Context context, String str, String str2, int i, Object... objArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, str, str2, Integer.valueOf(i), objArr}) == null) {
-            try {
-                BdStatisticsManager.getInstance().eventStat(context, str, str2, i, objArr);
-            } catch (Exception e) {
-                BdLog.e(e.toString());
-            }
-        }
-    }
-
-    public static void noticeStatisticCallback(StatisticItem statisticItem) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65556, null, statisticItem) == null) || statisticCallbacks.isEmpty()) {
-            return;
-        }
-        for (TiebaStatisticCallback tiebaStatisticCallback : statisticCallbacks) {
-            if (tiebaStatisticCallback != null) {
-                tiebaStatisticCallback.onLog(statisticItem);
-            }
-        }
-    }
-
-    public static void file(Exception exc, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, exc, str) == null) {
-            if (exc != null) {
-                file(exc.getMessage(), str);
-            } else {
-                file("", str);
-            }
-        }
-    }
-
-    public static void file(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) {
-            String currentActivity = TiebaStaticHelper.getCurrentActivity();
-            try {
-                if (FileHelper.checkSD()) {
-                    BdStatisticsManager.getInstance().file(str2, currentActivity, -27, str, FileKey.FILE_SD_STATE, getSdState(), FileKey.FILE_SD_SIZE, Long.valueOf(FileHelper.getAvailableSize()));
-                } else {
-                    BdStatisticsManager.getInstance().file(str2, currentActivity, -23, str, FileKey.FILE_SD_STATE, getSdState());
-                }
-            } catch (Exception e) {
-                BdLog.e(e.toString());
-            }
-        }
-    }
-
-    public static void log(StatisticItem statisticItem) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, null, statisticItem) == null) {
-            logWithBackTime(statisticItem);
-        }
-    }
-
-    public static void printDBExceptionLog(String str, int i, String str2, Object... objArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(65559, null, str, i, str2, objArr) == null) {
-            try {
-                BdStatisticsManager.getInstance().db(str, TiebaStaticHelper.getCurrentActivity(), i, str2, objArr);
             } catch (Exception e) {
                 BdLog.e(e.toString());
             }

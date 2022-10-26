@@ -22,15 +22,15 @@ import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class BikingRouteLine extends RouteLine<BikingStep> implements Parcelable {
+public class BikingRouteLine extends RouteLine implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<BikingRouteLine> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class BikingStep extends RouteStep implements Parcelable {
+    public class BikingStep extends RouteStep implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator<BikingStep> CREATOR;
+        public static final Parcelable.Creator CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public int d;
         public RouteNode e;
@@ -99,7 +99,7 @@ public class BikingRouteLine extends RouteLine<BikingStep> implements Parcelable
             this.k = parcel.readString();
         }
 
-        private List<LatLng> a(String str) {
+        private List a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
@@ -178,7 +178,7 @@ public class BikingRouteLine extends RouteLine<BikingStep> implements Parcelable
         }
 
         @Override // com.baidu.mapapi.search.core.RouteStep
-        public List<LatLng> getWayPoints() {
+        public List getWayPoints() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -324,7 +324,7 @@ public class BikingRouteLine extends RouteLine<BikingStep> implements Parcelable
     }
 
     @Override // com.baidu.mapapi.search.core.RouteLine
-    public List<BikingStep> getAllStep() {
+    public List getAllStep() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? super.getAllStep() : (List) invokeV.objValue;

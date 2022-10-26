@@ -17,10 +17,10 @@ import java.util.Set;
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<com.kwad.components.ad.reward.d.h> ly;
+    public final Set ly;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final c lA;
         public transient /* synthetic */ FieldHolder $fh;

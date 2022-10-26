@@ -57,16 +57,16 @@ public final class MixTypeRepository {
         return (LiveTypeData) invokeL.objValue;
     }
 
-    public final void fetchLiveType(String str, final OnMixDataLoaded<MixResult<LiveTypeData>> onMixDataLoaded) {
+    public final void fetchLiveType(String str, final OnMixDataLoaded onMixDataLoaded) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, onMixDataLoaded) == null) || this.isRequestIng) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, onMixDataLoaded) != null) || this.isRequestIng) {
             return;
         }
         this.isRequestIng = true;
         Map mapOf = MapsKt__MapsJVMKt.mapOf(TuplesKt.to("room_id", str));
         MediaLivePluginLogger.Companion.getInstance().logListGetLiveTypeStartToSendReqNet();
         MediaLivePlayLogger.Companion.getInstance().logLiveRoomStartGetLiveTypeTime();
-        MixRequesterKt.fetchData(MixUrlConfigKt.getLiveTypeUrl(), mapOf, new MixNetCallback<LiveTypeData>(this, onMixDataLoaded) { // from class: com.baidu.searchbox.live.model.repository.MixTypeRepository$fetchLiveType$1
+        MixRequesterKt.fetchData$default(MixUrlConfigKt.getLiveTypeUrl(), mapOf, new MixNetCallback(this, onMixDataLoaded) { // from class: com.baidu.searchbox.live.model.repository.MixTypeRepository$fetchLiveType$1
             public static /* synthetic */ Interceptable $ic;
             public final /* synthetic */ OnMixDataLoaded $callback;
             public transient /* synthetic */ FieldHolder $fh;
@@ -94,29 +94,45 @@ public final class MixTypeRepository {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.live.model.net.MixNetCallback
             public void onNetResponse(NetResponse netResponse, LiveTypeData liveTypeData) {
+                Integer num;
+                long j;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, netResponse, liveTypeData) == null) {
-                    this.this$0.isRequestIng = false;
-                    MediaLivePluginLogger.Companion.getInstance().logGetLiveTypeNetEndAndStartParse();
-                    if (netResponse != null && netResponse.isSuccessful() && liveTypeData != null) {
-                        MixResultStatData mixResultStatData = new MixResultStatData();
-                        NetStatData netStatData = netResponse.statData;
-                        mixResultStatData.requestTime = netStatData != null ? netStatData.requestTimestamp : 0L;
-                        NetStatData netStatData2 = netResponse.statData;
-                        mixResultStatData.responseTime = netStatData2 != null ? netStatData2.responseTimestamp : 0L;
-                        this.$callback.onMixDataLoaded(new MixResult.MixSuccess(liveTypeData, mixResultStatData));
-                        return;
-                    }
-                    OnMixDataLoaded onMixDataLoaded2 = this.$callback;
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("fetchGoodsListInfo Invalid, code = ");
-                    sb.append(netResponse != null ? Integer.valueOf(netResponse.responseCode) : null);
-                    onMixDataLoaded2.onMixDataLoaded(new MixResult.MixError(new Exception(sb.toString()), null, null, 6, null));
+                if (interceptable2 != null && interceptable2.invokeLL(1048576, this, netResponse, liveTypeData) != null) {
+                    return;
                 }
+                this.this$0.isRequestIng = false;
+                MediaLivePluginLogger.Companion.getInstance().logGetLiveTypeNetEndAndStartParse();
+                if (netResponse != null && netResponse.isSuccessful() && liveTypeData != null) {
+                    MixResultStatData mixResultStatData = new MixResultStatData();
+                    NetStatData netStatData = netResponse.statData;
+                    long j2 = 0;
+                    if (netStatData != null) {
+                        j = netStatData.requestTimestamp;
+                    } else {
+                        j = 0;
+                    }
+                    mixResultStatData.requestTime = j;
+                    NetStatData netStatData2 = netResponse.statData;
+                    if (netStatData2 != null) {
+                        j2 = netStatData2.responseTimestamp;
+                    }
+                    mixResultStatData.responseTime = j2;
+                    this.$callback.onMixDataLoaded(new MixResult.MixSuccess(liveTypeData, mixResultStatData));
+                    return;
+                }
+                OnMixDataLoaded onMixDataLoaded2 = this.$callback;
+                StringBuilder sb = new StringBuilder();
+                sb.append("fetchGoodsListInfo Invalid, code = ");
+                if (netResponse != null) {
+                    num = Integer.valueOf(netResponse.responseCode);
+                } else {
+                    num = null;
+                }
+                sb.append(num);
+                onMixDataLoaded2.onMixDataLoaded(new MixResult.MixError(new Exception(sb.toString()), null, null, 6, null));
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.baidu.searchbox.live.model.net.MixNetCallback
             public LiveTypeData onParseResponseInBackground(NetResponse netResponse) {
                 InterceptResult invokeL;
@@ -124,19 +140,19 @@ public final class MixTypeRepository {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, netResponse)) == null) {
                     this.this$0.isRequestIng = false;
-                    if (netResponse == null || !netResponse.isSuccessful()) {
-                        return null;
+                    if (netResponse != null && netResponse.isSuccessful()) {
+                        MixTypeRepository mixTypeRepository = this.this$0;
+                        String str2 = netResponse.decodedResponseStr;
+                        if (str2 == null) {
+                            str2 = "";
+                        }
+                        parseLiveTypeResult = mixTypeRepository.parseLiveTypeResult(str2);
+                        return parseLiveTypeResult;
                     }
-                    MixTypeRepository mixTypeRepository = this.this$0;
-                    String str2 = netResponse.decodedResponseStr;
-                    if (str2 == null) {
-                        str2 = "";
-                    }
-                    parseLiveTypeResult = mixTypeRepository.parseLiveTypeResult(str2);
-                    return parseLiveTypeResult;
+                    return null;
                 }
                 return (LiveTypeData) invokeL.objValue;
             }
-        }, (r19 & 8) != 0 ? 0 : 17, (r19 & 16) != 0 ? 0 : 141, (r19 & 32) != 0 ? false : true, (r19 & 64) != 0 ? null : null, (r19 & 128) != 0 ? false : false);
+        }, 17, 141, true, null, false, 192, null);
     }
 }

@@ -19,7 +19,7 @@ public interface TTBannerAd {
 
     int getInteractionType();
 
-    Map<String, Object> getMediaExtraInfo();
+    Map getMediaExtraInfo();
 
     void setBannerInteractionListener(AdInteractionListener adInteractionListener);
 

@@ -21,30 +21,6 @@ public final class TornadoNetData {
     public int mask;
     public String name;
 
-    public TornadoNetData(String name, String ip, int i, String gateway) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {name, ip, Integer.valueOf(i), gateway};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(name, "name");
-        Intrinsics.checkNotNullParameter(ip, "ip");
-        Intrinsics.checkNotNullParameter(gateway, "gateway");
-        this.name = name;
-        this.ip = ip;
-        this.mask = i;
-        this.gateway = gateway;
-    }
-
     public static /* synthetic */ TornadoNetData copy$default(TornadoNetData tornadoNetData, String str, String str2, int i, String str3, int i2, Object obj) {
         if ((i2 & 1) != 0) {
             str = tornadoNetData.name;
@@ -113,34 +89,79 @@ public final class TornadoNetData {
         return invokeL.booleanValue;
     }
 
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? (((((this.name.hashCode() * 31) + this.ip.hashCode()) * 31) + this.mask) * 31) + this.gateway.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return "TornadoNetData(name=" + this.name + ", ip=" + this.ip + ", mask=" + this.mask + ", gateway=" + this.gateway + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public TornadoNetData(String name, String ip, int i, String gateway) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {name, ip, Integer.valueOf(i), gateway};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(name, "name");
+        Intrinsics.checkNotNullParameter(ip, "ip");
+        Intrinsics.checkNotNullParameter(gateway, "gateway");
+        this.name = name;
+        this.ip = ip;
+        this.mask = i;
+        this.gateway = gateway;
+    }
+
     public final String getGateway() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.gateway : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.gateway;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String getIp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.ip : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.ip;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final int getMask() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mask : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mask;
+        }
+        return invokeV.intValue;
     }
 
     public final String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.name : (String) invokeV.objValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? (((((this.name.hashCode() * 31) + this.ip.hashCode()) * 31) + this.mask) * 31) + this.gateway.hashCode() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.name;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final void setGateway(String str) {
@@ -172,14 +193,5 @@ public final class TornadoNetData {
             Intrinsics.checkNotNullParameter(str, "<set-?>");
             this.name = str;
         }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return "TornadoNetData(name=" + this.name + ", ip=" + this.ip + ", mask=" + this.mask + ", gateway=" + this.gateway + ')';
-        }
-        return (String) invokeV.objValue;
     }
 }

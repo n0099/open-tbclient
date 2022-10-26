@@ -66,12 +66,18 @@ public final class BdWorkThread$Status {
     public static BdWorkThread$Status valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (BdWorkThread$Status) Enum.valueOf(BdWorkThread$Status.class, str) : (BdWorkThread$Status) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (BdWorkThread$Status) Enum.valueOf(BdWorkThread$Status.class, str);
+        }
+        return (BdWorkThread$Status) invokeL.objValue;
     }
 
     public static BdWorkThread$Status[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (BdWorkThread$Status[]) $VALUES.clone() : (BdWorkThread$Status[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (BdWorkThread$Status[]) $VALUES.clone();
+        }
+        return (BdWorkThread$Status[]) invokeV.objValue;
     }
 }

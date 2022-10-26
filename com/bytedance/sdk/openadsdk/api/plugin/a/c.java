@@ -20,12 +20,59 @@ import javax.net.ssl.X509TrustManager;
 public class c {
 
     /* loaded from: classes7.dex */
-    public static final class a {
+    public final class a {
         public static final c a = new c();
+    }
+
+    public c() {
     }
 
     public static c a() {
         return a.a;
+    }
+
+    private SSLSocketFactory a(X509TrustManager x509TrustManager) throws IOException {
+        try {
+            SSLContext sSLContext = SSLContext.getInstance("TLS");
+            sSLContext.init(null, new TrustManager[]{x509TrustManager}, null);
+            return sSLContext.getSocketFactory();
+        } catch (GeneralSecurityException e) {
+            throw new IOException("No System TLS", e);
+        }
+    }
+
+    public static String a(String str, String str2) {
+        if (str != null) {
+            String[] split = str.split(ParamableElem.DIVIDE_PARAM, 0);
+            for (int i = 1; i < split.length; i++) {
+                String[] split2 = split[i].trim().split("=", 0);
+                if (split2.length == 2 && split2[0].equals("charset")) {
+                    return split2[1];
+                }
+            }
+        }
+        return str2;
+    }
+
+    public static byte[] a(InputStream inputStream, int i) throws IOException {
+        if (inputStream == null) {
+            return null;
+        }
+        if (i < 1) {
+            i = 1;
+        }
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        byte[] bArr = new byte[i];
+        while (true) {
+            int read = inputStream.read(bArr);
+            if (read != -1) {
+                byteArrayOutputStream.write(bArr, 0, read);
+            } else {
+                byteArrayOutputStream.close();
+                inputStream.close();
+                return byteArrayOutputStream.toByteArray();
+            }
+        }
     }
 
     private X509TrustManager b() throws IOException {
@@ -40,9 +87,6 @@ public class c {
         } catch (GeneralSecurityException e) {
             throw new IOException("No System TLS", e);
         }
-    }
-
-    public c() {
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x0083 */
@@ -122,50 +166,6 @@ public class c {
             if (r0 != 0) {
             }
             throw th;
-        }
-    }
-
-    public static byte[] a(InputStream inputStream, int i) throws IOException {
-        if (inputStream == null) {
-            return null;
-        }
-        if (i < 1) {
-            i = 1;
-        }
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        byte[] bArr = new byte[i];
-        while (true) {
-            int read = inputStream.read(bArr);
-            if (read != -1) {
-                byteArrayOutputStream.write(bArr, 0, read);
-            } else {
-                byteArrayOutputStream.close();
-                inputStream.close();
-                return byteArrayOutputStream.toByteArray();
-            }
-        }
-    }
-
-    public static String a(String str, String str2) {
-        if (str != null) {
-            String[] split = str.split(ParamableElem.DIVIDE_PARAM, 0);
-            for (int i = 1; i < split.length; i++) {
-                String[] split2 = split[i].trim().split("=", 0);
-                if (split2.length == 2 && split2[0].equals("charset")) {
-                    return split2[1];
-                }
-            }
-        }
-        return str2;
-    }
-
-    private SSLSocketFactory a(X509TrustManager x509TrustManager) throws IOException {
-        try {
-            SSLContext sSLContext = SSLContext.getInstance("TLS");
-            sSLContext.init(null, new TrustManager[]{x509TrustManager}, null);
-            return sSLContext.getSocketFactory();
-        } catch (GeneralSecurityException e) {
-            throw new IOException("No System TLS", e);
         }
     }
 }

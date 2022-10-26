@@ -27,13 +27,13 @@ public class al {
     public Object f97a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map<String, ScheduledFuture> f98a;
+    public Map f98a;
 
     /* renamed from: a  reason: collision with other field name */
     public ScheduledThreadPoolExecutor f99a;
 
     /* loaded from: classes8.dex */
-    public static abstract class a implements Runnable {
+    public abstract class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -52,11 +52,11 @@ public class al {
         }
 
         /* renamed from: a */
-        public abstract String mo208a();
+        public abstract String mo207a();
     }
 
     /* loaded from: classes8.dex */
-    public static class b implements Runnable {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public a a;
@@ -154,7 +154,7 @@ public class al {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, aVar)) == null) {
             synchronized (this.f97a) {
-                scheduledFuture = this.f98a.get(aVar.mo208a());
+                scheduledFuture = (ScheduledFuture) this.f98a.get(aVar.mo207a());
             }
             return scheduledFuture;
         }
@@ -176,7 +176,7 @@ public class al {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m167a(a aVar) {
+    public boolean m166a(a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) ? b(aVar, 0) : invokeL.booleanValue;
@@ -201,7 +201,7 @@ public class al {
             if (aVar == null || a(aVar) != null) {
                 return false;
             }
-            String a2 = a(aVar.mo208a());
+            String a2 = a(aVar.mo207a());
             am amVar = new am(this, aVar, z, a2);
             if (!z) {
                 long abs = Math.abs(System.currentTimeMillis() - this.f96a.getLong(a2, 0L)) / 1000;
@@ -212,7 +212,7 @@ public class al {
             try {
                 ScheduledFuture<?> scheduleAtFixedRate = this.f99a.scheduleAtFixedRate(amVar, i2, i, TimeUnit.SECONDS);
                 synchronized (this.f97a) {
-                    this.f98a.put(aVar.mo208a(), scheduleAtFixedRate);
+                    this.f98a.put(aVar.mo207a(), scheduleAtFixedRate);
                 }
                 return true;
             } catch (Exception e) {
@@ -224,12 +224,12 @@ public class al {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m168a(String str) {
+    public boolean m167a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
             synchronized (this.f97a) {
-                ScheduledFuture scheduledFuture = this.f98a.get(str);
+                ScheduledFuture scheduledFuture = (ScheduledFuture) this.f98a.get(str);
                 if (scheduledFuture == null) {
                     return false;
                 }
@@ -249,7 +249,7 @@ public class al {
             }
             ScheduledFuture<?> schedule = this.f99a.schedule(new an(this, aVar), i, TimeUnit.SECONDS);
             synchronized (this.f97a) {
-                this.f98a.put(aVar.mo208a(), schedule);
+                this.f98a.put(aVar.mo207a(), schedule);
             }
             return true;
         }

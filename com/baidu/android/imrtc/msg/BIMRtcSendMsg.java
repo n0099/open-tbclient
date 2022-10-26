@@ -62,6 +62,34 @@ public class BIMRtcSendMsg extends Message {
         this.mRoomId = str;
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public BIMRtcSendMsg(Context context, int i, String str, String str2, String str3) {
+        this(context, i, str, str2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i), str, str2, str3};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2], (String) objArr2[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        initCommonParameter(context);
+        this.mListenerKey = str3;
+        setNeedReplay(true);
+        setType(230);
+        this.mRtcAppID = this.mAppid;
+        this.mSdkVersion = IMConfigInternal.getInstance().getSDKVersionValue(this.mContext);
+        this.mImUk = Utility.getUK(this.mContext);
+    }
+
     public static BIMRtcSendMsg newInstance(Context context, Intent intent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -129,6 +157,7 @@ public class BIMRtcSendMsg extends Message {
 
     @Override // com.baidu.android.imsdk.request.Message
     public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_SEND_USER_MSG, this, context, jSONObject, i, str) == null) {
             StringBuilder sb = new StringBuilder();
@@ -137,15 +166,20 @@ public class BIMRtcSendMsg extends Message {
             sb.append(", msg :");
             sb.append(str);
             sb.append(", objStr :");
-            sb.append(jSONObject != null ? jSONObject.toString() : StringUtil.NULL_STRING);
+            if (jSONObject != null) {
+                str2 = jSONObject.toString();
+            } else {
+                str2 = StringUtil.NULL_STRING;
+            }
+            sb.append(str2);
             LogUtils.w(TAG, sb.toString());
             if (this.mAction != 100) {
                 BIMRtcTrack.RequestBuilder method = new BIMRtcTrack.RequestBuilder(this.mContext).method("230");
                 method.requestId("" + this.mAction).requestTime(System.currentTimeMillis()).responseTime(System.nanoTime()).errorCode(i).aliasId(501210L).ext(trackRequestExt()).build();
             }
-            String str2 = null;
+            String str3 = null;
             if (i == 0 && jSONObject != null) {
-                str2 = jSONObject.optString(PmsConstant.Statistic.STATISTIC_ERRMSG);
+                str3 = jSONObject.optString(PmsConstant.Statistic.STATISTIC_ERRMSG);
                 if (jSONObject.has(RtcConstants.EXTRA_RTC_INFO)) {
                     try {
                         JSONObject jSONObject2 = new JSONObject(jSONObject.optString(RtcConstants.EXTRA_RTC_INFO));
@@ -174,7 +208,7 @@ public class BIMRtcSendMsg extends Message {
                 }
             }
             super.handleMessageResult(context, jSONObject, i, str);
-            onResult(i, str2);
+            onResult(i, str3);
         }
     }
 
@@ -183,50 +217,30 @@ public class BIMRtcSendMsg extends Message {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
             int i2 = this.mAction;
-            if (i2 == 80) {
-                bIMInviteRtcInfo = new BIMInviteRtcInfo(this.mContext);
-            } else if (i2 == 84) {
-                bIMInviteRtcInfo = new BIMAnswerRtcInfo();
-            } else if (i2 == 88) {
-                bIMInviteRtcInfo = new BIMCloseRoomRtcInfo();
-            } else if (i2 == 90) {
-                bIMInviteRtcInfo = new BIMFetchStateRtcInfo(str);
-            } else if (i2 != 91) {
-                bIMInviteRtcInfo = new BIMRtcInfo();
+            if (i2 != 80) {
+                if (i2 != 84) {
+                    if (i2 != 88) {
+                        if (i2 != 90) {
+                            if (i2 != 91) {
+                                bIMInviteRtcInfo = new BIMRtcInfo();
+                            } else {
+                                bIMInviteRtcInfo = new BIMFetchSignalRtcInfo();
+                            }
+                        } else {
+                            bIMInviteRtcInfo = new BIMFetchStateRtcInfo(str);
+                        }
+                    } else {
+                        bIMInviteRtcInfo = new BIMCloseRoomRtcInfo();
+                    }
+                } else {
+                    bIMInviteRtcInfo = new BIMAnswerRtcInfo();
+                }
             } else {
-                bIMInviteRtcInfo = new BIMFetchSignalRtcInfo();
+                bIMInviteRtcInfo = new BIMInviteRtcInfo(this.mContext);
             }
             BIMRtcManager bIMRtcManager = BIMRtcManager.getInstance(this.mContext);
             int i3 = this.mAction;
             bIMRtcManager.onRtcRequestResult(i3, bIMInviteRtcInfo.toRtcInfo(i3, this.mRoomId, this.mRtcInfo), i, str, this.mListenerKey);
         }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BIMRtcSendMsg(Context context, int i, String str, String str2, String str3) {
-        this(context, i, str, str2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), str, str2, str3};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2], (String) objArr2[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        initCommonParameter(context);
-        this.mListenerKey = str3;
-        setNeedReplay(true);
-        setType(230);
-        this.mRtcAppID = this.mAppid;
-        this.mSdkVersion = IMConfigInternal.getInstance().getSDKVersionValue(this.mContext);
-        this.mImUk = Utility.getUK(this.mContext);
     }
 }

@@ -5,12 +5,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.infer.annotation.Nullsafe;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-@Nullsafe(Nullsafe.Mode.STRICT)
 /* loaded from: classes7.dex */
 public class Files {
     public static /* synthetic */ Interceptable $ic;
@@ -48,26 +46,27 @@ public class Files {
     public static byte[] toByteArray(File file) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, file)) != null) {
-            return (byte[]) invokeL.objValue;
-        }
-        FileInputStream fileInputStream = null;
-        try {
-            FileInputStream fileInputStream2 = new FileInputStream(file);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
+            FileInputStream fileInputStream = null;
             try {
-                byte[] readFile = readFile(fileInputStream2, fileInputStream2.getChannel().size());
-                fileInputStream2.close();
-                return readFile;
-            } catch (Throwable th) {
-                th = th;
-                fileInputStream = fileInputStream2;
-                if (fileInputStream != null) {
-                    fileInputStream.close();
+                FileInputStream fileInputStream2 = new FileInputStream(file);
+                try {
+                    byte[] readFile = readFile(fileInputStream2, fileInputStream2.getChannel().size());
+                    fileInputStream2.close();
+                    return readFile;
+                } catch (Throwable th) {
+                    th = th;
+                    fileInputStream = fileInputStream2;
+                    if (fileInputStream != null) {
+                        fileInputStream.close();
+                    }
+                    throw th;
                 }
-                throw th;
+            } catch (Throwable th2) {
+                th = th2;
             }
-        } catch (Throwable th2) {
-            th = th2;
+        } else {
+            return (byte[]) invokeL.objValue;
         }
     }
 }

@@ -56,7 +56,7 @@ public class p8 implements i7 {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements Callable<T> {
+    public class b implements Callable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ r8 a;
@@ -79,13 +79,14 @@ public class p8 implements i7 {
             this.a = r8Var;
         }
 
-        /* JADX WARN: Type inference failed for: r0v3, types: [T, java.lang.Object] */
-        /* JADX WARN: Type inference failed for: r1v0, types: [T, java.lang.Object] */
         @Override // java.util.concurrent.Callable
-        public T call() throws Exception {
+        public Object call() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.call() : invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a.call();
+            }
+            return invokeV.objValue;
         }
     }
 
@@ -107,12 +108,12 @@ public class p8 implements i7 {
         this.a = Executors.newFixedThreadPool(i, new a(this, str));
     }
 
-    public <T> q8<T> a(r8<T> r8Var) {
+    public q8 a(r8 r8Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, r8Var)) == null) {
             if (!this.a.isShutdown()) {
-                return new q8<>(this.a.submit(new b(this, r8Var)));
+                return new q8(this.a.submit(new b(this, r8Var)));
             }
             throw new GdxRuntimeException("Cannot run tasks on an executor that has been shutdown (disposed)");
         }

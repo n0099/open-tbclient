@@ -26,7 +26,7 @@ import com.google.android.exoplayer2.upstream.LoaderErrorThrower;
 import java.io.IOException;
 import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public final class SsMediaPeriod implements MediaPeriod, SequenceableLoader.Callback<ChunkSampleStream<SsChunkSource>> {
+public final class SsMediaPeriod implements MediaPeriod, SequenceableLoader.Callback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INITIALIZATION_VECTOR_SIZE = 8;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,10 +37,24 @@ public final class SsMediaPeriod implements MediaPeriod, SequenceableLoader.Call
     public SsManifest manifest;
     public final LoaderErrorThrower manifestLoaderErrorThrower;
     public final int minLoadableRetryCount;
-    public ChunkSampleStream<SsChunkSource>[] sampleStreams;
+    public ChunkSampleStream[] sampleStreams;
     public CompositeSequenceableLoader sequenceableLoader;
     public final TrackEncryptionBox[] trackEncryptionBoxes;
     public final TrackGroupArray trackGroups;
+
+    @Override // com.google.android.exoplayer2.source.MediaPeriod
+    public void discardBuffer(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.source.MediaPeriod
+    public long readDiscontinuity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? C.TIME_UNSET : invokeV.longValue;
+    }
 
     public SsMediaPeriod(SsManifest ssManifest, SsChunkSource.Factory factory, int i, AdaptiveMediaSourceEventListener.EventDispatcher eventDispatcher, LoaderErrorThrower loaderErrorThrower, Allocator allocator) {
         Interceptable interceptable = $ic;
@@ -70,17 +84,17 @@ public final class SsMediaPeriod implements MediaPeriod, SequenceableLoader.Call
             this.trackEncryptionBoxes = null;
         }
         this.manifest = ssManifest;
-        ChunkSampleStream<SsChunkSource>[] newSampleStreamArray = newSampleStreamArray(0);
+        ChunkSampleStream[] newSampleStreamArray = newSampleStreamArray(0);
         this.sampleStreams = newSampleStreamArray;
         this.sequenceableLoader = new CompositeSequenceableLoader(newSampleStreamArray);
     }
 
-    private ChunkSampleStream<SsChunkSource> buildSampleStream(TrackSelection trackSelection, long j) {
+    private ChunkSampleStream buildSampleStream(TrackSelection trackSelection, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, this, trackSelection, j)) == null) {
             int indexOf = this.trackGroups.indexOf(trackSelection.getTrackGroup());
-            return new ChunkSampleStream<>(this.manifest.streamElements[indexOf].type, null, this.chunkSourceFactory.createChunkSource(this.manifestLoaderErrorThrower, this.manifest, indexOf, trackSelection, this.trackEncryptionBoxes), this, this.allocator, j, this.minLoadableRetryCount, this.eventDispatcher);
+            return new ChunkSampleStream(this.manifest.streamElements[indexOf].type, null, this.chunkSourceFactory.createChunkSource(this.manifestLoaderErrorThrower, this.manifest, indexOf, trackSelection, this.trackEncryptionBoxes), this, this.allocator, j, this.minLoadableRetryCount, this.eventDispatcher);
         }
         return (ChunkSampleStream) invokeLJ.objValue;
     }
@@ -88,19 +102,20 @@ public final class SsMediaPeriod implements MediaPeriod, SequenceableLoader.Call
     public static TrackGroupArray buildTrackGroups(SsManifest ssManifest) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, ssManifest)) != null) {
-            return (TrackGroupArray) invokeL.objValue;
-        }
-        TrackGroup[] trackGroupArr = new TrackGroup[ssManifest.streamElements.length];
-        int i = 0;
-        while (true) {
-            SsManifest.StreamElement[] streamElementArr = ssManifest.streamElements;
-            if (i < streamElementArr.length) {
-                trackGroupArr[i] = new TrackGroup(streamElementArr[i].formats);
-                i++;
-            } else {
-                return new TrackGroupArray(trackGroupArr);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, ssManifest)) == null) {
+            TrackGroup[] trackGroupArr = new TrackGroup[ssManifest.streamElements.length];
+            int i = 0;
+            while (true) {
+                SsManifest.StreamElement[] streamElementArr = ssManifest.streamElements;
+                if (i < streamElementArr.length) {
+                    trackGroupArr[i] = new TrackGroup(streamElementArr[i].formats);
+                    i++;
+                } else {
+                    return new TrackGroupArray(trackGroupArr);
+                }
             }
+        } else {
+            return (TrackGroupArray) invokeL.objValue;
         }
     }
 
@@ -123,10 +138,47 @@ public final class SsMediaPeriod implements MediaPeriod, SequenceableLoader.Call
         return (byte[]) invokeL.objValue;
     }
 
-    public static ChunkSampleStream<SsChunkSource>[] newSampleStreamArray(int i) {
+    public static ChunkSampleStream[] newSampleStreamArray(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? new ChunkSampleStream[i] : (ChunkSampleStream[]) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            return new ChunkSampleStream[i];
+        }
+        return (ChunkSampleStream[]) invokeI.objValue;
+    }
+
+    @Override // com.google.android.exoplayer2.source.MediaPeriod, com.google.android.exoplayer2.source.SequenceableLoader
+    public boolean continueLoading(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            return this.sequenceableLoader.continueLoading(j);
+        }
+        return invokeJ.booleanValue;
+    }
+
+    @Override // com.google.android.exoplayer2.source.MediaPeriod
+    public long seekToUs(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
+            for (ChunkSampleStream chunkSampleStream : this.sampleStreams) {
+                chunkSampleStream.seekToUs(j);
+            }
+            return j;
+        }
+        return invokeJ.longValue;
+    }
+
+    public void updateManifest(SsManifest ssManifest) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, ssManifest) == null) {
+            this.manifest = ssManifest;
+            for (ChunkSampleStream chunkSampleStream : this.sampleStreams) {
+                ((SsChunkSource) chunkSampleStream.getChunkSource()).updateManifest(ssManifest);
+            }
+            this.callback.onContinueLoadingRequested(this);
+        }
     }
 
     public static void swap(byte[] bArr, int i, int i2) {
@@ -139,38 +191,33 @@ public final class SsMediaPeriod implements MediaPeriod, SequenceableLoader.Call
     }
 
     @Override // com.google.android.exoplayer2.source.MediaPeriod, com.google.android.exoplayer2.source.SequenceableLoader
-    public boolean continueLoading(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? this.sequenceableLoader.continueLoading(j) : invokeJ.booleanValue;
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaPeriod
-    public void discardBuffer(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaPeriod, com.google.android.exoplayer2.source.SequenceableLoader
     public long getBufferedPositionUs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.sequenceableLoader.getBufferedPositionUs() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.sequenceableLoader.getBufferedPositionUs();
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.google.android.exoplayer2.source.MediaPeriod, com.google.android.exoplayer2.source.SequenceableLoader
     public long getNextLoadPositionUs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.sequenceableLoader.getNextLoadPositionUs() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.sequenceableLoader.getNextLoadPositionUs();
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.google.android.exoplayer2.source.MediaPeriod
     public TrackGroupArray getTrackGroups() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.trackGroups : (TrackGroupArray) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.trackGroups;
+        }
+        return (TrackGroupArray) invokeV.objValue;
     }
 
     @Override // com.google.android.exoplayer2.source.MediaPeriod
@@ -181,6 +228,24 @@ public final class SsMediaPeriod implements MediaPeriod, SequenceableLoader.Call
         }
     }
 
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            for (ChunkSampleStream chunkSampleStream : this.sampleStreams) {
+                chunkSampleStream.release();
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.google.android.exoplayer2.source.SequenceableLoader.Callback
+    public void onContinueLoadingRequested(ChunkSampleStream chunkSampleStream) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, chunkSampleStream) == null) {
+            this.callback.onContinueLoadingRequested(this);
+        }
+    }
+
     @Override // com.google.android.exoplayer2.source.MediaPeriod
     public void prepare(MediaPeriod.Callback callback, long j) {
         Interceptable interceptable = $ic;
@@ -188,35 +253,6 @@ public final class SsMediaPeriod implements MediaPeriod, SequenceableLoader.Call
             this.callback = callback;
             callback.onPrepared(this);
         }
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaPeriod
-    public long readDiscontinuity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? C.TIME_UNSET : invokeV.longValue;
-    }
-
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            for (ChunkSampleStream<SsChunkSource> chunkSampleStream : this.sampleStreams) {
-                chunkSampleStream.release();
-            }
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.source.MediaPeriod
-    public long seekToUs(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
-            for (ChunkSampleStream<SsChunkSource> chunkSampleStream : this.sampleStreams) {
-                chunkSampleStream.seekToUs(j);
-            }
-            return j;
-        }
-        return invokeJ.longValue;
     }
 
     @Override // com.google.android.exoplayer2.source.MediaPeriod
@@ -236,38 +272,18 @@ public final class SsMediaPeriod implements MediaPeriod, SequenceableLoader.Call
                     }
                 }
                 if (sampleStreamArr[i] == null && trackSelectionArr[i] != null) {
-                    ChunkSampleStream<SsChunkSource> buildSampleStream = buildSampleStream(trackSelectionArr[i], j);
+                    ChunkSampleStream buildSampleStream = buildSampleStream(trackSelectionArr[i], j);
                     arrayList.add(buildSampleStream);
                     sampleStreamArr[i] = buildSampleStream;
                     zArr2[i] = true;
                 }
             }
-            ChunkSampleStream<SsChunkSource>[] newSampleStreamArray = newSampleStreamArray(arrayList.size());
+            ChunkSampleStream[] newSampleStreamArray = newSampleStreamArray(arrayList.size());
             this.sampleStreams = newSampleStreamArray;
             arrayList.toArray(newSampleStreamArray);
             this.sequenceableLoader = new CompositeSequenceableLoader(this.sampleStreams);
             return j;
         }
         return invokeCommon.longValue;
-    }
-
-    public void updateManifest(SsManifest ssManifest) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, ssManifest) == null) {
-            this.manifest = ssManifest;
-            for (ChunkSampleStream<SsChunkSource> chunkSampleStream : this.sampleStreams) {
-                chunkSampleStream.getChunkSource().updateManifest(ssManifest);
-            }
-            this.callback.onContinueLoadingRequested(this);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.android.exoplayer2.source.SequenceableLoader.Callback
-    public void onContinueLoadingRequested(ChunkSampleStream<SsChunkSource> chunkSampleStream) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, chunkSampleStream) == null) {
-            this.callback.onContinueLoadingRequested(this);
-        }
     }
 }

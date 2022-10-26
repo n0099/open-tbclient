@@ -24,9 +24,9 @@ import com.baidu.live.business.model.data.LiveFeedToolWrapData;
 import com.baidu.live.business.view.search.LiveSearchGuideView;
 import com.baidu.spswitch.emotion.view.BDEmotionBagVerticalLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.da0;
-import com.baidu.tieba.qc0;
-import com.baidu.tieba.uc0;
+import com.baidu.tieba.ea0;
+import com.baidu.tieba.rc0;
+import com.baidu.tieba.vc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -43,6 +43,17 @@ public class LiveFeedPageToolFloatLayout extends RelativeLayout {
     public ImageView e;
     public ViewGroup f;
     public LiveSearchGuideView g;
+
+    /* loaded from: classes2.dex */
+    public interface d {
+        void a(String str, String str2);
+
+        void b();
+
+        void onItemShow(String str);
+
+        void onSearchShowing(boolean z);
+    }
 
     /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
@@ -73,12 +84,11 @@ public class LiveFeedPageToolFloatLayout extends RelativeLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.b.a == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.b.a != null) {
+                d dVar = this.b.a;
+                LiveFeedToolInfo liveFeedToolInfo = this.a;
+                dVar.a(liveFeedToolInfo.name, liveFeedToolInfo.cmd);
             }
-            d dVar = this.b.a;
-            LiveFeedToolInfo liveFeedToolInfo = this.a;
-            dVar.a(liveFeedToolInfo.name, liveFeedToolInfo.cmd);
         }
     }
 
@@ -109,10 +119,9 @@ public class LiveFeedPageToolFloatLayout extends RelativeLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.a == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.a != null) {
+                this.a.a.b();
             }
-            this.a.a.b();
         }
     }
 
@@ -143,22 +152,10 @@ public class LiveFeedPageToolFloatLayout extends RelativeLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.a == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.a != null) {
+                this.a.a.b();
             }
-            this.a.a.b();
         }
-    }
-
-    /* loaded from: classes2.dex */
-    public interface d {
-        void a(String str, String str2);
-
-        void b();
-
-        void onItemShow(String str);
-
-        void onSearchShowing(boolean z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -183,6 +180,13 @@ public class LiveFeedPageToolFloatLayout extends RelativeLayout {
         c();
     }
 
+    public void setCallback(d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, dVar) == null) {
+            this.a = dVar;
+        }
+    }
+
     public void b(boolean z) {
         int alpha;
         Interceptable interceptable = $ic;
@@ -204,14 +208,70 @@ public class LiveFeedPageToolFloatLayout extends RelativeLayout {
         }
     }
 
+    public void setImmersion(boolean z) {
+        ViewGroup.LayoutParams layoutParams;
+        float f;
+        float f2;
+        float f3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.b = z;
+            View view2 = this.d;
+            if (view2 != null) {
+                ViewGroup.LayoutParams layoutParams2 = view2.getLayoutParams();
+                if (layoutParams2 instanceof RelativeLayout.LayoutParams) {
+                    RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) layoutParams2;
+                    Context context = getContext();
+                    if (z) {
+                        f3 = 15.0f;
+                    } else {
+                        f3 = 10.0f;
+                    }
+                    layoutParams3.rightMargin = ea0.b(context, f3);
+                    this.d.setLayoutParams(layoutParams2);
+                }
+            }
+            ViewGroup viewGroup = this.f;
+            if (viewGroup != null) {
+                ViewGroup.LayoutParams layoutParams4 = viewGroup.getLayoutParams();
+                if (layoutParams4 instanceof FrameLayout.LayoutParams) {
+                    FrameLayout.LayoutParams layoutParams5 = (FrameLayout.LayoutParams) layoutParams4;
+                    Context context2 = getContext();
+                    if (z) {
+                        f2 = 0.0f;
+                    } else {
+                        f2 = 4.0f;
+                    }
+                    layoutParams5.rightMargin = ea0.b(context2, f2);
+                    this.f.setLayoutParams(layoutParams4);
+                }
+            }
+            ImageView imageView = this.e;
+            if (imageView != null && (layoutParams = imageView.getLayoutParams()) != null) {
+                Context context3 = getContext();
+                if (z) {
+                    f = 38.0f;
+                } else {
+                    f = 47.0f;
+                }
+                int b2 = ea0.b(context3, f);
+                layoutParams.width = b2;
+                layoutParams.height = b2;
+                this.e.setLayoutParams(layoutParams);
+            }
+            d(vc0.f().r());
+            e();
+        }
+    }
+
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0551, (ViewGroup) this, true);
-            this.d = findViewById(R.id.obfuscated_res_0x7f09136f);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091364);
-            this.f = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091370);
-            this.g = (LiveSearchGuideView) findViewById(R.id.obfuscated_res_0x7f091365);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0550, (ViewGroup) this, true);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091360);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091355);
+            this.f = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091361);
+            this.g = (LiveSearchGuideView) findViewById(R.id.obfuscated_res_0x7f091356);
             this.e.setOnClickListener(new c(this));
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setShape(0);
@@ -227,6 +287,7 @@ public class LiveFeedPageToolFloatLayout extends RelativeLayout {
     */
     public void d(String str) {
         char c2;
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             LiveSearchGuideView liveSearchGuideView = this.g;
@@ -235,7 +296,13 @@ public class LiveFeedPageToolFloatLayout extends RelativeLayout {
             }
             ImageView imageView = this.e;
             if (imageView != null) {
-                imageView.setImageResource(uc0.f().q(this.b ? LiveFeedPageSdk.IMMERSION : LiveFeedPageSdk.HOST_LIVE_TAB));
+                vc0 f = vc0.f();
+                if (this.b) {
+                    str2 = LiveFeedPageSdk.IMMERSION;
+                } else {
+                    str2 = LiveFeedPageSdk.HOST_LIVE_TAB;
+                }
+                imageView.setImageResource(f.q(str2));
             }
             ViewGroup viewGroup = this.f;
             if (viewGroup != null) {
@@ -248,23 +315,25 @@ public class LiveFeedPageToolFloatLayout extends RelativeLayout {
                         if (hashCode != 99228) {
                             if (hashCode == 104817688 && str.equals("night")) {
                                 c2 = 1;
-                                if (c2 != 0) {
+                                if (c2 == 0) {
+                                    if (c2 == 1) {
+                                        ((GradientDrawable) background).setColor(BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG);
+                                    }
+                                } else {
                                     ((GradientDrawable) background).setColor(-1);
-                                } else if (c2 == 1) {
-                                    ((GradientDrawable) background).setColor(BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG);
                                 }
                             }
                             c2 = 65535;
-                            if (c2 != 0) {
+                            if (c2 == 0) {
                             }
                         } else {
                             if (str.equals("day")) {
                                 c2 = 0;
-                                if (c2 != 0) {
+                                if (c2 == 0) {
                                 }
                             }
                             c2 = 65535;
-                            if (c2 != 0) {
+                            if (c2 == 0) {
                             }
                         }
                     }
@@ -280,10 +349,17 @@ public class LiveFeedPageToolFloatLayout extends RelativeLayout {
     }
 
     public void e() {
+        float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            float b2 = da0.b(getContext(), this.b ? 38.0f : 47.0f);
-            qc0.f(this.e, b2, b2);
+            Context context = getContext();
+            if (this.b) {
+                f = 38.0f;
+            } else {
+                f = 47.0f;
+            }
+            float b2 = ea0.b(context, f);
+            rc0.f(this.e, b2, b2);
             this.g.c();
             if (this.f != null) {
                 for (int i = 0; i < this.f.getChildCount(); i++) {
@@ -314,23 +390,25 @@ public class LiveFeedPageToolFloatLayout extends RelativeLayout {
         }
     }
 
-    public void setCallback(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, dVar) == null) {
-            this.a = dVar;
-        }
-    }
-
     public void setData(LiveFeedToolWrapData liveFeedToolWrapData, LiveFeedConfig liveFeedConfig) {
+        boolean z;
         ImageView imageView;
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, liveFeedToolWrapData, liveFeedConfig) == null) {
-            boolean z = liveFeedConfig != null ? liveFeedConfig.searchIsOpen : false;
+            if (liveFeedConfig != null) {
+                z = liveFeedConfig.searchIsOpen;
+            } else {
+                z = false;
+            }
             ImageView imageView2 = this.e;
             if (imageView2 != null) {
                 imageView2.setVisibility(8);
             }
-            List<LiveFeedToolInfo> list = liveFeedToolWrapData != null ? liveFeedToolWrapData.infos : null;
+            List list = null;
+            if (liveFeedToolWrapData != null) {
+                list = liveFeedToolWrapData.infos;
+            }
             if (list != null && !list.isEmpty()) {
                 ViewGroup viewGroup = this.f;
                 if (viewGroup == null) {
@@ -339,7 +417,7 @@ public class LiveFeedPageToolFloatLayout extends RelativeLayout {
                 viewGroup.removeAllViews();
                 int size = list.size();
                 for (int i = 0; i < size; i++) {
-                    LiveFeedToolInfo liveFeedToolInfo = list.get(i);
+                    LiveFeedToolInfo liveFeedToolInfo = (LiveFeedToolInfo) list.get(i);
                     LiveFeedPageToolItemView liveFeedPageToolItemView = new LiveFeedPageToolItemView(this.f.getContext());
                     liveFeedPageToolItemView.setData(this.b, liveFeedToolInfo.icon, liveFeedToolInfo.name);
                     liveFeedPageToolItemView.setOnClickListener(new a(this, liveFeedToolInfo));
@@ -351,17 +429,21 @@ public class LiveFeedPageToolFloatLayout extends RelativeLayout {
                 }
                 if (z) {
                     LiveFeedPageToolItemView liveFeedPageToolItemView2 = new LiveFeedPageToolItemView(this.f.getContext());
-                    liveFeedPageToolItemView2.setData(this.b, R.drawable.obfuscated_res_0x7f080d05, "搜索");
+                    liveFeedPageToolItemView2.setData(this.b, R.drawable.obfuscated_res_0x7f080d15, "搜索");
                     liveFeedPageToolItemView2.setOnClickListener(new b(this));
                     this.f.addView(liveFeedPageToolItemView2, new LinearLayout.LayoutParams(-1, (int) TypedValue.applyDimension(1, 57.0f, getResources().getDisplayMetrics())));
                 }
                 int childCount = this.f.getChildCount();
-                int i2 = 0;
-                while (i2 < childCount) {
+                for (int i2 = 0; i2 < childCount; i2++) {
                     if (this.f.getChildAt(i2) instanceof LiveFeedPageToolItemView) {
-                        ((LiveFeedPageToolItemView) this.f.getChildAt(i2)).setDividerShowing(i2 != childCount + (-1));
+                        LiveFeedPageToolItemView liveFeedPageToolItemView3 = (LiveFeedPageToolItemView) this.f.getChildAt(i2);
+                        if (i2 != childCount - 1) {
+                            z2 = true;
+                        } else {
+                            z2 = false;
+                        }
+                        liveFeedPageToolItemView3.setDividerShowing(z2);
                     }
-                    i2++;
                 }
             } else if (z && (imageView = this.e) != null) {
                 imageView.setVisibility(0);
@@ -373,56 +455,30 @@ public class LiveFeedPageToolFloatLayout extends RelativeLayout {
         }
     }
 
-    public void setImmersion(boolean z) {
-        ViewGroup.LayoutParams layoutParams;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.b = z;
-            View view2 = this.d;
-            if (view2 != null) {
-                ViewGroup.LayoutParams layoutParams2 = view2.getLayoutParams();
-                if (layoutParams2 instanceof RelativeLayout.LayoutParams) {
-                    ((RelativeLayout.LayoutParams) layoutParams2).rightMargin = da0.b(getContext(), z ? 15.0f : 10.0f);
-                    this.d.setLayoutParams(layoutParams2);
-                }
-            }
-            ViewGroup viewGroup = this.f;
-            if (viewGroup != null) {
-                ViewGroup.LayoutParams layoutParams3 = viewGroup.getLayoutParams();
-                if (layoutParams3 instanceof FrameLayout.LayoutParams) {
-                    ((FrameLayout.LayoutParams) layoutParams3).rightMargin = da0.b(getContext(), z ? 0.0f : 4.0f);
-                    this.f.setLayoutParams(layoutParams3);
-                }
-            }
-            ImageView imageView = this.e;
-            if (imageView != null && (layoutParams = imageView.getLayoutParams()) != null) {
-                int b2 = da0.b(getContext(), z ? 38.0f : 47.0f);
-                layoutParams.width = b2;
-                layoutParams.height = b2;
-                this.e.setLayoutParams(layoutParams);
-            }
-            d(uc0.f().r());
-            e();
-        }
-    }
-
     public void setSearchGuideShowing(boolean z) {
         LiveSearchGuideView liveSearchGuideView;
+        int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) || (liveSearchGuideView = this.g) == null) {
+        if ((interceptable != null && interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) != null) || (liveSearchGuideView = this.g) == null) {
             return;
         }
-        liveSearchGuideView.setVisibility(z ? 0 : 8);
-        ViewGroup.LayoutParams layoutParams = this.g.getLayoutParams();
-        if (layoutParams instanceof RelativeLayout.LayoutParams) {
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) layoutParams;
-            if (this.e.getVisibility() == 0) {
-                layoutParams2.addRule(15);
-            } else {
-                layoutParams2.addRule(8, R.id.obfuscated_res_0x7f09136f);
-                layoutParams2.bottomMargin = (int) TypedValue.applyDimension(1, 7.0f, getResources().getDisplayMetrics());
-            }
-            this.g.setLayoutParams(layoutParams2);
+        if (z) {
+            i = 0;
+        } else {
+            i = 8;
         }
+        liveSearchGuideView.setVisibility(i);
+        ViewGroup.LayoutParams layoutParams = this.g.getLayoutParams();
+        if (!(layoutParams instanceof RelativeLayout.LayoutParams)) {
+            return;
+        }
+        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) layoutParams;
+        if (this.e.getVisibility() == 0) {
+            layoutParams2.addRule(15);
+        } else {
+            layoutParams2.addRule(8, R.id.obfuscated_res_0x7f091360);
+            layoutParams2.bottomMargin = (int) TypedValue.applyDimension(1, 7.0f, getResources().getDisplayMetrics());
+        }
+        this.g.setLayoutParams(layoutParams2);
     }
 }

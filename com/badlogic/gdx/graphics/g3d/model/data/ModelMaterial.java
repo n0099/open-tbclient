@@ -1,7 +1,6 @@
 package com.badlogic.gdx.graphics.g3d.model.data;
 
 import com.baidu.tieba.b7;
-import com.baidu.tieba.d5;
 import com.baidu.tieba.l3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -22,11 +21,11 @@ public class ModelMaterial {
     public l3 f;
     public float g;
     public float h;
-    public b7<d5> i;
+    public b7 i;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class MaterialType {
+    public final class MaterialType {
         public static final /* synthetic */ MaterialType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final MaterialType Lambert;
@@ -74,13 +73,19 @@ public class ModelMaterial {
         public static MaterialType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (MaterialType) Enum.valueOf(MaterialType.class, str) : (MaterialType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (MaterialType) Enum.valueOf(MaterialType.class, str);
+            }
+            return (MaterialType) invokeL.objValue;
         }
 
         public static MaterialType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (MaterialType[]) $VALUES.clone() : (MaterialType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (MaterialType[]) $VALUES.clone();
+            }
+            return (MaterialType[]) invokeV.objValue;
         }
     }
 

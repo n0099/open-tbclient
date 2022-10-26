@@ -78,20 +78,6 @@ public class RoundPostprocessor extends BasePostprocessor {
         return (CacheKey) invokeV.objValue;
     }
 
-    @Override // com.facebook.imagepipeline.request.BasePostprocessor
-    public void process(Bitmap bitmap, Bitmap bitmap2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bitmap, bitmap2) == null) {
-            Preconditions.checkNotNull(bitmap);
-            Preconditions.checkNotNull(bitmap2);
-            if (canUseXferRoundFilter) {
-                XferRoundFilter.xferRoundBitmap(bitmap, bitmap2, this.mEnableAntiAliasing);
-            } else {
-                super.process(bitmap, bitmap2);
-            }
-        }
-    }
-
     public RoundPostprocessor(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -115,6 +101,20 @@ public class RoundPostprocessor extends BasePostprocessor {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
             InPlaceRoundFilter.roundBitmapInPlace(bitmap);
+        }
+    }
+
+    @Override // com.facebook.imagepipeline.request.BasePostprocessor
+    public void process(Bitmap bitmap, Bitmap bitmap2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bitmap, bitmap2) == null) {
+            Preconditions.checkNotNull(bitmap);
+            Preconditions.checkNotNull(bitmap2);
+            if (canUseXferRoundFilter) {
+                XferRoundFilter.xferRoundBitmap(bitmap, bitmap2, this.mEnableAntiAliasing);
+            } else {
+                super.process(bitmap, bitmap2);
+            }
         }
     }
 }

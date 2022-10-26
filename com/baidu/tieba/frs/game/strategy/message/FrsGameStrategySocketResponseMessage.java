@@ -1,13 +1,10 @@
 package com.baidu.tieba.frs.game.strategy.message;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.Cdo;
-import com.baidu.tieba.an6;
-import com.baidu.tieba.bn6;
 import com.baidu.tieba.hn6;
+import com.baidu.tieba.in6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,8 +19,8 @@ public class FrsGameStrategySocketResponseMessage extends SocketResponsedMessage
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mHasMore;
-    public List<hn6> mTabList;
-    public List<Cdo> mThreadList;
+    public List mTabList;
+    public List mThreadList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsGameStrategySocketResponseMessage() {
@@ -44,12 +41,30 @@ public class FrsGameStrategySocketResponseMessage extends SocketResponsedMessage
         this.mHasMore = false;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
+    public void afterDispatchInBackGround(int i, byte[] bArr) {
+        FrsGameStrategyRequestMessage frsGameStrategyRequestMessage;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
+            Message<?> orginalMessage = getOrginalMessage();
+            if (orginalMessage != null && (orginalMessage.getExtra() instanceof FrsGameStrategyRequestMessage)) {
+                frsGameStrategyRequestMessage = (FrsGameStrategyRequestMessage) orginalMessage.getExtra();
+            } else {
+                frsGameStrategyRequestMessage = null;
+            }
+            if (frsGameStrategyRequestMessage != null) {
+                new in6().d(String.valueOf(frsGameStrategyRequestMessage.getFid()), bArr, false);
+            }
+        }
+    }
+
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bArr)) == null) {
+            boolean z = false;
             GameForumGuideTabResIdl gameForumGuideTabResIdl = (GameForumGuideTabResIdl) new Wire(new Class[0]).parseFrom(bArr, GameForumGuideTabResIdl.class);
             if (gameForumGuideTabResIdl == null) {
                 return null;
@@ -59,42 +74,41 @@ public class FrsGameStrategySocketResponseMessage extends SocketResponsedMessage
                 setError(error.errorno.intValue());
                 setErrorString(gameForumGuideTabResIdl.error.errmsg);
             }
-            this.mTabList = an6.a(gameForumGuideTabResIdl.data.sub_tab_list);
-            this.mThreadList = an6.b(gameForumGuideTabResIdl.data.thread_list);
-            this.mHasMore = gameForumGuideTabResIdl.data.has_more.intValue() == 1;
+            this.mTabList = hn6.a(gameForumGuideTabResIdl.data.sub_tab_list);
+            this.mThreadList = hn6.b(gameForumGuideTabResIdl.data.thread_list);
+            if (gameForumGuideTabResIdl.data.has_more.intValue() == 1) {
+                z = true;
+            }
+            this.mHasMore = z;
             return gameForumGuideTabResIdl;
         }
         return invokeIL.objValue;
     }
 
-    public List<hn6> getTabList() {
+    public List getTabList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mTabList : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mTabList;
+        }
+        return (List) invokeV.objValue;
     }
 
-    public List<Cdo> getThreadList() {
+    public List getThreadList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mThreadList : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mThreadList;
+        }
+        return (List) invokeV.objValue;
     }
 
     public boolean hasMore() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mHasMore : invokeV.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
-            Message<?> orginalMessage = getOrginalMessage();
-            FrsGameStrategyRequestMessage frsGameStrategyRequestMessage = (orginalMessage == null || !(orginalMessage.getExtra() instanceof FrsGameStrategyRequestMessage)) ? null : (FrsGameStrategyRequestMessage) orginalMessage.getExtra();
-            if (frsGameStrategyRequestMessage != null) {
-                new bn6().d(String.valueOf(frsGameStrategyRequestMessage.getFid()), bArr, false);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mHasMore;
         }
+        return invokeV.booleanValue;
     }
 }

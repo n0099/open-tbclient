@@ -10,15 +10,19 @@ public interface e extends IInterface {
     int a(long j) throws RemoteException;
 
     /* loaded from: classes8.dex */
-    public static abstract class a extends Binder implements e {
+    public abstract class a extends Binder implements e {
+        @Override // android.os.IInterface
+        public IBinder asBinder() {
+            return this;
+        }
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public static class C0677a implements e {
+        public class C0673a implements e {
             public static e a;
             public IBinder b;
 
-            public C0677a(IBinder iBinder) {
+            public C0673a(IBinder iBinder) {
                 this.b = iBinder;
             }
 
@@ -50,6 +54,10 @@ public interface e extends IInterface {
             attachInterface(this, "com.ss.android.socialbase.downloader.depend.IChunkCntAidlCalculator");
         }
 
+        public static e a() {
+            return C0673a.a;
+        }
+
         public static e a(IBinder iBinder) {
             if (iBinder == null) {
                 return null;
@@ -58,12 +66,7 @@ public interface e extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof e)) {
                 return (e) queryLocalInterface;
             }
-            return new C0677a(iBinder);
-        }
-
-        @Override // android.os.IInterface
-        public IBinder asBinder() {
-            return this;
+            return new C0673a(iBinder);
         }
 
         @Override // android.os.Binder
@@ -80,10 +83,6 @@ public interface e extends IInterface {
             parcel2.writeNoException();
             parcel2.writeInt(a);
             return true;
-        }
-
-        public static e a() {
-            return C0677a.a;
         }
     }
 }

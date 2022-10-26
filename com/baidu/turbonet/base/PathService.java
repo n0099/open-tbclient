@@ -11,6 +11,8 @@ public abstract class PathService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static native void nativeOverride(int i, String str);
+
     public PathService() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -24,6 +26,4 @@ public abstract class PathService {
             }
         }
     }
-
-    public static native void nativeOverride(int i, String str);
 }

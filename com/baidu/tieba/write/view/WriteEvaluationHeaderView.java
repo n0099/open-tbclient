@@ -7,8 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -22,8 +20,8 @@ import com.baidu.tbadk.core.view.ItemCardView;
 import com.baidu.tbadk.widget.RankStarView;
 import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.hv4;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.nv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,6 +43,16 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
     public b j;
     public TbRichTextEvaluateItemInfo k;
     public boolean l;
+
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(float f);
+    }
+
+    /* loaded from: classes6.dex */
+    public interface c {
+        void onClose();
+    }
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -79,18 +87,8 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
         }
     }
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(float f);
-    }
-
-    /* loaded from: classes6.dex */
-    public interface c {
-        void onClose();
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public WriteEvaluationHeaderView(@NonNull Context context) {
+    public WriteEvaluationHeaderView(Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -110,113 +108,73 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
         }
     }
 
+    public void setItemInfo(TbRichTextEvaluateItemInfo tbRichTextEvaluateItemInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, tbRichTextEvaluateItemInfo) == null) {
+            this.k = tbRichTextEvaluateItemInfo;
+            if (this.l) {
+                this.g.setVisibility(0);
+                this.f.setVisibility(8);
+            }
+            this.h.setVisibility(0);
+            this.h.setStarCount(0.0f);
+            this.b.setVisibility(8);
+            this.g.setData(tbRichTextEvaluateItemInfo, 10, "");
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public WriteEvaluationHeaderView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public WriteEvaluationHeaderView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = 3;
+        this.l = true;
+        c();
+    }
+
     @Override // com.baidu.tbadk.widget.RankStarView.a
     public void a(float f) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048576, this, f) == null) || (bVar = this.j) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeF(1048576, this, f) == null) && (bVar = this.j) != null) {
+            bVar.a(f);
         }
-        bVar.a(f);
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new RelevanceItemSearchActivityConfig(getContext(), 25048)));
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0939, (ViewGroup) this, true);
-            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090fc9);
-            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090fcb);
-            this.e = findViewById(R.id.obfuscated_res_0x7f0926c3);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fc8);
-            this.f = findViewById(R.id.obfuscated_res_0x7f090fca);
-            this.g = (ItemCardView) findViewById(R.id.obfuscated_res_0x7f090fd5);
-            RankStarView rankStarView = (RankStarView) findViewById(R.id.obfuscated_res_0x7f090fd2);
-            this.h = rankStarView;
-            rankStarView.setStarSpacing(ej.f(getContext(), R.dimen.tbds30));
-            this.h.setClickable(true);
-            this.h.setStarChangListener(this);
-            this.g.N();
-            this.g.setOnCloseListener(this);
-            this.g.setSizeStyle(1);
-            d();
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.e.setOnClickListener(new a(this));
-        }
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.h.c() : invokeV.booleanValue;
-    }
-
-    public void f() {
-        int skinType;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.a) {
-            return;
-        }
-        this.a = skinType;
-        EMTextView eMTextView = this.b;
-        if (eMTextView != null) {
-            SkinManager.setViewTextColor(eMTextView, (int) R.color.CAM_X0109);
-            hv4 d = hv4.d(this.b);
-            d.n(R.string.J_X06);
-            d.f(R.color.CAM_X0206);
-        }
-        if (this.d != null) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.d, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
-        }
-        View view2 = this.f;
-        if (view2 != null) {
-            SkinManager.setBackgroundColor(view2, R.color.CAM_X0210);
-        }
-        ItemCardView itemCardView = this.g;
-        if (itemCardView != null) {
-            SkinManager.setBackgroundColor(itemCardView, R.color.CAM_X0206);
-        }
-        EMTextView eMTextView2 = this.c;
-        if (eMTextView2 != null) {
-            SkinManager.setViewTextColor(eMTextView2, (int) R.color.CAM_X0105);
-        }
-        RankStarView rankStarView = this.h;
-        if (rankStarView != null) {
-            rankStarView.e(skinType);
-        }
-        RankStarView rankStarView2 = this.h;
-        if (rankStarView2 != null) {
-            rankStarView2.e(TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
-    public TbRichTextEvaluateItemInfo getEvaluateItemInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.k : (TbRichTextEvaluateItemInfo) invokeV.objValue;
-    }
-
-    public ItemCardView getItemStarInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.g : (ItemCardView) invokeV.objValue;
-    }
-
-    public int getStarCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.h.getStarCount() : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -238,21 +196,6 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, cVar) == null) {
             this.i = cVar;
-        }
-    }
-
-    public void setItemInfo(TbRichTextEvaluateItemInfo tbRichTextEvaluateItemInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, tbRichTextEvaluateItemInfo) == null) {
-            this.k = tbRichTextEvaluateItemInfo;
-            if (this.l) {
-                this.g.setVisibility(0);
-                this.f.setVisibility(8);
-            }
-            this.h.setVisibility(0);
-            this.h.setStarCount(0.0f);
-            this.b.setVisibility(8);
-            this.g.setData(tbRichTextEvaluateItemInfo, 10, "");
         }
     }
 
@@ -280,48 +223,114 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public WriteEvaluationHeaderView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new RelevanceItemSearchActivityConfig(getContext(), 25048)));
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public WriteEvaluationHeaderView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.e.setOnClickListener(new a(this));
         }
-        this.a = 3;
-        this.l = true;
-        c();
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.h.c();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public TbRichTextEvaluateItemInfo getEvaluateItemInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.k;
+        }
+        return (TbRichTextEvaluateItemInfo) invokeV.objValue;
+    }
+
+    public ItemCardView getItemStarInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.g;
+        }
+        return (ItemCardView) invokeV.objValue;
+    }
+
+    public int getStarCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.h.getStarCount();
+        }
+        return invokeV.intValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d093a, (ViewGroup) this, true);
+            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090fbd);
+            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090fbf);
+            this.e = findViewById(R.id.obfuscated_res_0x7f0926aa);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fbc);
+            this.f = findViewById(R.id.obfuscated_res_0x7f090fbe);
+            this.g = (ItemCardView) findViewById(R.id.obfuscated_res_0x7f090fc9);
+            RankStarView rankStarView = (RankStarView) findViewById(R.id.obfuscated_res_0x7f090fc6);
+            this.h = rankStarView;
+            rankStarView.setStarSpacing(fj.f(getContext(), R.dimen.tbds30));
+            this.h.setClickable(true);
+            this.h.setStarChangListener(this);
+            this.g.N();
+            this.g.setOnCloseListener(this);
+            this.g.setSizeStyle(1);
+            d();
+        }
+    }
+
+    public void f() {
+        int skinType;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.a) {
+            return;
+        }
+        this.a = skinType;
+        EMTextView eMTextView = this.b;
+        if (eMTextView != null) {
+            SkinManager.setViewTextColor(eMTextView, (int) R.color.CAM_X0109);
+            nv4 d = nv4.d(this.b);
+            d.n(R.string.J_X06);
+            d.f(R.color.CAM_X0206);
+        }
+        if (this.d != null) {
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.d, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+        }
+        View view2 = this.f;
+        if (view2 != null) {
+            SkinManager.setBackgroundColor(view2, R.color.CAM_X0210);
+        }
+        ItemCardView itemCardView = this.g;
+        if (itemCardView != null) {
+            SkinManager.setBackgroundColor(itemCardView, R.color.CAM_X0206);
+        }
+        EMTextView eMTextView2 = this.c;
+        if (eMTextView2 != null) {
+            SkinManager.setViewTextColor(eMTextView2, (int) R.color.CAM_X0105);
+        }
+        RankStarView rankStarView = this.h;
+        if (rankStarView != null) {
+            rankStarView.e(skinType);
+        }
+        RankStarView rankStarView2 = this.h;
+        if (rankStarView2 != null) {
+            rankStarView2.e(TbadkCoreApplication.getInst().getSkinType());
+        }
     }
 }

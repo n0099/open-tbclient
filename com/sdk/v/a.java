@@ -10,12 +10,12 @@ import com.sdk.f.c;
 import com.sdk.f.g;
 import com.sdk.g.b;
 /* loaded from: classes8.dex */
-public class a<T> extends b<T> {
+public class a extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(Context context, com.sdk.e.a<T> aVar, c cVar) {
+    public a(Context context, com.sdk.e.a aVar, c cVar) {
         super(context, aVar, cVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -33,15 +33,15 @@ public class a<T> extends b<T> {
                 return;
             }
         }
-        if (!g.d) {
-            this.i = g.a.b.a();
-            g.a.a.a();
+        if (g.d) {
+            String str = SDKManager.testHost;
+            if (!com.sdk.n.a.b(SDKManager.statisticalTestHost).booleanValue()) {
+                g.a.a.a();
+            }
+            this.i = com.sdk.n.a.b(str).booleanValue() ? str : g.a.b.a();
             return;
         }
-        String str = SDKManager.testHost;
-        if (!com.sdk.n.a.b(SDKManager.statisticalTestHost).booleanValue()) {
-            g.a.a.a();
-        }
-        this.i = com.sdk.n.a.b(str).booleanValue() ? str : g.a.b.a();
+        this.i = g.a.b.a();
+        g.a.a.a();
     }
 }

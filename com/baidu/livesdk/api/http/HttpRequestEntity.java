@@ -13,10 +13,10 @@ public class HttpRequestEntity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int connectTimeout;
-    public HashMap<String, String> header;
+    public HashMap header;
     public String mediaType;
     public int method;
-    public HashMap<String, String> postParams;
+    public HashMap postParams;
     public int readTimeout;
     public int retryCount;
     public String url;
@@ -38,49 +38,73 @@ public class HttpRequestEntity {
     public int getConnectTimeout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.connectTimeout : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.connectTimeout;
+        }
+        return invokeV.intValue;
     }
 
-    public HashMap<String, String> getHeader() {
+    public HashMap getHeader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.header : (HashMap) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.header;
+        }
+        return (HashMap) invokeV.objValue;
     }
 
     public String getMediaType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mediaType : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mediaType;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getMethod() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.method : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.method;
+        }
+        return invokeV.intValue;
     }
 
-    public HashMap<String, String> getPostParams() {
+    public HashMap getPostParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.postParams : (HashMap) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.postParams;
+        }
+        return (HashMap) invokeV.objValue;
     }
 
     public int getReadTimeout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.readTimeout : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.readTimeout;
+        }
+        return invokeV.intValue;
     }
 
     public int getRetryCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.retryCount : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.retryCount;
+        }
+        return invokeV.intValue;
     }
 
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.url : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.url;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setConnectTimeout(int i) {
@@ -90,7 +114,7 @@ public class HttpRequestEntity {
         }
     }
 
-    public void setHeader(HashMap<String, String> hashMap) {
+    public void setHeader(HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, hashMap) == null) {
             this.header = hashMap;
@@ -111,7 +135,7 @@ public class HttpRequestEntity {
         }
     }
 
-    public void setPostParams(HashMap<String, String> hashMap) {
+    public void setPostParams(HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, hashMap) == null) {
             this.postParams = hashMap;

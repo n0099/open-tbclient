@@ -33,13 +33,19 @@ public final class PushMsgInfo extends Message {
     public final Long pushTime;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<PushMsgInfo> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String et;
         public Long groupId;
         public Integer groupType;
-        public List<MsgInfo> msgInfo;
+        public List msgInfo;
         public Long pushTime;
 
         public Builder() {
@@ -89,14 +95,11 @@ public final class PushMsgInfo extends Message {
         public PushMsgInfo build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new PushMsgInfo(this, z, null) : (PushMsgInfo) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new PushMsgInfo(this, z, null);
+            }
+            return (PushMsgInfo) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -116,10 +119,6 @@ public final class PushMsgInfo extends Message {
         DEFAULT_MSGINFO = Collections.emptyList();
         DEFAULT_GROUPTYPE = 0;
         DEFAULT_PUSHTIME = 0L;
-    }
-
-    public /* synthetic */ PushMsgInfo(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -147,7 +146,7 @@ public final class PushMsgInfo extends Message {
             } else {
                 this.groupId = l;
             }
-            List<MsgInfo> list = builder.msgInfo;
+            List list = builder.msgInfo;
             if (list == null) {
                 this.msgInfo = DEFAULT_MSGINFO;
             } else {
@@ -179,5 +178,9 @@ public final class PushMsgInfo extends Message {
         this.groupType = builder.groupType;
         this.et = builder.et;
         this.pushTime = builder.pushTime;
+    }
+
+    public /* synthetic */ PushMsgInfo(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

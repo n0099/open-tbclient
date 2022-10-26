@@ -2,12 +2,12 @@ package com.baidu.tieba.easterEgg;
 
 import android.webkit.JsPromptResult;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.d86;
-import com.baidu.tieba.dj;
-import com.baidu.tieba.e86;
-import com.baidu.tieba.f86;
-import com.baidu.tieba.xn8;
-import com.baidu.tieba.z76;
+import com.baidu.tieba.ej;
+import com.baidu.tieba.eo8;
+import com.baidu.tieba.g86;
+import com.baidu.tieba.k86;
+import com.baidu.tieba.l86;
+import com.baidu.tieba.m86;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class EasterEggBridge implements xn8 {
+public class EasterEggBridge implements eo8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_ARGS = "args";
     public static final String KEY_ARGS_EXT = "native_exts";
@@ -26,7 +26,7 @@ public class EasterEggBridge implements xn8 {
     public static final String KEY_INTERFACE_NAME = "EasterEggBridge";
     public static final String KEY_METHOD_NAME = "method_name";
     public transient /* synthetic */ FieldHolder $fh;
-    public List<z76> mListener;
+    public List mListener;
 
     public EasterEggBridge() {
         Interceptable interceptable = $ic;
@@ -42,30 +42,36 @@ public class EasterEggBridge implements xn8 {
             }
         }
         this.mListener = new ArrayList();
-        addListener(new e86());
-        addListener(new f86());
-        addListener(new d86());
+        addListener(new l86());
+        addListener(new m86());
+        addListener(new k86());
     }
 
-    public void addListener(z76 z76Var) {
-        List<z76> list;
+    public void addListener(g86 g86Var) {
+        List list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, z76Var) == null) || z76Var == null || (list = this.mListener) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, g86Var) == null) && g86Var != null && (list = this.mListener) != null) {
+            list.add(g86Var);
         }
-        list.add(z76Var);
+    }
+
+    public void removeListener(g86 g86Var) {
+        List list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, g86Var) == null) && g86Var != null && (list = this.mListener) != null) {
+            list.remove(g86Var);
+        }
     }
 
     public void clearListener() {
-        List<z76> list;
+        List list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (list = this.mListener) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (list = this.mListener) != null) {
+            list.clear();
         }
-        list.clear();
     }
 
-    @Override // com.baidu.tieba.xn8
+    @Override // com.baidu.tieba.eo8
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -74,13 +80,13 @@ public class EasterEggBridge implements xn8 {
                 try {
                     JSONObject jSONObject = new JSONObject(str3);
                     String optString = jSONObject.optString(KEY_METHOD_NAME);
-                    if (dj.isEmpty(str2)) {
+                    if (ej.isEmpty(str2)) {
                         return false;
                     }
                     String trim = optString.trim();
-                    for (z76 z76Var : this.mListener) {
-                        if (trim.equals(z76Var.b())) {
-                            z76Var.a(trim, jSONObject.optString("args"), jSONObject.optString(KEY_ARGS_EXT), jSONObject.optString(KEY_CALLBACK), jsPromptResult);
+                    for (g86 g86Var : this.mListener) {
+                        if (trim.equals(g86Var.b())) {
+                            g86Var.a(trim, jSONObject.optString("args"), jSONObject.optString(KEY_ARGS_EXT), jSONObject.optString(KEY_CALLBACK), jsPromptResult);
                         }
                     }
                 } catch (JSONException unused) {
@@ -89,14 +95,5 @@ public class EasterEggBridge implements xn8 {
             return false;
         }
         return invokeLLLL.booleanValue;
-    }
-
-    public void removeListener(z76 z76Var) {
-        List<z76> list;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, z76Var) == null) || z76Var == null || (list = this.mListener) == null) {
-            return;
-        }
-        list.remove(z76Var);
     }
 }

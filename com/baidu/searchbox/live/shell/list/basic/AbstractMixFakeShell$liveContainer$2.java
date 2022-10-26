@@ -12,7 +12,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "Lcom/baidu/searchbox/live/widget/LiveContainer;", "invoke"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
-public final class AbstractMixFakeShell$liveContainer$2 extends Lambda implements Function0<LiveContainer> {
+public final class AbstractMixFakeShell$liveContainer$2 extends Lambda implements Function0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ AbstractMixFakeShell this$0;
@@ -39,7 +39,6 @@ public final class AbstractMixFakeShell$liveContainer$2 extends Lambda implement
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.jvm.functions.Function0
     public final LiveContainer invoke() {
         InterceptResult invokeV;
@@ -70,14 +69,6 @@ public final class AbstractMixFakeShell$liveContainer$2 extends Lambda implement
                 }
 
                 @Override // com.baidu.searchbox.live.widget.LiveContainer.ViewAttachListener
-                public void onAttach() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.this$0.this$0.onLiveAttach();
-                    }
-                }
-
-                @Override // com.baidu.searchbox.live.widget.LiveContainer.ViewAttachListener
                 public void onDataChanged(LiveContainer.LiveItemModel liveItemModel) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, liveItemModel) == null) {
@@ -86,10 +77,10 @@ public final class AbstractMixFakeShell$liveContainer$2 extends Lambda implement
                 }
 
                 @Override // com.baidu.searchbox.live.widget.LiveContainer.ViewAttachListener
-                public void onDeselected(int i, LiveContainer.LiveItemModel liveItemModel) {
+                public void onAttach() {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, liveItemModel) == null) {
-                        this.this$0.this$0.onLiveDeselected();
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.this$0.this$0.onLiveAttach();
                     }
                 }
 
@@ -98,6 +89,14 @@ public final class AbstractMixFakeShell$liveContainer$2 extends Lambda implement
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
                         this.this$0.this$0.onLiveDetach();
+                    }
+                }
+
+                @Override // com.baidu.searchbox.live.widget.LiveContainer.ViewAttachListener
+                public void onDeselected(int i, LiveContainer.LiveItemModel liveItemModel) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, liveItemModel) == null) {
+                        this.this$0.this$0.onLiveDeselected();
                     }
                 }
 

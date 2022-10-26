@@ -11,17 +11,17 @@ import io.reactivex.MaybeObserver;
 import io.reactivex.disposables.Disposables;
 import io.reactivex.internal.fuseable.ScalarCallable;
 /* loaded from: classes8.dex */
-public final class MaybeJust<T> extends Maybe<T> implements ScalarCallable<T> {
+public final class MaybeJust extends Maybe implements ScalarCallable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final T value;
+    public final Object value;
 
-    public MaybeJust(T t) {
+    public MaybeJust(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t};
+            Object[] objArr = {obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,23 +31,25 @@ public final class MaybeJust<T> extends Maybe<T> implements ScalarCallable<T> {
                 return;
             }
         }
-        this.value = t;
+        this.value = obj;
     }
 
-    @Override // io.reactivex.internal.fuseable.ScalarCallable, java.util.concurrent.Callable
-    public T call() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : (T) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Type inference failed for r0v3. Raw type applied. Possible types: T, ? super T */
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
+    public void subscribeActual(MaybeObserver maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, maybeObserver) == null) {
             maybeObserver.onSubscribe(Disposables.disposed());
-            maybeObserver.onSuccess((T) this.value);
+            maybeObserver.onSuccess(this.value);
         }
+    }
+
+    @Override // io.reactivex.internal.fuseable.ScalarCallable, java.util.concurrent.Callable
+    public Object call() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.value;
+        }
+        return invokeV.objValue;
     }
 }

@@ -27,7 +27,7 @@ public final class DisplayImageOptionsCompat {
     public final float strokeWidth;
 
     /* loaded from: classes7.dex */
-    public static class Builder {
+    public class Builder {
         public int blurRadius;
         public int cornerRound;
         public boolean isCircle;

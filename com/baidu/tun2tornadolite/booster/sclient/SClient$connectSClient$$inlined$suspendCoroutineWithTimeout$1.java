@@ -1,5 +1,6 @@
 package com.baidu.tun2tornadolite.booster.sclient;
 
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,10 +22,10 @@ import kotlin.coroutines.jvm.internal.SuspendLambda;
 import kotlin.jvm.functions.Function2;
 import kotlinx.coroutines.CancellableContinuationImpl;
 import kotlinx.coroutines.CoroutineScope;
-@Metadata(d1 = {"\u0000\n\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u0002H\u0001\"\u0004\b\u0000\u0010\u0001*\u00020\u0002H\u008a@¨\u0006\u0003"}, d2 = {"<anonymous>", "T", "Lkotlinx/coroutines/CoroutineScope;", "com/baidu/tun2tornadolite/booster/sclient/SClient$suspendCoroutineWithTimeout$2"}, k = 3, mv = {1, 5, 1}, xi = 48)
+@Metadata(d1 = {"\u0000\n\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u0002H\u0001\"\u0004\b\u0000\u0010\u0001*\u00020\u0002H\u008a@¨\u0006\u0003"}, d2 = {"<anonymous>", ExifInterface.GPS_DIRECTION_TRUE, "Lkotlinx/coroutines/CoroutineScope;", "com/baidu/tun2tornadolite/booster/sclient/SClient$suspendCoroutineWithTimeout$2"}, k = 3, mv = {1, 5, 1}, xi = 48)
 @DebugMetadata(c = "com.baidu.tun2tornadolite.booster.sclient.SClient$connectSClient$$inlined$suspendCoroutineWithTimeout$1", f = "SClient.kt", i = {}, l = {456}, m = "invokeSuspend", n = {}, s = {})
 /* loaded from: classes6.dex */
-public final class SClient$connectSClient$$inlined$suspendCoroutineWithTimeout$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+public final class SClient$connectSClient$$inlined$suspendCoroutineWithTimeout$1 extends SuspendLambda implements Function2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ String $ip$inlined;
@@ -58,7 +59,7 @@ public final class SClient$connectSClient$$inlined$suspendCoroutineWithTimeout$1
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
-    public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
+    public final Continuation create(Object obj, Continuation continuation) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, continuation)) == null) ? new SClient$connectSClient$$inlined$suspendCoroutineWithTimeout$1(continuation, this.$socket$inlined, this.$ip$inlined, this.$port$inlined) : (Continuation) invokeLL.objValue;
@@ -66,7 +67,7 @@ public final class SClient$connectSClient$$inlined$suspendCoroutineWithTimeout$1
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.functions.Function2
-    public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
+    public final Object invoke(CoroutineScope coroutineScope, Continuation continuation) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, coroutineScope, continuation)) == null) ? ((SClient$connectSClient$$inlined$suspendCoroutineWithTimeout$1) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE) : invokeLL.objValue;
@@ -79,7 +80,13 @@ public final class SClient$connectSClient$$inlined$suspendCoroutineWithTimeout$1
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
             Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
             int i = this.label;
-            if (i == 0) {
+            if (i != 0) {
+                if (i == 1) {
+                    ResultKt.throwOnFailure(obj);
+                } else {
+                    throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
+                }
+            } else {
                 ResultKt.throwOnFailure(obj);
                 this.label = 1;
                 CancellableContinuationImpl cancellableContinuationImpl = new CancellableContinuationImpl(IntrinsicsKt__IntrinsicsJvmKt.intercepted(this), 1);
@@ -87,7 +94,7 @@ public final class SClient$connectSClient$$inlined$suspendCoroutineWithTimeout$1
                 this.$socket$inlined.connect(new InetSocketAddress(this.$ip$inlined, this.$port$inlined), this.$port$inlined);
                 Unit unit = Unit.INSTANCE;
                 Result.Companion companion = Result.Companion;
-                cancellableContinuationImpl.resumeWith(Result.m699constructorimpl(unit));
+                cancellableContinuationImpl.resumeWith(Result.m698constructorimpl(unit));
                 obj = cancellableContinuationImpl.getResult();
                 if (obj == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
                     DebugProbesKt.probeCoroutineSuspended(this);
@@ -95,10 +102,6 @@ public final class SClient$connectSClient$$inlined$suspendCoroutineWithTimeout$1
                 if (obj == coroutine_suspended) {
                     return coroutine_suspended;
                 }
-            } else if (i == 1) {
-                ResultKt.throwOnFailure(obj);
-            } else {
-                throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
             }
             return obj;
         }

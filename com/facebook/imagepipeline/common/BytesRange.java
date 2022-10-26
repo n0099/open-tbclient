@@ -11,8 +11,6 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.util.HashCodeUtil;
 import java.util.regex.Pattern;
 import javax.annotation.Nullable;
-import javax.annotation.concurrent.Immutable;
-@Immutable
 /* loaded from: classes7.dex */
 public class BytesRange {
     public static /* synthetic */ Interceptable $ic = null;
@@ -44,17 +42,85 @@ public class BytesRange {
 
     public static BytesRange from(int i) {
         InterceptResult invokeI;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            Preconditions.checkArgument(i >= 0);
+            if (i >= 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Preconditions.checkArgument(z);
             return new BytesRange(i, Integer.MAX_VALUE);
         }
         return (BytesRange) invokeI.objValue;
     }
 
+    public static BytesRange toMax(int i) {
+        InterceptResult invokeI;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            if (i > 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Preconditions.checkArgument(z);
+            return new BytesRange(0, i);
+        }
+        return (BytesRange) invokeI.objValue;
+    }
+
+    public static String valueOrEmpty(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            if (i == Integer.MAX_VALUE) {
+                return "";
+            }
+            return Integer.toString(i);
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public boolean contains(@Nullable BytesRange bytesRange) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bytesRange)) == null) {
+            if (bytesRange == null || this.from > bytesRange.from || this.to < bytesRange.to) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (obj == this) {
+                return true;
+            }
+            if (!(obj instanceof BytesRange)) {
+                return false;
+            }
+            BytesRange bytesRange = (BytesRange) obj;
+            if (this.from == bytesRange.from && this.to == bytesRange.to) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
     @Nullable
     public static BytesRange fromContentRangeHeader(@Nullable String str) throws IllegalArgumentException {
         InterceptResult invokeL;
+        boolean z;
+        boolean z2;
+        boolean z3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             if (str == null) {
@@ -65,13 +131,28 @@ public class BytesRange {
             }
             try {
                 String[] split = sHeaderParsingRegEx.split(str);
-                Preconditions.checkArgument(split.length == 4);
+                if (split.length == 4) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                Preconditions.checkArgument(z);
                 Preconditions.checkArgument(split[0].equals("bytes"));
                 int parseInt = Integer.parseInt(split[1]);
                 int parseInt2 = Integer.parseInt(split[2]);
                 int parseInt3 = Integer.parseInt(split[3]);
-                Preconditions.checkArgument(parseInt2 > parseInt);
-                Preconditions.checkArgument(parseInt3 > parseInt2);
+                if (parseInt2 > parseInt) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                Preconditions.checkArgument(z2);
+                if (parseInt3 > parseInt2) {
+                    z3 = true;
+                } else {
+                    z3 = false;
+                }
+                Preconditions.checkArgument(z3);
                 if (parseInt2 < parseInt3 - 1) {
                     return new BytesRange(parseInt, parseInt2);
                 }
@@ -83,59 +164,30 @@ public class BytesRange {
         return (BytesRange) invokeL.objValue;
     }
 
-    public static BytesRange toMax(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            Preconditions.checkArgument(i > 0);
-            return new BytesRange(0, i);
-        }
-        return (BytesRange) invokeI.objValue;
-    }
-
-    public static String valueOrEmpty(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? i == Integer.MAX_VALUE ? "" : Integer.toString(i) : (String) invokeI.objValue;
-    }
-
-    public boolean contains(@Nullable BytesRange bytesRange) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bytesRange)) == null) ? bytesRange != null && this.from <= bytesRange.from && this.to >= bytesRange.to : invokeL.booleanValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (obj == this) {
-                return true;
-            }
-            if (obj instanceof BytesRange) {
-                BytesRange bytesRange = (BytesRange) obj;
-                return this.from == bytesRange.from && this.to == bytesRange.to;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? HashCodeUtil.hashCode(this.from, this.to) : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return HashCodeUtil.hashCode(this.from, this.to);
+        }
+        return invokeV.intValue;
     }
 
     public String toHttpRangeHeaderValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? String.format(null, "bytes=%s-%s", valueOrEmpty(this.from), valueOrEmpty(this.to)) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return String.format(null, "bytes=%s-%s", valueOrEmpty(this.from), valueOrEmpty(this.to));
+        }
+        return (String) invokeV.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? String.format(null, "%s-%s", valueOrEmpty(this.from), valueOrEmpty(this.to)) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return String.format(null, "%s-%s", valueOrEmpty(this.from), valueOrEmpty(this.to));
+        }
+        return (String) invokeV.objValue;
     }
 }

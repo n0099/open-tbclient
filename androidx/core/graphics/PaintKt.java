@@ -14,6 +14,9 @@ public final class PaintKt {
     public static final boolean setBlendMode(Paint paint, BlendModeCompat blendModeCompat) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, paint, blendModeCompat)) == null) ? PaintCompat.setBlendMode(paint, blendModeCompat) : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, paint, blendModeCompat)) == null) {
+            return PaintCompat.setBlendMode(paint, blendModeCompat);
+        }
+        return invokeLL.booleanValue;
     }
 }

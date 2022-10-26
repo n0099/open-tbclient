@@ -9,9 +9,6 @@ import android.graphics.RadialGradient;
 import android.graphics.RectF;
 import android.graphics.Region;
 import android.graphics.Shader;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.core.graphics.ColorUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,7 +18,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class ShadowRenderer {
     public static /* synthetic */ Interceptable $ic = null;
@@ -33,14 +29,11 @@ public class ShadowRenderer {
     public static final int[] edgeColors;
     public static final float[] edgePositions;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
     public final Paint cornerShadowPaint;
-    @NonNull
     public final Paint edgeShadowPaint;
     public final Path scratch;
     public int shadowEndColor;
     public int shadowMiddleColor;
-    @NonNull
     public final Paint shadowPaint;
     public int shadowStartColor;
     public Paint transparentPaint;
@@ -82,10 +75,50 @@ public class ShadowRenderer {
         }
     }
 
-    public void drawCornerShadow(@NonNull Canvas canvas, @Nullable Matrix matrix, @NonNull RectF rectF, int i, float f, float f2) {
+    public Paint getShadowPaint() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.shadowPaint;
+        }
+        return (Paint) invokeV.objValue;
+    }
+
+    public ShadowRenderer(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.scratch = new Path();
+        this.transparentPaint = new Paint();
+        this.shadowPaint = new Paint();
+        setShadowColor(i);
+        this.transparentPaint.setColor(0);
+        Paint paint = new Paint(4);
+        this.cornerShadowPaint = paint;
+        paint.setStyle(Paint.Style.FILL);
+        this.edgeShadowPaint = new Paint(this.cornerShadowPaint);
+    }
+
+    public void drawCornerShadow(Canvas canvas, Matrix matrix, RectF rectF, int i, float f, float f2) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, matrix, rectF, Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            boolean z = f2 < 0.0f;
+            if (f2 < 0.0f) {
+                z = true;
+            } else {
+                z = false;
+            }
             Path path = this.scratch;
             if (z) {
                 int[] iArr = cornerColors;
@@ -126,7 +159,7 @@ public class ShadowRenderer {
         }
     }
 
-    public void drawEdgeShadow(@NonNull Canvas canvas, @Nullable Matrix matrix, @NonNull RectF rectF, int i) {
+    public void drawEdgeShadow(Canvas canvas, Matrix matrix, RectF rectF, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, matrix, rectF, i) == null) {
             rectF.bottom += i;
@@ -145,13 +178,6 @@ public class ShadowRenderer {
         }
     }
 
-    @NonNull
-    public Paint getShadowPaint() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.shadowPaint : (Paint) invokeV.objValue;
-    }
-
     public void setShadowColor(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
@@ -160,31 +186,5 @@ public class ShadowRenderer {
             this.shadowEndColor = ColorUtils.setAlphaComponent(i, 0);
             this.shadowPaint.setColor(this.shadowStartColor);
         }
-    }
-
-    public ShadowRenderer(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.scratch = new Path();
-        this.transparentPaint = new Paint();
-        this.shadowPaint = new Paint();
-        setShadowColor(i);
-        this.transparentPaint.setColor(0);
-        Paint paint = new Paint(4);
-        this.cornerShadowPaint = paint;
-        paint.setStyle(Paint.Style.FILL);
-        this.edgeShadowPaint = new Paint(this.cornerShadowPaint);
     }
 }

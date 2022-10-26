@@ -31,7 +31,13 @@ public final class ThemeCardInUser extends Message {
     public final Long propsId;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<ThemeCardInUser> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String coordinate;
@@ -87,14 +93,11 @@ public final class ThemeCardInUser extends Message {
         public ThemeCardInUser build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new ThemeCardInUser(this, z, null) : (ThemeCardInUser) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new ThemeCardInUser(this, z, null);
+            }
+            return (ThemeCardInUser) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -112,10 +115,6 @@ public final class ThemeCardInUser extends Message {
         }
         DEFAULT_PROPSID = 0L;
         DEFAULT_LEVEL = 0;
-    }
-
-    public /* synthetic */ ThemeCardInUser(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -175,5 +174,9 @@ public final class ThemeCardInUser extends Message {
         this.coordinate = builder.coordinate;
         this.imgAndroid = builder.imgAndroid;
         this.level = builder.level;
+    }
+
+    public /* synthetic */ ThemeCardInUser(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

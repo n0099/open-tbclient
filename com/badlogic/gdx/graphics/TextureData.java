@@ -15,10 +15,31 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public interface TextureData {
+    boolean a();
+
+    void b(int i);
+
+    Pixmap c();
+
+    Pixmap.Format d();
+
+    boolean f();
+
+    boolean g();
+
+    int getHeight();
+
+    TextureDataType getType();
+
+    int getWidth();
+
+    boolean isPrepared();
+
+    void prepare();
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class TextureDataType {
+    public final class TextureDataType {
         public static final /* synthetic */ TextureDataType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final TextureDataType Custom;
@@ -66,18 +87,24 @@ public interface TextureData {
         public static TextureDataType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (TextureDataType) Enum.valueOf(TextureDataType.class, str) : (TextureDataType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (TextureDataType) Enum.valueOf(TextureDataType.class, str);
+            }
+            return (TextureDataType) invokeL.objValue;
         }
 
         public static TextureDataType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TextureDataType[]) $VALUES.clone() : (TextureDataType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (TextureDataType[]) $VALUES.clone();
+            }
+            return (TextureDataType[]) invokeV.objValue;
         }
     }
 
     /* loaded from: classes.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -102,26 +129,4 @@ public interface TextureData {
             return (TextureData) invokeLLZ.objValue;
         }
     }
-
-    boolean a();
-
-    void b(int i);
-
-    Pixmap c();
-
-    Pixmap.Format d();
-
-    boolean f();
-
-    boolean g();
-
-    int getHeight();
-
-    TextureDataType getType();
-
-    int getWidth();
-
-    boolean isPrepared();
-
-    void prepare();
 }

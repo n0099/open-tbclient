@@ -7,22 +7,22 @@ import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public final class a implements AdHttpProxy {
     @Override // com.kwad.sdk.export.proxy.AdHttpProxy
-    public final c doGet(String str, Map<String, String> map) {
+    public final c doGet(String str, Map map) {
         return com.kwad.sdk.core.network.kwai.a.doGet(str, map);
     }
 
     @Override // com.kwad.sdk.export.proxy.AdHttpProxy
-    public final c doGetWithoutResponse(String str, Map<String, String> map) {
+    public final c doGetWithoutResponse(String str, Map map) {
         return com.kwad.sdk.core.network.kwai.a.a(str, map, false);
     }
 
     @Override // com.kwad.sdk.export.proxy.AdHttpProxy
-    public final c doPost(String str, Map<String, String> map, Map<String, String> map2) {
+    public final c doPost(String str, Map map, Map map2) {
         return com.kwad.sdk.core.network.kwai.a.doPost(str, map, map2);
     }
 
     @Override // com.kwad.sdk.export.proxy.AdHttpProxy
-    public final c doPost(String str, Map<String, String> map, JSONObject jSONObject) {
+    public final c doPost(String str, Map map, JSONObject jSONObject) {
         return com.kwad.sdk.core.network.kwai.a.doPost(str, map, jSONObject);
     }
 }

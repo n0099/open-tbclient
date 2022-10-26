@@ -37,7 +37,10 @@ public class LiveActivityHelper {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
             if (activity != null) {
                 String className = activity.getComponentName().getClassName();
-                return MEDIA_ACTIVITY_NAME.equals(className) || MIX_ACTIVITY_NAME.equals(className) || MIX_TRANSLUCENT_ACTIVITY_NAME.equals(className);
+                if (MEDIA_ACTIVITY_NAME.equals(className) || MIX_ACTIVITY_NAME.equals(className) || MIX_TRANSLUCENT_ACTIVITY_NAME.equals(className)) {
+                    return true;
+                }
+                return false;
             }
             return false;
         }
@@ -46,11 +49,14 @@ public class LiveActivityHelper {
 
     public static boolean isOnlyOneLiveActivity() {
         InterceptResult invokeV;
-        List<Activity> allActivity;
+        List allActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             LiveGetHostActivitiesService liveGetHostActivitiesService = (LiveGetHostActivitiesService) ServiceManager.getService(LiveGetHostActivitiesService.Companion.getSERVICE_REFERENCE());
-            return (liveGetHostActivitiesService == null || (allActivity = liveGetHostActivitiesService.getAllActivity()) == null || allActivity.isEmpty() || allActivity.size() != 1 || !isLiveActivity(allActivity.get(0))) ? false : true;
+            if (liveGetHostActivitiesService == null || (allActivity = liveGetHostActivitiesService.getAllActivity()) == null || allActivity.isEmpty() || allActivity.size() != 1 || !isLiveActivity((Activity) allActivity.get(0))) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
     }

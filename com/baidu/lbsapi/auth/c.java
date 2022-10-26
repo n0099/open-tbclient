@@ -15,12 +15,12 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public HashMap<String, String> b;
-    public a<String> c;
+    public HashMap b;
+    public a c;
 
     /* loaded from: classes2.dex */
-    public interface a<Result> {
-        void a(Result result);
+    public interface a {
+        void a(Object obj);
     }
 
     public c(Context context) {
@@ -43,11 +43,11 @@ public class c {
         this.a = context;
     }
 
-    private HashMap<String, String> a(HashMap<String, String> hashMap) {
+    private HashMap a(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, hashMap)) == null) {
-            HashMap<String, String> hashMap2 = new HashMap<>();
+            HashMap hashMap2 = new HashMap();
             for (String str : hashMap.keySet()) {
                 String str2 = str.toString();
                 hashMap2.put(str2, hashMap.get(str2));
@@ -78,14 +78,14 @@ public class c {
                     e.printStackTrace();
                 }
             }
-            a<String> aVar = this.c;
+            a aVar = this.c;
             if (aVar != null) {
                 aVar.a(jSONObject.toString());
             }
         }
     }
 
-    public void a(HashMap<String, String> hashMap, a<String> aVar) {
+    public void a(HashMap hashMap, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, hashMap, aVar) == null) {
             this.b = a(hashMap);

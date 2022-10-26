@@ -1,6 +1,5 @@
 package com.airbnb.lottie.parser;
 
-import android.graphics.PointF;
 import androidx.appcompat.widget.SearchView;
 import com.airbnb.lottie.LottieComposition;
 import com.airbnb.lottie.model.animatable.AnimatableFloatValue;
@@ -15,24 +14,32 @@ public class RectangleShapeParser {
 
     public static RectangleShape parse(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {
         String str = null;
-        AnimatableValue<PointF, PointF> animatableValue = null;
+        AnimatableValue animatableValue = null;
         AnimatablePointValue animatablePointValue = null;
         AnimatableFloatValue animatableFloatValue = null;
         boolean z = false;
         while (jsonReader.hasNext()) {
             int selectName = jsonReader.selectName(NAMES);
-            if (selectName == 0) {
-                str = jsonReader.nextString();
-            } else if (selectName == 1) {
-                animatableValue = AnimatablePathValueParser.parseSplitPath(jsonReader, lottieComposition);
-            } else if (selectName == 2) {
-                animatablePointValue = AnimatableValueParser.parsePoint(jsonReader, lottieComposition);
-            } else if (selectName == 3) {
-                animatableFloatValue = AnimatableValueParser.parseFloat(jsonReader, lottieComposition);
-            } else if (selectName != 4) {
-                jsonReader.skipValue();
+            if (selectName != 0) {
+                if (selectName != 1) {
+                    if (selectName != 2) {
+                        if (selectName != 3) {
+                            if (selectName != 4) {
+                                jsonReader.skipValue();
+                            } else {
+                                z = jsonReader.nextBoolean();
+                            }
+                        } else {
+                            animatableFloatValue = AnimatableValueParser.parseFloat(jsonReader, lottieComposition);
+                        }
+                    } else {
+                        animatablePointValue = AnimatableValueParser.parsePoint(jsonReader, lottieComposition);
+                    }
+                } else {
+                    animatableValue = AnimatablePathValueParser.parseSplitPath(jsonReader, lottieComposition);
+                }
             } else {
-                z = jsonReader.nextBoolean();
+                str = jsonReader.nextString();
             }
         }
         return new RectangleShape(str, animatableValue, animatablePointValue, animatableFloatValue, z);

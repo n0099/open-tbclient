@@ -75,46 +75,6 @@ public class WDownLoadService extends Service {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, info)) == null) ? PendingIntent.getActivity(this, 0, M.a(info, getApplicationContext(), this.a), 134217728) : (PendingIntent) invokeL.objValue;
     }
 
-    public void a(Info info, String str, String str2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, info, str, str2, i) == null) {
-            if (Build.VERSION.SDK_INT >= 26) {
-                NotificationManager notificationManager = (NotificationManager) getSystemService(ActionJsonData.TAG_NOTIFICATION);
-                if (Build.VERSION.SDK_INT >= 26) {
-                    notificationManager.createNotificationChannel(new NotificationChannel("win_download_id", "win_download", 2));
-                    NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), "win_download_id");
-                    builder.setChannelId("win_download_id").setContentTitle(str).setSmallIcon(R.drawable.obfuscated_res_0x7f0812af).setTicker(str).setContentText(str2).build();
-                    if (i <= 0 || i > 100) {
-                        builder.setProgress(0, 0, false);
-                        builder.setContentText(str2);
-                    } else {
-                        builder.setProgress(100, i, false);
-                    }
-                    builder.setContentIntent(i >= 100 ? a(info) : PendingIntent.getActivity(this, 0, new Intent(), 134217728));
-                    notificationManager.notify(232, builder.build());
-                    return;
-                }
-                return;
-            }
-            NotificationCompat.Builder builder2 = new NotificationCompat.Builder(this);
-            builder2.setSmallIcon(R.drawable.obfuscated_res_0x7f0812af);
-            builder2.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.obfuscated_res_0x7f0812af));
-            builder2.setContentTitle(str);
-            if (i <= 0 || i >= 100) {
-                builder2.setProgress(0, 0, false);
-                builder2.setContentText(str2);
-            } else {
-                builder2.setProgress(100, i, false);
-            }
-            builder2.setWhen(System.currentTimeMillis());
-            builder2.setTicker(str);
-            builder2.setContentIntent(i >= 100 ? a(info) : PendingIntent.getActivity(this, 0, new Intent(), 134217728));
-            Notification build = builder2.build();
-            this.e = build;
-            this.d.notify(232, build);
-        }
-    }
-
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -132,6 +92,108 @@ public class WDownLoadService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, info) == null) {
             new Handler().postDelayed(new V(this, info), 400L);
+        }
+    }
+
+    @Override // android.app.Service
+    public IBinder onBind(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, intent)) == null) {
+            return null;
+        }
+        return (IBinder) invokeL.objValue;
+    }
+
+    @Override // android.app.Service
+    public void onCreate() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.d = (NotificationManager) getSystemService(ActionJsonData.TAG_NOTIFICATION);
+        }
+    }
+
+    @Override // android.app.Service
+    public int onStartCommand(Intent intent, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, intent, i, i2)) == null) {
+            Info info = null;
+            try {
+                this.b = intent.getStringExtra("down_load_apk_url");
+                this.c = intent.getStringExtra("down_load_pkg_name");
+                this.a = M.a(getApplicationContext()) + File.separator + "win" + File.separator + M.e(this.b);
+                File parentFile = new File(this.a).getParentFile();
+                if (!parentFile.exists()) {
+                    parentFile.mkdirs();
+                }
+                try {
+                    info = (Info) Z1.b(getApplicationContext(), this.c);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                a(info, info != null ? info.getDl_name() : getString(R.string.obfuscated_res_0x7f0f15f0), getString(R.string.obfuscated_res_0x7f0f15f0), 0);
+                c(info);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                if (info != null) {
+                    e1.a(getApplicationContext()).c(new f1(info), 3).a("desc", e2.getMessage()).a();
+                }
+            }
+            return super.onStartCommand(intent, i, i2);
+        }
+        return invokeLII.intValue;
+    }
+
+    public void a(Info info, String str, String str2, int i) {
+        PendingIntent activity;
+        PendingIntent activity2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, info, str, str2, i) == null) {
+            if (Build.VERSION.SDK_INT >= 26) {
+                NotificationManager notificationManager = (NotificationManager) getSystemService(ActionJsonData.TAG_NOTIFICATION);
+                if (Build.VERSION.SDK_INT >= 26) {
+                    notificationManager.createNotificationChannel(new NotificationChannel("win_download_id", "win_download", 2));
+                    NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), "win_download_id");
+                    builder.setChannelId("win_download_id").setContentTitle(str).setSmallIcon(R.drawable.obfuscated_res_0x7f0812c1).setTicker(str).setContentText(str2).build();
+                    if (i > 0 && i <= 100) {
+                        builder.setProgress(100, i, false);
+                    } else {
+                        builder.setProgress(0, 0, false);
+                        builder.setContentText(str2);
+                    }
+                    if (i >= 100) {
+                        activity2 = a(info);
+                    } else {
+                        activity2 = PendingIntent.getActivity(this, 0, new Intent(), 134217728);
+                    }
+                    builder.setContentIntent(activity2);
+                    notificationManager.notify(232, builder.build());
+                    return;
+                }
+                return;
+            }
+            NotificationCompat.Builder builder2 = new NotificationCompat.Builder(this);
+            builder2.setSmallIcon(R.drawable.obfuscated_res_0x7f0812c1);
+            builder2.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.obfuscated_res_0x7f0812c1));
+            builder2.setContentTitle(str);
+            if (i > 0 && i < 100) {
+                builder2.setProgress(100, i, false);
+            } else {
+                builder2.setProgress(0, 0, false);
+                builder2.setContentText(str2);
+            }
+            builder2.setWhen(System.currentTimeMillis());
+            builder2.setTicker(str);
+            if (i >= 100) {
+                activity = a(info);
+            } else {
+                activity = PendingIntent.getActivity(this, 0, new Intent(), 134217728);
+            }
+            builder2.setContentIntent(activity);
+            Notification build = builder2.build();
+            this.e = build;
+            this.d.notify(232, build);
         }
     }
 
@@ -164,42 +226,23 @@ public class WDownLoadService extends Service {
             String str3 = this.b;
             String str4 = this.a;
             U u = new U(this, info);
-            if (n.c) {
-                return;
-            }
-            File file = new File(str4.substring(0, str4.lastIndexOf("/") + 1));
-            File file2 = new File(str4);
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            if (!file2.exists()) {
-                try {
-                    file2.createNewFile();
-                } catch (IOException e2) {
-                    e2.printStackTrace();
+            if (!n.c) {
+                File file = new File(str4.substring(0, str4.lastIndexOf("/") + 1));
+                File file2 = new File(str4);
+                if (!file.exists()) {
+                    file.mkdirs();
                 }
+                if (!file2.exists()) {
+                    try {
+                        file2.createNewFile();
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
+                    }
+                }
+                S s = new S(str3, str4, u);
+                n.b = s;
+                new WeakReference(n.a.submit(s));
             }
-            S s = new S(str3, str4, u);
-            n.b = s;
-            new WeakReference(n.a.submit(s));
-        }
-    }
-
-    @Override // android.app.Service
-    public IBinder onBind(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, intent)) == null) {
-            return null;
-        }
-        return (IBinder) invokeL.objValue;
-    }
-
-    @Override // android.app.Service
-    public void onCreate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.d = (NotificationManager) getSystemService(ActionJsonData.TAG_NOTIFICATION);
         }
     }
 
@@ -217,37 +260,5 @@ public class WDownLoadService extends Service {
                 e.printStackTrace();
             }
         }
-    }
-
-    @Override // android.app.Service
-    public int onStartCommand(Intent intent, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, intent, i, i2)) == null) {
-            Info info = null;
-            try {
-                this.b = intent.getStringExtra("down_load_apk_url");
-                this.c = intent.getStringExtra("down_load_pkg_name");
-                this.a = M.a(getApplicationContext()) + File.separator + "win" + File.separator + M.e(this.b);
-                File parentFile = new File(this.a).getParentFile();
-                if (!parentFile.exists()) {
-                    parentFile.mkdirs();
-                }
-                try {
-                    info = (Info) Z1.b(getApplicationContext(), this.c);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                a(info, info != null ? info.getDl_name() : getString(R.string.obfuscated_res_0x7f0f15d6), getString(R.string.obfuscated_res_0x7f0f15d6), 0);
-                c(info);
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                if (info != null) {
-                    e1.a(getApplicationContext()).c(new f1(info), 3).a("desc", e2.getMessage()).a();
-                }
-            }
-            return super.onStartCommand(intent, i, i2);
-        }
-        return invokeLII.intValue;
     }
 }

@@ -28,6 +28,13 @@ public final class VideoTagPayloadReader extends TagPayloadReader {
     public final ParsableByteArray nalStartCode;
     public int nalUnitLengthFieldLength;
 
+    @Override // com.google.android.exoplayer2.extractor.flv.TagPayloadReader
+    public void seek() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoTagPayloadReader(TrackOutput trackOutput) {
         super(trackOutput);
@@ -60,7 +67,10 @@ public final class VideoTagPayloadReader extends TagPayloadReader {
             int i2 = readUnsignedByte & 15;
             if (i2 == 7) {
                 this.frameType = i;
-                return i != 5;
+                if (i != 5) {
+                    return true;
+                }
+                return false;
             }
             throw new TagPayloadReader.UnsupportedFormatException("Video format not supported: " + i2);
         }
@@ -69,6 +79,7 @@ public final class VideoTagPayloadReader extends TagPayloadReader {
 
     @Override // com.google.android.exoplayer2.extractor.flv.TagPayloadReader
     public void parsePayload(ParsableByteArray parsableByteArray, long j) throws ParserException {
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parsableByteArray, j) == null) {
             int readUnsignedByte = parsableByteArray.readUnsignedByte();
@@ -85,26 +96,25 @@ public final class VideoTagPayloadReader extends TagPayloadReader {
                 bArr[0] = 0;
                 bArr[1] = 0;
                 bArr[2] = 0;
-                int i = 4 - this.nalUnitLengthFieldLength;
-                int i2 = 0;
+                int i2 = 4 - this.nalUnitLengthFieldLength;
+                int i3 = 0;
                 while (parsableByteArray.bytesLeft() > 0) {
-                    parsableByteArray.readBytes(this.nalLength.data, i, this.nalUnitLengthFieldLength);
+                    parsableByteArray.readBytes(this.nalLength.data, i2, this.nalUnitLengthFieldLength);
                     this.nalLength.setPosition(0);
                     int readUnsignedIntToInt = this.nalLength.readUnsignedIntToInt();
                     this.nalStartCode.setPosition(0);
                     this.output.sampleData(this.nalStartCode, 4);
                     this.output.sampleData(parsableByteArray, readUnsignedIntToInt);
-                    i2 = i2 + 4 + readUnsignedIntToInt;
+                    i3 = i3 + 4 + readUnsignedIntToInt;
                 }
-                this.output.sampleMetadata(readInt24, this.frameType == 1 ? 1 : 0, i2, 0, null);
+                TrackOutput trackOutput = this.output;
+                if (this.frameType == 1) {
+                    i = 1;
+                } else {
+                    i = 0;
+                }
+                trackOutput.sampleMetadata(readInt24, i, i3, 0, null);
             }
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.flv.TagPayloadReader
-    public void seek() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 }

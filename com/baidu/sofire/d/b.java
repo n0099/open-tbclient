@@ -31,133 +31,14 @@ import java.util.Set;
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static Context a;
-    public static Map<Integer, com.baidu.sofire.d.a> b;
-    public static Map<Integer, List<String>> c;
-    public static List<String> d;
+    public static Map b;
+    public static Map c;
+    public static List d;
     public static com.baidu.sofire.d.a e;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2074050355, "Lcom/baidu/sofire/d/b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(2074050355, "Lcom/baidu/sofire/d/b;");
-                return;
-            }
-        }
-        b = new HashMap();
-        c = new HashMap();
-        d = new ArrayList();
-        e = new a();
-    }
-
-    public b() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static Bundle a(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle)) == null) {
-            try {
-                String string = bundle.getString("bundle_key_method_name");
-                String string2 = bundle.getString("bundle_key_plugin_package_name");
-                if (!TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string)) {
-                    k kVar = k.f;
-                    if (kVar == null) {
-                        return a(-102);
-                    }
-                    ApkInfo b2 = kVar.b(string2);
-                    d dVar = d.d;
-                    if (dVar == null) {
-                        return a(-105);
-                    }
-                    Pair<Integer, Object> a2 = dVar.a(b2.key, string, new Class[]{Bundle.class}, bundle);
-                    if (((Integer) a2.first).intValue() == 0) {
-                        Object obj = a2.second;
-                        if (obj instanceof Bundle) {
-                            Bundle bundle2 = (Bundle) obj;
-                            bundle2.putInt("bundle_key_error_code", 0);
-                            return bundle2;
-                        }
-                        return a(-103);
-                    }
-                    return a(((Integer) a2.first).intValue());
-                }
-                return a(-101);
-            } catch (Throwable unused) {
-                int i = com.baidu.sofire.a.b.a;
-                try {
-                    return a(-100);
-                } catch (Throwable unused2) {
-                    int i2 = com.baidu.sofire.a.b.a;
-                    return null;
-                }
-            }
-        }
-        return (Bundle) invokeL.objValue;
-    }
-
-    public static Bundle a(String str, Bundle bundle) {
-        InterceptResult invokeLL;
-        IBinder iBinder;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, bundle)) == null) {
-            if (!TextUtils.isEmpty(str) && str.contains("register_sub_process")) {
-                try {
-                    bundle.setClassLoader(b.class.getClassLoader());
-                    int i = bundle.getInt("bundle_key_pid");
-                    BinderHolder binderHolder = (BinderHolder) bundle.getParcelable("bundle_key_binder_holder");
-                    if (i > 0 && binderHolder != null && (iBinder = binderHolder.a) != null) {
-                        b.put(Integer.valueOf(i), a.AbstractBinderC0156a.a(iBinder));
-                        if (d.size() <= 0) {
-                            return a(0);
-                        }
-                        d dVar = d.d;
-                        k kVar = k.f;
-                        if (dVar != null && kVar != null) {
-                            for (String str2 : d) {
-                                ApkInfo b2 = kVar.b(str2);
-                                if (b2 == null) {
-                                    return a(0);
-                                }
-                                dVar.a(b2.key, "notifyNewSubProcess", new Class[]{Integer.TYPE}, Integer.valueOf(i));
-                            }
-                            return a(0);
-                        }
-                        return a(0);
-                    }
-                    return a(-101);
-                } catch (Throwable unused) {
-                    int i2 = com.baidu.sofire.a.b.a;
-                    return null;
-                }
-            } else if (!TextUtils.isEmpty(str) && str.contains("call_main_plugin")) {
-                return a(bundle);
-            } else {
-                return a(-300);
-            }
-        }
-        return (Bundle) invokeLL.objValue;
-    }
-
     /* loaded from: classes2.dex */
-    public static class a extends a.AbstractBinderC0156a {
+    public final class a extends a.AbstractBinderC0157a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -230,13 +111,6 @@ public class b {
         }
 
         @Override // com.baidu.sofire.d.a
-        public Bundle b(Bundle bundle) throws RemoteException {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle)) == null) ? b.a(bundle) : (Bundle) invokeL.objValue;
-        }
-
-        @Override // com.baidu.sofire.d.a
         public Bundle a(String str) throws RemoteException {
             Bundle a;
             InterceptResult invokeL;
@@ -274,6 +148,100 @@ public class b {
             }
             return (Bundle) invokeL.objValue;
         }
+
+        @Override // com.baidu.sofire.d.a
+        public Bundle b(Bundle bundle) throws RemoteException {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle)) == null) {
+                return b.a(bundle);
+            }
+            return (Bundle) invokeL.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2074050355, "Lcom/baidu/sofire/d/b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(2074050355, "Lcom/baidu/sofire/d/b;");
+                return;
+            }
+        }
+        b = new HashMap();
+        c = new HashMap();
+        d = new ArrayList();
+        e = new a();
+    }
+
+    public b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static int a(int i, String str, boolean z) {
+        InterceptResult invokeCommon;
+        int i2;
+        Map map;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)})) == null) {
+            try {
+                if (TextUtils.isEmpty(str)) {
+                    return -201;
+                }
+                Map map2 = b;
+                if (map2 == null) {
+                    return -200;
+                }
+                com.baidu.sofire.d.a aVar = (com.baidu.sofire.d.a) map2.get(Integer.valueOf(i));
+                if (aVar == null) {
+                    return -202;
+                }
+                Bundle bundle = new Bundle();
+                if (z) {
+                    i2 = 1;
+                } else {
+                    i2 = 2;
+                }
+                bundle.putInt("bundle_key_ctrl_action", i2);
+                bundle.putString("bundle_key_plugin_package_name", str);
+                int i3 = aVar.a(bundle).getInt("bundle_key_error_code", -200);
+                if (i3 == 0 && (map = c) != null) {
+                    List list = (List) map.get(Integer.valueOf(i));
+                    if (list == null) {
+                        list = new ArrayList();
+                        c.put(Integer.valueOf(i), list);
+                    }
+                    if (z && !list.contains(str)) {
+                        list.add(str);
+                    } else if (!z && list.contains(str)) {
+                        list.remove(str);
+                    }
+                }
+                return i3;
+            } catch (RemoteException unused) {
+                int i4 = com.baidu.sofire.a.b.a;
+                return -203;
+            } catch (Throwable unused2) {
+                int i5 = com.baidu.sofire.a.b.a;
+                return -200;
+            }
+        }
+        return invokeCommon.intValue;
     }
 
     public static Bundle a(int i) {
@@ -287,87 +255,129 @@ public class b {
         return (Bundle) invokeI.objValue;
     }
 
-    public static int a(int i, String str, boolean z) {
-        InterceptResult invokeCommon;
-        Map<Integer, List<String>> map;
+    public static Bundle a(Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle)) == null) {
             try {
-                if (TextUtils.isEmpty(str)) {
-                    return -201;
-                }
-                Map<Integer, com.baidu.sofire.d.a> map2 = b;
-                if (map2 == null) {
-                    return -200;
-                }
-                com.baidu.sofire.d.a aVar = map2.get(Integer.valueOf(i));
-                if (aVar == null) {
-                    return -202;
-                }
-                Bundle bundle = new Bundle();
-                bundle.putInt("bundle_key_ctrl_action", z ? 1 : 2);
-                bundle.putString("bundle_key_plugin_package_name", str);
-                int i2 = aVar.a(bundle).getInt("bundle_key_error_code", -200);
-                if (i2 == 0 && (map = c) != null) {
-                    List<String> list = map.get(Integer.valueOf(i));
-                    if (list == null) {
-                        list = new ArrayList<>();
-                        c.put(Integer.valueOf(i), list);
+                String string = bundle.getString("bundle_key_method_name");
+                String string2 = bundle.getString("bundle_key_plugin_package_name");
+                if (!TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string)) {
+                    k kVar = k.f;
+                    if (kVar == null) {
+                        return a(-102);
                     }
-                    if (z && !list.contains(str)) {
-                        list.add(str);
-                    } else if (!z && list.contains(str)) {
-                        list.remove(str);
+                    ApkInfo b2 = kVar.b(string2);
+                    d dVar = d.d;
+                    if (dVar == null) {
+                        return a(-105);
                     }
+                    Pair a2 = dVar.a(b2.key, string, new Class[]{Bundle.class}, bundle);
+                    if (((Integer) a2.first).intValue() == 0) {
+                        Object obj = a2.second;
+                        if (obj instanceof Bundle) {
+                            Bundle bundle2 = (Bundle) obj;
+                            bundle2.putInt("bundle_key_error_code", 0);
+                            return bundle2;
+                        }
+                        return a(-103);
+                    }
+                    return a(((Integer) a2.first).intValue());
                 }
-                return i2;
-            } catch (RemoteException unused) {
-                int i3 = com.baidu.sofire.a.b.a;
-                return -203;
-            } catch (Throwable unused2) {
-                int i4 = com.baidu.sofire.a.b.a;
-                return -200;
+                return a(-101);
+            } catch (Throwable unused) {
+                int i = com.baidu.sofire.a.b.a;
+                try {
+                    return a(-100);
+                } catch (Throwable unused2) {
+                    int i2 = com.baidu.sofire.a.b.a;
+                    return null;
+                }
             }
         }
-        return invokeCommon.intValue;
+        return (Bundle) invokeL.objValue;
+    }
+
+    public static Bundle a(String str, Bundle bundle) {
+        InterceptResult invokeLL;
+        IBinder iBinder;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, bundle)) == null) {
+            if (!TextUtils.isEmpty(str) && str.contains("register_sub_process")) {
+                try {
+                    bundle.setClassLoader(b.class.getClassLoader());
+                    int i = bundle.getInt("bundle_key_pid");
+                    BinderHolder binderHolder = (BinderHolder) bundle.getParcelable("bundle_key_binder_holder");
+                    if (i > 0 && binderHolder != null && (iBinder = binderHolder.a) != null) {
+                        b.put(Integer.valueOf(i), a.AbstractBinderC0157a.a(iBinder));
+                        if (d.size() <= 0) {
+                            return a(0);
+                        }
+                        d dVar = d.d;
+                        k kVar = k.f;
+                        if (dVar != null && kVar != null) {
+                            for (String str2 : d) {
+                                ApkInfo b2 = kVar.b(str2);
+                                if (b2 == null) {
+                                    return a(0);
+                                }
+                                dVar.a(b2.key, "notifyNewSubProcess", new Class[]{Integer.TYPE}, Integer.valueOf(i));
+                            }
+                            return a(0);
+                        }
+                        return a(0);
+                    }
+                    return a(-101);
+                } catch (Throwable unused) {
+                    int i2 = com.baidu.sofire.a.b.a;
+                    return null;
+                }
+            } else if (!TextUtils.isEmpty(str) && str.contains("call_main_plugin")) {
+                return a(bundle);
+            } else {
+                return a(-300);
+            }
+        }
+        return (Bundle) invokeLL.objValue;
+    }
+
+    public static void a(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65542, null, context) != null) || context == null) {
+            return;
+        }
+        try {
+            if (!com.baidu.sofire.k.a.a(context, "ampf")) {
+                return;
+            }
+            a = context.getApplicationContext();
+            Bundle bundle = new Bundle();
+            bundle.putInt("bundle_key_pid", Process.myPid());
+            bundle.putParcelable("bundle_key_binder_holder", new BinderHolder(e.asBinder()));
+            o.a(context, "sub_process_register_sub_process", bundle, "sofire");
+        } catch (Throwable unused) {
+            int i = com.baidu.sofire.a.b.a;
+        }
     }
 
     public static void a(String str) {
-        Set<Map.Entry<Integer, List<String>>> entrySet;
+        Set<Map.Entry> entrySet;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
             try {
-                Map<Integer, List<String>> map = c;
+                Map map = c;
                 if (map == null || (entrySet = map.entrySet()) == null) {
                     return;
                 }
-                for (Map.Entry<Integer, List<String>> entry : entrySet) {
-                    List<String> value = entry.getValue();
-                    if (value != null && value.contains(str)) {
-                        a(entry.getKey().intValue(), str, false);
+                for (Map.Entry entry : entrySet) {
+                    List list = (List) entry.getValue();
+                    if (list != null && list.contains(str)) {
+                        a(((Integer) entry.getKey()).intValue(), str, false);
                     }
                 }
             } catch (Throwable unused) {
                 int i = com.baidu.sofire.a.b.a;
             }
-        }
-    }
-
-    public static void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, null, context) == null) || context == null) {
-            return;
-        }
-        try {
-            if (com.baidu.sofire.k.a.a(context, "ampf")) {
-                a = context.getApplicationContext();
-                Bundle bundle = new Bundle();
-                bundle.putInt("bundle_key_pid", Process.myPid());
-                bundle.putParcelable("bundle_key_binder_holder", new BinderHolder(e.asBinder()));
-                o.a(context, "sub_process_register_sub_process", bundle, "sofire");
-            }
-        } catch (Throwable unused) {
-            int i = com.baidu.sofire.a.b.a;
         }
     }
 }

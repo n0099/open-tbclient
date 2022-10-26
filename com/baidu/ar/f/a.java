@@ -21,10 +21,10 @@ public class a implements SensorEventListener {
     public Sensor vS;
     public InterfaceC0057a vT;
     public boolean vU;
-    public LinkedList<Double> vV;
-    public LinkedList<Float> vW;
-    public LinkedList<Float> vX;
-    public LinkedList<Float> vY;
+    public LinkedList vV;
+    public LinkedList vW;
+    public LinkedList vX;
+    public LinkedList vY;
     public int vZ;
     public double wa;
     public boolean wb;
@@ -54,10 +54,10 @@ public class a implements SensorEventListener {
             }
         }
         this.vU = true;
-        this.vV = new LinkedList<>();
-        this.vW = new LinkedList<>();
-        this.vX = new LinkedList<>();
-        this.vY = new LinkedList<>();
+        this.vV = new LinkedList();
+        this.vW = new LinkedList();
+        this.vX = new LinkedList();
+        this.vY = new LinkedList();
         this.vZ = 10;
         this.wa = 0.0d;
         this.wb = true;
@@ -109,19 +109,19 @@ public class a implements SensorEventListener {
             }
             com.baidu.ar.h.b.aQ("max acc is : " + this.wa);
             a(this.vV, sqrt);
-            a((LinkedList) this.vW, Math.abs(f));
-            a((LinkedList) this.vX, Math.abs(f2));
-            a((LinkedList) this.vY, Math.abs(f3));
+            a(this.vW, Math.abs(f));
+            a(this.vX, Math.abs(f2));
+            a(this.vY, Math.abs(f3));
             if (this.vV.size() == this.vZ) {
                 float f4 = 0.0f;
                 double d = 0.0d;
                 float f5 = 0.0f;
                 float f6 = 0.0f;
                 for (int i = 0; i < this.vV.size(); i++) {
-                    d += this.vV.get(i).doubleValue();
-                    f4 += this.vW.get(i).floatValue();
-                    f5 += this.vX.get(i).floatValue();
-                    f6 += this.vY.get(i).floatValue();
+                    d += ((Double) this.vV.get(i)).doubleValue();
+                    f4 += ((Float) this.vW.get(i)).floatValue();
+                    f5 += ((Float) this.vX.get(i)).floatValue();
+                    f6 += ((Float) this.vY.get(i)).floatValue();
                 }
                 int i2 = this.vZ;
                 double d2 = d / i2;

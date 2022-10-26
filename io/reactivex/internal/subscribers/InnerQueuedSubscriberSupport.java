@@ -1,11 +1,11 @@
 package io.reactivex.internal.subscribers;
 /* loaded from: classes8.dex */
-public interface InnerQueuedSubscriberSupport<T> {
+public interface InnerQueuedSubscriberSupport {
     void drain();
 
-    void innerComplete(InnerQueuedSubscriber<T> innerQueuedSubscriber);
+    void innerComplete(InnerQueuedSubscriber innerQueuedSubscriber);
 
-    void innerError(InnerQueuedSubscriber<T> innerQueuedSubscriber, Throwable th);
+    void innerError(InnerQueuedSubscriber innerQueuedSubscriber, Throwable th);
 
-    void innerNext(InnerQueuedSubscriber<T> innerQueuedSubscriber, T t);
+    void innerNext(InnerQueuedSubscriber innerQueuedSubscriber, Object obj);
 }

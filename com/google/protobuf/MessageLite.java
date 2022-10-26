@@ -41,7 +41,7 @@ public interface MessageLite extends MessageLiteOrBuilder {
         Builder mergeFrom(byte[] bArr, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException;
     }
 
-    Parser<? extends MessageLite> getParserForType();
+    Parser getParserForType();
 
     int getSerializedSize();
 

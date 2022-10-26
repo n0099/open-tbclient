@@ -59,6 +59,9 @@ public final class p {
     public static p[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (p[]) d.clone() : (p[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return (p[]) d.clone();
+        }
+        return (p[]) invokeV.objValue;
     }
 }

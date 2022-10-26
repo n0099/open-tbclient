@@ -14,7 +14,7 @@ public final class CancelledContinuation extends CompletedExceptionally {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public CancelledContinuation(Continuation<?> continuation, Throwable th, boolean z) {
+    public CancelledContinuation(Continuation continuation, Throwable th, boolean z) {
         super(th, z);
         if (th == null) {
             th = new CancellationException("Continuation " + continuation + " was cancelled normally");

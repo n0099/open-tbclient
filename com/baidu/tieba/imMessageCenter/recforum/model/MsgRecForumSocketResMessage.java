@@ -1,6 +1,5 @@
 package com.baidu.tieba.imMessageCenter.recforum.model;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,12 +12,11 @@ import tbclient.Error;
 import tbclient.GetMsgRecForumlist.DataRes;
 import tbclient.GetMsgRecForumlist.GetMsgRecForumlistResIdl;
 import tbclient.Page;
-import tbclient.RecommendForumInfo;
 /* loaded from: classes4.dex */
 public class MsgRecForumSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<RecommendForumInfo> forumList;
+    public List forumList;
     public Page pageInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -40,7 +38,6 @@ public class MsgRecForumSocketResMessage extends SocketResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;

@@ -171,7 +171,7 @@ public final class CommonUtils implements INoProGuard {
         }
     }
 
-    public static Map<String, Long> getSysMemoryInfo() {
+    public static Map getSysMemoryInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {

@@ -41,10 +41,9 @@ public class ResponseSearchFriendMessage extends JsonHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
-            if (getStatusCode() != 200 || jSONObject == null) {
-                return;
+            if (getStatusCode() == 200 && jSONObject != null) {
+                this.mSearchFriendResult = (SearchFriendResult) OrmObject.objectWithJson(jSONObject, SearchFriendResult.class);
             }
-            this.mSearchFriendResult = (SearchFriendResult) OrmObject.objectWithJson(jSONObject, SearchFriendResult.class);
         }
     }
 

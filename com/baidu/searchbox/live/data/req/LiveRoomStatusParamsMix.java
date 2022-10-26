@@ -20,28 +20,6 @@ public final class LiveRoomStatusParamsMix extends MixBaseParams {
     public transient /* synthetic */ FieldHolder $fh;
     public final String roomId;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LiveRoomStatusParamsMix(String str) {
-        super(null, null, 3, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.roomId = str;
-    }
-
     public static /* synthetic */ LiveRoomStatusParamsMix copy$default(LiveRoomStatusParamsMix liveRoomStatusParamsMix, String str, int i, Object obj) {
         if ((i & 1) != 0) {
             str = liveRoomStatusParamsMix.roomId;
@@ -73,12 +51,6 @@ public final class LiveRoomStatusParamsMix extends MixBaseParams {
         return invokeL.booleanValue;
     }
 
-    public final String getRoomId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.roomId : (String) invokeV.objValue;
-    }
-
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -97,6 +69,37 @@ public final class LiveRoomStatusParamsMix extends MixBaseParams {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return "LiveRoomStatusParamsMix(roomId=" + this.roomId + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public LiveRoomStatusParamsMix(String str) {
+        super(null, null, 3, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.roomId = str;
+    }
+
+    public final String getRoomId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.roomId;
         }
         return (String) invokeV.objValue;
     }

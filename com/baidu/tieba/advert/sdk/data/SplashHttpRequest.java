@@ -5,13 +5,14 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.mobstat.Config;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.util.AdExtParam;
-import com.baidu.tieba.hr5;
-import com.baidu.tieba.sq5;
+import com.baidu.tieba.or5;
+import com.baidu.tieba.zq5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -64,26 +65,25 @@ public class SplashHttpRequest extends HttpMessage {
                 return;
             }
         }
-        if (adInfo == null || context == null) {
-            return;
+        if (adInfo != null && context != null) {
+            addParam("pid", adInfo.placeId);
+            addParam("ver", or5.b(context));
+            addParam("cuid", TbadkCoreApplication.getInst().getCuid());
+            addParam(SearchJsBridge.COOKIE_MOD, zq5.c());
+            addParam("ot", 2);
+            addParam("ov", zq5.d());
+            addParam(CommandMessage.SDK_VERSION, "1.1.4");
+            addParam("nt", zq5.b(context).intValue());
+            addParam(Config.EXCEPTION_CRASH_TYPE, 2);
+            addParam(TbConfig.SW_APID, zq5.f(context).intValue());
+            addParam("sh", zq5.e(context).intValue());
+            addParam("imei", zq5.a(context));
+            addParam("fmt", "json");
+            addParam("adw", adInfo.adWidth);
+            addParam("adh", adInfo.adHeight);
+            addParam("ac", 1);
+            addParam("ad_ext_params", AdExtParam.a.b().a());
         }
-        addParam("pid", adInfo.placeId);
-        addParam("ver", hr5.b(context));
-        addParam("cuid", TbadkCoreApplication.getInst().getCuid());
-        addParam(SearchJsBridge.COOKIE_MOD, sq5.c());
-        addParam("ot", 2);
-        addParam("ov", sq5.d());
-        addParam(CommandMessage.SDK_VERSION, "1.1.4");
-        addParam("nt", sq5.b(context).intValue());
-        addParam(Config.EXCEPTION_CRASH_TYPE, 2);
-        addParam("sw", sq5.f(context).intValue());
-        addParam("sh", sq5.e(context).intValue());
-        addParam("imei", sq5.a(context));
-        addParam("fmt", "json");
-        addParam("adw", adInfo.adWidth);
-        addParam("adh", adInfo.adHeight);
-        addParam("ac", 1);
-        addParam("ad_ext_params", AdExtParam.a.b().a());
     }
 
     public static void sendRequest(SplashHttpRequest splashHttpRequest) {

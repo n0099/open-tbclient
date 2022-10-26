@@ -58,79 +58,19 @@ public class Ray implements Serializable {
     public Ray cpy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new Ray(this.origin, this.direction) : (Ray) invokeV.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (obj == this) {
-                return true;
-            }
-            if (obj == null || obj.getClass() != Ray.class) {
-                return false;
-            }
-            Ray ray = (Ray) obj;
-            return this.direction.equals(ray.direction) && this.origin.equals(ray.origin);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new Ray(this.origin, this.direction);
         }
-        return invokeL.booleanValue;
-    }
-
-    public Vector3 getEndPoint(Vector3 vector3, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, vector3, f)) == null) ? vector3.set(this.direction).m21scl(f).add(this.origin) : (Vector3) invokeLF.objValue;
+        return (Ray) invokeV.objValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ((this.direction.hashCode() + 73) * 73) + this.origin.hashCode() : invokeV.intValue;
-    }
-
-    public Ray mul(Matrix4 matrix4) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, matrix4)) == null) {
-            tmp.set(this.origin).add(this.direction);
-            tmp.mul(matrix4);
-            this.origin.mul(matrix4);
-            this.direction.set(tmp.sub(this.origin)).m20nor();
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return ((this.direction.hashCode() + 73) * 73) + this.origin.hashCode();
         }
-        return (Ray) invokeL.objValue;
-    }
-
-    public Ray set(Vector3 vector3, Vector3 vector32) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, vector3, vector32)) == null) {
-            this.origin.set(vector3);
-            this.direction.set(vector32).m20nor();
-            return this;
-        }
-        return (Ray) invokeLL.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "ray [" + this.origin + ":" + this.direction + PreferencesUtil.RIGHT_MOUNT;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public Ray set(float f, float f2, float f3, float f4, float f5, float f6) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)})) == null) {
-            this.origin.set(f, f2, f3);
-            this.direction.set(f4, f5, f6).m20nor();
-            return this;
-        }
-        return (Ray) invokeCommon.objValue;
+        return invokeV.intValue;
     }
 
     public Ray(Vector3 vector3, Vector3 vector32) {
@@ -154,6 +94,69 @@ public class Ray implements Serializable {
         this.direction.set(vector32).m20nor();
     }
 
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (obj == this) {
+                return true;
+            }
+            if (obj == null || obj.getClass() != Ray.class) {
+                return false;
+            }
+            Ray ray = (Ray) obj;
+            if (this.direction.equals(ray.direction) && this.origin.equals(ray.origin)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public Ray mul(Matrix4 matrix4) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, matrix4)) == null) {
+            tmp.set(this.origin).add(this.direction);
+            tmp.mul(matrix4);
+            this.origin.mul(matrix4);
+            this.direction.set(tmp.sub(this.origin)).m20nor();
+            return this;
+        }
+        return (Ray) invokeL.objValue;
+    }
+
+    public Vector3 getEndPoint(Vector3 vector3, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, vector3, f)) == null) {
+            return vector3.set(this.direction).m21scl(f).add(this.origin);
+        }
+        return (Vector3) invokeLF.objValue;
+    }
+
+    public Ray set(Vector3 vector3, Vector3 vector32) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, vector3, vector32)) == null) {
+            this.origin.set(vector3);
+            this.direction.set(vector32).m20nor();
+            return this;
+        }
+        return (Ray) invokeLL.objValue;
+    }
+
+    public Ray set(float f, float f2, float f3, float f4, float f5, float f6) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)})) == null) {
+            this.origin.set(f, f2, f3);
+            this.direction.set(f4, f5, f6).m20nor();
+            return this;
+        }
+        return (Ray) invokeCommon.objValue;
+    }
+
     public Ray set(Ray ray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -163,5 +166,14 @@ public class Ray implements Serializable {
             return this;
         }
         return (Ray) invokeL.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return "ray [" + this.origin + ":" + this.direction + PreferencesUtil.RIGHT_MOUNT;
+        }
+        return (String) invokeV.objValue;
     }
 }

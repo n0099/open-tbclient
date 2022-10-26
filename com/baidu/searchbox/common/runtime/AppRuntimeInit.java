@@ -10,6 +10,12 @@ public class AppRuntimeInit {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static void onApplicationCreate() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+        }
+    }
+
     public AppRuntimeInit() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -21,12 +27,6 @@ public class AppRuntimeInit {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    public static void onApplicationCreate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
         }
     }
 

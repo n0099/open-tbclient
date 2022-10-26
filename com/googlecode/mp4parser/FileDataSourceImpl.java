@@ -37,57 +37,6 @@ public class FileDataSourceImpl implements DataSource {
         this.fc = new FileInputStream(file).getChannel();
     }
 
-    @Override // com.googlecode.mp4parser.DataSource, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.fc.close();
-        }
-    }
-
-    @Override // com.googlecode.mp4parser.DataSource
-    public ByteBuffer map(long j, long j2) throws IOException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? this.fc.map(FileChannel.MapMode.READ_ONLY, j, j2) : (ByteBuffer) invokeCommon.objValue;
-    }
-
-    @Override // com.googlecode.mp4parser.DataSource
-    public long position() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.fc.position() : invokeV.longValue;
-    }
-
-    @Override // com.googlecode.mp4parser.DataSource
-    public int read(ByteBuffer byteBuffer) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, byteBuffer)) == null) ? this.fc.read(byteBuffer) : invokeL.intValue;
-    }
-
-    @Override // com.googlecode.mp4parser.DataSource
-    public long size() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.fc.size() : invokeV.longValue;
-    }
-
-    @Override // com.googlecode.mp4parser.DataSource
-    public long transferTo(long j, long j2, WritableByteChannel writableByteChannel) throws IOException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), writableByteChannel})) == null) ? this.fc.transferTo(j, j2, writableByteChannel) : invokeCommon.longValue;
-    }
-
-    @Override // com.googlecode.mp4parser.DataSource
-    public void position(long j) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.fc.position(j);
-        }
-    }
-
     public FileDataSourceImpl(String str) throws FileNotFoundException {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -122,5 +71,71 @@ public class FileDataSourceImpl implements DataSource {
             }
         }
         this.fc = fileChannel;
+    }
+
+    @Override // com.googlecode.mp4parser.DataSource
+    public void position(long j) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.fc.position(j);
+        }
+    }
+
+    @Override // com.googlecode.mp4parser.DataSource
+    public int read(ByteBuffer byteBuffer) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, byteBuffer)) == null) {
+            return this.fc.read(byteBuffer);
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // com.googlecode.mp4parser.DataSource, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.fc.close();
+        }
+    }
+
+    @Override // com.googlecode.mp4parser.DataSource
+    public long position() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.fc.position();
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.googlecode.mp4parser.DataSource
+    public long size() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.fc.size();
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.googlecode.mp4parser.DataSource
+    public ByteBuffer map(long j, long j2) throws IOException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return this.fc.map(FileChannel.MapMode.READ_ONLY, j, j2);
+        }
+        return (ByteBuffer) invokeCommon.objValue;
+    }
+
+    @Override // com.googlecode.mp4parser.DataSource
+    public long transferTo(long j, long j2, WritableByteChannel writableByteChannel) throws IOException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), writableByteChannel})) == null) {
+            return this.fc.transferTo(j, j2, writableByteChannel);
+        }
+        return invokeCommon.longValue;
     }
 }

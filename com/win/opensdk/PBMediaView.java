@@ -57,6 +57,12 @@ public class PBMediaView extends FrameLayout {
         }
     }
 
+    public g0 getHtmlWebView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (g0) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PBMediaView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -83,15 +89,9 @@ public class PBMediaView extends FrameLayout {
             int a = M.a(context, 15);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(a, a);
             layoutParams.gravity = 3;
-            imageView.setImageResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0812ac);
+            imageView.setImageResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0812bd);
             addView(imageView, layoutParams);
         } catch (Exception unused) {
         }
-    }
-
-    public g0 getHtmlWebView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (g0) invokeV.objValue;
     }
 }

@@ -9,8 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -35,15 +33,15 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.view.HeadPendantClickableView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bo;
-import com.baidu.tieba.dj;
+import com.baidu.tieba.ao;
+import com.baidu.tieba.co;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.oi5;
-import com.baidu.tieba.qp4;
-import com.baidu.tieba.rz4;
-import com.baidu.tieba.st4;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.rp4;
+import com.baidu.tieba.ti5;
+import com.baidu.tieba.ut4;
 import com.baidu.tieba.view.DynamicUserLikeButton;
-import com.baidu.tieba.zn;
+import com.baidu.tieba.wz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,22 +58,22 @@ public class GodRecommendLayout extends LinearLayout {
     public TextView c;
     public RecyclerView d;
     public GodRecommendListAdapter e;
-    public bo f;
-    public List<String> g;
+    public co f;
+    public List g;
     public boolean h;
     public CustomMessageListener i;
-    public qp4 j;
+    public rp4 j;
     public RecyclerView.OnScrollListener k;
 
     /* loaded from: classes6.dex */
-    public class GodRecommendListAdapter extends RecyclerView.Adapter<GodViewHolder> {
+    public class GodRecommendListAdapter extends RecyclerView.Adapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context a;
         public TbPageContext b;
         public BdUniqueId c;
-        public List<MetaData> d;
-        public qp4<MetaData> e;
+        public List d;
+        public rp4 e;
         public final /* synthetic */ GodRecommendLayout f;
 
         /* loaded from: classes6.dex */
@@ -87,7 +85,7 @@ public class GodRecommendLayout extends LinearLayout {
             public TextView c;
             public HeadPendantClickableView d;
             public DynamicUserLikeButton e;
-            public rz4 f;
+            public wz4 f;
             public boolean g;
             public final /* synthetic */ GodRecommendListAdapter h;
 
@@ -117,12 +115,11 @@ public class GodRecommendLayout extends LinearLayout {
 
                 @Override // com.baidu.tieba.view.DynamicUserLikeButton.a
                 public void a(View view2) {
-                    rz4 rz4Var;
+                    wz4 wz4Var;
                     Interceptable interceptable = $ic;
-                    if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (rz4Var = this.a.f) == null || rz4Var.j() == null || this.a.f.j().getIsLike()) {
-                        return;
+                    if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (wz4Var = this.a.f) != null && wz4Var.j() != null && !this.a.f.j().getIsLike()) {
+                        TiebaStatic.log(new StatisticItem("c13903").param(TiebaStatic.Params.FRIEND_UID, this.a.f.j().getUserId()).param("obj_name", this.a.c.getText().toString()));
                     }
-                    TiebaStatic.log(new StatisticItem("c13903").param(TiebaStatic.Params.FRIEND_UID, this.a.f.j().getUserId()).param("obj_name", this.a.c.getText().toString()));
                 }
             }
 
@@ -146,24 +143,24 @@ public class GodRecommendLayout extends LinearLayout {
                 }
                 this.h = godRecommendListAdapter;
                 this.g = false;
-                this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906b7);
-                HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) view2.findViewById(R.id.obfuscated_res_0x7f0906c1);
+                this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906c0);
+                HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) view2.findViewById(R.id.obfuscated_res_0x7f0906ca);
                 this.d = headPendantClickableView;
                 headPendantClickableView.getHeadView().setIsRound(true);
                 this.d.getHeadView().setScaleType(ImageView.ScaleType.CENTER_CROP);
                 this.d.getHeadView().setDefaultResource(17170445);
                 this.d.getHeadView().setPlaceHolder(1);
-                this.d.getHeadView().setBorderWidth(ej.f(godRecommendListAdapter.a, R.dimen.tbds1));
+                this.d.getHeadView().setBorderWidth(fj.f(godRecommendListAdapter.a, R.dimen.tbds1));
                 this.d.getHeadView().setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-                this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906c2);
-                this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906c0);
-                DynamicUserLikeButton dynamicUserLikeButton = (DynamicUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f0924cb);
+                this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906cb);
+                this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906c9);
+                DynamicUserLikeButton dynamicUserLikeButton = (DynamicUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f0924b5);
                 this.e = dynamicUserLikeButton;
                 dynamicUserLikeButton.setGodRecommendStyle(true);
                 this.e.setOnClickEvent(new a(this, godRecommendListAdapter));
-                rz4 rz4Var = new rz4(godRecommendListAdapter.b, this.e);
-                this.f = rz4Var;
-                rz4Var.k(true);
+                wz4 wz4Var = new wz4(godRecommendListAdapter.b, this.e);
+                this.f = wz4Var;
+                wz4Var.k(true);
             }
 
             public void b() {
@@ -176,7 +173,7 @@ public class GodRecommendLayout extends LinearLayout {
                     }
                     SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0101);
                     this.e.k();
-                    TBSelector.makeDrawableSelector().setShape(0).defaultStrokeColor(R.color.CAM_X0614).defaultColor(R.color.CAM_X0614).strokeWidth(ej.f(this.h.a, R.dimen.tbds1)).radius(ej.f(this.h.a, R.dimen.tbds10)).into(this.a);
+                    TBSelector.makeDrawableSelector().setShape(0).defaultStrokeColor(R.color.CAM_X0614).defaultColor(R.color.CAM_X0614).strokeWidth(fj.f(this.h.a, R.dimen.tbds1)).radius(fj.f(this.h.a, R.dimen.tbds10)).into(this.a);
                 }
             }
 
@@ -244,78 +241,16 @@ public class GodRecommendLayout extends LinearLayout {
             this.a = context;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-        /* renamed from: g */
-        public void onBindViewHolder(GodViewHolder godViewHolder, int i) {
-            List<MetaData> list;
-            MetaData metaData;
+        public final void r(MetaData metaData, GodViewHolder godViewHolder) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, godViewHolder, i) == null) || godViewHolder == null || (list = this.d) == null || (metaData = list.get(i)) == null) {
-                return;
-            }
-            godViewHolder.c(metaData.isNewGod());
-            o(metaData, godViewHolder);
-            r(metaData, godViewHolder);
-            p(metaData, godViewHolder);
-            q(metaData, godViewHolder);
-            qp4<MetaData> qp4Var = this.e;
-            if (qp4Var != null) {
-                qp4Var.d(godViewHolder.itemView, metaData, i, i);
-            }
-            godViewHolder.b();
-            godViewHolder.itemView.setTag(R.id.obfuscated_res_0x7f092092, metaData);
-            godViewHolder.itemView.setTag(R.id.obfuscated_res_0x7f092052, Boolean.TRUE);
-        }
-
-        @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-        public int getItemCount() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                List<MetaData> list = this.d;
-                if (list == null) {
-                    return 0;
+            if ((interceptable == null || interceptable.invokeLL(1048592, this, metaData, godViewHolder) == null) && metaData != null && godViewHolder != null) {
+                String string = this.f.getResources().getString(R.string.obfuscated_res_0x7f0f07fb);
+                if (!StringUtils.isNull(metaData.getName_show())) {
+                    string = metaData.getName_show();
                 }
-                return list.size();
-            }
-            return invokeV.intValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-        /* renamed from: h */
-        public GodViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) ? new GodViewHolder(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0777, (ViewGroup) null)) : (GodViewHolder) invokeLI.objValue;
-        }
-
-        public final void i(MetaData metaData, GodViewHolder godViewHolder) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048579, this, metaData, godViewHolder) == null) || this.e == null) {
-                return;
-            }
-            this.e.c(godViewHolder.itemView, metaData, godViewHolder.getAdapterPosition(), godViewHolder.getItemId());
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-        /* renamed from: j */
-        public void onViewAttachedToWindow(@NonNull GodViewHolder godViewHolder) {
-            View view2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, godViewHolder) == null) {
-                super.onViewAttachedToWindow(godViewHolder);
-                if (this.f.h && (view2 = godViewHolder.itemView) != null && (view2.getTag(R.id.obfuscated_res_0x7f092092) instanceof MetaData) && (godViewHolder.itemView.getTag(R.id.obfuscated_res_0x7f092052) instanceof Boolean)) {
-                    boolean booleanValue = ((Boolean) godViewHolder.itemView.getTag(R.id.obfuscated_res_0x7f092052)).booleanValue();
-                    MetaData metaData = (MetaData) godViewHolder.itemView.getTag(R.id.obfuscated_res_0x7f092092);
-                    if (!booleanValue || this.f.g.contains(metaData.getUserId())) {
-                        return;
-                    }
-                    this.f.g.add(metaData.getUserId());
-                    TiebaStatic.log(new StatisticItem("c13902").param("uid", metaData.getUserId()));
-                    godViewHolder.itemView.setTag(R.id.obfuscated_res_0x7f092052, Boolean.FALSE);
+                godViewHolder.b.setText(string);
+                if (metaData.isNewGod()) {
+                    SkinManager.setViewTextColor(godViewHolder.b, (int) R.color.CAM_X0301);
                 }
             }
         }
@@ -323,21 +258,21 @@ public class GodRecommendLayout extends LinearLayout {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         /* renamed from: k */
-        public void onViewDetachedFromWindow(@NonNull GodViewHolder godViewHolder) {
+        public void onViewDetachedFromWindow(GodViewHolder godViewHolder) {
             View view2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, godViewHolder) == null) {
                 super.onViewDetachedFromWindow(godViewHolder);
                 if (this.f.g.isEmpty() && (view2 = godViewHolder.itemView) != null) {
-                    view2.setTag(R.id.obfuscated_res_0x7f092052, Boolean.TRUE);
+                    view2.setTag(R.id.obfuscated_res_0x7f092051, Boolean.TRUE);
                 }
             }
         }
 
-        public void l(qp4<MetaData> qp4Var) {
+        public void l(rp4 rp4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, qp4Var) == null) {
-                this.e = qp4Var;
+            if (interceptable == null || interceptable.invokeL(1048582, this, rp4Var) == null) {
+                this.e = rp4Var;
             }
         }
 
@@ -355,6 +290,86 @@ public class GodRecommendLayout extends LinearLayout {
             }
         }
 
+        public void setData(List list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048593, this, list) == null) {
+                this.d = list;
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+        /* renamed from: g */
+        public void onBindViewHolder(GodViewHolder godViewHolder, int i) {
+            List list;
+            MetaData metaData;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, godViewHolder, i) == null) && godViewHolder != null && (list = this.d) != null && (metaData = (MetaData) list.get(i)) != null) {
+                godViewHolder.c(metaData.isNewGod());
+                o(metaData, godViewHolder);
+                r(metaData, godViewHolder);
+                p(metaData, godViewHolder);
+                q(metaData, godViewHolder);
+                rp4 rp4Var = this.e;
+                if (rp4Var != null) {
+                    rp4Var.d(godViewHolder.itemView, metaData, i, i);
+                }
+                godViewHolder.b();
+                godViewHolder.itemView.setTag(R.id.obfuscated_res_0x7f092091, metaData);
+                godViewHolder.itemView.setTag(R.id.obfuscated_res_0x7f092051, Boolean.TRUE);
+            }
+        }
+
+        public final void p(MetaData metaData, GodViewHolder godViewHolder) {
+            String c;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048590, this, metaData, godViewHolder) == null) && metaData != null && godViewHolder != null) {
+                String str = null;
+                if (metaData.isNewGod()) {
+                    str = metaData.getNewGodData().getFieldName();
+                }
+                if (!ej.isEmpty(str)) {
+                    c = str + ti5.c(metaData.isVideoGod());
+                } else {
+                    c = ti5.c(metaData.isVideoGod());
+                }
+                godViewHolder.c.setText(c);
+            }
+        }
+
+        @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+        public int getItemCount() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                List list = this.d;
+                if (list == null) {
+                    return 0;
+                }
+                return list.size();
+            }
+            return invokeV.intValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+        /* renamed from: h */
+        public GodViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
+                return new GodViewHolder(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0778, (ViewGroup) null));
+            }
+            return (GodViewHolder) invokeLI.objValue;
+        }
+
+        public final void i(MetaData metaData, GodViewHolder godViewHolder) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048579, this, metaData, godViewHolder) == null) && this.e != null) {
+                this.e.c(godViewHolder.itemView, metaData, godViewHolder.getAdapterPosition(), godViewHolder.getItemId());
+            }
+        }
+
         public final void o(MetaData metaData, GodViewHolder godViewHolder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048585, this, metaData, godViewHolder) == null) {
@@ -363,50 +378,32 @@ public class GodRecommendLayout extends LinearLayout {
             }
         }
 
-        public final void p(MetaData metaData, GodViewHolder godViewHolder) {
-            String c;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048590, this, metaData, godViewHolder) == null) || metaData == null || godViewHolder == null) {
-                return;
-            }
-            String fieldName = metaData.isNewGod() ? metaData.getNewGodData().getFieldName() : null;
-            if (!dj.isEmpty(fieldName)) {
-                c = fieldName + oi5.c(metaData.isVideoGod());
-            } else {
-                c = oi5.c(metaData.isVideoGod());
-            }
-            godViewHolder.c.setText(c);
-        }
-
         public final void q(MetaData metaData, GodViewHolder godViewHolder) {
-            rz4 rz4Var;
+            wz4 wz4Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048591, this, metaData, godViewHolder) == null) || (rz4Var = godViewHolder.f) == null) {
-                return;
-            }
-            rz4Var.l(this.c);
-            rz4Var.n(metaData);
-        }
-
-        public final void r(MetaData metaData, GodViewHolder godViewHolder) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048592, this, metaData, godViewHolder) == null) || metaData == null || godViewHolder == null) {
-                return;
-            }
-            String string = this.f.getResources().getString(R.string.obfuscated_res_0x7f0f07ef);
-            if (!StringUtils.isNull(metaData.getName_show())) {
-                string = metaData.getName_show();
-            }
-            godViewHolder.b.setText(string);
-            if (metaData.isNewGod()) {
-                SkinManager.setViewTextColor(godViewHolder.b, (int) R.color.CAM_X0301);
+            if ((interceptable == null || interceptable.invokeLL(1048591, this, metaData, godViewHolder) == null) && (wz4Var = godViewHolder.f) != null) {
+                wz4Var.l(this.c);
+                wz4Var.n(metaData);
             }
         }
 
-        public void setData(List<MetaData> list) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+        /* renamed from: j */
+        public void onViewAttachedToWindow(GodViewHolder godViewHolder) {
+            View view2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048593, this, list) == null) {
-                this.d = list;
+            if (interceptable == null || interceptable.invokeL(1048580, this, godViewHolder) == null) {
+                super.onViewAttachedToWindow(godViewHolder);
+                if (this.f.h && (view2 = godViewHolder.itemView) != null && (view2.getTag(R.id.obfuscated_res_0x7f092091) instanceof MetaData) && (godViewHolder.itemView.getTag(R.id.obfuscated_res_0x7f092051) instanceof Boolean)) {
+                    boolean booleanValue = ((Boolean) godViewHolder.itemView.getTag(R.id.obfuscated_res_0x7f092051)).booleanValue();
+                    MetaData metaData = (MetaData) godViewHolder.itemView.getTag(R.id.obfuscated_res_0x7f092091);
+                    if (booleanValue && !this.f.g.contains(metaData.getUserId())) {
+                        this.f.g.add(metaData.getUserId());
+                        TiebaStatic.log(new StatisticItem("c13902").param("uid", metaData.getUserId()));
+                        godViewHolder.itemView.setTag(R.id.obfuscated_res_0x7f092051, Boolean.FALSE);
+                    }
+                }
             }
         }
     }
@@ -440,12 +437,12 @@ public class GodRecommendLayout extends LinearLayout {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
                     if (this.a.f == null) {
-                        this.a.f = new bo(new zn());
+                        this.a.f = new co(new ao());
                     }
                     this.a.f.q(this.a.d, 1);
                 } else if (this.a.f != null) {
@@ -456,10 +453,19 @@ public class GodRecommendLayout extends LinearLayout {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements qp4<MetaData> {
+    public class b implements rp4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GodRecommendLayout a;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.rp4
+        /* renamed from: a */
+        public void d(View view2, MetaData metaData, int i, long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, metaData, Integer.valueOf(i), Long.valueOf(j)}) != null) || metaData == null) {
+            }
+        }
 
         public b(GodRecommendLayout godRecommendLayout) {
             Interceptable interceptable = $ic;
@@ -480,23 +486,13 @@ public class GodRecommendLayout extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qp4
-        /* renamed from: a */
-        public void d(View view2, MetaData metaData, int i, long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, metaData, Integer.valueOf(i), Long.valueOf(j)}) != null) || metaData == null) {
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qp4
+        @Override // com.baidu.tieba.rp4
         /* renamed from: b */
         public void c(View view2, MetaData metaData, int i, long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, metaData, Integer.valueOf(i), Long.valueOf(j)}) == null) || metaData == null || StringUtils.isNull(metaData.getUserId())) {
-                return;
+            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, metaData, Integer.valueOf(i), Long.valueOf(j)}) == null) && metaData != null && !StringUtils.isNull(metaData.getUserId())) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.a, metaData.getUserId(), metaData.getName_show())));
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.a, metaData.getUserId(), metaData.getName_show())));
         }
     }
 
@@ -576,43 +572,53 @@ public class GodRecommendLayout extends LinearLayout {
         return invokeL.booleanValue;
     }
 
-    public final void g() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public GodRecommendLayout(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0778, (ViewGroup) this, true);
-            setOrientation(1);
-            setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092219);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905ed);
-            this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f092180);
-            GodRecommendListAdapter godRecommendListAdapter = new GodRecommendListAdapter(this, this.a);
-            this.e = godRecommendListAdapter;
-            godRecommendListAdapter.l(this.j);
-            this.d.setAdapter(this.e);
-            this.d.setClipChildren(false);
-            if (TbSingleton.getInstance().isSlideAnimEnable()) {
-                bo boVar = new bo(new zn());
-                this.f = boVar;
-                boVar.q(this.d, 1);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            int f = ej.f(this.a, R.dimen.tbds21);
-            int f2 = ej.f(this.a, R.dimen.tbds44);
-            this.d.setLayoutManager(new LinearLayoutManager(this.a, 0, false));
-            this.d.setItemAnimator(new DefaultItemAnimator());
-            this.d.addItemDecoration(new SpaceItemDecoration(f2, f, f2));
-            this.d.addOnScrollListener(this.k);
-            h();
         }
     }
 
-    public void h() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public GodRecommendLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0101);
-            SkinManager.setBackgroundColor(this, R.color.CAM_X0604);
-            this.e.notifyDataSetChanged();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
+        this.g = new ArrayList();
+        this.h = true;
+        this.i = new a(this, 2156674);
+        this.j = new b(this);
+        this.k = new c(this);
+        this.a = context;
+        g();
     }
 
     public void setCouldStatistic(boolean z) {
@@ -622,12 +628,12 @@ public class GodRecommendLayout extends LinearLayout {
         }
     }
 
-    public void setData(st4 st4Var) {
+    public void setData(ut4 ut4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, st4Var) == null) || st4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, ut4Var) != null) || ut4Var == null) {
             return;
         }
-        this.e.setData(st4Var.c());
+        this.e.setData(ut4Var.c());
         this.e.notifyDataSetChanged();
         this.d.scrollToPosition(0);
         this.g.clear();
@@ -657,52 +663,42 @@ public class GodRecommendLayout extends LinearLayout {
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public GodRecommendLayout(Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0779, (ViewGroup) this, true);
+            setOrientation(1);
+            setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092203);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905f6);
+            this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09217c);
+            GodRecommendListAdapter godRecommendListAdapter = new GodRecommendListAdapter(this, this.a);
+            this.e = godRecommendListAdapter;
+            godRecommendListAdapter.l(this.j);
+            this.d.setAdapter(this.e);
+            this.d.setClipChildren(false);
+            if (TbSingleton.getInstance().isSlideAnimEnable()) {
+                co coVar = new co(new ao());
+                this.f = coVar;
+                coVar.q(this.d, 1);
             }
+            int f = fj.f(this.a, R.dimen.tbds21);
+            int f2 = fj.f(this.a, R.dimen.tbds44);
+            this.d.setLayoutManager(new LinearLayoutManager(this.a, 0, false));
+            this.d.setItemAnimator(new DefaultItemAnimator());
+            this.d.addItemDecoration(new SpaceItemDecoration(f2, f, f2));
+            this.d.addOnScrollListener(this.k);
+            h();
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GodRecommendLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0101);
+            SkinManager.setBackgroundColor(this, R.color.CAM_X0604);
+            this.e.notifyDataSetChanged();
         }
-        this.g = new ArrayList();
-        this.h = true;
-        this.i = new a(this, 2156674);
-        this.j = new b(this);
-        this.k = new c(this);
-        this.a = context;
-        g();
     }
 }

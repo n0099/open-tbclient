@@ -12,32 +12,30 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Single;
 import io.reactivex.SingleObserver;
 import io.reactivex.annotations.CheckReturnValue;
-import io.reactivex.annotations.NonNull;
-import io.reactivex.annotations.Nullable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class SingleSubject<T> extends Single<T> implements SingleObserver<T> {
+public final class SingleSubject extends Single implements SingleObserver {
     public static /* synthetic */ Interceptable $ic;
     public static final SingleDisposable[] EMPTY;
     public static final SingleDisposable[] TERMINATED;
     public transient /* synthetic */ FieldHolder $fh;
     public Throwable error;
-    public final AtomicReference<SingleDisposable<T>[]> observers;
+    public final AtomicReference observers;
     public final AtomicBoolean once;
-    public T value;
+    public Object value;
 
     /* loaded from: classes8.dex */
-    public static final class SingleDisposable<T> extends AtomicReference<SingleSubject<T>> implements Disposable {
+    public final class SingleDisposable extends AtomicReference implements Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7650903191002190468L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver<? super T> actual;
+        public final SingleObserver actual;
 
-        public SingleDisposable(SingleObserver<? super T> singleObserver, SingleSubject<T> singleSubject) {
+        public SingleDisposable(SingleObserver singleObserver, SingleSubject singleSubject) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,19 +56,24 @@ public final class SingleSubject<T> extends Single<T> implements SingleObserver<
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            SingleSubject<T> andSet;
+            SingleSubject singleSubject;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (andSet = getAndSet(null)) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (singleSubject = (SingleSubject) getAndSet(null)) != null) {
+                singleSubject.remove(this);
             }
-            andSet.remove(this);
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? get() == null : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (get() == null) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
     }
 
@@ -91,6 +94,85 @@ public final class SingleSubject<T> extends Single<T> implements SingleObserver<
         TERMINATED = new SingleDisposable[0];
     }
 
+    @CheckReturnValue
+    public static SingleSubject create() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new SingleSubject();
+        }
+        return (SingleSubject) invokeV.objValue;
+    }
+
+    public Throwable getThrowable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.observers.get() == TERMINATED) {
+                return this.error;
+            }
+            return null;
+        }
+        return (Throwable) invokeV.objValue;
+    }
+
+    public Object getValue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.observers.get() == TERMINATED) {
+                return this.value;
+            }
+            return null;
+        }
+        return invokeV.objValue;
+    }
+
+    public boolean hasObservers() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (((SingleDisposable[]) this.observers.get()).length != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean hasThrowable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.observers.get() == TERMINATED && this.error != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean hasValue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.observers.get() == TERMINATED && this.value != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int observerCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return ((SingleDisposable[]) this.observers.get()).length;
+        }
+        return invokeV.intValue;
+    }
+
     public SingleSubject() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -105,25 +187,17 @@ public final class SingleSubject<T> extends Single<T> implements SingleObserver<
             }
         }
         this.once = new AtomicBoolean();
-        this.observers = new AtomicReference<>(EMPTY);
+        this.observers = new AtomicReference(EMPTY);
     }
 
-    @CheckReturnValue
-    @NonNull
-    public static <T> SingleSubject<T> create() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new SingleSubject<>() : (SingleSubject) invokeV.objValue;
-    }
-
-    public boolean add(@NonNull SingleDisposable<T> singleDisposable) {
-        SingleDisposable<T>[] singleDisposableArr;
-        SingleDisposable<T>[] singleDisposableArr2;
+    public boolean add(SingleDisposable singleDisposable) {
+        SingleDisposable[] singleDisposableArr;
+        SingleDisposable[] singleDisposableArr2;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, singleDisposable)) == null) {
             do {
-                singleDisposableArr = this.observers.get();
+                singleDisposableArr = (SingleDisposable[]) this.observers.get();
                 if (singleDisposableArr == TERMINATED) {
                     return false;
                 }
@@ -137,64 +211,22 @@ public final class SingleSubject<T> extends Single<T> implements SingleObserver<
         return invokeL.booleanValue;
     }
 
-    @Nullable
-    public Throwable getThrowable() {
-        InterceptResult invokeV;
+    @Override // io.reactivex.SingleObserver
+    public void onSubscribe(Disposable disposable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.observers.get() == TERMINATED) {
-                return this.error;
-            }
-            return null;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, disposable) == null) && this.observers.get() == TERMINATED) {
+            disposable.dispose();
         }
-        return (Throwable) invokeV.objValue;
-    }
-
-    @Nullable
-    public T getValue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.observers.get() == TERMINATED) {
-                return this.value;
-            }
-            return null;
-        }
-        return (T) invokeV.objValue;
-    }
-
-    public boolean hasObservers() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.observers.get().length != 0 : invokeV.booleanValue;
-    }
-
-    public boolean hasThrowable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.observers.get() == TERMINATED && this.error != null : invokeV.booleanValue;
-    }
-
-    public boolean hasValue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.observers.get() == TERMINATED && this.value != null : invokeV.booleanValue;
-    }
-
-    public int observerCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.observers.get().length : invokeV.intValue;
     }
 
     @Override // io.reactivex.SingleObserver
-    public void onError(@NonNull Throwable th) {
+    public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, th) == null) {
             ObjectHelper.requireNonNull(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
             if (this.once.compareAndSet(false, true)) {
                 this.error = th;
-                for (SingleDisposable<T> singleDisposable : this.observers.getAndSet(TERMINATED)) {
+                for (SingleDisposable singleDisposable : (SingleDisposable[]) this.observers.getAndSet(TERMINATED)) {
                     singleDisposable.actual.onError(th);
                 }
                 return;
@@ -204,36 +236,48 @@ public final class SingleSubject<T> extends Single<T> implements SingleObserver<
     }
 
     @Override // io.reactivex.SingleObserver
-    public void onSubscribe(@NonNull Disposable disposable) {
+    public void onSuccess(Object obj) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, disposable) == null) && this.observers.get() == TERMINATED) {
-            disposable.dispose();
-        }
-    }
-
-    @Override // io.reactivex.SingleObserver
-    public void onSuccess(@NonNull T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, t) == null) {
-            ObjectHelper.requireNonNull(t, "onSuccess called with null. Null values are generally not allowed in 2.x operators and sources.");
+        if (interceptable == null || interceptable.invokeL(1048585, this, obj) == null) {
+            ObjectHelper.requireNonNull(obj, "onSuccess called with null. Null values are generally not allowed in 2.x operators and sources.");
             if (this.once.compareAndSet(false, true)) {
-                this.value = t;
-                for (SingleDisposable<T> singleDisposable : this.observers.getAndSet(TERMINATED)) {
-                    singleDisposable.actual.onSuccess(t);
+                this.value = obj;
+                for (SingleDisposable singleDisposable : (SingleDisposable[]) this.observers.getAndSet(TERMINATED)) {
+                    singleDisposable.actual.onSuccess(obj);
                 }
             }
         }
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: java.util.concurrent.atomic.AtomicReference<io.reactivex.subjects.SingleSubject$SingleDisposable<T>[]> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public void remove(@NonNull SingleDisposable<T> singleDisposable) {
-        SingleDisposable<T>[] singleDisposableArr;
+    @Override // io.reactivex.Single
+    public void subscribeActual(SingleObserver singleObserver) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, singleObserver) == null) {
+            SingleDisposable singleDisposable = new SingleDisposable(singleObserver, this);
+            singleObserver.onSubscribe(singleDisposable);
+            if (add(singleDisposable)) {
+                if (singleDisposable.isDisposed()) {
+                    remove(singleDisposable);
+                    return;
+                }
+                return;
+            }
+            Throwable th = this.error;
+            if (th != null) {
+                singleObserver.onError(th);
+            } else {
+                singleObserver.onSuccess(this.value);
+            }
+        }
+    }
+
+    public void remove(SingleDisposable singleDisposable) {
+        SingleDisposable[] singleDisposableArr;
         SingleDisposable[] singleDisposableArr2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, singleDisposable) == null) {
             do {
-                singleDisposableArr = this.observers.get();
+                singleDisposableArr = (SingleDisposable[]) this.observers.get();
                 int length = singleDisposableArr.length;
                 if (length == 0) {
                     return;
@@ -262,29 +306,6 @@ public final class SingleSubject<T> extends Single<T> implements SingleObserver<
                     singleDisposableArr2 = singleDisposableArr3;
                 }
             } while (!this.observers.compareAndSet(singleDisposableArr, singleDisposableArr2));
-        }
-    }
-
-    /* JADX DEBUG: Type inference failed for r0v4. Raw type applied. Possible types: T, ? super T */
-    @Override // io.reactivex.Single
-    public void subscribeActual(@NonNull SingleObserver<? super T> singleObserver) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, singleObserver) == null) {
-            SingleDisposable<T> singleDisposable = new SingleDisposable<>(singleObserver, this);
-            singleObserver.onSubscribe(singleDisposable);
-            if (add(singleDisposable)) {
-                if (singleDisposable.isDisposed()) {
-                    remove(singleDisposable);
-                    return;
-                }
-                return;
-            }
-            Throwable th = this.error;
-            if (th != null) {
-                singleObserver.onError(th);
-            } else {
-                singleObserver.onSuccess((T) this.value);
-            }
         }
     }
 }

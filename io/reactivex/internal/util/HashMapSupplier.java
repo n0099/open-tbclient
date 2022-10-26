@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.concurrent.Callable;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes8.dex */
-public final class HashMapSupplier implements Callable<Map<Object, Object>> {
+public final class HashMapSupplier implements Callable {
     public static final /* synthetic */ HashMapSupplier[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
     public static final HashMapSupplier INSTANCE;
@@ -38,6 +38,24 @@ public final class HashMapSupplier implements Callable<Map<Object, Object>> {
         $VALUES = new HashMapSupplier[]{hashMapSupplier};
     }
 
+    public static Callable asCallable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return INSTANCE;
+        }
+        return (Callable) invokeV.objValue;
+    }
+
+    public static HashMapSupplier[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return (HashMapSupplier[]) $VALUES.clone();
+        }
+        return (HashMapSupplier[]) invokeV.objValue;
+    }
+
     public HashMapSupplier(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -57,29 +75,23 @@ public final class HashMapSupplier implements Callable<Map<Object, Object>> {
         }
     }
 
-    public static <K, V> Callable<Map<K, V>> asCallable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? INSTANCE : (Callable) invokeV.objValue;
-    }
-
     public static HashMapSupplier valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (HashMapSupplier) Enum.valueOf(HashMapSupplier.class, str) : (HashMapSupplier) invokeL.objValue;
-    }
-
-    public static HashMapSupplier[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (HashMapSupplier[]) $VALUES.clone() : (HashMapSupplier[]) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (HashMapSupplier) Enum.valueOf(HashMapSupplier.class, str);
+        }
+        return (HashMapSupplier) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.concurrent.Callable
-    public Map<Object, Object> call() throws Exception {
+    public Map call() throws Exception {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new HashMap() : (Map) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new HashMap();
+        }
+        return (Map) invokeV.objValue;
     }
 }

@@ -1,13 +1,10 @@
 package com.google.android.gms.common.util;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.annotation.KeepForSdk;
-@KeepForSdk
 /* loaded from: classes7.dex */
 public class MurmurHash3 {
     public static /* synthetic */ Interceptable $ic;
@@ -27,8 +24,7 @@ public class MurmurHash3 {
         }
     }
 
-    @KeepForSdk
-    public static int murmurhash3_x86_32(@NonNull byte[] bArr, int i, int i2, int i3) {
+    public static int murmurhash3_x86_32(byte[] bArr, int i, int i2, int i3) {
         InterceptResult invokeLIII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65537, null, bArr, i, i2, i3)) == null) {
@@ -40,22 +36,25 @@ public class MurmurHash3 {
                 i += 4;
             }
             int i7 = i2 & 3;
+            int i8 = 0;
             if (i7 != 1) {
                 if (i7 != 2) {
-                    r3 = i7 == 3 ? (bArr[i4 + 2] & 255) << 16 : 0;
-                    int i8 = i3 ^ i2;
-                    int i9 = (i8 ^ (i8 >>> 16)) * (-2048144789);
-                    int i10 = (i9 ^ (i9 >>> 13)) * (-1028477387);
-                    return i10 ^ (i10 >>> 16);
+                    if (i7 == 3) {
+                        i8 = (bArr[i4 + 2] & 255) << 16;
+                    }
+                    int i9 = i3 ^ i2;
+                    int i10 = (i9 ^ (i9 >>> 16)) * (-2048144789);
+                    int i11 = (i10 ^ (i10 >>> 13)) * (-1028477387);
+                    return i11 ^ (i11 >>> 16);
                 }
-                r3 |= (bArr[i4 + 1] & 255) << 8;
+                i8 |= (bArr[i4 + 1] & 255) << 8;
             }
-            int i11 = ((bArr[i4] & 255) | r3) * (-862048943);
-            i3 ^= ((i11 >>> 17) | (i11 << 15)) * 461845907;
-            int i82 = i3 ^ i2;
-            int i92 = (i82 ^ (i82 >>> 16)) * (-2048144789);
-            int i102 = (i92 ^ (i92 >>> 13)) * (-1028477387);
-            return i102 ^ (i102 >>> 16);
+            int i12 = ((bArr[i4] & 255) | i8) * (-862048943);
+            i3 ^= ((i12 >>> 17) | (i12 << 15)) * 461845907;
+            int i92 = i3 ^ i2;
+            int i102 = (i92 ^ (i92 >>> 16)) * (-2048144789);
+            int i112 = (i102 ^ (i102 >>> 13)) * (-1028477387);
+            return i112 ^ (i112 >>> 16);
         }
         return invokeLIII.intValue;
     }

@@ -1,7 +1,6 @@
 package androidx.lifecycle;
 
 import android.os.Handler;
-import androidx.annotation.NonNull;
 import androidx.lifecycle.Lifecycle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +24,7 @@ public class ServiceLifecycleDispatcher {
         public final LifecycleRegistry mRegistry;
         public boolean mWasExecuted;
 
-        public DispatchRunnable(@NonNull LifecycleRegistry lifecycleRegistry, Lifecycle.Event event) {
+        public DispatchRunnable(LifecycleRegistry lifecycleRegistry, Lifecycle.Event event) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,15 +47,14 @@ public class ServiceLifecycleDispatcher {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.mWasExecuted) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.mWasExecuted) {
+                this.mRegistry.handleLifecycleEvent(this.mEvent);
+                this.mWasExecuted = true;
             }
-            this.mRegistry.handleLifecycleEvent(this.mEvent);
-            this.mWasExecuted = true;
         }
     }
 
-    public ServiceLifecycleDispatcher(@NonNull LifecycleOwner lifecycleOwner) {
+    public ServiceLifecycleDispatcher(LifecycleOwner lifecycleOwner) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,11 +86,13 @@ public class ServiceLifecycleDispatcher {
         }
     }
 
-    @NonNull
     public Lifecycle getLifecycle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mRegistry : (Lifecycle) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mRegistry;
+        }
+        return (Lifecycle) invokeV.objValue;
     }
 
     public void onServicePreSuperOnBind() {

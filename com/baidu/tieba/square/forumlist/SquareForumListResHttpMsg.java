@@ -37,12 +37,6 @@ public class SquareForumListResHttpMsg extends TbHttpResponsedMessage {
         }
     }
 
-    public GetForumsFromForumClassResIdl getResponseData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mResponseData : (GetForumsFromForumClassResIdl) invokeV.objValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
@@ -57,5 +51,14 @@ public class SquareForumListResHttpMsg extends TbHttpResponsedMessage {
                 setErrorString(this.mResponseData.error.errmsg);
             }
         }
+    }
+
+    public GetForumsFromForumClassResIdl getResponseData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mResponseData;
+        }
+        return (GetForumsFromForumClassResIdl) invokeV.objValue;
     }
 }

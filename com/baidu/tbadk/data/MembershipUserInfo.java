@@ -35,7 +35,7 @@ public class MembershipUserInfo extends OrmObject implements Serializable {
 
     public void parseJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         this.mVipIcon = jSONObject.optString("vip_icon");
@@ -46,7 +46,7 @@ public class MembershipUserInfo extends OrmObject implements Serializable {
 
     public void parserProtobuf(VipShowInfo vipShowInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vipShowInfo) == null) || vipShowInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vipShowInfo) != null) || vipShowInfo == null) {
             return;
         }
         this.mVipIcon = vipShowInfo.vip_icon;

@@ -50,26 +50,6 @@ public class MD5Utils {
         }
     }
 
-    public static String a(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
-            int length = bArr.length;
-            StringBuffer stringBuffer = new StringBuffer(length * 2);
-            int i = length + 0;
-            for (int i2 = 0; i2 < i; i2++) {
-                byte b = bArr[i2];
-                char[] cArr = HEX_DIGITS;
-                char c = cArr[(b & 240) >> 4];
-                char c2 = cArr[b & 15];
-                stringBuffer.append(c);
-                stringBuffer.append(c2);
-            }
-            return stringBuffer.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
     public static String getFileMD5(String str) {
         InterceptResult invokeL;
         FileInputStream fileInputStream;
@@ -160,6 +140,26 @@ public class MD5Utils {
                 LogPrinter.e(e);
                 return "";
             }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String a(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
+            int length = bArr.length;
+            StringBuffer stringBuffer = new StringBuffer(length * 2);
+            int i = length + 0;
+            for (int i2 = 0; i2 < i; i2++) {
+                byte b = bArr[i2];
+                char[] cArr = HEX_DIGITS;
+                char c = cArr[(b & 240) >> 4];
+                char c2 = cArr[b & 15];
+                stringBuffer.append(c);
+                stringBuffer.append(c2);
+            }
+            return stringBuffer.toString();
         }
         return (String) invokeL.objValue;
     }

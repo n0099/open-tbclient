@@ -50,6 +50,15 @@ public class AndroidPlatform extends Platform {
         public final Method checkServerTrusted;
         public final Object x509TrustManagerExtensions;
 
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
+        }
+
         public AndroidCertificateChainCleaner(Object obj, Method method) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -90,16 +99,10 @@ public class AndroidPlatform extends Platform {
         public boolean equals(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? obj instanceof AndroidCertificateChainCleaner : invokeL.booleanValue;
-        }
-
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return 0;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+                return obj instanceof AndroidCertificateChainCleaner;
             }
-            return invokeV.intValue;
+            return invokeL.booleanValue;
         }
     }
 
@@ -136,9 +139,12 @@ public class AndroidPlatform extends Platform {
                 if (obj == this) {
                     return true;
                 }
-                if (obj instanceof AndroidTrustRootIndex) {
-                    AndroidTrustRootIndex androidTrustRootIndex = (AndroidTrustRootIndex) obj;
-                    return this.trustManager.equals(androidTrustRootIndex.trustManager) && this.findByIssuerAndSignatureMethod.equals(androidTrustRootIndex.findByIssuerAndSignatureMethod);
+                if (!(obj instanceof AndroidTrustRootIndex)) {
+                    return false;
+                }
+                AndroidTrustRootIndex androidTrustRootIndex = (AndroidTrustRootIndex) obj;
+                if (this.trustManager.equals(androidTrustRootIndex.trustManager) && this.findByIssuerAndSignatureMethod.equals(androidTrustRootIndex.findByIssuerAndSignatureMethod)) {
+                    return true;
                 }
                 return false;
             }
@@ -152,10 +158,10 @@ public class AndroidPlatform extends Platform {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x509Certificate)) == null) {
                 try {
                     TrustAnchor trustAnchor = (TrustAnchor) this.findByIssuerAndSignatureMethod.invoke(this.trustManager, x509Certificate);
-                    if (trustAnchor != null) {
-                        return trustAnchor.getTrustedCert();
+                    if (trustAnchor == null) {
+                        return null;
                     }
-                    return null;
+                    return trustAnchor.getTrustedCert();
                 } catch (IllegalAccessException e) {
                     throw Util.assertionError("unable to get issues and signature", e);
                 } catch (InvocationTargetException unused) {
@@ -168,7 +174,10 @@ public class AndroidPlatform extends Platform {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.trustManager.hashCode() + (this.findByIssuerAndSignatureMethod.hashCode() * 31) : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.trustManager.hashCode() + (this.findByIssuerAndSignatureMethod.hashCode() * 31);
+            }
+            return invokeV.intValue;
         }
     }
 
@@ -244,15 +253,15 @@ public class AndroidPlatform extends Platform {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-                if (obj != null) {
-                    try {
-                        this.warnIfOpenMethod.invoke(obj, new Object[0]);
-                        return true;
-                    } catch (Exception unused) {
-                        return false;
-                    }
+                if (obj == null) {
+                    return false;
                 }
-                return false;
+                try {
+                    this.warnIfOpenMethod.invoke(obj, new Object[0]);
+                    return true;
+                } catch (Exception unused) {
+                    return false;
+                }
             }
             return invokeL.booleanValue;
         }
@@ -305,6 +314,47 @@ public class AndroidPlatform extends Platform {
             }
         }
         return invokeLLL.booleanValue;
+    }
+
+    @Override // okhttp3.internal.platform.Platform
+    public void configureTlsExtensions(SSLSocket sSLSocket, String str, List<Protocol> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, sSLSocket, str, list) == null) {
+            if (str != null) {
+                this.setUseSessionTickets.invokeOptionalWithoutCheckedException(sSLSocket, Boolean.TRUE);
+                this.setHostname.invokeOptionalWithoutCheckedException(sSLSocket, str);
+            }
+            OptionalMethod<Socket> optionalMethod = this.setAlpnProtocols;
+            if (optionalMethod != null && optionalMethod.isSupported(sSLSocket)) {
+                this.setAlpnProtocols.invokeWithoutCheckedException(sSLSocket, Platform.concatLengthPrefixed(list));
+            }
+        }
+    }
+
+    @Override // okhttp3.internal.platform.Platform
+    public void connectSocket(Socket socket, InetSocketAddress inetSocketAddress, int i) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048579, this, socket, inetSocketAddress, i) == null) {
+            try {
+                socket.connect(inetSocketAddress, i);
+            } catch (AssertionError e) {
+                if (Util.isAndroidGetsocknameError(e)) {
+                    throw new IOException(e);
+                }
+                throw e;
+            } catch (ClassCastException e2) {
+                if (Build.VERSION.SDK_INT == 26) {
+                    IOException iOException = new IOException("Exception in connect");
+                    iOException.initCause(e2);
+                    throw iOException;
+                }
+                throw e2;
+            } catch (SecurityException e3) {
+                IOException iOException2 = new IOException("Exception in connect");
+                iOException2.initCause(e3);
+                throw iOException2;
+            }
+        }
     }
 
     public static Platform buildIfSupported() {
@@ -372,6 +422,28 @@ public class AndroidPlatform extends Platform {
     }
 
     @Override // okhttp3.internal.platform.Platform
+    public X509TrustManager trustManager(SSLSocketFactory sSLSocketFactory) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, sSLSocketFactory)) == null) {
+            Object readFieldOrNull = Platform.readFieldOrNull(sSLSocketFactory, this.sslParametersClass, "sslParameters");
+            if (readFieldOrNull == null) {
+                try {
+                    readFieldOrNull = Platform.readFieldOrNull(sSLSocketFactory, Class.forName("com.google.android.gms.org.conscrypt.SSLParametersImpl", false, sSLSocketFactory.getClass().getClassLoader()), "sslParameters");
+                } catch (ClassNotFoundException unused) {
+                    return super.trustManager(sSLSocketFactory);
+                }
+            }
+            X509TrustManager x509TrustManager = (X509TrustManager) Platform.readFieldOrNull(readFieldOrNull, X509TrustManager.class, "x509TrustManager");
+            if (x509TrustManager != null) {
+                return x509TrustManager;
+            }
+            return (X509TrustManager) Platform.readFieldOrNull(readFieldOrNull, X509TrustManager.class, "trustManager");
+        }
+        return (X509TrustManager) invokeL.objValue;
+    }
+
+    @Override // okhttp3.internal.platform.Platform
     public TrustRootIndex buildTrustRootIndex(X509TrustManager x509TrustManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -388,69 +460,6 @@ public class AndroidPlatform extends Platform {
     }
 
     @Override // okhttp3.internal.platform.Platform
-    public void configureTlsExtensions(SSLSocket sSLSocket, String str, List<Protocol> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, sSLSocket, str, list) == null) {
-            if (str != null) {
-                this.setUseSessionTickets.invokeOptionalWithoutCheckedException(sSLSocket, Boolean.TRUE);
-                this.setHostname.invokeOptionalWithoutCheckedException(sSLSocket, str);
-            }
-            OptionalMethod<Socket> optionalMethod = this.setAlpnProtocols;
-            if (optionalMethod == null || !optionalMethod.isSupported(sSLSocket)) {
-                return;
-            }
-            this.setAlpnProtocols.invokeWithoutCheckedException(sSLSocket, Platform.concatLengthPrefixed(list));
-        }
-    }
-
-    @Override // okhttp3.internal.platform.Platform
-    public void connectSocket(Socket socket, InetSocketAddress inetSocketAddress, int i) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048579, this, socket, inetSocketAddress, i) == null) {
-            try {
-                socket.connect(inetSocketAddress, i);
-            } catch (AssertionError e) {
-                if (!Util.isAndroidGetsocknameError(e)) {
-                    throw e;
-                }
-                throw new IOException(e);
-            } catch (ClassCastException e2) {
-                if (Build.VERSION.SDK_INT == 26) {
-                    IOException iOException = new IOException("Exception in connect");
-                    iOException.initCause(e2);
-                    throw iOException;
-                }
-                throw e2;
-            } catch (SecurityException e3) {
-                IOException iOException2 = new IOException("Exception in connect");
-                iOException2.initCause(e3);
-                throw iOException2;
-            }
-        }
-    }
-
-    @Override // okhttp3.internal.platform.Platform
-    public SSLContext getSSLContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i = Build.VERSION.SDK_INT;
-            if (i >= 16 && i < 22) {
-                try {
-                    return SSLContext.getInstance("TLSv1.2");
-                } catch (NoSuchAlgorithmException unused) {
-                }
-            }
-            try {
-                return SSLContext.getInstance("TLS");
-            } catch (NoSuchAlgorithmException e) {
-                throw new IllegalStateException("No TLS provider", e);
-            }
-        }
-        return (SSLContext) invokeV.objValue;
-    }
-
-    @Override // okhttp3.internal.platform.Platform
     @Nullable
     public String getSelectedProtocol(SSLSocket sSLSocket) {
         InterceptResult invokeL;
@@ -464,13 +473,6 @@ public class AndroidPlatform extends Platform {
             return new String(bArr, Util.UTF_8);
         }
         return (String) invokeL.objValue;
-    }
-
-    @Override // okhttp3.internal.platform.Platform
-    public Object getStackTraceForCloseable(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? this.closeGuard.createAndOpen(str) : invokeL.objValue;
     }
 
     @Override // okhttp3.internal.platform.Platform
@@ -498,11 +500,45 @@ public class AndroidPlatform extends Platform {
     }
 
     @Override // okhttp3.internal.platform.Platform
+    public SSLContext getSSLContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 16 && i < 22) {
+                try {
+                    return SSLContext.getInstance("TLSv1.2");
+                } catch (NoSuchAlgorithmException unused) {
+                }
+            }
+            try {
+                return SSLContext.getInstance("TLS");
+            } catch (NoSuchAlgorithmException e) {
+                throw new IllegalStateException("No TLS provider", e);
+            }
+        }
+        return (SSLContext) invokeV.objValue;
+    }
+
+    @Override // okhttp3.internal.platform.Platform
+    public Object getStackTraceForCloseable(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            return this.closeGuard.createAndOpen(str);
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // okhttp3.internal.platform.Platform
     public void log(int i, String str, Throwable th) {
         int min;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, str, th) == null) {
-            int i2 = i != 5 ? 3 : 5;
+            int i2 = 5;
+            if (i != 5) {
+                i2 = 3;
+            }
             if (th != null) {
                 str = str + '\n' + Log.getStackTraceString(th);
             }
@@ -529,28 +565,8 @@ public class AndroidPlatform extends Platform {
     @Override // okhttp3.internal.platform.Platform
     public void logCloseableLeak(String str, Object obj) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048585, this, str, obj) == null) || this.closeGuard.warnIfOpen(obj)) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, obj) == null) && !this.closeGuard.warnIfOpen(obj)) {
+            log(5, str, null);
         }
-        log(5, str, null);
-    }
-
-    @Override // okhttp3.internal.platform.Platform
-    public X509TrustManager trustManager(SSLSocketFactory sSLSocketFactory) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, sSLSocketFactory)) == null) {
-            Object readFieldOrNull = Platform.readFieldOrNull(sSLSocketFactory, this.sslParametersClass, "sslParameters");
-            if (readFieldOrNull == null) {
-                try {
-                    readFieldOrNull = Platform.readFieldOrNull(sSLSocketFactory, Class.forName("com.google.android.gms.org.conscrypt.SSLParametersImpl", false, sSLSocketFactory.getClass().getClassLoader()), "sslParameters");
-                } catch (ClassNotFoundException unused) {
-                    return super.trustManager(sSLSocketFactory);
-                }
-            }
-            X509TrustManager x509TrustManager = (X509TrustManager) Platform.readFieldOrNull(readFieldOrNull, X509TrustManager.class, "x509TrustManager");
-            return x509TrustManager != null ? x509TrustManager : (X509TrustManager) Platform.readFieldOrNull(readFieldOrNull, X509TrustManager.class, "trustManager");
-        }
-        return (X509TrustManager) invokeL.objValue;
     }
 }

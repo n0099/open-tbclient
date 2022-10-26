@@ -58,12 +58,18 @@ public final class ColorType implements NoProguard {
     public static ColorType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ColorType) Enum.valueOf(ColorType.class, str) : (ColorType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (ColorType) Enum.valueOf(ColorType.class, str);
+        }
+        return (ColorType) invokeL.objValue;
     }
 
     public static ColorType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ColorType[]) a.clone() : (ColorType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (ColorType[]) a.clone();
+        }
+        return (ColorType[]) invokeV.objValue;
     }
 }

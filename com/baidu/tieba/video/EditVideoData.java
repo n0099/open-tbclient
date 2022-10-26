@@ -4,7 +4,7 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.dj;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,9 +38,28 @@ public class EditVideoData extends OrmObject implements Serializable {
         }
     }
 
+    public void delete() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !StringHelper.equals(this.originPath, this.finalPath) && !ej.isEmpty(this.finalPath)) {
+            FileHelper.deleteFile(new File(this.finalPath));
+        }
+    }
+
+    public boolean isLegal() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!ej.isEmpty(this.originPath) && !ej.isEmpty(this.coverPath)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public void copy(EditVideoData editVideoData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, editVideoData) == null) || editVideoData == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, editVideoData) != null) || editVideoData == null) {
             return;
         }
         this.originPath = editVideoData.originPath;
@@ -50,19 +69,5 @@ public class EditVideoData extends OrmObject implements Serializable {
         this.isMute = editVideoData.isMute;
         this.filterName = editVideoData.filterName;
         this.finalPath = editVideoData.finalPath;
-    }
-
-    public void delete() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || StringHelper.equals(this.originPath, this.finalPath) || dj.isEmpty(this.finalPath)) {
-            return;
-        }
-        FileHelper.deleteFile(new File(this.finalPath));
-    }
-
-    public boolean isLegal() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (dj.isEmpty(this.originPath) || dj.isEmpty(this.coverPath)) ? false : true : invokeV.booleanValue;
     }
 }

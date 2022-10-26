@@ -87,7 +87,7 @@ public class RequestCall implements Cancelable {
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             HttpRequest httpRequest = this.httpRequest;
-            NetworkStat<Request> networkStat = httpRequest.networkStat;
+            NetworkStat networkStat = httpRequest.networkStat;
             if (networkStat != null) {
                 networkStat.onStartExecute(httpRequest.okRequest, currentTimeMillis);
                 HttpRequest httpRequest2 = this.httpRequest;
@@ -104,6 +104,22 @@ public class RequestCall implements Cancelable {
                 httpRequest4.requestNetStat.extraUserInfo = httpRequest4.getExtraUserLog();
             }
         }
+    }
+
+    private boolean shouldCreateNewRequest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) {
+            HttpRequest httpRequest = this.httpRequest;
+            if (httpRequest.networkStat == null && httpRequest.requestNetStat == null && httpRequest.connectionTimeout <= 0 && httpRequest.writeTimeout <= 0 && httpRequest.readTimeout <= 0 && httpRequest.paramsHandler == null && httpRequest.enableRetry && TextUtils.isEmpty(httpRequest.logTag)) {
+                HttpRequest httpRequest2 = this.httpRequest;
+                if (httpRequest2.cookieManager == null && httpRequest2.proxy == null && httpRequest2.followRedirects && httpRequest2.followSslRedirects) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     private void buildCall() {
@@ -185,6 +201,33 @@ public class RequestCall implements Cancelable {
         }
     }
 
+    @Override // com.baidu.searchbox.http.Cancelable
+    public void cancel() {
+        Call call;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (call = this.realCall) != null) {
+            call.cancel();
+        }
+    }
+
+    public StatResponse executeStat() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return new StatResponse(executeSync(), this.httpRequest.requestNetStat);
+        }
+        return (StatResponse) invokeV.objValue;
+    }
+
+    public Call getCall() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.realCall;
+        }
+        return (Call) invokeV.objValue;
+    }
+
     private void recordStatusCode(Request request, int i, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLIL(65546, this, request, i, str) == null) && request != null && StatusCodeException.isStatusCodeMatched(i)) {
@@ -204,9 +247,14 @@ public class RequestCall implements Cancelable {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void sendFailResult(Handler handler, ResponseCallback responseCallback, Exception exc) {
+        Exception wrapNoNetworkExceptionWithDetail;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65547, this, handler, responseCallback, exc) == null) {
-            Exception wrapNoNetworkExceptionWithDetail = this.httpRequest.httpManager.isNetWorkConnected() ? exc : ResponseException.wrapNoNetworkExceptionWithDetail(exc);
+            if (this.httpRequest.httpManager.isNetWorkConnected()) {
+                wrapNoNetworkExceptionWithDetail = exc;
+            } else {
+                wrapNoNetworkExceptionWithDetail = ResponseException.wrapNoNetworkExceptionWithDetail(exc);
+            }
             if (this.httpRequest.networkStat != null) {
                 long currentTimeMillis = System.currentTimeMillis();
                 HttpRequest httpRequest = this.httpRequest;
@@ -259,29 +307,24 @@ public class RequestCall implements Cancelable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public <T> void sendSuccessResult(Handler handler, StatResponseCallback<T> statResponseCallback, Response response) {
+    public void sendSuccessResult(Handler handler, ResponseCallback responseCallback, Response response) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65550, this, handler, statResponseCallback, response) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65549, this, handler, responseCallback, response) == null) {
             try {
-                long currentTimeMillis = System.currentTimeMillis();
                 if (this.httpRequest.networkStat != null) {
-                    this.httpRequest.networkStat.onFinish(this.httpRequest.okRequest, currentTimeMillis);
-                }
-                if (this.httpRequest.requestNetStat != null) {
-                    this.httpRequest.requestNetStat.finishTs = currentTimeMillis;
-                    this.httpRequest.requestNetStat.netType = this.httpRequest.httpManager.getNetworkInfo();
+                    this.httpRequest.networkStat.onFinish(this.httpRequest.okRequest, System.currentTimeMillis());
                 }
                 if (response != null) {
                     recordStatusCode(this.httpRequest.okRequest, response.code(), response.message());
                 }
-                if (statResponseCallback != null) {
-                    T parseResponse = statResponseCallback.parseResponse(response, response.code(), this.httpRequest.requestNetStat);
+                if (responseCallback != null) {
+                    Object parseResponse = responseCallback.parseResponse(response, response.code());
                     if (handler != null) {
-                        handler.post(new Runnable(this, parseResponse, statResponseCallback, response) { // from class: com.baidu.searchbox.http.request.RequestCall.5
+                        handler.post(new Runnable(this, parseResponse, responseCallback, response) { // from class: com.baidu.searchbox.http.request.RequestCall.6
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ RequestCall this$0;
-                            public final /* synthetic */ StatResponseCallback val$callback;
+                            public final /* synthetic */ ResponseCallback val$callback;
                             public final /* synthetic */ Object val$entity;
                             public final /* synthetic */ Response val$response;
 
@@ -290,7 +333,7 @@ public class RequestCall implements Cancelable {
                                 if (interceptable2 != null) {
                                     InitContext newInitContext = TitanRuntime.newInitContext();
                                     newInitContext.initArgs = r2;
-                                    Object[] objArr = {this, parseResponse, statResponseCallback, response};
+                                    Object[] objArr = {this, parseResponse, responseCallback, response};
                                     interceptable2.invokeUnInit(65536, newInitContext);
                                     int i = newInitContext.flag;
                                     if ((i & 1) != 0) {
@@ -302,7 +345,7 @@ public class RequestCall implements Cancelable {
                                 }
                                 this.this$0 = this;
                                 this.val$entity = parseResponse;
-                                this.val$callback = statResponseCallback;
+                                this.val$callback = responseCallback;
                                 this.val$response = response;
                             }
 
@@ -320,256 +363,30 @@ public class RequestCall implements Cancelable {
                             }
                         });
                     } else if (parseResponse != null) {
-                        statResponseCallback.onSuccess(parseResponse, response.code());
+                        responseCallback.onSuccess(parseResponse, response.code());
                     } else {
-                        statResponseCallback.onFail(new IOException("parse response return null"));
+                        responseCallback.onFail(new IOException("parse response return null"));
                     }
                 }
             } catch (Exception e) {
-                sendFailResult(handler, statResponseCallback, e);
-            }
-        }
-    }
-
-    private boolean shouldCreateNewRequest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) {
-            HttpRequest httpRequest = this.httpRequest;
-            if (httpRequest.networkStat == null && httpRequest.requestNetStat == null && httpRequest.connectionTimeout <= 0 && httpRequest.writeTimeout <= 0 && httpRequest.readTimeout <= 0 && httpRequest.paramsHandler == null && httpRequest.enableRetry && TextUtils.isEmpty(httpRequest.logTag)) {
-                HttpRequest httpRequest2 = this.httpRequest;
-                if (httpRequest2.cookieManager == null && httpRequest2.proxy == null && httpRequest2.followRedirects && httpRequest2.followSslRedirects) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.http.Cancelable
-    public void cancel() {
-        Call call;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (call = this.realCall) == null) {
-            return;
-        }
-        call.cancel();
-    }
-
-    public <T> Cancelable executeAsync(ResponseCallback<T> responseCallback) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, responseCallback)) == null) ? executeAsyncWithHandler(null, responseCallback) : (Cancelable) invokeL.objValue;
-    }
-
-    public <T> Cancelable executeAsyncOnUIBack(ResponseCallback<T> responseCallback) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, responseCallback)) == null) ? executeAsyncWithHandler(this.deliver, responseCallback) : (Cancelable) invokeL.objValue;
-    }
-
-    public <T> Cancelable executeAsyncWithHandler(Handler handler, ResponseCallback<T> responseCallback) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, handler, responseCallback)) == null) {
-            beginRequest();
-            try {
-                executePreCheck();
-                this.realCall.enqueue(new Callback(this, handler, responseCallback) { // from class: com.baidu.searchbox.http.request.RequestCall.2
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ RequestCall this$0;
-                    public final /* synthetic */ ResponseCallback val$callback;
-                    public final /* synthetic */ Handler val$handler;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, handler, responseCallback};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$handler = handler;
-                        this.val$callback = responseCallback;
-                    }
-
-                    @Override // okhttp3.Callback
-                    public void onFailure(Call call, IOException iOException) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLL(1048576, this, call, iOException) == null) {
-                            this.this$0.sendFailResult(this.val$handler, this.val$callback, iOException);
-                        }
-                    }
-
-                    @Override // okhttp3.Callback
-                    public void onResponse(Call call, Response response) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
-                            this.this$0.sendSuccessResult(this.val$handler, this.val$callback, response);
-                        }
-                    }
-                });
-                return this;
-            } catch (IOException e) {
                 sendFailResult(handler, responseCallback, e);
-                return this;
             }
         }
-        return (Cancelable) invokeLL.objValue;
-    }
-
-    public StatResponse executeStat() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new StatResponse(executeSync(), this.httpRequest.requestNetStat) : (StatResponse) invokeV.objValue;
-    }
-
-    public <T> Cancelable executeStatUIBack(StatResponseCallback<T> statResponseCallback) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, statResponseCallback)) == null) ? executeStatWithHandler(this.deliver, statResponseCallback) : (Cancelable) invokeL.objValue;
-    }
-
-    public <T> Cancelable executeStatWithHandler(Handler handler, StatResponseCallback<T> statResponseCallback) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, handler, statResponseCallback)) == null) {
-            beginRequest();
-            try {
-                executePreCheck();
-                this.realCall.enqueue(new Callback(this, handler, statResponseCallback) { // from class: com.baidu.searchbox.http.request.RequestCall.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ RequestCall this$0;
-                    public final /* synthetic */ StatResponseCallback val$callback;
-                    public final /* synthetic */ Handler val$handler;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, handler, statResponseCallback};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$handler = handler;
-                        this.val$callback = statResponseCallback;
-                    }
-
-                    @Override // okhttp3.Callback
-                    public void onFailure(Call call, IOException iOException) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLL(1048576, this, call, iOException) == null) {
-                            this.this$0.sendFailResult(this.val$handler, this.val$callback, iOException);
-                        }
-                    }
-
-                    @Override // okhttp3.Callback
-                    public void onResponse(Call call, Response response) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
-                            this.this$0.sendSuccessResult(this.val$handler, this.val$callback, response);
-                        }
-                    }
-                });
-                return this;
-            } catch (IOException e) {
-                sendFailResult(handler, statResponseCallback, e);
-                return this;
-            }
-        }
-        return (Cancelable) invokeLL.objValue;
-    }
-
-    public Response executeSync() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            beginRequest();
-            try {
-                try {
-                    try {
-                        executePreCheck();
-                        Response execute = this.realCall.execute();
-                        if (execute != null) {
-                            recordStatusCode(this.httpRequest.okRequest, execute.code(), execute.message());
-                        }
-                        return execute;
-                    } catch (IOException e) {
-                        IOException wrapNoNetworkExceptionWithDetail = this.httpRequest.httpManager.isNetWorkConnected() ? e : ResponseException.wrapNoNetworkExceptionWithDetail(e);
-                        if (this.httpRequest.networkStat != null) {
-                            this.httpRequest.networkStat.onException(this.httpRequest.okRequest, e);
-                        }
-                        if (this.httpRequest.requestNetStat != null) {
-                            this.httpRequest.requestNetStat.exception = wrapNoNetworkExceptionWithDetail;
-                        }
-                        throw wrapNoNetworkExceptionWithDetail;
-                    }
-                } catch (NullPointerException e2) {
-                    if (this.httpRequest.networkStat != null) {
-                        this.httpRequest.networkStat.onException(this.httpRequest.okRequest, e2);
-                    }
-                    if (this.httpRequest.requestNetStat != null) {
-                        this.httpRequest.requestNetStat.exception = e2;
-                    }
-                    throw e2;
-                }
-            } finally {
-                long currentTimeMillis = System.currentTimeMillis();
-                HttpRequest httpRequest = this.httpRequest;
-                NetworkStat<Request> networkStat = httpRequest.networkStat;
-                if (networkStat != null) {
-                    networkStat.onFinish(httpRequest.okRequest, currentTimeMillis);
-                }
-                HttpRequest httpRequest2 = this.httpRequest;
-                NetworkStatRecord networkStatRecord = httpRequest2.requestNetStat;
-                if (networkStatRecord != null) {
-                    networkStatRecord.finishTs = currentTimeMillis;
-                    networkStatRecord.netType = httpRequest2.httpManager.getNetworkInfo();
-                }
-            }
-        }
-        return (Response) invokeV.objValue;
-    }
-
-    public Call getCall() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.realCall : (Call) invokeV.objValue;
-    }
-
-    public <T> Cancelable executeStat(StatResponseCallback<T> statResponseCallback) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, statResponseCallback)) == null) ? executeStatWithHandler(null, statResponseCallback) : (Cancelable) invokeL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void sendFailResult(Handler handler, StatResponseCallback statResponseCallback, Exception exc) {
+        Exception wrapNoNetworkExceptionWithDetail;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65548, this, handler, statResponseCallback, exc) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            Exception wrapNoNetworkExceptionWithDetail = this.httpRequest.httpManager.isNetWorkConnected() ? exc : ResponseException.wrapNoNetworkExceptionWithDetail(exc);
+            if (this.httpRequest.httpManager.isNetWorkConnected()) {
+                wrapNoNetworkExceptionWithDetail = exc;
+            } else {
+                wrapNoNetworkExceptionWithDetail = ResponseException.wrapNoNetworkExceptionWithDetail(exc);
+            }
             HttpRequest httpRequest = this.httpRequest;
-            NetworkStat<Request> networkStat = httpRequest.networkStat;
+            NetworkStat networkStat = httpRequest.networkStat;
             if (networkStat != null) {
                 networkStat.onException(httpRequest.okRequest, exc);
                 HttpRequest httpRequest2 = this.httpRequest;
@@ -630,24 +447,29 @@ public class RequestCall implements Cancelable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public <T> void sendSuccessResult(Handler handler, ResponseCallback<T> responseCallback, Response response) {
+    public void sendSuccessResult(Handler handler, StatResponseCallback statResponseCallback, Response response) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65549, this, handler, responseCallback, response) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65550, this, handler, statResponseCallback, response) == null) {
             try {
+                long currentTimeMillis = System.currentTimeMillis();
                 if (this.httpRequest.networkStat != null) {
-                    this.httpRequest.networkStat.onFinish(this.httpRequest.okRequest, System.currentTimeMillis());
+                    this.httpRequest.networkStat.onFinish(this.httpRequest.okRequest, currentTimeMillis);
+                }
+                if (this.httpRequest.requestNetStat != null) {
+                    this.httpRequest.requestNetStat.finishTs = currentTimeMillis;
+                    this.httpRequest.requestNetStat.netType = this.httpRequest.httpManager.getNetworkInfo();
                 }
                 if (response != null) {
                     recordStatusCode(this.httpRequest.okRequest, response.code(), response.message());
                 }
-                if (responseCallback != null) {
-                    T parseResponse = responseCallback.parseResponse(response, response.code());
+                if (statResponseCallback != null) {
+                    Object parseResponse = statResponseCallback.parseResponse(response, response.code(), this.httpRequest.requestNetStat);
                     if (handler != null) {
-                        handler.post(new Runnable(this, parseResponse, responseCallback, response) { // from class: com.baidu.searchbox.http.request.RequestCall.6
+                        handler.post(new Runnable(this, parseResponse, statResponseCallback, response) { // from class: com.baidu.searchbox.http.request.RequestCall.5
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ RequestCall this$0;
-                            public final /* synthetic */ ResponseCallback val$callback;
+                            public final /* synthetic */ StatResponseCallback val$callback;
                             public final /* synthetic */ Object val$entity;
                             public final /* synthetic */ Response val$response;
 
@@ -656,7 +478,7 @@ public class RequestCall implements Cancelable {
                                 if (interceptable2 != null) {
                                     InitContext newInitContext = TitanRuntime.newInitContext();
                                     newInitContext.initArgs = r2;
-                                    Object[] objArr = {this, parseResponse, responseCallback, response};
+                                    Object[] objArr = {this, parseResponse, statResponseCallback, response};
                                     interceptable2.invokeUnInit(65536, newInitContext);
                                     int i = newInitContext.flag;
                                     if ((i & 1) != 0) {
@@ -668,7 +490,7 @@ public class RequestCall implements Cancelable {
                                 }
                                 this.this$0 = this;
                                 this.val$entity = parseResponse;
-                                this.val$callback = responseCallback;
+                                this.val$callback = statResponseCallback;
                                 this.val$response = response;
                             }
 
@@ -686,14 +508,224 @@ public class RequestCall implements Cancelable {
                             }
                         });
                     } else if (parseResponse != null) {
-                        responseCallback.onSuccess(parseResponse, response.code());
+                        statResponseCallback.onSuccess(parseResponse, response.code());
                     } else {
-                        responseCallback.onFail(new IOException("parse response return null"));
+                        statResponseCallback.onFail(new IOException("parse response return null"));
                     }
                 }
             } catch (Exception e) {
-                sendFailResult(handler, responseCallback, e);
+                sendFailResult(handler, statResponseCallback, e);
             }
         }
+    }
+
+    public Cancelable executeAsync(ResponseCallback responseCallback) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, responseCallback)) == null) {
+            return executeAsyncWithHandler(null, responseCallback);
+        }
+        return (Cancelable) invokeL.objValue;
+    }
+
+    public Cancelable executeAsyncOnUIBack(ResponseCallback responseCallback) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, responseCallback)) == null) {
+            return executeAsyncWithHandler(this.deliver, responseCallback);
+        }
+        return (Cancelable) invokeL.objValue;
+    }
+
+    public Cancelable executeStat(StatResponseCallback statResponseCallback) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, statResponseCallback)) == null) {
+            return executeStatWithHandler(null, statResponseCallback);
+        }
+        return (Cancelable) invokeL.objValue;
+    }
+
+    public Cancelable executeStatUIBack(StatResponseCallback statResponseCallback) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, statResponseCallback)) == null) {
+            return executeStatWithHandler(this.deliver, statResponseCallback);
+        }
+        return (Cancelable) invokeL.objValue;
+    }
+
+    public Cancelable executeAsyncWithHandler(Handler handler, ResponseCallback responseCallback) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, handler, responseCallback)) == null) {
+            beginRequest();
+            try {
+                executePreCheck();
+                this.realCall.enqueue(new Callback(this, handler, responseCallback) { // from class: com.baidu.searchbox.http.request.RequestCall.2
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ RequestCall this$0;
+                    public final /* synthetic */ ResponseCallback val$callback;
+                    public final /* synthetic */ Handler val$handler;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, handler, responseCallback};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$handler = handler;
+                        this.val$callback = responseCallback;
+                    }
+
+                    @Override // okhttp3.Callback
+                    public void onFailure(Call call, IOException iOException) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeLL(1048576, this, call, iOException) == null) {
+                            this.this$0.sendFailResult(this.val$handler, this.val$callback, iOException);
+                        }
+                    }
+
+                    @Override // okhttp3.Callback
+                    public void onResponse(Call call, Response response) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
+                            this.this$0.sendSuccessResult(this.val$handler, this.val$callback, response);
+                        }
+                    }
+                });
+                return this;
+            } catch (IOException e) {
+                sendFailResult(handler, responseCallback, e);
+                return this;
+            }
+        }
+        return (Cancelable) invokeLL.objValue;
+    }
+
+    public Cancelable executeStatWithHandler(Handler handler, StatResponseCallback statResponseCallback) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, handler, statResponseCallback)) == null) {
+            beginRequest();
+            try {
+                executePreCheck();
+                this.realCall.enqueue(new Callback(this, handler, statResponseCallback) { // from class: com.baidu.searchbox.http.request.RequestCall.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ RequestCall this$0;
+                    public final /* synthetic */ StatResponseCallback val$callback;
+                    public final /* synthetic */ Handler val$handler;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, handler, statResponseCallback};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$handler = handler;
+                        this.val$callback = statResponseCallback;
+                    }
+
+                    @Override // okhttp3.Callback
+                    public void onFailure(Call call, IOException iOException) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeLL(1048576, this, call, iOException) == null) {
+                            this.this$0.sendFailResult(this.val$handler, this.val$callback, iOException);
+                        }
+                    }
+
+                    @Override // okhttp3.Callback
+                    public void onResponse(Call call, Response response) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
+                            this.this$0.sendSuccessResult(this.val$handler, this.val$callback, response);
+                        }
+                    }
+                });
+                return this;
+            } catch (IOException e) {
+                sendFailResult(handler, statResponseCallback, e);
+                return this;
+            }
+        }
+        return (Cancelable) invokeLL.objValue;
+    }
+
+    public Response executeSync() throws IOException {
+        InterceptResult invokeV;
+        IOException wrapNoNetworkExceptionWithDetail;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            beginRequest();
+            try {
+                try {
+                    try {
+                        executePreCheck();
+                        Response execute = this.realCall.execute();
+                        if (execute != null) {
+                            recordStatusCode(this.httpRequest.okRequest, execute.code(), execute.message());
+                        }
+                        return execute;
+                    } catch (IOException e) {
+                        if (this.httpRequest.httpManager.isNetWorkConnected()) {
+                            wrapNoNetworkExceptionWithDetail = e;
+                        } else {
+                            wrapNoNetworkExceptionWithDetail = ResponseException.wrapNoNetworkExceptionWithDetail(e);
+                        }
+                        if (this.httpRequest.networkStat != null) {
+                            this.httpRequest.networkStat.onException(this.httpRequest.okRequest, e);
+                        }
+                        if (this.httpRequest.requestNetStat != null) {
+                            this.httpRequest.requestNetStat.exception = wrapNoNetworkExceptionWithDetail;
+                        }
+                        throw wrapNoNetworkExceptionWithDetail;
+                    }
+                } catch (NullPointerException e2) {
+                    if (this.httpRequest.networkStat != null) {
+                        this.httpRequest.networkStat.onException(this.httpRequest.okRequest, e2);
+                    }
+                    if (this.httpRequest.requestNetStat != null) {
+                        this.httpRequest.requestNetStat.exception = e2;
+                    }
+                    throw e2;
+                }
+            } finally {
+                long currentTimeMillis = System.currentTimeMillis();
+                HttpRequest httpRequest = this.httpRequest;
+                NetworkStat networkStat = httpRequest.networkStat;
+                if (networkStat != null) {
+                    networkStat.onFinish(httpRequest.okRequest, currentTimeMillis);
+                }
+                HttpRequest httpRequest2 = this.httpRequest;
+                NetworkStatRecord networkStatRecord = httpRequest2.requestNetStat;
+                if (networkStatRecord != null) {
+                    networkStatRecord.finishTs = currentTimeMillis;
+                    networkStatRecord.netType = httpRequest2.httpManager.getNetworkInfo();
+                }
+            }
+        }
+        return (Response) invokeV.objValue;
     }
 }

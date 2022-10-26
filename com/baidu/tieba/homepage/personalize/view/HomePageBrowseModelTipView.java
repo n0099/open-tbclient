@@ -11,8 +11,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hv4;
-import com.baidu.tieba.oy4;
+import com.baidu.tieba.nv4;
+import com.baidu.tieba.uy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,34 +52,6 @@ public final class HomePageBrowseModelTipView extends LinearLayout {
         }
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            hv4 d = hv4.d(this.d);
-            d.n(R.string.J_X06);
-            d.f(R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0105);
-            this.b.k();
-        }
-    }
-
-    public final View.OnClickListener getListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (View.OnClickListener) invokeV.objValue;
-    }
-
-    public final void setListener(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.e = onClickListener;
-            if (onClickListener == null) {
-                return;
-            }
-            this.b.setOnClickListener(onClickListener);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HomePageBrowseModelTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -113,7 +85,7 @@ public final class HomePageBrowseModelTipView extends LinearLayout {
         layoutParams.height = -2;
         this.d.setLayoutParams(layoutParams);
         this.d.setOrientation(0);
-        hv4 d = hv4.d(this.d);
+        nv4 d = nv4.d(this.d);
         d.n(R.string.J_X06);
         d.f(R.color.CAM_X0201);
         this.d.addView(this.a);
@@ -124,9 +96,9 @@ public final class HomePageBrowseModelTipView extends LinearLayout {
         layoutParams2.rightMargin = getContext().getResources().getDimensionPixelSize(R.dimen.M_W_X005);
         layoutParams2.gravity = 16;
         this.b.setLayoutParams(layoutParams2);
-        oy4 oy4Var = new oy4();
-        oy4Var.p(R.color.CAM_X0304);
-        this.b.setConfig(oy4Var);
+        uy4 uy4Var = new uy4();
+        uy4Var.p(R.color.CAM_X0304);
+        this.b.setConfig(uy4Var);
         this.b.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0347));
         this.b.setTextSize(R.dimen.T_X08);
         LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-2, -2);
@@ -135,11 +107,41 @@ public final class HomePageBrowseModelTipView extends LinearLayout {
         layoutParams3.gravity = 16;
         layoutParams3.weight = 1.0f;
         this.a.setLayoutParams(layoutParams3);
-        hv4 d2 = hv4.d(this.a);
+        nv4 d2 = nv4.d(this.a);
         d2.z(R.dimen.T_X06);
         d2.v(R.color.CAM_X0105);
         this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0348));
         this.a.setSingleLine();
         this.a.setEllipsize(TextUtils.TruncateAt.END);
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            nv4 d = nv4.d(this.d);
+            d.n(R.string.J_X06);
+            d.f(R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0105);
+            this.b.k();
+        }
+    }
+
+    public final View.OnClickListener getListener() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
+        }
+        return (View.OnClickListener) invokeV.objValue;
+    }
+
+    public final void setListener(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
+            this.e = onClickListener;
+            if (onClickListener != null) {
+                this.b.setOnClickListener(onClickListener);
+            }
+        }
     }
 }

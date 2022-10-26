@@ -15,7 +15,7 @@ public class u {
             try {
                 return (String) v.a(null, "android.os.SystemProperties").getMethod("get", String.class, String.class).invoke(null, str, str2);
             } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m90a("SystemProperties.get: " + e);
+                com.xiaomi.channel.commonutils.logger.b.m89a("SystemProperties.get: " + e);
                 return str2;
             }
         }

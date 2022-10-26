@@ -14,23 +14,23 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.schedulers.Timed;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes8.dex */
-public final class ObservableTimeInterval<T> extends AbstractObservableWithUpstream<T, Timed<T>> {
+public final class ObservableTimeInterval extends AbstractObservableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Scheduler scheduler;
     public final TimeUnit unit;
 
     /* loaded from: classes8.dex */
-    public static final class TimeIntervalObserver<T> implements Observer<T>, Disposable {
+    public final class TimeIntervalObserver implements Observer, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super Timed<T>> actual;
+        public final Observer actual;
         public long lastTime;
         public Disposable s;
         public final Scheduler scheduler;
         public final TimeUnit unit;
 
-        public TimeIntervalObserver(Observer<? super Timed<T>> observer, TimeUnit timeUnit, Scheduler scheduler) {
+        public TimeIntervalObserver(Observer observer, TimeUnit timeUnit, Scheduler scheduler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,7 +62,10 @@ public final class ObservableTimeInterval<T> extends AbstractObservableWithUpstr
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.s.isDisposed() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.s.isDisposed();
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
@@ -82,13 +85,13 @@ public final class ObservableTimeInterval<T> extends AbstractObservableWithUpstr
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
                 long now = this.scheduler.now(this.unit);
                 long j = this.lastTime;
                 this.lastTime = now;
-                this.actual.onNext(new Timed(t, now - j, this.unit));
+                this.actual.onNext(new Timed(obj, now - j, this.unit));
             }
         }
 
@@ -104,7 +107,7 @@ public final class ObservableTimeInterval<T> extends AbstractObservableWithUpstr
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableTimeInterval(ObservableSource<T> observableSource, TimeUnit timeUnit, Scheduler scheduler) {
+    public ObservableTimeInterval(ObservableSource observableSource, TimeUnit timeUnit, Scheduler scheduler) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -126,7 +129,7 @@ public final class ObservableTimeInterval<T> extends AbstractObservableWithUpstr
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super Timed<T>> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new TimeIntervalObserver(observer, this.unit, this.scheduler));

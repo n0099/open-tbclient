@@ -42,7 +42,7 @@ public class TrackFragmentRandomAccessBox extends AbstractFullBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_8 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_9 = null;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Entry> entries;
+    public List entries;
     public int lengthSizeOfSampleNum;
     public int lengthSizeOfTrafNum;
     public int lengthSizeOfTrunNum;
@@ -50,7 +50,7 @@ public class TrackFragmentRandomAccessBox extends AbstractFullBox {
     public long trackId;
 
     /* loaded from: classes7.dex */
-    public static class Entry {
+    public class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long moofOffset;
@@ -73,64 +73,71 @@ public class TrackFragmentRandomAccessBox extends AbstractFullBox {
             }
         }
 
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                if (this == obj) {
-                    return true;
-                }
-                if (obj == null || Entry.class != obj.getClass()) {
-                    return false;
-                }
-                Entry entry = (Entry) obj;
-                return this.moofOffset == entry.moofOffset && this.sampleNumber == entry.sampleNumber && this.time == entry.time && this.trafNumber == entry.trafNumber && this.trunNumber == entry.trunNumber;
-            }
-            return invokeL.booleanValue;
-        }
-
         public long getMoofOffset() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.moofOffset : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.moofOffset;
+            }
+            return invokeV.longValue;
         }
 
         public long getSampleNumber() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.sampleNumber : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.sampleNumber;
+            }
+            return invokeV.longValue;
         }
 
         public long getTime() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.time : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.time;
+            }
+            return invokeV.longValue;
         }
 
         public long getTrafNumber() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.trafNumber : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.trafNumber;
+            }
+            return invokeV.longValue;
         }
 
         public long getTrunNumber() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.trunNumber : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.trunNumber;
+            }
+            return invokeV.longValue;
         }
 
-        public int hashCode() {
-            InterceptResult invokeV;
+        public Entry(long j, long j2, long j3, long j4, long j5) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                long j = this.time;
-                long j2 = this.moofOffset;
-                long j3 = this.trafNumber;
-                long j4 = this.trunNumber;
-                long j5 = this.sampleNumber;
-                return (((((((((int) (j ^ (j >>> 32))) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31) + ((int) (j3 ^ (j3 >>> 32)))) * 31) + ((int) (j4 ^ (j4 >>> 32)))) * 31) + ((int) (j5 ^ (j5 >>> 32)));
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
             }
-            return invokeV.intValue;
+            this.moofOffset = j2;
+            this.sampleNumber = j5;
+            this.time = j;
+            this.trafNumber = j3;
+            this.trunNumber = j4;
         }
 
         public void setMoofOffset(long j) {
@@ -168,6 +175,39 @@ public class TrackFragmentRandomAccessBox extends AbstractFullBox {
             }
         }
 
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                if (this == obj) {
+                    return true;
+                }
+                if (obj == null || Entry.class != obj.getClass()) {
+                    return false;
+                }
+                Entry entry = (Entry) obj;
+                if (this.moofOffset == entry.moofOffset && this.sampleNumber == entry.sampleNumber && this.time == entry.time && this.trafNumber == entry.trafNumber && this.trunNumber == entry.trunNumber) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                long j = this.time;
+                long j2 = this.moofOffset;
+                long j3 = this.trafNumber;
+                long j4 = this.trunNumber;
+                long j5 = this.sampleNumber;
+                return (((((((((int) (j ^ (j >>> 32))) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31) + ((int) (j3 ^ (j3 >>> 32)))) * 31) + ((int) (j4 ^ (j4 >>> 32)))) * 31) + ((int) (j5 ^ (j5 >>> 32)));
+            }
+            return invokeV.intValue;
+        }
+
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -175,28 +215,6 @@ public class TrackFragmentRandomAccessBox extends AbstractFullBox {
                 return "Entry{time=" + this.time + ", moofOffset=" + this.moofOffset + ", trafNumber=" + this.trafNumber + ", trunNumber=" + this.trunNumber + ", sampleNumber=" + this.sampleNumber + '}';
             }
             return (String) invokeV.objValue;
-        }
-
-        public Entry(long j, long j2, long j3, long j4, long j5) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.moofOffset = j2;
-            this.sampleNumber = j5;
-            this.time = j;
-            this.trafNumber = j3;
-            this.trunNumber = j4;
         }
     }
 
@@ -214,6 +232,76 @@ public class TrackFragmentRandomAccessBox extends AbstractFullBox {
             }
         }
         ajc$preClinit();
+    }
+
+    public List getEntries() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_10, this, this));
+            return Collections.unmodifiableList(this.entries);
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public int getLengthSizeOfSampleNum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_8, this, this));
+            return this.lengthSizeOfSampleNum;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getLengthSizeOfTrafNum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_6, this, this));
+            return this.lengthSizeOfTrafNum;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getLengthSizeOfTrunNum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_7, this, this));
+            return this.lengthSizeOfTrunNum;
+        }
+        return invokeV.intValue;
+    }
+
+    public long getNumberOfEntries() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_9, this, this));
+            return this.entries.size();
+        }
+        return invokeV.longValue;
+    }
+
+    public int getReserved() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this));
+            return this.reserved;
+        }
+        return invokeV.intValue;
+    }
+
+    public long getTrackId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this));
+            return this.trackId;
+        }
+        return invokeV.longValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -236,6 +324,16 @@ public class TrackFragmentRandomAccessBox extends AbstractFullBox {
         this.lengthSizeOfTrunNum = 2;
         this.lengthSizeOfSampleNum = 2;
         this.entries = Collections.emptyList();
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_12, this, this));
+            return "TrackFragmentRandomAccessBox{trackId=" + this.trackId + ", entries=" + this.entries + '}';
+        }
+        return (String) invokeV.objValue;
     }
 
     public static /* synthetic */ void ajc$preClinit() {
@@ -324,77 +422,7 @@ public class TrackFragmentRandomAccessBox extends AbstractFullBox {
         return invokeV.longValue;
     }
 
-    public List<Entry> getEntries() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_10, this, this));
-            return Collections.unmodifiableList(this.entries);
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public int getLengthSizeOfSampleNum() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_8, this, this));
-            return this.lengthSizeOfSampleNum;
-        }
-        return invokeV.intValue;
-    }
-
-    public int getLengthSizeOfTrafNum() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_6, this, this));
-            return this.lengthSizeOfTrafNum;
-        }
-        return invokeV.intValue;
-    }
-
-    public int getLengthSizeOfTrunNum() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_7, this, this));
-            return this.lengthSizeOfTrunNum;
-        }
-        return invokeV.intValue;
-    }
-
-    public long getNumberOfEntries() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_9, this, this));
-            return this.entries.size();
-        }
-        return invokeV.longValue;
-    }
-
-    public int getReserved() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this));
-            return this.reserved;
-        }
-        return invokeV.intValue;
-    }
-
-    public long getTrackId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this));
-            return this.trackId;
-        }
-        return invokeV.longValue;
-    }
-
-    public void setEntries(List<Entry> list) {
+    public void setEntries(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_11, this, this, list));
@@ -432,15 +460,5 @@ public class TrackFragmentRandomAccessBox extends AbstractFullBox {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this, Conversions.longObject(j)));
             this.trackId = j;
         }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_12, this, this));
-            return "TrackFragmentRandomAccessBox{trackId=" + this.trackId + ", entries=" + this.entries + '}';
-        }
-        return (String) invokeV.objValue;
     }
 }

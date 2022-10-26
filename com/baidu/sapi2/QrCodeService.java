@@ -229,6 +229,13 @@ public class QrCodeService extends AbstractService implements NoProguard {
         public final /* synthetic */ QrLoginStstusCheckDTO d;
         public final /* synthetic */ QrCodeService e;
 
+        @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+        public void onFinish() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(QrCodeService qrCodeService, Looper looper, boolean z, QrLoginStatusCheckCallback qrLoginStatusCheckCallback, QrLoginStatusCheckResult qrLoginStatusCheckResult, QrLoginStstusCheckDTO qrLoginStstusCheckDTO) {
             super(looper);
@@ -261,13 +268,6 @@ public class QrCodeService extends AbstractService implements NoProguard {
                 this.c.setResultCode(i);
                 this.b.onFailure(this.c);
                 this.b.onFinish();
-            }
-        }
-
-        @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-        public void onFinish() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             }
         }
 
@@ -332,6 +332,13 @@ public class QrCodeService extends AbstractService implements NoProguard {
         public final /* synthetic */ boolean c;
         public final /* synthetic */ QrCodeService d;
 
+        @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+        public void onStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            }
+        }
+
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(QrCodeService qrCodeService, Looper looper, QrLoginStatusCheckCallback qrLoginStatusCheckCallback, QrLoginStatusCheckResult qrLoginStatusCheckResult, boolean z) {
             super(looper);
@@ -370,13 +377,6 @@ public class QrCodeService extends AbstractService implements NoProguard {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 this.a.onFinish();
-            }
-        }
-
-        @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-        public void onStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             }
         }
 
@@ -533,7 +533,9 @@ public class QrCodeService extends AbstractService implements NoProguard {
         return (QrCodeService) invokeLL.objValue;
     }
 
-    public void getQrCodeImage(SapiCallback<GetQrCodeImageResult> sapiCallback, GetQrCodeImageDTO getQrCodeImageDTO) {
+    public void getQrCodeImage(SapiCallback sapiCallback, GetQrCodeImageDTO getQrCodeImageDTO) {
+        String str;
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, sapiCallback, getQrCodeImageDTO) == null) {
             SapiUtils.notNull(sapiCallback, SapiCallback.class.getSimpleName() + " can't be null");
@@ -544,7 +546,12 @@ public class QrCodeService extends AbstractService implements NoProguard {
             GetQrCodeImageResult getQrCodeImageResult = new GetQrCodeImageResult();
             stopLoginStatusCheck();
             HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
-            httpHashMapWrap.put(SapiUtils.KEY_QR_LOGIN_LP, TextUtils.isEmpty(getQrCodeImageDTO.lp) ? "pc" : getQrCodeImageDTO.lp);
+            if (TextUtils.isEmpty(getQrCodeImageDTO.lp)) {
+                str = "pc";
+            } else {
+                str = getQrCodeImageDTO.lp;
+            }
+            httpHashMapWrap.put(SapiUtils.KEY_QR_LOGIN_LP, str);
             httpHashMapWrap.put("apiver", "v3");
             httpHashMapWrap.put("tt", String.valueOf(System.currentTimeMillis()));
             if (!TextUtils.isEmpty(getQrCodeImageDTO.openPlatformId)) {
@@ -553,22 +560,38 @@ public class QrCodeService extends AbstractService implements NoProguard {
             if (!TextUtils.isEmpty(getQrCodeImageDTO.encuid)) {
                 httpHashMapWrap.put(SapiUtils.KEY_QR_LOGIN_ENCUID, getQrCodeImageDTO.encuid);
             }
-            httpHashMapWrap.put("needQrCodeContent", getQrCodeImageDTO.needQrCodeContent ? "1" : "0");
+            if (getQrCodeImageDTO.needQrCodeContent) {
+                str2 = "1";
+            } else {
+                str2 = "0";
+            }
+            httpHashMapWrap.put("needQrCodeContent", str2);
             httpHashMapWrap.put("hostDeviceId", getQrCodeImageDTO.hostDeviceId);
             new HttpClientWrap().get(SapiEnv.GET_QR_CODE_IMAGE_URI, ReqPriority.IMMEDIATE, httpHashMapWrap, null, getUaInfo(), new a(this, Looper.getMainLooper(), sapiCallback, getQrCodeImageResult, z));
         }
     }
 
-    public void getQrCodeLoginWithEnuidImage(SapiCallback<GetQrCodeImageResult> sapiCallback, GetQrCodeImageDTO getQrCodeImageDTO, String str, String str2) {
+    public void getQrCodeLoginWithEnuidImage(SapiCallback sapiCallback, GetQrCodeImageDTO getQrCodeImageDTO, String str, String str2) {
+        GetQrCodeImageDTO getQrCodeImageDTO2;
+        String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sapiCallback, getQrCodeImageDTO, str, str2) == null) {
             SapiUtils.notNull(sapiCallback, SapiCallback.class.getSimpleName() + " can't be null");
-            GetQrCodeImageDTO getQrCodeImageDTO2 = getQrCodeImageDTO == null ? new GetQrCodeImageDTO() : getQrCodeImageDTO;
+            if (getQrCodeImageDTO == null) {
+                getQrCodeImageDTO2 = new GetQrCodeImageDTO();
+            } else {
+                getQrCodeImageDTO2 = getQrCodeImageDTO;
+            }
             boolean z = getQrCodeImageDTO2.needQrCodeContent;
             GetQrCodeImageResult getQrCodeImageResult = new GetQrCodeImageResult();
             stopLoginStatusCheck();
             HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
-            httpHashMapWrap.put(SapiUtils.KEY_QR_LOGIN_LP, TextUtils.isEmpty(getQrCodeImageDTO2.lp) ? "pc" : getQrCodeImageDTO2.lp);
+            if (TextUtils.isEmpty(getQrCodeImageDTO2.lp)) {
+                str3 = "pc";
+            } else {
+                str3 = getQrCodeImageDTO2.lp;
+            }
+            httpHashMapWrap.put(SapiUtils.KEY_QR_LOGIN_LP, str3);
             httpHashMapWrap.put("apiver", "v3");
             httpHashMapWrap.put("tt", String.valueOf(System.currentTimeMillis()));
             if (!TextUtils.isEmpty(getQrCodeImageDTO2.openPlatformId)) {
@@ -588,6 +611,7 @@ public class QrCodeService extends AbstractService implements NoProguard {
     }
 
     public void getQrLoginResult(QrLoginStatusCheckCallback qrLoginStatusCheckCallback, QrLoginStatusCheckResult qrLoginStatusCheckResult, String str, String str2, boolean z) {
+        String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{qrLoginStatusCheckCallback, qrLoginStatusCheckResult, str, str2, Boolean.valueOf(z)}) == null) {
             HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
@@ -596,22 +620,28 @@ public class QrCodeService extends AbstractService implements NoProguard {
             httpHashMapWrap.put("bduss", str);
             httpHashMapWrap.put("tt", String.valueOf(System.currentTimeMillis()));
             httpHashMapWrap.put("hostDeviceId", str2);
-            String str3 = z ? SapiEnv.GET_QR_JOIN_LOGIN_RESULT : SapiEnv.GET_QR_LOGIN_RESULT;
+            if (z) {
+                str3 = SapiEnv.GET_QR_JOIN_LOGIN_RESULT;
+            } else {
+                str3 = SapiEnv.GET_QR_LOGIN_RESULT;
+            }
+            String str4 = str3;
             HttpClientWrap httpClientWrap = new HttpClientWrap();
             this.a = httpClientWrap;
-            httpClientWrap.get(str3, ReqPriority.IMMEDIATE, httpHashMapWrap, null, getUaInfo(), new d(this, Looper.getMainLooper(), qrLoginStatusCheckCallback, qrLoginStatusCheckResult, z));
+            httpClientWrap.get(str4, ReqPriority.IMMEDIATE, httpHashMapWrap, null, getUaInfo(), new d(this, Looper.getMainLooper(), qrLoginStatusCheckCallback, qrLoginStatusCheckResult, z));
         }
     }
 
-    public void qrAppLogin(SapiCallback<QrAppLoginResult> sapiCallback, String str, String str2) {
+    public void qrAppLogin(SapiCallback sapiCallback, String str, String str2) {
+        String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, sapiCallback, str, str2) == null) {
             SapiUtils.notNull(sapiCallback, SapiCallback.class.getSimpleName() + " can't be null");
             SapiUtils.notEmpty(str2, "cmd can't be empty");
             QrAppLoginResult qrAppLoginResult = new QrAppLoginResult();
             HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
-            Map<String, String> urlParamsToMap = SapiUtils.urlParamsToMap(str);
-            httpHashMapWrap.put("sign", urlParamsToMap.get("sign"));
+            Map urlParamsToMap = SapiUtils.urlParamsToMap(str);
+            httpHashMapWrap.put("sign", (String) urlParamsToMap.get("sign"));
             httpHashMapWrap.put("cmd", str2);
             SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
             if (currentAccount != null) {
@@ -621,7 +651,12 @@ public class QrCodeService extends AbstractService implements NoProguard {
             }
             StringBuilder sb = new StringBuilder();
             sb.append("/v2/sapi/qrlogin?lp=");
-            sb.append(TextUtils.isEmpty(urlParamsToMap.get(SapiUtils.KEY_QR_LOGIN_LP)) ? "app" : urlParamsToMap.get(SapiUtils.KEY_QR_LOGIN_LP));
+            if (TextUtils.isEmpty((CharSequence) urlParamsToMap.get(SapiUtils.KEY_QR_LOGIN_LP))) {
+                str3 = "app";
+            } else {
+                str3 = (String) urlParamsToMap.get(SapiUtils.KEY_QR_LOGIN_LP);
+            }
+            sb.append(str3);
             new HttpClientWrap().post(sb.toString(), httpHashMapWrap, null, getUaInfo(), new e(this, Looper.getMainLooper(), sapiCallback, qrAppLoginResult));
         }
     }

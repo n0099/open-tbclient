@@ -1,10 +1,9 @@
 package com.baidu.nadcore.net.request;
 
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ng0;
-import com.baidu.tieba.wz0;
+import com.baidu.tieba.og0;
+import com.baidu.tieba.xz0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +20,7 @@ public final class Headers {
     public final String[] a;
 
     /* loaded from: classes2.dex */
-    public static class IllegalUnicodeException extends Exception {
+    public class IllegalUnicodeException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -47,10 +46,10 @@ public final class Headers {
     }
 
     /* loaded from: classes2.dex */
-    public static final class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final List<String> a;
+        public final List a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -68,6 +67,15 @@ public final class Headers {
             this.a = new ArrayList(20);
         }
 
+        public Headers c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return new Headers(this);
+            }
+            return (Headers) invokeV.objValue;
+        }
+
         public a a(String str, String str2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -78,10 +86,10 @@ public final class Headers {
                     b(str, str2);
                     return this;
                 } catch (Exception e) {
-                    if (ng0.a) {
-                        throw new IllegalStateException(e);
+                    if (!og0.a) {
+                        return this;
                     }
-                    return this;
+                    throw new IllegalStateException(e);
                 }
             }
             return (a) invokeLL.objValue;
@@ -91,35 +99,11 @@ public final class Headers {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-                wz0.b(this.a, str);
-                wz0.b(this.a, str2.trim());
+                xz0.b(this.a, str);
+                xz0.b(this.a, str2.trim());
                 return this;
             }
             return (a) invokeLL.objValue;
-        }
-
-        public Headers c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new Headers(this) : (Headers) invokeV.objValue;
-        }
-
-        public a d(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                int i = 0;
-                while (i < wz0.l(this.a)) {
-                    if (str.equalsIgnoreCase((String) wz0.d(this.a, i))) {
-                        wz0.i(this.a, i);
-                        wz0.i(this.a, i);
-                        i -= 2;
-                    }
-                    i += 2;
-                }
-                return this;
-            }
-            return (a) invokeL.objValue;
         }
 
         public a e(String str, String str2) {
@@ -136,6 +120,24 @@ public final class Headers {
                 return this;
             }
             return (a) invokeLL.objValue;
+        }
+
+        public a d(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+                int i = 0;
+                while (i < xz0.l(this.a)) {
+                    if (str.equalsIgnoreCase((String) xz0.d(this.a, i))) {
+                        xz0.i(this.a, i);
+                        xz0.i(this.a, i);
+                        i -= 2;
+                    }
+                    i += 2;
+                }
+                return this;
+            }
+            return (a) invokeL.objValue;
         }
     }
 
@@ -154,8 +156,8 @@ public final class Headers {
                 return;
             }
         }
-        List<String> list = aVar.a;
-        this.a = (String[]) list.toArray(new String[wz0.l(list)]);
+        List list = aVar.a;
+        this.a = (String[]) list.toArray(new String[xz0.l(list)]);
     }
 
     public static void a(String str) throws IllegalUnicodeException {
@@ -198,7 +200,10 @@ public final class Headers {
     public static String c(String str, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, objArr)) == null) ? String.format(Locale.US, str, objArr) : (String) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, objArr)) == null) {
+            return String.format(Locale.US, str, objArr);
+        }
+        return (String) invokeLL.objValue;
     }
 
     public static String e(String[] strArr, String str) {
@@ -215,41 +220,61 @@ public final class Headers {
         return (String) invokeLL.objValue;
     }
 
-    @Nullable
     public String d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? e(this.a, str) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return e(this.a, str);
+        }
+        return (String) invokeL.objValue;
     }
 
-    public boolean equals(@Nullable Object obj) {
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? (obj instanceof Headers) && Arrays.equals(((Headers) obj).a, this.a) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if ((obj instanceof Headers) && Arrays.equals(((Headers) obj).a, this.a)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public String f(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.a[i * 2] : (String) invokeI.objValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.length / 2 : invokeV.intValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            return this.a[i * 2];
+        }
+        return (String) invokeI.objValue;
     }
 
     public String h(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? this.a[(i * 2) + 1] : (String) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return this.a[(i * 2) + 1];
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.length / 2;
+        }
+        return invokeV.intValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? Arrays.hashCode(this.a) : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return Arrays.hashCode(this.a);
+        }
+        return invokeV.intValue;
     }
 
     public String toString() {

@@ -38,37 +38,6 @@ public class SelectorTextView extends TextView {
         this.a = false;
     }
 
-    @Override // android.widget.TextView, android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            if (isEnabled()) {
-                int action = motionEvent.getAction();
-                if (action == 0) {
-                    Log.d("ACTION_DOWN", "ACTION_DOWN");
-                    if (this.a) {
-                        setAlpha(0.5f);
-                    } else {
-                        setAlpha(0.4f);
-                    }
-                } else if (action == 1 || action == 3) {
-                    Log.d("ACTION_UP", "ACTION_UP");
-                    setAlpha(1.0f);
-                }
-            }
-            return super.onTouchEvent(motionEvent);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void setMode(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.a = z;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SelectorTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -111,5 +80,38 @@ public class SelectorTextView extends TextView {
             }
         }
         this.a = false;
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            if (isEnabled()) {
+                int action = motionEvent.getAction();
+                if (action != 0) {
+                    if (action == 1 || action == 3) {
+                        Log.d("ACTION_UP", "ACTION_UP");
+                        setAlpha(1.0f);
+                    }
+                } else {
+                    Log.d("ACTION_DOWN", "ACTION_DOWN");
+                    if (this.a) {
+                        setAlpha(0.5f);
+                    } else {
+                        setAlpha(0.4f);
+                    }
+                }
+            }
+            return super.onTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setMode(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.a = z;
+        }
     }
 }

@@ -62,7 +62,28 @@ public final class LoginShareStrategy {
     public static LoginShareStrategy getDefault() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? CHOICE : (LoginShareStrategy) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return CHOICE;
+        }
+        return (LoginShareStrategy) invokeV.objValue;
+    }
+
+    public static LoginShareStrategy[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return (LoginShareStrategy[]) $VALUES.clone();
+        }
+        return (LoginShareStrategy[]) invokeV.objValue;
+    }
+
+    public String getStrValue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mStrValue;
+        }
+        return (String) invokeV.objValue;
     }
 
     public static LoginShareStrategy mapStrToValue(String str) {
@@ -86,18 +107,9 @@ public final class LoginShareStrategy {
     public static LoginShareStrategy valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (LoginShareStrategy) Enum.valueOf(LoginShareStrategy.class, str) : (LoginShareStrategy) invokeL.objValue;
-    }
-
-    public static LoginShareStrategy[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (LoginShareStrategy[]) $VALUES.clone() : (LoginShareStrategy[]) invokeV.objValue;
-    }
-
-    public String getStrValue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mStrValue : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return (LoginShareStrategy) Enum.valueOf(LoginShareStrategy.class, str);
+        }
+        return (LoginShareStrategy) invokeL.objValue;
     }
 }

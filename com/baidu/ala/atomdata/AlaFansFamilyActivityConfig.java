@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class AlaFansFamilyActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTHOR_LIVE_USER_ID = "author_live_user_id";
-    public static final String FROM_LIVE_ROOM = "from_live_room";
     public static final String FROM_PERSON_CENTER = "from_person_center";
     public static final String FROM_TYPE = "from_type";
     public static final String IS_SHOW_FULL_SCREEN = "is_show_full_screen";

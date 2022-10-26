@@ -1,229 +1,179 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.text.SpannableString;
-import android.text.method.LinkMovementMethod;
-import android.text.style.AbsoluteSizeSpan;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tieba.deletethread.DeleteThreadHttpResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.jvm.internal.StringCompanionObject;
-import kotlin.text.StringsKt__StringsKt;
-@JvmName(name = "PrivacyPolicyDialogUtil")
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class go5 {
+public class go5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public HttpMessageListener a;
+    public c b;
+    public CustomMessageListener c;
 
     /* loaded from: classes4.dex */
-    public static final class a extends fo5 {
+    public interface c {
+        void a(DeleteThreadHttpResponseMessage deleteThreadHttpResponseMessage);
+    }
+
+    /* loaded from: classes4.dex */
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
+        public final /* synthetic */ go5 a;
 
-        public a(Context context) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(go5 go5Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context};
+                Object[] objArr = {go5Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = context;
+            this.a = go5Var;
         }
 
-        @Override // android.text.style.ClickableSpan
-        public void onClick(View widget) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, widget) == null) {
-                Intrinsics.checkNotNullParameter(widget, "widget");
-                yo4.l(this.a, Intrinsics.stringPlus(TbConfig.TIEBA_ADDRESS, "tb/mobile/wisemainstatic/secretright.html"));
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject)) {
+                this.a.c((JSONObject) customResponsedMessage.getData());
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public static final class b extends fo5 {
+    public class b extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
+        public final /* synthetic */ go5 a;
 
-        public b(Context context) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(go5 go5Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context};
+                Object[] objArr = {go5Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = context;
+            this.a = go5Var;
         }
 
-        @Override // android.text.style.ClickableSpan
-        public void onClick(View widget) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, widget) == null) {
-                Intrinsics.checkNotNullParameter(widget, "widget");
-                yo4.l(this.a, "https://gsp0.baidu.com/5aAHeD3nKhI2p27j8IqW0jdnxx1xbK/tb/eula.html");
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003185 || !(httpResponsedMessage instanceof DeleteThreadHttpResponseMessage) || !httpResponsedMessage.isSuccess() || this.a.b == null) {
+                return;
+            }
+            this.a.b.a((DeleteThreadHttpResponseMessage) httpResponsedMessage);
+        }
+    }
+
+    public go5(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = null;
+        this.c = new a(this, 2016489);
+        if (this.a == null) {
+            this.a = new b(this, CmdConfigHttp.CMD_NEG_DELETE_THREAD);
+        }
+        MessageManager.getInstance().registerListener(this.a);
+        MessageManager.getInstance().registerListener(this.c);
+    }
+
+    public void f(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
+            this.b = cVar;
+        }
+    }
+
+    public final void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+            try {
+                int i = jSONObject.getInt("type");
+                String JsonArrayToString = StringHelper.JsonArrayToString(jSONObject.getJSONArray("thread_ids"));
+                String JsonArrayToString2 = StringHelper.JsonArrayToString(jSONObject.getJSONArray("reason"));
+                String JsonArrayToString3 = StringHelper.JsonArrayToString(jSONObject.getJSONArray("is_frs_masks"));
+                String string = jSONObject.getString("forum_id");
+                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_NEG_DELETE_THREAD);
+                httpMessage.addParam("type", i);
+                httpMessage.addParam("thread_ids", JsonArrayToString);
+                httpMessage.addParam("is_frs_masks", JsonArrayToString3);
+                httpMessage.addParam("reason", JsonArrayToString2);
+                httpMessage.addParam("forum_id", string);
+                httpMessage.addParam(HttpRequest.TBS, TbadkCoreApplication.getInst().getTbs());
+                MessageManager.getInstance().sendMessage(httpMessage);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
 
-    public static final nu4 a(TbPageContext<?> tbPageContext, View.OnClickListener listener, int i, int i2) {
-        InterceptResult invokeLLII;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65536, null, tbPageContext, listener, i, i2)) == null) {
-            Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
-            Intrinsics.checkNotNullParameter(listener, "listener");
-            View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0753, (ViewGroup) null);
-            Intrinsics.checkNotNullExpressionValue(inflate, "from(tbPageContext.pageA…olicy_guide_dialog, null)");
-            EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f092219);
-            eMTextView.setText(R.string.obfuscated_res_0x7f0f10fd);
-            hv4 d = hv4.d(eMTextView);
-            d.A(R.string.F_X02);
-            d.z(R.dimen.T_X05);
-            EMTextView eMTextView2 = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f0906e3);
-            eMTextView2.setHighlightColor(0);
-            StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
-            String string = tbPageContext.getString(i);
-            Intrinsics.checkNotNullExpressionValue(string, "tbPageContext.getString(contentTestResId)");
-            String format = String.format(string, Arrays.copyOf(new Object[]{tbPageContext.getString(R.string.obfuscated_res_0x7f0f0f22), tbPageContext.getString(R.string.obfuscated_res_0x7f0f1514)}, 2));
-            Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");
-            Activity pageActivity = tbPageContext.getPageActivity();
-            Intrinsics.checkNotNullExpressionValue(pageActivity, "tbPageContext.pageActivity");
-            SpannableString d2 = d(pageActivity, format);
-            eMTextView2.setMovementMethod(LinkMovementMethod.getInstance());
-            eMTextView2.setText(d2);
-            hv4.d(eMTextView2).z(R.dimen.T_X07);
-            EMTextView eMTextView3 = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f090410);
-            eMTextView3.setText(i2);
-            hv4.d(eMTextView3).z(R.dimen.T_X08);
-            eMTextView3.setOnClickListener(listener);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f0926d9);
-            tBSpecificationBtn.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f10f1));
-            tBSpecificationBtn.setTextSize(R.dimen.T_X07);
-            ny4 ny4Var = new ny4();
-            ny4Var.p(R.color.CAM_X0303, R.color.CAM_X0101);
-            tBSpecificationBtn.setConfig(ny4Var);
-            tBSpecificationBtn.setOnClickListener(listener);
-            nu4 nu4Var = new nu4(tbPageContext.getPageActivity());
-            nu4Var.setContentView(inflate);
-            nu4Var.setContentViewSize(8);
-            nu4Var.setAutoNight(false);
-            nu4Var.setCanceledOnTouchOutside(false);
-            nu4Var.setCancelable(false);
-            nu4Var.create(tbPageContext);
-            return nu4Var;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.c);
+            MessageManager.getInstance().unRegisterListener(this.a);
         }
-        return (nu4) invokeLLII.objValue;
     }
 
-    public static final nu4 b(TbPageContext<?> tbPageContext, View.OnClickListener listener) {
-        InterceptResult invokeLL;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tbPageContext, listener)) == null) {
-            Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
-            Intrinsics.checkNotNullParameter(listener, "listener");
-            View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0754, (ViewGroup) null);
-            Intrinsics.checkNotNullExpressionValue(inflate, "from(tbPageContext.pageA…rivate_hint_dialog, null)");
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a92)).setText(R.string.obfuscated_res_0x7f0f10fd);
-            inflate.findViewById(R.id.obfuscated_res_0x7f091ad7).setVisibility(0);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ad8);
-            textView.setHighlightColor(0);
-            StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
-            String string = tbPageContext.getString(R.string.obfuscated_res_0x7f0f10fc);
-            Intrinsics.checkNotNullExpressionValue(string, "tbPageContext.getString(…tring.secret_hint_format)");
-            String format = String.format(string, Arrays.copyOf(new Object[]{tbPageContext.getString(R.string.obfuscated_res_0x7f0f10fb), tbPageContext.getString(R.string.obfuscated_res_0x7f0f1100), tbPageContext.getString(R.string.obfuscated_res_0x7f0f10f4), tbPageContext.getString(R.string.obfuscated_res_0x7f0f10f5), tbPageContext.getString(R.string.obfuscated_res_0x7f0f10f6), tbPageContext.getString(R.string.obfuscated_res_0x7f0f10f7), tbPageContext.getString(R.string.obfuscated_res_0x7f0f10f8)}, 7));
-            Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");
-            Activity pageActivity = tbPageContext.getPageActivity();
-            Intrinsics.checkNotNullExpressionValue(pageActivity, "tbPageContext.pageActivity");
-            SpannableString d = d(pageActivity, format);
-            Matcher matcher = Pattern.compile("\n\n").matcher(format);
-            while (matcher.find()) {
-                d.setSpan(new AbsoluteSizeSpan(2, true), matcher.start() + 1, matcher.end(), 33);
-            }
-            textView.setMovementMethod(LinkMovementMethod.getInstance());
-            textView.setText(d);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a8e);
-            textView2.setOnClickListener(listener);
-            SkinManager.setViewTextColorSelector(textView2, R.color.CAM_X0110, R.color.CAM_X0110, 0);
-            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a93);
-            textView3.setOnClickListener(listener);
-            hv4 d2 = hv4.d(textView3);
-            d2.n(R.string.J_X01);
-            d2.f(R.color.CAM_X0303);
-            SkinManager.setViewTextColorSelector(textView3, R.color.CAM_X0101, R.color.CAM_X0618, 0);
-            nu4 nu4Var = new nu4(tbPageContext.getPageActivity());
-            nu4Var.setContentView(inflate);
-            nu4Var.setContentViewSize(7);
-            nu4Var.setCanceledOnTouchOutside(false);
-            nu4Var.setAutoNight(false);
-            nu4Var.setCancelable(false);
-            nu4Var.create(tbPageContext);
-            return nu4Var;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().registerListener(this.a);
+            MessageManager.getInstance().registerListener(this.c);
         }
-        return (nu4) invokeLL.objValue;
-    }
-
-    public static final int[] c(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            String string = TbadkCoreApplication.getInst().getString(i);
-            Intrinsics.checkNotNullExpressionValue(string, "getInst().getString(patternTextResId)");
-            int[] iArr = {StringsKt__StringsKt.indexOf$default((CharSequence) str, string, 0, false, 6, (Object) null), iArr[0] + string.length()};
-            return iArr;
-        }
-        return (int[]) invokeLI.objValue;
-    }
-
-    public static final SpannableString d(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            SpannableString spannableString = new SpannableString(str);
-            int[] c = c(str, R.string.obfuscated_res_0x7f0f0f22);
-            if (c[0] != -1) {
-                spannableString.setSpan(new a(context), c[0], c[1], 18);
-            }
-            int[] c2 = c(str, R.string.obfuscated_res_0x7f0f1514);
-            if (c2[0] != -1) {
-                spannableString.setSpan(new b(context), c2[0], c2[1], 18);
-            }
-            return spannableString;
-        }
-        return (SpannableString) invokeLL.objValue;
     }
 }

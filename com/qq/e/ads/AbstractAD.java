@@ -19,10 +19,10 @@ import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.pi.POFactory;
 import com.qq.e.comm.util.GDTLogger;
 /* loaded from: classes8.dex */
-public abstract class AbstractAD<T> {
+public abstract class AbstractAD {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public T a;
+    public Object a;
     public final Handler b;
     public volatile boolean c;
     public volatile boolean d;
@@ -53,119 +53,7 @@ public abstract class AbstractAD<T> {
         }
     }
 
-    private void b(Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, str, str2) == null) {
-            this.e = true;
-            if (GDTADManager.getInstance().isInitialized()) {
-                String appid = GDTADManager.getInstance().getAppStatus().getAPPID();
-                if (a.a(context)) {
-                    this.d = true;
-                    GDTADManager.INIT_EXECUTOR.execute(new Runnable(this, context, appid, str, str2) { // from class: com.qq.e.ads.AbstractAD.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ Context a;
-                        public final /* synthetic */ String b;
-                        public final /* synthetic */ String c;
-                        public final /* synthetic */ String d;
-                        public final /* synthetic */ AbstractAD e;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, context, appid, str, str2};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.e = this;
-                            this.a = context;
-                            this.b = appid;
-                            this.c = str;
-                            this.d = str2;
-                        }
-
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                try {
-                                    this.e.b.post(new Runnable(this, GDTADManager.getInstance().getPM().getPOFactory()) { // from class: com.qq.e.ads.AbstractAD.1.1
-                                        public static /* synthetic */ Interceptable $ic;
-                                        public transient /* synthetic */ FieldHolder $fh;
-                                        public final /* synthetic */ POFactory a;
-                                        public final /* synthetic */ AnonymousClass1 b;
-
-                                        {
-                                            Interceptable interceptable3 = $ic;
-                                            if (interceptable3 != null) {
-                                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                                newInitContext.initArgs = r2;
-                                                Object[] objArr = {this, r7};
-                                                interceptable3.invokeUnInit(65536, newInitContext);
-                                                int i = newInitContext.flag;
-                                                if ((i & 1) != 0) {
-                                                    int i2 = i & 2;
-                                                    newInitContext.thisArg = this;
-                                                    interceptable3.invokeInitBody(65536, newInitContext);
-                                                    return;
-                                                }
-                                            }
-                                            this.b = this;
-                                            this.a = r7;
-                                        }
-
-                                        @Override // java.lang.Runnable
-                                        public void run() {
-                                            Interceptable interceptable3 = $ic;
-                                            if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                                try {
-                                                    if (this.a != null) {
-                                                        this.b.e.a = (T) this.b.e.a(this.b.a, this.a, this.b.b, this.b.c, this.b.d);
-                                                        this.b.e.c = true;
-                                                        if (this.b.e.a == null) {
-                                                            this.b.e.a(ErrorCode.POFACTORY_GET_INTERFACE_ERROR);
-                                                        } else {
-                                                            this.b.e.a((AbstractAD) this.b.e.a);
-                                                        }
-                                                    } else {
-                                                        this.b.e.c = true;
-                                                        this.b.e.a(200102);
-                                                    }
-                                                } catch (Throwable th) {
-                                                    GDTLogger.e("初始化错误：初始化广告实例时发生异常", th);
-                                                    this.b.e.c = true;
-                                                    this.b.e.a(2001);
-                                                }
-                                            }
-                                        }
-                                    });
-                                } catch (Throwable th) {
-                                    GDTLogger.e("初始化错误：初始化插件时发生异常", th);
-                                    this.e.c = true;
-                                    this.e.a(200102);
-                                }
-                            }
-                        }
-                    });
-                    return;
-                }
-                GDTLogger.e("Manifest文件中Activity/Service/Permission的声明有问题或者Permission权限未授予");
-                a(4002);
-                return;
-            }
-            a(2003);
-        }
-    }
-
-    public abstract T a(Context context, POFactory pOFactory, String str, String str2, String str3);
+    public abstract Object a(Context context, POFactory pOFactory, String str, String str2, String str3);
 
     public final void a(int i) {
         Interceptable interceptable = $ic;
@@ -234,7 +122,7 @@ public abstract class AbstractAD<T> {
         }
     }
 
-    public abstract void a(T t);
+    public abstract void a(Object obj);
 
     public final void a(String str) {
         Interceptable interceptable = $ic;
@@ -261,6 +149,118 @@ public abstract class AbstractAD<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             GDTLogger.e(getClass().getSimpleName() + ":此构造方法已废弃，请在 Application 中初始化 SDK 后，使用不带 appId 的构造方法，详细请参考Demo，构造函数中传入的appId将被忽略，实际使用的是GDTADManager.getInstance().initWith() 传入的appId");
+        }
+    }
+
+    private void b(Context context, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, str, str2) == null) {
+            this.e = true;
+            if (GDTADManager.getInstance().isInitialized()) {
+                String appid = GDTADManager.getInstance().getAppStatus().getAPPID();
+                if (!a.a(context)) {
+                    GDTLogger.e("Manifest文件中Activity/Service/Permission的声明有问题或者Permission权限未授予");
+                    a(4002);
+                    return;
+                }
+                this.d = true;
+                GDTADManager.INIT_EXECUTOR.execute(new Runnable(this, context, appid, str, str2) { // from class: com.qq.e.ads.AbstractAD.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ Context a;
+                    public final /* synthetic */ String b;
+                    public final /* synthetic */ String c;
+                    public final /* synthetic */ String d;
+                    public final /* synthetic */ AbstractAD e;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, context, appid, str, str2};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.e = this;
+                        this.a = context;
+                        this.b = appid;
+                        this.c = str;
+                        this.d = str2;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            try {
+                                this.e.b.post(new Runnable(this, GDTADManager.getInstance().getPM().getPOFactory()) { // from class: com.qq.e.ads.AbstractAD.1.1
+                                    public static /* synthetic */ Interceptable $ic;
+                                    public transient /* synthetic */ FieldHolder $fh;
+                                    public final /* synthetic */ POFactory a;
+                                    public final /* synthetic */ AnonymousClass1 b;
+
+                                    {
+                                        Interceptable interceptable3 = $ic;
+                                        if (interceptable3 != null) {
+                                            InitContext newInitContext = TitanRuntime.newInitContext();
+                                            newInitContext.initArgs = r2;
+                                            Object[] objArr = {this, r7};
+                                            interceptable3.invokeUnInit(65536, newInitContext);
+                                            int i = newInitContext.flag;
+                                            if ((i & 1) != 0) {
+                                                int i2 = i & 2;
+                                                newInitContext.thisArg = this;
+                                                interceptable3.invokeInitBody(65536, newInitContext);
+                                                return;
+                                            }
+                                        }
+                                        this.b = this;
+                                        this.a = r7;
+                                    }
+
+                                    @Override // java.lang.Runnable
+                                    public void run() {
+                                        Interceptable interceptable3 = $ic;
+                                        if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                            try {
+                                                if (this.a != null) {
+                                                    this.b.e.a = this.b.e.a(this.b.a, this.a, this.b.b, this.b.c, this.b.d);
+                                                    this.b.e.c = true;
+                                                    if (this.b.e.a == null) {
+                                                        this.b.e.a(ErrorCode.POFACTORY_GET_INTERFACE_ERROR);
+                                                    } else {
+                                                        this.b.e.a(this.b.e.a);
+                                                    }
+                                                } else {
+                                                    this.b.e.c = true;
+                                                    this.b.e.a(200102);
+                                                }
+                                            } catch (Throwable th) {
+                                                GDTLogger.e("初始化错误：初始化广告实例时发生异常", th);
+                                                this.b.e.c = true;
+                                                this.b.e.a(2001);
+                                            }
+                                        }
+                                    }
+                                });
+                            } catch (Throwable th) {
+                                GDTLogger.e("初始化错误：初始化插件时发生异常", th);
+                                this.e.c = true;
+                                this.e.a(200102);
+                            }
+                        }
+                    }
+                });
+                return;
+            }
+            a(2003);
         }
     }
 }

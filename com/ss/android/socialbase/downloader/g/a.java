@@ -2,7 +2,6 @@ package com.ss.android.socialbase.downloader.g;
 
 import android.content.Context;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.downloader.c;
 import com.ss.android.socialbase.downloader.i.h;
@@ -13,7 +12,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class a {
-    public static final h<Integer, a> a = new h<>(16, 16);
+    public static final h a = new h(16, 16);
     public static final a b = new a(null);
     public static JSONObject c;
     public static JSONObject d;
@@ -51,7 +50,6 @@ public class a {
         this.j = bool;
     }
 
-    @NonNull
     public static a a(int i) {
         return a(i, (DownloadInfo) null);
     }
@@ -61,7 +59,7 @@ public class a {
         a aVar2 = g;
         if (aVar2 == null || aVar2.k != i) {
             synchronized (a) {
-                aVar = a.get(Integer.valueOf(i));
+                aVar = (a) a.get(Integer.valueOf(i));
             }
             if (aVar == null) {
                 aVar = downloadInfo == null ? c(i) : b(downloadInfo);
@@ -76,12 +74,10 @@ public class a {
         return aVar2;
     }
 
-    @NonNull
     public static a a(DownloadInfo downloadInfo) {
         return downloadInfo == null ? b : a(downloadInfo.getId(), downloadInfo);
     }
 
-    @NonNull
     public static a a(JSONObject jSONObject) {
         if (jSONObject == null || jSONObject == b() || f) {
             return b;
@@ -124,15 +120,15 @@ public class a {
             a aVar = g;
             if (aVar == null || aVar.h != jSONObject) {
                 aVar = null;
-                Iterator<a> it = a.values().iterator();
+                Iterator it = a.values().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
-                    a next = it.next();
-                    if (next.h == jSONObject) {
-                        next.k = i;
-                        aVar = next;
+                    a aVar2 = (a) it.next();
+                    if (aVar2.h == jSONObject) {
+                        aVar2.k = i;
+                        aVar = aVar2;
                         break;
                     }
                 }
@@ -214,7 +210,6 @@ public class a {
         return b;
     }
 
-    @NonNull
     public static JSONObject b() {
         return c.E();
     }
@@ -229,7 +224,6 @@ public class a {
         }
     }
 
-    @NonNull
     public static a c() {
         return b;
     }

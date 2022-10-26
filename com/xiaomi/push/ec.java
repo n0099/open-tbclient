@@ -40,7 +40,7 @@ public class ec {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m305a() {
+    public String m304a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f302a : (String) invokeV.objValue;

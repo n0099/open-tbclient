@@ -10,7 +10,7 @@ import android.widget.ScrollView;
 import android.widget.Scroller;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,7 +60,13 @@ public class CustomScrollView extends ScrollView {
         public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) ? Math.abs(f2) > Math.abs(f) : invokeCommon.booleanValue;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
+                if (Math.abs(f2) > Math.abs(f)) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeCommon.booleanValue;
         }
     }
 
@@ -94,7 +100,7 @@ public class CustomScrollView extends ScrollView {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
                 if (this.d == null) {
-                    this.d = ej.e(this, "mScroller");
+                    this.d = fj.e(this, "mScroller");
                 }
                 Object obj = this.d.get(this);
                 if (obj == null) {
@@ -127,9 +133,21 @@ public class CustomScrollView extends ScrollView {
             if (motionEvent.getAction() == 0) {
                 a();
             }
-            return super.onInterceptTouchEvent(motionEvent) && this.a.onTouchEvent(motionEvent);
+            boolean onInterceptTouchEvent = super.onInterceptTouchEvent(motionEvent);
+            boolean onTouchEvent = this.a.onTouchEvent(motionEvent);
+            if (onInterceptTouchEvent && onTouchEvent) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
+    }
+
+    public void setOnScrollListener(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
+            this.e = aVar;
+        }
     }
 
     @Override // android.widget.ScrollView, android.widget.FrameLayout, android.view.ViewGroup, android.view.View
@@ -145,17 +163,22 @@ public class CustomScrollView extends ScrollView {
 
     @Override // android.view.View
     public void onScrollChanged(int i, int i2, int i3, int i4) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048580, this, i, i2, i3, i4) == null) {
             a aVar = this.e;
             if (aVar != null) {
                 aVar.onScrollChanged(i, i2, i3, i4);
             }
-            boolean z = this.b - this.c == i2;
+            if (this.b - this.c == i2) {
+                z = true;
+            } else {
+                z = false;
+            }
             if (i2 == 0 || z) {
                 try {
                     if (this.d == null) {
-                        this.d = ej.e(this, "mScroller");
+                        this.d = fj.e(this, "mScroller");
                     }
                     Object obj = this.d.get(this);
                     if (obj != null && (obj instanceof Scroller)) {
@@ -174,16 +197,10 @@ public class CustomScrollView extends ScrollView {
     public void requestChildFocus(View view2, View view3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, view2, view3) == null) {
-            if (view3 == null || !(view3 instanceof WebView)) {
-                super.requestChildFocus(view2, view3);
+            if (view3 != null && (view3 instanceof WebView)) {
+                return;
             }
-        }
-    }
-
-    public void setOnScrollListener(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            this.e = aVar;
+            super.requestChildFocus(view2, view3);
         }
     }
 }

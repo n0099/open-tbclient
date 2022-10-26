@@ -64,6 +64,26 @@ public class CloudControlResponseParse {
         this.mRuntype = str;
     }
 
+    public CloudControlResponseParse(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mSharedPrefsWrapper = CloudControlManager.getInstance().getSharedPrefsWrapper();
+        this.mRuntype = str;
+        this.mTraceId = str2;
+    }
+
     public CloudControlData parseConnectResponse(JSONObject jSONObject, JSONObject jSONObject2) throws JSONException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -129,11 +149,7 @@ public class CloudControlResponseParse {
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("service");
             String optString2 = optJSONObject.optString("pubparam");
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("control");
-            if (optJSONObject3 == null || optJSONObject3.length() == 0) {
-                cloudControlUBCData = cloudControlUBCData3;
-                jSONObject2 = optJSONObject2;
-                str = optString2;
-            } else {
+            if (optJSONObject3 != null && optJSONObject3.length() != 0) {
                 JSONArray jSONArray = new JSONArray();
                 JSONObject optJSONObject4 = optJSONObject3.optJSONObject("ccs_hotrun_interval");
                 int i5 = 1;
@@ -216,6 +232,10 @@ public class CloudControlResponseParse {
                 }
                 cloudControlUBCData = cloudControlUBCData2;
                 cloudControlUBCData.collectDegradegInfo(i5, i2, i, jSONArray);
+            } else {
+                cloudControlUBCData = cloudControlUBCData3;
+                jSONObject2 = optJSONObject2;
+                str = optString2;
             }
             this.mSharedPrefsWrapper.putString(CloudControlConstant.SP_KEY_PUBPARAM, str);
             this.mSharedPrefsWrapper.putLong(CloudControlConstant.SP_KEY_LAST_REQUEST_TIME, System.currentTimeMillis());
@@ -236,25 +256,5 @@ public class CloudControlResponseParse {
             return cloudControlData4;
         }
         return (CloudControlData) invokeLZ.objValue;
-    }
-
-    public CloudControlResponseParse(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mSharedPrefsWrapper = CloudControlManager.getInstance().getSharedPrefsWrapper();
-        this.mRuntype = str;
-        this.mTraceId = str2;
     }
 }

@@ -1,6 +1,5 @@
 package androidx.room;
 
-import androidx.annotation.RestrictTo;
 import androidx.sqlite.db.SupportSQLiteStatement;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicBoolean;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes.dex */
 public abstract class SharedSQLiteStatement {
     public static /* synthetic */ Interceptable $ic;
@@ -17,6 +15,8 @@ public abstract class SharedSQLiteStatement {
     public final RoomDatabase mDatabase;
     public final AtomicBoolean mLock;
     public volatile SupportSQLiteStatement mStmt;
+
+    public abstract String createQuery();
 
     public SharedSQLiteStatement(RoomDatabase roomDatabase) {
         Interceptable interceptable = $ic;
@@ -40,22 +40,10 @@ public abstract class SharedSQLiteStatement {
     private SupportSQLiteStatement createNewStatement() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? this.mDatabase.compileStatement(createQuery()) : (SupportSQLiteStatement) invokeV.objValue;
-    }
-
-    private SupportSQLiteStatement getStmt(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, this, z)) == null) {
-            if (z) {
-                if (this.mStmt == null) {
-                    this.mStmt = createNewStatement();
-                }
-                return this.mStmt;
-            }
-            return createNewStatement();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            return this.mDatabase.compileStatement(createQuery());
         }
-        return (SupportSQLiteStatement) invokeZ.objValue;
+        return (SupportSQLiteStatement) invokeV.objValue;
     }
 
     public SupportSQLiteStatement acquire() {
@@ -75,7 +63,20 @@ public abstract class SharedSQLiteStatement {
         }
     }
 
-    public abstract String createQuery();
+    private SupportSQLiteStatement getStmt(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, this, z)) == null) {
+            if (z) {
+                if (this.mStmt == null) {
+                    this.mStmt = createNewStatement();
+                }
+                return this.mStmt;
+            }
+            return createNewStatement();
+        }
+        return (SupportSQLiteStatement) invokeZ.objValue;
+    }
 
     public void release(SupportSQLiteStatement supportSQLiteStatement) {
         Interceptable interceptable = $ic;

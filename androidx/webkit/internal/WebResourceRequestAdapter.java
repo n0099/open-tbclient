@@ -33,6 +33,9 @@ public class WebResourceRequestAdapter {
     public boolean isRedirect() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mBoundaryInterface.isRedirect() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mBoundaryInterface.isRedirect();
+        }
+        return invokeV.booleanValue;
     }
 }

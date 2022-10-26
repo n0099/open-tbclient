@@ -57,12 +57,18 @@ public final class LabelRequestEnum {
     public static LabelRequestEnum valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (LabelRequestEnum) Enum.valueOf(LabelRequestEnum.class, str) : (LabelRequestEnum) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (LabelRequestEnum) Enum.valueOf(LabelRequestEnum.class, str);
+        }
+        return (LabelRequestEnum) invokeL.objValue;
     }
 
     public static LabelRequestEnum[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LabelRequestEnum[]) $VALUES.clone() : (LabelRequestEnum[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (LabelRequestEnum[]) $VALUES.clone();
+        }
+        return (LabelRequestEnum[]) invokeV.objValue;
     }
 }

@@ -34,102 +34,49 @@ public class d4 {
         }
     }
 
-    public void a(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            if (z) {
-                float f = this.b;
-                this.b = this.d;
-                this.d = f;
-            }
-            if (z2) {
-                float f2 = this.c;
-                this.c = this.e;
-                this.e = f2;
-            }
-        }
-    }
-
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.g : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Math.round(this.b * this.a.x()) : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return Math.round(this.b * this.a.x());
+        }
+        return invokeV.intValue;
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Math.round(this.c * this.a.u()) : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return Math.round(this.c * this.a.u());
+        }
+        return invokeV.intValue;
     }
 
     public Texture f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : (Texture) invokeV.objValue;
-    }
-
-    public void g(float f, float f2, float f3, float f4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            int x = this.a.x();
-            int u = this.a.u();
-            float f5 = x;
-            this.f = Math.round(Math.abs(f3 - f) * f5);
-            float f6 = u;
-            int round = Math.round(Math.abs(f4 - f2) * f6);
-            this.g = round;
-            if (this.f == 1 && round == 1) {
-                float f7 = 0.25f / f5;
-                f += f7;
-                f3 -= f7;
-                float f8 = 0.25f / f6;
-                f2 += f8;
-                f4 -= f8;
-            }
-            this.b = f;
-            this.c = f2;
-            this.d = f3;
-            this.e = f4;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
         }
-    }
-
-    public void h(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048583, this, i, i2, i3, i4) == null) {
-            float x = 1.0f / this.a.x();
-            float u = 1.0f / this.a.u();
-            g(i * x, i2 * u, (i + i3) * x, (i2 + i4) * u);
-            this.f = Math.abs(i3);
-            this.g = Math.abs(i4);
-        }
-    }
-
-    public void i(d4 d4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, d4Var) == null) {
-            this.a = d4Var.a;
-            g(d4Var.b, d4Var.c, d4Var.d, d4Var.e);
-        }
-    }
-
-    public void j(d4 d4Var, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{d4Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            this.a = d4Var.a;
-            h(d4Var.d() + i, d4Var.e() + i2, i3, i4);
-        }
+        return (Texture) invokeV.objValue;
     }
 
     public d4(Texture texture) {
@@ -174,6 +121,14 @@ public class d4 {
         h(i, i2, i3, i4);
     }
 
+    public void j(d4 d4Var, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{d4Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            this.a = d4Var.a;
+            h(d4Var.d() + i, d4Var.e() + i2, i3, i4);
+        }
+    }
+
     public d4(d4 d4Var, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -190,5 +145,65 @@ public class d4 {
             }
         }
         j(d4Var, i, i2, i3, i4);
+    }
+
+    public void a(boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            if (z) {
+                float f = this.b;
+                this.b = this.d;
+                this.d = f;
+            }
+            if (z2) {
+                float f2 = this.c;
+                this.c = this.e;
+                this.e = f2;
+            }
+        }
+    }
+
+    public void g(float f, float f2, float f3, float f4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+            int x = this.a.x();
+            int u = this.a.u();
+            float f5 = x;
+            this.f = Math.round(Math.abs(f3 - f) * f5);
+            float f6 = u;
+            int round = Math.round(Math.abs(f4 - f2) * f6);
+            this.g = round;
+            if (this.f == 1 && round == 1) {
+                float f7 = 0.25f / f5;
+                f += f7;
+                f3 -= f7;
+                float f8 = 0.25f / f6;
+                f2 += f8;
+                f4 -= f8;
+            }
+            this.b = f;
+            this.c = f2;
+            this.d = f3;
+            this.e = f4;
+        }
+    }
+
+    public void h(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048583, this, i, i2, i3, i4) == null) {
+            float x = 1.0f / this.a.x();
+            float u = 1.0f / this.a.u();
+            g(i * x, i2 * u, (i + i3) * x, (i2 + i4) * u);
+            this.f = Math.abs(i3);
+            this.g = Math.abs(i4);
+        }
+    }
+
+    public void i(d4 d4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, d4Var) == null) {
+            this.a = d4Var.a;
+            g(d4Var.b, d4Var.c, d4Var.d, d4Var.e);
+        }
     }
 }

@@ -1,6 +1,5 @@
 package com.facebook.common.statfs;
 
-import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Environment;
 import android.os.StatFs;
@@ -20,9 +19,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import javax.annotation.Nullable;
-import javax.annotation.concurrent.GuardedBy;
-import javax.annotation.concurrent.ThreadSafe;
-@ThreadSafe
 /* loaded from: classes7.dex */
 public class StatFsHelper {
     public static /* synthetic */ Interceptable $ic = null;
@@ -42,12 +38,11 @@ public class StatFsHelper {
     public volatile File mInternalPath;
     @Nullable
     public volatile StatFs mInternalStatFs;
-    @GuardedBy("lock")
     public long mLastRestatTime;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class StorageType {
+    public final class StorageType {
         public static final /* synthetic */ StorageType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final StorageType EXTERNAL;
@@ -95,13 +90,19 @@ public class StatFsHelper {
         public static StorageType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (StorageType) Enum.valueOf(StorageType.class, str) : (StorageType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (StorageType) Enum.valueOf(StorageType.class, str);
+            }
+            return (StorageType) invokeL.objValue;
         }
 
         public static StorageType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (StorageType[]) $VALUES.clone() : (StorageType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (StorageType[]) $VALUES.clone();
+            }
+            return (StorageType[]) invokeV.objValue;
         }
     }
 
@@ -140,30 +141,6 @@ public class StatFsHelper {
         this.lock = new ReentrantLock();
     }
 
-    public static StatFs createStatFs(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? new StatFs(str) : (StatFs) invokeL.objValue;
-    }
-
-    private void ensureInitialized() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || this.mInitialized) {
-            return;
-        }
-        this.lock.lock();
-        try {
-            if (!this.mInitialized) {
-                this.mInternalPath = Environment.getDataDirectory();
-                this.mExternalPath = Environment.getExternalStorageDirectory();
-                updateStats();
-                this.mInitialized = true;
-            }
-        } finally {
-            this.lock.unlock();
-        }
-    }
-
     public static synchronized StatFsHelper getInstance() {
         InterceptResult invokeV;
         StatFsHelper statFsHelper;
@@ -180,6 +157,89 @@ public class StatFsHelper {
         return (StatFsHelper) invokeV.objValue;
     }
 
+    private void updateStats() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
+            this.mInternalStatFs = updateStatsHelper(this.mInternalStatFs, this.mInternalPath);
+            this.mExternalStatFs = updateStatsHelper(this.mExternalStatFs, this.mExternalPath);
+            this.mLastRestatTime = SystemClock.uptimeMillis();
+        }
+    }
+
+    public boolean isHighSpaceCondition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (getAvailableStorageSpace(StorageType.INTERNAL) > DEFAULT_DISK_OLIVE_LEVEL_IN_BYTES) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isLowSpaceCondition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (getAvailableStorageSpace(StorageType.INTERNAL) < DEFAULT_DISK_YELLOW_LEVEL_IN_BYTES) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isVeryLowSpaceCondition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (getAvailableStorageSpace(StorageType.INTERNAL) < 104857600) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void resetStats() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.lock.tryLock()) {
+            try {
+                ensureInitialized();
+                updateStats();
+            } finally {
+                this.lock.unlock();
+            }
+        }
+    }
+
+    public static StatFs createStatFs(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return new StatFs(str);
+        }
+        return (StatFs) invokeL.objValue;
+    }
+
+    private void ensureInitialized() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && !this.mInitialized) {
+            this.lock.lock();
+            try {
+                if (!this.mInitialized) {
+                    this.mInternalPath = Environment.getDataDirectory();
+                    this.mExternalPath = Environment.getExternalStorageDirectory();
+                    updateStats();
+                    this.mInitialized = true;
+                }
+            } finally {
+                this.lock.unlock();
+            }
+        }
+    }
+
     private void maybeUpdateStats() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65541, this) == null) && this.lock.tryLock()) {
@@ -190,16 +250,6 @@ public class StatFsHelper {
             } finally {
                 this.lock.unlock();
             }
-        }
-    }
-
-    @GuardedBy("lock")
-    private void updateStats() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            this.mInternalStatFs = updateStatsHelper(this.mInternalStatFs, this.mInternalPath);
-            this.mExternalStatFs = updateStatsHelper(this.mExternalStatFs, this.mExternalPath);
-            this.mLastRestatTime = SystemClock.uptimeMillis();
         }
     }
 
@@ -229,16 +279,20 @@ public class StatFsHelper {
         return (StatFs) invokeLL.objValue;
     }
 
-    @SuppressLint({"DeprecatedMethod"})
     public long getAvailableStorageSpace(StorageType storageType) {
         InterceptResult invokeL;
+        StatFs statFs;
         long blockSize;
         long availableBlocks;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, storageType)) == null) {
             ensureInitialized();
             maybeUpdateStats();
-            StatFs statFs = storageType == StorageType.INTERNAL ? this.mInternalStatFs : this.mExternalStatFs;
+            if (storageType == StorageType.INTERNAL) {
+                statFs = this.mInternalStatFs;
+            } else {
+                statFs = this.mExternalStatFs;
+            }
             if (statFs != null) {
                 if (Build.VERSION.SDK_INT >= 18) {
                     blockSize = statFs.getBlockSizeLong();
@@ -254,16 +308,20 @@ public class StatFsHelper {
         return invokeL.longValue;
     }
 
-    @SuppressLint({"DeprecatedMethod"})
     public long getFreeStorageSpace(StorageType storageType) {
         InterceptResult invokeL;
+        StatFs statFs;
         long blockSize;
         long freeBlocks;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, storageType)) == null) {
             ensureInitialized();
             maybeUpdateStats();
-            StatFs statFs = storageType == StorageType.INTERNAL ? this.mInternalStatFs : this.mExternalStatFs;
+            if (storageType == StorageType.INTERNAL) {
+                statFs = this.mInternalStatFs;
+            } else {
+                statFs = this.mExternalStatFs;
+            }
             if (statFs != null) {
                 if (Build.VERSION.SDK_INT >= 18) {
                     blockSize = statFs.getBlockSizeLong();
@@ -279,16 +337,20 @@ public class StatFsHelper {
         return invokeL.longValue;
     }
 
-    @SuppressLint({"DeprecatedMethod"})
     public long getTotalStorageSpace(StorageType storageType) {
         InterceptResult invokeL;
+        StatFs statFs;
         long blockSize;
         long blockCount;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, storageType)) == null) {
             ensureInitialized();
             maybeUpdateStats();
-            StatFs statFs = storageType == StorageType.INTERNAL ? this.mInternalStatFs : this.mExternalStatFs;
+            if (storageType == StorageType.INTERNAL) {
+                statFs = this.mInternalStatFs;
+            } else {
+                statFs = this.mExternalStatFs;
+            }
             if (statFs != null) {
                 if (Build.VERSION.SDK_INT >= 18) {
                     blockSize = statFs.getBlockSizeLong();
@@ -304,43 +366,16 @@ public class StatFsHelper {
         return invokeL.longValue;
     }
 
-    public boolean isHighSpaceCondition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? getAvailableStorageSpace(StorageType.INTERNAL) > DEFAULT_DISK_OLIVE_LEVEL_IN_BYTES : invokeV.booleanValue;
-    }
-
-    public boolean isLowSpaceCondition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? getAvailableStorageSpace(StorageType.INTERNAL) < DEFAULT_DISK_YELLOW_LEVEL_IN_BYTES : invokeV.booleanValue;
-    }
-
-    public boolean isVeryLowSpaceCondition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? getAvailableStorageSpace(StorageType.INTERNAL) < 104857600 : invokeV.booleanValue;
-    }
-
-    public void resetStats() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.lock.tryLock()) {
-            try {
-                ensureInitialized();
-                updateStats();
-            } finally {
-                this.lock.unlock();
-            }
-        }
-    }
-
     public boolean testLowDiskSpace(StorageType storageType, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048583, this, storageType, j)) == null) {
             ensureInitialized();
             long availableStorageSpace = getAvailableStorageSpace(storageType);
-            return availableStorageSpace <= 0 || availableStorageSpace < j;
+            if (availableStorageSpace <= 0 || availableStorageSpace < j) {
+                return true;
+            }
+            return false;
         }
         return invokeLJ.booleanValue;
     }

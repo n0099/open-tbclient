@@ -1,19 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.swan.game.ad.entity.AdResponseInfo;
+import android.view.View;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public interface cs3 {
-    void a(String str, JSONObject jSONObject, ResponseCallback<AdResponseInfo> responseCallback);
+    void a(String str, JSONObject jSONObject);
 
-    void b(String str, JSONObject jSONObject, ResponseCallback<ur3> responseCallback);
+    boolean b();
 
-    void c(String str, ResponseCallback<dr3> responseCallback);
+    boolean c(View view2);
 
-    void d(String str);
+    boolean d(View view2, wq3 wq3Var);
 
-    void e(String str);
+    void e();
 
-    void f(String str, ResponseCallback<AdResponseInfo> responseCallback);
+    boolean f(View view2, wq3 wq3Var);
+
+    boolean removeView(View view2);
 }

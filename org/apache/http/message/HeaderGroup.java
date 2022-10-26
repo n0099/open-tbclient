@@ -31,13 +31,6 @@ public class HeaderGroup {
         throw new RuntimeException("Stub!");
     }
 
-    public void addHeader(Header header) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, header) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
     public void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -52,15 +45,6 @@ public class HeaderGroup {
             throw new RuntimeException("Stub!");
         }
         return invokeV.objValue;
-    }
-
-    public boolean containsHeader(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeL.booleanValue;
     }
 
     public HeaderGroup copy() {
@@ -79,6 +63,31 @@ public class HeaderGroup {
             throw new RuntimeException("Stub!");
         }
         return (Header[]) invokeV.objValue;
+    }
+
+    public HeaderIterator iterator() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (HeaderIterator) invokeV.objValue;
+    }
+
+    public void addHeader(Header header) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, header) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    public boolean containsHeader(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeL.booleanValue;
     }
 
     public Header getCondensedHeader(String str) {
@@ -117,13 +126,13 @@ public class HeaderGroup {
         return (Header) invokeL.objValue;
     }
 
-    public HeaderIterator iterator() {
-        InterceptResult invokeV;
+    public HeaderIterator iterator(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
             throw new RuntimeException("Stub!");
         }
-        return (HeaderIterator) invokeV.objValue;
+        return (HeaderIterator) invokeL.objValue;
     }
 
     public void removeHeader(Header header) {
@@ -145,14 +154,5 @@ public class HeaderGroup {
         if (interceptable == null || interceptable.invokeL(1048590, this, header) == null) {
             throw new RuntimeException("Stub!");
         }
-    }
-
-    public HeaderIterator iterator(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (HeaderIterator) invokeL.objValue;
     }
 }

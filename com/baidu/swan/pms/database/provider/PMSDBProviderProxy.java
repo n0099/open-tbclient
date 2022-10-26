@@ -1,17 +1,14 @@
 package com.baidu.swan.pms.database.provider;
 
 import android.content.ContentProvider;
-import android.content.ContentProviderOperation;
 import android.content.ContentProviderResult;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cc4;
-import com.baidu.tieba.ng4;
+import com.baidu.tieba.dc4;
+import com.baidu.tieba.og4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,9 +20,19 @@ import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class PMSDBProviderProxy extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
-    public static final ng4 b;
+    public static final og4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile cc4 a;
+    public volatile dc4 a;
+
+    @Override // android.content.ContentProvider
+    public boolean onCreate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -40,7 +47,7 @@ public class PMSDBProviderProxy extends ContentProvider {
                 return;
             }
         }
-        b = ng4.c();
+        b = og4.c();
     }
 
     public PMSDBProviderProxy() {
@@ -57,31 +64,30 @@ public class PMSDBProviderProxy extends ContentProvider {
         }
     }
 
-    public cc4 a() {
+    public dc4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.a == null) {
-                synchronized (cc4.class) {
+                synchronized (dc4.class) {
                     if (this.a == null) {
-                        this.a = new cc4(getContext());
+                        this.a = new dc4(getContext());
                     }
                 }
             }
             return this.a;
         }
-        return (cc4) invokeV.objValue;
+        return (dc4) invokeV.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:17:0x0040, code lost:
         r2.setTransactionSuccessful();
      */
     @Override // android.content.ContentProvider
-    @NonNull
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public ContentProviderResult[] applyBatch(@NonNull ArrayList<ContentProviderOperation> arrayList) {
+    public ContentProviderResult[] applyBatch(ArrayList arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList)) == null) {
@@ -120,50 +126,52 @@ public class PMSDBProviderProxy extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
+    public int delete(Uri uri, String str, String[] strArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, uri, str, strArr)) == null) ? a().delete(uri, str, strArr) : invokeLLL.intValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, uri, str, strArr)) == null) {
+            return a().delete(uri, str, strArr);
+        }
+        return invokeLLL.intValue;
     }
 
     @Override // android.content.ContentProvider
-    @Nullable
-    public String getType(@NonNull Uri uri) {
+    public String getType(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, uri)) == null) ? a().getType(uri) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, uri)) == null) {
+            return a().getType(uri);
+        }
+        return (String) invokeL.objValue;
     }
 
     @Override // android.content.ContentProvider
-    @Nullable
-    public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
+    public Uri insert(Uri uri, ContentValues contentValues) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, uri, contentValues)) == null) ? a().insert(uri, contentValues) : (Uri) invokeLL.objValue;
-    }
-
-    @Override // android.content.ContentProvider
-    public boolean onCreate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, uri, contentValues)) == null) {
+            return a().insert(uri, contentValues);
         }
-        return invokeV.booleanValue;
+        return (Uri) invokeLL.objValue;
     }
 
     @Override // android.content.ContentProvider
-    @Nullable
-    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
+    public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, uri, strArr, str, strArr2, str2)) == null) ? a().query(uri, strArr, str, strArr2, str2) : (Cursor) invokeLLLLL.objValue;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, uri, strArr, str, strArr2, str2)) == null) {
+            return a().query(uri, strArr, str, strArr2, str2);
+        }
+        return (Cursor) invokeLLLLL.objValue;
     }
 
     @Override // android.content.ContentProvider
-    public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
+    public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, uri, contentValues, str, strArr)) == null) ? a().update(uri, contentValues, str, strArr) : invokeLLLL.intValue;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, uri, contentValues, str, strArr)) == null) {
+            return a().update(uri, contentValues, str, strArr);
+        }
+        return invokeLLLL.intValue;
     }
 }

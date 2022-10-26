@@ -28,6 +28,15 @@ public class ThreadCollector {
         }
     }
 
+    public static String getMainThreadStackTrace() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return getThreadStack(Looper.getMainLooper().getThread());
+        }
+        return (String) invokeV.objValue;
+    }
+
     public static String getAllThreadStacks() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -43,12 +52,6 @@ public class ThreadCollector {
             return sb.toString();
         }
         return (String) invokeV.objValue;
-    }
-
-    public static String getMainThreadStackTrace() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? getThreadStack(Looper.getMainLooper().getThread()) : (String) invokeV.objValue;
     }
 
     public static String getThreadInfo(Thread thread) {

@@ -14,6 +14,23 @@ public class ExperimentalThreadHandoffProducerQueueImpl implements ThreadHandoff
     public transient /* synthetic */ FieldHolder $fh;
     public final Executor mExecutor;
 
+    @Override // com.facebook.imagepipeline.producers.ThreadHandoffProducerQueue
+    public boolean isQueueing() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.facebook.imagepipeline.producers.ThreadHandoffProducerQueue
+    public void remove(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
+        }
+    }
+
     public ExperimentalThreadHandoffProducerQueueImpl(Executor executor) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -37,23 +54,6 @@ public class ExperimentalThreadHandoffProducerQueueImpl implements ThreadHandoff
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
             this.mExecutor.execute(runnable);
-        }
-    }
-
-    @Override // com.facebook.imagepipeline.producers.ThreadHandoffProducerQueue
-    public boolean isQueueing() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.facebook.imagepipeline.producers.ThreadHandoffProducerQueue
-    public void remove(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
         }
     }
 

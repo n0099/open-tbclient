@@ -1,117 +1,82 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.Vector;
-/* loaded from: classes5.dex */
-public class td4 implements jd4 {
+/* loaded from: classes6.dex */
+public class td4 extends yc4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ng4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Vector<jd4> a;
-    public Object b;
+    public od4 a;
+    public boolean b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948177349, "Lcom/baidu/tieba/td4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948177349, "Lcom/baidu/tieba/td4;");
-                return;
-            }
-        }
-        c = ng4.e();
-    }
-
-    public td4(jd4 jd4Var) {
+    public td4(od4 od4Var, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jd4Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {od4Var, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new Object();
-        this.a = new Vector<>();
-        c(jd4Var);
+        this.a = od4Var;
+        this.b = z;
     }
 
-    @Override // com.baidu.tieba.jd4
-    public <T> void a(nd4<T> nd4Var) {
+    @Override // com.baidu.tieba.yc4
+    public od4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, nd4Var) == null) {
-            try {
-                synchronized (this.b) {
-                    Iterator<jd4> it = this.a.iterator();
-                    while (it.hasNext()) {
-                        it.next().a(nd4Var);
-                    }
-                }
-            } catch (Throwable th) {
-                c.g("RuntimeTaskObserver", "#notifyTaskRunning error", th);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (od4) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.jd4
-    public <T> void b(nd4<T> nd4Var) {
+    @Override // com.baidu.tieba.yc4
+    public boolean b(od4 od4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nd4Var) == null) {
-            Vector vector = new Vector();
-            try {
-                synchronized (this.b) {
-                    Iterator<jd4> it = this.a.iterator();
-                    while (it.hasNext()) {
-                        vector.add(it.next());
-                    }
-                }
-                Iterator it2 = vector.iterator();
-                while (it2.hasNext()) {
-                    ((jd4) it2.next()).b(nd4Var);
-                }
-            } catch (Throwable th) {
-                c.g("RuntimeTaskObserver", "#notifyTaskEnd error", th);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, od4Var)) == null) {
+            od4 od4Var2 = this.a;
+            if (od4Var2 == od4Var) {
+                return true;
             }
+            return od4Var2.d(od4Var);
         }
+        return invokeL.booleanValue;
     }
 
-    public void c(jd4 jd4Var) {
+    @Override // com.baidu.tieba.yc4
+    public void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jd4Var) == null) || jd4Var == null) {
+        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) || this.b) {
             return;
         }
-        synchronized (this.b) {
-            this.a.add(jd4Var);
+        if (z) {
+            od4 od4Var = this.a;
+            od4Var.a.b.b = 0L;
+            od4Var.b(0);
         }
+        md4.b().f(this.a);
     }
 
-    public void d(jd4 jd4Var) {
+    @Override // com.baidu.tieba.yc4
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, jd4Var) == null) || jd4Var == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "isAttached=" + this.b + " " + super.toString();
         }
-        synchronized (this.b) {
-            if (!this.a.remove(jd4Var)) {
-                this.a.remove(this.a.indexOf(jd4Var));
-            }
-        }
+        return (String) invokeV.objValue;
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.webkit.internal.b;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -13,7 +12,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.Log;
 import java.net.URISyntaxException;
-@SuppressLint({"NewApi"})
 /* loaded from: classes6.dex */
 public final class e extends g {
     public static /* synthetic */ Interceptable $ic;

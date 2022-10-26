@@ -46,51 +46,6 @@ public class RoundAndShadowLinearLayout extends LinearLayout {
         }
     }
 
-    @Override // android.view.ViewGroup, android.view.View
-    public void dispatchDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            int saveCount = canvas.getSaveCount();
-            canvas.save();
-            super.dispatchDraw(canvas);
-            Shape shape = this.b;
-            if (shape != null) {
-                shape.draw(canvas, this.c);
-            }
-            if (saveCount < 1 || saveCount > canvas.getSaveCount()) {
-                return;
-            }
-            canvas.restoreToCount(saveCount);
-        }
-    }
-
-    @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            super.onLayout(z, i, i2, i3, i4);
-            if (z) {
-                if (this.b == null) {
-                    float[] fArr = new float[8];
-                    Arrays.fill(fArr, 0.0f);
-                    RectF rectF = new RectF(getPaddingLeft() <= 0 ? 0.1f : getPaddingLeft(), getPaddingTop() <= 0 ? 0.1f : getPaddingTop(), getPaddingRight() <= 0 ? 0.1f : getPaddingRight(), getPaddingBottom() > 0 ? getPaddingBottom() : 0.1f);
-                    float[] fArr2 = new float[8];
-                    Arrays.fill(fArr, 0.0f);
-                    Arrays.fill(fArr2, this.a);
-                    this.b = new RoundRectShape(fArr, rectF, fArr2);
-                }
-                this.b.resize(getWidth(), getHeight());
-            }
-        }
-    }
-
-    public void setRadius(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) {
-            this.a = f;
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RoundAndShadowLinearLayout(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
@@ -140,5 +95,71 @@ public class RoundAndShadowLinearLayout extends LinearLayout {
         this.c.setColor(-7829368);
         this.c.setStyle(Paint.Style.FILL);
         this.c.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void dispatchDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+            int saveCount = canvas.getSaveCount();
+            canvas.save();
+            super.dispatchDraw(canvas);
+            Shape shape = this.b;
+            if (shape != null) {
+                shape.draw(canvas, this.c);
+            }
+            if (saveCount >= 1 && saveCount <= canvas.getSaveCount()) {
+                canvas.restoreToCount(saveCount);
+            }
+        }
+    }
+
+    public void setRadius(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) {
+            this.a = f;
+        }
+    }
+
+    @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        float paddingLeft;
+        float paddingRight;
+        float paddingTop;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.onLayout(z, i, i2, i3, i4);
+            if (z) {
+                if (this.b == null) {
+                    float[] fArr = new float[8];
+                    Arrays.fill(fArr, 0.0f);
+                    float f = 0.1f;
+                    if (getPaddingLeft() <= 0) {
+                        paddingLeft = 0.1f;
+                    } else {
+                        paddingLeft = getPaddingLeft();
+                    }
+                    if (getPaddingRight() <= 0) {
+                        paddingRight = 0.1f;
+                    } else {
+                        paddingRight = getPaddingRight();
+                    }
+                    if (getPaddingTop() <= 0) {
+                        paddingTop = 0.1f;
+                    } else {
+                        paddingTop = getPaddingTop();
+                    }
+                    if (getPaddingBottom() > 0) {
+                        f = getPaddingBottom();
+                    }
+                    RectF rectF = new RectF(paddingLeft, paddingTop, paddingRight, f);
+                    float[] fArr2 = new float[8];
+                    Arrays.fill(fArr, 0.0f);
+                    Arrays.fill(fArr2, this.a);
+                    this.b = new RoundRectShape(fArr, rectF, fArr2);
+                }
+                this.b.resize(getWidth(), getHeight());
+            }
+        }
     }
 }

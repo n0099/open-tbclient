@@ -1,6 +1,5 @@
 package com.baidu.searchbox.bddownload.core.connection;
 
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.BdDownload;
@@ -17,7 +16,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.ProtocolException;
-import java.util.List;
 import java.util.Map;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -28,12 +26,11 @@ public class DownloadHttpManagerConnection implements DownloadConnection, Downlo
     public static final String TAG = "DownloadHttpManagerConnection";
     public transient /* synthetic */ FieldHolder $fh;
     public Request request;
-    @NonNull
     public final GetRequest.GetRequestBuilder requestBuilder;
     public Response response;
 
     /* loaded from: classes2.dex */
-    public static class Factory implements DownloadConnection.Factory {
+    public class Factory implements DownloadConnection.Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -57,13 +54,13 @@ public class DownloadHttpManagerConnection implements DownloadConnection, Downlo
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
                 Util.d(DownloadHttpManagerConnection.TAG, " create url = " + str);
-                return new DownloadHttpManagerConnection(HttpManager.getDefault(BdDownload.with().context()).getRequest().url(str));
+                return new DownloadHttpManagerConnection((GetRequest.GetRequestBuilder) HttpManager.getDefault(BdDownload.with().context()).getRequest().url(str));
             }
             return (DownloadConnection) invokeL.objValue;
         }
     }
 
-    public DownloadHttpManagerConnection(@NonNull GetRequest.GetRequestBuilder getRequestBuilder) {
+    public DownloadHttpManagerConnection(GetRequest.GetRequestBuilder getRequestBuilder) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,6 +76,50 @@ public class DownloadHttpManagerConnection implements DownloadConnection, Downlo
             }
         }
         this.requestBuilder = getRequestBuilder;
+    }
+
+    @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection
+    public String getRequestProperty(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            Request request = this.request;
+            if (request != null) {
+                return request.header(str);
+            }
+            return this.requestBuilder.build().getOkRequest().header(str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection.Connected
+    public String getResponseHeaderField(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            Response response = this.response;
+            if (response == null) {
+                return null;
+            }
+            return response.header(str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection
+    public boolean setRequestMethod(String str) throws ProtocolException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            Request request = this.request;
+            if (request != null) {
+                request.newBuilder().method(str, null);
+                return true;
+            }
+            this.requestBuilder.build().getOkRequest().newBuilder().method(str, null);
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection
@@ -123,77 +164,7 @@ public class DownloadHttpManagerConnection implements DownloadConnection, Downlo
     }
 
     @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection.Connected
-    public String getRedirectLocation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Response priorResponse = this.response.priorResponse();
-            if (priorResponse != null && this.response.isSuccessful() && RedirectUtil.isRedirect(priorResponse.code())) {
-                return this.response.request().url().toString();
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection
-    public Map<String, List<String>> getRequestProperties() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Request request = this.request;
-            if (request != null) {
-                return request.headers().toMultimap();
-            }
-            return this.requestBuilder.build().getOkRequest().headers().toMultimap();
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection
-    public String getRequestProperty(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            Request request = this.request;
-            if (request != null) {
-                return request.header(str);
-            }
-            return this.requestBuilder.build().getOkRequest().header(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection.Connected
-    public int getResponseCode() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.response != null) {
-                Util.d(TAG, "getResponseCode " + this.response.code());
-                return this.response.code();
-            }
-            throw new IOException("Please invoke execute first!");
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection.Connected
-    public String getResponseHeaderField(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            Response response = this.response;
-            if (response == null) {
-                return null;
-            }
-            return response.header(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection.Connected
-    public Map<String, List<String>> getResponseHeaderFields() {
+    public Map getResponseHeaderFields() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -219,19 +190,45 @@ public class DownloadHttpManagerConnection implements DownloadConnection, Downlo
         }
     }
 
-    @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection
-    public boolean setRequestMethod(@NonNull String str) throws ProtocolException {
-        InterceptResult invokeL;
+    @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection.Connected
+    public String getRedirectLocation() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Response priorResponse = this.response.priorResponse();
+            if (priorResponse != null && this.response.isSuccessful() && RedirectUtil.isRedirect(priorResponse.code())) {
+                return this.response.request().url().toString();
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection
+    public Map getRequestProperties() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             Request request = this.request;
             if (request != null) {
-                request.newBuilder().method(str, null);
-                return true;
+                return request.headers().toMultimap();
             }
-            this.requestBuilder.build().getOkRequest().newBuilder().method(str, null);
-            return true;
+            return this.requestBuilder.build().getOkRequest().headers().toMultimap();
         }
-        return invokeL.booleanValue;
+        return (Map) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection.Connected
+    public int getResponseCode() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.response != null) {
+                Util.d(TAG, "getResponseCode " + this.response.code());
+                return this.response.code();
+            }
+            throw new IOException("Please invoke execute first!");
+        }
+        return invokeV.intValue;
     }
 }

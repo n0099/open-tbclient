@@ -32,12 +32,6 @@ public class MovieCreator {
         }
     }
 
-    public static Movie build(String str) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? build(new FileDataSourceImpl(new File(str))) : (Movie) invokeL.objValue;
-    }
-
     public static Movie build(DataSource dataSource) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -49,6 +43,15 @@ public class MovieCreator {
             }
             movie.setMatrix(isoFile.getMovieBox().getMovieHeaderBox().getMatrix());
             return movie;
+        }
+        return (Movie) invokeL.objValue;
+    }
+
+    public static Movie build(String str) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return build(new FileDataSourceImpl(new File(str)));
         }
         return (Movie) invokeL.objValue;
     }

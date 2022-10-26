@@ -45,7 +45,7 @@ public class BceMetadataResponseHandler implements HttpResponseHandler {
             metadata.setContentType(bceHttpResponse.getHeader("Content-Type"));
             metadata.setDate(bceHttpResponse.getHeaderAsRfc822Date("Date"));
             metadata.setTransferEncoding(bceHttpResponse.getHeader("Transfer-Encoding"));
-            metadata.setLocation(bceHttpResponse.getHeader(Headers.LOCATION));
+            metadata.setLocation(bceHttpResponse.getHeader("Location"));
             String header = bceHttpResponse.getHeader(Headers.ETAG);
             if (header != null) {
                 metadata.setETag(JoinerUtils.cut("\"", header));

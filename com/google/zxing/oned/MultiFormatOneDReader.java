@@ -23,7 +23,9 @@ public final class MultiFormatOneDReader extends OneDReader {
     public transient /* synthetic */ FieldHolder $fh;
     public final OneDReader[] readers;
 
-    public MultiFormatOneDReader(Map<DecodeHintType, ?> map) {
+    public MultiFormatOneDReader(Map map) {
+        Collection collection;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -38,8 +40,16 @@ public final class MultiFormatOneDReader extends OneDReader {
                 return;
             }
         }
-        Collection collection = map == null ? null : (Collection) map.get(DecodeHintType.POSSIBLE_FORMATS);
-        boolean z = (map == null || map.get(DecodeHintType.ASSUME_CODE_39_CHECK_DIGIT) == null) ? false : true;
+        if (map == null) {
+            collection = null;
+        } else {
+            collection = (Collection) map.get(DecodeHintType.POSSIBLE_FORMATS);
+        }
+        if (map != null && map.get(DecodeHintType.ASSUME_CODE_39_CHECK_DIGIT) != null) {
+            z = true;
+        } else {
+            z = false;
+        }
         ArrayList arrayList = new ArrayList();
         if (collection != null) {
             if (collection.contains(BarcodeFormat.EAN_13) || collection.contains(BarcodeFormat.UPC_A) || collection.contains(BarcodeFormat.EAN_8) || collection.contains(BarcodeFormat.UPC_E)) {
@@ -81,7 +91,7 @@ public final class MultiFormatOneDReader extends OneDReader {
     }
 
     @Override // com.google.zxing.oned.OneDReader
-    public Result decodeRow(int i, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException {
+    public Result decodeRow(int i, BitArray bitArray, Map map) throws NotFoundException {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, bitArray, map)) == null) {

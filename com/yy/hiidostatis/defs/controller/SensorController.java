@@ -23,6 +23,7 @@ import com.yy.hiidostatis.api.StatisContent;
 import com.yy.hiidostatis.inner.util.DefaultPreference;
 import com.yy.hiidostatis.inner.util.ThreadPool;
 import com.yy.hiidostatis.inner.util.log.L;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes8.dex */
@@ -39,7 +40,7 @@ public class SensorController implements SensorEventListener, SensorListener {
     public static volatile StatisContent record;
     public transient /* synthetic */ FieldHolder $fh;
     public Sensor accelerometer;
-    public LinkedList<SensorRecord> accelerometerCache;
+    public LinkedList accelerometerCache;
     public float accelerometerThreshold;
     public Context context;
     public int countAccelerometer;
@@ -47,11 +48,11 @@ public class SensorController implements SensorEventListener, SensorListener {
     public int countLight;
     public final boolean enable;
     public Sensor gyroscope;
-    public LinkedList<SensorRecord> gyroscopeCache;
+    public LinkedList gyroscopeCache;
     public float gyroscopeThreshold;
     public BatteryInfo initiateBattery;
     public Sensor light;
-    public LinkedList<SensorRecord> lightCache;
+    public LinkedList lightCache;
     public float lightThreshold;
     public int preSaveCountAcce;
     public int preSaveCountGyro;
@@ -61,8 +62,37 @@ public class SensorController implements SensorEventListener, SensorListener {
     public int saveTime;
     public SensorManager sensorManager;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1043676736, "Lcom/yy/hiidostatis/defs/controller/SensorController;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1043676736, "Lcom/yy/hiidostatis/defs/controller/SensorController;");
+        }
+    }
+
+    @Override // android.hardware.SensorListener
+    public void onAccuracyChanged(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+        }
+    }
+
+    @Override // android.hardware.SensorEventListener
+    public void onAccuracyChanged(Sensor sensor, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sensor, i) == null) {
+        }
+    }
+
     /* loaded from: classes8.dex */
-    public static class BatteryInfo {
+    public class BatteryInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int chargePlugged;
@@ -110,12 +140,15 @@ public class SensorController implements SensorEventListener, SensorListener {
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("%d,%d,%f,%d", Integer.valueOf(this.status), Integer.valueOf(this.level), Float.valueOf(this.pecent), Integer.valueOf(this.chargePlugged)) : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return String.format("%d,%d,%f,%d", Integer.valueOf(this.status), Integer.valueOf(this.level), Float.valueOf(this.pecent), Integer.valueOf(this.chargePlugged));
+            }
+            return (String) invokeV.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static class SensorRecord {
+    public class SensorRecord {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long time;
@@ -141,21 +174,6 @@ public class SensorController implements SensorEventListener, SensorListener {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1043676736, "Lcom/yy/hiidostatis/defs/controller/SensorController;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1043676736, "Lcom/yy/hiidostatis/defs/controller/SensorController;");
-        }
-    }
-
     public SensorController(Context context, float f, float f2, float f3, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -171,38 +189,39 @@ public class SensorController implements SensorEventListener, SensorListener {
                 return;
             }
         }
-        this.gyroscopeCache = new LinkedList<>();
-        this.accelerometerCache = new LinkedList<>();
-        this.lightCache = new LinkedList<>();
+        this.gyroscopeCache = new LinkedList();
+        this.accelerometerCache = new LinkedList();
+        this.lightCache = new LinkedList();
         this.gyroscopeThreshold = f;
         this.accelerometerThreshold = f2;
         this.lightThreshold = f3;
         this.enable = z;
         this.context = context;
-        if (z) {
-            try {
-                SensorManager sensorManager = (SensorManager) context.getSystemService("sensor");
-                this.sensorManager = sensorManager;
-                this.gyroscope = sensorManager.getDefaultSensor(4);
-                this.accelerometer = this.sensorManager.getDefaultSensor(1);
-                this.light = this.sensorManager.getDefaultSensor(5);
-            } catch (Throwable th) {
-                L.debug(this, th.getMessage(), new Object[0]);
-            }
+        if (!z) {
+            return;
+        }
+        try {
+            SensorManager sensorManager = (SensorManager) context.getSystemService("sensor");
+            this.sensorManager = sensorManager;
+            this.gyroscope = sensorManager.getDefaultSensor(4);
+            this.accelerometer = this.sensorManager.getDefaultSensor(1);
+            this.light = this.sensorManager.getDefaultSensor(5);
+        } catch (Throwable th) {
+            L.debug(this, th.getMessage(), new Object[0]);
         }
     }
 
-    private void addCache(float[] fArr, LinkedList<SensorRecord> linkedList) {
+    private void addCache(float[] fArr, LinkedList linkedList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, this, fArr, linkedList) == null) {
             if (linkedList.size() < 10) {
                 linkedList.add(new SensorRecord(copyFloatArray(fArr), System.currentTimeMillis()));
                 return;
             }
-            SensorRecord remove = linkedList.remove(5);
-            remove.value = copyFloatArray(fArr);
-            remove.time = System.currentTimeMillis();
-            linkedList.add(remove);
+            SensorRecord sensorRecord = (SensorRecord) linkedList.remove(5);
+            sensorRecord.value = copyFloatArray(fArr);
+            sensorRecord.time = System.currentTimeMillis();
+            linkedList.add(sensorRecord);
             while (linkedList.size() > 10) {
                 linkedList.remove(5);
             }
@@ -257,6 +276,53 @@ public class SensorController implements SensorEventListener, SensorListener {
         }
     }
 
+    @Override // android.hardware.SensorEventListener
+    public void onSensorChanged(SensorEvent sensorEvent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, sensorEvent) != null) || !this.enable) {
+            return;
+        }
+        try {
+            valueChanged(sensorEvent.sensor.getType(), sensorEvent.values);
+        } catch (Throwable th) {
+            L.debug(this, th.getMessage(), new Object[0]);
+        }
+    }
+
+    public void onStart(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, context) != null) || !this.enable) {
+            return;
+        }
+        if (this.initiateBattery == null) {
+            this.initiateBattery = BatteryInfo.getCurrentBatttery(context);
+        }
+        register(context);
+    }
+
+    public void onStop(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, context) != null) || !this.enable) {
+            return;
+        }
+        unregister(context);
+        save(context, true);
+    }
+
+    public void reset(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, context) != null) || !this.enable) {
+            return;
+        }
+        this.countLight = 0;
+        this.countAccelerometer = 0;
+        this.countGvroscope = 0;
+        this.gyroscopeCache.clear();
+        this.accelerometerCache.clear();
+        this.lightCache.clear();
+        this.initiateBattery = BatteryInfo.getCurrentBatttery(context);
+    }
+
     public static synchronized StatisContent loadFileAndClear(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -294,13 +360,15 @@ public class SensorController implements SensorEventListener, SensorListener {
         return (StatisContent) invokeL.objValue;
     }
 
-    private void recordToString(int i, List<SensorRecord> list, StringBuilder sb) {
+    private void recordToString(int i, List list, StringBuilder sb) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(65544, this, i, list, sb) == null) {
             sb.append(i);
             if (i > 0) {
                 sb.append("|");
-                for (SensorRecord sensorRecord : list) {
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    SensorRecord sensorRecord = (SensorRecord) it.next();
                     for (float f : sensorRecord.value) {
                         sb.append(f);
                         sb.append(',');
@@ -315,7 +383,7 @@ public class SensorController implements SensorEventListener, SensorListener {
 
     private void register(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65545, this, context) == null) || this.register) {
+        if ((interceptable != null && interceptable.invokeL(65545, this, context) != null) || this.register) {
             return;
         }
         Sensor sensor = this.gyroscope;
@@ -344,6 +412,22 @@ public class SensorController implements SensorEventListener, SensorListener {
                 this.sensorManager.registerListener(this, 5);
             }
             this.register = true;
+        }
+    }
+
+    private void unregister(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65549, this, context) == null) && this.register) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                this.sensorManager.unregisterListener(this, this.gyroscope);
+                this.sensorManager.unregisterListener(this, this.accelerometer);
+                this.sensorManager.unregisterListener(this, this.light);
+            } else {
+                this.sensorManager.unregisterListener(this, 2);
+                this.sensorManager.unregisterListener(this, 16);
+                this.sensorManager.unregisterListener(this, 127);
+            }
+            this.register = false;
         }
     }
 
@@ -396,6 +480,52 @@ public class SensorController implements SensorEventListener, SensorListener {
         }
     }
 
+    private void valueChanged(int i, float[] fArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65550, this, i, fArr) == null) {
+            if (i != 1) {
+                if (i != 4) {
+                    if (i == 5) {
+                        if (this.lightCache.isEmpty()) {
+                            this.lightCache.add(new SensorRecord(copyFloatArray(fArr), System.currentTimeMillis()));
+                            this.countLight++;
+                            saveAsyn(this.context, true);
+                        } else if (compareFloats(((SensorRecord) this.lightCache.getLast()).value, fArr, this.lightThreshold)) {
+                            addCache(fArr, this.lightCache);
+                            int i2 = this.countLight + 1;
+                            this.countLight = i2;
+                            if (i2 - this.preSaveCountLight > 10) {
+                                saveAsyn(this.context, false);
+                            }
+                        }
+                    }
+                } else if (this.gyroscopeCache.isEmpty()) {
+                    this.gyroscopeCache.add(new SensorRecord(copyFloatArray(fArr), System.currentTimeMillis()));
+                    this.countGvroscope++;
+                    saveAsyn(this.context, true);
+                } else if (compareFloats(((SensorRecord) this.gyroscopeCache.getLast()).value, fArr, this.gyroscopeThreshold)) {
+                    addCache(fArr, this.gyroscopeCache);
+                    int i3 = this.countGvroscope + 1;
+                    this.countGvroscope = i3;
+                    if (i3 - this.preSaveCountGyro > 10) {
+                        saveAsyn(this.context, false);
+                    }
+                }
+            } else if (this.accelerometerCache.isEmpty()) {
+                this.accelerometerCache.add(new SensorRecord(copyFloatArray(fArr), System.currentTimeMillis()));
+                this.countAccelerometer++;
+                saveAsyn(this.context, true);
+            } else if (compareFloats(((SensorRecord) this.accelerometerCache.getLast()).value, fArr, this.accelerometerThreshold)) {
+                addCache(fArr, this.accelerometerCache);
+                int i4 = this.countAccelerometer + 1;
+                this.countAccelerometer = i4;
+                if (i4 - this.preSaveCountAcce > 10) {
+                    saveAsyn(this.context, false);
+                }
+            }
+        }
+    }
+
     private void saveAsyn(Context context, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65547, this, context, z) == null) {
@@ -437,6 +567,19 @@ public class SensorController implements SensorEventListener, SensorListener {
         }
     }
 
+    @Override // android.hardware.SensorListener
+    public void onSensorChanged(int i, float[] fArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, fArr) != null) || !this.enable) {
+            return;
+        }
+        try {
+            valueChanged(i, fArr);
+        } catch (Throwable th) {
+            L.debug(this, th.getMessage(), new Object[0]);
+        }
+    }
+
     private StatisContent toParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -458,137 +601,5 @@ public class SensorController implements SensorEventListener, SensorListener {
             return statisContent;
         }
         return (StatisContent) invokeV.objValue;
-    }
-
-    private void unregister(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65549, this, context) == null) && this.register) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                this.sensorManager.unregisterListener(this, this.gyroscope);
-                this.sensorManager.unregisterListener(this, this.accelerometer);
-                this.sensorManager.unregisterListener(this, this.light);
-            } else {
-                this.sensorManager.unregisterListener(this, 2);
-                this.sensorManager.unregisterListener(this, 16);
-                this.sensorManager.unregisterListener(this, 127);
-            }
-            this.register = false;
-        }
-    }
-
-    private void valueChanged(int i, float[] fArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65550, this, i, fArr) == null) {
-            if (i == 1) {
-                if (this.accelerometerCache.isEmpty()) {
-                    this.accelerometerCache.add(new SensorRecord(copyFloatArray(fArr), System.currentTimeMillis()));
-                    this.countAccelerometer++;
-                    saveAsyn(this.context, true);
-                } else if (compareFloats(this.accelerometerCache.getLast().value, fArr, this.accelerometerThreshold)) {
-                    addCache(fArr, this.accelerometerCache);
-                    int i2 = this.countAccelerometer + 1;
-                    this.countAccelerometer = i2;
-                    if (i2 - this.preSaveCountAcce > 10) {
-                        saveAsyn(this.context, false);
-                    }
-                }
-            } else if (i == 4) {
-                if (this.gyroscopeCache.isEmpty()) {
-                    this.gyroscopeCache.add(new SensorRecord(copyFloatArray(fArr), System.currentTimeMillis()));
-                    this.countGvroscope++;
-                    saveAsyn(this.context, true);
-                } else if (compareFloats(this.gyroscopeCache.getLast().value, fArr, this.gyroscopeThreshold)) {
-                    addCache(fArr, this.gyroscopeCache);
-                    int i3 = this.countGvroscope + 1;
-                    this.countGvroscope = i3;
-                    if (i3 - this.preSaveCountGyro > 10) {
-                        saveAsyn(this.context, false);
-                    }
-                }
-            } else if (i != 5) {
-            } else {
-                if (this.lightCache.isEmpty()) {
-                    this.lightCache.add(new SensorRecord(copyFloatArray(fArr), System.currentTimeMillis()));
-                    this.countLight++;
-                    saveAsyn(this.context, true);
-                } else if (compareFloats(this.lightCache.getLast().value, fArr, this.lightThreshold)) {
-                    addCache(fArr, this.lightCache);
-                    int i4 = this.countLight + 1;
-                    this.countLight = i4;
-                    if (i4 - this.preSaveCountLight > 10) {
-                        saveAsyn(this.context, false);
-                    }
-                }
-            }
-        }
-    }
-
-    @Override // android.hardware.SensorListener
-    public void onAccuracyChanged(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-        }
-    }
-
-    @Override // android.hardware.SensorEventListener
-    public void onAccuracyChanged(Sensor sensor, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sensor, i) == null) {
-        }
-    }
-
-    @Override // android.hardware.SensorEventListener
-    public void onSensorChanged(SensorEvent sensorEvent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, sensorEvent) == null) && this.enable) {
-            try {
-                valueChanged(sensorEvent.sensor.getType(), sensorEvent.values);
-            } catch (Throwable th) {
-                L.debug(this, th.getMessage(), new Object[0]);
-            }
-        }
-    }
-
-    public void onStart(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, context) == null) && this.enable) {
-            if (this.initiateBattery == null) {
-                this.initiateBattery = BatteryInfo.getCurrentBatttery(context);
-            }
-            register(context);
-        }
-    }
-
-    public void onStop(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, context) == null) && this.enable) {
-            unregister(context);
-            save(context, true);
-        }
-    }
-
-    public void reset(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, context) == null) && this.enable) {
-            this.countLight = 0;
-            this.countAccelerometer = 0;
-            this.countGvroscope = 0;
-            this.gyroscopeCache.clear();
-            this.accelerometerCache.clear();
-            this.lightCache.clear();
-            this.initiateBattery = BatteryInfo.getCurrentBatttery(context);
-        }
-    }
-
-    @Override // android.hardware.SensorListener
-    public void onSensorChanged(int i, float[] fArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, fArr) == null) && this.enable) {
-            try {
-                valueChanged(i, fArr);
-            } catch (Throwable th) {
-                L.debug(this, th.getMessage(), new Object[0]);
-            }
-        }
     }
 }

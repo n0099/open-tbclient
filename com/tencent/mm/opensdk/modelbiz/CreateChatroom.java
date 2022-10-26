@@ -16,7 +16,7 @@ public class CreateChatroom {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static class Req extends BaseReq {
+    public class Req extends BaseReq {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String chatroomName;
@@ -72,7 +72,7 @@ public class CreateChatroom {
     }
 
     /* loaded from: classes8.dex */
-    public static class Resp extends BaseResp {
+    public class Resp extends BaseResp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String extMsg;

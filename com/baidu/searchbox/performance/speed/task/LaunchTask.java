@@ -20,6 +20,19 @@ public abstract class LaunchTask implements Runnable {
     public static Looper asyncLooper;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract void execute();
+
+    public abstract String getName();
+
+    public int getProcess() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -51,19 +64,6 @@ public abstract class LaunchTask implements Runnable {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-    }
-
-    public abstract void execute();
-
-    public abstract String getName();
-
-    public int getProcess() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return -1;
-        }
-        return invokeV.intValue;
     }
 
     @Override // java.lang.Runnable

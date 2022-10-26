@@ -5,8 +5,6 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Process;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -40,7 +38,7 @@ public final class SystemUtil {
     }
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public final class a {
         public long aoA;
         public long aoB;
         public long aoC;
@@ -152,7 +150,7 @@ public final class SystemUtil {
         return length == -1 ? str.substring(i) : str.substring(i, length);
     }
 
-    public static boolean b(Context context, @NonNull String... strArr) {
+    public static boolean b(Context context, String... strArr) {
         if (context == null) {
             return false;
         }
@@ -188,7 +186,6 @@ public final class SystemUtil {
         return Build.VERSION.SDK_INT;
     }
 
-    @Nullable
     public static String getProcessName(Context context) {
         return an.getProcessName(context);
     }

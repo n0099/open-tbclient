@@ -9,7 +9,7 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.vi6;
+import com.baidu.tieba.cj6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -214,16 +214,74 @@ public class ProgressCircle extends View {
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ProgressCircle(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, cj6.ProgressCircle, 0, 0);
+        try {
+            this.a = obtainStyledAttributes.getBoolean(0, false);
+            this.b = obtainStyledAttributes.getDimensionPixelSize(6, 5);
+            this.c = obtainStyledAttributes.getColor(5, 0);
+            this.d = obtainStyledAttributes.getColor(4, -1);
+            this.e = obtainStyledAttributes.getColor(3, -1);
+            this.f = obtainStyledAttributes.getInteger(2, 2000);
+            this.g = obtainStyledAttributes.getFloat(1, 0.2f);
+            obtainStyledAttributes.recycle();
+            this.k = new a(this);
+            this.l = new b(this);
+            this.o = new c(this);
+            d dVar = new d(this);
+            this.m = dVar;
+            dVar.setMaskFilter(new BlurMaskFilter(20.0f, BlurMaskFilter.Blur.NORMAL));
+            this.n = new e(this);
+            setProgress(0.5f);
+        } catch (Throwable th) {
+            obtainStyledAttributes.recycle();
+            throw th;
+        }
+    }
+
+    public void setIndeterminate(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && this.a != z) {
+            this.a = z;
+            invalidate();
+        }
+    }
+
+    public void setProgress(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048583, this, f) == null) {
+            this.p = f;
+            invalidate();
+        }
+    }
+
     public final void e(Canvas canvas, float f, float f2, Paint paint) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, Float.valueOf(f), Float.valueOf(f2), paint}) == null) {
             float f3 = f2 * 360.0f;
             canvas.drawArc(this.j, (f * 360.0f) - 90.0f, f3, false, paint);
-            if (this.a) {
-                return;
+            if (!this.a) {
+                h(canvas, this.o);
+                g(canvas, f3, this.o);
             }
-            h(canvas, this.o);
-            g(canvas, f3, this.o);
         }
     }
 
@@ -234,6 +292,14 @@ public class ProgressCircle extends View {
         }
     }
 
+    public void h(Canvas canvas, Paint paint) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, canvas, paint) == null) {
+            int i = this.b;
+            canvas.drawCircle(this.h / 2, i, i / 2, paint);
+        }
+    }
+
     public void g(Canvas canvas, float f, Paint paint) {
         int i;
         Interceptable interceptable = $ic;
@@ -241,14 +307,6 @@ public class ProgressCircle extends View {
             float f2 = (this.h / 2) - this.b;
             double radians = Math.toRadians(f) + 3.141592653589793d;
             canvas.drawCircle((i / 2) - (((float) Math.sin(radians)) * f2), (this.i / 2) + (((float) Math.cos(radians)) * f2), this.b / 2, paint);
-        }
-    }
-
-    public void h(Canvas canvas, Paint paint) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, canvas, paint) == null) {
-            int i = this.b;
-            canvas.drawCircle(this.h / 2, i, i / 2, paint);
         }
     }
 
@@ -283,66 +341,6 @@ public class ProgressCircle extends View {
             this.i = i2;
             int i5 = this.b;
             this.j = new RectF(i5, i5, this.h - i5, this.i - i5);
-        }
-    }
-
-    public void setIndeterminate(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || this.a == z) {
-            return;
-        }
-        this.a = z;
-        invalidate();
-    }
-
-    public void setProgress(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048583, this, f) == null) {
-            this.p = f;
-            invalidate();
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ProgressCircle(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, vi6.ProgressCircle, 0, 0);
-        try {
-            this.a = obtainStyledAttributes.getBoolean(0, false);
-            this.b = obtainStyledAttributes.getDimensionPixelSize(6, 5);
-            this.c = obtainStyledAttributes.getColor(5, 0);
-            this.d = obtainStyledAttributes.getColor(4, -1);
-            this.e = obtainStyledAttributes.getColor(3, -1);
-            this.f = obtainStyledAttributes.getInteger(2, 2000);
-            this.g = obtainStyledAttributes.getFloat(1, 0.2f);
-            obtainStyledAttributes.recycle();
-            this.k = new a(this);
-            this.l = new b(this);
-            this.o = new c(this);
-            d dVar = new d(this);
-            this.m = dVar;
-            dVar.setMaskFilter(new BlurMaskFilter(20.0f, BlurMaskFilter.Blur.NORMAL));
-            this.n = new e(this);
-            setProgress(0.5f);
-        } catch (Throwable th) {
-            obtainStyledAttributes.recycle();
-            throw th;
         }
     }
 }

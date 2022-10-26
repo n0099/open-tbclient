@@ -15,6 +15,22 @@ public class e implements g {
     public c0 a;
     public f b;
 
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                if (this.a != null) {
+                    this.a.a();
+                    this.a = null;
+                }
+                if (this.b != null) {
+                    this.b = null;
+                }
+            } catch (Exception unused) {
+            }
+        }
+    }
+
     public e(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -35,31 +51,15 @@ public class e implements g {
         c0Var.f = new d(this);
     }
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                if (this.a != null) {
-                    this.a.a();
-                    this.a = null;
-                }
-                if (this.b != null) {
-                    this.b = null;
-                }
-            } catch (Exception unused) {
-            }
-        }
-    }
-
     public Info b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             c0 c0Var = this.a;
-            if (c0Var == null || !c0Var.b()) {
-                return null;
+            if (c0Var != null && c0Var.b()) {
+                return c0Var.c;
             }
-            return c0Var.c;
+            return null;
         }
         return (Info) invokeV.objValue;
     }

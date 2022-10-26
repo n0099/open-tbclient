@@ -1,20 +1,16 @@
 package com.bun.miitmdid;
 
 import android.content.Context;
-import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.zui.opendeviceidlibrary.OpenDeviceId;
-@Keep
 /* loaded from: classes7.dex */
-public class q extends m implements OpenDeviceId.CallBack<String> {
+public class q extends m implements OpenDeviceId.CallBack {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Keep
     public Context n;
-    @Keep
     public OpenDeviceId o;
 
     public q(Context context) {
@@ -37,19 +33,15 @@ public class q extends m implements OpenDeviceId.CallBack<String> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.zui.opendeviceidlibrary.OpenDeviceId.CallBack
-    @Keep
     /* renamed from: a */
     public native void serviceConnected(String str, OpenDeviceId openDeviceId);
 
     @Override // com.bun.miitmdid.interfaces.IIdProvider
-    @Keep
     public native void doStart();
 
     @Override // com.bun.miitmdid.m, com.bun.miitmdid.interfaces.IIdProvider
-    @Keep
     public native boolean isSync();
 
     @Override // com.bun.miitmdid.interfaces.IIdProvider
-    @Keep
     public native void shutDown();
 }

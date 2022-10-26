@@ -33,6 +33,13 @@ public final class AdtsExtractor implements Extractor {
     public final AdtsReader reader;
     public boolean startedPacket;
 
+    @Override // com.google.android.exoplayer2.extractor.Extractor
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -92,6 +99,26 @@ public final class AdtsExtractor implements Extractor {
         }
     }
 
+    public AdtsExtractor(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.firstSampleTimestampUs = j;
+        this.reader = new AdtsReader(true);
+        this.packetBuffer = new ParsableByteArray(200);
+    }
+
     @Override // com.google.android.exoplayer2.extractor.Extractor
     public void init(ExtractorOutput extractorOutput) {
         Interceptable interceptable = $ic;
@@ -124,13 +151,6 @@ public final class AdtsExtractor implements Extractor {
     }
 
     @Override // com.google.android.exoplayer2.extractor.Extractor
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.Extractor
     public void seek(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
@@ -156,69 +176,50 @@ public final class AdtsExtractor implements Extractor {
     public boolean sniff(ExtractorInput extractorInput) throws IOException, InterruptedException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048580, this, extractorInput)) != null) {
-            return invokeL.booleanValue;
-        }
-        ParsableByteArray parsableByteArray = new ParsableByteArray(10);
-        ParsableBitArray parsableBitArray = new ParsableBitArray(parsableByteArray.data);
-        int i = 0;
-        while (true) {
-            extractorInput.peekFully(parsableByteArray.data, 0, 10);
-            parsableByteArray.setPosition(0);
-            if (parsableByteArray.readUnsignedInt24() != ID3_TAG) {
-                break;
-            }
-            parsableByteArray.skipBytes(3);
-            int readSynchSafeInt = parsableByteArray.readSynchSafeInt();
-            i += readSynchSafeInt + 10;
-            extractorInput.advancePeekPosition(readSynchSafeInt);
-        }
-        extractorInput.resetPeekPosition();
-        extractorInput.advancePeekPosition(i);
-        int i2 = i;
-        while (true) {
-            int i3 = 0;
-            int i4 = 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, extractorInput)) == null) {
+            ParsableByteArray parsableByteArray = new ParsableByteArray(10);
+            ParsableBitArray parsableBitArray = new ParsableBitArray(parsableByteArray.data);
+            int i = 0;
             while (true) {
-                extractorInput.peekFully(parsableByteArray.data, 0, 2);
+                extractorInput.peekFully(parsableByteArray.data, 0, 10);
                 parsableByteArray.setPosition(0);
-                if ((parsableByteArray.readUnsignedShort() & 65526) != 65520) {
+                if (parsableByteArray.readUnsignedInt24() != ID3_TAG) {
                     break;
                 }
-                i3++;
-                if (i3 >= 4 && i4 > 188) {
-                    return true;
-                }
-                extractorInput.peekFully(parsableByteArray.data, 0, 4);
-                parsableBitArray.setPosition(14);
-                int readBits = parsableBitArray.readBits(13);
-                if (readBits <= 6) {
-                    return false;
-                }
-                extractorInput.advancePeekPosition(readBits - 6);
-                i4 += readBits;
+                parsableByteArray.skipBytes(3);
+                int readSynchSafeInt = parsableByteArray.readSynchSafeInt();
+                i += readSynchSafeInt + 10;
+                extractorInput.advancePeekPosition(readSynchSafeInt);
             }
-            extractorInput.advancePeekPosition(i2);
-        }
-    }
-
-    public AdtsExtractor(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+            extractorInput.resetPeekPosition();
+            extractorInput.advancePeekPosition(i);
+            int i2 = i;
+            while (true) {
+                int i3 = 0;
+                int i4 = 0;
+                while (true) {
+                    extractorInput.peekFully(parsableByteArray.data, 0, 2);
+                    parsableByteArray.setPosition(0);
+                    if ((parsableByteArray.readUnsignedShort() & 65526) != 65520) {
+                        break;
+                    }
+                    i3++;
+                    if (i3 >= 4 && i4 > 188) {
+                        return true;
+                    }
+                    extractorInput.peekFully(parsableByteArray.data, 0, 4);
+                    parsableBitArray.setPosition(14);
+                    int readBits = parsableBitArray.readBits(13);
+                    if (readBits <= 6) {
+                        return false;
+                    }
+                    extractorInput.advancePeekPosition(readBits - 6);
+                    i4 += readBits;
+                }
+                extractorInput.advancePeekPosition(i2);
             }
+        } else {
+            return invokeL.booleanValue;
         }
-        this.firstSampleTimestampUs = j;
-        this.reader = new AdtsReader(true);
-        this.packetBuffer = new ParsableByteArray(200);
     }
 }

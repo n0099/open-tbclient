@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.BitSet;
 /* loaded from: classes8.dex */
-public class fa implements iu<fa, Object>, Serializable, Cloneable {
+public class fa implements iu, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final jc a;
 
@@ -124,11 +124,11 @@ public class fa implements iu<fa, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, faVar)) == null) {
             if (fa.class.equals(faVar.getClass())) {
-                int compareTo = Boolean.valueOf(m323a()).compareTo(Boolean.valueOf(faVar.m323a()));
+                int compareTo = Boolean.valueOf(m322a()).compareTo(Boolean.valueOf(faVar.m322a()));
                 if (compareTo != 0) {
                     return compareTo;
                 }
-                if (!m323a() || (a11 = iv.a(this.f338a, faVar.f338a)) == 0) {
+                if (!m322a() || (a11 = iv.a(this.f338a, faVar.f338a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(faVar.b()));
                     if (compareTo2 != 0) {
                         return compareTo2;
@@ -246,13 +246,13 @@ public class fa implements iu<fa, Object>, Serializable, Cloneable {
         if (interceptable != null && interceptable.invokeL(1048581, this, jfVar) != null) {
             return;
         }
-        jfVar.m550a();
+        jfVar.m549a();
         while (true) {
-            jc m546a = jfVar.m546a();
-            byte b2 = m546a.a;
+            jc m545a = jfVar.m545a();
+            byte b2 = m545a.a;
             if (b2 == 0) {
                 jfVar.f();
-                if (!m323a()) {
+                if (!m322a()) {
                     throw new jg("Required field 'chid' was not found in serialized data! Struct: " + toString());
                 } else if (!b()) {
                     throw new jg("Required field 'type' was not found in serialized data! Struct: " + toString());
@@ -263,7 +263,7 @@ public class fa implements iu<fa, Object>, Serializable, Cloneable {
                     throw new jg("Required field 'value' was not found in serialized data! Struct: " + toString());
                 }
             }
-            switch (m546a.f810a) {
+            switch (m545a.f810a) {
                 case 1:
                     if (b2 == 3) {
                         this.f338a = jfVar.a();
@@ -274,7 +274,7 @@ public class fa implements iu<fa, Object>, Serializable, Cloneable {
                     break;
                 case 2:
                     if (b2 == 8) {
-                        this.f339a = jfVar.m544a();
+                        this.f339a = jfVar.m543a();
                         b(true);
                         continue;
                         jfVar.g();
@@ -282,7 +282,7 @@ public class fa implements iu<fa, Object>, Serializable, Cloneable {
                     break;
                 case 3:
                     if (b2 == 8) {
-                        this.f342b = jfVar.m544a();
+                        this.f342b = jfVar.m543a();
                         c(true);
                         continue;
                         jfVar.g();
@@ -290,21 +290,21 @@ public class fa implements iu<fa, Object>, Serializable, Cloneable {
                     break;
                 case 4:
                     if (b2 == 11) {
-                        this.f340a = jfVar.m551a();
+                        this.f340a = jfVar.m550a();
                         continue;
                         jfVar.g();
                     }
                     break;
                 case 5:
                     if (b2 == 11) {
-                        this.f343b = jfVar.m551a();
+                        this.f343b = jfVar.m550a();
                         continue;
                         jfVar.g();
                     }
                     break;
                 case 6:
                     if (b2 == 8) {
-                        this.f344c = jfVar.m544a();
+                        this.f344c = jfVar.m543a();
                         d(true);
                         continue;
                         jfVar.g();
@@ -312,21 +312,21 @@ public class fa implements iu<fa, Object>, Serializable, Cloneable {
                     break;
                 case 7:
                     if (b2 == 11) {
-                        this.f345c = jfVar.m551a();
+                        this.f345c = jfVar.m550a();
                         continue;
                         jfVar.g();
                     }
                     break;
                 case 8:
                     if (b2 == 11) {
-                        this.f347d = jfVar.m551a();
+                        this.f347d = jfVar.m550a();
                         continue;
                         jfVar.g();
                     }
                     break;
                 case 9:
                     if (b2 == 8) {
-                        this.f346d = jfVar.m544a();
+                        this.f346d = jfVar.m543a();
                         e(true);
                         continue;
                         jfVar.g();
@@ -334,7 +334,7 @@ public class fa implements iu<fa, Object>, Serializable, Cloneable {
                     break;
                 case 10:
                     if (b2 == 8) {
-                        this.f348e = jfVar.m544a();
+                        this.f348e = jfVar.m543a();
                         f(true);
                         continue;
                         jfVar.g();
@@ -354,14 +354,14 @@ public class fa implements iu<fa, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m323a() {
+    public boolean m322a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f341a.get(0) : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m324a(fa faVar) {
+    public boolean m323a(fa faVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, faVar)) == null) {
@@ -480,7 +480,7 @@ public class fa implements iu<fa, Object>, Serializable, Cloneable {
                 jfVar.b();
             }
             jfVar.c();
-            jfVar.m554a();
+            jfVar.m553a();
         }
     }
 
@@ -583,7 +583,7 @@ public class fa implements iu<fa, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, obj)) == null) {
             if (obj != null && (obj instanceof fa)) {
-                return m324a((fa) obj);
+                return m323a((fa) obj);
             }
             return false;
         }

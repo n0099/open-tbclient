@@ -15,7 +15,7 @@ import java.util.Map;
 public class DynamicScoreFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DynamicScoreFactory";
-    public static Map<String, IDynamicScoreManager> sDynamicManagerMap;
+    public static Map sDynamicManagerMap;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -53,7 +53,7 @@ public class DynamicScoreFactory {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             if (IDeviceScore.TYPE_LAUNCH_SPEED.equals(str)) {
-                IDynamicScoreManager iDynamicScoreManager = sDynamicManagerMap.get(IDeviceScore.TYPE_LAUNCH_SPEED);
+                IDynamicScoreManager iDynamicScoreManager = (IDynamicScoreManager) sDynamicManagerMap.get(IDeviceScore.TYPE_LAUNCH_SPEED);
                 if (iDynamicScoreManager == null) {
                     LaunchSpeedManager launchSpeedManager = new LaunchSpeedManager();
                     sDynamicManagerMap.put(IDeviceScore.TYPE_LAUNCH_SPEED, launchSpeedManager);

@@ -14,6 +14,13 @@ public class GetMediaResourceRequest extends VodBceRequest {
     public transient /* synthetic */ FieldHolder $fh;
     public String mediaId;
 
+    @Override // com.baidubce.services.vod.model.VodBceRequest
+    public String toJsonString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
     public GetMediaResourceRequest() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -31,7 +38,10 @@ public class GetMediaResourceRequest extends VodBceRequest {
     public String getMediaId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mediaId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mediaId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setMediaId(String str) {
@@ -39,22 +49,6 @@ public class GetMediaResourceRequest extends VodBceRequest {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             this.mediaId = str;
         }
-    }
-
-    @Override // com.baidubce.services.vod.model.VodBceRequest
-    public String toJsonString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "GetMediaResourceRequest { \n  mediaId = " + this.mediaId + "\n}\n";
-        }
-        return (String) invokeV.objValue;
     }
 
     public GetMediaResourceRequest withMediaId(String str) {
@@ -76,5 +70,14 @@ public class GetMediaResourceRequest extends VodBceRequest {
             return this;
         }
         return (AbstractBceRequest) invokeL.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "GetMediaResourceRequest { \n  mediaId = " + this.mediaId + "\n}\n";
+        }
+        return (String) invokeV.objValue;
     }
 }

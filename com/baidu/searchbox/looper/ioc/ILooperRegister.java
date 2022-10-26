@@ -11,6 +11,10 @@ public abstract class ILooperRegister {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract boolean checkEnable();
+
+    public abstract void onBlock(Context context, LooperBlock looperBlock);
+
     public ILooperRegister() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -24,8 +28,4 @@ public abstract class ILooperRegister {
             }
         }
     }
-
-    public abstract boolean checkEnable();
-
-    public abstract void onBlock(Context context, LooperBlock looperBlock);
 }

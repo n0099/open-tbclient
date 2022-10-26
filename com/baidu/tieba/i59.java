@@ -1,15 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes4.dex */
 public class i59 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public VoiceData.VoiceModel a;
+    public int a;
+    public List b;
+    public List c;
+    public int d;
+    public List e;
 
     public i59() {
         Interceptable interceptable = $ic;
@@ -21,7 +25,9 @@ public class i59 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 0;
     }
 }

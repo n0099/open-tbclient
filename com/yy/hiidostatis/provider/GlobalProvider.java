@@ -18,8 +18,8 @@ public final class GlobalProvider {
     public static /* synthetic */ Interceptable $ic;
     public static final GlobalProvider instance;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentMap<Class, Provider> classProvider;
-    public ConcurrentMap<String, Provider> nameProvider;
+    public ConcurrentMap classProvider;
+    public ConcurrentMap nameProvider;
 
     static {
         InterceptResult invokeClinit;
@@ -37,6 +37,15 @@ public final class GlobalProvider {
         GlobalProvider globalProvider = new GlobalProvider(Transition.MATCH_INSTANCE_STR, 0);
         instance = globalProvider;
         $VALUES = new GlobalProvider[]{globalProvider};
+    }
+
+    public static GlobalProvider[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (GlobalProvider[]) $VALUES.clone();
+        }
+        return (GlobalProvider[]) invokeV.objValue;
     }
 
     public GlobalProvider(String str, int i) {
@@ -64,26 +73,23 @@ public final class GlobalProvider {
     public static GlobalProvider valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (GlobalProvider) Enum.valueOf(GlobalProvider.class, str) : (GlobalProvider) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (GlobalProvider) Enum.valueOf(GlobalProvider.class, str);
+        }
+        return (GlobalProvider) invokeL.objValue;
     }
 
-    public static GlobalProvider[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (GlobalProvider[]) $VALUES.clone() : (GlobalProvider[]) invokeV.objValue;
-    }
-
-    public <T> T get(Class cls, MessageConfig messageConfig) {
+    public Object get(Class cls, MessageConfig messageConfig) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cls, messageConfig)) == null) {
-            Provider provider = this.classProvider.get(cls);
+            Provider provider = (Provider) this.classProvider.get(cls);
             if (provider != null) {
-                return (T) provider.generate(messageConfig);
+                return provider.generate(messageConfig);
             }
             return null;
         }
-        return (T) invokeLL.objValue;
+        return invokeLL.objValue;
     }
 
     public void registerProvider(Class cls, Provider provider) {
@@ -93,23 +99,23 @@ public final class GlobalProvider {
         }
     }
 
+    public Object get(String str, MessageConfig messageConfig) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, messageConfig)) == null) {
+            Provider provider = (Provider) this.nameProvider.get(str);
+            if (provider != null) {
+                return provider.generate(messageConfig);
+            }
+            return null;
+        }
+        return invokeLL.objValue;
+    }
+
     public void registerProvider(String str, Provider provider) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, provider) == null) {
             this.nameProvider.put(str, provider);
         }
-    }
-
-    public <T> T get(String str, MessageConfig messageConfig) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, messageConfig)) == null) {
-            Provider provider = this.nameProvider.get(str);
-            if (provider != null) {
-                return (T) provider.generate(messageConfig);
-            }
-            return null;
-        }
-        return (T) invokeLL.objValue;
     }
 }

@@ -8,10 +8,6 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.util.AttributeSet;
 import android.widget.ImageButton;
-import androidx.annotation.DrawableRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.TintableBackgroundView;
 import androidx.core.widget.TintableImageSourceView;
@@ -30,7 +26,7 @@ public class AppCompatImageButton extends ImageButton implements TintableBackgro
     public final AppCompatImageHelper mImageHelper;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppCompatImageButton(@NonNull Context context) {
+    public AppCompatImageButton(Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -50,207 +46,8 @@ public class AppCompatImageButton extends ImageButton implements TintableBackgro
         }
     }
 
-    @Override // android.widget.ImageView, android.view.View
-    public void drawableStateChanged() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.drawableStateChanged();
-            AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
-            if (appCompatBackgroundHelper != null) {
-                appCompatBackgroundHelper.applySupportBackgroundTint();
-            }
-            AppCompatImageHelper appCompatImageHelper = this.mImageHelper;
-            if (appCompatImageHelper != null) {
-                appCompatImageHelper.applySupportImageTint();
-            }
-        }
-    }
-
-    @Override // androidx.core.view.TintableBackgroundView
-    @Nullable
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public ColorStateList getSupportBackgroundTintList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
-            if (appCompatBackgroundHelper != null) {
-                return appCompatBackgroundHelper.getSupportBackgroundTintList();
-            }
-            return null;
-        }
-        return (ColorStateList) invokeV.objValue;
-    }
-
-    @Override // androidx.core.view.TintableBackgroundView
-    @Nullable
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public PorterDuff.Mode getSupportBackgroundTintMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
-            if (appCompatBackgroundHelper != null) {
-                return appCompatBackgroundHelper.getSupportBackgroundTintMode();
-            }
-            return null;
-        }
-        return (PorterDuff.Mode) invokeV.objValue;
-    }
-
-    @Override // androidx.core.widget.TintableImageSourceView
-    @Nullable
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public ColorStateList getSupportImageTintList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            AppCompatImageHelper appCompatImageHelper = this.mImageHelper;
-            if (appCompatImageHelper != null) {
-                return appCompatImageHelper.getSupportImageTintList();
-            }
-            return null;
-        }
-        return (ColorStateList) invokeV.objValue;
-    }
-
-    @Override // androidx.core.widget.TintableImageSourceView
-    @Nullable
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public PorterDuff.Mode getSupportImageTintMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            AppCompatImageHelper appCompatImageHelper = this.mImageHelper;
-            if (appCompatImageHelper != null) {
-                return appCompatImageHelper.getSupportImageTintMode();
-            }
-            return null;
-        }
-        return (PorterDuff.Mode) invokeV.objValue;
-    }
-
-    @Override // android.widget.ImageView, android.view.View
-    public boolean hasOverlappingRendering() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mImageHelper.hasOverlappingRendering() && super.hasOverlappingRendering() : invokeV.booleanValue;
-    }
-
-    @Override // android.view.View
-    public void setBackgroundDrawable(Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, drawable) == null) {
-            super.setBackgroundDrawable(drawable);
-            AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
-            if (appCompatBackgroundHelper != null) {
-                appCompatBackgroundHelper.onSetBackgroundDrawable(drawable);
-            }
-        }
-    }
-
-    @Override // android.view.View
-    public void setBackgroundResource(@DrawableRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            super.setBackgroundResource(i);
-            AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
-            if (appCompatBackgroundHelper != null) {
-                appCompatBackgroundHelper.onSetBackgroundResource(i);
-            }
-        }
-    }
-
-    @Override // android.widget.ImageView
-    public void setImageBitmap(Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bitmap) == null) {
-            super.setImageBitmap(bitmap);
-            AppCompatImageHelper appCompatImageHelper = this.mImageHelper;
-            if (appCompatImageHelper != null) {
-                appCompatImageHelper.applySupportImageTint();
-            }
-        }
-    }
-
-    @Override // android.widget.ImageView
-    public void setImageDrawable(@Nullable Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, drawable) == null) {
-            super.setImageDrawable(drawable);
-            AppCompatImageHelper appCompatImageHelper = this.mImageHelper;
-            if (appCompatImageHelper != null) {
-                appCompatImageHelper.applySupportImageTint();
-            }
-        }
-    }
-
-    @Override // android.widget.ImageView
-    public void setImageResource(@DrawableRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.mImageHelper.setImageResource(i);
-        }
-    }
-
-    @Override // android.widget.ImageView
-    public void setImageURI(@Nullable Uri uri) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, uri) == null) {
-            super.setImageURI(uri);
-            AppCompatImageHelper appCompatImageHelper = this.mImageHelper;
-            if (appCompatImageHelper != null) {
-                appCompatImageHelper.applySupportImageTint();
-            }
-        }
-    }
-
-    @Override // androidx.core.view.TintableBackgroundView
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void setSupportBackgroundTintList(@Nullable ColorStateList colorStateList) {
-        AppCompatBackgroundHelper appCompatBackgroundHelper;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, colorStateList) == null) || (appCompatBackgroundHelper = this.mBackgroundTintHelper) == null) {
-            return;
-        }
-        appCompatBackgroundHelper.setSupportBackgroundTintList(colorStateList);
-    }
-
-    @Override // androidx.core.view.TintableBackgroundView
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void setSupportBackgroundTintMode(@Nullable PorterDuff.Mode mode) {
-        AppCompatBackgroundHelper appCompatBackgroundHelper;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, mode) == null) || (appCompatBackgroundHelper = this.mBackgroundTintHelper) == null) {
-            return;
-        }
-        appCompatBackgroundHelper.setSupportBackgroundTintMode(mode);
-    }
-
-    @Override // androidx.core.widget.TintableImageSourceView
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void setSupportImageTintList(@Nullable ColorStateList colorStateList) {
-        AppCompatImageHelper appCompatImageHelper;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, colorStateList) == null) || (appCompatImageHelper = this.mImageHelper) == null) {
-            return;
-        }
-        appCompatImageHelper.setSupportImageTintList(colorStateList);
-    }
-
-    @Override // androidx.core.widget.TintableImageSourceView
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void setSupportImageTintMode(@Nullable PorterDuff.Mode mode) {
-        AppCompatImageHelper appCompatImageHelper;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, mode) == null) || (appCompatImageHelper = this.mImageHelper) == null) {
-            return;
-        }
-        appCompatImageHelper.setSupportImageTintMode(mode);
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppCompatImageButton(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public AppCompatImageButton(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.obfuscated_res_0x7f040337);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -271,7 +68,7 @@ public class AppCompatImageButton extends ImageButton implements TintableBackgro
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AppCompatImageButton(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public AppCompatImageButton(Context context, AttributeSet attributeSet, int i) {
         super(TintContextWrapper.wrap(context), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -296,5 +93,194 @@ public class AppCompatImageButton extends ImageButton implements TintableBackgro
         AppCompatImageHelper appCompatImageHelper = new AppCompatImageHelper(this);
         this.mImageHelper = appCompatImageHelper;
         appCompatImageHelper.loadFromAttributes(attributeSet, i);
+    }
+
+    @Override // android.widget.ImageView, android.view.View
+    public void drawableStateChanged() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.drawableStateChanged();
+            AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
+            if (appCompatBackgroundHelper != null) {
+                appCompatBackgroundHelper.applySupportBackgroundTint();
+            }
+            AppCompatImageHelper appCompatImageHelper = this.mImageHelper;
+            if (appCompatImageHelper != null) {
+                appCompatImageHelper.applySupportImageTint();
+            }
+        }
+    }
+
+    @Override // androidx.core.view.TintableBackgroundView
+    public ColorStateList getSupportBackgroundTintList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
+            if (appCompatBackgroundHelper != null) {
+                return appCompatBackgroundHelper.getSupportBackgroundTintList();
+            }
+            return null;
+        }
+        return (ColorStateList) invokeV.objValue;
+    }
+
+    @Override // androidx.core.view.TintableBackgroundView
+    public PorterDuff.Mode getSupportBackgroundTintMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
+            if (appCompatBackgroundHelper != null) {
+                return appCompatBackgroundHelper.getSupportBackgroundTintMode();
+            }
+            return null;
+        }
+        return (PorterDuff.Mode) invokeV.objValue;
+    }
+
+    @Override // androidx.core.widget.TintableImageSourceView
+    public ColorStateList getSupportImageTintList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            AppCompatImageHelper appCompatImageHelper = this.mImageHelper;
+            if (appCompatImageHelper != null) {
+                return appCompatImageHelper.getSupportImageTintList();
+            }
+            return null;
+        }
+        return (ColorStateList) invokeV.objValue;
+    }
+
+    @Override // androidx.core.widget.TintableImageSourceView
+    public PorterDuff.Mode getSupportImageTintMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            AppCompatImageHelper appCompatImageHelper = this.mImageHelper;
+            if (appCompatImageHelper != null) {
+                return appCompatImageHelper.getSupportImageTintMode();
+            }
+            return null;
+        }
+        return (PorterDuff.Mode) invokeV.objValue;
+    }
+
+    @Override // android.widget.ImageView, android.view.View
+    public boolean hasOverlappingRendering() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.mImageHelper.hasOverlappingRendering() && super.hasOverlappingRendering()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.view.View
+    public void setBackgroundDrawable(Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, drawable) == null) {
+            super.setBackgroundDrawable(drawable);
+            AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
+            if (appCompatBackgroundHelper != null) {
+                appCompatBackgroundHelper.onSetBackgroundDrawable(drawable);
+            }
+        }
+    }
+
+    @Override // android.view.View
+    public void setBackgroundResource(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            super.setBackgroundResource(i);
+            AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
+            if (appCompatBackgroundHelper != null) {
+                appCompatBackgroundHelper.onSetBackgroundResource(i);
+            }
+        }
+    }
+
+    @Override // android.widget.ImageView
+    public void setImageBitmap(Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bitmap) == null) {
+            super.setImageBitmap(bitmap);
+            AppCompatImageHelper appCompatImageHelper = this.mImageHelper;
+            if (appCompatImageHelper != null) {
+                appCompatImageHelper.applySupportImageTint();
+            }
+        }
+    }
+
+    @Override // android.widget.ImageView
+    public void setImageDrawable(Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, drawable) == null) {
+            super.setImageDrawable(drawable);
+            AppCompatImageHelper appCompatImageHelper = this.mImageHelper;
+            if (appCompatImageHelper != null) {
+                appCompatImageHelper.applySupportImageTint();
+            }
+        }
+    }
+
+    @Override // android.widget.ImageView
+    public void setImageResource(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.mImageHelper.setImageResource(i);
+        }
+    }
+
+    @Override // android.widget.ImageView
+    public void setImageURI(Uri uri) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, uri) == null) {
+            super.setImageURI(uri);
+            AppCompatImageHelper appCompatImageHelper = this.mImageHelper;
+            if (appCompatImageHelper != null) {
+                appCompatImageHelper.applySupportImageTint();
+            }
+        }
+    }
+
+    @Override // androidx.core.view.TintableBackgroundView
+    public void setSupportBackgroundTintList(ColorStateList colorStateList) {
+        AppCompatBackgroundHelper appCompatBackgroundHelper;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048588, this, colorStateList) == null) && (appCompatBackgroundHelper = this.mBackgroundTintHelper) != null) {
+            appCompatBackgroundHelper.setSupportBackgroundTintList(colorStateList);
+        }
+    }
+
+    @Override // androidx.core.view.TintableBackgroundView
+    public void setSupportBackgroundTintMode(PorterDuff.Mode mode) {
+        AppCompatBackgroundHelper appCompatBackgroundHelper;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048589, this, mode) == null) && (appCompatBackgroundHelper = this.mBackgroundTintHelper) != null) {
+            appCompatBackgroundHelper.setSupportBackgroundTintMode(mode);
+        }
+    }
+
+    @Override // androidx.core.widget.TintableImageSourceView
+    public void setSupportImageTintList(ColorStateList colorStateList) {
+        AppCompatImageHelper appCompatImageHelper;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048590, this, colorStateList) == null) && (appCompatImageHelper = this.mImageHelper) != null) {
+            appCompatImageHelper.setSupportImageTintList(colorStateList);
+        }
+    }
+
+    @Override // androidx.core.widget.TintableImageSourceView
+    public void setSupportImageTintMode(PorterDuff.Mode mode) {
+        AppCompatImageHelper appCompatImageHelper;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048591, this, mode) == null) && (appCompatImageHelper = this.mImageHelper) != null) {
+            appCompatImageHelper.setSupportImageTintMode(mode);
+        }
     }
 }

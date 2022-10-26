@@ -24,7 +24,7 @@ public final class ZeusSDK {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class Client {
+    public class Client {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -65,7 +65,7 @@ public final class ZeusSDK {
     }
 
     /* loaded from: classes6.dex */
-    public static final class Configuration {
+    public final class Configuration {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String mAPPIDString;

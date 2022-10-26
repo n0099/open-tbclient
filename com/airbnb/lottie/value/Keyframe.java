@@ -2,34 +2,27 @@ package com.airbnb.lottie.value;
 
 import android.graphics.PointF;
 import android.view.animation.Interpolator;
-import androidx.annotation.FloatRange;
-import androidx.annotation.Nullable;
 import com.airbnb.lottie.LottieComposition;
 /* loaded from: classes.dex */
-public class Keyframe<T> {
+public class Keyframe {
     public static final float UNSET_FLOAT = -3987645.8f;
     public static final int UNSET_INT = 784923401;
-    @Nullable
     public final LottieComposition composition;
-    @Nullable
     public Float endFrame;
     public float endProgress;
-    @Nullable
-    public T endValue;
+    public Object endValue;
     public float endValueFloat;
     public int endValueInt;
-    @Nullable
     public final Interpolator interpolator;
     public PointF pathCp1;
     public PointF pathCp2;
     public final float startFrame;
     public float startProgress;
-    @Nullable
-    public final T startValue;
+    public final Object startValue;
     public float startValueFloat;
     public int startValueInt;
 
-    public Keyframe(LottieComposition lottieComposition, @Nullable T t, @Nullable T t2, @Nullable Interpolator interpolator, float f, @Nullable Float f2) {
+    public Keyframe(LottieComposition lottieComposition, Object obj, Object obj2, Interpolator interpolator, float f, Float f2) {
         this.startValueFloat = -3987645.8f;
         this.endValueFloat = -3987645.8f;
         this.startValueInt = UNSET_INT;
@@ -39,15 +32,35 @@ public class Keyframe<T> {
         this.pathCp1 = null;
         this.pathCp2 = null;
         this.composition = lottieComposition;
-        this.startValue = t;
-        this.endValue = t2;
+        this.startValue = obj;
+        this.endValue = obj2;
         this.interpolator = interpolator;
         this.startFrame = f;
         this.endFrame = f2;
     }
 
-    public boolean containsProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        return f >= getStartProgress() && f < getEndProgress();
+    public Keyframe(Object obj) {
+        this.startValueFloat = -3987645.8f;
+        this.endValueFloat = -3987645.8f;
+        this.startValueInt = UNSET_INT;
+        this.endValueInt = UNSET_INT;
+        this.startProgress = Float.MIN_VALUE;
+        this.endProgress = Float.MIN_VALUE;
+        this.pathCp1 = null;
+        this.pathCp2 = null;
+        this.composition = null;
+        this.startValue = obj;
+        this.endValue = obj;
+        this.interpolator = null;
+        this.startFrame = Float.MIN_VALUE;
+        this.endFrame = Float.valueOf(Float.MAX_VALUE);
+    }
+
+    public boolean containsProgress(float f) {
+        if (f >= getStartProgress() && f < getEndProgress()) {
+            return true;
+        }
+        return false;
     }
 
     public float getEndProgress() {
@@ -104,27 +117,13 @@ public class Keyframe<T> {
     }
 
     public boolean isStatic() {
-        return this.interpolator == null;
+        if (this.interpolator == null) {
+            return true;
+        }
+        return false;
     }
 
     public String toString() {
         return "Keyframe{startValue=" + this.startValue + ", endValue=" + this.endValue + ", startFrame=" + this.startFrame + ", endFrame=" + this.endFrame + ", interpolator=" + this.interpolator + '}';
-    }
-
-    public Keyframe(T t) {
-        this.startValueFloat = -3987645.8f;
-        this.endValueFloat = -3987645.8f;
-        this.startValueInt = UNSET_INT;
-        this.endValueInt = UNSET_INT;
-        this.startProgress = Float.MIN_VALUE;
-        this.endProgress = Float.MIN_VALUE;
-        this.pathCp1 = null;
-        this.pathCp2 = null;
-        this.composition = null;
-        this.startValue = t;
-        this.endValue = t;
-        this.interpolator = null;
-        this.startFrame = Float.MIN_VALUE;
-        this.endFrame = Float.valueOf(Float.MAX_VALUE);
     }
 }

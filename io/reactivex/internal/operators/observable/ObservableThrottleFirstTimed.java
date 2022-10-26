@@ -16,7 +16,7 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservableThrottleFirstTimed<T> extends AbstractObservableWithUpstream<T, T> {
+public final class ObservableThrottleFirstTimed extends AbstractObservableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Scheduler scheduler;
@@ -24,11 +24,11 @@ public final class ObservableThrottleFirstTimed<T> extends AbstractObservableWit
     public final TimeUnit unit;
 
     /* loaded from: classes8.dex */
-    public static final class DebounceTimedObserver<T> extends AtomicReference<Disposable> implements Observer<T>, Disposable, Runnable {
+    public final class DebounceTimedObserver extends AtomicReference implements Observer, Disposable, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 786994795061867455L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super T> actual;
+        public final Observer actual;
         public boolean done;
         public volatile boolean gate;
         public Disposable s;
@@ -36,7 +36,7 @@ public final class ObservableThrottleFirstTimed<T> extends AbstractObservableWit
         public final TimeUnit unit;
         public final Scheduler.Worker worker;
 
-        public DebounceTimedObserver(Observer<? super T> observer, long j, TimeUnit timeUnit, Scheduler.Worker worker) {
+        public DebounceTimedObserver(Observer observer, long j, TimeUnit timeUnit, Scheduler.Worker worker) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -70,18 +70,28 @@ public final class ObservableThrottleFirstTimed<T> extends AbstractObservableWit
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.worker.isDisposed() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.worker.isDisposed();
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.done) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !this.done) {
+                this.done = true;
+                this.actual.onComplete();
+                this.worker.dispose();
             }
-            this.done = true;
-            this.actual.onComplete();
-            this.worker.dispose();
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+                this.gate = false;
+            }
         }
 
         @Override // io.reactivex.Observer
@@ -99,21 +109,6 @@ public final class ObservableThrottleFirstTimed<T> extends AbstractObservableWit
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, t) == null) || this.gate || this.done) {
-                return;
-            }
-            this.gate = true;
-            this.actual.onNext(t);
-            Disposable disposable = get();
-            if (disposable != null) {
-                disposable.dispose();
-            }
-            DisposableHelper.replace(this, this.worker.schedule(this, this.timeout, this.unit));
-        }
-
-        @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.s, disposable)) {
@@ -122,17 +117,23 @@ public final class ObservableThrottleFirstTimed<T> extends AbstractObservableWit
             }
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // io.reactivex.Observer
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                this.gate = false;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, obj) == null) && !this.gate && !this.done) {
+                this.gate = true;
+                this.actual.onNext(obj);
+                Disposable disposable = (Disposable) get();
+                if (disposable != null) {
+                    disposable.dispose();
+                }
+                DisposableHelper.replace(this, this.worker.schedule(this, this.timeout, this.unit));
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableThrottleFirstTimed(ObservableSource<T> observableSource, long j, TimeUnit timeUnit, Scheduler scheduler) {
+    public ObservableThrottleFirstTimed(ObservableSource observableSource, long j, TimeUnit timeUnit, Scheduler scheduler) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -155,7 +156,7 @@ public final class ObservableThrottleFirstTimed<T> extends AbstractObservableWit
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super T> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new DebounceTimedObserver(new SerializedObserver(observer), this.timeout, this.unit, this.scheduler.createWorker()));

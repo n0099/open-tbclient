@@ -5,11 +5,12 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.tieba.play.operableVideoView.OperableVideoMediaControllerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -43,89 +44,39 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
         r();
     }
 
-    @Override // com.baidu.tieba.play.operableVideoView.OperableVideoMediaControllerView, com.baidu.tieba.play.VideoControllerView
-    public View f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? View.inflate(context, R.layout.obfuscated_res_0x7f0d06eb, null) : (View) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.play.VideoControllerView
-    public void i(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            super.i(i, i2);
-            this.o.setProgress(this.g.getProgress());
-        }
-    }
-
-    @Override // com.baidu.tieba.play.VideoControllerView
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.n();
-            this.o.setProgress(0);
-        }
-    }
-
-    @Override // com.baidu.tieba.play.VideoControllerView
-    public int o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int o = super.o();
-            this.o.setProgress(this.g.getProgress());
-            return o;
-        }
-        return invokeV.intValue;
-    }
-
-    public void q(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) getLayoutParams();
-            int f = ej.f(getContext(), R.dimen.tbds126);
-            if (z2 && z) {
-                f = ej.f(getContext(), R.dimen.tbds210);
-            }
-            layoutParams.height = f;
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
-            RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.d.getLayoutParams();
-            layoutParams2.leftMargin = ej.f(getContext(), (!z2 || z) ? R.dimen.tbds44 : R.dimen.tbds78);
-            layoutParams3.rightMargin = ej.f(getContext(), (!z2 || z) ? R.dimen.tbds150 : R.dimen.tbds184);
-        }
-    }
-
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.o = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f0917de);
-        }
-    }
-
     public void setBottomBarShow(boolean z) {
+        int i;
+        int i2;
+        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.o.setVisibility(z ? 0 : 8);
-            this.g.setVisibility(z ? 8 : 0);
-            this.c.setVisibility(z ? 8 : 0);
-            this.d.setVisibility(z ? 8 : 0);
-        }
-    }
-
-    @Override // com.baidu.tieba.play.VideoControllerView
-    public void setCurrentDuration(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            super.setCurrentDuration(i, z);
-            if (!z) {
-                this.g.setProgress((int) (((i * 1.0f) / this.k) * 10000.0f));
-                TextView textView = this.c;
-                if (textView != null) {
-                    textView.setText(StringHelper.stringForVideoTime(i));
-                }
+            ProgressBar progressBar = this.o;
+            int i4 = 0;
+            if (z) {
+                i = 0;
+            } else {
+                i = 8;
             }
-            this.o.setProgress(this.g.getProgress());
+            progressBar.setVisibility(i);
+            SeekBar seekBar = this.g;
+            if (z) {
+                i2 = 8;
+            } else {
+                i2 = 0;
+            }
+            seekBar.setVisibility(i2);
+            TextView textView = this.c;
+            if (z) {
+                i3 = 8;
+            } else {
+                i3 = 0;
+            }
+            textView.setVisibility(i3);
+            TextView textView2 = this.d;
+            if (z) {
+                i4 = 8;
+            }
+            textView2.setVisibility(i4);
         }
     }
 
@@ -171,5 +122,98 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
             }
         }
         r();
+    }
+
+    @Override // com.baidu.tieba.play.operableVideoView.OperableVideoMediaControllerView, com.baidu.tieba.play.VideoControllerView
+    public View f(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            return View.inflate(context, R.layout.obfuscated_res_0x7f0d06eb, null);
+        }
+        return (View) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.play.VideoControllerView
+    public void i(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            super.i(i, i2);
+            this.o.setProgress(this.g.getProgress());
+        }
+    }
+
+    @Override // com.baidu.tieba.play.VideoControllerView
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.n();
+            this.o.setProgress(0);
+        }
+    }
+
+    @Override // com.baidu.tieba.play.VideoControllerView
+    public int o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            int o = super.o();
+            this.o.setProgress(this.g.getProgress());
+            return o;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.o = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f0917d0);
+        }
+    }
+
+    public void q(boolean z, boolean z2) {
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) getLayoutParams();
+            int f = fj.f(getContext(), R.dimen.tbds126);
+            if (z2 && z) {
+                f = fj.f(getContext(), R.dimen.tbds210);
+            }
+            layoutParams.height = f;
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.d.getLayoutParams();
+            Context context = getContext();
+            if (z2 && !z) {
+                i = R.dimen.tbds78;
+            } else {
+                i = R.dimen.tbds44;
+            }
+            layoutParams2.leftMargin = fj.f(context, i);
+            Context context2 = getContext();
+            if (z2 && !z) {
+                i2 = R.dimen.tbds184;
+            } else {
+                i2 = R.dimen.tbds150;
+            }
+            layoutParams3.rightMargin = fj.f(context2, i2);
+        }
+    }
+
+    @Override // com.baidu.tieba.play.VideoControllerView
+    public void setCurrentDuration(int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            super.setCurrentDuration(i, z);
+            if (!z) {
+                this.g.setProgress((int) (((i * 1.0f) / this.k) * 10000.0f));
+                TextView textView = this.c;
+                if (textView != null) {
+                    textView.setText(StringHelper.stringForVideoTime(i));
+                }
+            }
+            this.o.setProgress(this.g.getProgress());
+        }
     }
 }

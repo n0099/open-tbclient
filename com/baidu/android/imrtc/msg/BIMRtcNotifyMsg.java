@@ -1,7 +1,6 @@
 package com.baidu.android.imrtc.msg;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 import com.baidu.android.imrtc.BIMRtcInfo;
 import com.baidu.android.imrtc.notify.BIMInviteSyncRtcInfo;
 import com.baidu.android.imrtc.notify.BIMKickReqSyncRtcInfo;
@@ -37,24 +36,24 @@ public class BIMRtcNotifyMsg {
         }
     }
 
-    public static BIMRtcInfo parseJson(Context context, @NonNull JSONObject jSONObject) {
+    public static BIMRtcInfo parseJson(Context context, JSONObject jSONObject) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65537, null, context, jSONObject)) != null) {
-            return (BIMRtcInfo) invokeLL.objValue;
-        }
-        try {
-            if (context == null) {
-                LogUtils.e(TAG, "parseJson context == null ");
-                return null;
-            }
-            LogUtils.d(TAG, "parseJson :" + jSONObject.toString());
-            int optInt = jSONObject.optInt("method");
-            int optInt2 = jSONObject.optInt("action");
-            String optString = jSONObject.optString("rtc_room_id");
-            RtcUtility.setRtcRoomId(context, optString);
-            String optString2 = jSONObject.optString("source");
-            if (optInt == 231) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, jSONObject)) == null) {
+            try {
+                if (context == null) {
+                    LogUtils.e(TAG, "parseJson context == null ");
+                    return null;
+                }
+                LogUtils.d(TAG, "parseJson :" + jSONObject.toString());
+                int optInt = jSONObject.optInt("method");
+                int optInt2 = jSONObject.optInt("action");
+                String optString = jSONObject.optString("rtc_room_id");
+                RtcUtility.setRtcRoomId(context, optString);
+                String optString2 = jSONObject.optString("source");
+                if (optInt != 231) {
+                    return null;
+                }
                 JSONObject jSONObject2 = new JSONObject(jSONObject.optString(RtcConstants.EXTRA_RTC_INFO, ""));
                 long optLong = jSONObject2.optLong("seqid");
                 long optLong2 = jSONObject2.optLong("uk");
@@ -146,10 +145,11 @@ public class BIMRtcNotifyMsg {
                     LogUtils.e(TAG, "parseJson exception：", e);
                     return null;
                 }
+            } catch (Exception e2) {
+                e = e2;
             }
-            return null;
-        } catch (Exception e2) {
-            e = e2;
+        } else {
+            return (BIMRtcInfo) invokeLL.objValue;
         }
     }
 }

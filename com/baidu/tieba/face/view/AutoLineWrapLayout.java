@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -36,50 +36,6 @@ public class AutoLineWrapLayout extends ViewGroup {
             }
         }
         a();
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = ej.f(getContext(), R.dimen.obfuscated_res_0x7f0701d5);
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            int childCount = getChildCount();
-            int i5 = 0;
-            int i6 = i;
-            int i7 = 0;
-            while (i5 < childCount) {
-                View childAt = getChildAt(i5);
-                int measuredWidth = childAt.getMeasuredWidth();
-                int measuredHeight = childAt.getMeasuredHeight();
-                i6 = i5 == 0 ? i6 + measuredWidth : i6 + this.a + measuredWidth;
-                int i8 = this.a;
-                int i9 = ((measuredHeight + i8) * i7) + i8 + measuredHeight + i2;
-                if (i6 > i3) {
-                    i6 = measuredWidth + i;
-                    i7++;
-                    i9 = ((measuredHeight + i8) * i7) + i8 + measuredHeight + i2;
-                }
-                childAt.layout(i6 - measuredWidth, i9 - measuredHeight, i6, i9);
-                i5++;
-            }
-        }
-    }
-
-    @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            for (int i3 = 0; i3 < getChildCount(); i3++) {
-                getChildAt(i3).measure(0, 0);
-            }
-            super.onMeasure(i, i2);
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -124,5 +80,51 @@ public class AutoLineWrapLayout extends ViewGroup {
             }
         }
         a();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = fj.f(getContext(), R.dimen.obfuscated_res_0x7f0701d5);
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            int childCount = getChildCount();
+            int i5 = i;
+            int i6 = 0;
+            for (int i7 = 0; i7 < childCount; i7++) {
+                View childAt = getChildAt(i7);
+                int measuredWidth = childAt.getMeasuredWidth();
+                int measuredHeight = childAt.getMeasuredHeight();
+                if (i7 == 0) {
+                    i5 += measuredWidth;
+                } else {
+                    i5 += this.a + measuredWidth;
+                }
+                int i8 = this.a;
+                int i9 = ((measuredHeight + i8) * i6) + i8 + measuredHeight + i2;
+                if (i5 > i3) {
+                    i5 = measuredWidth + i;
+                    i6++;
+                    i9 = ((measuredHeight + i8) * i6) + i8 + measuredHeight + i2;
+                }
+                childAt.layout(i5 - measuredWidth, i9 - measuredHeight, i5, i9);
+            }
+        }
+    }
+
+    @Override // android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            for (int i3 = 0; i3 < getChildCount(); i3++) {
+                getChildAt(i3).measure(0, 0);
+            }
+            super.onMeasure(i, i2);
+        }
     }
 }

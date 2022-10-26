@@ -35,11 +35,17 @@ public final class ParsableNalUnitBitArray {
     }
 
     private void assertValidOffset() {
+        boolean z;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             int i2 = this.byteOffset;
-            Assertions.checkState(i2 >= 0 && (i2 < (i = this.byteLimit) || (i2 == i && this.bitOffset == 0)));
+            if (i2 >= 0 && (i2 < (i = this.byteLimit) || (i2 == i && this.bitOffset == 0))) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Assertions.checkState(z);
         }
     }
 
@@ -48,12 +54,76 @@ public final class ParsableNalUnitBitArray {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             int i = 0;
+            int i2 = 0;
             while (!readBit()) {
-                i++;
+                i2++;
             }
-            return ((1 << i) - 1) + (i > 0 ? readBits(i) : 0);
+            int i3 = (1 << i2) - 1;
+            if (i2 > 0) {
+                i = readBits(i2);
+            }
+            return i3 + i;
         }
         return invokeV.intValue;
+    }
+
+    public boolean readBit() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if ((this.data[this.byteOffset] & (128 >> this.bitOffset)) != 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            skipBit();
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int readSignedExpGolombCodedInt() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int readExpGolombCodeNum = readExpGolombCodeNum();
+            if (readExpGolombCodeNum % 2 == 0) {
+                i = -1;
+            } else {
+                i = 1;
+            }
+            return i * ((readExpGolombCodeNum + 1) / 2);
+        }
+        return invokeV.intValue;
+    }
+
+    public int readUnsignedExpGolombCodedInt() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return readExpGolombCodeNum();
+        }
+        return invokeV.intValue;
+    }
+
+    public void skipBit() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            int i = 1;
+            int i2 = this.bitOffset + 1;
+            this.bitOffset = i2;
+            if (i2 == 8) {
+                this.bitOffset = 0;
+                int i3 = this.byteOffset;
+                if (shouldSkipByte(i3 + 1)) {
+                    i = 2;
+                }
+                this.byteOffset = i3 + i;
+            }
+            assertValidOffset();
+        }
     }
 
     private boolean shouldSkipByte(int i) {
@@ -93,16 +163,48 @@ public final class ParsableNalUnitBitArray {
                 }
             }
             int i6 = this.byteLimit;
-            if (i4 >= i6) {
-                return i4 == i6 && i5 == 0;
+            if (i4 < i6) {
+                return true;
             }
-            return true;
+            if (i4 == i6 && i5 == 0) {
+                return true;
+            }
+            return false;
         }
         return invokeI.booleanValue;
     }
 
+    public void skipBits(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            int i2 = this.byteOffset;
+            int i3 = i / 8;
+            int i4 = i2 + i3;
+            this.byteOffset = i4;
+            int i5 = this.bitOffset + (i - (i3 * 8));
+            this.bitOffset = i5;
+            if (i5 > 7) {
+                this.byteOffset = i4 + 1;
+                this.bitOffset = i5 - 8;
+            }
+            while (true) {
+                i2++;
+                if (i2 <= this.byteOffset) {
+                    if (shouldSkipByte(i2)) {
+                        this.byteOffset++;
+                        i2 += 2;
+                    }
+                } else {
+                    assertValidOffset();
+                    return;
+                }
+            }
+        }
+    }
+
     public boolean canReadExpGolombCodedNum() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             int i = this.byteOffset;
@@ -111,21 +213,17 @@ public final class ParsableNalUnitBitArray {
             while (this.byteOffset < this.byteLimit && !readBit()) {
                 i3++;
             }
-            boolean z = this.byteOffset == this.byteLimit;
+            if (this.byteOffset == this.byteLimit) {
+                z = true;
+            } else {
+                z = false;
+            }
             this.byteOffset = i;
             this.bitOffset = i2;
-            return !z && canReadBits((i3 * 2) + 1);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean readBit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            boolean z = (this.data[this.byteOffset] & (128 >> this.bitOffset)) != 0;
-            skipBit();
-            return z;
+            if (z || !canReadBits((i3 * 2) + 1)) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
     }
@@ -133,52 +231,41 @@ public final class ParsableNalUnitBitArray {
     public int readBits(int i) {
         InterceptResult invokeI;
         int i2;
+        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             this.bitOffset += i;
-            int i3 = 0;
+            int i4 = 0;
             while (true) {
                 i2 = this.bitOffset;
+                i3 = 2;
                 if (i2 <= 8) {
                     break;
                 }
-                int i4 = i2 - 8;
-                this.bitOffset = i4;
+                int i5 = i2 - 8;
+                this.bitOffset = i5;
                 byte[] bArr = this.data;
-                int i5 = this.byteOffset;
-                i3 |= (bArr[i5] & 255) << i4;
-                if (!shouldSkipByte(i5 + 1)) {
-                    r3 = 1;
+                int i6 = this.byteOffset;
+                i4 |= (bArr[i6] & 255) << i5;
+                if (!shouldSkipByte(i6 + 1)) {
+                    i3 = 1;
                 }
-                this.byteOffset = i5 + r3;
+                this.byteOffset = i6 + i3;
             }
             byte[] bArr2 = this.data;
-            int i6 = this.byteOffset;
-            int i7 = ((-1) >>> (32 - i)) & (i3 | ((bArr2[i6] & 255) >> (8 - i2)));
+            int i7 = this.byteOffset;
+            int i8 = ((-1) >>> (32 - i)) & (i4 | ((bArr2[i7] & 255) >> (8 - i2)));
             if (i2 == 8) {
                 this.bitOffset = 0;
-                this.byteOffset = i6 + (shouldSkipByte(i6 + 1) ? 2 : 1);
+                if (!shouldSkipByte(i7 + 1)) {
+                    i3 = 1;
+                }
+                this.byteOffset = i7 + i3;
             }
             assertValidOffset();
-            return i7;
+            return i8;
         }
         return invokeI.intValue;
-    }
-
-    public int readSignedExpGolombCodedInt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int readExpGolombCodeNum = readExpGolombCodeNum();
-            return (readExpGolombCodeNum % 2 == 0 ? -1 : 1) * ((readExpGolombCodeNum + 1) / 2);
-        }
-        return invokeV.intValue;
-    }
-
-    public int readUnsignedExpGolombCodedInt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? readExpGolombCodeNum() : invokeV.intValue;
     }
 
     public void reset(byte[] bArr, int i, int i2) {
@@ -189,49 +276,6 @@ public final class ParsableNalUnitBitArray {
             this.byteLimit = i2;
             this.bitOffset = 0;
             assertValidOffset();
-        }
-    }
-
-    public void skipBit() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            int i = this.bitOffset + 1;
-            this.bitOffset = i;
-            if (i == 8) {
-                this.bitOffset = 0;
-                int i2 = this.byteOffset;
-                this.byteOffset = i2 + (shouldSkipByte(i2 + 1) ? 2 : 1);
-            }
-            assertValidOffset();
-        }
-    }
-
-    public void skipBits(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) != null) {
-            return;
-        }
-        int i2 = this.byteOffset;
-        int i3 = i / 8;
-        int i4 = i2 + i3;
-        this.byteOffset = i4;
-        int i5 = this.bitOffset + (i - (i3 * 8));
-        this.bitOffset = i5;
-        if (i5 > 7) {
-            this.byteOffset = i4 + 1;
-            this.bitOffset = i5 - 8;
-        }
-        while (true) {
-            i2++;
-            if (i2 <= this.byteOffset) {
-                if (shouldSkipByte(i2)) {
-                    this.byteOffset++;
-                    i2 += 2;
-                }
-            } else {
-                assertValidOffset();
-                return;
-            }
         }
     }
 }

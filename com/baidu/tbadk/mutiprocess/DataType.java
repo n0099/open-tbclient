@@ -59,12 +59,18 @@ public final class DataType {
     public static DataType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (DataType) Enum.valueOf(DataType.class, str) : (DataType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (DataType) Enum.valueOf(DataType.class, str);
+        }
+        return (DataType) invokeL.objValue;
     }
 
     public static DataType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (DataType[]) $VALUES.clone() : (DataType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (DataType[]) $VALUES.clone();
+        }
+        return (DataType[]) invokeV.objValue;
     }
 }

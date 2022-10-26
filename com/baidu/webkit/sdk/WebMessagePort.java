@@ -11,7 +11,7 @@ public abstract class WebMessagePort {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static abstract class WebMessageCallback {
+    public abstract class WebMessageCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

@@ -21,6 +21,20 @@ public final class PayServiceStatisticsImpl implements IPayServiceStatistics {
     public final IPayMetricsStatistics payMetricsStatistics;
     public final int usedChannel;
 
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.statistics.IPayServiceStatistics
+    public void onPayEntrancePage(HiidoReport.CReportResponse cReportResponse) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cReportResponse) == null) {
+        }
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.statistics.IPayServiceStatistics
+    public void onRequestPay(HiidoReport.CReportResponse cReportResponse) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, cReportResponse) == null) {
+        }
+    }
+
     public PayServiceStatisticsImpl(IPayMetricsStatistics iPayMetricsStatistics, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -47,27 +61,19 @@ public final class PayServiceStatisticsImpl implements IPayServiceStatistics {
         IPayMetricsStatistics iPayMetricsStatistics;
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, cReportResponse) == null) || (iPayMetricsStatistics = this.payMetricsStatistics) == null) {
-            return;
-        }
-        if (cReportResponse.mCmd == 0) {
-            str = "onOrderResult";
-        } else {
-            str = "" + cReportResponse.mCmd;
-        }
-        String revenueUri = HiidoReport.getInstance().getRevenueUri(this.appId, this.usedChannel, str);
-        Intrinsics.checkExpressionValueIsNotNull(revenueUri, "HiidoReport.getInstance(…(appId, usedChannel, cmd)");
-        int i = HiidoReport.CReportParam.REVENUE_SCODE;
-        String str2 = cReportResponse.mDelay;
-        Intrinsics.checkExpressionValueIsNotNull(str2, "(response.mDelay)");
-        iPayMetricsStatistics.reportReturnCode(i, revenueUri, Long.parseLong(str2), cReportResponse.mErrCode.toString());
-        RLog.debug(this.TAG, "onOrderResult uri:" + revenueUri);
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.statistics.IPayServiceStatistics
-    public void onPayEntrancePage(HiidoReport.CReportResponse cReportResponse) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cReportResponse) == null) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, cReportResponse) == null) && (iPayMetricsStatistics = this.payMetricsStatistics) != null) {
+            if (cReportResponse.mCmd == 0) {
+                str = "onOrderResult";
+            } else {
+                str = "" + cReportResponse.mCmd;
+            }
+            String revenueUri = HiidoReport.getInstance().getRevenueUri(this.appId, this.usedChannel, str);
+            Intrinsics.checkExpressionValueIsNotNull(revenueUri, "HiidoReport.getInstance(…(appId, usedChannel, cmd)");
+            int i = HiidoReport.CReportParam.REVENUE_SCODE;
+            String str2 = cReportResponse.mDelay;
+            Intrinsics.checkExpressionValueIsNotNull(str2, "(response.mDelay)");
+            iPayMetricsStatistics.reportReturnCode(i, revenueUri, Long.parseLong(str2), cReportResponse.mErrCode.toString());
+            RLog.debug(this.TAG, "onOrderResult uri:" + revenueUri);
         }
     }
 
@@ -76,21 +82,20 @@ public final class PayServiceStatisticsImpl implements IPayServiceStatistics {
         IPayMetricsStatistics iPayMetricsStatistics;
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cReportResponse) == null) || (iPayMetricsStatistics = this.payMetricsStatistics) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cReportResponse) == null) && (iPayMetricsStatistics = this.payMetricsStatistics) != null) {
+            if (cReportResponse.mCmd == 0) {
+                str = "onPayResult";
+            } else {
+                str = "" + cReportResponse.mCmd;
+            }
+            String revenueUri = HiidoReport.getInstance().getRevenueUri(this.appId, this.usedChannel, str);
+            Intrinsics.checkExpressionValueIsNotNull(revenueUri, "HiidoReport.getInstance(…(appId, usedChannel, cmd)");
+            int i = HiidoReport.CReportParam.REVENUE_SCODE;
+            String str2 = cReportResponse.mDelay;
+            Intrinsics.checkExpressionValueIsNotNull(str2, "(response.mDelay)");
+            iPayMetricsStatistics.reportReturnCode(i, revenueUri, Long.parseLong(str2), cReportResponse.mErrCode.toString());
+            RLog.debug(this.TAG, "onPayResult uri:" + revenueUri);
         }
-        if (cReportResponse.mCmd == 0) {
-            str = "onPayResult";
-        } else {
-            str = "" + cReportResponse.mCmd;
-        }
-        String revenueUri = HiidoReport.getInstance().getRevenueUri(this.appId, this.usedChannel, str);
-        Intrinsics.checkExpressionValueIsNotNull(revenueUri, "HiidoReport.getInstance(…(appId, usedChannel, cmd)");
-        int i = HiidoReport.CReportParam.REVENUE_SCODE;
-        String str2 = cReportResponse.mDelay;
-        Intrinsics.checkExpressionValueIsNotNull(str2, "(response.mDelay)");
-        iPayMetricsStatistics.reportReturnCode(i, revenueUri, Long.parseLong(str2), cReportResponse.mErrCode.toString());
-        RLog.debug(this.TAG, "onPayResult uri:" + revenueUri);
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.statistics.IPayServiceStatistics
@@ -98,21 +103,20 @@ public final class PayServiceStatisticsImpl implements IPayServiceStatistics {
         IPayMetricsStatistics iPayMetricsStatistics;
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, cReportResponse) == null) || (iPayMetricsStatistics = this.payMetricsStatistics) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, cReportResponse) == null) && (iPayMetricsStatistics = this.payMetricsStatistics) != null) {
+            if (cReportResponse.mCmd == 0) {
+                str = "onQueryChargeOrderStatus";
+            } else {
+                str = "" + cReportResponse.mCmd;
+            }
+            String revenueUri = HiidoReport.getInstance().getRevenueUri(this.appId, this.usedChannel, str);
+            Intrinsics.checkExpressionValueIsNotNull(revenueUri, "HiidoReport.getInstance(…(appId, usedChannel, cmd)");
+            int i = HiidoReport.CReportParam.REVENUE_SCODE;
+            String str2 = cReportResponse.mDelay;
+            Intrinsics.checkExpressionValueIsNotNull(str2, "(response.mDelay)");
+            iPayMetricsStatistics.reportReturnCode(i, revenueUri, Long.parseLong(str2), cReportResponse.mErrCode.toString());
+            RLog.debug(this.TAG, "onQueryChargeOrderStatus uri:" + revenueUri);
         }
-        if (cReportResponse.mCmd == 0) {
-            str = "onQueryChargeOrderStatus";
-        } else {
-            str = "" + cReportResponse.mCmd;
-        }
-        String revenueUri = HiidoReport.getInstance().getRevenueUri(this.appId, this.usedChannel, str);
-        Intrinsics.checkExpressionValueIsNotNull(revenueUri, "HiidoReport.getInstance(…(appId, usedChannel, cmd)");
-        int i = HiidoReport.CReportParam.REVENUE_SCODE;
-        String str2 = cReportResponse.mDelay;
-        Intrinsics.checkExpressionValueIsNotNull(str2, "(response.mDelay)");
-        iPayMetricsStatistics.reportReturnCode(i, revenueUri, Long.parseLong(str2), cReportResponse.mErrCode.toString());
-        RLog.debug(this.TAG, "onQueryChargeOrderStatus uri:" + revenueUri);
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.statistics.IPayServiceStatistics
@@ -120,21 +124,20 @@ public final class PayServiceStatisticsImpl implements IPayServiceStatistics {
         IPayMetricsStatistics iPayMetricsStatistics;
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, cReportResponse) == null) || (iPayMetricsStatistics = this.payMetricsStatistics) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, cReportResponse) == null) && (iPayMetricsStatistics = this.payMetricsStatistics) != null) {
+            if (cReportResponse.mCmd == 0) {
+                str = "onQueryProductList";
+            } else {
+                str = "" + cReportResponse.mCmd;
+            }
+            String revenueUri = HiidoReport.getInstance().getRevenueUri(this.appId, this.usedChannel, str);
+            Intrinsics.checkExpressionValueIsNotNull(revenueUri, "HiidoReport.getInstance(…(appId, usedChannel, cmd)");
+            int i = HiidoReport.CReportParam.REVENUE_SCODE;
+            String str2 = cReportResponse.mDelay;
+            Intrinsics.checkExpressionValueIsNotNull(str2, "(response.mDelay)");
+            iPayMetricsStatistics.reportReturnCode(i, revenueUri, Long.parseLong(str2), cReportResponse.mErrCode.toString());
+            RLog.debug(this.TAG, "onQueryProductList uri:" + revenueUri);
         }
-        if (cReportResponse.mCmd == 0) {
-            str = "onQueryProductList";
-        } else {
-            str = "" + cReportResponse.mCmd;
-        }
-        String revenueUri = HiidoReport.getInstance().getRevenueUri(this.appId, this.usedChannel, str);
-        Intrinsics.checkExpressionValueIsNotNull(revenueUri, "HiidoReport.getInstance(…(appId, usedChannel, cmd)");
-        int i = HiidoReport.CReportParam.REVENUE_SCODE;
-        String str2 = cReportResponse.mDelay;
-        Intrinsics.checkExpressionValueIsNotNull(str2, "(response.mDelay)");
-        iPayMetricsStatistics.reportReturnCode(i, revenueUri, Long.parseLong(str2), cReportResponse.mErrCode.toString());
-        RLog.debug(this.TAG, "onQueryProductList uri:" + revenueUri);
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.statistics.IPayServiceStatistics
@@ -142,27 +145,19 @@ public final class PayServiceStatisticsImpl implements IPayServiceStatistics {
         IPayMetricsStatistics iPayMetricsStatistics;
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, cReportResponse) == null) || (iPayMetricsStatistics = this.payMetricsStatistics) == null) {
-            return;
-        }
-        if (cReportResponse.mCmd == 0) {
-            str = "onQueryUserYbDetails";
-        } else {
-            str = "" + cReportResponse.mCmd;
-        }
-        String revenueUri = HiidoReport.getInstance().getRevenueUri(this.appId, this.usedChannel, str);
-        Intrinsics.checkExpressionValueIsNotNull(revenueUri, "HiidoReport.getInstance(…(appId, usedChannel, cmd)");
-        int i = HiidoReport.CReportParam.REVENUE_SCODE;
-        String str2 = cReportResponse.mDelay;
-        Intrinsics.checkExpressionValueIsNotNull(str2, "(response.mDelay)");
-        iPayMetricsStatistics.reportReturnCode(i, revenueUri, Long.parseLong(str2), cReportResponse.mErrCode.toString());
-        RLog.debug(this.TAG, "onQueryUserYbDetails uri:" + revenueUri);
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.statistics.IPayServiceStatistics
-    public void onRequestPay(HiidoReport.CReportResponse cReportResponse) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, cReportResponse) == null) {
+        if ((interceptable == null || interceptable.invokeL(1048581, this, cReportResponse) == null) && (iPayMetricsStatistics = this.payMetricsStatistics) != null) {
+            if (cReportResponse.mCmd == 0) {
+                str = "onQueryUserYbDetails";
+            } else {
+                str = "" + cReportResponse.mCmd;
+            }
+            String revenueUri = HiidoReport.getInstance().getRevenueUri(this.appId, this.usedChannel, str);
+            Intrinsics.checkExpressionValueIsNotNull(revenueUri, "HiidoReport.getInstance(…(appId, usedChannel, cmd)");
+            int i = HiidoReport.CReportParam.REVENUE_SCODE;
+            String str2 = cReportResponse.mDelay;
+            Intrinsics.checkExpressionValueIsNotNull(str2, "(response.mDelay)");
+            iPayMetricsStatistics.reportReturnCode(i, revenueUri, Long.parseLong(str2), cReportResponse.mErrCode.toString());
+            RLog.debug(this.TAG, "onQueryUserYbDetails uri:" + revenueUri);
         }
     }
 
@@ -171,20 +166,19 @@ public final class PayServiceStatisticsImpl implements IPayServiceStatistics {
         IPayMetricsStatistics iPayMetricsStatistics;
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, cReportResponse) == null) || (iPayMetricsStatistics = this.payMetricsStatistics) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, cReportResponse) == null) && (iPayMetricsStatistics = this.payMetricsStatistics) != null) {
+            if (cReportResponse.mCmd == 0) {
+                str = "onShowPayResult";
+            } else {
+                str = "" + cReportResponse.mCmd;
+            }
+            String revenueUri = HiidoReport.getInstance().getRevenueUri(this.appId, this.usedChannel, str);
+            Intrinsics.checkExpressionValueIsNotNull(revenueUri, "HiidoReport.getInstance(…(appId, usedChannel, cmd)");
+            int i = HiidoReport.CReportParam.REVENUE_SCODE;
+            String str2 = cReportResponse.mDelay;
+            Intrinsics.checkExpressionValueIsNotNull(str2, "(response.mDelay)");
+            iPayMetricsStatistics.reportReturnCode(i, revenueUri, Long.parseLong(str2), cReportResponse.mErrCode.toString());
+            RLog.debug(this.TAG, "onShowPayResult uri:" + revenueUri);
         }
-        if (cReportResponse.mCmd == 0) {
-            str = "onShowPayResult";
-        } else {
-            str = "" + cReportResponse.mCmd;
-        }
-        String revenueUri = HiidoReport.getInstance().getRevenueUri(this.appId, this.usedChannel, str);
-        Intrinsics.checkExpressionValueIsNotNull(revenueUri, "HiidoReport.getInstance(…(appId, usedChannel, cmd)");
-        int i = HiidoReport.CReportParam.REVENUE_SCODE;
-        String str2 = cReportResponse.mDelay;
-        Intrinsics.checkExpressionValueIsNotNull(str2, "(response.mDelay)");
-        iPayMetricsStatistics.reportReturnCode(i, revenueUri, Long.parseLong(str2), cReportResponse.mErrCode.toString());
-        RLog.debug(this.TAG, "onShowPayResult uri:" + revenueUri);
     }
 }

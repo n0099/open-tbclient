@@ -1,6 +1,5 @@
 package com.baidu.android.util.soloader;
 
-import android.annotation.SuppressLint;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,11 +28,13 @@ public final class DefaultSoLoader implements ICallingSoLoader {
     public static DefaultSoLoader getDefaultSoLoader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new DefaultSoLoader() : (DefaultSoLoader) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new DefaultSoLoader();
+        }
+        return (DefaultSoLoader) invokeV.objValue;
     }
 
     @Override // com.baidu.android.util.soloader.ICallingSoLoader
-    @SuppressLint({"UnsafeDynamicallyLoadedCode"})
     public void load(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {

@@ -21,29 +21,29 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.Callable;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableCollectSingle<T, U> extends Single<U> implements FuseToFlowable<U> {
+public final class FlowableCollectSingle extends Single implements FuseToFlowable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BiConsumer<? super U, ? super T> collector;
-    public final Callable<? extends U> initialSupplier;
-    public final Flowable<T> source;
+    public final BiConsumer collector;
+    public final Callable initialSupplier;
+    public final Flowable source;
 
     /* loaded from: classes8.dex */
-    public static final class CollectSubscriber<T, U> implements FlowableSubscriber<T>, Disposable {
+    public final class CollectSubscriber implements FlowableSubscriber, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver<? super U> actual;
-        public final BiConsumer<? super U, ? super T> collector;
+        public final SingleObserver actual;
+        public final BiConsumer collector;
         public boolean done;
         public Subscription s;
-        public final U u;
+        public final Object u;
 
-        public CollectSubscriber(SingleObserver<? super U> singleObserver, U u, BiConsumer<? super U, ? super T> biConsumer) {
+        public CollectSubscriber(SingleObserver singleObserver, Object obj, BiConsumer biConsumer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {singleObserver, u, biConsumer};
+                Object[] objArr = {singleObserver, obj, biConsumer};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -55,7 +55,7 @@ public final class FlowableCollectSingle<T, U> extends Single<U> implements Fuse
             }
             this.actual = singleObserver;
             this.collector = biConsumer;
-            this.u = u;
+            this.u = obj;
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -71,19 +71,24 @@ public final class FlowableCollectSingle<T, U> extends Single<U> implements Fuse
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.s == SubscriptionHelper.CANCELLED : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.s == SubscriptionHelper.CANCELLED) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
-        /* JADX DEBUG: Type inference failed for r1v0. Raw type applied. Possible types: U, ? super U */
         @Override // org.reactivestreams.Subscriber
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.done) {
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.done) {
                 return;
             }
             this.done = true;
             this.s = SubscriptionHelper.CANCELLED;
-            this.actual.onSuccess((U) this.u);
+            this.actual.onSuccess(this.u);
         }
 
         @Override // org.reactivestreams.Subscriber
@@ -100,15 +105,14 @@ public final class FlowableCollectSingle<T, U> extends Single<U> implements Fuse
             }
         }
 
-        /* JADX DEBUG: Type inference failed for r1v0. Raw type applied. Possible types: U, ? super U */
         @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, t) == null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048580, this, obj) != null) || this.done) {
                 return;
             }
             try {
-                this.collector.accept((U) this.u, t);
+                this.collector.accept(this.u, obj);
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
                 this.s.cancel();
@@ -127,7 +131,7 @@ public final class FlowableCollectSingle<T, U> extends Single<U> implements Fuse
         }
     }
 
-    public FlowableCollectSingle(Flowable<T> flowable, Callable<? extends U> callable, BiConsumer<? super U, ? super T> biConsumer) {
+    public FlowableCollectSingle(Flowable flowable, Callable callable, BiConsumer biConsumer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -148,14 +152,17 @@ public final class FlowableCollectSingle<T, U> extends Single<U> implements Fuse
     }
 
     @Override // io.reactivex.internal.fuseable.FuseToFlowable
-    public Flowable<U> fuseToFlowable() {
+    public Flowable fuseToFlowable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? RxJavaPlugins.onAssembly(new FlowableCollect(this.source, this.initialSupplier, this.collector)) : (Flowable) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return RxJavaPlugins.onAssembly(new FlowableCollect(this.source, this.initialSupplier, this.collector));
+        }
+        return (Flowable) invokeV.objValue;
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver<? super U> singleObserver) {
+    public void subscribeActual(SingleObserver singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, singleObserver) == null) {
             try {

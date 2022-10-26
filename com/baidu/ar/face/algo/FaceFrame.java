@@ -16,16 +16,16 @@ public class FaceFrame {
     public static final int FACE_MAX_COUNT = 4;
     public transient /* synthetic */ FieldHolder $fh;
     public float[] animatePointsArray;
-    public List<FAUPoint2D[]> animatePointsList;
-    public List<float[]> animationValuesList;
-    public List<FAUFaceBox> faceBoxes;
+    public List animatePointsList;
+    public List animationValuesList;
+    public List faceBoxes;
     public float[] faceBoxesArray;
     public int[] faceIDList;
-    public List<float[]> headPoses;
+    public List headPoses;
     public int mProcessResult;
     public float[] trackedPointsArray;
-    public List<FAUPoint2D[]> trackedPointsList;
-    public List<String[]> triggersList;
+    public List trackedPointsList;
+    public List triggersList;
 
     public FaceFrame() {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class FaceFrame {
         }
     }
 
-    public List<FAUPoint2D[]> getAnimatePointsList() {
+    public List getAnimatePointsList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -69,13 +69,13 @@ public class FaceFrame {
         return (List) invokeV.objValue;
     }
 
-    public List<float[]> getAnimationValuesList() {
+    public List getAnimationValuesList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.animationValuesList : (List) invokeV.objValue;
     }
 
-    public List<FAUFaceBox> getFaceBoxes() {
+    public List getFaceBoxes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -100,7 +100,7 @@ public class FaceFrame {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.faceIDList : (int[]) invokeV.objValue;
     }
 
-    public List<float[]> getHeadPoses() {
+    public List getHeadPoses() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.headPoses : (List) invokeV.objValue;
@@ -112,7 +112,7 @@ public class FaceFrame {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mProcessResult : invokeV.intValue;
     }
 
-    public List<FAUPoint2D[]> getTrackedPointsList() {
+    public List getTrackedPointsList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -139,7 +139,7 @@ public class FaceFrame {
         return (List) invokeV.objValue;
     }
 
-    public List<String[]> getTriggersList() {
+    public List getTriggersList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.triggersList : (List) invokeV.objValue;

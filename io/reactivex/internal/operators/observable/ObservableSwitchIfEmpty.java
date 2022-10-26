@@ -10,21 +10,21 @@ import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.SequentialDisposable;
 /* loaded from: classes8.dex */
-public final class ObservableSwitchIfEmpty<T> extends AbstractObservableWithUpstream<T, T> {
+public final class ObservableSwitchIfEmpty extends AbstractObservableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ObservableSource<? extends T> other;
+    public final ObservableSource other;
 
     /* loaded from: classes8.dex */
-    public static final class SwitchIfEmptyObserver<T> implements Observer<T> {
+    public final class SwitchIfEmptyObserver implements Observer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super T> actual;
+        public final Observer actual;
         public final SequentialDisposable arbiter;
         public boolean empty;
-        public final ObservableSource<? extends T> other;
+        public final ObservableSource other;
 
-        public SwitchIfEmptyObserver(Observer<? super T> observer, ObservableSource<? extends T> observableSource) {
+        public SwitchIfEmptyObserver(Observer observer, ObservableSource observableSource) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,13 +67,13 @@ public final class ObservableSwitchIfEmpty<T> extends AbstractObservableWithUpst
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
                 if (this.empty) {
                     this.empty = false;
                 }
-                this.actual.onNext(t);
+                this.actual.onNext(obj);
             }
         }
 
@@ -87,7 +87,7 @@ public final class ObservableSwitchIfEmpty<T> extends AbstractObservableWithUpst
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableSwitchIfEmpty(ObservableSource<T> observableSource, ObservableSource<? extends T> observableSource2) {
+    public ObservableSwitchIfEmpty(ObservableSource observableSource, ObservableSource observableSource2) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -108,7 +108,7 @@ public final class ObservableSwitchIfEmpty<T> extends AbstractObservableWithUpst
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super T> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             SwitchIfEmptyObserver switchIfEmptyObserver = new SwitchIfEmptyObserver(observer, this.other);

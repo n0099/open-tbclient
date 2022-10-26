@@ -86,73 +86,9 @@ public class UserRecommendItemView extends LinearLayout {
         b(context);
     }
 
-    public final void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0356, (ViewGroup) this, true);
-            ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f0924ca);
-            this.a = clickableHeaderImageView;
-            clickableHeaderImageView.setAutoChangeStyle(true);
-            this.a.setDefaultResource(17170445);
-            this.a.setIsRound(true);
-            this.a.setScaleType(ImageView.ScaleType.FIT_XY);
-            CardUserLikeButton cardUserLikeButton = (CardUserLikeButton) findViewById(R.id.obfuscated_res_0x7f0924cb);
-            this.b = cardUserLikeButton;
-            cardUserLikeButton.setGravity(17);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0924ce);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0924c9);
-            setOrientation(1);
-            setFocusable(true);
-            setClickable(true);
-            setDescendantFocusability(262144);
-            setOnClickListener(new a(this));
-        }
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || i == this.f) {
-            return;
-        }
-        this.f = i;
-        this.d.setTextColor(SkinManager.getColor(i, (int) R.color.CAM_X0109));
-        if (this.e) {
-            this.c.setTextColor(SkinManager.getColor(i, (int) R.color.cp_cont_r));
-        } else {
-            this.c.setTextColor(SkinManager.getColor(i, (int) R.color.CAM_X0105));
-        }
-        setBackgroundColor(SkinManager.getColor(i, (int) R.color.CAM_X0201));
-        this.b.g(i);
-        this.a.setPlaceHolder(1);
-    }
-
-    public TextView getFansNum() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (TextView) invokeV.objValue;
-    }
-
-    public ClickableHeaderImageView getHeaderView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (ClickableHeaderImageView) invokeV.objValue;
-    }
-
-    public CommonUserLikeButton getLikeBtn() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (CommonUserLikeButton) invokeV.objValue;
-    }
-
-    public TextView getUsername() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : (TextView) invokeV.objValue;
-    }
-
     public void setIsGod(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || this.e == z) {
+        if ((interceptable != null && interceptable.invokeZ(1048582, this, z) != null) || this.e == z) {
             return;
         }
         this.e = z;
@@ -185,5 +121,81 @@ public class UserRecommendItemView extends LinearLayout {
         this.e = false;
         this.f = -1;
         b(context);
+    }
+
+    public final void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0355, (ViewGroup) this, true);
+            ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f0924b4);
+            this.a = clickableHeaderImageView;
+            clickableHeaderImageView.setAutoChangeStyle(true);
+            this.a.setDefaultResource(17170445);
+            this.a.setIsRound(true);
+            this.a.setScaleType(ImageView.ScaleType.FIT_XY);
+            CardUserLikeButton cardUserLikeButton = (CardUserLikeButton) findViewById(R.id.obfuscated_res_0x7f0924b5);
+            this.b = cardUserLikeButton;
+            cardUserLikeButton.setGravity(17);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0924b8);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0924b3);
+            setOrientation(1);
+            setFocusable(true);
+            setClickable(true);
+            setDescendantFocusability(262144);
+            setOnClickListener(new a(this));
+        }
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || i == this.f) {
+            return;
+        }
+        this.f = i;
+        this.d.setTextColor(SkinManager.getColor(i, (int) R.color.CAM_X0109));
+        if (this.e) {
+            this.c.setTextColor(SkinManager.getColor(i, (int) R.color.cp_cont_r));
+        } else {
+            this.c.setTextColor(SkinManager.getColor(i, (int) R.color.CAM_X0105));
+        }
+        setBackgroundColor(SkinManager.getColor(i, (int) R.color.CAM_X0201));
+        this.b.g(i);
+        this.a.setPlaceHolder(1);
+    }
+
+    public TextView getFansNum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (TextView) invokeV.objValue;
+    }
+
+    public ClickableHeaderImageView getHeaderView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (ClickableHeaderImageView) invokeV.objValue;
+    }
+
+    public CommonUserLikeButton getLikeBtn() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return (CommonUserLikeButton) invokeV.objValue;
+    }
+
+    public TextView getUsername() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.c;
+        }
+        return (TextView) invokeV.objValue;
     }
 }

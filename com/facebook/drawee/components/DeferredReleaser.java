@@ -36,6 +36,10 @@ public abstract class DeferredReleaser {
         }
     }
 
+    public abstract void cancelDeferredRelease(Releasable releasable);
+
+    public abstract void scheduleDeferredRelease(Releasable releasable);
+
     public DeferredReleaser() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -69,10 +73,12 @@ public abstract class DeferredReleaser {
     public static boolean isOnUiThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? Looper.getMainLooper().getThread() == Thread.currentThread() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (Looper.getMainLooper().getThread() == Thread.currentThread()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
-
-    public abstract void cancelDeferredRelease(Releasable releasable);
-
-    public abstract void scheduleDeferredRelease(Releasable releasable);
 }

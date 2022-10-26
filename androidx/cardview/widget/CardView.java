@@ -10,10 +10,6 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
-import androidx.annotation.ColorInt;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.Px;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -37,6 +33,20 @@ public class CardView extends FrameLayout {
     public final Rect mShadowBounds;
     public int mUserSetMinHeight;
     public int mUserSetMinWidth;
+
+    @Override // android.view.View
+    public void setPadding(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048594, this, i, i2, i3, i4) == null) {
+        }
+    }
+
+    @Override // android.view.View
+    public void setPaddingRelative(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048595, this, i, i2, i3, i4) == null) {
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -64,7 +74,7 @@ public class CardView extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CardView(@NonNull Context context) {
+    public CardView(Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -84,179 +94,8 @@ public class CardView extends FrameLayout {
         }
     }
 
-    @NonNull
-    public ColorStateList getCardBackgroundColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? IMPL.getBackgroundColor(this.mCardViewDelegate) : (ColorStateList) invokeV.objValue;
-    }
-
-    public float getCardElevation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? IMPL.getElevation(this.mCardViewDelegate) : invokeV.floatValue;
-    }
-
-    @Px
-    public int getContentPaddingBottom() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mContentPadding.bottom : invokeV.intValue;
-    }
-
-    @Px
-    public int getContentPaddingLeft() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mContentPadding.left : invokeV.intValue;
-    }
-
-    @Px
-    public int getContentPaddingRight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mContentPadding.right : invokeV.intValue;
-    }
-
-    @Px
-    public int getContentPaddingTop() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mContentPadding.top : invokeV.intValue;
-    }
-
-    public float getMaxCardElevation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? IMPL.getMaxElevation(this.mCardViewDelegate) : invokeV.floatValue;
-    }
-
-    public boolean getPreventCornerOverlap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mPreventCornerOverlap : invokeV.booleanValue;
-    }
-
-    public float getRadius() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? IMPL.getRadius(this.mCardViewDelegate) : invokeV.floatValue;
-    }
-
-    public boolean getUseCompatPadding() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mCompatPadding : invokeV.booleanValue;
-    }
-
-    @Override // android.widget.FrameLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) {
-            if (!(IMPL instanceof CardViewApi21Impl)) {
-                int mode = View.MeasureSpec.getMode(i);
-                if (mode == Integer.MIN_VALUE || mode == 1073741824) {
-                    i = View.MeasureSpec.makeMeasureSpec(Math.max((int) Math.ceil(IMPL.getMinWidth(this.mCardViewDelegate)), View.MeasureSpec.getSize(i)), mode);
-                }
-                int mode2 = View.MeasureSpec.getMode(i2);
-                if (mode2 == Integer.MIN_VALUE || mode2 == 1073741824) {
-                    i2 = View.MeasureSpec.makeMeasureSpec(Math.max((int) Math.ceil(IMPL.getMinHeight(this.mCardViewDelegate)), View.MeasureSpec.getSize(i2)), mode2);
-                }
-                super.onMeasure(i, i2);
-                return;
-            }
-            super.onMeasure(i, i2);
-        }
-    }
-
-    public void setCardBackgroundColor(@ColorInt int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            IMPL.setBackgroundColor(this.mCardViewDelegate, ColorStateList.valueOf(i));
-        }
-    }
-
-    public void setCardElevation(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048589, this, f) == null) {
-            IMPL.setElevation(this.mCardViewDelegate, f);
-        }
-    }
-
-    public void setContentPadding(@Px int i, @Px int i2, @Px int i3, @Px int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048590, this, i, i2, i3, i4) == null) {
-            this.mContentPadding.set(i, i2, i3, i4);
-            IMPL.updatePadding(this.mCardViewDelegate);
-        }
-    }
-
-    public void setMaxCardElevation(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048591, this, f) == null) {
-            IMPL.setMaxElevation(this.mCardViewDelegate, f);
-        }
-    }
-
-    @Override // android.view.View
-    public void setMinimumHeight(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.mUserSetMinHeight = i;
-            super.setMinimumHeight(i);
-        }
-    }
-
-    @Override // android.view.View
-    public void setMinimumWidth(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            this.mUserSetMinWidth = i;
-            super.setMinimumWidth(i);
-        }
-    }
-
-    @Override // android.view.View
-    public void setPadding(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048594, this, i, i2, i3, i4) == null) {
-        }
-    }
-
-    @Override // android.view.View
-    public void setPaddingRelative(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048595, this, i, i2, i3, i4) == null) {
-        }
-    }
-
-    public void setPreventCornerOverlap(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048596, this, z) == null) || z == this.mPreventCornerOverlap) {
-            return;
-        }
-        this.mPreventCornerOverlap = z;
-        IMPL.onPreventCornerOverlapChanged(this.mCardViewDelegate);
-    }
-
-    public void setRadius(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048597, this, f) == null) {
-            IMPL.setRadius(this.mCardViewDelegate, f);
-        }
-    }
-
-    public void setUseCompatPadding(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048598, this, z) == null) || this.mCompatPadding == z) {
-            return;
-        }
-        this.mCompatPadding = z;
-        IMPL.onCompatPaddingChanged(this.mCardViewDelegate);
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CardView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public CardView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.obfuscated_res_0x7f040131);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -276,18 +115,12 @@ public class CardView extends FrameLayout {
         }
     }
 
-    public void setCardBackgroundColor(@Nullable ColorStateList colorStateList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, colorStateList) == null) {
-            IMPL.setBackgroundColor(this.mCardViewDelegate, colorStateList);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CardView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public CardView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         int color;
         ColorStateList valueOf;
+        float f;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -331,40 +164,52 @@ public class CardView extends FrameLayout {
             }
 
             @Override // androidx.cardview.widget.CardViewDelegate
-            public Drawable getCardBackground() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.mCardBackground : (Drawable) invokeV.objValue;
-            }
-
-            @Override // androidx.cardview.widget.CardViewDelegate
-            public View getCardView() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.this$0 : (View) invokeV.objValue;
-            }
-
-            @Override // androidx.cardview.widget.CardViewDelegate
-            public boolean getPreventCornerOverlap() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.this$0.getPreventCornerOverlap() : invokeV.booleanValue;
-            }
-
-            @Override // androidx.cardview.widget.CardViewDelegate
-            public boolean getUseCompatPadding() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048579, this)) == null) ? this.this$0.getUseCompatPadding() : invokeV.booleanValue;
-            }
-
-            @Override // androidx.cardview.widget.CardViewDelegate
             public void setCardBackground(Drawable drawable) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048580, this, drawable) == null) {
                     this.mCardBackground = drawable;
                     this.this$0.setBackgroundDrawable(drawable);
                 }
+            }
+
+            @Override // androidx.cardview.widget.CardViewDelegate
+            public Drawable getCardBackground() {
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                    return this.mCardBackground;
+                }
+                return (Drawable) invokeV.objValue;
+            }
+
+            @Override // androidx.cardview.widget.CardViewDelegate
+            public View getCardView() {
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    return this.this$0;
+                }
+                return (View) invokeV.objValue;
+            }
+
+            @Override // androidx.cardview.widget.CardViewDelegate
+            public boolean getPreventCornerOverlap() {
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                    return this.this$0.getPreventCornerOverlap();
+                }
+                return invokeV.booleanValue;
+            }
+
+            @Override // androidx.cardview.widget.CardViewDelegate
+            public boolean getUseCompatPadding() {
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048579, this)) == null) {
+                    return this.this$0.getUseCompatPadding();
+                }
+                return invokeV.booleanValue;
             }
 
             @Override // androidx.cardview.widget.CardViewDelegate
@@ -376,9 +221,10 @@ public class CardView extends FrameLayout {
                         CardView.super.setMinimumWidth(i4);
                     }
                     CardView cardView2 = this.this$0;
-                    if (i5 > cardView2.mUserSetMinHeight) {
-                        CardView.super.setMinimumHeight(i5);
+                    if (i5 <= cardView2.mUserSetMinHeight) {
+                        return;
                     }
+                    CardView.super.setMinimumHeight(i5);
                 }
             }
 
@@ -420,10 +266,201 @@ public class CardView extends FrameLayout {
         this.mContentPadding.top = obtainStyledAttributes.getDimensionPixelSize(12, dimensionPixelSize);
         this.mContentPadding.right = obtainStyledAttributes.getDimensionPixelSize(11, dimensionPixelSize);
         this.mContentPadding.bottom = obtainStyledAttributes.getDimensionPixelSize(9, dimensionPixelSize);
-        float f = dimension2 > dimension3 ? dimension2 : dimension3;
+        if (dimension2 > dimension3) {
+            f = dimension2;
+        } else {
+            f = dimension3;
+        }
         this.mUserSetMinWidth = obtainStyledAttributes.getDimensionPixelSize(0, 0);
         this.mUserSetMinHeight = obtainStyledAttributes.getDimensionPixelSize(1, 0);
         obtainStyledAttributes.recycle();
         IMPL.initialize(this.mCardViewDelegate, context, colorStateList, dimension, dimension2, f);
+    }
+
+    public ColorStateList getCardBackgroundColor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return IMPL.getBackgroundColor(this.mCardViewDelegate);
+        }
+        return (ColorStateList) invokeV.objValue;
+    }
+
+    public float getCardElevation() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return IMPL.getElevation(this.mCardViewDelegate);
+        }
+        return invokeV.floatValue;
+    }
+
+    public int getContentPaddingBottom() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mContentPadding.bottom;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getContentPaddingLeft() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mContentPadding.left;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getContentPaddingRight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mContentPadding.right;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getContentPaddingTop() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mContentPadding.top;
+        }
+        return invokeV.intValue;
+    }
+
+    public float getMaxCardElevation() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return IMPL.getMaxElevation(this.mCardViewDelegate);
+        }
+        return invokeV.floatValue;
+    }
+
+    public boolean getPreventCornerOverlap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mPreventCornerOverlap;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public float getRadius() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return IMPL.getRadius(this.mCardViewDelegate);
+        }
+        return invokeV.floatValue;
+    }
+
+    public boolean getUseCompatPadding() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mCompatPadding;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.widget.FrameLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) {
+            if (!(IMPL instanceof CardViewApi21Impl)) {
+                int mode = View.MeasureSpec.getMode(i);
+                if (mode == Integer.MIN_VALUE || mode == 1073741824) {
+                    i = View.MeasureSpec.makeMeasureSpec(Math.max((int) Math.ceil(IMPL.getMinWidth(this.mCardViewDelegate)), View.MeasureSpec.getSize(i)), mode);
+                }
+                int mode2 = View.MeasureSpec.getMode(i2);
+                if (mode2 == Integer.MIN_VALUE || mode2 == 1073741824) {
+                    i2 = View.MeasureSpec.makeMeasureSpec(Math.max((int) Math.ceil(IMPL.getMinHeight(this.mCardViewDelegate)), View.MeasureSpec.getSize(i2)), mode2);
+                }
+                super.onMeasure(i, i2);
+                return;
+            }
+            super.onMeasure(i, i2);
+        }
+    }
+
+    public void setCardBackgroundColor(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            IMPL.setBackgroundColor(this.mCardViewDelegate, ColorStateList.valueOf(i));
+        }
+    }
+
+    public void setCardElevation(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048589, this, f) == null) {
+            IMPL.setElevation(this.mCardViewDelegate, f);
+        }
+    }
+
+    public void setMaxCardElevation(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048591, this, f) == null) {
+            IMPL.setMaxElevation(this.mCardViewDelegate, f);
+        }
+    }
+
+    @Override // android.view.View
+    public void setMinimumHeight(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.mUserSetMinHeight = i;
+            super.setMinimumHeight(i);
+        }
+    }
+
+    @Override // android.view.View
+    public void setMinimumWidth(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.mUserSetMinWidth = i;
+            super.setMinimumWidth(i);
+        }
+    }
+
+    public void setPreventCornerOverlap(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048596, this, z) == null) && z != this.mPreventCornerOverlap) {
+            this.mPreventCornerOverlap = z;
+            IMPL.onPreventCornerOverlapChanged(this.mCardViewDelegate);
+        }
+    }
+
+    public void setRadius(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048597, this, f) == null) {
+            IMPL.setRadius(this.mCardViewDelegate, f);
+        }
+    }
+
+    public void setUseCompatPadding(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048598, this, z) == null) && this.mCompatPadding != z) {
+            this.mCompatPadding = z;
+            IMPL.onCompatPaddingChanged(this.mCardViewDelegate);
+        }
+    }
+
+    public void setCardBackgroundColor(ColorStateList colorStateList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, colorStateList) == null) {
+            IMPL.setBackgroundColor(this.mCardViewDelegate, colorStateList);
+        }
+    }
+
+    public void setContentPadding(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048590, this, i, i2, i3, i4) == null) {
+            this.mContentPadding.set(i, i2, i3, i4);
+            IMPL.updatePadding(this.mCardViewDelegate);
+        }
     }
 }

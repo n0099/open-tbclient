@@ -3,8 +3,8 @@ package com.baidu.tieba.emotion.dispatcher;
 import android.content.Context;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tieba.jg8;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.zf8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class EmotionDiyDispatcher implements zf8 {
+public class EmotionDiyDispatcher implements jg8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,16 +30,21 @@ public class EmotionDiyDispatcher implements zf8 {
         }
     }
 
-    @Override // com.baidu.tieba.zf8
+    @Override // com.baidu.tieba.jg8
     public void dispatch(JSONObject jSONObject, Context context) {
+        String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) || jSONObject == null || context == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
+            boolean optBoolean = jSONObject.optBoolean("canSend");
+            HashMap hashMap = new HashMap();
+            hashMap.put("itemID", "");
+            if (optBoolean) {
+                str = "1";
+            } else {
+                str = "0";
+            }
+            hashMap.put("canSend", str);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(context, "EmoticonDiyPage", hashMap)));
         }
-        boolean optBoolean = jSONObject.optBoolean("canSend");
-        HashMap hashMap = new HashMap();
-        hashMap.put("itemID", "");
-        hashMap.put("canSend", optBoolean ? "1" : "0");
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(context, "EmoticonDiyPage", hashMap)));
     }
 }

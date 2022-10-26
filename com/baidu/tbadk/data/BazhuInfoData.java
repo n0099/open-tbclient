@@ -16,20 +16,30 @@ import java.util.ArrayList;
 public class BazhuInfoData extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<BaInfo> bazhu_info;
+    public ArrayList bazhu_info;
 
     /* loaded from: classes3.dex */
-    public static class BaInfo extends OrmObject implements Parcelable {
+    public class BaInfo extends OrmObject implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator<BaInfo> CREATOR;
+        public static final Parcelable.Creator CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public String forum_Avatar;
         public int forum_id;
         public String forum_name;
         public boolean isChecked;
 
+        @Override // android.os.Parcelable
+        public int describeContents() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
+        }
+
         /* loaded from: classes3.dex */
-        public static class a implements Parcelable.Creator<BaInfo> {
+        public final class a implements Parcelable.Creator {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -53,7 +63,10 @@ public class BazhuInfoData extends OrmObject {
             public BaInfo createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new BaInfo(parcel) : (BaInfo) invokeL.objValue;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                    return new BaInfo(parcel);
+                }
+                return (BaInfo) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -62,7 +75,10 @@ public class BazhuInfoData extends OrmObject {
             public BaInfo[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new BaInfo[i] : (BaInfo[]) invokeI.objValue;
+                if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                    return new BaInfo[i];
+                }
+                return (BaInfo[]) invokeI.objValue;
             }
         }
 
@@ -96,28 +112,8 @@ public class BazhuInfoData extends OrmObject {
             }
         }
 
-        @Override // android.os.Parcelable
-        public int describeContents() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 0;
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
-                parcel.writeInt(this.forum_id);
-                parcel.writeString(this.forum_name);
-                parcel.writeString(this.forum_Avatar);
-                parcel.writeByte(this.isChecked ? (byte) 1 : (byte) 0);
-            }
-        }
-
         public BaInfo(Parcel parcel) {
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -135,7 +131,23 @@ public class BazhuInfoData extends OrmObject {
             this.forum_id = parcel.readInt();
             this.forum_name = parcel.readString();
             this.forum_Avatar = parcel.readString();
-            this.isChecked = parcel.readByte() != 0;
+            if (parcel.readByte() != 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.isChecked = z;
+        }
+
+        @Override // android.os.Parcelable
+        public void writeToParcel(Parcel parcel, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
+                parcel.writeInt(this.forum_id);
+                parcel.writeString(this.forum_name);
+                parcel.writeString(this.forum_Avatar);
+                parcel.writeByte(this.isChecked ? (byte) 1 : (byte) 0);
+            }
         }
     }
 

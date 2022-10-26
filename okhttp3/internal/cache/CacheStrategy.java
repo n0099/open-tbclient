@@ -91,13 +91,16 @@ public final class CacheStrategy {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
                 Date date = this.servedDate;
-                long max = date != null ? Math.max(0L, this.receivedResponseMillis - date.getTime()) : 0L;
+                long j = 0;
+                if (date != null) {
+                    j = Math.max(0L, this.receivedResponseMillis - date.getTime());
+                }
                 int i = this.ageSeconds;
                 if (i != -1) {
-                    max = Math.max(max, TimeUnit.SECONDS.toMillis(i));
+                    j = Math.max(j, TimeUnit.SECONDS.toMillis(i));
                 }
-                long j = this.receivedResponseMillis;
-                return max + (j - this.sentRequestMillis) + (this.nowMillis - j);
+                long j2 = this.receivedResponseMillis;
+                return j + (j2 - this.sentRequestMillis) + (this.nowMillis - j2);
             }
             return invokeV.longValue;
         }
@@ -120,10 +123,10 @@ public final class CacheStrategy {
                         j2 = this.receivedResponseMillis;
                     }
                     long time = this.expires.getTime() - j2;
-                    if (time > 0) {
-                        return time;
+                    if (time <= 0) {
+                        return 0L;
                     }
-                    return 0L;
+                    return time;
                 } else if (this.lastModified == null || this.cacheResponse.request().url().query() != null) {
                     return 0L;
                 } else {
@@ -134,10 +137,10 @@ public final class CacheStrategy {
                         j = this.sentRequestMillis;
                     }
                     long time2 = j - this.lastModified.getTime();
-                    if (time2 > 0) {
-                        return time2 / 10;
+                    if (time2 <= 0) {
+                        return 0L;
                     }
-                    return 0L;
+                    return time2 / 10;
                 }
             }
             return invokeV.longValue;
@@ -145,6 +148,7 @@ public final class CacheStrategy {
 
         private CacheStrategy getCandidate() {
             InterceptResult invokeV;
+            long j;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
                 if (this.cacheResponse == null) {
@@ -167,16 +171,20 @@ public final class CacheStrategy {
                     if (cacheControl.maxAgeSeconds() != -1) {
                         computeFreshnessLifetime = Math.min(computeFreshnessLifetime, TimeUnit.SECONDS.toMillis(cacheControl.maxAgeSeconds()));
                     }
-                    long j = 0;
-                    long millis = cacheControl.minFreshSeconds() != -1 ? TimeUnit.SECONDS.toMillis(cacheControl.minFreshSeconds()) : 0L;
+                    long j2 = 0;
+                    if (cacheControl.minFreshSeconds() != -1) {
+                        j = TimeUnit.SECONDS.toMillis(cacheControl.minFreshSeconds());
+                    } else {
+                        j = 0;
+                    }
                     if (!cacheControl2.mustRevalidate() && cacheControl.maxStaleSeconds() != -1) {
-                        j = TimeUnit.SECONDS.toMillis(cacheControl.maxStaleSeconds());
+                        j2 = TimeUnit.SECONDS.toMillis(cacheControl.maxStaleSeconds());
                     }
                     if (!cacheControl2.noCache()) {
-                        long j2 = millis + cacheResponseAge;
-                        if (j2 < j + computeFreshnessLifetime) {
+                        long j3 = j + cacheResponseAge;
+                        if (j3 < j2 + computeFreshnessLifetime) {
                             Response.Builder newBuilder = this.cacheResponse.newBuilder();
-                            if (j2 >= computeFreshnessLifetime) {
+                            if (j3 >= computeFreshnessLifetime) {
                                 newBuilder.addHeader("Warning", "110 HttpURLConnection \"Response is stale\"");
                             }
                             if (cacheResponseAge > 86400000 && isFreshnessLifetimeHeuristic()) {
@@ -208,13 +216,25 @@ public final class CacheStrategy {
         public static boolean hasConditions(Request request) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, request)) == null) ? (request.header("If-Modified-Since") == null && request.header("If-None-Match") == null) ? false : true : invokeL.booleanValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, request)) == null) {
+                if (request.header("If-Modified-Since") == null && request.header("If-None-Match") == null) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeL.booleanValue;
         }
 
         private boolean isFreshnessLifetimeHeuristic() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? this.cacheResponse.cacheControl().maxAgeSeconds() == -1 && this.expires == null : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+                if (this.cacheResponse.cacheControl().maxAgeSeconds() == -1 && this.expires == null) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         public CacheStrategy get() {
@@ -222,7 +242,10 @@ public final class CacheStrategy {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 CacheStrategy candidate = getCandidate();
-                return (candidate.networkRequest == null || !this.request.cacheControl().onlyIfCached()) ? candidate : new CacheStrategy(null, null);
+                if (candidate.networkRequest != null && this.request.cacheControl().onlyIfCached()) {
+                    return new CacheStrategy(null, null);
+                }
+                return candidate;
             }
             return (CacheStrategy) invokeV.objValue;
         }
@@ -279,7 +302,10 @@ public final class CacheStrategy {
                     }
                 }
             }
-            return (response.cacheControl().noStore() || request.cacheControl().noStore()) ? false : true;
+            if (response.cacheControl().noStore() || request.cacheControl().noStore()) {
+                return false;
+            }
+            return true;
         }
         return invokeLL.booleanValue;
     }

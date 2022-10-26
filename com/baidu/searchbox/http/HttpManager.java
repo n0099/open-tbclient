@@ -32,6 +32,15 @@ public class HttpManager extends AbstractHttpManager {
         sExtraInfoDispatcher = new ExtraInfoDispatcher();
     }
 
+    public static ExtraInfoDispatcher getExtraInfoDispatcher() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return sExtraInfoDispatcher;
+        }
+        return (ExtraInfoDispatcher) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HttpManager(Context context) {
         super(context);
@@ -67,12 +76,6 @@ public class HttpManager extends AbstractHttpManager {
             return httpManager;
         }
         return (HttpManager) invokeL.objValue;
-    }
-
-    public static ExtraInfoDispatcher getExtraInfoDispatcher() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? sExtraInfoDispatcher : (ExtraInfoDispatcher) invokeV.objValue;
     }
 
     public static HttpManager newHttpManager(Context context) {

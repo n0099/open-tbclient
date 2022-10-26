@@ -34,6 +34,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -50,7 +51,7 @@ public class b {
     public static String g;
     public static String h;
     public static String i;
-    public static List<DispathcPoiData> j;
+    public static List j;
     public static LatLng k;
     public static LatLng l;
     public static String m;
@@ -154,18 +155,19 @@ public class b {
         }
     }
 
-    public static void a(List<DispathcPoiData> list, Context context) {
+    public static void a(List list, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, list, context) == null) {
             g = context.getPackageName();
             h = b(context);
             i = "";
-            List<DispathcPoiData> list2 = j;
+            List list2 = j;
             if (list2 != null) {
                 list2.clear();
             }
-            for (DispathcPoiData dispathcPoiData : list) {
-                j.add(dispathcPoiData);
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                j.add((DispathcPoiData) it.next());
             }
         }
     }
@@ -289,7 +291,7 @@ public class b {
         return invokeLLI.booleanValue;
     }
 
-    public static boolean a(List<DispathcPoiData> list, Context context, int i2) {
+    public static boolean a(List list, Context context, int i2) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65549, null, list, context, i2)) == null) {
@@ -787,7 +789,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) {
-            List<DispathcPoiData> list = j;
+            List list = j;
             if (list != null && list.size() > 0) {
                 try {
                     Log.d(c, "callDispatchPoiToBaiduMap");
@@ -799,15 +801,15 @@ public class b {
                         JSONArray jSONArray = new JSONArray();
                         int i2 = 0;
                         for (int i3 = 0; i3 < j.size(); i3++) {
-                            if (j.get(i3).name != null && !j.get(i3).name.equals("") && j.get(i3).pt != null) {
+                            if (((DispathcPoiData) j.get(i3)).name != null && !((DispathcPoiData) j.get(i3)).name.equals("") && ((DispathcPoiData) j.get(i3)).pt != null) {
                                 JSONObject jSONObject = new JSONObject();
                                 try {
-                                    jSONObject.put("name", j.get(i3).name);
-                                    GeoPoint ll2mc = CoordUtil.ll2mc(j.get(i3).pt);
+                                    jSONObject.put("name", ((DispathcPoiData) j.get(i3)).name);
+                                    GeoPoint ll2mc = CoordUtil.ll2mc(((DispathcPoiData) j.get(i3)).pt);
                                     jSONObject.put("ptx", ll2mc.getLongitudeE6());
                                     jSONObject.put("pty", ll2mc.getLatitudeE6());
-                                    jSONObject.put(DuPaBInfoMsg.B_ADDR, j.get(i3).addr);
-                                    jSONObject.put("uid", j.get(i3).uid);
+                                    jSONObject.put(DuPaBInfoMsg.B_ADDR, ((DispathcPoiData) j.get(i3)).addr);
+                                    jSONObject.put("uid", ((DispathcPoiData) j.get(i3)).uid);
                                     i2++;
                                     jSONArray.put(jSONObject);
                                 } catch (JSONException e2) {

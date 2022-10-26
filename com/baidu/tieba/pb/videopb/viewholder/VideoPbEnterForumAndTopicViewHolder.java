@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.view.ThreadForumEnterButton;
 import com.baidu.tbadk.core.view.TopicEnterButton;
 import com.baidu.tbadk.widget.layout.FlowLabelLayout;
-import com.baidu.tieba.dj;
+import com.baidu.tieba.ej;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -26,7 +26,7 @@ public class VideoPbEnterForumAndTopicViewHolder extends TypeAdapter.ViewHolder 
     public Context a;
     public FlowLabelLayout b;
     public ThreadForumEnterButton c;
-    public List<TopicEnterButton> d;
+    public List d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoPbEnterForumAndTopicViewHolder(Context context, View view2) {
@@ -60,7 +60,7 @@ public class VideoPbEnterForumAndTopicViewHolder extends TypeAdapter.ViewHolder 
             List<TopicEnterButton> list = this.d;
             if (list != null) {
                 for (TopicEnterButton topicEnterButton : list) {
-                    topicEnterButton.f();
+                    topicEnterButton.c();
                 }
             }
         }
@@ -68,32 +68,31 @@ public class VideoPbEnterForumAndTopicViewHolder extends TypeAdapter.ViewHolder 
 
     public void setData(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) == null) || threadData == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) != null) || threadData == null) {
             return;
         }
         this.b.removeAllViews();
-        List<TopicEnterButton> list = this.d;
+        List list = this.d;
         if (list != null) {
             list.clear();
         }
-        if (!dj.isEmpty(threadData.getForum_name())) {
+        if (!ej.isEmpty(threadData.getForum_name())) {
             ThreadForumEnterButton threadForumEnterButton = new ThreadForumEnterButton(this.a);
             this.c = threadForumEnterButton;
             threadForumEnterButton.a(threadData);
             this.b.addView(this.c, new ViewGroup.LayoutParams(-2, -2));
         }
         WorksInfoData worksInfoData = threadData.worksInfoData;
-        if (worksInfoData == null || ListUtils.isEmpty(worksInfoData.topicListData)) {
-            return;
-        }
-        if (this.d == null) {
-            this.d = new LinkedList();
-        }
-        for (RecommendTopicData.RecommendTopicListData recommendTopicListData : threadData.worksInfoData.topicListData) {
-            TopicEnterButton topicEnterButton = new TopicEnterButton(this.a);
-            topicEnterButton.d(recommendTopicListData);
-            this.b.addView(topicEnterButton, new ViewGroup.LayoutParams(-2, -2));
-            this.d.add(topicEnterButton);
+        if (worksInfoData != null && !ListUtils.isEmpty(worksInfoData.topicListData)) {
+            if (this.d == null) {
+                this.d = new LinkedList();
+            }
+            for (RecommendTopicData.RecommendTopicListData recommendTopicListData : threadData.worksInfoData.topicListData) {
+                TopicEnterButton topicEnterButton = new TopicEnterButton(this.a);
+                topicEnterButton.a(recommendTopicListData);
+                this.b.addView(topicEnterButton, new ViewGroup.LayoutParams(-2, -2));
+                this.d.add(topicEnterButton);
+            }
         }
     }
 }

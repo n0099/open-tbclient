@@ -26,7 +26,7 @@ public class MethodInvokeUtil {
         }
     }
 
-    public static Object invoke(Method method, Class<?> cls, Object[] objArr) {
+    public static Object invoke(Method method, Class cls, Object[] objArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, method, cls, objArr)) == null) {

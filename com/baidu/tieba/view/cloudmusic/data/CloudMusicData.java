@@ -1,19 +1,25 @@
 package com.baidu.tieba.view.cloudmusic.data;
 
+import androidx.core.app.NotificationCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.CloudMusicActivityConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class CloudMusicData extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @SerializedName("music_tag_list")
     public List<MusicTagList> music_tag_list;
+    @SerializedName("tag_list")
     public List<TagList> tag_list;
 
     /* loaded from: classes6.dex */
@@ -21,8 +27,11 @@ public class CloudMusicData extends OrmObject {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
         public transient /* synthetic */ FieldHolder $fh;
+        @SerializedName("music_list")
         public List<MusicList> music_list;
+        @SerializedName("page")
         public Page page;
+        @SerializedName(TiebaStatic.Params.TAG_ID)
         public int tag_id;
 
         /* loaded from: classes6.dex */
@@ -30,12 +39,19 @@ public class CloudMusicData extends OrmObject {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 3;
             public transient /* synthetic */ FieldHolder $fh;
+            @SerializedName(NotificationCompat.CarExtender.KEY_AUTHOR)
             public String author;
+            @SerializedName("duration")
             public int duration;
+            @SerializedName("image")
             public String image;
+            @SerializedName("isLoading")
             public boolean isLoading;
+            @SerializedName(CloudMusicActivityConfig.MUSIC_ID)
             public int music_id;
+            @SerializedName("name")
             public String name;
+            @SerializedName("resource")
             public String resource;
 
             public MusicList() {
@@ -65,22 +81,28 @@ public class CloudMusicData extends OrmObject {
                         return false;
                     }
                     MusicList musicList = (MusicList) obj;
-                    if (this.duration == musicList.duration && this.music_id == musicList.music_id) {
-                        String str = this.name;
-                        if (str == null ? musicList.name == null : str.equals(musicList.name)) {
-                            String str2 = this.image;
-                            if (str2 == null ? musicList.image == null : str2.equals(musicList.image)) {
-                                String str3 = this.resource;
-                                if (str3 == null ? musicList.resource == null : str3.equals(musicList.resource)) {
-                                    String str4 = this.author;
-                                    String str5 = musicList.author;
-                                    return str4 != null ? str4.equals(str5) : str5 == null;
-                                }
-                                return false;
-                            }
-                            return false;
-                        }
+                    if (this.duration != musicList.duration || this.music_id != musicList.music_id) {
                         return false;
+                    }
+                    String str = this.name;
+                    if (str == null ? musicList.name != null : !str.equals(musicList.name)) {
+                        return false;
+                    }
+                    String str2 = this.image;
+                    if (str2 == null ? musicList.image != null : !str2.equals(musicList.image)) {
+                        return false;
+                    }
+                    String str3 = this.resource;
+                    if (str3 == null ? musicList.resource != null : !str3.equals(musicList.resource)) {
+                        return false;
+                    }
+                    String str4 = this.author;
+                    String str5 = musicList.author;
+                    if (str4 != null) {
+                        return str4.equals(str5);
+                    }
+                    if (str5 == null) {
+                        return true;
                     }
                     return false;
                 }
@@ -89,16 +111,38 @@ public class CloudMusicData extends OrmObject {
 
             public int hashCode() {
                 InterceptResult invokeV;
+                int i;
+                int i2;
+                int i3;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                     String str = this.name;
-                    int hashCode = (str != null ? str.hashCode() : 0) * 31;
+                    int i4 = 0;
+                    if (str != null) {
+                        i = str.hashCode();
+                    } else {
+                        i = 0;
+                    }
+                    int i5 = i * 31;
                     String str2 = this.image;
-                    int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
+                    if (str2 != null) {
+                        i2 = str2.hashCode();
+                    } else {
+                        i2 = 0;
+                    }
+                    int i6 = (i5 + i2) * 31;
                     String str3 = this.resource;
-                    int hashCode3 = (hashCode2 + (str3 != null ? str3.hashCode() : 0)) * 31;
+                    if (str3 != null) {
+                        i3 = str3.hashCode();
+                    } else {
+                        i3 = 0;
+                    }
+                    int i7 = (i6 + i3) * 31;
                     String str4 = this.author;
-                    return ((((hashCode3 + (str4 != null ? str4.hashCode() : 0)) * 31) + this.duration) * 31) + this.music_id;
+                    if (str4 != null) {
+                        i4 = str4.hashCode();
+                    }
+                    return ((((i7 + i4) * 31) + this.duration) * 31) + this.music_id;
                 }
                 return invokeV.intValue;
             }
@@ -109,7 +153,9 @@ public class CloudMusicData extends OrmObject {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 2;
             public transient /* synthetic */ FieldHolder $fh;
+            @SerializedName("has_more")
             public int has_more;
+            @SerializedName("pn")
             public int pn;
 
             public Page() {
@@ -146,7 +192,9 @@ public class CloudMusicData extends OrmObject {
     public static class TagList extends OrmObject {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @SerializedName("id")
         public int id;
+        @SerializedName("name")
         public String name;
 
         public TagList() {

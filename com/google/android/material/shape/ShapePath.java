@@ -4,8 +4,6 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Path;
 import android.graphics.RectF;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -41,7 +39,7 @@ public class ShapePath {
     public float startY;
 
     /* loaded from: classes7.dex */
-    public static class ArcShadowOperation extends ShadowCompatOperation {
+    public class ArcShadowOperation extends ShadowCompatOperation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final PathArcOperation operation;
@@ -65,16 +63,17 @@ public class ShapePath {
         }
 
         @Override // com.google.android.material.shape.ShapePath.ShadowCompatOperation
-        public void draw(Matrix matrix, @NonNull ShadowRenderer shadowRenderer, int i, @NonNull Canvas canvas) {
+        public void draw(Matrix matrix, ShadowRenderer shadowRenderer, int i, Canvas canvas) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLIL(1048576, this, matrix, shadowRenderer, i, canvas) == null) {
-                shadowRenderer.drawCornerShadow(canvas, matrix, new RectF(this.operation.getLeft(), this.operation.getTop(), this.operation.getRight(), this.operation.getBottom()), i, this.operation.getStartAngle(), this.operation.getSweepAngle());
+            if (interceptable != null && interceptable.invokeLLIL(1048576, this, matrix, shadowRenderer, i, canvas) != null) {
+                return;
             }
+            shadowRenderer.drawCornerShadow(canvas, matrix, new RectF(this.operation.getLeft(), this.operation.getTop(), this.operation.getRight(), this.operation.getBottom()), i, this.operation.getStartAngle(), this.operation.getSweepAngle());
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class LineShadowOperation extends ShadowCompatOperation {
+    public class LineShadowOperation extends ShadowCompatOperation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final PathLineOperation operation;
@@ -102,7 +101,7 @@ public class ShapePath {
         }
 
         @Override // com.google.android.material.shape.ShapePath.ShadowCompatOperation
-        public void draw(Matrix matrix, @NonNull ShadowRenderer shadowRenderer, int i, @NonNull Canvas canvas) {
+        public void draw(Matrix matrix, ShadowRenderer shadowRenderer, int i, Canvas canvas) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLIL(1048576, this, matrix, shadowRenderer, i, canvas) == null) {
                 RectF rectF = new RectF(0.0f, 0.0f, (float) Math.hypot(this.operation.y - this.startY, this.operation.x - this.startX), 0.0f);
@@ -116,12 +115,15 @@ public class ShapePath {
         public float getAngle() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (float) Math.toDegrees(Math.atan((this.operation.y - this.startY) / (this.operation.x - this.startX))) : invokeV.floatValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return (float) Math.toDegrees(Math.atan((this.operation.y - this.startY) / (this.operation.x - this.startX)));
+            }
+            return invokeV.floatValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class PathArcOperation extends PathOperation {
+    public class PathArcOperation extends PathOperation {
         public static /* synthetic */ Interceptable $ic;
         public static final RectF rectF;
         public transient /* synthetic */ FieldHolder $fh;
@@ -154,6 +156,66 @@ public class ShapePath {
             rectF = new RectF();
         }
 
+        /* JADX INFO: Access modifiers changed from: private */
+        public float getBottom() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
+                return this.bottom;
+            }
+            return invokeV.floatValue;
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public float getLeft() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
+                return this.left;
+            }
+            return invokeV.floatValue;
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public float getRight() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
+                return this.right;
+            }
+            return invokeV.floatValue;
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public float getStartAngle() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
+                return this.startAngle;
+            }
+            return invokeV.floatValue;
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public float getSweepAngle() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) {
+                return this.sweepAngle;
+            }
+            return invokeV.floatValue;
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public float getTop() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) {
+                return this.top;
+            }
+            return invokeV.floatValue;
+        }
+
         public PathArcOperation(float f, float f2, float f3, float f4) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -173,48 +235,6 @@ public class ShapePath {
             setTop(f2);
             setRight(f3);
             setBottom(f4);
-        }
-
-        /* JADX INFO: Access modifiers changed from: private */
-        public float getBottom() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) ? this.bottom : invokeV.floatValue;
-        }
-
-        /* JADX INFO: Access modifiers changed from: private */
-        public float getLeft() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) ? this.left : invokeV.floatValue;
-        }
-
-        /* JADX INFO: Access modifiers changed from: private */
-        public float getRight() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) ? this.right : invokeV.floatValue;
-        }
-
-        /* JADX INFO: Access modifiers changed from: private */
-        public float getStartAngle() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) ? this.startAngle : invokeV.floatValue;
-        }
-
-        /* JADX INFO: Access modifiers changed from: private */
-        public float getSweepAngle() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) ? this.sweepAngle : invokeV.floatValue;
-        }
-
-        /* JADX INFO: Access modifiers changed from: private */
-        public float getTop() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) ? this.top : invokeV.floatValue;
         }
 
         private void setBottom(float f) {
@@ -262,7 +282,7 @@ public class ShapePath {
         }
 
         @Override // com.google.android.material.shape.ShapePath.PathOperation
-        public void applyToPath(@NonNull Matrix matrix, @NonNull Path path) {
+        public void applyToPath(Matrix matrix, Path path) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, matrix, path) == null) {
                 Matrix matrix2 = this.matrix;
@@ -276,7 +296,7 @@ public class ShapePath {
     }
 
     /* loaded from: classes7.dex */
-    public static class PathCubicOperation extends PathOperation {
+    public class PathCubicOperation extends PathOperation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public float controlX1;
@@ -312,37 +332,55 @@ public class ShapePath {
         private float getControlX1() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? this.controlX1 : invokeV.floatValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+                return this.controlX1;
+            }
+            return invokeV.floatValue;
         }
 
         private float getControlX2() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.controlX2 : invokeV.floatValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+                return this.controlX2;
+            }
+            return invokeV.floatValue;
         }
 
         private float getControlY1() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? this.controlY1 : invokeV.floatValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+                return this.controlY1;
+            }
+            return invokeV.floatValue;
         }
 
         private float getControlY2() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? this.controlY1 : invokeV.floatValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+                return this.controlY1;
+            }
+            return invokeV.floatValue;
         }
 
         private float getEndX() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? this.endX : invokeV.floatValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+                return this.endX;
+            }
+            return invokeV.floatValue;
         }
 
         private float getEndY() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? this.endY : invokeV.floatValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
+                return this.endY;
+            }
+            return invokeV.floatValue;
         }
 
         private void setControlX1(float f) {
@@ -388,7 +426,7 @@ public class ShapePath {
         }
 
         @Override // com.google.android.material.shape.ShapePath.PathOperation
-        public void applyToPath(@NonNull Matrix matrix, @NonNull Path path) {
+        public void applyToPath(Matrix matrix, Path path) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, matrix, path) == null) {
                 Matrix matrix2 = this.matrix;
@@ -401,7 +439,7 @@ public class ShapePath {
     }
 
     /* loaded from: classes7.dex */
-    public static class PathLineOperation extends PathOperation {
+    public class PathLineOperation extends PathOperation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public float x;
@@ -422,7 +460,7 @@ public class ShapePath {
         }
 
         @Override // com.google.android.material.shape.ShapePath.PathOperation
-        public void applyToPath(@NonNull Matrix matrix, @NonNull Path path) {
+        public void applyToPath(Matrix matrix, Path path) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, matrix, path) == null) {
                 Matrix matrix2 = this.matrix;
@@ -440,6 +478,8 @@ public class ShapePath {
         public transient /* synthetic */ FieldHolder $fh;
         public final Matrix matrix;
 
+        public abstract void applyToPath(Matrix matrix, Path path);
+
         public PathOperation() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -455,12 +495,10 @@ public class ShapePath {
             }
             this.matrix = new Matrix();
         }
-
-        public abstract void applyToPath(Matrix matrix, Path path);
     }
 
     /* loaded from: classes7.dex */
-    public static class PathQuadOperation extends PathOperation {
+    public class PathQuadOperation extends PathOperation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @Deprecated
@@ -489,25 +527,49 @@ public class ShapePath {
         private float getControlX() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? this.controlX : invokeV.floatValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+                return this.controlX;
+            }
+            return invokeV.floatValue;
         }
 
         private float getControlY() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? this.controlY : invokeV.floatValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
+                return this.controlY;
+            }
+            return invokeV.floatValue;
         }
 
         private float getEndX() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? this.endX : invokeV.floatValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
+                return this.endX;
+            }
+            return invokeV.floatValue;
         }
 
         private float getEndY() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) ? this.endY : invokeV.floatValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
+                return this.endY;
+            }
+            return invokeV.floatValue;
+        }
+
+        @Override // com.google.android.material.shape.ShapePath.PathOperation
+        public void applyToPath(Matrix matrix, Path path) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, matrix, path) == null) {
+                Matrix matrix2 = this.matrix;
+                matrix.invert(matrix2);
+                path.transform(matrix2);
+                path.quadTo(getControlX(), getControlY(), getEndX(), getEndY());
+                path.transform(matrix);
+            }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -541,18 +603,6 @@ public class ShapePath {
                 this.endY = f;
             }
         }
-
-        @Override // com.google.android.material.shape.ShapePath.PathOperation
-        public void applyToPath(@NonNull Matrix matrix, @NonNull Path path) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, matrix, path) == null) {
-                Matrix matrix2 = this.matrix;
-                matrix.invert(matrix2);
-                path.transform(matrix2);
-                path.quadTo(getControlX(), getControlY(), getEndX(), getEndY());
-                path.transform(matrix);
-            }
-        }
     }
 
     /* loaded from: classes7.dex */
@@ -560,6 +610,8 @@ public class ShapePath {
         public static /* synthetic */ Interceptable $ic;
         public static final Matrix IDENTITY_MATRIX;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public abstract void draw(Matrix matrix, ShadowRenderer shadowRenderer, int i, Canvas canvas);
 
         static {
             InterceptResult invokeClinit;
@@ -591,8 +643,6 @@ public class ShapePath {
             }
         }
 
-        public abstract void draw(Matrix matrix, ShadowRenderer shadowRenderer, int i, Canvas canvas);
-
         public final void draw(ShadowRenderer shadowRenderer, int i, Canvas canvas) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shadowRenderer, i, canvas) == null) {
@@ -619,9 +669,43 @@ public class ShapePath {
         reset(0.0f, 0.0f);
     }
 
+    public ShapePath(float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.operations = new ArrayList();
+        this.shadowCompatOperations = new ArrayList();
+        reset(f, f2);
+    }
+
+    public void lineTo(float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            PathLineOperation pathLineOperation = new PathLineOperation();
+            pathLineOperation.x = f;
+            pathLineOperation.y = f2;
+            this.operations.add(pathLineOperation);
+            LineShadowOperation lineShadowOperation = new LineShadowOperation(pathLineOperation, getEndX(), getEndY());
+            addShadowCompatOperation(lineShadowOperation, lineShadowOperation.getAngle() + 270.0f, lineShadowOperation.getAngle() + 270.0f);
+            setEndX(f);
+            setEndY(f2);
+        }
+    }
+
     private void addConnectingShadowIfNecessary(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(65538, this, f) == null) || getCurrentShadowAngle() == f) {
+        if ((interceptable != null && interceptable.invokeF(65538, this, f) != null) || getCurrentShadowAngle() == f) {
             return;
         }
         float currentShadowAngle = ((f - getCurrentShadowAngle()) + 360.0f) % 360.0f;
@@ -647,13 +731,64 @@ public class ShapePath {
     private float getCurrentShadowAngle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? this.currentShadowAngle : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+            return this.currentShadowAngle;
+        }
+        return invokeV.floatValue;
     }
 
     private float getEndShadowAngle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? this.endShadowAngle : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+            return this.endShadowAngle;
+        }
+        return invokeV.floatValue;
+    }
+
+    public boolean containsIncompatibleShadowOp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.containsIncompatibleShadowOp;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public float getEndX() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.endX;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getEndY() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.endY;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getStartX() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.startX;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getStartY() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.startY;
+        }
+        return invokeV.floatValue;
     }
 
     private void setCurrentShadowAngle(float f) {
@@ -698,43 +833,6 @@ public class ShapePath {
         }
     }
 
-    public void addArc(float f, float f2, float f3, float f4, float f5, float f6) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)}) == null) {
-            PathArcOperation pathArcOperation = new PathArcOperation(f, f2, f3, f4);
-            pathArcOperation.setStartAngle(f5);
-            pathArcOperation.setSweepAngle(f6);
-            this.operations.add(pathArcOperation);
-            ArcShadowOperation arcShadowOperation = new ArcShadowOperation(pathArcOperation);
-            float f7 = f5 + f6;
-            boolean z = f6 < 0.0f;
-            if (z) {
-                f5 = (f5 + 180.0f) % 360.0f;
-            }
-            addShadowCompatOperation(arcShadowOperation, f5, z ? (180.0f + f7) % 360.0f : f7);
-            double d = f7;
-            setEndX(((f + f3) * 0.5f) + (((f3 - f) / 2.0f) * ((float) Math.cos(Math.toRadians(d)))));
-            setEndY(((f2 + f4) * 0.5f) + (((f4 - f2) / 2.0f) * ((float) Math.sin(Math.toRadians(d)))));
-        }
-    }
-
-    public void applyToPath(Matrix matrix, Path path) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, matrix, path) == null) {
-            int size = this.operations.size();
-            for (int i = 0; i < size; i++) {
-                this.operations.get(i).applyToPath(matrix, path);
-            }
-        }
-    }
-
-    public boolean containsIncompatibleShadowOp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.containsIncompatibleShadowOp : invokeV.booleanValue;
-    }
-
-    @NonNull
     public ShadowCompatOperation createShadowCompatOperation(Matrix matrix) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -781,7 +879,54 @@ public class ShapePath {
         return (ShadowCompatOperation) invokeL.objValue;
     }
 
-    @RequiresApi(21)
+    public void addArc(float f, float f2, float f3, float f4, float f5, float f6) {
+        boolean z;
+        float f7;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)}) == null) {
+            PathArcOperation pathArcOperation = new PathArcOperation(f, f2, f3, f4);
+            pathArcOperation.setStartAngle(f5);
+            pathArcOperation.setSweepAngle(f6);
+            this.operations.add(pathArcOperation);
+            ArcShadowOperation arcShadowOperation = new ArcShadowOperation(pathArcOperation);
+            float f8 = f5 + f6;
+            if (f6 < 0.0f) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                f5 = (f5 + 180.0f) % 360.0f;
+            }
+            if (z) {
+                f7 = (180.0f + f8) % 360.0f;
+            } else {
+                f7 = f8;
+            }
+            addShadowCompatOperation(arcShadowOperation, f5, f7);
+            double d = f8;
+            setEndX(((f + f3) * 0.5f) + (((f3 - f) / 2.0f) * ((float) Math.cos(Math.toRadians(d)))));
+            setEndY(((f2 + f4) * 0.5f) + (((f4 - f2) / 2.0f) * ((float) Math.sin(Math.toRadians(d)))));
+        }
+    }
+
+    public void applyToPath(Matrix matrix, Path path) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, matrix, path) == null) {
+            int size = this.operations.size();
+            for (int i = 0; i < size; i++) {
+                this.operations.get(i).applyToPath(matrix, path);
+            }
+        }
+    }
+
+    public void reset(float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            reset(f, f2, 270.0f, 0.0f);
+        }
+    }
+
     public void cubicToPoint(float f, float f2, float f3, float f4, float f5, float f6) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)}) == null) {
@@ -792,45 +937,6 @@ public class ShapePath {
         }
     }
 
-    public float getEndX() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.endX : invokeV.floatValue;
-    }
-
-    public float getEndY() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.endY : invokeV.floatValue;
-    }
-
-    public float getStartX() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.startX : invokeV.floatValue;
-    }
-
-    public float getStartY() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.startY : invokeV.floatValue;
-    }
-
-    public void lineTo(float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            PathLineOperation pathLineOperation = new PathLineOperation();
-            pathLineOperation.x = f;
-            pathLineOperation.y = f2;
-            this.operations.add(pathLineOperation);
-            LineShadowOperation lineShadowOperation = new LineShadowOperation(pathLineOperation, getEndX(), getEndY());
-            addShadowCompatOperation(lineShadowOperation, lineShadowOperation.getAngle() + 270.0f, lineShadowOperation.getAngle() + 270.0f);
-            setEndX(f);
-            setEndY(f2);
-        }
-    }
-
-    @RequiresApi(21)
     public void quadToPoint(float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
@@ -843,13 +949,6 @@ public class ShapePath {
             this.containsIncompatibleShadowOp = true;
             setEndX(f3);
             setEndY(f4);
-        }
-    }
-
-    public void reset(float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            reset(f, f2, 270.0f, 0.0f);
         }
     }
 
@@ -866,25 +965,5 @@ public class ShapePath {
             this.shadowCompatOperations.clear();
             this.containsIncompatibleShadowOp = false;
         }
-    }
-
-    public ShapePath(float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.operations = new ArrayList();
-        this.shadowCompatOperations = new ArrayList();
-        reset(f, f2);
     }
 }

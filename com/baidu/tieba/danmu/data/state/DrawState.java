@@ -5,10 +5,10 @@ import android.graphics.RectF;
 import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.m46;
-import com.baidu.tieba.s66;
-import com.baidu.tieba.u46;
-import com.baidu.tieba.u66;
+import com.baidu.tieba.b56;
+import com.baidu.tieba.b76;
+import com.baidu.tieba.t46;
+import com.baidu.tieba.z66;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +19,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import kotlin.Metadata;
-import kotlin.Unit;
 import kotlin.collections.MapsKt__MapWithDefaultKt;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
@@ -28,30 +27,30 @@ import kotlin.jvm.internal.Reflection;
 import kotlin.reflect.KProperty;
 @Metadata(d1 = {"\u0000T\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0007\n\u0002\b\u0005\n\u0002\u0010\b\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0010%\n\u0002\u0010\u000e\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\u001e\b\u0000\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\u000e\u0010_\u001a\u00020<2\u0006\u0010+\u001a\u00020\nJ\b\u0010`\u001a\u00020*H\u0002J\u0006\u0010a\u001a\u00020*J\b\u0010b\u001a\u00020*H\u0016J\u0006\u0010c\u001a\u00020*J\b\u0010d\u001a\u00020\u001eH\u0016J\u0010\u0010e\u001a\u00020*2\u0006\u0010f\u001a\u00020JH\u0002J\u0010\u0010g\u001a\u00020*2\u0006\u00107\u001a\u000208H\u0002R\u001a\u0010\u0003\u001a\u00020\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0005\u0010\u0006\"\u0004\b\u0007\u0010\bR+\u0010\u000b\u001a\u00020\n2\u0006\u0010\t\u001a\u00020\n8F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\b\u0010\u0010\u0011\u001a\u0004\b\f\u0010\r\"\u0004\b\u000e\u0010\u000fR\u001a\u0010\u0012\u001a\u00020\u0013X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0014\u0010\u0015\"\u0004\b\u0016\u0010\u0017R+\u0010\u0018\u001a\u00020\n2\u0006\u0010\t\u001a\u00020\n8V@VX\u0096\u008e\u0002¢\u0006\u0012\n\u0004\b\u001b\u0010\u0011\u001a\u0004\b\u0019\u0010\r\"\u0004\b\u001a\u0010\u000fR\u001a\u0010\u001c\u001a\u000e\u0012\u0004\u0012\u00020\u001e\u0012\u0004\u0012\u00020\n0\u001dX\u0082\u0004¢\u0006\u0002\n\u0000R+\u0010\u001f\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\u00048F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\b\"\u0010#\u001a\u0004\b \u0010\u0006\"\u0004\b!\u0010\bR+\u0010$\u001a\u00020\n2\u0006\u0010\t\u001a\u00020\n8F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\b'\u0010\u0011\u001a\u0004\b%\u0010\r\"\u0004\b&\u0010\u000fR\u001a\u0010(\u001a\u000e\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020*0)X\u0082\u0004¢\u0006\u0002\n\u0000R+\u0010+\u001a\u00020\n2\u0006\u0010\t\u001a\u00020\n8F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\b.\u0010\u0011\u001a\u0004\b,\u0010\r\"\u0004\b-\u0010\u000fR+\u0010/\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\u00048F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\b2\u0010#\u001a\u0004\b0\u0010\u0006\"\u0004\b1\u0010\bR+\u00103\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\u00048F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\b6\u0010#\u001a\u0004\b4\u0010\u0006\"\u0004\b5\u0010\bR\u0016\u00107\u001a\u0002088@X\u0080\u0004¢\u0006\b\n\u0000\u001a\u0004\b9\u0010:R\u000e\u0010;\u001a\u00020<X\u0082\u000e¢\u0006\u0002\n\u0000R+\u0010=\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\u00048F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\b@\u0010#\u001a\u0004\b>\u0010\u0006\"\u0004\b?\u0010\bR+\u0010A\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\u00048F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\bD\u0010#\u001a\u0004\bB\u0010\u0006\"\u0004\bC\u0010\bR+\u0010E\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\u00048F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\bH\u0010#\u001a\u0004\bF\u0010\u0006\"\u0004\bG\u0010\bR\u0016\u0010I\u001a\u00020J8@X\u0080\u0004¢\u0006\b\n\u0000\u001a\u0004\bK\u0010LR\u000e\u0010M\u001a\u00020<X\u0082\u000e¢\u0006\u0002\n\u0000R+\u0010N\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\u00048F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\bQ\u0010#\u001a\u0004\bO\u0010\u0006\"\u0004\bP\u0010\bR+\u0010R\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\u00048F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\bU\u0010#\u001a\u0004\bS\u0010\u0006\"\u0004\bT\u0010\bR\u001a\u0010V\u001a\u00020<X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bW\u0010X\"\u0004\bY\u0010ZR+\u0010[\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\u00048F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\b^\u0010#\u001a\u0004\b\\\u0010\u0006\"\u0004\b]\u0010\b¨\u0006h"}, d2 = {"Lcom/baidu/tieba/danmu/data/state/DrawState;", "Lcom/baidu/tieba/danmu/data/state/State;", "()V", Key.ALPHA, "", "getAlpha", "()F", "setAlpha", "(F)V", "<set-?>", "", "cacheGeneration", "getCacheGeneration", "()I", "setCacheGeneration", "(I)V", "cacheGeneration$delegate", "Ljava/util/Map;", "drawingCache", "Lcom/baidu/tieba/danmu/cache/DrawingCache;", "getDrawingCache", "()Lcom/baidu/tieba/danmu/cache/DrawingCache;", "setDrawingCache", "(Lcom/baidu/tieba/danmu/cache/DrawingCache;)V", "generation", "getGeneration", "setGeneration", "generation$delegate", "generationMap", "", "", "height", "getHeight", "setHeight", "height$delegate", "Lcom/baidu/tieba/danmu/utils/ChangeObserverDelegate;", "layoutGeneration", "getLayoutGeneration", "setLayoutGeneration", "layoutGeneration$delegate", "marker", "Lkotlin/Function1;", "", "measureGeneration", "getMeasureGeneration", "setMeasureGeneration", "measureGeneration$delegate", "positionX", "getPositionX", "setPositionX", "positionX$delegate", "positionY", "getPositionY", "setPositionY", "positionY$delegate", "rect", "Landroid/graphics/RectF;", "getRect$danmu_release", "()Landroid/graphics/RectF;", "rectDirty", "", Key.ROTATION, "getRotation", "setRotation", "rotation$delegate", Key.SCALE_X, "getScaleX", "setScaleX", "scaleX$delegate", Key.SCALE_Y, "getScaleY", "setScaleY", "scaleY$delegate", "transform", "Landroid/graphics/Matrix;", "getTransform$danmu_release", "()Landroid/graphics/Matrix;", "transformDirty", "translateX", "getTranslateX", "setTranslateX", "translateX$delegate", "translateY", "getTranslateY", "setTranslateY", "translateY$delegate", "visibility", "getVisibility", "()Z", "setVisibility", "(Z)V", "width", "getWidth", "setWidth", "width$delegate", "isMeasured", "markDirty", "recycle", "reset", "resetActionProperty", "toString", "updateMatrix", "matrix", "updateRect", "danmu_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes3.dex */
-public final class DrawState extends u46 {
+public final class DrawState extends b56 {
     public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ KProperty<Object>[] u;
+    public static final /* synthetic */ KProperty[] u;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public final RectF b;
     public boolean c;
     public final Matrix d;
-    public final Map<String, Integer> e;
+    public final Map e;
     public final Map f;
     public final Map g;
     public final Map h;
-    public final Function1<Float, Unit> i;
-    public m46 j;
+    public final Function1 i;
+    public t46 j;
     public boolean k;
-    public final s66 l;
-    public final s66 m;
-    public final s66 n;
-    public final s66 o;
-    public final s66 p;
-    public final s66 q;
-    public final s66 r;
-    public final s66 s;
-    public final s66 t;
+    public final z66 l;
+    public final z66 m;
+    public final z66 n;
+    public final z66 o;
+    public final z66 p;
+    public final z66 q;
+    public final z66 r;
+    public final z66 s;
+    public final z66 t;
 
     static {
         InterceptResult invokeClinit;
@@ -84,24 +83,24 @@ public final class DrawState extends u46 {
         }
         this.b = new RectF();
         this.d = new Matrix();
-        Map<String, Integer> withDefaultMutable = MapsKt__MapWithDefaultKt.withDefaultMutable(new LinkedHashMap(), DrawState$generationMap$1.INSTANCE);
+        Map withDefaultMutable = MapsKt__MapWithDefaultKt.withDefaultMutable(new LinkedHashMap(), DrawState$generationMap$1.INSTANCE);
         this.e = withDefaultMutable;
         this.f = withDefaultMutable;
         this.g = withDefaultMutable;
         this.h = withDefaultMutable;
         this.i = new DrawState$marker$1(this);
-        this.j = m46.f.a();
+        this.j = t46.f.a();
         Float valueOf = Float.valueOf(0.0f);
-        this.l = u66.a(valueOf, this.i);
-        this.m = u66.a(valueOf, this.i);
-        this.n = u66.a(valueOf, this.i);
-        this.o = u66.a(valueOf, this.i);
-        this.p = u66.a(valueOf, this.i);
-        this.q = u66.a(valueOf, this.i);
+        this.l = b76.a(valueOf, this.i);
+        this.m = b76.a(valueOf, this.i);
+        this.n = b76.a(valueOf, this.i);
+        this.o = b76.a(valueOf, this.i);
+        this.p = b76.a(valueOf, this.i);
+        this.q = b76.a(valueOf, this.i);
         Float valueOf2 = Float.valueOf(1.0f);
-        this.r = u66.a(valueOf2, this.i);
-        this.s = u66.a(valueOf2, this.i);
-        this.t = u66.a(valueOf, this.i);
+        this.r = b76.a(valueOf2, this.i);
+        this.s = b76.a(valueOf2, this.i);
+        this.t = b76.a(valueOf, this.i);
     }
 
     public final void A(float f) {
@@ -167,6 +166,68 @@ public final class DrawState extends u46 {
         }
     }
 
+    public final void K(RectF rectF) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, rectF) == null) {
+            this.a = false;
+            rectF.set(g(), h(), g() + q(), h() + d());
+        }
+    }
+
+    public final boolean r(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048603, this, i)) == null) {
+            if (q() > 0.0f && d() > 0.0f && f() == i) {
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public final void v(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
+            Map map = this.h;
+            KProperty kProperty = u[2];
+            map.put(kProperty.getName(), Integer.valueOf(i));
+        }
+    }
+
+    public final void w(t46 t46Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048609, this, t46Var) == null) {
+            Intrinsics.checkNotNullParameter(t46Var, "<set-?>");
+            this.j = t46Var;
+        }
+    }
+
+    public final void x(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048610, this, f) == null) {
+            this.o.setValue(this, u[7], Float.valueOf(f));
+        }
+    }
+
+    public final void y(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
+            Map map = this.f;
+            KProperty kProperty = u[0];
+            map.put(kProperty.getName(), Integer.valueOf(i));
+        }
+    }
+
+    public final void z(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
+            Map map = this.g;
+            KProperty kProperty = u[1];
+            map.put(kProperty.getName(), Integer.valueOf(i));
+        }
+    }
+
     public final void J(Matrix matrix) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, matrix) == null) {
@@ -178,54 +239,67 @@ public final class DrawState extends u46 {
         }
     }
 
-    public final void K(RectF rectF) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, rectF) == null) {
-            this.a = false;
-            rectF.set(g(), h(), g() + q(), h() + d());
-        }
-    }
-
     public final int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? ((Number) MapsKt__MapWithDefaultKt.getOrImplicitDefaultNullable(this.h, u[2].getName())).intValue() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return ((Number) MapsKt__MapWithDefaultKt.getOrImplicitDefaultNullable(this.h, u[2].getName())).intValue();
+        }
+        return invokeV.intValue;
     }
 
-    public final m46 c() {
+    public final t46 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.j : (m46) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.j;
+        }
+        return (t46) invokeV.objValue;
     }
 
     public final float d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? ((Number) this.o.getValue(this, u[7])).floatValue() : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return ((Number) this.o.getValue(this, u[7])).floatValue();
+        }
+        return invokeV.floatValue;
     }
 
     public final int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? ((Number) MapsKt__MapWithDefaultKt.getOrImplicitDefaultNullable(this.f, u[0].getName())).intValue() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return ((Number) MapsKt__MapWithDefaultKt.getOrImplicitDefaultNullable(this.f, u[0].getName())).intValue();
+        }
+        return invokeV.intValue;
     }
 
     public final int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? ((Number) MapsKt__MapWithDefaultKt.getOrImplicitDefaultNullable(this.g, u[1].getName())).intValue() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return ((Number) MapsKt__MapWithDefaultKt.getOrImplicitDefaultNullable(this.g, u[1].getName())).intValue();
+        }
+        return invokeV.intValue;
     }
 
     public final float g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? ((Number) this.l.getValue(this, u[4])).floatValue() : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return ((Number) this.l.getValue(this, u[4])).floatValue();
+        }
+        return invokeV.floatValue;
     }
 
     public final float h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? ((Number) this.m.getValue(this, u[5])).floatValue() : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return ((Number) this.m.getValue(this, u[5])).floatValue();
+        }
+        return invokeV.floatValue;
     }
 
     public final RectF i() {
@@ -243,19 +317,28 @@ public final class DrawState extends u46 {
     public final float j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? ((Number) this.t.getValue(this, u[12])).floatValue() : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return ((Number) this.t.getValue(this, u[12])).floatValue();
+        }
+        return invokeV.floatValue;
     }
 
     public final float k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? ((Number) this.r.getValue(this, u[10])).floatValue() : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return ((Number) this.r.getValue(this, u[10])).floatValue();
+        }
+        return invokeV.floatValue;
     }
 
     public final float l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? ((Number) this.s.getValue(this, u[11])).floatValue() : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return ((Number) this.s.getValue(this, u[11])).floatValue();
+        }
+        return invokeV.floatValue;
     }
 
     public final Matrix m() {
@@ -273,31 +356,37 @@ public final class DrawState extends u46 {
     public final float n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? ((Number) this.p.getValue(this, u[8])).floatValue() : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return ((Number) this.p.getValue(this, u[8])).floatValue();
+        }
+        return invokeV.floatValue;
     }
 
     public final float o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? ((Number) this.q.getValue(this, u[9])).floatValue() : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return ((Number) this.q.getValue(this, u[9])).floatValue();
+        }
+        return invokeV.floatValue;
     }
 
     public final boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.k : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return this.k;
+        }
+        return invokeV.booleanValue;
     }
 
     public final float q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? ((Number) this.n.getValue(this, u[6])).floatValue() : invokeV.floatValue;
-    }
-
-    public final boolean r(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048603, this, i)) == null) ? q() > 0.0f && d() > 0.0f && f() == i : invokeI.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return ((Number) this.n.getValue(this, u[6])).floatValue();
+        }
+        return invokeV.floatValue;
     }
 
     public final void s() {
@@ -306,28 +395,6 @@ public final class DrawState extends u46 {
             this.c = true;
             this.a = true;
         }
-    }
-
-    public final void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
-            if (!Intrinsics.areEqual(this.j, m46.f.a())) {
-                this.j.d();
-            }
-            this.j = m46.f.a();
-            y(-1);
-            v(-1);
-            this.k = false;
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            return "DrawState[measure: " + f() + ", layout: " + e() + ']';
-        }
-        return (String) invokeV.objValue;
     }
 
     public final void u() {
@@ -341,45 +408,25 @@ public final class DrawState extends u46 {
         }
     }
 
-    public final void v(int i) {
+    public final void t() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
-            Map map = this.h;
-            KProperty<Object> kProperty = u[2];
-            map.put(kProperty.getName(), Integer.valueOf(i));
+        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
+            if (!Intrinsics.areEqual(this.j, t46.f.a())) {
+                this.j.d();
+            }
+            this.j = t46.f.a();
+            y(-1);
+            v(-1);
+            this.k = false;
         }
     }
 
-    public final void w(m46 m46Var) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, m46Var) == null) {
-            Intrinsics.checkNotNullParameter(m46Var, "<set-?>");
-            this.j = m46Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            return "DrawState[measure: " + f() + ", layout: " + e() + ']';
         }
-    }
-
-    public final void x(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048610, this, f) == null) {
-            this.o.setValue(this, u[7], Float.valueOf(f));
-        }
-    }
-
-    public final void y(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
-            Map map = this.f;
-            KProperty<Object> kProperty = u[0];
-            map.put(kProperty.getName(), Integer.valueOf(i));
-        }
-    }
-
-    public final void z(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
-            Map map = this.g;
-            KProperty<Object> kProperty = u[1];
-            map.put(kProperty.getName(), Integer.valueOf(i));
-        }
+        return (String) invokeV.objValue;
     }
 }

@@ -27,8 +27,8 @@ public final class BIMRtcPbGenerator {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SDK_NAME = "bim_rtc";
     public static final String TAG = "BIMRtcPbGenerator";
-    public static final List<IMPushPb.Action> actionList;
-    public static final List<Request> requests;
+    public static final List actionList;
+    public static final List requests;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -65,7 +65,10 @@ public final class BIMRtcPbGenerator {
     private IMPushPb.Action generateRequestAction(String str, String str2, long j, long j2, long j3, String str3, long j4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str3, Long.valueOf(j4)})) == null) ? IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.REQUEST).setRequest(IMPushPb.Request.newBuilder().setMethod(str).setRequestId(str2).setTimestamp(j).setResponseTime(j2).setErrorCode(j3).setExt(str3).setAliasId(j4).build()).build() : (IMPushPb.Action) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str3, Long.valueOf(j4)})) == null) {
+            return IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.REQUEST).setRequest(IMPushPb.Request.newBuilder().setMethod(str).setRequestId(str2).setTimestamp(j).setResponseTime(j2).setErrorCode(j3).setExt(str3).setAliasId(j4).build()).build();
+        }
+        return (IMPushPb.Action) invokeCommon.objValue;
     }
 
     private IMPushPb.Common getIMCommon(Context context) {
@@ -77,26 +80,6 @@ public final class BIMRtcPbGenerator {
             return IMPushPb.Common.newBuilder().setDeviceId(build).setTimestamp(-1L).setUserTimestamp(System.currentTimeMillis()).setTerminalInfo(getTerminalInfo(context)).setNetInfo(getNetInfo(context)).setAppInfo(appName.setAppVersion("" + RtcUtility.getAppVersionName(context)).setAppChannel("").build()).build();
         }
         return (IMPushPb.Common) invokeL.objValue;
-    }
-
-    public static IMPushPb.NetInfo getNetInfo(Context context) {
-        InterceptResult invokeL;
-        String str;
-        NetworkInfo activeNetworkInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-            String str2 = "";
-            if (connectivityManager == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null) {
-                str = "";
-            } else {
-                String str3 = "" + activeNetworkInfo.getTypeName();
-                str = "" + activeNetworkInfo.getExtraInfo();
-                str2 = str3;
-            }
-            return IMPushPb.NetInfo.newBuilder().setNetType(str2).setNetApn(str).build();
-        }
-        return (IMPushPb.NetInfo) invokeL.objValue;
     }
 
     private IMPushPb.TerminalInfo getTerminalInfo(Context context) {
@@ -126,44 +109,6 @@ public final class BIMRtcPbGenerator {
         return (IMPushPb.TerminalInfo) invokeL.objValue;
     }
 
-    private void putActions(IMPushPb.Action action) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, this, action) == null) {
-            actionList.add(action);
-        }
-    }
-
-    private void putRequestToAction(String str, String str2, long j, long j2, long j3, String str3, long j4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str3, Long.valueOf(j4)}) == null) {
-            putActions(generateRequestAction(str, str2, j, j2, j3, str3, j4));
-        }
-    }
-
-    private void putRequestToActions(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, this, context) == null) {
-            synchronized (requests) {
-                requests.clear();
-                requests.addAll(BIMRtcTrackDatabase.getInstance(context).getRequests());
-                for (Request request : requests) {
-                    putRequestToAction(request.method, request.requestId, request.timestamp, request.responseTime, request.errorCode, request.ext, request.aliasId);
-                }
-            }
-        }
-    }
-
-    public void clearRtcActions(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            actionList.clear();
-            synchronized (requests) {
-                LogUtils.e(TAG, "deleteRequests :" + requests.size());
-                BIMRtcTrackDatabase.getInstance(context).deleteRequests(requests);
-            }
-        }
-    }
-
     public byte[] generateRtcClient(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -180,5 +125,63 @@ public final class BIMRtcPbGenerator {
             }
         }
         return (byte[]) invokeL.objValue;
+    }
+
+    public static IMPushPb.NetInfo getNetInfo(Context context) {
+        InterceptResult invokeL;
+        String str;
+        NetworkInfo activeNetworkInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+            String str2 = "";
+            if (connectivityManager == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null) {
+                str = "";
+            } else {
+                String str3 = "" + activeNetworkInfo.getTypeName();
+                str = "" + activeNetworkInfo.getExtraInfo();
+                str2 = str3;
+            }
+            return IMPushPb.NetInfo.newBuilder().setNetType(str2).setNetApn(str).build();
+        }
+        return (IMPushPb.NetInfo) invokeL.objValue;
+    }
+
+    private void putRequestToActions(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, this, context) == null) {
+            synchronized (requests) {
+                requests.clear();
+                requests.addAll(BIMRtcTrackDatabase.getInstance(context).getRequests());
+                for (Request request : requests) {
+                    putRequestToAction(request.method, request.requestId, request.timestamp, request.responseTime, request.errorCode, request.ext, request.aliasId);
+                }
+            }
+        }
+    }
+
+    private void putActions(IMPushPb.Action action) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, this, action) == null) {
+            actionList.add(action);
+        }
+    }
+
+    private void putRequestToAction(String str, String str2, long j, long j2, long j3, String str3, long j4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str3, Long.valueOf(j4)}) == null) {
+            putActions(generateRequestAction(str, str2, j, j2, j3, str3, j4));
+        }
+    }
+
+    public void clearRtcActions(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            actionList.clear();
+            synchronized (requests) {
+                LogUtils.e(TAG, "deleteRequests :" + requests.size());
+                BIMRtcTrackDatabase.getInstance(context).deleteRequests(requests);
+            }
+        }
     }
 }

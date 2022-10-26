@@ -18,6 +18,13 @@ public final class DoubleBtnDialog extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.bdtask.ui.components.dialog.a
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0798 : invokeV.intValue;
+    }
+
     public DoubleBtnDialog() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -33,26 +40,19 @@ public final class DoubleBtnDialog extends a {
     }
 
     @Override // com.baidu.bdtask.ui.components.dialog.a
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0797 : invokeV.intValue;
-    }
-
-    @Override // com.baidu.bdtask.ui.components.dialog.a
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.f();
             TaskDialogViewData a = a();
             if (a != null) {
-                TextView btn = (TextView) findViewById(R.id.obfuscated_res_0x7f0907ce);
-                ImageView btnImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f0907cf);
+                TextView btn = (TextView) findViewById(R.id.obfuscated_res_0x7f0907d7);
+                ImageView btnImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f0907d8);
                 Intrinsics.checkExpressionValueIsNotNull(btn, "btn");
                 Intrinsics.checkExpressionValueIsNotNull(btnImage, "btnImage");
                 b(btn, btnImage, a.getBackBtnTxt(), a.getBackBtnTxtColor(), a.getBackBtnBgUrl(), new DoubleBtnDialog$initExtraView$1(this, a));
-                TextView cancelBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f0907cc);
-                ImageView cancelBtnImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f0907cd);
+                TextView cancelBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f0907d5);
+                ImageView cancelBtnImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f0907d6);
                 Intrinsics.checkExpressionValueIsNotNull(cancelBtn, "cancelBtn");
                 Intrinsics.checkExpressionValueIsNotNull(cancelBtnImage, "cancelBtnImage");
                 b(cancelBtn, cancelBtnImage, a.getCancelBtnTxt(), a.getCancelBtnTxtColor(), a.getCancelBtnBgUrl(), new DoubleBtnDialog$initExtraView$2(this, a));

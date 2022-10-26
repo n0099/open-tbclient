@@ -55,13 +55,26 @@ public final class YYLoadPluginPlugin {
     public final Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.context : (Context) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.context;
+        }
+        return (Context) invokeV.objValue;
     }
 
     public final MiniUniqueId getMixUniqueId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mixUniqueId : (MiniUniqueId) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mixUniqueId;
+        }
+        return (MiniUniqueId) invokeV.objValue;
+    }
+
+    public final void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.mPluginLoadCallback = null;
+        }
     }
 
     /* JADX WARN: Removed duplicated region for block: B:19:0x0040  */
@@ -75,91 +88,82 @@ public final class YYLoadPluginPlugin {
         LiveContainer.LiveItemModel liveItemModel;
         JSONObject originJson;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) {
-            return;
-        }
-        LiveItemModelListService liveItemModelListService = (LiveItemModelListService) ServiceLocator.Companion.getGlobalService(LiveItemModelListService.class);
-        this.itemModelListService = liveItemModelListService;
-        if (liveItemModelListService != null) {
-            List<LiveContainer.LiveItemModel> liveItemModels = liveItemModelListService.getLiveItemModels();
-            if ((!liveItemModels.isEmpty()) && liveItemModelListService.getCurrentPosition() == 0 && (liveItemModel = liveItemModels.get(0)) != null && (originJson = liveItemModel.getOriginJson()) != null && originJson.optInt("isMix") == 1) {
-                z = true;
-                if (!z) {
-                    NpsLoadChainLog.getInstance().initAndStart();
-                    NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.getInstance();
-                    Intrinsics.checkExpressionValueIsNotNull(npsLoadChainLog, "NpsLoadChainLog.getInstance()");
-                    npsLoadChainLog.setEntry("YY-SwipeMixLiveEntry");
-                    NpsLoadChainLog npsLoadChainLog2 = NpsLoadChainLog.getInstance();
-                    Intrinsics.checkExpressionValueIsNotNull(npsLoadChainLog2, "NpsLoadChainLog.getInstance()");
-                    PluginInvokeService pluginMgrService = MiniPluginManager.INSTANCE.getPluginMgrService();
-                    npsLoadChainLog2.setPluginVersion((pluginMgrService == null || (r3 = String.valueOf(pluginMgrService.getPluginVersionCode("com.baidu.searchbox.yylive.entrance"))) == null) ? "" : "");
-                }
-                if (!MiniPluginManager.INSTANCE.isYYPluginAvailable()) {
-                    ListLogKt.log("YYLoadPluginPlugin", "not need load plugin");
-                    MixEventBus mixEventBus = MixEventBus.getInstance();
-                    YYPluginEvent.LoadYYPluginRes loadYYPluginRes = new YYPluginEvent.LoadYYPluginRes(1);
-                    loadYYPluginRes.setUniqueId(this.mixUniqueId.getId());
-                    mixEventBus.post(loadYYPluginRes);
-                    return;
-                }
-                ListLogKt.log("YYLoadPluginPlugin", "need load plugin");
-                PluginLoadCallback pluginLoadCallback = new PluginLoadCallback(this) { // from class: com.baidu.searchbox.live.list.plugin.YYLoadPluginPlugin$onCreate$3
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ YYLoadPluginPlugin this$0;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            LiveItemModelListService liveItemModelListService = (LiveItemModelListService) ServiceLocator.Companion.getGlobalService(LiveItemModelListService.class);
+            this.itemModelListService = liveItemModelListService;
+            if (liveItemModelListService != null) {
+                List liveItemModels = liveItemModelListService.getLiveItemModels();
+                if ((!liveItemModels.isEmpty()) && liveItemModelListService.getCurrentPosition() == 0 && (liveItemModel = (LiveContainer.LiveItemModel) liveItemModels.get(0)) != null && (originJson = liveItemModel.getOriginJson()) != null && originJson.optInt("isMix") == 1) {
+                    z = true;
+                    if (!z) {
+                        NpsLoadChainLog.getInstance().initAndStart();
+                        NpsLoadChainLog npsLoadChainLog = NpsLoadChainLog.getInstance();
+                        Intrinsics.checkExpressionValueIsNotNull(npsLoadChainLog, "NpsLoadChainLog.getInstance()");
+                        npsLoadChainLog.setEntry("YY-SwipeMixLiveEntry");
+                        NpsLoadChainLog npsLoadChainLog2 = NpsLoadChainLog.getInstance();
+                        Intrinsics.checkExpressionValueIsNotNull(npsLoadChainLog2, "NpsLoadChainLog.getInstance()");
+                        PluginInvokeService pluginMgrService = MiniPluginManager.INSTANCE.getPluginMgrService();
+                        npsLoadChainLog2.setPluginVersion((pluginMgrService == null || (r3 = String.valueOf(pluginMgrService.getPluginVersionCode("com.baidu.searchbox.yylive.entrance"))) == null) ? "" : "");
+                    }
+                    if (!MiniPluginManager.INSTANCE.isYYPluginAvailable()) {
+                        ListLogKt.log("YYLoadPluginPlugin", "not need load plugin");
+                        MixEventBus mixEventBus = MixEventBus.getInstance();
+                        YYPluginEvent.LoadYYPluginRes loadYYPluginRes = new YYPluginEvent.LoadYYPluginRes(1);
+                        loadYYPluginRes.setUniqueId(this.mixUniqueId.getId());
+                        mixEventBus.post(loadYYPluginRes);
+                        return;
+                    }
+                    ListLogKt.log("YYLoadPluginPlugin", "need load plugin");
+                    PluginLoadCallback pluginLoadCallback = new PluginLoadCallback(this) { // from class: com.baidu.searchbox.live.list.plugin.YYLoadPluginPlugin$onCreate$3
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ YYLoadPluginPlugin this$0;
 
-                    /* JADX DEBUG: Incorrect args count in method signature: ()V */
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.this$0 = this;
+                        }
+
+                        @Override // com.baidu.searchbox.live.interfaces.mix.PluginLoadCallback
+                        public void onResult(boolean z2, int i, String str) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z2), Integer.valueOf(i), str}) == null) {
+                                ListLogKt.log("YYLoadPluginPlugin", "LiveEntryManager loadPlugin result: " + z2);
+                                if (z2) {
+                                    MixEventBus mixEventBus2 = MixEventBus.getInstance();
+                                    YYPluginEvent.LoadYYPluginRes loadYYPluginRes2 = new YYPluginEvent.LoadYYPluginRes(2);
+                                    loadYYPluginRes2.setUniqueId(this.this$0.getMixUniqueId().getId());
+                                    mixEventBus2.post(loadYYPluginRes2);
+                                }
                             }
                         }
-                        this.this$0 = this;
+                    };
+                    this.mPluginLoadCallback = pluginLoadCallback;
+                    if (pluginLoadCallback != null) {
+                        MiniPluginManager.INSTANCE.loadYYPlugin(pluginLoadCallback, false, true);
+                        return;
                     }
-
-                    @Override // com.baidu.searchbox.live.interfaces.mix.PluginLoadCallback
-                    public void onResult(boolean z2, int i, String str) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z2), Integer.valueOf(i), str}) == null) {
-                            ListLogKt.log("YYLoadPluginPlugin", "LiveEntryManager loadPlugin result: " + z2);
-                            if (z2) {
-                                MixEventBus mixEventBus2 = MixEventBus.getInstance();
-                                YYPluginEvent.LoadYYPluginRes loadYYPluginRes2 = new YYPluginEvent.LoadYYPluginRes(2);
-                                loadYYPluginRes2.setUniqueId(this.this$0.getMixUniqueId().getId());
-                                mixEventBus2.post(loadYYPluginRes2);
-                            }
-                        }
-                    }
-                };
-                this.mPluginLoadCallback = pluginLoadCallback;
-                if (pluginLoadCallback != null) {
-                    MiniPluginManager.INSTANCE.loadYYPlugin(pluginLoadCallback, false, true);
                     return;
                 }
-                return;
             }
-        }
-        z = false;
-        if (!z) {
-        }
-        if (!MiniPluginManager.INSTANCE.isYYPluginAvailable()) {
-        }
-    }
-
-    public final void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.mPluginLoadCallback = null;
+            z = false;
+            if (!z) {
+            }
+            if (!MiniPluginManager.INSTANCE.isYYPluginAvailable()) {
+            }
         }
     }
 }

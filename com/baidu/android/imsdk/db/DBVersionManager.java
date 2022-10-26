@@ -31,6 +31,28 @@ public class DBVersionManager {
     public Context mContext;
 
     /* loaded from: classes.dex */
+    public interface VersionHandler {
+        void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2);
+
+        void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1263161730, "Lcom/baidu/android/imsdk/db/DBVersionManager;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1263161730, "Lcom/baidu/android/imsdk/db/DBVersionManager;");
+        }
+    }
+
+    /* loaded from: classes.dex */
     public class DefaultHandler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,6 +99,13 @@ public class DBVersionManager {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DBVersionManager this$0;
 
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
+            }
+        }
+
         public Version21And22Handler(DBVersionManager dBVersionManager) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -93,13 +122,6 @@ public class DBVersionManager {
                 }
             }
             this.this$0 = dBVersionManager;
-        }
-
-        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
-            }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
@@ -130,6 +152,13 @@ public class DBVersionManager {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DBVersionManager this$0;
 
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
+            }
+        }
+
         public Version22And223Handler(DBVersionManager dBVersionManager) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -146,13 +175,6 @@ public class DBVersionManager {
                 }
             }
             this.this$0 = dBVersionManager;
-        }
-
-        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
-            }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
@@ -175,6 +197,13 @@ public class DBVersionManager {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DBVersionManager this$0;
 
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
+            }
+        }
+
         public Version22And23Handler(DBVersionManager dBVersionManager) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -191,13 +220,6 @@ public class DBVersionManager {
                 }
             }
             this.this$0 = dBVersionManager;
-        }
-
-        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
-            }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
@@ -220,6 +242,20 @@ public class DBVersionManager {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DBVersionManager this$0;
 
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
+            }
+        }
+
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
+            }
+        }
+
         public Version23And24Handler(DBVersionManager dBVersionManager) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -237,20 +273,6 @@ public class DBVersionManager {
             }
             this.this$0 = dBVersionManager;
         }
-
-        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
-            }
-        }
-
-        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
-            }
-        }
     }
 
     /* loaded from: classes.dex */
@@ -258,6 +280,13 @@ public class DBVersionManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DBVersionManager this$0;
+
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
+            }
+        }
 
         public Version24And25Handler(DBVersionManager dBVersionManager) {
             Interceptable interceptable = $ic;
@@ -275,13 +304,6 @@ public class DBVersionManager {
                 }
             }
             this.this$0 = dBVersionManager;
-        }
-
-        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
-            }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
@@ -304,6 +326,13 @@ public class DBVersionManager {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DBVersionManager this$0;
 
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
+            }
+        }
+
         public Version25And26Handler(DBVersionManager dBVersionManager) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -323,13 +352,6 @@ public class DBVersionManager {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
-            }
-        }
-
-        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
         public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
@@ -343,6 +365,13 @@ public class DBVersionManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DBVersionManager this$0;
+
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
+            }
+        }
 
         public Version26And27Handler(DBVersionManager dBVersionManager) {
             Interceptable interceptable = $ic;
@@ -360,13 +389,6 @@ public class DBVersionManager {
                 }
             }
             this.this$0 = dBVersionManager;
-        }
-
-        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
-            }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
@@ -396,6 +418,13 @@ public class DBVersionManager {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DBVersionManager this$0;
 
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
+            }
+        }
+
         public Version28And29Handler(DBVersionManager dBVersionManager) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -412,13 +441,6 @@ public class DBVersionManager {
                 }
             }
             this.this$0 = dBVersionManager;
-        }
-
-        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
-            }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
@@ -443,6 +465,13 @@ public class DBVersionManager {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DBVersionManager this$0;
 
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
+            }
+        }
+
         public Version29And30Handler(DBVersionManager dBVersionManager) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -459,13 +488,6 @@ public class DBVersionManager {
                 }
             }
             this.this$0 = dBVersionManager;
-        }
-
-        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
-            }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
@@ -492,6 +514,13 @@ public class DBVersionManager {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DBVersionManager this$0;
 
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
+            }
+        }
+
         public Version30And31Handler(DBVersionManager dBVersionManager) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -508,13 +537,6 @@ public class DBVersionManager {
                 }
             }
             this.this$0 = dBVersionManager;
-        }
-
-        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
-            }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
@@ -538,6 +560,13 @@ public class DBVersionManager {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DBVersionManager this$0;
 
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
+            }
+        }
+
         public Version31And32Handler(DBVersionManager dBVersionManager) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -554,13 +583,6 @@ public class DBVersionManager {
                 }
             }
             this.this$0 = dBVersionManager;
-        }
-
-        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
-            }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
@@ -585,6 +607,13 @@ public class DBVersionManager {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DBVersionManager this$0;
 
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
+            }
+        }
+
         public Version32And33Handler(DBVersionManager dBVersionManager) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -601,13 +630,6 @@ public class DBVersionManager {
                 }
             }
             this.this$0 = dBVersionManager;
-        }
-
-        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
-            }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
@@ -630,6 +652,13 @@ public class DBVersionManager {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DBVersionManager this$0;
 
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
+            }
+        }
+
         public Version33And34Handler(DBVersionManager dBVersionManager) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -646,13 +675,6 @@ public class DBVersionManager {
                 }
             }
             this.this$0 = dBVersionManager;
-        }
-
-        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
-            }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
@@ -677,6 +699,13 @@ public class DBVersionManager {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DBVersionManager this$0;
 
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
+            }
+        }
+
         public Version34And35Handler(DBVersionManager dBVersionManager) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -693,13 +722,6 @@ public class DBVersionManager {
                 }
             }
             this.this$0 = dBVersionManager;
-        }
-
-        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
-            }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
@@ -724,6 +746,13 @@ public class DBVersionManager {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DBVersionManager this$0;
 
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
+            }
+        }
+
         public Version35And36Handler(DBVersionManager dBVersionManager) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -740,13 +769,6 @@ public class DBVersionManager {
                 }
             }
             this.this$0 = dBVersionManager;
-        }
-
-        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
-            }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
@@ -770,6 +792,13 @@ public class DBVersionManager {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DBVersionManager this$0;
 
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
+            }
+        }
+
         public Version36And37Handler(DBVersionManager dBVersionManager) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -786,13 +815,6 @@ public class DBVersionManager {
                 }
             }
             this.this$0 = dBVersionManager;
-        }
-
-        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
-            }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
@@ -816,6 +838,13 @@ public class DBVersionManager {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DBVersionManager this$0;
 
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
+            }
+        }
+
         public Version37And38Handler(DBVersionManager dBVersionManager) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -832,13 +861,6 @@ public class DBVersionManager {
                 }
             }
             this.this$0 = dBVersionManager;
-        }
-
-        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
-            }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
@@ -862,6 +884,13 @@ public class DBVersionManager {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DBVersionManager this$0;
 
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
+            }
+        }
+
         public Version38And39Handler(DBVersionManager dBVersionManager) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -878,13 +907,6 @@ public class DBVersionManager {
                 }
             }
             this.this$0 = dBVersionManager;
-        }
-
-        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
-            }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
@@ -909,6 +931,13 @@ public class DBVersionManager {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DBVersionManager this$0;
 
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
+            }
+        }
+
         public Version39And40Handler(DBVersionManager dBVersionManager) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -925,13 +954,6 @@ public class DBVersionManager {
                 }
             }
             this.this$0 = dBVersionManager;
-        }
-
-        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
-            }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
@@ -955,6 +977,13 @@ public class DBVersionManager {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DBVersionManager this$0;
 
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
+            }
+        }
+
         public Version40And41Handler(DBVersionManager dBVersionManager) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -971,13 +1000,6 @@ public class DBVersionManager {
                 }
             }
             this.this$0 = dBVersionManager;
-        }
-
-        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
-            }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
@@ -1001,6 +1023,13 @@ public class DBVersionManager {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DBVersionManager this$0;
 
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
+            }
+        }
+
         public Version41And42Handler(DBVersionManager dBVersionManager) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -1017,13 +1046,6 @@ public class DBVersionManager {
                 }
             }
             this.this$0 = dBVersionManager;
-        }
-
-        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
-            }
         }
 
         /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
@@ -1048,40 +1070,39 @@ public class DBVersionManager {
         */
         public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) != null) {
-                return;
-            }
-            try {
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 try {
-                    LogUtils.d(DBVersionManager.TAG, "---Version41And42Handler---");
-                    sQLiteDatabase.beginTransaction();
-                    sQLiteDatabase.execSQL("ALTER TABLE userinfo RENAME TO userinfo_temp");
-                    sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_TABLE_USERINFO);
-                    sQLiteDatabase.execSQL(TableDefine.SQL_COPY_TABLE_USERINFO);
-                    sQLiteDatabase.execSQL("DROP TABLE userinfo_temp");
-                    sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN v_portrait  TEXT DEFAULT '' ");
-                    sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN vip_id  TEXT DEFAULT '' ");
-                    sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN identity  TEXT DEFAULT '' ");
-                    sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN has_identity INTEGER DEFAULT 0 ");
-                    sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN shield  INTEGER DEFAULT 0 ");
-                    sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN shield_time  LONG DEFAULT 0 ");
-                    sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN third_ext  TEXT DEFAULT '' ");
-                    sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN subscribe  INTEGER DEFAULT 0 ");
-                    sQLiteDatabase.execSQL("ALTER TABLE chatrecord ADD COLUMN v_portrait  TEXT DEFAULT '' ");
-                    sQLiteDatabase.execSQL("ALTER TABLE chatrecord ADD COLUMN vip_id  TEXT DEFAULT '' ");
-                    sQLiteDatabase.execSQL("ALTER TABLE chatrecord ADD COLUMN certification  TEXT DEFAULT '' ");
-                    sQLiteDatabase.execSQL("ALTER TABLE chatrecord ADD COLUMN shield  INTEGER DEFAULT 0 ");
-                    sQLiteDatabase.execSQL("ALTER TABLE chatrecord ADD COLUMN shield_time  LONG DEFAULT 0 ");
-                    sQLiteDatabase.setTransactionSuccessful();
-                } catch (Exception e) {
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
-                    LogUtils.e(LogUtils.TAG, "onUpgrade:41->42", e);
+                    try {
+                        LogUtils.d(DBVersionManager.TAG, "---Version41And42Handler---");
+                        sQLiteDatabase.beginTransaction();
+                        sQLiteDatabase.execSQL("ALTER TABLE userinfo RENAME TO userinfo_temp");
+                        sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_TABLE_USERINFO);
+                        sQLiteDatabase.execSQL(TableDefine.SQL_COPY_TABLE_USERINFO);
+                        sQLiteDatabase.execSQL("DROP TABLE userinfo_temp");
+                        sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN v_portrait  TEXT DEFAULT '' ");
+                        sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN vip_id  TEXT DEFAULT '' ");
+                        sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN identity  TEXT DEFAULT '' ");
+                        sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN has_identity INTEGER DEFAULT 0 ");
+                        sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN shield  INTEGER DEFAULT 0 ");
+                        sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN shield_time  LONG DEFAULT 0 ");
+                        sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN third_ext  TEXT DEFAULT '' ");
+                        sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN subscribe  INTEGER DEFAULT 0 ");
+                        sQLiteDatabase.execSQL("ALTER TABLE chatrecord ADD COLUMN v_portrait  TEXT DEFAULT '' ");
+                        sQLiteDatabase.execSQL("ALTER TABLE chatrecord ADD COLUMN vip_id  TEXT DEFAULT '' ");
+                        sQLiteDatabase.execSQL("ALTER TABLE chatrecord ADD COLUMN certification  TEXT DEFAULT '' ");
+                        sQLiteDatabase.execSQL("ALTER TABLE chatrecord ADD COLUMN shield  INTEGER DEFAULT 0 ");
+                        sQLiteDatabase.execSQL("ALTER TABLE chatrecord ADD COLUMN shield_time  LONG DEFAULT 0 ");
+                        sQLiteDatabase.setTransactionSuccessful();
+                    } catch (Exception e) {
+                        new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
+                        LogUtils.e(LogUtils.TAG, "onUpgrade:41->42", e);
+                    }
+                } catch (Throwable th) {
+                    if (sQLiteDatabase != null) {
+                        sQLiteDatabase.endTransaction();
+                    }
+                    throw th;
                 }
-            } catch (Throwable th) {
-                if (sQLiteDatabase != null) {
-                    sQLiteDatabase.endTransaction();
-                }
-                throw th;
             }
         }
     }
@@ -1091,6 +1112,13 @@ public class DBVersionManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DBVersionManager this$0;
+
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
+            }
+        }
 
         public Version42And43Handler(DBVersionManager dBVersionManager) {
             Interceptable interceptable = $ic;
@@ -1108,13 +1136,6 @@ public class DBVersionManager {
                 }
             }
             this.this$0 = dBVersionManager;
-        }
-
-        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
-            }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
@@ -1137,6 +1158,13 @@ public class DBVersionManager {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DBVersionManager this$0;
 
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
+            }
+        }
+
         public Version43And44Handler(DBVersionManager dBVersionManager) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -1153,13 +1181,6 @@ public class DBVersionManager {
                 }
             }
             this.this$0 = dBVersionManager;
-        }
-
-        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
-            }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
@@ -1183,6 +1204,13 @@ public class DBVersionManager {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DBVersionManager this$0;
 
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
+            }
+        }
+
         public Version44And45Handler(DBVersionManager dBVersionManager) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -1199,13 +1227,6 @@ public class DBVersionManager {
                 }
             }
             this.this$0 = dBVersionManager;
-        }
-
-        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
-            }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
@@ -1228,6 +1249,13 @@ public class DBVersionManager {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DBVersionManager this$0;
 
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
+            }
+        }
+
         public Version45And46Handler(DBVersionManager dBVersionManager) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -1244,13 +1272,6 @@ public class DBVersionManager {
                 }
             }
             this.this$0 = dBVersionManager;
-        }
-
-        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
-            }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
@@ -1290,6 +1311,13 @@ public class DBVersionManager {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DBVersionManager this$0;
 
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
+            }
+        }
+
         public Version46And47Handler(DBVersionManager dBVersionManager) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -1306,13 +1334,6 @@ public class DBVersionManager {
                 }
             }
             this.this$0 = dBVersionManager;
-        }
-
-        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
-            }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
@@ -1336,6 +1357,13 @@ public class DBVersionManager {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DBVersionManager this$0;
 
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
+            }
+        }
+
         public Version48And49Handler(DBVersionManager dBVersionManager) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -1352,13 +1380,6 @@ public class DBVersionManager {
                 }
             }
             this.this$0 = dBVersionManager;
-        }
-
-        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
-            }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
@@ -1381,6 +1402,13 @@ public class DBVersionManager {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DBVersionManager this$0;
 
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
+            }
+        }
+
         public Version49And50Handler(DBVersionManager dBVersionManager) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -1400,13 +1428,6 @@ public class DBVersionManager {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
-            }
-        }
-
-        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
         public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
@@ -1418,28 +1439,6 @@ public class DBVersionManager {
                     LogUtils.e(LogUtils.TAG, "onUpgrade:48->49", e);
                 }
             }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public interface VersionHandler {
-        void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2);
-
-        void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1263161730, "Lcom/baidu/android/imsdk/db/DBVersionManager;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1263161730, "Lcom/baidu/android/imsdk/db/DBVersionManager;");
         }
     }
 
@@ -1474,109 +1473,6 @@ public class DBVersionManager {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x008a, code lost:
-        if (r5 == null) goto L8;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x008d, code lost:
-        return r0;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private int createTable(SQLiteDatabase sQLiteDatabase) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65541, this, sQLiteDatabase)) != null) {
-            return invokeL.intValue;
-        }
-        int i = -1;
-        try {
-            try {
-                sQLiteDatabase.beginTransaction();
-                sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_TABLE_MESSAGE);
-                sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_TABLE_USERINFO);
-                sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_TABLE_CHAT_SESSION);
-                sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_TABLE_GROUPINFO);
-                sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_TABLE_GROUP_MEMBER);
-                sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_TABLE_FRIEND_GROUP);
-                sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_TABLE_PA_SUBSCRIBE);
-                sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_TABLE_PA_CMD_QUEUE);
-                sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_TABLE_FRIEND_REALTION);
-                sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_TABLE_ZHIDAINFO);
-                sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_TABLE_DAILOG_RECORD);
-                sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_RELIABLE_MESSAGE);
-                sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_DUPLICATE_MESSAGE);
-                sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_MESSAGE_INDEX);
-                sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_MESSAGE_QUERY_MSGID_ISEXIST_INDEX);
-                sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_MESSAGE_QUERY_MSGKEY_ISEXIST_INDEX);
-                sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_STUDIO_USE_PA_MESSAGE);
-                i = 0;
-                sQLiteDatabase.setTransactionSuccessful();
-                LogUtils.d(TAG, "create table ok");
-            } catch (Exception e) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                LogUtils.e(LogUtils.TAG, "createTable:", e);
-            }
-        } finally {
-            if (sQLiteDatabase != null) {
-                sQLiteDatabase.endTransaction();
-            }
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x00c1, code lost:
-        if (r6 == null) goto L8;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x00c4, code lost:
-        return r0;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private int dropTable(SQLiteDatabase sQLiteDatabase) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65542, this, sQLiteDatabase)) != null) {
-            return invokeL.intValue;
-        }
-        int i = -1;
-        try {
-            try {
-                sQLiteDatabase.beginTransaction();
-                sQLiteDatabase.execSQL("DROP TABLE IF EXISTS message");
-                sQLiteDatabase.execSQL("DROP TABLE IF EXISTS userinfo");
-                sQLiteDatabase.execSQL("DROP TABLE IF EXISTS chatrecord");
-                sQLiteDatabase.execSQL("DROP TABLE IF EXISTS groupinfo");
-                sQLiteDatabase.execSQL("DROP TABLE IF EXISTS groupmember");
-                sQLiteDatabase.execSQL("DROP TABLE IF EXISTS friendgroup");
-                sQLiteDatabase.execSQL("DROP TABLE IF EXISTS paSubscribe");
-                sQLiteDatabase.execSQL("DROP TABLE IF EXISTS paCmdQueue");
-                sQLiteDatabase.execSQL("DROP TABLE IF EXISTS friendrelation");
-                sQLiteDatabase.execSQL("DROP TABLE IF EXISTS crash");
-                sQLiteDatabase.execSQL("DROP TABLE IF EXISTS zhida_info");
-                sQLiteDatabase.execSQL("DROP TABLE IF EXISTS dialog_record");
-                sQLiteDatabase.execSQL("DROP TABLE IF EXISTS stat_log");
-                sQLiteDatabase.execSQL("DROP TABLE IF EXISTS liveroom_message");
-                sQLiteDatabase.execSQL("DROP TABLE IF EXISTS duplicate_message");
-                Utility.clearCache(this.mContext);
-                SyncAllMessage.getInstance(this.mContext).clearCache();
-                Utility.writeIntData(this.mContext, Utility.getJumpToRecentKey(this.mContext), 1);
-                Context context = this.mContext;
-                Utility.writeLongData(context, Constants.KEY_PA_SUBSCRIBE_SYNC_TIME + AccountManager.getAppid(this.mContext) + AccountManager.getUid(this.mContext), -1L);
-                i = 0;
-                sQLiteDatabase.setTransactionSuccessful();
-                LogUtils.d(TAG, "drop table ok");
-            } catch (Exception e) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                LogUtils.e(LogUtils.TAG, "dropTable:", e);
-            }
-        } finally {
-            if (sQLiteDatabase != null) {
-                sQLiteDatabase.endTransaction();
-            }
-        }
-    }
-
     public static DBVersionManager getInstance(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -1598,25 +1494,129 @@ public class DBVersionManager {
         }
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x008a, code lost:
+        if (r5 == null) goto L8;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x008d, code lost:
+        return r0;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private int createTable(SQLiteDatabase sQLiteDatabase) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, sQLiteDatabase)) == null) {
+            int i = -1;
+            try {
+                try {
+                    sQLiteDatabase.beginTransaction();
+                    sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_TABLE_MESSAGE);
+                    sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_TABLE_USERINFO);
+                    sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_TABLE_CHAT_SESSION);
+                    sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_TABLE_GROUPINFO);
+                    sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_TABLE_GROUP_MEMBER);
+                    sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_TABLE_FRIEND_GROUP);
+                    sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_TABLE_PA_SUBSCRIBE);
+                    sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_TABLE_PA_CMD_QUEUE);
+                    sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_TABLE_FRIEND_REALTION);
+                    sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_TABLE_ZHIDAINFO);
+                    sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_TABLE_DAILOG_RECORD);
+                    sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_RELIABLE_MESSAGE);
+                    sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_DUPLICATE_MESSAGE);
+                    sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_MESSAGE_INDEX);
+                    sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_MESSAGE_QUERY_MSGID_ISEXIST_INDEX);
+                    sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_MESSAGE_QUERY_MSGKEY_ISEXIST_INDEX);
+                    sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_STUDIO_USE_PA_MESSAGE);
+                    i = 0;
+                    sQLiteDatabase.setTransactionSuccessful();
+                    LogUtils.d(TAG, "create table ok");
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(LogUtils.TAG, "createTable:", e);
+                }
+            } finally {
+                if (sQLiteDatabase != null) {
+                    sQLiteDatabase.endTransaction();
+                }
+            }
+        } else {
+            return invokeL.intValue;
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x00c1, code lost:
+        if (r6 == null) goto L8;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x00c4, code lost:
+        return r0;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private int dropTable(SQLiteDatabase sQLiteDatabase) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, sQLiteDatabase)) == null) {
+            int i = -1;
+            try {
+                try {
+                    sQLiteDatabase.beginTransaction();
+                    sQLiteDatabase.execSQL("DROP TABLE IF EXISTS message");
+                    sQLiteDatabase.execSQL("DROP TABLE IF EXISTS userinfo");
+                    sQLiteDatabase.execSQL("DROP TABLE IF EXISTS chatrecord");
+                    sQLiteDatabase.execSQL("DROP TABLE IF EXISTS groupinfo");
+                    sQLiteDatabase.execSQL("DROP TABLE IF EXISTS groupmember");
+                    sQLiteDatabase.execSQL("DROP TABLE IF EXISTS friendgroup");
+                    sQLiteDatabase.execSQL("DROP TABLE IF EXISTS paSubscribe");
+                    sQLiteDatabase.execSQL("DROP TABLE IF EXISTS paCmdQueue");
+                    sQLiteDatabase.execSQL("DROP TABLE IF EXISTS friendrelation");
+                    sQLiteDatabase.execSQL("DROP TABLE IF EXISTS crash");
+                    sQLiteDatabase.execSQL("DROP TABLE IF EXISTS zhida_info");
+                    sQLiteDatabase.execSQL("DROP TABLE IF EXISTS dialog_record");
+                    sQLiteDatabase.execSQL("DROP TABLE IF EXISTS stat_log");
+                    sQLiteDatabase.execSQL("DROP TABLE IF EXISTS liveroom_message");
+                    sQLiteDatabase.execSQL("DROP TABLE IF EXISTS duplicate_message");
+                    Utility.clearCache(this.mContext);
+                    SyncAllMessage.getInstance(this.mContext).clearCache();
+                    Utility.writeIntData(this.mContext, Utility.getJumpToRecentKey(this.mContext), 1);
+                    Context context = this.mContext;
+                    Utility.writeLongData(context, Constants.KEY_PA_SUBSCRIBE_SYNC_TIME + AccountManager.getAppid(this.mContext) + AccountManager.getUid(this.mContext), -1L);
+                    i = 0;
+                    sQLiteDatabase.setTransactionSuccessful();
+                    LogUtils.d(TAG, "drop table ok");
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(LogUtils.TAG, "dropTable:", e);
+                }
+            } finally {
+                if (sQLiteDatabase != null) {
+                    sQLiteDatabase.endTransaction();
+                }
+            }
+        } else {
+            return invokeL.intValue;
+        }
+    }
+
     public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) || i == i2) {
+        if ((interceptable != null && interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) != null) || i == i2) {
             return;
         }
         if (i == 22 && i2 <= 21) {
             new Version21And22Handler(this).onDowngrade(sQLiteDatabase, i, i2);
             i = 21;
         }
-        if (i != 21 || i2 > 20) {
-            return;
+        if (i == 21 && i2 <= 20) {
+            new DefaultHandler(this).onDowngrade(sQLiteDatabase, i, i2);
         }
-        new DefaultHandler(this).onDowngrade(sQLiteDatabase, i, i2);
     }
 
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         IMTrack.CrashBuilder crashBuilder;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, i, i2) == null) || i == i2) {
+        if ((interceptable != null && interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, i, i2) != null) || i == i2) {
             return;
         }
         if (i2 >= 21 && i > 12) {

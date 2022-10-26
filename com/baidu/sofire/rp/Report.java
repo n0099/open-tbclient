@@ -51,47 +51,6 @@ public class Report {
         return (Report) invokeL.objValue;
     }
 
-    public void fr() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                b a = b.a(this.a);
-                a.getClass();
-                Message message = new Message();
-                message.what = 9;
-                a.b.a.sendMessage(message);
-            } catch (Throwable unused) {
-                int i = com.baidu.sofire.a.b.a;
-            }
-        }
-    }
-
-    public void i(String str, String str2, String str3, String str4, String str5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4, str5) == null) {
-            try {
-                a.a(this.a, str, str2, str3, str4, str5);
-            } catch (Throwable unused) {
-                int i = com.baidu.sofire.a.b.a;
-            }
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            try {
-                b a = b.a(this.a);
-                a.getClass();
-                Message message = new Message();
-                message.what = 6;
-                a.b.a.sendMessage(message);
-            } catch (Throwable unused) {
-                int i = com.baidu.sofire.a.b.a;
-            }
-        }
-    }
-
     public void r(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
@@ -131,6 +90,47 @@ public class Report {
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             try {
                 a.b(this.a, str);
+            } catch (Throwable unused) {
+                int i = com.baidu.sofire.a.b.a;
+            }
+        }
+    }
+
+    public void fr() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                b a = b.a(this.a);
+                a.getClass();
+                Message message = new Message();
+                message.what = 9;
+                a.b.a.sendMessage(message);
+            } catch (Throwable unused) {
+                int i = com.baidu.sofire.a.b.a;
+            }
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            try {
+                b a = b.a(this.a);
+                a.getClass();
+                Message message = new Message();
+                message.what = 6;
+                a.b.a.sendMessage(message);
+            } catch (Throwable unused) {
+                int i = com.baidu.sofire.a.b.a;
+            }
+        }
+    }
+
+    public void i(String str, String str2, String str3, String str4, String str5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4, str5) == null) {
+            try {
+                a.a(this.a, str, str2, str3, str4, str5);
             } catch (Throwable unused) {
                 int i = com.baidu.sofire.a.b.a;
             }

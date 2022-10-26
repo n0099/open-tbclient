@@ -18,20 +18,18 @@ import android.view.ViewTreeObserver;
 import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.jj5;
-import com.baidu.tieba.kj5;
-import com.baidu.tieba.nj5;
-import com.baidu.tieba.oj5;
-import com.baidu.tieba.pj5;
+import com.baidu.tieba.fj;
 import com.baidu.tieba.qj5;
+import com.baidu.tieba.rj5;
+import com.baidu.tieba.uj5;
+import com.baidu.tieba.vj5;
+import com.baidu.tieba.wj5;
+import com.baidu.tieba.xj5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,17 +38,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class FullScreenLayout extends FrameLayout implements pj5 {
+public class FullScreenLayout extends FrameLayout implements wj5 {
     public static /* synthetic */ Interceptable $ic;
     public static final int G;
     public transient /* synthetic */ FieldHolder $fh;
     public ValueAnimator A;
     public ObjectAnimator B;
-    public kj5 C;
-    public oj5 D;
-    public nj5 E;
+    public rj5 C;
+    public vj5 D;
+    public uj5 E;
     public ViewTreeObserver.OnGlobalLayoutListener F;
-    public jj5 a;
+    public qj5 a;
     public ImageView b;
     public FrameLayout.LayoutParams c;
     public ImageView d;
@@ -68,7 +66,7 @@ public class FullScreenLayout extends FrameLayout implements pj5 {
     public int p;
     public int q;
     public int r;
-    public qj5 s;
+    public xj5 s;
     public boolean t;
     public int u;
     public int v;
@@ -76,6 +74,12 @@ public class FullScreenLayout extends FrameLayout implements pj5 {
     public int x;
     public int y;
     public int z;
+
+    public final int C(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? (int) (((i2 * 1.0f) / 800.0f) * 250.0f) : invokeI.intValue;
+    }
 
     /* loaded from: classes3.dex */
     public class a extends AnimatorListenerAdapter {
@@ -127,7 +131,7 @@ public class FullScreenLayout extends FrameLayout implements pj5 {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements kj5.b {
+    public class b implements rj5.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FullScreenLayout a;
@@ -150,7 +154,7 @@ public class FullScreenLayout extends FrameLayout implements pj5 {
             this.a = fullScreenLayout;
         }
 
-        @Override // com.baidu.tieba.kj5.b
+        @Override // com.baidu.tieba.rj5.b
         public void a() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.a.J() && this.a.isAttachedToWindow()) {
@@ -187,7 +191,7 @@ public class FullScreenLayout extends FrameLayout implements pj5 {
         public void onLayoutChange(View view2, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
             boolean H;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)}) == null) || this.a.m == (H = this.a.H())) {
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)}) != null) || this.a.m == (H = this.a.H())) {
                 return;
             }
             this.a.S(H);
@@ -225,13 +229,19 @@ public class FullScreenLayout extends FrameLayout implements pj5 {
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.b.getWindowVisibleDisplayFrame(this.a);
-                boolean z = this.c.getHeight() - this.a.bottom > 0;
-                if (this.c.n != z) {
-                    this.c.P(z);
+                if (this.c.getHeight() - this.a.bottom > 0) {
+                    z = true;
+                } else {
+                    z = false;
                 }
+                if (this.c.n == z) {
+                    return;
+                }
+                this.c.P(z);
             }
         }
     }
@@ -504,11 +514,95 @@ public class FullScreenLayout extends FrameLayout implements pj5 {
                 return;
             }
         }
-        G = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds45);
+        G = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds45);
+    }
+
+    public final boolean J() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (this.b.getVisibility() != 0 && this.d.getVisibility() != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean K() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            FloatWebLayout floatWebLayout = this.f;
+            if (floatWebLayout == null) {
+                return false;
+            }
+            return floatWebLayout.i();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean N() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if (K()) {
+                FloatWebLayout floatWebLayout = this.f;
+                if (floatWebLayout != null) {
+                    floatWebLayout.b();
+                    return true;
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void V() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            this.l = false;
+            if (this.i) {
+                O();
+            } else {
+                L();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.wj5
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+            x(this.a.l());
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            super.onAttachedToWindow();
+            rj5 rj5Var = this.C;
+            if (rj5Var != null) {
+                rj5Var.e();
+            }
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
+            super.onDetachedFromWindow();
+            R();
+            B();
+        }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public FullScreenLayout(@NonNull Context context) {
+    public FullScreenLayout(Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -528,9 +622,199 @@ public class FullScreenLayout extends FrameLayout implements pj5 {
         }
     }
 
+    public final void D(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
+            this.h = ViewConfiguration.get(context).getScaledTouchSlop();
+            this.s = new xj5(this);
+            G(context);
+            E(context);
+            W();
+            addOnLayoutChangeListener(new c(this));
+            F(context);
+        }
+    }
+
+    public final void F(Context context) {
+        View decorView;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, context) != null) || !(context instanceof Activity)) {
+            return;
+        }
+        Activity activity = (Activity) context;
+        if (activity.getWindow() != null && (decorView = activity.getWindow().getDecorView()) != null && decorView.getViewTreeObserver() != null) {
+            this.F = new d(this, decorView);
+            decorView.getViewTreeObserver().addOnGlobalLayoutListener(this.F);
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x001b, code lost:
+        if (r0 != 3) goto L11;
+     */
+    @Override // android.view.View
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            int rawX = (int) motionEvent.getRawX();
+            int rawY = (int) motionEvent.getRawY();
+            if (action != 0) {
+                if (action != 1) {
+                    if (action == 2) {
+                        U(rawX, rawY);
+                    }
+                }
+                V();
+            } else {
+                T(rawX, rawY);
+            }
+            return this.t;
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public FullScreenLayout(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public final void U(int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048596, this, i2, i3) == null) {
+            int i4 = i2 - this.o;
+            int i5 = i3 - this.p;
+            int i6 = i2 - this.q;
+            int i7 = i3 - this.r;
+            if (Math.abs(i4) > this.h || Math.abs(i5) > this.h) {
+                this.i = false;
+            }
+            this.q = i2;
+            this.r = i3;
+            if (!this.i) {
+                if (!this.l && !this.j && Math.abs(i4) >= G) {
+                    A();
+                }
+                Q(i6, i7);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public FullScreenLayout(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.a = qj5.a();
+        this.g = new RectF();
+        this.j = true;
+        this.k = true;
+        this.m = false;
+        this.n = false;
+        this.u = this.a.k();
+        this.v = this.a.j();
+        this.w = this.a.g();
+        this.x = this.a.f();
+        this.y = this.a.o();
+        this.z = this.a.c();
+        D(context);
+    }
+
+    public final void P(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            S(z);
+            this.n = z;
+        }
+    }
+
+    public void setClickListener(uj5 uj5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048604, this, uj5Var) == null) {
+            this.E = uj5Var;
+        }
+    }
+
+    public void setFloatData(vj5 vj5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048605, this, vj5Var) == null) {
+            if (this.C == null) {
+                rj5 rj5Var = new rj5(this.b, this.d);
+                this.C = rj5Var;
+                rj5Var.f(new b(this));
+            }
+            this.C.g(vj5Var);
+            this.D = vj5Var;
+        }
+    }
+
+    public final boolean I(int i2, int i3) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3)) == null) {
+            float f2 = i2;
+            RectF rectF = this.g;
+            if (f2 >= rectF.left && f2 <= rectF.right) {
+                float f3 = i3;
+                if (f3 >= rectF.top && f3 <= rectF.bottom) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeII.booleanValue;
+    }
+
+    public final void Q(int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048592, this, i2, i3) == null) {
+            FrameLayout.LayoutParams layoutParams = this.c;
+            layoutParams.leftMargin += i2;
+            layoutParams.topMargin += i3;
+            FrameLayout.LayoutParams layoutParams2 = this.e;
+            layoutParams2.leftMargin += i2;
+            layoutParams2.topMargin += i3;
+            requestLayout();
+            W();
+        }
+    }
+
     public final void A() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.l) {
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.l) {
             return;
         }
         ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
@@ -558,8 +842,8 @@ public class FullScreenLayout extends FrameLayout implements pj5 {
                 this.B.cancel();
                 this.b.setRotation(0.0f);
             }
-            qj5 qj5Var = this.s;
-            if (qj5Var != null && qj5Var.a()) {
+            xj5 xj5Var = this.s;
+            if (xj5Var != null && xj5Var.a()) {
                 this.s.d();
             }
             this.d.setAlpha(1.0f);
@@ -569,122 +853,17 @@ public class FullScreenLayout extends FrameLayout implements pj5 {
         }
     }
 
-    public final int C(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? (int) (((i2 * 1.0f) / 800.0f) * 250.0f) : invokeI.intValue;
-    }
-
-    public final void D(@NonNull Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            this.h = ViewConfiguration.get(context).getScaledTouchSlop();
-            this.s = new qj5(this);
-            G(context);
-            E(context);
-            W();
-            addOnLayoutChangeListener(new c(this));
-            F(context);
-        }
-    }
-
-    public final void E(@NonNull Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            ImageView imageView = new ImageView(context);
-            this.d = imageView;
-            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-            int i2 = this.y;
-            int i3 = this.v;
-            int i4 = this.x;
-            if (i3 > i4) {
-                i2 = (int) (i2 + (((i3 - i4) * 1.0f) / 2.0f));
-            }
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.w, this.x);
-            this.e = layoutParams;
-            layoutParams.setMargins(0, i2, 0, 0);
-            addView(this.d, this.e);
-            this.d.setVisibility(4);
-        }
-    }
-
-    public final void F(@NonNull Context context) {
-        View decorView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, context) == null) && (context instanceof Activity)) {
-            Activity activity = (Activity) context;
-            if (activity.getWindow() == null || (decorView = activity.getWindow().getDecorView()) == null || decorView.getViewTreeObserver() == null) {
-                return;
-            }
-            this.F = new d(this, decorView);
-            decorView.getViewTreeObserver().addOnGlobalLayoutListener(this.F);
-        }
-    }
-
-    public final void G(@NonNull Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
-            ImageView imageView = new ImageView(context);
-            this.b = imageView;
-            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-            int i2 = this.y;
-            int i3 = this.v;
-            int i4 = this.x;
-            if (i3 < i4) {
-                i2 = (int) (i2 + (((i4 - i3) * 1.0f) / 2.0f));
-            }
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.u, this.v);
-            this.c = layoutParams;
-            layoutParams.setMargins(this.a.i(), i2, 0, 0);
-            addView(this.b, this.c);
-            this.b.setVisibility(4);
-        }
-    }
-
     public final boolean H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (getContext() instanceof Activity) {
-                return ((Activity) getContext()).getRequestedOrientation() == 0 || ((Activity) getContext()).getRequestedOrientation() == 8 || ((Activity) getContext()).getRequestedOrientation() == 6 || ((Activity) getContext()).getRequestedOrientation() == 11;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean I(int i2, int i3) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3)) == null) {
-            float f2 = i2;
-            RectF rectF = this.g;
-            if (f2 >= rectF.left && f2 <= rectF.right) {
-                float f3 = i3;
-                if (f3 >= rectF.top && f3 <= rectF.bottom) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeII.booleanValue;
-    }
-
-    public final boolean J() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.b.getVisibility() == 0 || this.d.getVisibility() == 0 : invokeV.booleanValue;
-    }
-
-    public boolean K() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            FloatWebLayout floatWebLayout = this.f;
-            if (floatWebLayout == null) {
+            if (!(getContext() instanceof Activity)) {
                 return false;
             }
-            return floatWebLayout.i();
+            if (((Activity) getContext()).getRequestedOrientation() != 0 && ((Activity) getContext()).getRequestedOrientation() != 8 && ((Activity) getContext()).getRequestedOrientation() != 6 && ((Activity) getContext()).getRequestedOrientation() != 11) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
     }
@@ -719,169 +898,20 @@ public class FullScreenLayout extends FrameLayout implements pj5 {
         }
     }
 
-    public final void M(int i2) {
-        int height;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            RectF rectF = this.g;
-            float f2 = rectF.top;
-            int i3 = this.y;
-            if (f2 < i3) {
-                height = i3 - this.c.topMargin;
-            } else {
-                height = rectF.bottom > ((float) (getHeight() - this.z)) ? (int) ((getHeight() - this.z) - this.g.bottom) : 0;
-            }
-            int i4 = (int) (i2 - this.g.left);
-            this.s.b(i4, height, C(Math.abs(i4)));
-        }
-    }
-
-    public boolean N() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (K()) {
-                FloatWebLayout floatWebLayout = this.f;
-                if (floatWebLayout != null) {
-                    floatWebLayout.b();
-                    return true;
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     public final void O() {
-        oj5 oj5Var;
+        vj5 vj5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (oj5Var = this.D) == null || StringUtils.isNull(oj5Var.c())) {
-            return;
-        }
-        if (this.f == null) {
-            FloatWebLayout floatWebLayout = new FloatWebLayout(getContext());
-            this.f = floatWebLayout;
-            addView(floatWebLayout, new FrameLayout.LayoutParams(-1, -1));
-        }
-        this.f.j(this.D.c());
-        x(this.a.l());
-        nj5 nj5Var = this.E;
-        if (nj5Var != null) {
-            nj5Var.a(this.j);
-        }
-    }
-
-    public final void P(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            S(z);
-            this.n = z;
-        }
-    }
-
-    public final void Q(int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048592, this, i2, i3) == null) {
-            FrameLayout.LayoutParams layoutParams = this.c;
-            layoutParams.leftMargin += i2;
-            layoutParams.topMargin += i3;
-            FrameLayout.LayoutParams layoutParams2 = this.e;
-            layoutParams2.leftMargin += i2;
-            layoutParams2.topMargin += i3;
-            requestLayout();
-            W();
-        }
-    }
-
-    public final void R() {
-        View decorView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && this.F != null && (getContext() instanceof Activity)) {
-            Activity activity = (Activity) getContext();
-            if (activity.getWindow() == null || (decorView = activity.getWindow().getDecorView()) == null || decorView.getViewTreeObserver() == null) {
-                return;
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (vj5Var = this.D) != null && !StringUtils.isNull(vj5Var.c())) {
+            if (this.f == null) {
+                FloatWebLayout floatWebLayout = new FloatWebLayout(getContext());
+                this.f = floatWebLayout;
+                addView(floatWebLayout, new FrameLayout.LayoutParams(-1, -1));
             }
-            decorView.getViewTreeObserver().removeOnGlobalLayoutListener(this.F);
-        }
-    }
-
-    public final void S(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            if (z) {
-                B();
-                this.b.setVisibility(4);
-                this.d.setVisibility(4);
-                if (this.k) {
-                    this.c.leftMargin = -this.u;
-                    this.e.leftMargin = this.a.e();
-                } else {
-                    this.c.leftMargin = ej.k(getContext()) - (this.u + this.a.i());
-                    this.e.leftMargin = ej.k(getContext()) - (this.w + this.a.e());
-                }
-                this.j = false;
-                requestLayout();
-                W();
-                return;
-            }
-            this.d.setVisibility(0);
-            this.b.setVisibility(4);
-        }
-    }
-
-    public final void T(int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048595, this, i2, i3) == null) {
-            ValueAnimator valueAnimator = this.A;
-            if ((valueAnimator != null && valueAnimator.isRunning()) || this.s.a()) {
-                this.t = false;
-                return;
-            }
-            this.o = i2;
-            this.p = i3;
-            this.q = i2;
-            this.r = i3;
-            this.i = true;
-            if (I(i2, i3)) {
-                B();
-                this.t = true;
-                return;
-            }
-            this.t = false;
-        }
-    }
-
-    public final void U(int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048596, this, i2, i3) == null) {
-            int i4 = i2 - this.o;
-            int i5 = i3 - this.p;
-            int i6 = i2 - this.q;
-            int i7 = i3 - this.r;
-            if (Math.abs(i4) > this.h || Math.abs(i5) > this.h) {
-                this.i = false;
-            }
-            this.q = i2;
-            this.r = i3;
-            if (this.i) {
-                return;
-            }
-            if (!this.l && !this.j && Math.abs(i4) >= G) {
-                A();
-            }
-            Q(i6, i7);
-        }
-    }
-
-    public final void V() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.l = false;
-            if (this.i) {
-                O();
-            } else {
-                L();
+            this.f.j(this.D.c());
+            x(this.a.l());
+            uj5 uj5Var = this.E;
+            if (uj5Var != null) {
+                uj5Var.a(this.j);
             }
         }
     }
@@ -918,106 +948,156 @@ public class FullScreenLayout extends FrameLayout implements pj5 {
         }
     }
 
-    @Override // com.baidu.tieba.pj5
-    public void a() {
+    public void z() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            x(this.a.l());
+        if ((interceptable == null || interceptable.invokeV(1048608, this) == null) && !this.n && !this.m) {
+            ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
+            this.A = ofFloat;
+            ofFloat.setDuration(this.a.n());
+            this.A.setInterpolator(new LinearInterpolator());
+            this.A.addUpdateListener(new e(this));
+            this.A.addListener(new f(this));
+            this.A.start();
         }
     }
 
-    @Override // com.baidu.tieba.pj5
-    public void b(int i2, int i3, int i4, int i5) {
+    public final void E(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048600, this, i2, i3, i4, i5) == null) {
-            Q(i4 - i2, i5 - i3);
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            super.onAttachedToWindow();
-            kj5 kj5Var = this.C;
-            if (kj5Var != null) {
-                kj5Var.e();
+        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
+            ImageView imageView = new ImageView(context);
+            this.d = imageView;
+            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            int i2 = this.y;
+            int i3 = this.v;
+            int i4 = this.x;
+            if (i3 > i4) {
+                i2 = (int) (i2 + (((i3 - i4) * 1.0f) / 2.0f));
             }
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.w, this.x);
+            this.e = layoutParams;
+            layoutParams.setMargins(0, i2, 0, 0);
+            addView(this.d, this.e);
+            this.d.setVisibility(4);
         }
     }
 
-    @Override // android.view.ViewGroup, android.view.View
-    public void onDetachedFromWindow() {
+    public final void G(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            super.onDetachedFromWindow();
-            R();
-            B();
+        if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
+            ImageView imageView = new ImageView(context);
+            this.b = imageView;
+            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            int i2 = this.y;
+            int i3 = this.v;
+            int i4 = this.x;
+            if (i3 < i4) {
+                i2 = (int) (i2 + (((i4 - i3) * 1.0f) / 2.0f));
+            }
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.u, this.v);
+            this.c = layoutParams;
+            layoutParams.setMargins(this.a.i(), i2, 0, 0);
+            addView(this.b, this.c);
+            this.b.setVisibility(4);
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:11:0x001b, code lost:
-        if (r0 != 3) goto L11;
-     */
-    @Override // android.view.View
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
+    public final void M(int i2) {
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            int rawX = (int) motionEvent.getRawX();
-            int rawY = (int) motionEvent.getRawY();
-            if (action != 0) {
-                if (action != 1) {
-                    if (action == 2) {
-                        U(rawX, rawY);
-                    }
-                }
-                V();
+        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
+            RectF rectF = this.g;
+            float f2 = rectF.top;
+            int i4 = this.y;
+            if (f2 < i4) {
+                i3 = i4 - this.c.topMargin;
+            } else if (rectF.bottom > getHeight() - this.z) {
+                i3 = (int) ((getHeight() - this.z) - this.g.bottom);
             } else {
-                T(rawX, rawY);
+                i3 = 0;
             }
-            return this.t;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void setClickListener(nj5 nj5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, nj5Var) == null) {
-            this.E = nj5Var;
-        }
-    }
-
-    public void setFloatData(oj5 oj5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, oj5Var) == null) {
-            if (this.C == null) {
-                kj5 kj5Var = new kj5(this.b, this.d);
-                this.C = kj5Var;
-                kj5Var.f(new b(this));
-            }
-            this.C.g(oj5Var);
-            this.D = oj5Var;
+            int i5 = (int) (i2 - this.g.left);
+            this.s.b(i5, i3, C(Math.abs(i5)));
         }
     }
 
     public void x(long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048606, this, j2) == null) || !this.j || this.n || this.m) {
+        if ((interceptable == null || interceptable.invokeJ(1048606, this, j2) == null) && this.j && !this.n && !this.m) {
+            ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
+            this.A = ofFloat;
+            ofFloat.setDuration(this.a.d());
+            this.A.setInterpolator(new LinearInterpolator());
+            this.A.addUpdateListener(new h(this));
+            this.A.addListener(new i(this));
+            this.A.setStartDelay(j2);
+            this.A.start();
+        }
+    }
+
+    public final void R() {
+        View decorView;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048593, this) != null) || this.F == null || !(getContext() instanceof Activity)) {
             return;
         }
-        ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
-        this.A = ofFloat;
-        ofFloat.setDuration(this.a.d());
-        this.A.setInterpolator(new LinearInterpolator());
-        this.A.addUpdateListener(new h(this));
-        this.A.addListener(new i(this));
-        this.A.setStartDelay(j2);
-        this.A.start();
+        Activity activity = (Activity) getContext();
+        if (activity.getWindow() != null && (decorView = activity.getWindow().getDecorView()) != null && decorView.getViewTreeObserver() != null) {
+            decorView.getViewTreeObserver().removeOnGlobalLayoutListener(this.F);
+        }
+    }
+
+    public final void S(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
+            if (z) {
+                B();
+                this.b.setVisibility(4);
+                this.d.setVisibility(4);
+                if (this.k) {
+                    this.c.leftMargin = -this.u;
+                    this.e.leftMargin = this.a.e();
+                } else {
+                    this.c.leftMargin = fj.k(getContext()) - (this.u + this.a.i());
+                    this.e.leftMargin = fj.k(getContext()) - (this.w + this.a.e());
+                }
+                this.j = false;
+                requestLayout();
+                W();
+                return;
+            }
+            this.d.setVisibility(0);
+            this.b.setVisibility(4);
+        }
+    }
+
+    public final void T(int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048595, this, i2, i3) == null) {
+            ValueAnimator valueAnimator = this.A;
+            if ((valueAnimator != null && valueAnimator.isRunning()) || this.s.a()) {
+                this.t = false;
+                return;
+            }
+            this.o = i2;
+            this.p = i3;
+            this.q = i2;
+            this.r = i3;
+            this.i = true;
+            if (I(i2, i3)) {
+                B();
+                this.t = true;
+                return;
+            }
+            this.t = false;
+        }
+    }
+
+    @Override // com.baidu.tieba.wj5
+    public void b(int i2, int i3, int i4, int i5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048600, this, i2, i3, i4, i5) == null) {
+            Q(i4 - i2, i5 - i3);
+        }
     }
 
     public void y() {
@@ -1030,74 +1110,5 @@ public class FullScreenLayout extends FrameLayout implements pj5 {
             this.B.setStartDelay(160L);
             this.B.start();
         }
-    }
-
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048608, this) == null) || this.n || this.m) {
-            return;
-        }
-        ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
-        this.A = ofFloat;
-        ofFloat.setDuration(this.a.n());
-        this.A.setInterpolator(new LinearInterpolator());
-        this.A.addUpdateListener(new e(this));
-        this.A.addListener(new f(this));
-        this.A.start();
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public FullScreenLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FullScreenLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.a = jj5.a();
-        this.g = new RectF();
-        this.j = true;
-        this.k = true;
-        this.m = false;
-        this.n = false;
-        this.u = this.a.k();
-        this.v = this.a.j();
-        this.w = this.a.g();
-        this.x = this.a.f();
-        this.y = this.a.o();
-        this.z = this.a.c();
-        D(context);
     }
 }

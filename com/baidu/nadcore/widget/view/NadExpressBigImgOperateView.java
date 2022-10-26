@@ -5,14 +5,13 @@ import android.content.res.Resources;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.RelativeLayout;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mp0;
-import com.baidu.tieba.so0;
-import com.baidu.tieba.t21;
+import com.baidu.tieba.np0;
+import com.baidu.tieba.to0;
+import com.baidu.tieba.u21;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -21,7 +20,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class NadExpressBigImgOperateView extends NadExpressNaBaseView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public AdImageView m;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -43,64 +41,6 @@ public class NadExpressBigImgOperateView extends NadExpressNaBaseView {
                 return;
             }
         }
-    }
-
-    @Override // com.baidu.nadcore.widget.view.NadExpressNaBaseView
-    public void j(LayoutInflater layoutInflater, mp0 mp0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, mp0Var) == null) {
-            layoutInflater.inflate((mp0Var == null || mp0Var.a(AdBaseModel.STYLE.BIG_IMAGE) == 0) ? R.layout.obfuscated_res_0x7f0d05ef : mp0Var.a(AdBaseModel.STYLE.BIG_IMAGE), this);
-        }
-    }
-
-    @Override // com.baidu.nadcore.widget.view.NadExpressNaBaseView
-    public void k(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.m = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0915f2);
-        }
-    }
-
-    @Override // com.baidu.nadcore.widget.view.NadExpressNaBaseView
-    public void m(AdBaseModel adBaseModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adBaseModel) == null) {
-            if (adBaseModel == null) {
-                setVisibility(8);
-                return;
-            }
-            p();
-            AdImageView adImageView = this.m;
-            if (adImageView != null) {
-                adImageView.setVisibility(0);
-            }
-        }
-    }
-
-    @Override // com.baidu.nadcore.widget.view.NadExpressNaBaseView
-    public void n(AdBaseModel adBaseModel) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, adBaseModel) == null) && (adBaseModel instanceof so0)) {
-            so0 so0Var = (so0) adBaseModel;
-            setMaxTitleLine(2);
-            AdImageView adImageView = this.m;
-            if (adImageView != null) {
-                adImageView.g(so0Var.r.a);
-            }
-        }
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.m == null) {
-            return;
-        }
-        Resources resources = getContext().getResources();
-        int e = t21.c.e(getContext()) - (resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070043) * 2);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.m.getLayoutParams();
-        layoutParams.width = e;
-        layoutParams.height = Math.round((e / resources.getInteger(R.integer.obfuscated_res_0x7f0a0021)) * resources.getInteger(R.integer.obfuscated_res_0x7f0a0020));
-        this.m.setLayoutParams(layoutParams);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -137,7 +77,7 @@ public class NadExpressBigImgOperateView extends NadExpressNaBaseView {
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (mp0) objArr2[3]);
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (np0) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -146,23 +86,87 @@ public class NadExpressBigImgOperateView extends NadExpressNaBaseView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NadExpressBigImgOperateView(Context context, AttributeSet attributeSet, int i, mp0 mp0Var) {
-        super(context, attributeSet, i, mp0Var);
+    public NadExpressBigImgOperateView(Context context, AttributeSet attributeSet, int i, np0 np0Var) {
+        super(context, attributeSet, i, np0Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i), mp0Var};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i), np0Var};
             interceptable.invokeUnInit(65539, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (mp0) objArr2[3]);
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (np0) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
             }
         }
+    }
+
+    @Override // com.baidu.nadcore.widget.view.NadExpressNaBaseView
+    public void j(LayoutInflater layoutInflater, np0 np0Var) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, np0Var) == null) {
+            if (np0Var != null && np0Var.a(AdBaseModel.STYLE.BIG_IMAGE) != 0) {
+                i = np0Var.a(AdBaseModel.STYLE.BIG_IMAGE);
+            } else {
+                i = R.layout.obfuscated_res_0x7f0d05ef;
+            }
+            layoutInflater.inflate(i, this);
+        }
+    }
+
+    @Override // com.baidu.nadcore.widget.view.NadExpressNaBaseView
+    public void k(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            this.m = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0915e4);
+        }
+    }
+
+    @Override // com.baidu.nadcore.widget.view.NadExpressNaBaseView
+    public void m(AdBaseModel adBaseModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adBaseModel) == null) {
+            if (adBaseModel == null) {
+                setVisibility(8);
+                return;
+            }
+            p();
+            AdImageView adImageView = this.m;
+            if (adImageView != null) {
+                adImageView.setVisibility(0);
+            }
+        }
+    }
+
+    @Override // com.baidu.nadcore.widget.view.NadExpressNaBaseView
+    public void n(AdBaseModel adBaseModel) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, adBaseModel) == null) && (adBaseModel instanceof to0)) {
+            to0 to0Var = (to0) adBaseModel;
+            setMaxTitleLine(2);
+            AdImageView adImageView = this.m;
+            if (adImageView != null) {
+                adImageView.g(to0Var.r.a);
+            }
+        }
+    }
+
+    public final void p() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.m == null) {
+            return;
+        }
+        Resources resources = getContext().getResources();
+        int e = u21.c.e(getContext()) - (resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070043) * 2);
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.m.getLayoutParams();
+        layoutParams.width = e;
+        layoutParams.height = Math.round((e / resources.getInteger(R.integer.obfuscated_res_0x7f0a0021)) * resources.getInteger(R.integer.obfuscated_res_0x7f0a0020));
+        this.m.setLayoutParams(layoutParams);
     }
 }

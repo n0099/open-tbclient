@@ -1,6 +1,5 @@
 package android.support.v4.media;
 
-import androidx.annotation.RestrictTo;
 import androidx.media.AudioAttributesImplApi21;
 import androidx.versionedparcelable.VersionedParcel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
 public final class AudioAttributesImplApi21Parcelizer extends androidx.media.AudioAttributesImplApi21Parcelizer {
     public static /* synthetic */ Interceptable $ic;
@@ -31,7 +29,10 @@ public final class AudioAttributesImplApi21Parcelizer extends androidx.media.Aud
     public static AudioAttributesImplApi21 read(VersionedParcel versionedParcel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, versionedParcel)) == null) ? androidx.media.AudioAttributesImplApi21Parcelizer.read(versionedParcel) : (AudioAttributesImplApi21) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, versionedParcel)) == null) {
+            return androidx.media.AudioAttributesImplApi21Parcelizer.read(versionedParcel);
+        }
+        return (AudioAttributesImplApi21) invokeL.objValue;
     }
 
     public static void write(AudioAttributesImplApi21 audioAttributesImplApi21, VersionedParcel versionedParcel) {

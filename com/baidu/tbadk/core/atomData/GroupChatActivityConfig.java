@@ -26,51 +26,6 @@ public class GroupChatActivityConfig extends IntentConfig {
     public String mObjTp;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GroupChatActivityConfig(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mGroupData = null;
-        this.mObjTp = null;
-    }
-
-    public GroupData getGroupData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mGroupData : (GroupData) invokeV.objValue;
-    }
-
-    public String getObjTp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mObjTp : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            GroupData groupData = getGroupData();
-            return (groupData == null || groupData.getGroupId() == 0) ? false : true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GroupChatActivityConfig(Activity activity, long j, String str, long j2, String str2) {
         super(activity);
         Interceptable interceptable = $ic;
@@ -144,5 +99,59 @@ public class GroupChatActivityConfig extends IntentConfig {
             intent.putExtra(AUTO_SEND_EXTRA_MSG, str4);
         }
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public GroupChatActivityConfig(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mGroupData = null;
+        this.mObjTp = null;
+    }
+
+    public GroupData getGroupData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mGroupData;
+        }
+        return (GroupData) invokeV.objValue;
+    }
+
+    public String getObjTp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mObjTp;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            GroupData groupData = getGroupData();
+            if (groupData != null && groupData.getGroupId() != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

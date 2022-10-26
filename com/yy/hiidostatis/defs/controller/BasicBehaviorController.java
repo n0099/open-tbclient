@@ -74,6 +74,29 @@ public class BasicBehaviorController {
             this.mAppaInfo = new AppaInfo();
         }
 
+        /* JADX INFO: Access modifiers changed from: private */
+        public void onSaveTmpAppa(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(65545, this, str) == null) {
+                AppaInfo appaInfo = new AppaInfo();
+                appaInfo.add(this.mAppaInfo);
+                AppaElemInfo copy = this.mElemInfo.copy();
+                copy.setLingerTime(Util.wallTimeMillis() - this.mBeginStartCpuTimeMillis);
+                if (!Util.empty(str)) {
+                    copy.addParam(str);
+                }
+                appaInfo.addElem(copy);
+                onSaveAppaFile(appaInfo);
+            }
+        }
+
+        public void onExitApp(boolean z, boolean z2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+                onExitApp(false, z, z2);
+            }
+        }
+
         private void createElemIfNull() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(65539, this) == null) && this.mElemInfo == null) {
@@ -84,13 +107,116 @@ public class BasicBehaviorController {
         private boolean isStartCalled() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? this.mBeginStartCpuTimeMillis != 0 : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+                if (this.mBeginStartCpuTimeMillis != 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         private boolean isStartedCalled() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? this.mEndStartCpuTimeMillis != 0 : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+                if (this.mEndStartCpuTimeMillis != 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        private void resetData() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(65546, this) == null) {
+                this.mElemInfo = null;
+                this.mEndStartCpuTimeMillis = 0L;
+                this.mBeginStartCpuTimeMillis = 0L;
+            }
+        }
+
+        public void clear() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.mAppaInfo.clear();
+                onSaveAppaFile(this.mAppaInfo);
+            }
+        }
+
+        public AppaInfo getAppaInfo() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.mAppaInfo;
+            }
+            return (AppaInfo) invokeV.objValue;
+        }
+
+        private void onExitApp(boolean z, boolean z2, boolean z3) {
+            AppaElemInfo appaElemInfo;
+            AppaElemInfo appaElemInfo2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+                L.brief("appa onExitApp: shutdown %b flush commands %b. isNormal %b", Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3));
+                AppaElemInfo appaElemInfo3 = this.mElemInfo;
+                long wallTimeMillis = Util.wallTimeMillis();
+                if (z3) {
+                    long lastOnPauseTime = this.this$0.getLastOnPauseTime();
+                    long j = this.this$0.mBackgroundDurationMillisAsQuit;
+                    if (lastOnPauseTime < wallTimeMillis) {
+                        appaElemInfo = appaElemInfo3;
+                        if (lastOnPauseTime - this.mBeginStartCpuTimeMillis > 0) {
+                            long j2 = wallTimeMillis - lastOnPauseTime;
+                            long j3 = j / 2;
+                            if (j2 > j - j3 && j2 < j + j3) {
+                                L.brief("appa onExitApp:get the lastOnPauseTime[%d] instead of quitTime[%d]", Long.valueOf(lastOnPauseTime), Long.valueOf(wallTimeMillis));
+                                wallTimeMillis = lastOnPauseTime;
+                            }
+                        }
+                        if (appaElemInfo == null && isStartCalled() && isStartedCalled()) {
+                            long j4 = this.mBeginStartCpuTimeMillis;
+                            L.brief("Start CPU time millis is %d", Long.valueOf(j4));
+                            if (j4 != 0) {
+                                long j5 = wallTimeMillis - j4;
+                                L.brief("Calculated usage time, begin %d,end %d, lasts %d", Long.valueOf(j4), Long.valueOf(wallTimeMillis), Long.valueOf(j5));
+                                int i = (j5 > 0L ? 1 : (j5 == 0L ? 0 : -1));
+                                if (i != 0) {
+                                    L.brief("set app linger time %d sec", Long.valueOf(j5));
+                                    appaElemInfo2 = appaElemInfo;
+                                    appaElemInfo2.setLingerTime(j5);
+                                } else {
+                                    appaElemInfo2 = appaElemInfo;
+                                    L.debug(this, "appa onExitApp:Cannot calculate app action linger time.", new Object[0]);
+                                }
+                                if (j5 <= 21600000 && i >= 0) {
+                                    L.brief("appa onExitApp:normal", Long.valueOf(j5));
+                                } else {
+                                    L.warn(this, "appa onExitApp:app action linger time [%d] is off normal.", Long.valueOf(j5));
+                                }
+                                this.mAppaInfo.addElem(appaElemInfo2);
+                            }
+                        } else {
+                            L.debug(this, "appa onExitApp:Failed to statis app usage time .elemInfo[%s] is null or mBeginStartCpuTimeMillis[%d]=0 or mEndStartCpuTimeMillis[%d]=0", appaElemInfo, Long.valueOf(this.mBeginStartCpuTimeMillis), Long.valueOf(this.mEndStartCpuTimeMillis));
+                            this.this$0.clearStoredAppaInfo();
+                        }
+                        resetData();
+                        this.this$0.saveQuitTimeMillis(wallTimeMillis);
+                        this.this$0.saveUid();
+                        this.this$0.sendReportForce(false);
+                    }
+                }
+                appaElemInfo = appaElemInfo3;
+                if (appaElemInfo == null) {
+                }
+                L.debug(this, "appa onExitApp:Failed to statis app usage time .elemInfo[%s] is null or mBeginStartCpuTimeMillis[%d]=0 or mEndStartCpuTimeMillis[%d]=0", appaElemInfo, Long.valueOf(this.mBeginStartCpuTimeMillis), Long.valueOf(this.mEndStartCpuTimeMillis));
+                this.this$0.clearStoredAppaInfo();
+                resetData();
+                this.this$0.saveQuitTimeMillis(wallTimeMillis);
+                this.this$0.saveUid();
+                this.this$0.sendReportForce(false);
+            }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -140,31 +266,6 @@ public class BasicBehaviorController {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: private */
-        public void onSaveTmpAppa(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65545, this, str) == null) {
-                AppaInfo appaInfo = new AppaInfo();
-                appaInfo.add(this.mAppaInfo);
-                AppaElemInfo copy = this.mElemInfo.copy();
-                copy.setLingerTime(Util.wallTimeMillis() - this.mBeginStartCpuTimeMillis);
-                if (!Util.empty(str)) {
-                    copy.addParam(str);
-                }
-                appaInfo.addElem(copy);
-                onSaveAppaFile(appaInfo);
-            }
-        }
-
-        private void resetData() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-                this.mElemInfo = null;
-                this.mEndStartCpuTimeMillis = 0L;
-                this.mBeginStartCpuTimeMillis = 0L;
-            }
-        }
-
         public void addParams(String... strArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, strArr) == null) {
@@ -181,20 +282,6 @@ public class BasicBehaviorController {
                     }
                 }
             }
-        }
-
-        public void clear() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.mAppaInfo.clear();
-                onSaveAppaFile(this.mAppaInfo);
-            }
-        }
-
-        public AppaInfo getAppaInfo() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mAppaInfo : (AppaInfo) invokeV.objValue;
         }
 
         public void onAppStarted() {
@@ -218,13 +305,6 @@ public class BasicBehaviorController {
             }
         }
 
-        public void onExitApp(boolean z, boolean z2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-                onExitApp(false, z, z2);
-            }
-        }
-
         public void onStartApp() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -239,81 +319,17 @@ public class BasicBehaviorController {
                 }
                 long lastQuitTime = this.this$0.getLastQuitTime();
                 L.brief("Loaded last quit time is %d", Long.valueOf(lastQuitTime));
-                if (lastQuitTime == 0) {
-                    L.debug(this, "Last quit time is empty value %d", Long.valueOf(lastQuitTime));
+                if (lastQuitTime != 0) {
+                    long j = this.mBeginStartCpuTimeMillis;
+                    long j2 = j - lastQuitTime;
+                    L.brief("set ftime wall time %d - last quit time %d = %d", Long.valueOf(j), Long.valueOf(lastQuitTime), Long.valueOf(j2));
+                    if (this.mElemInfo != null) {
+                        this.mElemInfo.setFtime(j2);
+                        return;
+                    }
                     return;
                 }
-                long j = this.mBeginStartCpuTimeMillis;
-                long j2 = j - lastQuitTime;
-                L.brief("set ftime wall time %d - last quit time %d = %d", Long.valueOf(j), Long.valueOf(lastQuitTime), Long.valueOf(j2));
-                if (this.mElemInfo != null) {
-                    this.mElemInfo.setFtime(j2);
-                }
-            }
-        }
-
-        private void onExitApp(boolean z, boolean z2, boolean z3) {
-            AppaElemInfo appaElemInfo;
-            AppaElemInfo appaElemInfo2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
-                L.brief("appa onExitApp: shutdown %b flush commands %b. isNormal %b", Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3));
-                AppaElemInfo appaElemInfo3 = this.mElemInfo;
-                long wallTimeMillis = Util.wallTimeMillis();
-                if (z3) {
-                    long lastOnPauseTime = this.this$0.getLastOnPauseTime();
-                    long j = this.this$0.mBackgroundDurationMillisAsQuit;
-                    if (lastOnPauseTime < wallTimeMillis) {
-                        appaElemInfo = appaElemInfo3;
-                        if (lastOnPauseTime - this.mBeginStartCpuTimeMillis > 0) {
-                            long j2 = wallTimeMillis - lastOnPauseTime;
-                            long j3 = j / 2;
-                            if (j2 > j - j3 && j2 < j + j3) {
-                                L.brief("appa onExitApp:get the lastOnPauseTime[%d] instead of quitTime[%d]", Long.valueOf(lastOnPauseTime), Long.valueOf(wallTimeMillis));
-                                wallTimeMillis = lastOnPauseTime;
-                            }
-                        }
-                        if (appaElemInfo == null && isStartCalled() && isStartedCalled()) {
-                            long j4 = this.mBeginStartCpuTimeMillis;
-                            L.brief("Start CPU time millis is %d", Long.valueOf(j4));
-                            if (j4 != 0) {
-                                long j5 = wallTimeMillis - j4;
-                                L.brief("Calculated usage time, begin %d,end %d, lasts %d", Long.valueOf(j4), Long.valueOf(wallTimeMillis), Long.valueOf(j5));
-                                int i = (j5 > 0L ? 1 : (j5 == 0L ? 0 : -1));
-                                if (i != 0) {
-                                    L.brief("set app linger time %d sec", Long.valueOf(j5));
-                                    appaElemInfo2 = appaElemInfo;
-                                    appaElemInfo2.setLingerTime(j5);
-                                } else {
-                                    appaElemInfo2 = appaElemInfo;
-                                    L.debug(this, "appa onExitApp:Cannot calculate app action linger time.", new Object[0]);
-                                }
-                                if (j5 > 21600000 || i < 0) {
-                                    L.warn(this, "appa onExitApp:app action linger time [%d] is off normal.", Long.valueOf(j5));
-                                } else {
-                                    L.brief("appa onExitApp:normal", Long.valueOf(j5));
-                                }
-                                this.mAppaInfo.addElem(appaElemInfo2);
-                            }
-                        } else {
-                            L.debug(this, "appa onExitApp:Failed to statis app usage time .elemInfo[%s] is null or mBeginStartCpuTimeMillis[%d]=0 or mEndStartCpuTimeMillis[%d]=0", appaElemInfo, Long.valueOf(this.mBeginStartCpuTimeMillis), Long.valueOf(this.mEndStartCpuTimeMillis));
-                            this.this$0.clearStoredAppaInfo();
-                        }
-                        resetData();
-                        this.this$0.saveQuitTimeMillis(wallTimeMillis);
-                        this.this$0.saveUid();
-                        this.this$0.sendReportForce(false);
-                    }
-                }
-                appaElemInfo = appaElemInfo3;
-                if (appaElemInfo == null) {
-                }
-                L.debug(this, "appa onExitApp:Failed to statis app usage time .elemInfo[%s] is null or mBeginStartCpuTimeMillis[%d]=0 or mEndStartCpuTimeMillis[%d]=0", appaElemInfo, Long.valueOf(this.mBeginStartCpuTimeMillis), Long.valueOf(this.mEndStartCpuTimeMillis));
-                this.this$0.clearStoredAppaInfo();
-                resetData();
-                this.this$0.saveQuitTimeMillis(wallTimeMillis);
-                this.this$0.saveUid();
-                this.this$0.sendReportForce(false);
+                L.debug(this, "Last quit time is empty value %d", Long.valueOf(lastQuitTime));
             }
         }
     }
@@ -386,6 +402,15 @@ public class BasicBehaviorController {
             }
         }
 
+        public void setCurPageParam(String str) {
+            PageElemInfo pageElemInfo;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && (pageElemInfo = this.mPageElemInfo) != null) {
+                pageElemInfo.clearParams();
+                this.mPageElemInfo.addParam(str);
+            }
+        }
+
         private void onSaveTmpPage() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65538, this) == null) {
@@ -418,7 +443,10 @@ public class BasicBehaviorController {
         public PageInfo getPageInfo() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mPageInfo : (PageInfo) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.mPageInfo;
+            }
+            return (PageInfo) invokeV.objValue;
         }
 
         public void onFinishGotoUI(long j, String str, boolean z) {
@@ -427,31 +455,31 @@ public class BasicBehaviorController {
                 PageElemInfo pageElemInfo = this.mPageElemInfo;
                 if (pageElemInfo != null) {
                     String page = pageElemInfo.getPage();
-                    if (Util.empty(page) || this.mStartJumpingTimeStamp == 0 || this.mEnterTimeStamp == 0) {
-                        L.error(this, "page onFinishGotoUI [%s]: Illegal state exception.pageid[%s] is null or mEnterTimeStamp[%d]=0 or mStartJumpingTimeStamp[%d]=0 ", page, page, Long.valueOf(this.mEnterTimeStamp), Long.valueOf(this.mStartJumpingTimeStamp));
-                        return;
-                    }
-                    if (z) {
-                        this.mPageElemInfo.setDestinationPage(null);
-                        this.mPageElemInfo.setDtime(0L);
-                    } else {
-                        long wallTimeMillis = Util.wallTimeMillis();
-                        this.mPageElemInfo.setDestinationPage(str);
-                        this.mPageElemInfo.setDtime(wallTimeMillis - this.mStartJumpingTimeStamp);
-                    }
-                    if (this.mPageElemInfo.getDelayedTime() > this.this$0.mBackgroundDurationMillisAsQuit * 3) {
-                        L.warn(this, "page onFinishGotoUI [%s]: Dtime[%d] is off normal,this page data not report", page, Long.valueOf(this.mPageElemInfo.getDelayedTime()));
+                    if (!Util.empty(page) && this.mStartJumpingTimeStamp != 0 && this.mEnterTimeStamp != 0) {
+                        if (z) {
+                            this.mPageElemInfo.setDestinationPage(null);
+                            this.mPageElemInfo.setDtime(0L);
+                        } else {
+                            long wallTimeMillis = Util.wallTimeMillis();
+                            this.mPageElemInfo.setDestinationPage(str);
+                            this.mPageElemInfo.setDtime(wallTimeMillis - this.mStartJumpingTimeStamp);
+                        }
+                        if (this.mPageElemInfo.getDelayedTime() > this.this$0.mBackgroundDurationMillisAsQuit * 3) {
+                            L.warn(this, "page onFinishGotoUI [%s]: Dtime[%d] is off normal,this page data not report", page, Long.valueOf(this.mPageElemInfo.getDelayedTime()));
+                            clearCurPageElement();
+                            return;
+                        }
+                        L.brief("page onFinishGotoUI [%s]:normal. report from page [%s] to destPageId [%s]", page, page, str);
+                        this.mPageInfo.addElem(this.mPageElemInfo);
                         clearCurPageElement();
+                        L.brief("Page elements %d", Integer.valueOf(this.mPageInfo.getElemsCount()));
+                        this.this$0.onNewDataAdded(j);
+                        onSavePageFile(this.mPageInfo);
+                        this.this$0.recordPagePath(page);
+                        this.this$0.saveTmpAppa(null);
                         return;
                     }
-                    L.brief("page onFinishGotoUI [%s]:normal. report from page [%s] to destPageId [%s]", page, page, str);
-                    this.mPageInfo.addElem(this.mPageElemInfo);
-                    clearCurPageElement();
-                    L.brief("Page elements %d", Integer.valueOf(this.mPageInfo.getElemsCount()));
-                    this.this$0.onNewDataAdded(j);
-                    onSavePageFile(this.mPageInfo);
-                    this.this$0.recordPagePath(page);
-                    this.this$0.saveTmpAppa(null);
+                    L.error(this, "page onFinishGotoUI [%s]: Illegal state exception.pageid[%s] is null or mEnterTimeStamp[%d]=0 or mStartJumpingTimeStamp[%d]=0 ", page, page, Long.valueOf(this.mEnterTimeStamp), Long.valueOf(this.mStartJumpingTimeStamp));
                     return;
                 }
                 L.error(this, "page onFinishGotoUI , Illegal state exception, is onResumeUI,onLeavingUI not called? mPageElemInfo is null", new Object[0]);
@@ -507,16 +535,6 @@ public class BasicBehaviorController {
                 L.brief("page onResumeUI [%s]:normal. init page data,pageid[%s],mEnterTimeStamp[%d]", str, str, Long.valueOf(this.mEnterTimeStamp));
             }
         }
-
-        public void setCurPageParam(String str) {
-            PageElemInfo pageElemInfo;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (pageElemInfo = this.mPageElemInfo) == null) {
-                return;
-            }
-            pageElemInfo.clearParams();
-            this.mPageElemInfo.addParam(str);
-        }
     }
 
     public BasicBehaviorController(Context context, Handler handler, IOnStatisListener iOnStatisListener, IStatisAPI iStatisAPI, long j, int i, int i2) {
@@ -546,6 +564,100 @@ public class BasicBehaviorController {
         loadStoredAsync();
     }
 
+    public static boolean empty(Info info) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, info)) == null) {
+            if (info != null && info.getElemsCount() != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public long getStoredUid(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65559, this, j)) == null) {
+            return DefaultPreference.getPreference().getPrefLong(this.mContext, KEY_UID, j);
+        }
+        return invokeJ.longValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void onNewDataAdded(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65565, this, j) == null) {
+            sendReportIfReach(getThreshold());
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void recordPagePath(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65566, this, str) == null) {
+            getAppActionCollector().onRecordPagePath(str);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void saveAppaInfo(AppaInfo appaInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65568, this, appaInfo) == null) {
+            DefaultPreference.getPreference().setPrefString(this.mContext, KEY_BEHAVIOR_APPA, appaInfo.getResult());
+            saveUid();
+            saveSession();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void savePageInfo(PageInfo pageInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65569, this, pageInfo) == null) {
+            DefaultPreference.getPreference().setPrefString(this.mContext, KEY_BEHAVIOR_PAGE, pageInfo.getResult());
+            saveUid();
+            saveSession();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void saveQuitTimeMillis(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65570, this, j) == null) {
+            DefaultPreference.getPreference().setPrefLong(this.mContext, KEY_QUIT_TIME, j);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void saveTmpAppa(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65572, this, str) == null) {
+            getAppActionCollector().onSaveTmpAppa(str);
+        }
+    }
+
+    public void saveLastOnPauseTime(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            DefaultPreference.getPreference().setPrefLong(this.mContext, KEY_LAST_ONPAUSE_TIME, j);
+        }
+    }
+
+    public void sendReportForce(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            if (z) {
+                i = -1;
+            } else {
+                i = 1;
+            }
+            sendReportIfReach(i);
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void clearStoredAppaInfo() {
         Interceptable interceptable = $ic;
@@ -562,31 +674,24 @@ public class BasicBehaviorController {
         }
     }
 
-    public static boolean empty(Info<?> info) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65556, null, info)) == null) ? info == null || info.getElemsCount() == 0 : invokeL.booleanValue;
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
     public long getLastQuitTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65557, this)) == null) ? DefaultPreference.getPreference().getPrefLong(this.mContext, KEY_QUIT_TIME, 0L) : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65557, this)) == null) {
+            return DefaultPreference.getPreference().getPrefLong(this.mContext, KEY_QUIT_TIME, 0L);
+        }
+        return invokeV.longValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public String getStoredSession() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65558, this)) == null) ? DefaultPreference.getPreference().getPrefString(this.mContext, KEY_SESSION, null) : (String) invokeV.objValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public long getStoredUid(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65559, this, j)) == null) ? DefaultPreference.getPreference().getPrefLong(this.mContext, KEY_UID, j) : invokeJ.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65558, this)) == null) {
+            return DefaultPreference.getPreference().getPrefString(this.mContext, KEY_SESSION, null);
+        }
+        return (String) invokeV.objValue;
     }
 
     private int getThreshold() {
@@ -608,17 +713,19 @@ public class BasicBehaviorController {
     public String loadStoredAppaInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65561, this)) == null) ? DefaultPreference.getPreference().getPrefString(this.mContext, KEY_BEHAVIOR_APPA, null) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65561, this)) == null) {
+            return DefaultPreference.getPreference().getPrefString(this.mContext, KEY_BEHAVIOR_APPA, null);
+        }
+        return (String) invokeV.objValue;
     }
 
     private void loadStoredAsync() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65562, this) == null) || this.mIsLoaded) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(65562, this) == null) && !this.mIsLoaded) {
+            this.mIsLoaded = true;
+            L.brief("Load stored async", new Object[0]);
+            loadStoredAsyncSend();
         }
-        this.mIsLoaded = true;
-        L.brief("Load stored async", new Object[0]);
-        loadStoredAsyncSend();
     }
 
     private void loadStoredAsyncSend() {
@@ -654,35 +761,36 @@ public class BasicBehaviorController {
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        try {
-                            String loadStoredAppaInfo = this.this$0.loadStoredAppaInfo();
-                            String loadStoredPageInfo = this.this$0.loadStoredPageInfo();
-                            L.brief("clear stored info", new Object[0]);
-                            this.this$0.clearStoredPageInfo();
-                            this.this$0.clearStoredAppaInfo();
-                            if (!Util.empty(loadStoredAppaInfo) || !Util.empty(loadStoredPageInfo)) {
-                                long storedUid = this.this$0.getStoredUid(0L);
-                                String storedSession = this.this$0.getStoredSession();
-                                L.brief("Send old behavior report, for uid %d, session %s", Long.valueOf(storedUid), storedSession);
-                                StatisAPI createNewStatisApi = HiidoSDK.instance().createNewStatisApi();
-                                createNewStatisApi.setSession(storedSession);
-                                createNewStatisApi.init(this.this$0.mContext, this.this$0.mStatisAPI.getOption());
-                                L.debug(this, "report stored basicBehavior with new statisAPI [%s]", createNewStatisApi);
-                                if (!Util.empty(loadStoredAppaInfo)) {
-                                    createNewStatisApi.reportLanuch(storedUid, loadStoredAppaInfo, SensorController.loadFileAndClear(this.this$0.mContext));
-                                }
-                                if (Util.empty(loadStoredPageInfo)) {
-                                    return;
-                                }
+                    if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                        return;
+                    }
+                    try {
+                        String loadStoredAppaInfo = this.this$0.loadStoredAppaInfo();
+                        String loadStoredPageInfo = this.this$0.loadStoredPageInfo();
+                        L.brief("clear stored info", new Object[0]);
+                        this.this$0.clearStoredPageInfo();
+                        this.this$0.clearStoredAppaInfo();
+                        if (!Util.empty(loadStoredAppaInfo) || !Util.empty(loadStoredPageInfo)) {
+                            long storedUid = this.this$0.getStoredUid(0L);
+                            String storedSession = this.this$0.getStoredSession();
+                            L.brief("Send old behavior report, for uid %d, session %s", Long.valueOf(storedUid), storedSession);
+                            StatisAPI createNewStatisApi = HiidoSDK.instance().createNewStatisApi();
+                            createNewStatisApi.setSession(storedSession);
+                            createNewStatisApi.init(this.this$0.mContext, this.this$0.mStatisAPI.getOption());
+                            L.debug(this, "report stored basicBehavior with new statisAPI [%s]", createNewStatisApi);
+                            if (!Util.empty(loadStoredAppaInfo)) {
+                                createNewStatisApi.reportLanuch(storedUid, loadStoredAppaInfo, SensorController.loadFileAndClear(this.this$0.mContext));
+                            }
+                            if (!Util.empty(loadStoredPageInfo)) {
                                 createNewStatisApi.reportPage(storedUid, loadStoredPageInfo);
                                 return;
                             }
-                            L.brief("Input appa is null && page is null ", new Object[0]);
-                        } catch (Throwable th) {
-                            L.debug(this, "loadStoredAsyncSend exception = %s", th);
-                            th.printStackTrace();
+                            return;
                         }
+                        L.brief("Input appa is null && page is null ", new Object[0]);
+                    } catch (Throwable th) {
+                        L.debug(this, "loadStoredAsyncSend exception = %s", th);
+                        th.printStackTrace();
                     }
                 }
             });
@@ -693,23 +801,73 @@ public class BasicBehaviorController {
     public String loadStoredPageInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65564, this)) == null) ? DefaultPreference.getPreference().getPrefString(this.mContext, KEY_BEHAVIOR_PAGE, null) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65564, this)) == null) {
+            return DefaultPreference.getPreference().getPrefString(this.mContext, KEY_BEHAVIOR_PAGE, null);
+        }
+        return (String) invokeV.objValue;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void onNewDataAdded(long j) {
+    private void saveSession() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65565, this, j) == null) {
-            sendReportIfReach(getThreshold());
+        if (interceptable == null || interceptable.invokeV(65571, this) == null) {
+            DefaultPreference.getPreference().setPrefString(this.mContext, KEY_SESSION, this.mStatisAPI.getSession());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void recordPagePath(String str) {
+    public void saveUid() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65566, this, str) == null) {
-            getAppActionCollector().onRecordPagePath(str);
+        if (interceptable == null || interceptable.invokeV(65573, this) == null) {
+            DefaultPreference.getPreference().setPrefLong(this.mContext, KEY_UID, this.mOnStatisListener.getCurrentUid());
         }
+    }
+
+    public AppActionReporter getAppActionCollector() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mAppActionCollector;
+        }
+        return (AppActionReporter) invokeV.objValue;
+    }
+
+    public long getLastOnPauseTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return DefaultPreference.getPreference().getPrefLong(this.mContext, KEY_LAST_ONPAUSE_TIME, 0L);
+        }
+        return invokeV.longValue;
+    }
+
+    public long getLastReportCpuMillis() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mLastReportCpuMillis;
+        }
+        return invokeV.longValue;
+    }
+
+    public PageActionReporter getPageActionCollector() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mPageActionCollector;
+        }
+        return (PageActionReporter) invokeV.objValue;
+    }
+
+    public boolean isReported() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.mLastReportCpuMillis != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     private void reportBasicBehavior(Context context, long j, AppaInfo appaInfo, PageInfo pageInfo) {
@@ -727,61 +885,9 @@ public class BasicBehaviorController {
             if (appaInfo != null && appaInfo.getElemsCount() > 0) {
                 this.mStatisAPI.reportLanuch(j, appaInfo.getResult(), SensorController.loadFileAndClear(context));
             }
-            if (pageInfo == null || pageInfo.getElemsCount() <= 0) {
-                return;
+            if (pageInfo != null && pageInfo.getElemsCount() > 0) {
+                this.mStatisAPI.reportPage(j, pageInfo.getResult());
             }
-            this.mStatisAPI.reportPage(j, pageInfo.getResult());
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void saveAppaInfo(AppaInfo appaInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65568, this, appaInfo) == null) {
-            DefaultPreference.getPreference().setPrefString(this.mContext, KEY_BEHAVIOR_APPA, appaInfo.getResult());
-            saveUid();
-            saveSession();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void savePageInfo(PageInfo pageInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65569, this, pageInfo) == null) {
-            DefaultPreference.getPreference().setPrefString(this.mContext, KEY_BEHAVIOR_PAGE, pageInfo.getResult());
-            saveUid();
-            saveSession();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void saveQuitTimeMillis(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65570, this, j) == null) {
-            DefaultPreference.getPreference().setPrefLong(this.mContext, KEY_QUIT_TIME, j);
-        }
-    }
-
-    private void saveSession() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65571, this) == null) {
-            DefaultPreference.getPreference().setPrefString(this.mContext, KEY_SESSION, this.mStatisAPI.getSession());
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void saveTmpAppa(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65572, this, str) == null) {
-            getAppActionCollector().onSaveTmpAppa(str);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void saveUid() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65573, this) == null) {
-            DefaultPreference.getPreference().setPrefLong(this.mContext, KEY_UID, this.mOnStatisListener.getCurrentUid());
         }
     }
 
@@ -805,50 +911,6 @@ public class BasicBehaviorController {
                 reportBasicBehavior(context, this.mOnStatisListener.getCurrentUid(), null, pageInfo);
                 this.mPageActionCollector.clear();
             }
-        }
-    }
-
-    public AppActionReporter getAppActionCollector() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mAppActionCollector : (AppActionReporter) invokeV.objValue;
-    }
-
-    public long getLastOnPauseTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? DefaultPreference.getPreference().getPrefLong(this.mContext, KEY_LAST_ONPAUSE_TIME, 0L) : invokeV.longValue;
-    }
-
-    public long getLastReportCpuMillis() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mLastReportCpuMillis : invokeV.longValue;
-    }
-
-    public PageActionReporter getPageActionCollector() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mPageActionCollector : (PageActionReporter) invokeV.objValue;
-    }
-
-    public boolean isReported() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mLastReportCpuMillis != 0 : invokeV.booleanValue;
-    }
-
-    public void saveLastOnPauseTime(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            DefaultPreference.getPreference().setPrefLong(this.mContext, KEY_LAST_ONPAUSE_TIME, j);
-        }
-    }
-
-    public void sendReportForce(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            sendReportIfReach(z ? -1 : 1);
         }
     }
 }

@@ -8,7 +8,7 @@ import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,7 +41,7 @@ public class CircleView extends View {
                 return;
             }
         }
-        g = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds3);
+        g = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds3);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -63,59 +63,6 @@ public class CircleView extends View {
             }
         }
         a(context);
-    }
-
-    public final void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            e = ej.f(context, R.dimen.tbds94);
-            f = ej.f(context, R.dimen.tbds94);
-            Paint paint = new Paint();
-            this.d = paint;
-            paint.setColor(context.getResources().getColor(R.color.CAM_X0314));
-            this.d.setAntiAlias(true);
-            this.d.setStyle(Paint.Style.STROKE);
-            this.d.setStrokeWidth(g);
-        }
-    }
-
-    @Override // android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            super.onDraw(canvas);
-            canvas.drawCircle(this.a, this.b, this.c, this.d);
-        }
-    }
-
-    @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            super.onMeasure(i, i2);
-            int mode = View.MeasureSpec.getMode(i);
-            int size = View.MeasureSpec.getSize(i);
-            int mode2 = View.MeasureSpec.getMode(i2);
-            int size2 = View.MeasureSpec.getSize(i2);
-            if (mode == Integer.MIN_VALUE && mode2 == Integer.MIN_VALUE) {
-                setMeasuredDimension(e, f);
-            } else if (mode == Integer.MIN_VALUE) {
-                setMeasuredDimension(e, size2);
-            } else if (mode2 == Integer.MIN_VALUE) {
-                setMeasuredDimension(size, f);
-            }
-        }
-    }
-
-    @Override // android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048579, this, i, i2, i3, i4) == null) {
-            super.onSizeChanged(i, i2, i3, i4);
-            this.a = i / 2.0f;
-            this.b = i2 / 2.0f;
-            this.c = (Math.min(i, i2) / 2.0f) - g;
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -140,6 +87,25 @@ public class CircleView extends View {
         a(context);
     }
 
+    @Override // android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            int mode = View.MeasureSpec.getMode(i);
+            int size = View.MeasureSpec.getSize(i);
+            int mode2 = View.MeasureSpec.getMode(i2);
+            int size2 = View.MeasureSpec.getSize(i2);
+            if (mode == Integer.MIN_VALUE && mode2 == Integer.MIN_VALUE) {
+                setMeasuredDimension(e, f);
+            } else if (mode == Integer.MIN_VALUE) {
+                setMeasuredDimension(e, size2);
+            } else if (mode2 == Integer.MIN_VALUE) {
+                setMeasuredDimension(size, f);
+            }
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CircleView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -160,5 +126,39 @@ public class CircleView extends View {
             }
         }
         a(context);
+    }
+
+    public final void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            e = fj.f(context, R.dimen.tbds94);
+            f = fj.f(context, R.dimen.tbds94);
+            Paint paint = new Paint();
+            this.d = paint;
+            paint.setColor(context.getResources().getColor(R.color.CAM_X0314));
+            this.d.setAntiAlias(true);
+            this.d.setStyle(Paint.Style.STROKE);
+            this.d.setStrokeWidth(g);
+        }
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
+            super.onDraw(canvas);
+            canvas.drawCircle(this.a, this.b, this.c, this.d);
+        }
+    }
+
+    @Override // android.view.View
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048579, this, i, i2, i3, i4) == null) {
+            super.onSizeChanged(i, i2, i3, i4);
+            this.a = i / 2.0f;
+            this.b = i2 / 2.0f;
+            this.c = (Math.min(i, i2) / 2.0f) - g;
+        }
     }
 }

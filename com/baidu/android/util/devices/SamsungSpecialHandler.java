@@ -32,7 +32,10 @@ public final class SamsungSpecialHandler {
     public static boolean beforeCheck() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? DeviceUtil.OSInfo.hasLollipop() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return DeviceUtil.OSInfo.hasLollipop();
+        }
+        return invokeV.booleanValue;
     }
 
     public static void removeSumsungRList(Activity activity) {

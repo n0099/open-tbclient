@@ -1,19 +1,20 @@
 package com.baidu.tieba;
 
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.swan.menu.BaseMenuView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class vi3 {
+public class vi3 implements n94 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RelativeLayout a;
+    public FrameLayout a;
 
     public vi3() {
         Interceptable interceptable = $ic;
@@ -31,38 +32,39 @@ public class vi3 {
         this.a = null;
     }
 
-    public final void a(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.n94
+    public void a(BaseMenuView baseMenuView) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && viewGroup != null && (viewGroup instanceof RelativeLayout)) {
-            if (this.a == null) {
-                RelativeLayout relativeLayout = new RelativeLayout(viewGroup.getContext());
-                this.a = relativeLayout;
-                relativeLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f0801a1);
-            }
-            viewGroup.removeView(this.a);
-            viewGroup.addView(this.a, new ViewGroup.LayoutParams(-1, -1));
+        if ((interceptable != null && interceptable.invokeL(1048576, this, baseMenuView) != null) || baseMenuView == null || ProcessUtils.isMainProcess() || !SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
+            return;
+        }
+        if (tm2.M().a()) {
+            b(baseMenuView);
+        } else {
+            c(baseMenuView);
         }
     }
 
-    public void b(ViewGroup viewGroup) {
+    public final void b(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) || viewGroup == null || ProcessUtils.isMainProcess() || !SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) != null) || viewGroup == null || !(viewGroup instanceof FrameLayout)) {
             return;
         }
-        if (sm2.M().a()) {
-            a(viewGroup);
-        } else {
-            c(viewGroup);
+        if (this.a == null) {
+            FrameLayout frameLayout = new FrameLayout(viewGroup.getContext());
+            this.a = frameLayout;
+            frameLayout.setBackgroundResource(R.color.obfuscated_res_0x7f0603de);
         }
+        viewGroup.removeView(this.a);
+        viewGroup.addView(this.a, new FrameLayout.LayoutParams(-1, -1));
     }
 
     public final void c(ViewGroup viewGroup) {
-        RelativeLayout relativeLayout;
+        FrameLayout frameLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) || viewGroup == null || (relativeLayout = this.a) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) && viewGroup != null && (frameLayout = this.a) != null) {
+            viewGroup.removeView(frameLayout);
+            this.a = null;
         }
-        viewGroup.removeView(relativeLayout);
-        this.a = null;
     }
 }

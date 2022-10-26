@@ -1,6 +1,5 @@
 package com.baidu.swan.bdtls;
 
-import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,11 +8,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.charset.StandardCharsets;
-@Keep
 /* loaded from: classes3.dex */
 public class AES {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public static native byte[] decrypt(byte[] bArr, byte[] bArr2);
+
+    public static native byte[] encrypt(byte[] bArr, byte[] bArr2);
 
     static {
         InterceptResult invokeClinit;
@@ -48,18 +50,18 @@ public class AES {
     public static byte[] aesDecrypt(byte[] bArr, byte[] bArr2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, bArr2)) == null) ? (bArr == null || bArr.length <= 0) ? new byte[]{-1} : decrypt(bArr, bArr2) : (byte[]) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, bArr2)) == null) {
+            return (bArr == null || bArr.length <= 0) ? new byte[]{-1} : decrypt(bArr, bArr2);
+        }
+        return (byte[]) invokeLL.objValue;
     }
 
     public static byte[] aesEncrypt(String str, byte[] bArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, bArr)) == null) ? (str == null || str.length() <= 0) ? new byte[]{-1} : encrypt(str.getBytes(StandardCharsets.UTF_8), bArr) : (byte[]) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, bArr)) == null) {
+            return (str == null || str.length() <= 0) ? new byte[]{-1} : encrypt(str.getBytes(StandardCharsets.UTF_8), bArr);
+        }
+        return (byte[]) invokeLL.objValue;
     }
-
-    @Keep
-    public static native byte[] decrypt(byte[] bArr, byte[] bArr2);
-
-    @Keep
-    public static native byte[] encrypt(byte[] bArr, byte[] bArr2);
 }

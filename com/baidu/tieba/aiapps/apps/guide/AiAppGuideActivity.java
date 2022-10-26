@@ -9,8 +9,8 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.um;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.vm;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -50,9 +50,10 @@ public class AiAppGuideActivity extends BaseActivity {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.closeActivity();
+            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+                return;
             }
+            this.a.closeActivity();
         }
     }
 
@@ -90,13 +91,13 @@ public class AiAppGuideActivity extends BaseActivity {
             setSwipeBackEnabled(false);
             setActivityBgTransparent();
             setContentView(R.layout.obfuscated_res_0x7f0d0029);
-            GifView gifView = (GifView) findViewById(R.id.obfuscated_res_0x7f0925bc);
+            GifView gifView = (GifView) findViewById(R.id.obfuscated_res_0x7f0925a4);
             this.a = gifView;
-            gifView.setGifFile(um.b("aiapp_guide.gif"));
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ed8);
+            gifView.setGifFile(vm.b("aiapp_guide.gif"));
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ecc);
             this.b = imageView;
             imageView.setOnClickListener(this.c);
-            int k = ej.k(getActivity()) - (ej.f(getActivity(), R.dimen.tbds44) * 2);
+            int k = fj.k(getActivity()) - (fj.f(getActivity(), R.dimen.tbds44) * 2);
             ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
             layoutParams.width = k;
             layoutParams.height = (int) (((k * 828) * 1.0f) / 760.0f);

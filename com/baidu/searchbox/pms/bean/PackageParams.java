@@ -34,25 +34,6 @@ public class PackageParams {
         this.updateMd5 = "";
     }
 
-    public String getUpdateParams() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.updateVersion > -1 && !TextUtils.isEmpty(this.updateMd5)) {
-                return this.updateVersion + "|" + this.updateMd5;
-            }
-            return String.valueOf(this.updateVersion);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void setUpdateMd5(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.updateMd5 = str;
-        }
-    }
-
     public PackageParams(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -95,5 +76,24 @@ public class PackageParams {
         this.packageName = str;
         this.version = j;
         this.updateVersion = j2;
+    }
+
+    public String getUpdateParams() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.updateVersion > -1 && !TextUtils.isEmpty(this.updateMd5)) {
+                return this.updateVersion + "|" + this.updateMd5;
+            }
+            return String.valueOf(this.updateVersion);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void setUpdateMd5(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.updateMd5 = str;
+        }
     }
 }

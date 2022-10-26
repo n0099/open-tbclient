@@ -16,7 +16,7 @@ public class j {
     public final AtomicInteger aeR = new AtomicInteger();
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public final class a implements Runnable {
         public a() {
         }
 

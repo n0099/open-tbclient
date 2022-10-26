@@ -20,24 +20,24 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.reactivestreams.Publisher;
 /* loaded from: classes8.dex */
-public final class BlockingFlowableNext<T> implements Iterable<T> {
+public final class BlockingFlowableNext implements Iterable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Publisher<? extends T> source;
+    public final Publisher source;
 
     /* loaded from: classes8.dex */
-    public static final class NextIterator<T> implements Iterator<T> {
+    public final class NextIterator implements Iterator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Throwable error;
         public boolean hasNext;
         public boolean isNextConsumed;
-        public final Publisher<? extends T> items;
-        public T next;
-        public final NextSubscriber<T> observer;
+        public final Publisher items;
+        public Object next;
+        public final NextSubscriber observer;
         public boolean started;
 
-        public NextIterator(Publisher<? extends T> publisher, NextSubscriber<T> nextSubscriber) {
+        public NextIterator(Publisher publisher, NextSubscriber nextSubscriber) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,9 +66,9 @@ public final class BlockingFlowableNext<T> implements Iterable<T> {
                     if (!this.started) {
                         this.started = true;
                         this.observer.setWaiting();
-                        Flowable.fromPublisher(this.items).materialize().subscribe((FlowableSubscriber<? super Notification<T>>) this.observer);
+                        Flowable.fromPublisher(this.items).materialize().subscribe((FlowableSubscriber) this.observer);
                     }
-                    Notification<T> takeNext = this.observer.takeNext();
+                    Notification takeNext = this.observer.takeNext();
                     if (takeNext.isOnNext()) {
                         this.isNextConsumed = false;
                         this.next = takeNext.getValue();
@@ -100,10 +100,13 @@ public final class BlockingFlowableNext<T> implements Iterable<T> {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 Throwable th = this.error;
                 if (th == null) {
-                    if (this.hasNext) {
-                        return !this.isNextConsumed || moveToNext();
+                    if (!this.hasNext) {
+                        return false;
                     }
-                    return false;
+                    if (this.isNextConsumed && !moveToNext()) {
+                        return false;
+                    }
+                    return true;
                 }
                 throw ExceptionHelper.wrapOrThrow(th);
             }
@@ -111,7 +114,7 @@ public final class BlockingFlowableNext<T> implements Iterable<T> {
         }
 
         @Override // java.util.Iterator
-        public T next() {
+        public Object next() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -125,7 +128,7 @@ public final class BlockingFlowableNext<T> implements Iterable<T> {
                 }
                 throw ExceptionHelper.wrapOrThrow(th);
             }
-            return (T) invokeV.objValue;
+            return invokeV.objValue;
         }
 
         @Override // java.util.Iterator
@@ -138,11 +141,18 @@ public final class BlockingFlowableNext<T> implements Iterable<T> {
     }
 
     /* loaded from: classes8.dex */
-    public static final class NextSubscriber<T> extends DisposableSubscriber<Notification<T>> {
+    public final class NextSubscriber extends DisposableSubscriber {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final BlockingQueue<Notification<T>> buf;
+        public final BlockingQueue buf;
         public final AtomicInteger waiting;
+
+        @Override // org.reactivestreams.Subscriber
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
 
         public NextSubscriber() {
             Interceptable interceptable = $ic;
@@ -161,11 +171,22 @@ public final class BlockingFlowableNext<T> implements Iterable<T> {
             this.waiting = new AtomicInteger();
         }
 
-        @Override // org.reactivestreams.Subscriber
-        public void onComplete() {
+        public void setWaiting() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                this.waiting.set(1);
             }
+        }
+
+        public Notification takeNext() throws InterruptedException {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                setWaiting();
+                BlockingHelper.verifyNonBlocking();
+                return (Notification) this.buf.take();
+            }
+            return (Notification) invokeV.objValue;
         }
 
         @Override // org.reactivestreams.Subscriber
@@ -176,37 +197,16 @@ public final class BlockingFlowableNext<T> implements Iterable<T> {
             }
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // org.reactivestreams.Subscriber
-        public /* bridge */ /* synthetic */ void onNext(Object obj) {
-            onNext((Notification) ((Notification) obj));
-        }
-
-        public void setWaiting() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.waiting.set(1);
-            }
-        }
-
-        public Notification<T> takeNext() throws InterruptedException {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                setWaiting();
-                BlockingHelper.verifyNonBlocking();
-                return this.buf.take();
-            }
-            return (Notification) invokeV.objValue;
-        }
-
-        public void onNext(Notification<T> notification) {
+        public void onNext(Notification notification) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, notification) == null) {
                 if (this.waiting.getAndSet(0) == 1 || !notification.isOnNext()) {
                     while (!this.buf.offer(notification)) {
-                        Notification<T> poll = this.buf.poll();
-                        if (poll != null && !poll.isOnNext()) {
-                            notification = poll;
+                        Notification notification2 = (Notification) this.buf.poll();
+                        if (notification2 != null && !notification2.isOnNext()) {
+                            notification = notification2;
                         }
                     }
                 }
@@ -214,7 +214,7 @@ public final class BlockingFlowableNext<T> implements Iterable<T> {
         }
     }
 
-    public BlockingFlowableNext(Publisher<? extends T> publisher) {
+    public BlockingFlowableNext(Publisher publisher) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -233,9 +233,12 @@ public final class BlockingFlowableNext<T> implements Iterable<T> {
     }
 
     @Override // java.lang.Iterable
-    public Iterator<T> iterator() {
+    public Iterator iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new NextIterator(this.source, new NextSubscriber()) : (Iterator) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new NextIterator(this.source, new NextSubscriber());
+        }
+        return (Iterator) invokeV.objValue;
     }
 }

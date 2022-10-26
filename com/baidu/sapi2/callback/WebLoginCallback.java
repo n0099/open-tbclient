@@ -1,14 +1,17 @@
 package com.baidu.sapi2.callback;
 
-import com.baidu.sapi2.result.WebLoginResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public abstract class WebLoginCallback implements SapiCallback<WebLoginResult> {
+public abstract class WebLoginCallback implements SapiCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract void onQrAppLogin();
+
+    public abstract void onVoiceLogin();
 
     public WebLoginCallback() {
         Interceptable interceptable = $ic;
@@ -23,8 +26,4 @@ public abstract class WebLoginCallback implements SapiCallback<WebLoginResult> {
             }
         }
     }
-
-    public abstract void onQrAppLogin();
-
-    public abstract void onVoiceLogin();
 }

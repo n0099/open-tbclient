@@ -1,6 +1,5 @@
 package com.baidu.swan.game.ad.downloader.model;
 
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -25,7 +24,7 @@ public class DownloadParams {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public static final class SwanAppDownloadType {
+    public final class SwanAppDownloadType {
         public static final /* synthetic */ SwanAppDownloadType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SwanAppDownloadType TYPE_CANCEL_DOWNLOAD;
@@ -85,7 +84,7 @@ public class DownloadParams {
             this.typeName = str2;
         }
 
-        public static SwanAppDownloadType find(@Nullable String str) {
+        public static SwanAppDownloadType find(String str) {
             InterceptResult invokeL;
             SwanAppDownloadType[] values;
             Interceptable interceptable = $ic;
@@ -103,19 +102,28 @@ public class DownloadParams {
         public static SwanAppDownloadType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (SwanAppDownloadType) Enum.valueOf(SwanAppDownloadType.class, str) : (SwanAppDownloadType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return (SwanAppDownloadType) Enum.valueOf(SwanAppDownloadType.class, str);
+            }
+            return (SwanAppDownloadType) invokeL.objValue;
         }
 
         public static SwanAppDownloadType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (SwanAppDownloadType[]) $VALUES.clone() : (SwanAppDownloadType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return (SwanAppDownloadType[]) $VALUES.clone();
+            }
+            return (SwanAppDownloadType[]) invokeV.objValue;
         }
 
         public String getTypeName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.typeName : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.typeName;
+            }
+            return (String) invokeV.objValue;
         }
     }
 
@@ -131,6 +139,25 @@ public class DownloadParams {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = str;
+        this.b = str2;
+    }
+
+    public DownloadParams(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
@@ -155,24 +182,5 @@ public class DownloadParams {
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;
-    }
-
-    public DownloadParams(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = str;
-        this.b = str2;
     }
 }

@@ -16,9 +16,10 @@ public class ImageMetaData {
     @Nullable
     public final ColorSpace mColorSpace;
     @Nullable
-    public final Pair<Integer, Integer> mDimensions;
+    public final Pair mDimensions;
 
     public ImageMetaData(int i, int i2, @Nullable ColorSpace colorSpace) {
+        Pair pair;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -33,7 +34,12 @@ public class ImageMetaData {
                 return;
             }
         }
-        this.mDimensions = (i == -1 || i2 == -1) ? null : new Pair<>(Integer.valueOf(i), Integer.valueOf(i2));
+        if (i != -1 && i2 != -1) {
+            pair = new Pair(Integer.valueOf(i), Integer.valueOf(i2));
+        } else {
+            pair = null;
+        }
+        this.mDimensions = pair;
         this.mColorSpace = colorSpace;
     }
 
@@ -41,13 +47,19 @@ public class ImageMetaData {
     public ColorSpace getColorSpace() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mColorSpace : (ColorSpace) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mColorSpace;
+        }
+        return (ColorSpace) invokeV.objValue;
     }
 
     @Nullable
-    public Pair<Integer, Integer> getDimensions() {
+    public Pair getDimensions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDimensions : (Pair) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mDimensions;
+        }
+        return (Pair) invokeV.objValue;
     }
 }

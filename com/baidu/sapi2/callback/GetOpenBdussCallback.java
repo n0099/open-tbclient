@@ -1,13 +1,12 @@
 package com.baidu.sapi2.callback;
 
 import com.baidu.sapi2.NoProguard;
-import com.baidu.sapi2.result.OpenBdussResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public abstract class GetOpenBdussCallback implements SapiCallback<OpenBdussResult>, NoProguard {
+public abstract class GetOpenBdussCallback implements SapiCallback, NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

@@ -37,18 +37,27 @@ public final class FinderPatternInfo {
     public FinderPattern getBottomLeft() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.bottomLeft : (FinderPattern) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.bottomLeft;
+        }
+        return (FinderPattern) invokeV.objValue;
     }
 
     public FinderPattern getTopLeft() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.topLeft : (FinderPattern) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.topLeft;
+        }
+        return (FinderPattern) invokeV.objValue;
     }
 
     public FinderPattern getTopRight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.topRight : (FinderPattern) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.topRight;
+        }
+        return (FinderPattern) invokeV.objValue;
     }
 }

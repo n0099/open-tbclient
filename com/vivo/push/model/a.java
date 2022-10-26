@@ -35,13 +35,35 @@ public final class a {
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final int hashCode() {
+        InterceptResult invokeV;
+        int hashCode;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String str = this.a;
+            if (str == null) {
+                hashCode = 0;
+            } else {
+                hashCode = str.hashCode();
+            }
+            return hashCode + 31;
+        }
+        return invokeV.intValue;
     }
 
     public final boolean equals(Object obj) {
@@ -51,31 +73,21 @@ public final class a {
             if (this == obj) {
                 return true;
             }
-            if (obj != null && a.class == obj.getClass()) {
-                a aVar = (a) obj;
-                String str = this.a;
-                if (str == null) {
-                    if (aVar.a != null) {
-                        return false;
-                    }
-                } else if (!str.equals(aVar.a)) {
+            if (obj == null || a.class != obj.getClass()) {
+                return false;
+            }
+            a aVar = (a) obj;
+            String str = this.a;
+            if (str == null) {
+                if (aVar.a != null) {
                     return false;
                 }
-                return true;
+            } else if (!str.equals(aVar.a)) {
+                return false;
             }
-            return false;
+            return true;
         }
         return invokeL.booleanValue;
-    }
-
-    public final int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String str = this.a;
-            return (str == null ? 0 : str.hashCode()) + 31;
-        }
-        return invokeV.intValue;
     }
 
     public final String toString() {

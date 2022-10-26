@@ -1,6 +1,5 @@
 package com.bumptech.glide.request;
 
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,21 +7,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bumptech.glide.request.RequestCoordinator;
 /* loaded from: classes7.dex */
 public final class ErrorRequestCoordinator implements RequestCoordinator, Request {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Request error;
-    @Nullable
+    public volatile Request error;
+    public RequestCoordinator.RequestState errorState;
     public final RequestCoordinator parent;
-    public Request primary;
+    public volatile Request primary;
+    public RequestCoordinator.RequestState primaryState;
+    public final Object requestLock;
 
-    public ErrorRequestCoordinator(@Nullable RequestCoordinator requestCoordinator) {
+    public ErrorRequestCoordinator(Object obj, RequestCoordinator requestCoordinator) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {requestCoordinator};
+            Object[] objArr = {obj, requestCoordinator};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,13 +34,94 @@ public final class ErrorRequestCoordinator implements RequestCoordinator, Reques
                 return;
             }
         }
+        RequestCoordinator.RequestState requestState = RequestCoordinator.RequestState.CLEARED;
+        this.primaryState = requestState;
+        this.errorState = requestState;
+        this.requestLock = obj;
         this.parent = requestCoordinator;
     }
 
     private boolean isValidRequest(Request request) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, request)) == null) ? request.equals(this.primary) || (this.primary.isFailed() && request.equals(this.error)) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, request)) == null) {
+            if (!request.equals(this.primary) && (this.primaryState != RequestCoordinator.RequestState.FAILED || !request.equals(this.error))) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.bumptech.glide.request.RequestCoordinator
+    public boolean canNotifyCleared(Request request) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request)) == null) {
+            synchronized (this.requestLock) {
+                if (parentCanNotifyCleared() && isValidRequest(request)) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+            }
+            return z;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.bumptech.glide.request.RequestCoordinator
+    public boolean canNotifyStatusChanged(Request request) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, request)) == null) {
+            synchronized (this.requestLock) {
+                if (parentCanNotifyStatusChanged() && isValidRequest(request)) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+            }
+            return z;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.bumptech.glide.request.RequestCoordinator
+    public boolean canSetImage(Request request) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, request)) == null) {
+            synchronized (this.requestLock) {
+                if (parentCanSetImage() && isValidRequest(request)) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+            }
+            return z;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.bumptech.glide.request.Request
+    public boolean isEquivalentTo(Request request) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, request)) == null) {
+            if (!(request instanceof ErrorRequestCoordinator)) {
+                return false;
+            }
+            ErrorRequestCoordinator errorRequestCoordinator = (ErrorRequestCoordinator) request;
+            if (!this.primary.isEquivalentTo(errorRequestCoordinator.primary) || !this.error.isEquivalentTo(errorRequestCoordinator.error)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     private boolean parentCanNotifyCleared() {
@@ -46,7 +129,10 @@ public final class ErrorRequestCoordinator implements RequestCoordinator, Reques
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             RequestCoordinator requestCoordinator = this.parent;
-            return requestCoordinator == null || requestCoordinator.canNotifyCleared(this);
+            if (requestCoordinator != null && !requestCoordinator.canNotifyCleared(this)) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
     }
@@ -56,7 +142,10 @@ public final class ErrorRequestCoordinator implements RequestCoordinator, Reques
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             RequestCoordinator requestCoordinator = this.parent;
-            return requestCoordinator == null || requestCoordinator.canNotifyStatusChanged(this);
+            if (requestCoordinator != null && !requestCoordinator.canNotifyStatusChanged(this)) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
     }
@@ -66,17 +155,10 @@ public final class ErrorRequestCoordinator implements RequestCoordinator, Reques
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             RequestCoordinator requestCoordinator = this.parent;
-            return requestCoordinator == null || requestCoordinator.canSetImage(this);
-        }
-        return invokeV.booleanValue;
-    }
-
-    private boolean parentIsAnyResourceSet() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            RequestCoordinator requestCoordinator = this.parent;
-            return requestCoordinator != null && requestCoordinator.isAnyResourceSet();
+            if (requestCoordinator != null && !requestCoordinator.canSetImage(this)) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
     }
@@ -84,57 +166,80 @@ public final class ErrorRequestCoordinator implements RequestCoordinator, Reques
     @Override // com.bumptech.glide.request.Request
     public void begin() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.primary.isRunning()) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this.requestLock) {
+                if (this.primaryState != RequestCoordinator.RequestState.RUNNING) {
+                    this.primaryState = RequestCoordinator.RequestState.RUNNING;
+                    this.primary.begin();
+                }
+            }
         }
-        this.primary.begin();
-    }
-
-    @Override // com.bumptech.glide.request.RequestCoordinator
-    public boolean canNotifyCleared(Request request) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request)) == null) ? parentCanNotifyCleared() && isValidRequest(request) : invokeL.booleanValue;
-    }
-
-    @Override // com.bumptech.glide.request.RequestCoordinator
-    public boolean canNotifyStatusChanged(Request request) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, request)) == null) ? parentCanNotifyStatusChanged() && isValidRequest(request) : invokeL.booleanValue;
-    }
-
-    @Override // com.bumptech.glide.request.RequestCoordinator
-    public boolean canSetImage(Request request) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, request)) == null) ? parentCanSetImage() && isValidRequest(request) : invokeL.booleanValue;
     }
 
     @Override // com.bumptech.glide.request.Request
     public void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.primary.clear();
-            if (this.error.isRunning()) {
-                this.error.clear();
+            synchronized (this.requestLock) {
+                this.primaryState = RequestCoordinator.RequestState.CLEARED;
+                this.primary.clear();
+                if (this.errorState != RequestCoordinator.RequestState.CLEARED) {
+                    this.errorState = RequestCoordinator.RequestState.CLEARED;
+                    this.error.clear();
+                }
             }
         }
     }
 
     @Override // com.bumptech.glide.request.RequestCoordinator
+    public RequestCoordinator getRoot() {
+        InterceptResult invokeV;
+        RequestCoordinator requestCoordinator;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this.requestLock) {
+                if (this.parent != null) {
+                    requestCoordinator = this.parent.getRoot();
+                } else {
+                    requestCoordinator = this;
+                }
+            }
+            return requestCoordinator;
+        }
+        return (RequestCoordinator) invokeV.objValue;
+    }
+
+    @Override // com.bumptech.glide.request.RequestCoordinator, com.bumptech.glide.request.Request
     public boolean isAnyResourceSet() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? parentIsAnyResourceSet() || isResourceSet() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            synchronized (this.requestLock) {
+                if (!this.primary.isAnyResourceSet() && !this.error.isAnyResourceSet()) {
+                    z = false;
+                }
+                z = true;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.bumptech.glide.request.Request
     public boolean isCleared() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return (this.primary.isFailed() ? this.error : this.primary).isCleared();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            synchronized (this.requestLock) {
+                if (this.primaryState == RequestCoordinator.RequestState.CLEARED && this.errorState == RequestCoordinator.RequestState.CLEARED) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+            }
+            return z;
         }
         return invokeV.booleanValue;
     }
@@ -142,40 +247,16 @@ public final class ErrorRequestCoordinator implements RequestCoordinator, Reques
     @Override // com.bumptech.glide.request.Request
     public boolean isComplete() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return (this.primary.isFailed() ? this.error : this.primary).isComplete();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.bumptech.glide.request.Request
-    public boolean isEquivalentTo(Request request) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, request)) == null) {
-            if (request instanceof ErrorRequestCoordinator) {
-                ErrorRequestCoordinator errorRequestCoordinator = (ErrorRequestCoordinator) request;
-                return this.primary.isEquivalentTo(errorRequestCoordinator.primary) && this.error.isEquivalentTo(errorRequestCoordinator.error);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            synchronized (this.requestLock) {
+                if (this.primaryState != RequestCoordinator.RequestState.SUCCESS && this.errorState != RequestCoordinator.RequestState.SUCCESS) {
+                    z = false;
+                }
+                z = true;
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.bumptech.glide.request.Request
-    public boolean isFailed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.primary.isFailed() && this.error.isFailed() : invokeV.booleanValue;
-    }
-
-    @Override // com.bumptech.glide.request.Request
-    public boolean isResourceSet() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return (this.primary.isFailed() ? this.error : this.primary).isResourceSet();
+            return z;
         }
         return invokeV.booleanValue;
     }
@@ -183,9 +264,16 @@ public final class ErrorRequestCoordinator implements RequestCoordinator, Reques
     @Override // com.bumptech.glide.request.Request
     public boolean isRunning() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return (this.primary.isFailed() ? this.error : this.primary).isRunning();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            synchronized (this.requestLock) {
+                if (this.primaryState != RequestCoordinator.RequestState.RUNNING && this.errorState != RequestCoordinator.RequestState.RUNNING) {
+                    z = false;
+                }
+                z = true;
+            }
+            return z;
         }
         return invokeV.booleanValue;
     }
@@ -193,43 +281,61 @@ public final class ErrorRequestCoordinator implements RequestCoordinator, Reques
     @Override // com.bumptech.glide.request.RequestCoordinator
     public void onRequestFailed(Request request) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, request) == null) {
-            if (!request.equals(this.error)) {
-                if (this.error.isRunning()) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, request) == null) {
+            synchronized (this.requestLock) {
+                if (!request.equals(this.error)) {
+                    this.primaryState = RequestCoordinator.RequestState.FAILED;
+                    if (this.errorState != RequestCoordinator.RequestState.RUNNING) {
+                        this.errorState = RequestCoordinator.RequestState.RUNNING;
+                        this.error.begin();
+                    }
                     return;
                 }
-                this.error.begin();
-                return;
-            }
-            RequestCoordinator requestCoordinator = this.parent;
-            if (requestCoordinator != null) {
-                requestCoordinator.onRequestFailed(this);
+                this.errorState = RequestCoordinator.RequestState.FAILED;
+                if (this.parent != null) {
+                    this.parent.onRequestFailed(this);
+                }
             }
         }
     }
 
     @Override // com.bumptech.glide.request.RequestCoordinator
     public void onRequestSuccess(Request request) {
-        RequestCoordinator requestCoordinator;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, request) == null) || (requestCoordinator = this.parent) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048588, this, request) == null) {
+            synchronized (this.requestLock) {
+                if (request.equals(this.primary)) {
+                    this.primaryState = RequestCoordinator.RequestState.SUCCESS;
+                } else if (request.equals(this.error)) {
+                    this.errorState = RequestCoordinator.RequestState.SUCCESS;
+                }
+                if (this.parent != null) {
+                    this.parent.onRequestSuccess(this);
+                }
+            }
         }
-        requestCoordinator.onRequestSuccess(this);
     }
 
     @Override // com.bumptech.glide.request.Request
-    public void recycle() {
+    public void pause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.primary.recycle();
-            this.error.recycle();
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            synchronized (this.requestLock) {
+                if (this.primaryState == RequestCoordinator.RequestState.RUNNING) {
+                    this.primaryState = RequestCoordinator.RequestState.PAUSED;
+                    this.primary.pause();
+                }
+                if (this.errorState == RequestCoordinator.RequestState.RUNNING) {
+                    this.errorState = RequestCoordinator.RequestState.PAUSED;
+                    this.error.pause();
+                }
+            }
         }
     }
 
     public void setRequests(Request request, Request request2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048591, this, request, request2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048590, this, request, request2) == null) {
             this.primary = request;
             this.error = request2;
         }

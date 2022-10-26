@@ -28,7 +28,7 @@ import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.android.pushservice.PushManager;
-import com.baidu.tieba.b80;
+import com.baidu.tieba.c80;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -64,8 +64,8 @@ public class AccountManagerImpl {
     public int mLoginType;
     public int mOpenType;
     public Timer mTimer;
-    public CopyOnWriteArrayList<TodoAfterLogin> mToDoListenersAfterLogin;
-    public ArrayList<TodoBeforeLogout> mToDoListenersBeforeLogout;
+    public CopyOnWriteArrayList mToDoListenersAfterLogin;
+    public ArrayList mToDoListenersBeforeLogout;
     public String mToken;
     public String mUid;
     public String mVersionCode;
@@ -86,6 +86,12 @@ public class AccountManagerImpl {
         }
     }
 
+    public void clearKillOutListener() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
     public AccountManagerImpl() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -101,8 +107,8 @@ public class AccountManagerImpl {
         }
         this.mAppid = -1L;
         this.mUid = "";
-        this.mToDoListenersAfterLogin = new CopyOnWriteArrayList<>();
-        this.mToDoListenersBeforeLogout = new ArrayList<>();
+        this.mToDoListenersAfterLogin = new CopyOnWriteArrayList();
+        this.mToDoListenersBeforeLogout = new ArrayList();
         this.mLoginType = -1;
         this.mCuid = null;
         this.mFrom = "";
@@ -114,10 +120,255 @@ public class AccountManagerImpl {
         this.mOpenType = 0;
         this.isMediaRole = false;
         this.mAppid = Utility.getAppId(mContext);
-        Class<?>[] clsArr = {IMUserLoginByTokenMsg.class, IMUserLogoutMsg.class};
+        Class[] clsArr = {IMUserLoginByTokenMsg.class, IMUserLogoutMsg.class};
         int[] iArr = {50, 52};
         for (int i3 = 0; i3 < 2; i3++) {
             MessageFactory.getInstance().addType(iArr[i3], clsArr[i3]);
+        }
+    }
+
+    public int getAppOpenType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mOpenType;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getAppVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (TextUtils.isEmpty(this.mAppVersion)) {
+                return Utility.readStringData(mContext, Constants.KEY_PRODUCT_VERSION, "0");
+            }
+            return this.mAppVersion;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getAppid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            long j = this.mAppid;
+            if (j == -1) {
+                return Utility.readAppId(mContext);
+            }
+            return j;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getCuid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            String str = this.mCuid;
+            if (str != null) {
+                return str;
+            }
+            String readCuid = Utility.readCuid(mContext);
+            this.mCuid = readCuid;
+            return readCuid;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getFrom() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            String str = this.mFrom;
+            if (TextUtils.isEmpty(str)) {
+                return Utility.getLoginFrom(mContext);
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getLoginState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mLoginState;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getLoginType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            int i = this.mLoginType;
+            if (i != -1) {
+                return i;
+            }
+            int readLoginType = Utility.readLoginType(mContext);
+            this.mLoginType = readLoginType;
+            return readLoginType;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean getMediaRole() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.isMediaRole;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String getToken() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            String str = this.mToken;
+            if (TextUtils.isEmpty(str)) {
+                return Utility.getAccessToken(mContext);
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getUK() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            if (isLogin()) {
+                return Utility.getUK(mContext);
+            }
+            return 0L;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getUid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            String str = this.mUid;
+            if (TextUtils.isEmpty(str)) {
+                String readUid = Utility.readUid(mContext);
+                this.mUid = readUid;
+                return readUid;
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getVersionCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            String str = this.mVersionCode;
+            if (TextUtils.isEmpty(str)) {
+                return Utility.readStringData(mContext, Constants.KEY_VCODE, "");
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getZhidaAppid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return Utility.getZhidaAppid(mContext);
+        }
+        return invokeV.longValue;
+    }
+
+    public String getZid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            String str = this.mZid;
+            if (TextUtils.isEmpty(str)) {
+                return Utility.readStringData(mContext, Constants.KEY_ZID, "");
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getcFrom() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            String str = this.mCFrom;
+            if (TextUtils.isEmpty(str)) {
+                return Utility.getLoginCFrom(mContext);
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean isLogin() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return !TextUtils.isEmpty(getToken());
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void pushReStartWork() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
+            LogUtils.d(TAG, "in pushReStartWork---");
+            TaskManager.getInstance(mContext).submitForLocalOperation(new Runnable(this) { // from class: com.baidu.android.imsdk.account.AccountManagerImpl.5
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ AccountManagerImpl this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        LogUtils.d(AccountManagerImpl.TAG, "will do pushReStartWork---");
+                        try {
+                            PushManager.reStartWork(AccountManagerImpl.mContext);
+                        } catch (Throwable th) {
+                            String str = AccountManagerImpl.TAG;
+                            LogUtils.d(str, "pushReStartWork---ERROR---" + th.getMessage());
+                            new IMTrack.CrashBuilder(AccountManagerImpl.mContext).exception(Log.getStackTraceString(th)).build();
+                        }
+                    }
+                }
+            });
+        }
+    }
+
+    public void syncPrivacy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048632, this) == null) {
+            IMUserQueryPrivacyRequest iMUserQueryPrivacyRequest = new IMUserQueryPrivacyRequest(mContext, AccountManager.getAppid(mContext));
+            HttpHelper.executor(mContext, iMUserQueryPrivacyRequest, iMUserQueryPrivacyRequest);
         }
     }
 
@@ -147,6 +398,166 @@ public class AccountManagerImpl {
                     this.mILoginStateChangedListener.onLoginStateChanged(i);
                 }
             }
+        }
+    }
+
+    public boolean clearUid(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            boolean removeKey = Utility.removeKey(mContext, Constants.KEY_PASSPORT_UID);
+            if (removeKey) {
+                this.mUid = "";
+            }
+            return removeKey;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void getMsgSettingSwitchStatus(IGetMsgSettingSwitchListener iGetMsgSettingSwitchListener) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048590, this, iGetMsgSettingSwitchListener) != null) || iGetMsgSettingSwitchListener == null) {
+            return;
+        }
+        if (isLogin()) {
+            IMGetMsgSettingSwitchRequest iMGetMsgSettingSwitchRequest = new IMGetMsgSettingSwitchRequest(mContext, iGetMsgSettingSwitchListener);
+            HttpHelper.executor(mContext, iMGetMsgSettingSwitchRequest, iMGetMsgSettingSwitchRequest);
+            return;
+        }
+        iGetMsgSettingSwitchListener.onGetMsgSettingSwitch(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, 0, 0);
+    }
+
+    public int getNotificationPrivacy(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, context)) == null) {
+            return Utility.readPrivate(context);
+        }
+        return invokeL.intValue;
+    }
+
+    public void registerKillOutListener(IKickOutListener iKickOutListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048612, this, iKickOutListener) == null) {
+            this.mKickOutListener = iKickOutListener;
+        }
+    }
+
+    public void registerToDoAfterLoginListener(TodoAfterLogin todoAfterLogin) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048613, this, todoAfterLogin) == null) && todoAfterLogin != null && !this.mToDoListenersAfterLogin.contains(todoAfterLogin)) {
+            this.mToDoListenersAfterLogin.add(todoAfterLogin);
+        }
+    }
+
+    public void registerToDoBeforeLogoutListener(TodoBeforeLogout todoBeforeLogout) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048614, this, todoBeforeLogout) == null) && todoBeforeLogout != null && !this.mToDoListenersBeforeLogout.contains(todoBeforeLogout)) {
+            this.mToDoListenersBeforeLogout.add(todoBeforeLogout);
+        }
+    }
+
+    public void setAppOpenType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
+            this.mOpenType = i;
+        }
+    }
+
+    public void setAppVersion(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048616, this, str) == null) {
+            this.mAppVersion = str;
+            Utility.writeStringData(mContext, Constants.KEY_PRODUCT_VERSION, str);
+        }
+    }
+
+    public boolean setAppid(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048617, this, j)) == null) {
+            this.mAppid = j;
+            Utility.writeAppId(mContext, j);
+            return true;
+        }
+        return invokeJ.booleanValue;
+    }
+
+    public void setCuid(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048618, this, str) == null) {
+            this.mCuid = str;
+            Utility.writeCuid(mContext, str);
+        }
+    }
+
+    public void setLogStateChangedListener(ILoginStateChangedListener iLoginStateChangedListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048620, this, iLoginStateChangedListener) == null) {
+            this.mILoginStateChangedListener = iLoginStateChangedListener;
+        }
+    }
+
+    public void setLoginType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048621, this, i) == null) {
+            this.mLoginType = i;
+            Utility.writeLoginType(mContext, i);
+        }
+    }
+
+    public void setMediaRole(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048622, this, z) == null) {
+            this.isMediaRole = z;
+        }
+    }
+
+    public void setNotifyPaid(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048625, this, j) == null) {
+            Utility.setNotifyPaid(mContext, j);
+        }
+    }
+
+    public boolean setUid(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048626, this, str)) == null) {
+            if (str != null) {
+                this.mUid = str;
+                Utility.writeUid(mContext, str);
+            }
+            if (str != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setVersionCode(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048628, this, str) == null) {
+            this.mVersionCode = str;
+            Utility.writeVersionCode(mContext, str);
+        }
+    }
+
+    public void setZid(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048630, this, str) == null) {
+            this.mZid = str;
+            Utility.writeZid(mContext, str);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void getTokenByCuid(long j, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{Long.valueOf(j), str, str2}) == null) {
+            IMGetTokenByCuidRequest iMGetTokenByCuidRequest = new IMGetTokenByCuidRequest(mContext, j, str, str2);
+            HttpHelper.executor(mContext, iMGetTokenByCuidRequest, iMGetTokenByCuidRequest);
         }
     }
 
@@ -180,7 +591,7 @@ public class AccountManagerImpl {
                 this.mToken = str2;
                 Utility.writeAccessToken(mContext, str2);
                 try {
-                    b80.g(mContext).f(mContext, creatMethodIntent);
+                    c80.g(mContext).f(mContext, creatMethodIntent);
                     Utility.writeLoginFlag(mContext, "6Y", "startLoginService");
                 } catch (Exception e) {
                     Utility.writeLoginFlag(mContext, "6N_1", "startLoginService exception");
@@ -191,134 +602,133 @@ public class AccountManagerImpl {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:15:0x0047  */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x007d  */
+    /* JADX WARN: Removed duplicated region for block: B:15:0x0048  */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x007e  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void startLoginServiceRunnable(int i, String str, String str2, String str3, String str4, ILoginListener iLoginListener) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(65547, this, new Object[]{Integer.valueOf(i), str, str2, str3, str4, iLoginListener}) != null) {
-            return;
-        }
-        LogUtils.d(TAG, "*** startLoginServiceRunnable will start ***");
-        String token = getToken();
-        if (i != 6 && !TextUtils.isEmpty(token)) {
-            if (!str2.equals(token)) {
-                z = true;
-                Context context = mContext;
-                Utility.writeLoginFlag(context, "5N", "startLoginServiceRunnable begin, loginType = " + i + "，needLogout :" + z);
-                if (!z) {
-                    LogUtils.d(TAG, "need logout before login");
-                    if (b80.e) {
-                        BIMManager.imLogoutByLcp(mContext);
-                        startLoginService(i, str, str2, str3, str4, iLoginListener);
-                        return;
-                    }
-                    LoginManager.getInstance(mContext).logoutInternal(null);
-                    Utility.clearCache(mContext);
-                    logout(0, new ILoginListener(this, i, str, str2, str3, str4, iLoginListener) { // from class: com.baidu.android.imsdk.account.AccountManagerImpl.3
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ AccountManagerImpl this$0;
-                        public final /* synthetic */ String val$accessToken;
-                        public final /* synthetic */ String val$cfrom;
-                        public final /* synthetic */ String val$from;
-                        public final /* synthetic */ ILoginListener val$listener;
-                        public final /* synthetic */ int val$uLoginType;
-                        public final /* synthetic */ String val$uid;
+        if (interceptable == null || interceptable.invokeCommon(65547, this, new Object[]{Integer.valueOf(i), str, str2, str3, str4, iLoginListener}) == null) {
+            LogUtils.d(TAG, "*** startLoginServiceRunnable will start ***");
+            String token = getToken();
+            if (i != 6 && !TextUtils.isEmpty(token)) {
+                if (!str2.equals(token)) {
+                    z = true;
+                    Context context = mContext;
+                    Utility.writeLoginFlag(context, "5N", "startLoginServiceRunnable begin, loginType = " + i + "，needLogout :" + z);
+                    if (!z) {
+                        LogUtils.d(TAG, "need logout before login");
+                        if (c80.e) {
+                            BIMManager.imLogoutByLcp(mContext);
+                            startLoginService(i, str, str2, str3, str4, iLoginListener);
+                            return;
+                        }
+                        LoginManager.getInstance(mContext).logoutInternal(null);
+                        Utility.clearCache(mContext);
+                        logout(0, new ILoginListener(this, i, str, str2, str3, str4, iLoginListener) { // from class: com.baidu.android.imsdk.account.AccountManagerImpl.3
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+                            public final /* synthetic */ AccountManagerImpl this$0;
+                            public final /* synthetic */ String val$accessToken;
+                            public final /* synthetic */ String val$cfrom;
+                            public final /* synthetic */ String val$from;
+                            public final /* synthetic */ ILoginListener val$listener;
+                            public final /* synthetic */ int val$uLoginType;
+                            public final /* synthetic */ String val$uid;
 
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, Integer.valueOf(i), str, str2, str3, str4, iLoginListener};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
+                            @Override // com.baidu.android.imsdk.account.ILoginListener
+                            public void onLoginResult(int i2, String str5) {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str5) == null) {
                                 }
                             }
-                            this.this$0 = this;
-                            this.val$uLoginType = i;
-                            this.val$uid = str;
-                            this.val$accessToken = str2;
-                            this.val$from = str3;
-                            this.val$cfrom = str4;
-                            this.val$listener = iLoginListener;
-                        }
 
-                        @Override // com.baidu.android.imsdk.account.ILoginListener
-                        public void onLoginResult(int i2, String str5) {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str5) == null) {
+                            {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {this, Integer.valueOf(i), str, str2, str3, str4, iLoginListener};
+                                    interceptable2.invokeUnInit(65536, newInitContext);
+                                    int i2 = newInitContext.flag;
+                                    if ((i2 & 1) != 0) {
+                                        int i3 = i2 & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable2.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.this$0 = this;
+                                this.val$uLoginType = i;
+                                this.val$uid = str;
+                                this.val$accessToken = str2;
+                                this.val$from = str3;
+                                this.val$cfrom = str4;
+                                this.val$listener = iLoginListener;
                             }
-                        }
 
-                        @Override // com.baidu.android.imsdk.account.ILoginListener
-                        public void onLogoutResult(int i2, String str5, int i3) {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str5, Integer.valueOf(i3)}) == null) {
-                                LogUtils.d(AccountManagerImpl.TAG, "logout onLogoutResult");
-                                this.this$0.disconnect(ListenerManager.getInstance().addListener(new ILoginListener(this) { // from class: com.baidu.android.imsdk.account.AccountManagerImpl.3.1
-                                    public static /* synthetic */ Interceptable $ic;
-                                    public transient /* synthetic */ FieldHolder $fh;
-                                    public final /* synthetic */ AnonymousClass3 this$1;
+                            @Override // com.baidu.android.imsdk.account.ILoginListener
+                            public void onLogoutResult(int i2, String str5, int i3) {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str5, Integer.valueOf(i3)}) == null) {
+                                    LogUtils.d(AccountManagerImpl.TAG, "logout onLogoutResult");
+                                    this.this$0.disconnect(ListenerManager.getInstance().addListener(new ILoginListener(this) { // from class: com.baidu.android.imsdk.account.AccountManagerImpl.3.1
+                                        public static /* synthetic */ Interceptable $ic;
+                                        public transient /* synthetic */ FieldHolder $fh;
+                                        public final /* synthetic */ AnonymousClass3 this$1;
 
-                                    {
-                                        Interceptable interceptable3 = $ic;
-                                        if (interceptable3 != null) {
-                                            InitContext newInitContext = TitanRuntime.newInitContext();
-                                            newInitContext.initArgs = r2;
-                                            Object[] objArr = {this};
-                                            interceptable3.invokeUnInit(65536, newInitContext);
-                                            int i4 = newInitContext.flag;
-                                            if ((i4 & 1) != 0) {
-                                                int i5 = i4 & 2;
-                                                newInitContext.thisArg = this;
-                                                interceptable3.invokeInitBody(65536, newInitContext);
-                                                return;
+                                        @Override // com.baidu.android.imsdk.account.ILoginListener
+                                        public void onLoginResult(int i4, String str6) {
+                                            Interceptable interceptable3 = $ic;
+                                            if (interceptable3 == null || interceptable3.invokeIL(1048576, this, i4, str6) == null) {
                                             }
                                         }
-                                        this.this$1 = this;
-                                    }
 
-                                    @Override // com.baidu.android.imsdk.account.ILoginListener
-                                    public void onLoginResult(int i4, String str6) {
-                                        Interceptable interceptable3 = $ic;
-                                        if (interceptable3 == null || interceptable3.invokeIL(1048576, this, i4, str6) == null) {
+                                        {
+                                            Interceptable interceptable3 = $ic;
+                                            if (interceptable3 != null) {
+                                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                                newInitContext.initArgs = r2;
+                                                Object[] objArr = {this};
+                                                interceptable3.invokeUnInit(65536, newInitContext);
+                                                int i4 = newInitContext.flag;
+                                                if ((i4 & 1) != 0) {
+                                                    int i5 = i4 & 2;
+                                                    newInitContext.thisArg = this;
+                                                    interceptable3.invokeInitBody(65536, newInitContext);
+                                                    return;
+                                                }
+                                            }
+                                            this.this$1 = this;
                                         }
-                                    }
 
-                                    @Override // com.baidu.android.imsdk.account.ILoginListener
-                                    public void onLogoutResult(int i4, String str6, int i5) {
-                                        Interceptable interceptable3 = $ic;
-                                        if (interceptable3 == null || interceptable3.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i4), str6, Integer.valueOf(i5)}) == null) {
-                                            LogUtils.d(AccountManagerImpl.TAG, "disconnect onLogoutResult");
-                                            Utility.writeLoginFlag(AccountManagerImpl.mContext, "5Y", "Logout and disconnect success");
-                                            AnonymousClass3 anonymousClass3 = this.this$1;
-                                            anonymousClass3.this$0.startLoginService(anonymousClass3.val$uLoginType, anonymousClass3.val$uid, anonymousClass3.val$accessToken, anonymousClass3.val$from, anonymousClass3.val$cfrom, anonymousClass3.val$listener);
+                                        @Override // com.baidu.android.imsdk.account.ILoginListener
+                                        public void onLogoutResult(int i4, String str6, int i5) {
+                                            Interceptable interceptable3 = $ic;
+                                            if (interceptable3 == null || interceptable3.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i4), str6, Integer.valueOf(i5)}) == null) {
+                                                LogUtils.d(AccountManagerImpl.TAG, "disconnect onLogoutResult");
+                                                Utility.writeLoginFlag(AccountManagerImpl.mContext, "5Y", "Logout and disconnect success");
+                                                AnonymousClass3 anonymousClass3 = this.this$1;
+                                                anonymousClass3.this$0.startLoginService(anonymousClass3.val$uLoginType, anonymousClass3.val$uid, anonymousClass3.val$accessToken, anonymousClass3.val$from, anonymousClass3.val$cfrom, anonymousClass3.val$listener);
+                                            }
                                         }
-                                    }
-                                }));
+                                    }));
+                                }
                             }
-                        }
-                    });
+                        });
+                        return;
+                    }
+                    startLoginService(i, str, str2, str3, str4, iLoginListener);
                     return;
                 }
-                startLoginService(i, str, str2, str3, str4, iLoginListener);
-                return;
             }
-        }
-        z = false;
-        Context context2 = mContext;
-        Utility.writeLoginFlag(context2, "5N", "startLoginServiceRunnable begin, loginType = " + i + "，needLogout :" + z);
-        if (!z) {
+            z = false;
+            Context context2 = mContext;
+            Utility.writeLoginFlag(context2, "5N", "startLoginServiceRunnable begin, loginType = " + i + "，needLogout :" + z);
+            if (!z) {
+            }
         }
     }
 
@@ -326,19 +736,13 @@ public class AccountManagerImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, null, context) == null) {
             try {
-                Intent intent = new Intent(mContext, b80.class);
+                Intent intent = new Intent(mContext, c80.class);
                 intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
                 intent.setPackage(mContext.getPackageName());
-                b80.g(context).f(mContext, intent);
+                c80.g(context).f(mContext, intent);
             } catch (Exception unused) {
                 LogUtils.e(TAG, "tryConnection failed......");
             }
-        }
-    }
-
-    public void clearKillOutListener() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
@@ -364,6 +768,27 @@ public class AccountManagerImpl {
         return invokeL.booleanValue;
     }
 
+    public void setUpdateSwitch(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048627, this, i) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        Utility.writeBooleanData(mContext, Constants.KEY_UPDATE_SWITCH_USER, true);
+                        Utility.writeBooleanData(mContext, Constants.KEY_UPDATE_SWITCH_PA, true);
+                        return;
+                    }
+                    Utility.writeBooleanData(mContext, Constants.KEY_UPDATE_SWITCH_USER, false);
+                    Utility.writeBooleanData(mContext, Constants.KEY_UPDATE_SWITCH_PA, false);
+                    return;
+                }
+                Utility.writeBooleanData(mContext, Constants.KEY_UPDATE_SWITCH_USER, false);
+                return;
+            }
+            Utility.writeBooleanData(mContext, Constants.KEY_UPDATE_SWITCH_PA, false);
+        }
+    }
+
     public boolean clearToken(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -373,7 +798,7 @@ public class AccountManagerImpl {
                 Utility.clearCache(mContext);
                 this.mToken = null;
             }
-            if (!b80.e) {
+            if (!c80.e) {
                 clearLoginParam(mContext);
                 clearUid(mContext);
                 disconnect(str);
@@ -390,80 +815,23 @@ public class AccountManagerImpl {
         return invokeL.booleanValue;
     }
 
-    public boolean clearUid(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            boolean removeKey = Utility.removeKey(mContext, Constants.KEY_PASSPORT_UID);
-            if (removeKey) {
-                this.mUid = "";
-            }
-            return removeKey;
-        }
-        return invokeL.booleanValue;
-    }
-
     public void disconnect(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             try {
-                Intent intent = new Intent(mContext, b80.class);
+                Intent intent = new Intent(mContext, c80.class);
                 intent.putExtra(Constants.EXTRA_LISTENER_ID, str);
                 intent.putExtra(Constants.EXTRA_DISCONNECT, "1");
                 intent.setPackage(mContext.getPackageName());
-                b80.g(mContext).f(mContext, intent);
+                c80.g(mContext).f(mContext, intent);
             } catch (Exception e) {
                 LogUtils.e(TAG, "disconnect", e);
                 IMListener removeListener = ListenerManager.getInstance().removeListener(str);
-                if (removeListener == null || !(removeListener instanceof ILoginListener)) {
-                    return;
+                if (removeListener != null && (removeListener instanceof ILoginListener)) {
+                    ((ILoginListener) removeListener).onLogoutResult(1003, Constants.ERROR_MSG_SERVICE_ERROR, BIMManager.getLoginType(mContext));
                 }
-                ((ILoginListener) removeListener).onLogoutResult(1003, Constants.ERROR_MSG_SERVICE_ERROR, BIMManager.getLoginType(mContext));
             }
         }
-    }
-
-    public int getAppOpenType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mOpenType : invokeV.intValue;
-    }
-
-    public String getAppVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (TextUtils.isEmpty(this.mAppVersion)) {
-                return Utility.readStringData(mContext, Constants.KEY_PRODUCT_VERSION, "0");
-            }
-            return this.mAppVersion;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long getAppid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            long j = this.mAppid;
-            return j == -1 ? Utility.readAppId(mContext) : j;
-        }
-        return invokeV.longValue;
-    }
-
-    public String getCuid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            String str = this.mCuid;
-            if (str != null) {
-                return str;
-            }
-            String readCuid = Utility.readCuid(mContext);
-            this.mCuid = readCuid;
-            return readCuid;
-        }
-        return (String) invokeV.objValue;
     }
 
     public String getExtraSafeParams() {
@@ -479,72 +847,6 @@ public class AccountManagerImpl {
                 new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
             }
             return jSONObject.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String getFrom() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            String str = this.mFrom;
-            return TextUtils.isEmpty(str) ? Utility.getLoginFrom(mContext) : str;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int getLoginState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mLoginState : invokeV.intValue;
-    }
-
-    public int getLoginType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            int i = this.mLoginType;
-            if (i != -1) {
-                return i;
-            }
-            int readLoginType = Utility.readLoginType(mContext);
-            this.mLoginType = readLoginType;
-            return readLoginType;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean getMediaRole() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.isMediaRole : invokeV.booleanValue;
-    }
-
-    public void getMsgSettingSwitchStatus(IGetMsgSettingSwitchListener iGetMsgSettingSwitchListener) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, iGetMsgSettingSwitchListener) == null) || iGetMsgSettingSwitchListener == null) {
-            return;
-        }
-        if (isLogin()) {
-            IMGetMsgSettingSwitchRequest iMGetMsgSettingSwitchRequest = new IMGetMsgSettingSwitchRequest(mContext, iGetMsgSettingSwitchListener);
-            HttpHelper.executor(mContext, iMGetMsgSettingSwitchRequest, iMGetMsgSettingSwitchRequest);
-            return;
-        }
-        iGetMsgSettingSwitchListener.onGetMsgSettingSwitch(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, 0, 0);
-    }
-
-    public int getNotificationPrivacy(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, context)) == null) ? Utility.readPrivate(context) : invokeL.intValue;
-    }
-
-    public String getToken() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            String str = this.mToken;
-            return TextUtils.isEmpty(str) ? Utility.getAccessToken(mContext) : str;
         }
         return (String) invokeV.objValue;
     }
@@ -598,9 +900,10 @@ public class AccountManagerImpl {
                     @Override // java.util.TimerTask, java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.this$0.getTokenByCuid(this.val$appid, this.val$cuid, this.val$key);
+                        if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                            return;
                         }
+                        this.this$0.getTokenByCuid(this.val$appid, this.val$cuid, this.val$key);
                     }
                 }, Utility.getPeakDelayTime());
             } catch (Exception e) {
@@ -610,31 +913,18 @@ public class AccountManagerImpl {
         }
     }
 
-    public long getUK() {
-        InterceptResult invokeV;
+    public void onQueryPrivacyResult(int i, String str, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            if (isLogin()) {
-                return Utility.getUK(mContext);
+        if (interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
+            String str2 = TAG;
+            LogUtils.d(str2, "onQueryPrivacyResult " + i + " " + str + " " + i2);
+            if (i == 0) {
+                Utility.writePrivate(mContext, i2);
+                return;
             }
-            return 0L;
+            String str3 = TAG;
+            LogUtils.e(str3, "sync account privacy error " + i + " " + str);
         }
-        return invokeV.longValue;
-    }
-
-    public String getUid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            String str = this.mUid;
-            if (TextUtils.isEmpty(str)) {
-                String readUid = Utility.readUid(mContext);
-                this.mUid = readUid;
-                return readUid;
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
     }
 
     public void getUidByUk(long[] jArr, IGetUidByUkListener iGetUidByUkListener) {
@@ -648,46 +938,21 @@ public class AccountManagerImpl {
         }
     }
 
-    public String getVersionCode() {
-        InterceptResult invokeV;
+    public boolean setEnv(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            String str = this.mVersionCode;
-            return TextUtils.isEmpty(str) ? Utility.readStringData(mContext, Constants.KEY_VCODE, "") : str;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048619, this, context, i)) == null) {
+            return Constants.setEnv(context, i);
         }
-        return (String) invokeV.objValue;
+        return invokeLI.booleanValue;
     }
 
-    public long getZhidaAppid() {
-        InterceptResult invokeV;
+    public void setNotificationPrivacy(int i, ISetNotificationPrivacyListener iSetNotificationPrivacyListener) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? Utility.getZhidaAppid(mContext) : invokeV.longValue;
-    }
-
-    public String getZid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            String str = this.mZid;
-            return TextUtils.isEmpty(str) ? Utility.readStringData(mContext, Constants.KEY_ZID, "") : str;
+        if (interceptable == null || interceptable.invokeIL(1048624, this, i, iSetNotificationPrivacyListener) == null) {
+            IMUserSetPrivacyRequest iMUserSetPrivacyRequest = new IMUserSetPrivacyRequest(mContext, ListenerManager.getInstance().addListener(iSetNotificationPrivacyListener), AccountManager.getAppid(mContext), i);
+            HttpHelper.executor(mContext, iMUserSetPrivacyRequest, iMUserSetPrivacyRequest);
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String getcFrom() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            String str = this.mCFrom;
-            return TextUtils.isEmpty(str) ? Utility.getLoginCFrom(mContext) : str;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean isLogin() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? !TextUtils.isEmpty(getToken()) : invokeV.booleanValue;
     }
 
     public void login(int i, String str, String str2, String str3, String str4, ILoginListener iLoginListener) {
@@ -764,7 +1029,7 @@ public class AccountManagerImpl {
                 }
             }
             Utility.writeLoginFlag(mContext, "5N_2", "startLoginServiceRunnable");
-            if (TaskManager.getInstance(mContext).submitForNetWork(new Runnable(this, i, str, str2, str3, str4, iLoginListener) { // from class: com.baidu.android.imsdk.account.AccountManagerImpl.2
+            if (!TaskManager.getInstance(mContext).submitForNetWork(new Runnable(this, i, str, str2, str3, str4, iLoginListener) { // from class: com.baidu.android.imsdk.account.AccountManagerImpl.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AccountManagerImpl this$0;
@@ -807,9 +1072,8 @@ public class AccountManagerImpl {
                     }
                 }
             })) {
-                return;
+                startLoginServiceRunnable(i, str, str2, str3, str4, iLoginListener);
             }
-            startLoginServiceRunnable(i, str, str2, str3, str4, iLoginListener);
         }
     }
 
@@ -818,11 +1082,11 @@ public class AccountManagerImpl {
         if (interceptable == null || interceptable.invokeIL(1048603, this, i, iLoginListener) == null) {
             noticeStateChanged(4);
             BIMManager.connectStatusNotify(1);
-            Iterator<TodoBeforeLogout> it = this.mToDoListenersBeforeLogout.iterator();
+            Iterator it = this.mToDoListenersBeforeLogout.iterator();
             while (it.hasNext()) {
-                TodoBeforeLogout next = it.next();
-                if (next != null) {
-                    next.todo();
+                TodoBeforeLogout todoBeforeLogout = (TodoBeforeLogout) it.next();
+                if (todoBeforeLogout != null) {
+                    todoBeforeLogout.todo();
                 }
             }
             String addListener = ListenerManager.getInstance().addListener(iLoginListener);
@@ -831,7 +1095,7 @@ public class AccountManagerImpl {
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
                 creatMethodIntent.putExtra(Constants.EXTRA_CLEAR_AFTER_LOGOUT, i);
                 try {
-                    b80.g(mContext).f(mContext, creatMethodIntent);
+                    c80.g(mContext).f(mContext, creatMethodIntent);
                     return;
                 } catch (Exception e) {
                     LogUtils.e(TAG, "Exception ", e);
@@ -858,7 +1122,7 @@ public class AccountManagerImpl {
         }
     }
 
-    public void onGetUidByUkResult(String str, int i, String str2, long[] jArr, Map<Long, Long> map) {
+    public void onGetUidByUkResult(String str, int i, String str2, long[] jArr, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{str, Integer.valueOf(i), str2, jArr, map}) == null) {
             String str3 = TAG;
@@ -873,7 +1137,7 @@ public class AccountManagerImpl {
     }
 
     public void onLoginResult(String str, int i, String str2, boolean z) {
-        CopyOnWriteArrayList<TodoAfterLogin> copyOnWriteArrayList;
+        CopyOnWriteArrayList copyOnWriteArrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
             String str3 = TAG;
@@ -884,16 +1148,16 @@ public class AccountManagerImpl {
                 ConversationStudioManImpl.getInstance(mContext).clearAckCastList();
                 noticeStateChanged(3);
                 BIMManager.connectStatusNotify(0);
-                if (!b80.e) {
+                if (!c80.e) {
                     Utility.sendConnectionStateBroadCast(mContext, 0);
                 }
             } else {
                 noticeStateChanged(2);
             }
             if (i == 0 && (copyOnWriteArrayList = this.mToDoListenersAfterLogin) != null && copyOnWriteArrayList.size() > 0) {
-                Iterator<TodoAfterLogin> it = this.mToDoListenersAfterLogin.iterator();
+                Iterator it = this.mToDoListenersAfterLogin.iterator();
                 while (it.hasNext()) {
-                    it.next().todo(z);
+                    ((TodoAfterLogin) it.next()).todo(z);
                 }
             }
             if (i == 0) {
@@ -928,20 +1192,6 @@ public class AccountManagerImpl {
             Utility.writeLoginFlag(mContext, "5N", "onLogoutResult listener is null");
             String str4 = LogUtils.TAG;
             LogUtils.d(str4, TAG + "mLoginListener is null");
-        }
-    }
-
-    public void onQueryPrivacyResult(int i, String str, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
-            String str2 = TAG;
-            LogUtils.d(str2, "onQueryPrivacyResult " + i + " " + str + " " + i2);
-            if (i == 0) {
-                Utility.writePrivate(mContext, i2);
-                return;
-            }
-            String str3 = TAG;
-            LogUtils.e(str3, "sync account privacy error " + i + " " + str);
         }
     }
 
@@ -981,139 +1231,9 @@ public class AccountManagerImpl {
         }
     }
 
-    public void pushReStartWork() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
-            LogUtils.d(TAG, "in pushReStartWork---");
-            TaskManager.getInstance(mContext).submitForLocalOperation(new Runnable(this) { // from class: com.baidu.android.imsdk.account.AccountManagerImpl.5
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AccountManagerImpl this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        LogUtils.d(AccountManagerImpl.TAG, "will do pushReStartWork---");
-                        try {
-                            PushManager.reStartWork(AccountManagerImpl.mContext);
-                        } catch (Throwable th) {
-                            String str = AccountManagerImpl.TAG;
-                            LogUtils.d(str, "pushReStartWork---ERROR---" + th.getMessage());
-                            new IMTrack.CrashBuilder(AccountManagerImpl.mContext).exception(Log.getStackTraceString(th)).build();
-                        }
-                    }
-                }
-            });
-        }
-    }
-
-    public void registerKillOutListener(IKickOutListener iKickOutListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048612, this, iKickOutListener) == null) {
-            this.mKickOutListener = iKickOutListener;
-        }
-    }
-
-    public void registerToDoAfterLoginListener(TodoAfterLogin todoAfterLogin) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048613, this, todoAfterLogin) == null) || todoAfterLogin == null || this.mToDoListenersAfterLogin.contains(todoAfterLogin)) {
-            return;
-        }
-        this.mToDoListenersAfterLogin.add(todoAfterLogin);
-    }
-
-    public void registerToDoBeforeLogoutListener(TodoBeforeLogout todoBeforeLogout) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048614, this, todoBeforeLogout) == null) || todoBeforeLogout == null || this.mToDoListenersBeforeLogout.contains(todoBeforeLogout)) {
-            return;
-        }
-        this.mToDoListenersBeforeLogout.add(todoBeforeLogout);
-    }
-
-    public void setAppOpenType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
-            this.mOpenType = i;
-        }
-    }
-
-    public void setAppVersion(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048616, this, str) == null) {
-            this.mAppVersion = str;
-            Utility.writeStringData(mContext, Constants.KEY_PRODUCT_VERSION, str);
-        }
-    }
-
-    public boolean setAppid(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048617, this, j)) == null) {
-            this.mAppid = j;
-            Utility.writeAppId(mContext, j);
-            return true;
-        }
-        return invokeJ.booleanValue;
-    }
-
-    public void setCuid(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, str) == null) {
-            this.mCuid = str;
-            Utility.writeCuid(mContext, str);
-        }
-    }
-
-    public boolean setEnv(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048619, this, context, i)) == null) ? Constants.setEnv(context, i) : invokeLI.booleanValue;
-    }
-
-    public void setLogStateChangedListener(ILoginStateChangedListener iLoginStateChangedListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048620, this, iLoginStateChangedListener) == null) {
-            this.mILoginStateChangedListener = iLoginStateChangedListener;
-        }
-    }
-
-    public void setLoginType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048621, this, i) == null) {
-            this.mLoginType = i;
-            Utility.writeLoginType(mContext, i);
-        }
-    }
-
-    public void setMediaRole(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048622, this, z) == null) {
-            this.isMediaRole = z;
-        }
-    }
-
     public void setMsgSettingSwitchStatus(int i, int i2, ISetMsgSettingSwitchListener iSetMsgSettingSwitchListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIL(1048623, this, i, i2, iSetMsgSettingSwitchListener) == null) || iSetMsgSettingSwitchListener == null) {
+        if ((interceptable != null && interceptable.invokeIIL(1048623, this, i, i2, iSetMsgSettingSwitchListener) != null) || iSetMsgSettingSwitchListener == null) {
             return;
         }
         if (isLogin()) {
@@ -1122,59 +1242,6 @@ public class AccountManagerImpl {
             return;
         }
         iSetMsgSettingSwitchListener.onSetMsgSettingSwitch(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN);
-    }
-
-    public void setNotificationPrivacy(int i, ISetNotificationPrivacyListener iSetNotificationPrivacyListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048624, this, i, iSetNotificationPrivacyListener) == null) {
-            IMUserSetPrivacyRequest iMUserSetPrivacyRequest = new IMUserSetPrivacyRequest(mContext, ListenerManager.getInstance().addListener(iSetNotificationPrivacyListener), AccountManager.getAppid(mContext), i);
-            HttpHelper.executor(mContext, iMUserSetPrivacyRequest, iMUserSetPrivacyRequest);
-        }
-    }
-
-    public void setNotifyPaid(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048625, this, j) == null) {
-            Utility.setNotifyPaid(mContext, j);
-        }
-    }
-
-    public boolean setUid(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048626, this, str)) == null) {
-            if (str != null) {
-                this.mUid = str;
-                Utility.writeUid(mContext, str);
-            }
-            return str != null;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void setUpdateSwitch(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048627, this, i) == null) {
-            if (i == 1) {
-                Utility.writeBooleanData(mContext, Constants.KEY_UPDATE_SWITCH_PA, false);
-            } else if (i == 2) {
-                Utility.writeBooleanData(mContext, Constants.KEY_UPDATE_SWITCH_USER, false);
-            } else if (i != 3) {
-                Utility.writeBooleanData(mContext, Constants.KEY_UPDATE_SWITCH_USER, true);
-                Utility.writeBooleanData(mContext, Constants.KEY_UPDATE_SWITCH_PA, true);
-            } else {
-                Utility.writeBooleanData(mContext, Constants.KEY_UPDATE_SWITCH_USER, false);
-                Utility.writeBooleanData(mContext, Constants.KEY_UPDATE_SWITCH_PA, false);
-            }
-        }
-    }
-
-    public void setVersionCode(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048628, this, str) == null) {
-            this.mVersionCode = str;
-            Utility.writeVersionCode(mContext, str);
-        }
     }
 
     public void setZhidaAppid(long j, String str, ISwitchZhidaListener iSwitchZhidaListener) {
@@ -1192,23 +1259,15 @@ public class AccountManagerImpl {
         }
     }
 
-    public void setZid(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048630, this, str) == null) {
-            this.mZid = str;
-            Utility.writeZid(mContext, str);
-        }
-    }
-
     public boolean stopService() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) {
             try {
-                Intent intent = new Intent(mContext, b80.class);
+                Intent intent = new Intent(mContext, c80.class);
                 intent.setPackage(mContext.getPackageName());
                 intent.setAction(Constants.ACTION_STOP);
-                b80.g(mContext).f(mContext, intent);
+                c80.g(mContext).f(mContext, intent);
                 return true;
             } catch (Exception unused) {
                 LogUtils.e(TAG, "Stop Service SecurityException");
@@ -1216,22 +1275,5 @@ public class AccountManagerImpl {
             }
         }
         return invokeV.booleanValue;
-    }
-
-    public void syncPrivacy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048632, this) == null) {
-            IMUserQueryPrivacyRequest iMUserQueryPrivacyRequest = new IMUserQueryPrivacyRequest(mContext, AccountManager.getAppid(mContext));
-            HttpHelper.executor(mContext, iMUserQueryPrivacyRequest, iMUserQueryPrivacyRequest);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void getTokenByCuid(long j, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{Long.valueOf(j), str, str2}) == null) {
-            IMGetTokenByCuidRequest iMGetTokenByCuidRequest = new IMGetTokenByCuidRequest(mContext, j, str, str2);
-            HttpHelper.executor(mContext, iMGetTokenByCuidRequest, iMGetTokenByCuidRequest);
-        }
     }
 }

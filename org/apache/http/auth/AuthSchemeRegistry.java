@@ -31,6 +31,17 @@ public final class AuthSchemeRegistry {
         throw new RuntimeException("Stub!");
     }
 
+    public synchronized List getSchemeNames() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                throw new RuntimeException("Stub!");
+            }
+        }
+        return (List) invokeV.objValue;
+    }
+
     public synchronized AuthScheme getAuthScheme(String str, HttpParams httpParams) throws IllegalStateException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -42,17 +53,6 @@ public final class AuthSchemeRegistry {
         return (AuthScheme) invokeLL.objValue;
     }
 
-    public synchronized List<String> getSchemeNames() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                throw new RuntimeException("Stub!");
-            }
-        }
-        return (List) invokeV.objValue;
-    }
-
     public synchronized void register(String str, AuthSchemeFactory authSchemeFactory) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, authSchemeFactory) == null) {
@@ -62,7 +62,7 @@ public final class AuthSchemeRegistry {
         }
     }
 
-    public synchronized void setItems(Map<String, AuthSchemeFactory> map) {
+    public synchronized void setItems(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, map) == null) {
             synchronized (this) {

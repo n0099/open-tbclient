@@ -1,12 +1,10 @@
 package android.support.v4.media;
 
-import android.annotation.SuppressLint;
 import android.media.Rating;
 import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
-import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,11 +16,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-@SuppressLint({"BanParcelableUsage"})
 /* loaded from: classes.dex */
 public final class RatingCompat implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator<RatingCompat> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final int RATING_3_STARS = 3;
     public static final int RATING_4_STARS = 4;
     public static final int RATING_5_STARS = 5;
@@ -38,13 +35,11 @@ public final class RatingCompat implements Parcelable {
     public final float mRatingValue;
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public @interface StarStyle {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface Style {
     }
@@ -62,7 +57,7 @@ public final class RatingCompat implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<RatingCompat>() { // from class: android.support.v4.media.RatingCompat.1
+        CREATOR = new Parcelable.Creator() { // from class: android.support.v4.media.RatingCompat.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -81,23 +76,107 @@ public final class RatingCompat implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public RatingCompat createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new RatingCompat(parcel.readInt(), parcel.readFloat()) : (RatingCompat) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new RatingCompat(parcel.readInt(), parcel.readFloat());
+                }
+                return (RatingCompat) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public RatingCompat[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new RatingCompat[i] : (RatingCompat[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new RatingCompat[i];
+                }
+                return (RatingCompat[]) invokeI.objValue;
             }
         };
+    }
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mRatingStyle;
+        }
+        return invokeV.intValue;
+    }
+
+    public float getPercentRating() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.mRatingStyle == 6 && isRated()) {
+                return this.mRatingValue;
+            }
+            return -1.0f;
+        }
+        return invokeV.floatValue;
+    }
+
+    public int getRatingStyle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mRatingStyle;
+        }
+        return invokeV.intValue;
+    }
+
+    public float getStarRating() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int i = this.mRatingStyle;
+            if ((i == 3 || i == 4 || i == 5) && isRated()) {
+                return this.mRatingValue;
+            }
+            return -1.0f;
+        }
+        return invokeV.floatValue;
+    }
+
+    public boolean hasHeart() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.mRatingStyle != 1 || this.mRatingValue != 1.0f) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isRated() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.mRatingValue >= 0.0f) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isThumbUp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.mRatingStyle != 2 || this.mRatingValue != 1.0f) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public RatingCompat(int i, float f) {
@@ -158,9 +237,15 @@ public final class RatingCompat implements Parcelable {
 
     public static RatingCompat newHeartRating(boolean z) {
         InterceptResult invokeZ;
+        float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65539, null, z)) == null) {
-            return new RatingCompat(1, z ? 1.0f : 0.0f);
+            if (z) {
+                f = 1.0f;
+            } else {
+                f = 0.0f;
+            }
+            return new RatingCompat(1, f);
         }
         return (RatingCompat) invokeZ.objValue;
     }
@@ -178,35 +263,17 @@ public final class RatingCompat implements Parcelable {
         return (RatingCompat) invokeF.objValue;
     }
 
-    public static RatingCompat newStarRating(int i, float f) {
-        InterceptResult invokeCommon;
-        float f2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) {
-            if (i == 3) {
-                f2 = 3.0f;
-            } else if (i == 4) {
-                f2 = 4.0f;
-            } else if (i != 5) {
-                Log.e(TAG, "Invalid rating style (" + i + ") for a star rating");
-                return null;
-            } else {
-                f2 = 5.0f;
-            }
-            if (f >= 0.0f && f <= f2) {
-                return new RatingCompat(i, f);
-            }
-            Log.e(TAG, "Trying to set out of range star-based rating");
-            return null;
-        }
-        return (RatingCompat) invokeCommon.objValue;
-    }
-
     public static RatingCompat newThumbRating(boolean z) {
         InterceptResult invokeZ;
+        float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65542, null, z)) == null) {
-            return new RatingCompat(2, z ? 1.0f : 0.0f);
+            if (z) {
+                f = 1.0f;
+            } else {
+                f = 0.0f;
+            }
+            return new RatingCompat(2, f);
         }
         return (RatingCompat) invokeZ.objValue;
     }
@@ -230,23 +297,31 @@ public final class RatingCompat implements Parcelable {
         return (RatingCompat) invokeI.objValue;
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
+    public static RatingCompat newStarRating(int i, float f) {
+        InterceptResult invokeCommon;
+        float f2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mRatingStyle : invokeV.intValue;
-    }
-
-    public float getPercentRating() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.mRatingStyle == 6 && isRated()) {
-                return this.mRatingValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) {
+            if (i != 3) {
+                if (i != 4) {
+                    if (i != 5) {
+                        Log.e(TAG, "Invalid rating style (" + i + ") for a star rating");
+                        return null;
+                    }
+                    f2 = 5.0f;
+                } else {
+                    f2 = 4.0f;
+                }
+            } else {
+                f2 = 3.0f;
             }
-            return -1.0f;
+            if (f >= 0.0f && f <= f2) {
+                return new RatingCompat(i, f);
+            }
+            Log.e(TAG, "Trying to set out of range star-based rating");
+            return null;
         }
-        return invokeV.floatValue;
+        return (RatingCompat) invokeCommon.objValue;
     }
 
     public Object getRating() {
@@ -283,45 +358,9 @@ public final class RatingCompat implements Parcelable {
         return invokeV.objValue;
     }
 
-    public int getRatingStyle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mRatingStyle : invokeV.intValue;
-    }
-
-    public float getStarRating() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i = this.mRatingStyle;
-            if ((i == 3 || i == 4 || i == 5) && isRated()) {
-                return this.mRatingValue;
-            }
-            return -1.0f;
-        }
-        return invokeV.floatValue;
-    }
-
-    public boolean hasHeart() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mRatingStyle == 1 && this.mRatingValue == 1.0f : invokeV.booleanValue;
-    }
-
-    public boolean isRated() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mRatingValue >= 0.0f : invokeV.booleanValue;
-    }
-
-    public boolean isThumbUp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mRatingStyle == 2 && this.mRatingValue == 1.0f : invokeV.booleanValue;
-    }
-
     public String toString() {
         InterceptResult invokeV;
+        String valueOf;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             StringBuilder sb = new StringBuilder();
@@ -329,7 +368,12 @@ public final class RatingCompat implements Parcelable {
             sb.append(this.mRatingStyle);
             sb.append(" rating=");
             float f = this.mRatingValue;
-            sb.append(f < 0.0f ? "unrated" : String.valueOf(f));
+            if (f < 0.0f) {
+                valueOf = "unrated";
+            } else {
+                valueOf = String.valueOf(f);
+            }
+            sb.append(valueOf);
             return sb.toString();
         }
         return (String) invokeV.objValue;

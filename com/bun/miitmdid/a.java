@@ -1,16 +1,13 @@
 package com.bun.miitmdid;
 
 import android.content.Context;
-import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Keep
 /* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
-    @Keep
     public static Context a;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,15 +25,11 @@ public class a {
         }
     }
 
-    @Keep
     public static native Context a();
 
-    @Keep
     public static native void a(Context context);
 
-    @Keep
     public static native Context b();
 
-    @Keep
     public static native Context c();
 }

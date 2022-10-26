@@ -34,7 +34,7 @@ public class SampleAuxiliaryInformationOffsetsBox extends AbstractFullBox {
     public transient /* synthetic */ FieldHolder $fh;
     public String auxInfoType;
     public String auxInfoTypeParameter;
-    public List<Long> offsets;
+    public List offsets;
 
     static {
         InterceptResult invokeClinit;
@@ -50,6 +50,36 @@ public class SampleAuxiliaryInformationOffsetsBox extends AbstractFullBox {
             }
         }
         ajc$preClinit();
+    }
+
+    public String getAuxInfoType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+            return this.auxInfoType;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getAuxInfoTypeParameter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
+            return this.auxInfoTypeParameter;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public List getOffsets() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this));
+            return this.offsets;
+        }
+        return (List) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -69,6 +99,27 @@ public class SampleAuxiliaryInformationOffsetsBox extends AbstractFullBox {
             }
         }
         this.offsets = new LinkedList();
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        InterceptResult invokeV;
+        int size;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int i = 8;
+            if (getVersion() == 0) {
+                size = this.offsets.size() * 4;
+            } else {
+                size = this.offsets.size() * 8;
+            }
+            int i2 = size + 8;
+            if ((getFlags() & 1) != 1) {
+                i = 0;
+            }
+            return i2 + i;
+        }
+        return invokeV.longValue;
     }
 
     public static /* synthetic */ void ajc$preClinit() {
@@ -102,26 +153,6 @@ public class SampleAuxiliaryInformationOffsetsBox extends AbstractFullBox {
         }
     }
 
-    public String getAuxInfoType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return this.auxInfoType;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String getAuxInfoTypeParameter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return this.auxInfoTypeParameter;
-        }
-        return (String) invokeV.objValue;
-    }
-
     @Override // com.googlecode.mp4parser.AbstractBox
     public void getContent(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
@@ -142,26 +173,6 @@ public class SampleAuxiliaryInformationOffsetsBox extends AbstractFullBox {
         }
     }
 
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public long getContentSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return (getVersion() == 0 ? this.offsets.size() * 4 : this.offsets.size() * 8) + 8 + ((getFlags() & 1) != 1 ? 0 : 8);
-        }
-        return invokeV.longValue;
-    }
-
-    public List<Long> getOffsets() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this));
-            return this.offsets;
-        }
-        return (List) invokeV.objValue;
-    }
-
     public void setAuxInfoType(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
@@ -178,7 +189,7 @@ public class SampleAuxiliaryInformationOffsetsBox extends AbstractFullBox {
         }
     }
 
-    public void setOffsets(List<Long> list) {
+    public void setOffsets(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, list));

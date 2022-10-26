@@ -7,7 +7,6 @@ import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -60,11 +59,11 @@ public class VideoPlayActivityConfig extends IntentConfig {
     public static final String VIDEO_LIST = "video_list";
     public static final String VIDEO_SHOW_INDEX = "video_show_index";
     public static final String VIDEO_VIEW_RECT = "video_view_rect";
-    public static List<VideoItemData> bigDataList;
+    public static List bigDataList;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoPlayActivityConfig(Context context, List<VideoItemData> list, int i) {
+    public VideoPlayActivityConfig(Context context, List list, int i) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -85,71 +84,8 @@ public class VideoPlayActivityConfig extends IntentConfig {
         getIntent().putExtra("video_index", i);
     }
 
-    public void setFid(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || getIntent() == null) {
-            return;
-        }
-        getIntent().putExtra("forum_id", str);
-    }
-
-    public void setForceUseBigDataList(List<VideoItemData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            bigDataList = list;
-            getIntent().removeExtra("video_list");
-        }
-    }
-
-    public void setIsFromBjhPb(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            getIntent().putExtra("is_from_bjh_pb", z);
-        }
-    }
-
-    public void setIsShowPbCommentFloat(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || getIntent() == null) {
-            return;
-        }
-        getIntent().putExtra("is_show_pb_comment_float", z);
-    }
-
-    public void setNid(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || getIntent() == null) {
-            return;
-        }
-        getIntent().putExtra("key_nid", str);
-    }
-
-    public void setParamIsVertail(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || getIntent() == null) {
-            return;
-        }
-        getIntent().putExtra("is_vertail", z);
-    }
-
-    public void setUri(Uri uri) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, uri) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra(IntentConfig.KEY_URI, uri);
-    }
-
-    public void setVideoShowIndex(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            getIntent().putExtra("video_show_index", i);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoPlayActivityConfig(Context context, List<VideoItemData> list, int i, Rect rect, String str) {
+    public VideoPlayActivityConfig(Context context, List list, int i, Rect rect, String str) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -173,30 +109,7 @@ public class VideoPlayActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoPlayActivityConfig(Context context, List<VideoItemData> list, String str, String str2) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, list, str, str2};
-            interceptable.invokeUnInit(65541, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65541, newInitContext);
-                return;
-            }
-        }
-        getIntent().putExtra("video_list", (Serializable) list);
-        getIntent().putExtra("page_from", str);
-        getIntent().putExtra("from", str2);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoPlayActivityConfig(Context context, List<VideoItemData> list, int i, Rect rect, String str, String str2, String str3, String str4) {
+    public VideoPlayActivityConfig(Context context, List list, int i, Rect rect, String str, String str2, String str3, String str4) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -223,7 +136,7 @@ public class VideoPlayActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoPlayActivityConfig(Context context, List<VideoItemData> list, int i, Rect rect, String str, String str2, String str3, String str4, String str5) {
+    public VideoPlayActivityConfig(Context context, List list, int i, Rect rect, String str, String str2, String str3, String str4, String str5) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -251,7 +164,7 @@ public class VideoPlayActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoPlayActivityConfig(Context context, List<VideoItemData> list, int i, Rect rect, String str, String str2, String str3, String str4, String str5, boolean z) {
+    public VideoPlayActivityConfig(Context context, List list, int i, Rect rect, String str, String str2, String str3, String str4, String str5, boolean z) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -277,5 +190,86 @@ public class VideoPlayActivityConfig extends IntentConfig {
         getIntent().putExtra("source_from", str5);
         getIntent().putExtra(VIDEO_VIEW_RECT, rect);
         getIntent().putExtra("is_show_pb_comment_float", z);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public VideoPlayActivityConfig(Context context, List list, String str, String str2) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, list, str, str2};
+            interceptable.invokeUnInit(65541, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65541, newInitContext);
+                return;
+            }
+        }
+        getIntent().putExtra("video_list", (Serializable) list);
+        getIntent().putExtra("page_from", str);
+        getIntent().putExtra("from", str2);
+    }
+
+    public void setFid(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && getIntent() != null) {
+            getIntent().putExtra("forum_id", str);
+        }
+    }
+
+    public void setForceUseBigDataList(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            bigDataList = list;
+            getIntent().removeExtra("video_list");
+        }
+    }
+
+    public void setIsFromBjhPb(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            getIntent().putExtra("is_from_bjh_pb", z);
+        }
+    }
+
+    public void setIsShowPbCommentFloat(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && getIntent() != null) {
+            getIntent().putExtra("is_show_pb_comment_float", z);
+        }
+    }
+
+    public void setNid(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && getIntent() != null) {
+            getIntent().putExtra("key_nid", str);
+        }
+    }
+
+    public void setParamIsVertail(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && getIntent() != null) {
+            getIntent().putExtra("is_vertail", z);
+        }
+    }
+
+    public void setUri(Uri uri) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, uri) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(IntentConfig.KEY_URI, uri);
+        }
+    }
+
+    public void setVideoShowIndex(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            getIntent().putExtra("video_show_index", i);
+        }
     }
 }

@@ -18,6 +18,16 @@ public final class ChunkIndex implements SeekMap {
     public final int[] sizes;
     public final long[] timesUs;
 
+    @Override // com.google.android.exoplayer2.extractor.SeekMap
+    public boolean isSeekable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
     public ChunkIndex(int[] iArr, long[] jArr, long[] jArr2, long[] jArr3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -49,30 +59,29 @@ public final class ChunkIndex implements SeekMap {
     public int getChunkIndex(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? Util.binarySearchFloor(this.timesUs, j, true, true) : invokeJ.intValue;
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.SeekMap
-    public long getDurationUs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.durationUs : invokeV.longValue;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            return Util.binarySearchFloor(this.timesUs, j, true, true);
+        }
+        return invokeJ.intValue;
     }
 
     @Override // com.google.android.exoplayer2.extractor.SeekMap
     public long getPosition(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? this.offsets[getChunkIndex(j)] : invokeJ.longValue;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+            return this.offsets[getChunkIndex(j)];
+        }
+        return invokeJ.longValue;
     }
 
     @Override // com.google.android.exoplayer2.extractor.SeekMap
-    public boolean isSeekable() {
+    public long getDurationUs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.durationUs;
         }
-        return invokeV.booleanValue;
+        return invokeV.longValue;
     }
 }

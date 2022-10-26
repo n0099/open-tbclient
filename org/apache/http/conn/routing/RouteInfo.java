@@ -12,10 +12,29 @@ import org.apache.http.HttpHost;
 @Deprecated
 /* loaded from: classes8.dex */
 public interface RouteInfo {
+    int getHopCount();
+
+    HttpHost getHopTarget(int i);
+
+    LayerType getLayerType();
+
+    InetAddress getLocalAddress();
+
+    HttpHost getProxyHost();
+
+    HttpHost getTargetHost();
+
+    TunnelType getTunnelType();
+
+    boolean isLayered();
+
+    boolean isSecure();
+
+    boolean isTunnelled();
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class LayerType {
+    public final class LayerType {
         public static final /* synthetic */ LayerType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final LayerType LAYERED;
@@ -63,19 +82,25 @@ public interface RouteInfo {
         public static LayerType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (LayerType) Enum.valueOf(LayerType.class, str) : (LayerType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (LayerType) Enum.valueOf(LayerType.class, str);
+            }
+            return (LayerType) invokeL.objValue;
         }
 
         public static LayerType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LayerType[]) $VALUES.clone() : (LayerType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (LayerType[]) $VALUES.clone();
+            }
+            return (LayerType[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class TunnelType {
+    public final class TunnelType {
         public static final /* synthetic */ TunnelType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final TunnelType PLAIN;
@@ -123,33 +148,19 @@ public interface RouteInfo {
         public static TunnelType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (TunnelType) Enum.valueOf(TunnelType.class, str) : (TunnelType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (TunnelType) Enum.valueOf(TunnelType.class, str);
+            }
+            return (TunnelType) invokeL.objValue;
         }
 
         public static TunnelType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TunnelType[]) $VALUES.clone() : (TunnelType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (TunnelType[]) $VALUES.clone();
+            }
+            return (TunnelType[]) invokeV.objValue;
         }
     }
-
-    int getHopCount();
-
-    HttpHost getHopTarget(int i);
-
-    LayerType getLayerType();
-
-    InetAddress getLocalAddress();
-
-    HttpHost getProxyHost();
-
-    HttpHost getTargetHost();
-
-    TunnelType getTunnelType();
-
-    boolean isLayered();
-
-    boolean isSecure();
-
-    boolean isTunnelled();
 }

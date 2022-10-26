@@ -34,25 +34,6 @@ public final class ProductParsedResult extends ParsedResult {
         }
     }
 
-    @Override // com.google.zxing.client.result.ParsedResult
-    public String getDisplayResult() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.productID : (String) invokeV.objValue;
-    }
-
-    public String getNormalizedProductID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.normalizedProductID : (String) invokeV.objValue;
-    }
-
-    public String getProductID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.productID : (String) invokeV.objValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ProductParsedResult(String str, String str2) {
         super(ParsedResultType.PRODUCT);
@@ -73,5 +54,33 @@ public final class ProductParsedResult extends ParsedResult {
         }
         this.productID = str;
         this.normalizedProductID = str2;
+    }
+
+    @Override // com.google.zxing.client.result.ParsedResult
+    public String getDisplayResult() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.productID;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getNormalizedProductID() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.normalizedProductID;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getProductID() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.productID;
+        }
+        return (String) invokeV.objValue;
     }
 }

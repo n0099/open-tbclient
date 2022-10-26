@@ -1,6 +1,5 @@
 package org.apache.commons.codec.binary4util;
 
-import android.annotation.SuppressLint;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +9,6 @@ import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import org.apache.commons.codec.binary4util.BaseNCodec;
-@SuppressLint({"BDThrowableCheck"})
 /* loaded from: classes8.dex */
 public class BaseNCodecOutputStream extends FilterOutputStream {
     public static /* synthetic */ Interceptable $ic;
@@ -80,6 +78,14 @@ public class BaseNCodecOutputStream extends FilterOutputStream {
         }
     }
 
+    @Override // java.io.FilterOutputStream, java.io.OutputStream, java.io.Flushable
+    public void flush() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            flush(true);
+        }
+    }
+
     @Override // java.io.FilterOutputStream, java.io.OutputStream
     public void write(int i) throws IOException {
         Interceptable interceptable = $ic;
@@ -94,33 +100,25 @@ public class BaseNCodecOutputStream extends FilterOutputStream {
     public void write(byte[] bArr, int i, int i2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048580, this, bArr, i, i2) == null) {
-            if (bArr == null) {
-                throw null;
-            }
-            if (i >= 0 && i2 >= 0) {
-                if (i > bArr.length || i + i2 > bArr.length) {
+            if (bArr != null) {
+                if (i >= 0 && i2 >= 0) {
+                    if (i <= bArr.length && i + i2 <= bArr.length) {
+                        if (i2 > 0) {
+                            if (this.doEncode) {
+                                this.baseNCodec.encode(bArr, i, i2, this.context);
+                            } else {
+                                this.baseNCodec.decode(bArr, i, i2, this.context);
+                            }
+                            flush(false);
+                            return;
+                        }
+                        return;
+                    }
                     throw new IndexOutOfBoundsException();
                 }
-                if (i2 > 0) {
-                    if (this.doEncode) {
-                        this.baseNCodec.encode(bArr, i, i2, this.context);
-                    } else {
-                        this.baseNCodec.decode(bArr, i, i2, this.context);
-                    }
-                    flush(false);
-                    return;
-                }
-                return;
+                throw new IndexOutOfBoundsException();
             }
-            throw new IndexOutOfBoundsException();
-        }
-    }
-
-    @Override // java.io.FilterOutputStream, java.io.OutputStream, java.io.Flushable
-    public void flush() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            flush(true);
+            throw null;
         }
     }
 }

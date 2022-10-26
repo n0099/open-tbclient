@@ -4,9 +4,6 @@ import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.collection.ArrayMap;
 import androidx.core.view.InputDeviceCompat;
 import androidx.versionedparcelable.CustomVersionedParcelable;
@@ -64,9 +61,7 @@ public final class MediaMetadata extends CustomVersionedParcelable {
     public static final String METADATA_KEY_MEDIA_URI = "android.media.metadata.MEDIA_URI";
     public static final String METADATA_KEY_NUM_TRACKS = "android.media.metadata.NUM_TRACKS";
     public static final String METADATA_KEY_PLAYABLE = "androidx.media2.metadata.PLAYABLE";
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public static final String METADATA_KEY_RADIO_FREQUENCY = "androidx.media2.metadata.RADIO_FREQUENCY";
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public static final String METADATA_KEY_RADIO_PROGRAM_NAME = "androidx.media2.metadata.RADIO_PROGRAM_NAME";
     public static final String METADATA_KEY_RATING = "android.media.metadata.RATING";
     public static final String METADATA_KEY_TITLE = "android.media.metadata.TITLE";
@@ -88,6 +83,36 @@ public final class MediaMetadata extends CustomVersionedParcelable {
     public ParcelImplListSlice mBitmapListSlice;
     public Bundle mBundle;
     public Bundle mParcelableWithoutBitmapBundle;
+
+    @Retention(RetentionPolicy.SOURCE)
+    /* loaded from: classes.dex */
+    public @interface BitmapKey {
+    }
+
+    @Retention(RetentionPolicy.SOURCE)
+    /* loaded from: classes.dex */
+    public @interface BundleKey {
+    }
+
+    @Retention(RetentionPolicy.SOURCE)
+    /* loaded from: classes.dex */
+    public @interface FloatKey {
+    }
+
+    @Retention(RetentionPolicy.SOURCE)
+    /* loaded from: classes.dex */
+    public @interface LongKey {
+    }
+
+    @Retention(RetentionPolicy.SOURCE)
+    /* loaded from: classes.dex */
+    public @interface RatingKey {
+    }
+
+    @Retention(RetentionPolicy.SOURCE)
+    /* loaded from: classes.dex */
+    public @interface TextKey {
+    }
 
     /* loaded from: classes.dex */
     public static final class BitmapEntry implements VersionedParcelable {
@@ -111,31 +136,25 @@ public final class MediaMetadata extends CustomVersionedParcelable {
             }
         }
 
-        private int getBitmapSizeInBytes(Bitmap bitmap) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, bitmap)) == null) {
-                if (Build.VERSION.SDK_INT >= 19) {
-                    return bitmap.getAllocationByteCount();
-                }
-                return bitmap.getByteCount();
-            }
-            return invokeL.intValue;
-        }
-
         public Bitmap getBitmap() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mBitmap : (Bitmap) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.mBitmap;
+            }
+            return (Bitmap) invokeV.objValue;
         }
 
         public String getKey() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mKey : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.mKey;
+            }
+            return (String) invokeV.objValue;
         }
 
-        public BitmapEntry(@NonNull String str, @NonNull Bitmap bitmap) {
+        public BitmapEntry(String str, Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -163,42 +182,192 @@ public final class MediaMetadata extends CustomVersionedParcelable {
                 this.mBitmap = Bitmap.createScaledBitmap(bitmap, i3, i4, true);
             }
         }
+
+        private int getBitmapSizeInBytes(Bitmap bitmap) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, bitmap)) == null) {
+                if (Build.VERSION.SDK_INT >= 19) {
+                    return bitmap.getAllocationByteCount();
+                }
+                return bitmap.getByteCount();
+            }
+            return invokeL.intValue;
+        }
     }
 
-    @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
-    public @interface BitmapKey {
-    }
+    public static final class Builder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Bundle mBundle;
 
-    @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
-    /* loaded from: classes.dex */
-    public @interface BundleKey {
-    }
+        public Builder() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.mBundle = new Bundle();
+        }
 
-    @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
-    /* loaded from: classes.dex */
-    public @interface FloatKey {
-    }
+        public MediaMetadata build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new MediaMetadata(this.mBundle);
+            }
+            return (MediaMetadata) invokeV.objValue;
+        }
 
-    @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
-    /* loaded from: classes.dex */
-    public @interface LongKey {
-    }
+        public Builder(Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bundle};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.mBundle = new Bundle(bundle);
+        }
 
-    @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
-    /* loaded from: classes.dex */
-    public @interface RatingKey {
-    }
+        public Builder(MediaMetadata mediaMetadata) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mediaMetadata};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
+            this.mBundle = new Bundle(mediaMetadata.mBundle);
+        }
 
-    @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
-    /* loaded from: classes.dex */
-    public @interface TextKey {
+        public Builder putBitmap(String str, Bitmap bitmap) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bitmap)) == null) {
+                if (str != null) {
+                    if (MediaMetadata.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadata.METADATA_KEYS_TYPE.get(str).intValue() != 2) {
+                        throw new IllegalArgumentException("The " + str + " key cannot be used to put a Bitmap");
+                    }
+                    this.mBundle.putParcelable(str, bitmap);
+                    return this;
+                }
+                throw new NullPointerException("key shouldn't be null");
+            }
+            return (Builder) invokeLL.objValue;
+        }
+
+        public Builder putFloat(String str, float f) {
+            InterceptResult invokeLF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLF = interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, str, f)) == null) {
+                if (str != null) {
+                    if (MediaMetadata.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadata.METADATA_KEYS_TYPE.get(str).intValue() != 4) {
+                        throw new IllegalArgumentException("The " + str + " key cannot be used to put a float");
+                    }
+                    this.mBundle.putFloat(str, f);
+                    return this;
+                }
+                throw new NullPointerException("key shouldn't be null");
+            }
+            return (Builder) invokeLF.objValue;
+        }
+
+        public Builder putLong(String str, long j) {
+            InterceptResult invokeLJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j)) == null) {
+                if (str != null) {
+                    if (MediaMetadata.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadata.METADATA_KEYS_TYPE.get(str).intValue() != 0) {
+                        throw new IllegalArgumentException("The " + str + " key cannot be used to put a long");
+                    }
+                    this.mBundle.putLong(str, j);
+                    return this;
+                }
+                throw new NullPointerException("key shouldn't be null");
+            }
+            return (Builder) invokeLJ.objValue;
+        }
+
+        public Builder putRating(String str, Rating rating) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, rating)) == null) {
+                if (str != null) {
+                    if (MediaMetadata.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadata.METADATA_KEYS_TYPE.get(str).intValue() != 3) {
+                        throw new IllegalArgumentException("The " + str + " key cannot be used to put a Rating");
+                    }
+                    ParcelUtils.putVersionedParcelable(this.mBundle, str, rating);
+                    return this;
+                }
+                throw new NullPointerException("key shouldn't be null");
+            }
+            return (Builder) invokeLL.objValue;
+        }
+
+        public Builder putString(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
+                if (str != null) {
+                    if (MediaMetadata.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadata.METADATA_KEYS_TYPE.get(str).intValue() != 1) {
+                        throw new IllegalArgumentException("The " + str + " key cannot be used to put a String");
+                    }
+                    this.mBundle.putCharSequence(str, str2);
+                    return this;
+                }
+                throw new NullPointerException("key shouldn't be null");
+            }
+            return (Builder) invokeLL.objValue;
+        }
+
+        public Builder putText(String str, CharSequence charSequence) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, charSequence)) == null) {
+                if (str != null) {
+                    if (MediaMetadata.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadata.METADATA_KEYS_TYPE.get(str).intValue() != 1) {
+                        throw new IllegalArgumentException("The " + str + " key cannot be used to put a CharSequence");
+                    }
+                    this.mBundle.putCharSequence(str, charSequence);
+                    return this;
+                }
+                throw new NullPointerException("key shouldn't be null");
+            }
+            return (Builder) invokeLL.objValue;
+        }
+
+        public Builder setExtras(Bundle bundle) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bundle)) == null) {
+                this.mBundle.putBundle(MediaMetadata.METADATA_KEY_EXTRAS, bundle);
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
     }
 
     static {
@@ -267,37 +436,6 @@ public final class MediaMetadata extends CustomVersionedParcelable {
         }
     }
 
-    public boolean containsKey(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str != null) {
-                return this.mBundle.containsKey(str);
-            }
-            throw new NullPointerException("key shouldn't be null");
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Nullable
-    public Bitmap getBitmap(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (str != null) {
-                try {
-                    return (Bitmap) this.mBundle.getParcelable(str);
-                } catch (Exception e) {
-                    Log.w("MediaMetadata", "Failed to retrieve a key as Bitmap.", e);
-                    return null;
-                }
-            }
-            throw new NullPointerException("key shouldn't be null");
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    @Nullable
     public Bundle getExtras() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -312,337 +450,40 @@ public final class MediaMetadata extends CustomVersionedParcelable {
         return (Bundle) invokeV.objValue;
     }
 
-    public float getFloat(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (str != null) {
-                return this.mBundle.getFloat(str);
-            }
-            throw new NullPointerException("key shouldn't be null");
-        }
-        return invokeL.floatValue;
-    }
-
-    public long getLong(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (str != null) {
-                return this.mBundle.getLong(str, 0L);
-            }
-            throw new NullPointerException("key shouldn't be null");
-        }
-        return invokeL.longValue;
-    }
-
-    @Nullable
     public String getMediaId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? getString("android.media.metadata.MEDIA_ID") : (String) invokeV.objValue;
-    }
-
-    @Nullable
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    public Object getObject(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            if (str != null) {
-                return this.mBundle.get(str);
-            }
-            throw new NullPointerException("key shouldn't be null");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return getString("android.media.metadata.MEDIA_ID");
         }
-        return invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Nullable
-    public Rating getRating(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (str != null) {
-                try {
-                    return (Rating) ParcelUtils.getVersionedParcelable(this.mBundle, str);
-                } catch (Exception e) {
-                    Log.w("MediaMetadata", "Failed to retrieve a key as Rating.", e);
-                    return null;
-                }
-            }
-            throw new NullPointerException("key shouldn't be null");
-        }
-        return (Rating) invokeL.objValue;
-    }
-
-    @Nullable
-    public String getString(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (str != null) {
-                CharSequence charSequence = this.mBundle.getCharSequence(str);
-                if (charSequence != null) {
-                    return charSequence.toString();
-                }
-                return null;
-            }
-            throw new NullPointerException("key shouldn't be null");
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Nullable
-    public CharSequence getText(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            if (str != null) {
-                return this.mBundle.getCharSequence(str);
-            }
-            throw new NullPointerException("key shouldn't be null");
-        }
-        return (CharSequence) invokeL.objValue;
-    }
-
-    @NonNull
     public Set<String> keySet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mBundle.keySet() : (Set) invokeV.objValue;
-    }
-
-    @Override // androidx.versionedparcelable.CustomVersionedParcelable
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public void onPostParceling() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            Bundle bundle = this.mParcelableWithoutBitmapBundle;
-            if (bundle == null) {
-                bundle = new Bundle();
-            }
-            this.mBundle = bundle;
-            ParcelImplListSlice parcelImplListSlice = this.mBitmapListSlice;
-            if (parcelImplListSlice != null) {
-                for (ParcelImpl parcelImpl : parcelImplListSlice.getList()) {
-                    BitmapEntry bitmapEntry = (BitmapEntry) MediaParcelUtils.fromParcelable(parcelImpl);
-                    this.mBundle.putParcelable(bitmapEntry.getKey(), bitmapEntry.getBitmap());
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mBundle.keySet();
         }
-    }
-
-    @Override // androidx.versionedparcelable.CustomVersionedParcelable
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public void onPreParceling(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            synchronized (this.mBundle) {
-                if (this.mParcelableWithoutBitmapBundle == null) {
-                    this.mParcelableWithoutBitmapBundle = new Bundle(this.mBundle);
-                    ArrayList arrayList = new ArrayList();
-                    for (String str : this.mBundle.keySet()) {
-                        Object obj = this.mBundle.get(str);
-                        if (obj instanceof Bitmap) {
-                            arrayList.add(MediaParcelUtils.toParcelable(new BitmapEntry(str, (Bitmap) obj)));
-                            this.mParcelableWithoutBitmapBundle.remove(str);
-                        }
-                    }
-                    this.mBitmapListSlice = new ParcelImplListSlice(arrayList);
-                }
-            }
-        }
+        return (Set) invokeV.objValue;
     }
 
     public int size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mBundle.size() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.mBundle.size();
+        }
+        return invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mBundle.toString() : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes.dex */
-    public static final class Builder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Bundle mBundle;
-
-        public Builder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.mBundle = new Bundle();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.mBundle.toString();
         }
-
-        @NonNull
-        public MediaMetadata build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new MediaMetadata(this.mBundle) : (MediaMetadata) invokeV.objValue;
-        }
-
-        @NonNull
-        public Builder putBitmap(@NonNull String str, @Nullable Bitmap bitmap) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bitmap)) == null) {
-                if (str != null) {
-                    if (MediaMetadata.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadata.METADATA_KEYS_TYPE.get(str).intValue() != 2) {
-                        throw new IllegalArgumentException("The " + str + " key cannot be used to put a Bitmap");
-                    }
-                    this.mBundle.putParcelable(str, bitmap);
-                    return this;
-                }
-                throw new NullPointerException("key shouldn't be null");
-            }
-            return (Builder) invokeLL.objValue;
-        }
-
-        @NonNull
-        public Builder putFloat(@NonNull String str, float f) {
-            InterceptResult invokeLF;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLF = interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, str, f)) == null) {
-                if (str != null) {
-                    if (MediaMetadata.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadata.METADATA_KEYS_TYPE.get(str).intValue() != 4) {
-                        throw new IllegalArgumentException("The " + str + " key cannot be used to put a float");
-                    }
-                    this.mBundle.putFloat(str, f);
-                    return this;
-                }
-                throw new NullPointerException("key shouldn't be null");
-            }
-            return (Builder) invokeLF.objValue;
-        }
-
-        @NonNull
-        public Builder putLong(@NonNull String str, long j) {
-            InterceptResult invokeLJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j)) == null) {
-                if (str != null) {
-                    if (MediaMetadata.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadata.METADATA_KEYS_TYPE.get(str).intValue() != 0) {
-                        throw new IllegalArgumentException("The " + str + " key cannot be used to put a long");
-                    }
-                    this.mBundle.putLong(str, j);
-                    return this;
-                }
-                throw new NullPointerException("key shouldn't be null");
-            }
-            return (Builder) invokeLJ.objValue;
-        }
-
-        @NonNull
-        public Builder putRating(@NonNull String str, @Nullable Rating rating) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, rating)) == null) {
-                if (str != null) {
-                    if (MediaMetadata.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadata.METADATA_KEYS_TYPE.get(str).intValue() != 3) {
-                        throw new IllegalArgumentException("The " + str + " key cannot be used to put a Rating");
-                    }
-                    ParcelUtils.putVersionedParcelable(this.mBundle, str, rating);
-                    return this;
-                }
-                throw new NullPointerException("key shouldn't be null");
-            }
-            return (Builder) invokeLL.objValue;
-        }
-
-        @NonNull
-        public Builder putString(@NonNull String str, @Nullable String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-                if (str != null) {
-                    if (MediaMetadata.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadata.METADATA_KEYS_TYPE.get(str).intValue() != 1) {
-                        throw new IllegalArgumentException("The " + str + " key cannot be used to put a String");
-                    }
-                    this.mBundle.putCharSequence(str, str2);
-                    return this;
-                }
-                throw new NullPointerException("key shouldn't be null");
-            }
-            return (Builder) invokeLL.objValue;
-        }
-
-        @NonNull
-        public Builder putText(@NonNull String str, @Nullable CharSequence charSequence) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, charSequence)) == null) {
-                if (str != null) {
-                    if (MediaMetadata.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadata.METADATA_KEYS_TYPE.get(str).intValue() != 1) {
-                        throw new IllegalArgumentException("The " + str + " key cannot be used to put a CharSequence");
-                    }
-                    this.mBundle.putCharSequence(str, charSequence);
-                    return this;
-                }
-                throw new NullPointerException("key shouldn't be null");
-            }
-            return (Builder) invokeLL.objValue;
-        }
-
-        @NonNull
-        public Builder setExtras(@Nullable Bundle bundle) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bundle)) == null) {
-                this.mBundle.putBundle(MediaMetadata.METADATA_KEY_EXTRAS, bundle);
-                return this;
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        public Builder(@NonNull MediaMetadata mediaMetadata) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mediaMetadata};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
-                    return;
-                }
-            }
-            this.mBundle = new Bundle(mediaMetadata.mBundle);
-        }
-
-        public Builder(Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bundle};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.mBundle = new Bundle(bundle);
-        }
+        return (String) invokeV.objValue;
     }
 
     public MediaMetadata(Bundle bundle) {
@@ -663,5 +504,155 @@ public final class MediaMetadata extends CustomVersionedParcelable {
         Bundle bundle2 = new Bundle(bundle);
         this.mBundle = bundle2;
         bundle2.setClassLoader(MediaMetadata.class.getClassLoader());
+    }
+
+    public boolean containsKey(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (str != null) {
+                return this.mBundle.containsKey(str);
+            }
+            throw new NullPointerException("key shouldn't be null");
+        }
+        return invokeL.booleanValue;
+    }
+
+    public Bitmap getBitmap(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (str != null) {
+                try {
+                    return (Bitmap) this.mBundle.getParcelable(str);
+                } catch (Exception e) {
+                    Log.w("MediaMetadata", "Failed to retrieve a key as Bitmap.", e);
+                    return null;
+                }
+            }
+            throw new NullPointerException("key shouldn't be null");
+        }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    public float getFloat(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (str != null) {
+                return this.mBundle.getFloat(str);
+            }
+            throw new NullPointerException("key shouldn't be null");
+        }
+        return invokeL.floatValue;
+    }
+
+    public long getLong(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (str != null) {
+                return this.mBundle.getLong(str, 0L);
+            }
+            throw new NullPointerException("key shouldn't be null");
+        }
+        return invokeL.longValue;
+    }
+
+    public Object getObject(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            if (str != null) {
+                return this.mBundle.get(str);
+            }
+            throw new NullPointerException("key shouldn't be null");
+        }
+        return invokeL.objValue;
+    }
+
+    public Rating getRating(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            if (str != null) {
+                try {
+                    return (Rating) ParcelUtils.getVersionedParcelable(this.mBundle, str);
+                } catch (Exception e) {
+                    Log.w("MediaMetadata", "Failed to retrieve a key as Rating.", e);
+                    return null;
+                }
+            }
+            throw new NullPointerException("key shouldn't be null");
+        }
+        return (Rating) invokeL.objValue;
+    }
+
+    public String getString(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            if (str != null) {
+                CharSequence charSequence = this.mBundle.getCharSequence(str);
+                if (charSequence != null) {
+                    return charSequence.toString();
+                }
+                return null;
+            }
+            throw new NullPointerException("key shouldn't be null");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public CharSequence getText(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            if (str != null) {
+                return this.mBundle.getCharSequence(str);
+            }
+            throw new NullPointerException("key shouldn't be null");
+        }
+        return (CharSequence) invokeL.objValue;
+    }
+
+    @Override // androidx.versionedparcelable.CustomVersionedParcelable
+    public void onPostParceling() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            Bundle bundle = this.mParcelableWithoutBitmapBundle;
+            if (bundle == null) {
+                bundle = new Bundle();
+            }
+            this.mBundle = bundle;
+            ParcelImplListSlice parcelImplListSlice = this.mBitmapListSlice;
+            if (parcelImplListSlice != null) {
+                for (ParcelImpl parcelImpl : parcelImplListSlice.getList()) {
+                    BitmapEntry bitmapEntry = (BitmapEntry) MediaParcelUtils.fromParcelable(parcelImpl);
+                    this.mBundle.putParcelable(bitmapEntry.getKey(), bitmapEntry.getBitmap());
+                }
+            }
+        }
+    }
+
+    @Override // androidx.versionedparcelable.CustomVersionedParcelable
+    public void onPreParceling(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            synchronized (this.mBundle) {
+                if (this.mParcelableWithoutBitmapBundle == null) {
+                    this.mParcelableWithoutBitmapBundle = new Bundle(this.mBundle);
+                    ArrayList arrayList = new ArrayList();
+                    for (String str : this.mBundle.keySet()) {
+                        Object obj = this.mBundle.get(str);
+                        if (obj instanceof Bitmap) {
+                            arrayList.add(MediaParcelUtils.toParcelable(new BitmapEntry(str, (Bitmap) obj)));
+                            this.mParcelableWithoutBitmapBundle.remove(str);
+                        }
+                    }
+                    this.mBitmapListSlice = new ParcelImplListSlice(arrayList);
+                }
+            }
+        }
     }
 }

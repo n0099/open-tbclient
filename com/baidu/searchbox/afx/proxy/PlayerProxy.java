@@ -32,9 +32,56 @@ public abstract class PlayerProxy implements IPlayer {
     public PlayerState mPlayerState;
     public String mSourcePath;
 
+    @Override // com.baidu.searchbox.afx.proxy.IPlayer
+    public void resume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.afx.proxy.IPlayer
+    public void setLoopSection(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.afx.proxy.IPlayer
+    public void setLoopSection(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048590, this, i, i2) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.afx.proxy.IPlayer
+    public void setLoopSection(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.afx.proxy.IPlayer
+    public void setLoopSection(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        }
+    }
+
+    public void setSourceFD(FileDescriptor fileDescriptor) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, fileDescriptor) == null) {
+        }
+    }
+
+    public void setSourceFD(FileDescriptor fileDescriptor, long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{fileDescriptor, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        }
+    }
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class PlayerState {
+    public final class PlayerState {
         public static final /* synthetic */ PlayerState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final PlayerState DESTROYED;
@@ -92,13 +139,19 @@ public abstract class PlayerProxy implements IPlayer {
         public static PlayerState valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (PlayerState) Enum.valueOf(PlayerState.class, str) : (PlayerState) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (PlayerState) Enum.valueOf(PlayerState.class, str);
+            }
+            return (PlayerState) invokeL.objValue;
         }
 
         public static PlayerState[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PlayerState[]) $VALUES.clone() : (PlayerState[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (PlayerState[]) $VALUES.clone();
+            }
+            return (PlayerState[]) invokeV.objValue;
         }
     }
 
@@ -130,54 +183,96 @@ public abstract class PlayerProxy implements IPlayer {
     public String getSourcePath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mSourcePath : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mSourcePath;
+        }
+        return (String) invokeV.objValue;
     }
 
     public PlayerState getState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mPlayerState : (PlayerState) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mPlayerState;
+        }
+        return (PlayerState) invokeV.objValue;
     }
 
     @Override // com.baidu.searchbox.afx.proxy.IPlayer
     public final boolean isDestroyed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mPlayerState == PlayerState.DESTROYED : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.mPlayerState == PlayerState.DESTROYED) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.searchbox.afx.proxy.IPlayer
     public final boolean isNotPrepared() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mPlayerState == PlayerState.NOT_PREPARED : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.mPlayerState == PlayerState.NOT_PREPARED) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.searchbox.afx.proxy.IPlayer
     public final boolean isPaused() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mPlayerState == PlayerState.PAUSED : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.mPlayerState == PlayerState.PAUSED) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.searchbox.afx.proxy.IPlayer
     public final boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mPlayerState == PlayerState.PLAYING : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.mPlayerState == PlayerState.PLAYING) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public final boolean isPrepared() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mPlayerState == PlayerState.PREPARED : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.mPlayerState == PlayerState.PREPARED) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.searchbox.afx.proxy.IPlayer
     public final boolean isStopped() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mPlayerState == PlayerState.STOPPED : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.mPlayerState == PlayerState.STOPPED) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.searchbox.afx.proxy.IPlayer
@@ -204,37 +299,14 @@ public abstract class PlayerProxy implements IPlayer {
     }
 
     @Override // com.baidu.searchbox.afx.proxy.IPlayer
-    public void resume() {
+    public void stop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.afx.proxy.IPlayer
-    public void setLoopSection(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.afx.proxy.IPlayer
-    public void setLoopSection(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048590, this, i, i2) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.afx.proxy.IPlayer
-    public void setLoopSection(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.afx.proxy.IPlayer
-    public void setLoopSection(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
+            this.mPlayerState = PlayerState.STOPPED;
+            OnVideoEndedListener onVideoEndedListener = this.mOnVideoEndedListener;
+            if (onVideoEndedListener != null) {
+                onVideoEndedListener.onVideoEnded();
+            }
         }
     }
 
@@ -314,18 +386,6 @@ public abstract class PlayerProxy implements IPlayer {
                     onVideoErrorListener2.onError(new ErrorInfo(1, str2, e, "-1", null, getSourcePath(), valueOf2));
                 }
             }
-        }
-    }
-
-    public void setSourceFD(FileDescriptor fileDescriptor) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, fileDescriptor) == null) {
-        }
-    }
-
-    public void setSourceFD(FileDescriptor fileDescriptor, long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{fileDescriptor, Long.valueOf(j), Long.valueOf(j2)}) == null) {
         }
     }
 
@@ -425,18 +485,6 @@ public abstract class PlayerProxy implements IPlayer {
                 return;
             }
             setSourceFile(new File(str));
-        }
-    }
-
-    @Override // com.baidu.searchbox.afx.proxy.IPlayer
-    public void stop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            this.mPlayerState = PlayerState.STOPPED;
-            OnVideoEndedListener onVideoEndedListener = this.mOnVideoEndedListener;
-            if (onVideoEndedListener != null) {
-                onVideoEndedListener.onVideoEnded();
-            }
         }
     }
 }

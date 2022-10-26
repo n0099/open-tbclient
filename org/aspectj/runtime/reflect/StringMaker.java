@@ -97,7 +97,7 @@ public class StringMaker {
 
     public void addSignature(StringBuffer stringBuffer, Class[] clsArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, stringBuffer, clsArr) == null) || clsArr == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, stringBuffer, clsArr) != null) || clsArr == null) {
             return;
         }
         if (!this.includeArgs) {
@@ -116,11 +116,10 @@ public class StringMaker {
 
     public void addThrows(StringBuffer stringBuffer, Class[] clsArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, stringBuffer, clsArr) == null) || !this.includeThrows || clsArr == null || clsArr.length == 0) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, stringBuffer, clsArr) == null) && this.includeThrows && clsArr != null && clsArr.length != 0) {
+            stringBuffer.append(" throws ");
+            addTypeNames(stringBuffer, clsArr);
         }
-        stringBuffer.append(" throws ");
-        addTypeNames(stringBuffer, clsArr);
     }
 
     public void addTypeNames(StringBuffer stringBuffer, Class[] clsArr) {
@@ -135,12 +134,46 @@ public class StringMaker {
         }
     }
 
+    public String makePrimaryTypeName(Class cls, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, cls, str)) == null) {
+            return makeTypeName(cls, str, this.shortPrimaryTypeNames);
+        }
+        return (String) invokeLL.objValue;
+    }
+
     public String makeKindName(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             int lastIndexOf = str.lastIndexOf(45);
-            return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
+            if (lastIndexOf == -1) {
+                return str;
+            }
+            return str.substring(lastIndexOf + 1);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String makeTypeName(Class cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, cls)) == null) {
+            return makeTypeName(cls, cls.getName(), this.shortTypeNames);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String stripPackageName(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            int lastIndexOf = str.lastIndexOf(46);
+            if (lastIndexOf == -1) {
+                return str;
+            }
+            return str.substring(lastIndexOf + 1);
         }
         return (String) invokeL.objValue;
     }
@@ -149,25 +182,19 @@ public class StringMaker {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            if (this.includeModifiers) {
-                String modifier = Modifier.toString(i);
-                if (modifier.length() == 0) {
-                    return "";
-                }
-                StringBuffer stringBuffer = new StringBuffer();
-                stringBuffer.append(modifier);
-                stringBuffer.append(" ");
-                return stringBuffer.toString();
+            if (!this.includeModifiers) {
+                return "";
             }
-            return "";
+            String modifier = Modifier.toString(i);
+            if (modifier.length() == 0) {
+                return "";
+            }
+            StringBuffer stringBuffer = new StringBuffer();
+            stringBuffer.append(modifier);
+            stringBuffer.append(" ");
+            return stringBuffer.toString();
         }
         return (String) invokeI.objValue;
-    }
-
-    public String makePrimaryTypeName(Class cls, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, cls, str)) == null) ? makeTypeName(cls, str, this.shortPrimaryTypeNames) : (String) invokeLL.objValue;
     }
 
     public String makeTypeName(Class cls, String str, boolean z) {
@@ -177,34 +204,18 @@ public class StringMaker {
             if (cls == null) {
                 return "ANONYMOUS";
             }
-            if (!cls.isArray()) {
-                if (z) {
-                    return stripPackageName(str).replace('$', IStringUtil.EXTENSION_SEPARATOR);
-                }
+            if (cls.isArray()) {
+                Class<?> componentType = cls.getComponentType();
+                StringBuffer stringBuffer = new StringBuffer();
+                stringBuffer.append(makeTypeName(componentType, componentType.getName(), z));
+                stringBuffer.append("[]");
+                return stringBuffer.toString();
+            } else if (z) {
+                return stripPackageName(str).replace('$', IStringUtil.EXTENSION_SEPARATOR);
+            } else {
                 return str.replace('$', IStringUtil.EXTENSION_SEPARATOR);
             }
-            Class<?> componentType = cls.getComponentType();
-            StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append(makeTypeName(componentType, componentType.getName(), z));
-            stringBuffer.append("[]");
-            return stringBuffer.toString();
         }
         return (String) invokeLLZ.objValue;
-    }
-
-    public String stripPackageName(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            int lastIndexOf = str.lastIndexOf(46);
-            return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public String makeTypeName(Class cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, cls)) == null) ? makeTypeName(cls, cls.getName(), this.shortTypeNames) : (String) invokeL.objValue;
     }
 }

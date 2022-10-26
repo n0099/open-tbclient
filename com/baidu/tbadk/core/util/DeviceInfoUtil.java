@@ -8,7 +8,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.sapi2.activity.OauthActivity;
 import com.baidu.tbadk.switchs.IsFullScreenSwitch;
-import com.baidu.tieba.gj;
+import com.baidu.tieba.hj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,8 +37,11 @@ public class DeviceInfoUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            String f = gj.f();
-            return TextUtils.isEmpty(f) ? "NUL" : f.replace("_", "-");
+            String f = hj.f();
+            if (TextUtils.isEmpty(f)) {
+                return "NUL";
+            }
+            return f.replace("_", "-");
         }
         return (String) invokeV.objValue;
     }
@@ -55,16 +58,153 @@ public class DeviceInfoUtil {
         return (String) invokeV.objValue;
     }
 
+    public static boolean isHWnova() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return StringHelper.equals(hj.g(), "ANE-AL00");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isHarmonyOs200() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return OauthActivity.N.equals(getHarmonyOSVersion());
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isHonor30NotchDevice() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            String g = hj.g();
+            if ((isHuaWei() || isHonor()) && "OXF-AN00".equalsIgnoreCase(g)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isHuaWeiP40() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            if (!StringHelper.equals(hj.g(), "ANA-AN00") && !StringHelper.equals(hj.g(), "ANA-TN00")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isHuaWeiP40Pro() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            if (!StringHelper.equals(hj.g(), "ELS-AN00") && !StringHelper.equals(hj.g(), "ELS-TN00")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isHuaWeiU9508Device() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            String g = hj.g();
+            if (TextUtils.isEmpty(g) || !g.contains("Huawei_HUAWEI U9508")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isHuaWeiVirtual() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            return StringHelper.equals(hj.g(), "HMA-AL00");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isMi5X() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
+            return StringHelper.equals(hj.g(), "MI 5X");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isOppN5207() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
+            return "n5207".equals(hj.g());
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isReno3() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
+            return StringHelper.equals(hj.g(), "PCLM50");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isVivoX20A() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
+            return StringHelper.equals(hj.g(), "vivo X20A");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isXiaoMi() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
+            if (RomUtils.MANUFACTURER_XIAOMI.equalsIgnoreCase(hj.f())) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isXiaomi10() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
+            return "Mi 10".equals(hj.g());
+        }
+        return invokeV.booleanValue;
+    }
+
     public static int getMainTabActJumpOtherDelayTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             if (isHuaWei() || isHonor()) {
                 String str = Build.HARDWARE;
-                if (TextUtils.isEmpty(str)) {
+                if (!TextUtils.isEmpty(str)) {
+                    if (str.equalsIgnoreCase("kirin980") || str.equalsIgnoreCase("kirin970") || str.equalsIgnoreCase("kirin960") || str.equalsIgnoreCase("kirin950") || str.equalsIgnoreCase("kirin935") || str.equalsIgnoreCase("kirin930") || str.equalsIgnoreCase("kirin928") || str.equalsIgnoreCase("kirin925") || str.equalsIgnoreCase("kirin920") || str.equalsIgnoreCase("kirin910") || str.equalsIgnoreCase("kirin710") || str.equalsIgnoreCase("kirin659")) {
+                        return 1000;
+                    }
                     return 0;
                 }
-                return (str.equalsIgnoreCase("kirin980") || str.equalsIgnoreCase("kirin970") || str.equalsIgnoreCase("kirin960") || str.equalsIgnoreCase("kirin950") || str.equalsIgnoreCase("kirin935") || str.equalsIgnoreCase("kirin930") || str.equalsIgnoreCase("kirin928") || str.equalsIgnoreCase("kirin925") || str.equalsIgnoreCase("kirin920") || str.equalsIgnoreCase("kirin910") || str.equalsIgnoreCase("kirin710") || str.equalsIgnoreCase("kirin659")) ? 1000 : 0;
+                return 0;
             }
             return 0;
         }
@@ -78,19 +218,16 @@ public class DeviceInfoUtil {
             try {
                 Class<?> cls = Class.forName("android.os.SystemProperties");
                 String str3 = (String) cls.getDeclaredMethod("get", String.class).invoke(cls, str);
-                return TextUtils.isEmpty(str3) ? str2 : str3;
+                if (TextUtils.isEmpty(str3)) {
+                    return str2;
+                }
+                return str3;
             } catch (Throwable th) {
                 th.printStackTrace();
                 return str2;
             }
         }
         return (String) invokeLL.objValue;
-    }
-
-    public static boolean isHWnova() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? StringHelper.equals(gj.g(), "ANE-AL00") : invokeV.booleanValue;
     }
 
     public static boolean isHarmonyOs() {
@@ -111,27 +248,16 @@ public class DeviceInfoUtil {
         return invokeV.booleanValue;
     }
 
-    public static boolean isHarmonyOs200() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? OauthActivity.N.equals(getHarmonyOSVersion()) : invokeV.booleanValue;
-    }
-
     public static boolean isHonor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            String g = gj.g();
-            return (!TextUtils.isEmpty(g) && g.contains("honor")) || "honor".equalsIgnoreCase(gj.f());
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean isHonor30NotchDevice() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return (isHuaWei() || isHonor()) && "OXF-AN00".equalsIgnoreCase(gj.g());
+            String g = hj.g();
+            String f = hj.f();
+            if ((!TextUtils.isEmpty(g) && g.contains("honor")) || "honor".equalsIgnoreCase(f)) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
@@ -140,50 +266,64 @@ public class DeviceInfoUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            String g = gj.g();
-            return (!TextUtils.isEmpty(g) && g.contains(RomUtils.MANUFACTURER_HUAWEI)) || RomUtils.MANUFACTURER_HUAWEI.equalsIgnoreCase(gj.f());
+            String g = hj.g();
+            String f = hj.f();
+            if ((!TextUtils.isEmpty(g) && g.contains(RomUtils.MANUFACTURER_HUAWEI)) || RomUtils.MANUFACTURER_HUAWEI.equalsIgnoreCase(f)) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public static boolean isHuaWeiP40() {
+    public static boolean isMiNotchDevice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? StringHelper.equals(gj.g(), "ANA-AN00") || StringHelper.equals(gj.g(), "ANA-TN00") : invokeV.booleanValue;
-    }
-
-    public static boolean isHuaWeiP40Pro() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? StringHelper.equals(gj.g(), "ELS-AN00") || StringHelper.equals(gj.g(), "ELS-TN00") : invokeV.booleanValue;
-    }
-
-    public static boolean isHuaWeiU9508Device() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            String g = gj.g();
-            return !TextUtils.isEmpty(g) && g.contains("Huawei_HUAWEI U9508");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
+            String g = hj.g();
+            if (TextUtils.isEmpty(g)) {
+                return false;
+            }
+            if (!g.contains("MI 8") && !g.contains("MI8")) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
     }
 
-    public static boolean isHuaWeiVirtual() {
+    public static boolean isfullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? StringHelper.equals(gj.g(), "HMA-AL00") : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) {
+            if (!IsFullScreenSwitch.isOn()) {
+                return false;
+            }
+            String g = hj.g();
+            String[] strArr = {"ANE-AL00", "CLT-AL01", "PACM00", "vivo Y85A", "vivo X21A", "SM-G8870"};
+            for (int i = 0; i < 6; i++) {
+                if (strArr[i].equalsIgnoreCase(g)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public static boolean isHuaweiMateX() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            String g = gj.g();
+            String g = hj.g();
             String str = Build.BRAND;
             if (TextUtils.isEmpty(g) || TextUtils.isEmpty(str) || !"HUAWEI".equalsIgnoreCase(str)) {
                 return false;
             }
-            return "RLI-AN00".equalsIgnoreCase(g) || "RLI-N29".equalsIgnoreCase(g) || "TAH-AN00".equalsIgnoreCase(g) || "TAH-N29".equalsIgnoreCase(g);
+            if (!"RLI-AN00".equalsIgnoreCase(g) && !"RLI-N29".equalsIgnoreCase(g) && !"TAH-AN00".equalsIgnoreCase(g) && !"TAH-N29".equalsIgnoreCase(g)) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
     }
@@ -191,81 +331,25 @@ public class DeviceInfoUtil {
     public static boolean isMate30() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? StringHelper.equals(gj.g(), "TAS-L09") || StringHelper.equals(gj.g(), "TAS-L29") || StringHelper.equals(gj.g(), "TAS-AL00") || StringHelper.equals(gj.g(), "TAS-TL00") : invokeV.booleanValue;
-    }
-
-    public static boolean isMi5X() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? StringHelper.equals(gj.g(), "MI 5X") : invokeV.booleanValue;
-    }
-
-    public static boolean isMiNotchDevice() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
-            String g = gj.g();
-            if (TextUtils.isEmpty(g)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
+            if (!StringHelper.equals(hj.g(), "TAS-L09") && !StringHelper.equals(hj.g(), "TAS-L29") && !StringHelper.equals(hj.g(), "TAS-AL00") && !StringHelper.equals(hj.g(), "TAS-TL00")) {
                 return false;
             }
-            return g.contains("MI 8") || g.contains("MI8");
+            return true;
         }
         return invokeV.booleanValue;
-    }
-
-    public static boolean isOppN5207() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? "n5207".equals(gj.g()) : invokeV.booleanValue;
-    }
-
-    public static boolean isReno3() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? StringHelper.equals(gj.g(), "PCLM50") : invokeV.booleanValue;
     }
 
     public static boolean isSupportGyroScope(Context context) {
         InterceptResult invokeL;
         SensorManager sensorManager;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65557, null, context)) == null) ? (context == null || (sensorManager = (SensorManager) context.getSystemService("sensor")) == null || sensorManager.getDefaultSensor(4) == null) ? false : true : invokeL.booleanValue;
-    }
-
-    public static boolean isVivoX20A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) ? StringHelper.equals(gj.g(), "vivo X20A") : invokeV.booleanValue;
-    }
-
-    public static boolean isXiaoMi() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) ? RomUtils.MANUFACTURER_XIAOMI.equalsIgnoreCase(gj.f()) : invokeV.booleanValue;
-    }
-
-    public static boolean isXiaomi10() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) ? "Mi 10".equals(gj.g()) : invokeV.booleanValue;
-    }
-
-    public static boolean isfullScreen() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) {
-            if (IsFullScreenSwitch.isOn()) {
-                String g = gj.g();
-                String[] strArr = {"ANE-AL00", "CLT-AL01", "PACM00", "vivo Y85A", "vivo X21A", "SM-G8870"};
-                for (int i = 0; i < 6; i++) {
-                    if (strArr[i].equalsIgnoreCase(g)) {
-                        return true;
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, context)) == null) {
+            if (context == null || (sensorManager = (SensorManager) context.getSystemService("sensor")) == null || sensorManager.getDefaultSensor(4) == null) {
                 return false;
             }
-            return false;
+            return true;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 }

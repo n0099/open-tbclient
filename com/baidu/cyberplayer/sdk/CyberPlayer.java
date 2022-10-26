@@ -22,7 +22,6 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-@Keep
 /* loaded from: classes.dex */
 public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaInstanceManagerProvider.OnClientInstanceHandler {
     public static /* synthetic */ Interceptable $ic;
@@ -631,7 +630,7 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
         }
     }
 
-    public void setDataSource(Context context, Uri uri, Map<String, String> map) {
+    public void setDataSource(Context context, Uri uri, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048603, this, context, uri, map) == null) {
             if (this.a != null) {
@@ -664,11 +663,11 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
     public void setDataSource(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
-            setDataSource(str, (Map<String, String>) null);
+            setDataSource(str, (Map) null);
         }
     }
 
-    public void setDataSource(String str, Map<String, String> map) {
+    public void setDataSource(String str, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048606, this, str, map) == null) {
             if (this.a != null) {

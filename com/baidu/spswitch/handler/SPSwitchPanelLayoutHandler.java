@@ -48,9 +48,26 @@ public class SPSwitchPanelLayoutHandler implements IPanelConflictLayout {
             if (i == this.mPanelLayout.getVisibility()) {
                 return true;
             }
-            return isSoftInputShowing() && i == 0;
+            if (!isSoftInputShowing() || i != 0) {
+                return false;
+            }
+            return true;
         }
         return invokeI.booleanValue;
+    }
+
+    public void refreshPanelHeight(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            ViewUtil.refreshHeight(this.mPanelLayout, i);
+        }
+    }
+
+    public void setIsSoftInputShowing(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.mIsSoftInputShowing = z;
+        }
     }
 
     @Override // com.baidu.spswitch.IPanelConflictLayout
@@ -64,23 +81,30 @@ public class SPSwitchPanelLayoutHandler implements IPanelConflictLayout {
     @Override // com.baidu.spswitch.IPanelConflictLayout
     public void handleShow() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && SPConfig.isDebug()) {
-            throw new IllegalAccessError("You can't invoke handle show in handler, please instead of handling in the panel layout, maybe just need invoke super.setVisibility(View.VISIBLE)");
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !SPConfig.isDebug()) {
+            return;
         }
+        throw new IllegalAccessError("You can't invoke handle show in handler, please instead of handling in the panel layout, maybe just need invoke super.setVisibility(View.VISIBLE)");
     }
 
     @Override // com.baidu.spswitch.IPanelConflictLayout
     public boolean isSoftInputShowing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mIsSoftInputShowing : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mIsSoftInputShowing;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.spswitch.IPanelConflictLayout
     public boolean isVisible() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? !this.mIsHide : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return !this.mIsHide;
+        }
+        return invokeV.booleanValue;
     }
 
     public int[] processOnMeasure(int i, int i2) {
@@ -96,19 +120,5 @@ public class SPSwitchPanelLayoutHandler implements IPanelConflictLayout {
             return new int[]{i, i2};
         }
         return (int[]) invokeII.objValue;
-    }
-
-    public void refreshPanelHeight(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            ViewUtil.refreshHeight(this.mPanelLayout, i);
-        }
-    }
-
-    public void setIsSoftInputShowing(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.mIsSoftInputShowing = z;
-        }
     }
 }

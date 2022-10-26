@@ -9,7 +9,7 @@ public interface IHttpRequest {
 
     IHttpRequest addFile(String str, byte[] bArr);
 
-    IHttpRequest addFormData(Map<String, Object> map);
+    IHttpRequest addFormData(Map map);
 
     IHttpRequest addFormField(String str, Object obj);
 
@@ -19,11 +19,11 @@ public interface IHttpRequest {
 
     IHttpRequest addPart(String str, Object obj);
 
-    IHttpRequest addPartMap(Map<String, Object> map);
+    IHttpRequest addPartMap(Map map);
 
     IHttpRequest addQueryField(String str, Object obj);
 
-    IHttpRequest addQueryMap(Map<String, Object> map);
+    IHttpRequest addQueryMap(Map map);
 
     void cancel();
 

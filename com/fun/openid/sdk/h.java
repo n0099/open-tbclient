@@ -29,10 +29,16 @@ public class h implements f {
 
     @Override // com.fun.openid.sdk.f
     public void a(Context context, f.a aVar) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, aVar) == null) {
+            if (n.b != null && n.a != null) {
+                z = true;
+            } else {
+                z = false;
+            }
             String str = null;
-            if (!((n.b == null || n.a == null) ? false : true)) {
+            if (!z) {
                 if (FunOpenIDSdk.isLogEnabled()) {
                     Log.e(FunOpenIDSdk.TAG, "当前设备不支持获取OAID");
                 }

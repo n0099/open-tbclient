@@ -10,16 +10,6 @@ public final class Unconfined extends CoroutineDispatcher {
     public static final Unconfined INSTANCE = new Unconfined();
 
     @Override // kotlinx.coroutines.CoroutineDispatcher
-    public void dispatch(CoroutineContext coroutineContext, Runnable runnable) {
-        YieldContext yieldContext = (YieldContext) coroutineContext.get(YieldContext.Key);
-        if (yieldContext != null) {
-            yieldContext.dispatcherWasUnconfined = true;
-            return;
-        }
-        throw new UnsupportedOperationException("Dispatchers.Unconfined.dispatch function can only be used by the yield function. If you wrap Unconfined dispatcher in your code, make sure you properly delegate isDispatchNeeded and dispatch calls.");
-    }
-
-    @Override // kotlinx.coroutines.CoroutineDispatcher
     public boolean isDispatchNeeded(CoroutineContext coroutineContext) {
         return false;
     }
@@ -27,5 +17,15 @@ public final class Unconfined extends CoroutineDispatcher {
     @Override // kotlinx.coroutines.CoroutineDispatcher
     public String toString() {
         return "Unconfined";
+    }
+
+    @Override // kotlinx.coroutines.CoroutineDispatcher
+    public void dispatch(CoroutineContext coroutineContext, Runnable runnable) {
+        YieldContext yieldContext = (YieldContext) coroutineContext.get(YieldContext.Key);
+        if (yieldContext != null) {
+            yieldContext.dispatcherWasUnconfined = true;
+            return;
+        }
+        throw new UnsupportedOperationException("Dispatchers.Unconfined.dispatch function can only be used by the yield function. If you wrap Unconfined dispatcher in your code, make sure you properly delegate isDispatchNeeded and dispatch calls.");
     }
 }

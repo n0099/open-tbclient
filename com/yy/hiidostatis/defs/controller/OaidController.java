@@ -33,7 +33,7 @@ public final class OaidController {
 
     /* renamed from: com.yy.hiidostatis.defs.controller.OaidController$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -43,113 +43,6 @@ public final class OaidController {
         void initFinish(boolean z, String str, String str2);
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1410972653, "Lcom/yy/hiidostatis/defs/controller/OaidController;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1410972653, "Lcom/yy/hiidostatis/defs/controller/OaidController;");
-                return;
-            }
-        }
-        OaidController oaidController = new OaidController("INSTANCE", 0);
-        INSTANCE = oaidController;
-        $VALUES = new OaidController[]{oaidController};
-    }
-
-    public OaidController(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                String str2 = (String) objArr2[0];
-                ((Integer) objArr2[1]).intValue();
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.oaidHelper = new OaidHelper(this, null);
-    }
-
-    public static boolean ignore(Context context) {
-        String str;
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            try {
-                str = ArdUtil.getSjp(context);
-            } catch (Throwable th) {
-                th.printStackTrace();
-                str = null;
-            }
-            return (str != null && (str.trim().equalsIgnoreCase(ManufacturerUtils.SAMSUNG) || str.trim().equalsIgnoreCase("YUFLY"))) || Build.VERSION.SDK_INT < 28;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void loadLib(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
-            try {
-                if (ignore(context)) {
-                    return;
-                }
-                JLibrary.InitEntry(context);
-            } catch (Throwable th) {
-                Log.e("OaidController", "JLibrary.InitEntry(context)", th);
-            }
-        }
-    }
-
-    public static OaidController valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (OaidController) Enum.valueOf(OaidController.class, str) : (OaidController) invokeL.objValue;
-    }
-
-    public static OaidController[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (OaidController[]) $VALUES.clone() : (OaidController[]) invokeV.objValue;
-    }
-
-    public void addListener(OaidInitListener oaidInitListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, oaidInitListener) == null) {
-            this.oaidHelper.addListener(oaidInitListener);
-        }
-    }
-
-    public void initOaidAsyn(Context context, OaidInitListener oaidInitListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, oaidInitListener) == null) {
-            this.oaidHelper.initOaid(context, oaidInitListener);
-        }
-    }
-
-    public boolean isLoaded() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.oaidHelper.isInit() : invokeV.booleanValue;
-    }
-
-    public String oaid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.oaidHelper.getOaid() : (String) invokeV.objValue;
-    }
-
     /* loaded from: classes8.dex */
     public final class OaidHelper {
         public static /* synthetic */ Interceptable $ic = null;
@@ -157,7 +50,7 @@ public final class OaidController {
         public transient /* synthetic */ FieldHolder $fh;
         public volatile int beginTime;
         public volatile boolean init;
-        public List<OaidInitListener> listeners;
+        public List listeners;
         public volatile String oaid;
         public final /* synthetic */ OaidController this$0;
 
@@ -181,82 +74,106 @@ public final class OaidController {
             this.oaid = "";
         }
 
+        public synchronized void addListener(OaidInitListener oaidInitListener) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, oaidInitListener) == null) {
+                synchronized (this) {
+                    if (this.init) {
+                        if (this.oaid != null && !this.oaid.isEmpty()) {
+                            oaidInitListener.initFinish(true, this.oaid, null);
+                        } else {
+                            oaidInitListener.initFinish(false, "", null);
+                        }
+                        return;
+                    }
+                    this.listeners.add(oaidInitListener);
+                }
+            }
+        }
+
+        public /* synthetic */ OaidHelper(OaidController oaidController, AnonymousClass1 anonymousClass1) {
+            this(oaidController);
+        }
+
         private int callFromReflect(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65542, this, context)) == null) ? MdidSdkHelper.InitSdk(context, true, new IIdentifierListener(this) { // from class: com.yy.hiidostatis.defs.controller.OaidController.OaidHelper.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ OaidHelper this$1;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, context)) == null) {
+                return MdidSdkHelper.InitSdk(context, true, new IIdentifierListener(this) { // from class: com.yy.hiidostatis.defs.controller.OaidController.OaidHelper.2
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ OaidHelper this$1;
 
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$1 = this;
-                }
-
-                public void OnSupport(boolean z, IdSupplier idSupplier) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeZL(1048576, this, z, idSupplier) == null) {
-                        try {
-                            if (idSupplier == null) {
-                                this.this$1.initFinish(false, "", "获取OAID失败");
-                                if (idSupplier != null) {
-                                    try {
-                                        idSupplier.shutDown();
-                                        return;
-                                    } catch (Throwable th) {
-                                        L.debug(this, th.getMessage(), new Object[0]);
-                                        return;
-                                    }
-                                }
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
                             }
-                            this.this$1.initFinish(true, idSupplier.getOAID(), null);
-                            if (idSupplier != null) {
-                                try {
-                                    idSupplier.shutDown();
-                                } catch (Throwable th2) {
-                                    L.debug(this, th2.getMessage(), new Object[0]);
-                                }
-                            }
-                        } catch (Throwable th3) {
+                        }
+                        this.this$1 = this;
+                    }
+
+                    public void OnSupport(boolean z, IdSupplier idSupplier) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeZL(1048576, this, z, idSupplier) == null) {
                             try {
-                                L.debug(this, th3.getMessage(), new Object[0]);
+                                if (idSupplier != null) {
+                                    this.this$1.initFinish(true, idSupplier.getOAID(), null);
+                                    if (idSupplier != null) {
+                                        try {
+                                            idSupplier.shutDown();
+                                            return;
+                                        } catch (Throwable th) {
+                                            L.debug(this, th.getMessage(), new Object[0]);
+                                            return;
+                                        }
+                                    }
+                                    return;
+                                }
                                 this.this$1.initFinish(false, "", "获取OAID失败");
                                 if (idSupplier != null) {
                                     try {
                                         idSupplier.shutDown();
-                                    } catch (Throwable th4) {
-                                        L.debug(this, th4.getMessage(), new Object[0]);
+                                    } catch (Throwable th2) {
+                                        L.debug(this, th2.getMessage(), new Object[0]);
                                     }
                                 }
-                            } catch (Throwable th5) {
-                                if (idSupplier != null) {
-                                    try {
-                                        idSupplier.shutDown();
-                                    } catch (Throwable th6) {
-                                        L.debug(this, th6.getMessage(), new Object[0]);
+                            } catch (Throwable th3) {
+                                try {
+                                    L.debug(this, th3.getMessage(), new Object[0]);
+                                    this.this$1.initFinish(false, "", "获取OAID失败");
+                                    if (idSupplier != null) {
+                                        try {
+                                            idSupplier.shutDown();
+                                        } catch (Throwable th4) {
+                                            L.debug(this, th4.getMessage(), new Object[0]);
+                                        }
                                     }
+                                } catch (Throwable th5) {
+                                    if (idSupplier != null) {
+                                        try {
+                                            idSupplier.shutDown();
+                                        } catch (Throwable th6) {
+                                            L.debug(this, th6.getMessage(), new Object[0]);
+                                        }
+                                    }
+                                    throw th5;
                                 }
-                                throw th5;
                             }
                         }
                     }
-                }
-            }) : invokeL.intValue;
+                });
+            }
+            return invokeL.intValue;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -332,42 +249,38 @@ public final class OaidController {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             int currentTimeMillis = (int) (System.currentTimeMillis() / 1000);
-                            if (currentTimeMillis - this.this$1.beginTime >= 20 || currentTimeMillis - this.this$1.beginTime <= 0) {
-                                if (this.this$1.init) {
-                                    return;
-                                }
+                            if (currentTimeMillis - this.this$1.beginTime < 20 && currentTimeMillis - this.this$1.beginTime > 0) {
+                                Log.e("OAID", "定时器时间错误:" + this.this$1.beginTime + "-" + currentTimeMillis + "-" + (currentTimeMillis - this.this$1.beginTime));
+                                this.this$1.timeOut();
+                            } else if (this.this$1.init) {
+                            } else {
                                 this.this$1.initFinish(false, "", "获取OAID超时");
-                                return;
                             }
-                            Log.e("OAID", "定时器时间错误:" + this.this$1.beginTime + "-" + currentTimeMillis + "-" + (currentTimeMillis - this.this$1.beginTime));
-                            this.this$1.timeOut();
                         }
                     }
                 }, 20000L);
             }
         }
 
-        public synchronized void addListener(OaidInitListener oaidInitListener) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, oaidInitListener) == null) {
-                synchronized (this) {
-                    if (this.init) {
-                        if (this.oaid != null && !this.oaid.isEmpty()) {
-                            oaidInitListener.initFinish(true, this.oaid, null);
-                        } else {
-                            oaidInitListener.initFinish(false, "", null);
-                        }
-                        return;
-                    }
-                    this.listeners.add(oaidInitListener);
-                }
-            }
-        }
-
         public String getOaid() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.oaid == null ? "" : this.oaid : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.oaid == null) {
+                    return "";
+                }
+                return this.oaid;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public boolean isInit() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.init;
+            }
+            return invokeV.booleanValue;
         }
 
         public void initOaid(Context context, OaidInitListener oaidInitListener) {
@@ -383,32 +296,145 @@ public final class OaidController {
                     addListener(oaidInitListener);
                     timeOut();
                     int callFromReflect = callFromReflect(context);
-                    if (callFromReflect == 1008612) {
-                        throw new Exception("不支持的设备");
-                    }
-                    if (callFromReflect == 1008613) {
+                    if (callFromReflect != 1008612) {
+                        if (callFromReflect != 1008613) {
+                            if (callFromReflect != 1008611) {
+                                if (callFromReflect != 1008614 && callFromReflect == 1008615) {
+                                    throw new Exception("反射调用出错");
+                                }
+                                return;
+                            }
+                            throw new Exception("不支持的设备厂商");
+                        }
                         throw new Exception("加载配置文件出错");
                     }
-                    if (callFromReflect == 1008611) {
-                        throw new Exception("不支持的设备厂商");
-                    }
-                    if (callFromReflect != 1008614 && callFromReflect == 1008615) {
-                        throw new Exception("反射调用出错");
-                    }
+                    throw new Exception("不支持的设备");
                 } catch (Throwable th) {
                     initFinish(false, "", th.getMessage());
                 }
             }
         }
+    }
 
-        public boolean isInit() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.init : invokeV.booleanValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1410972653, "Lcom/yy/hiidostatis/defs/controller/OaidController;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1410972653, "Lcom/yy/hiidostatis/defs/controller/OaidController;");
+                return;
+            }
         }
+        OaidController oaidController = new OaidController("INSTANCE", 0);
+        INSTANCE = oaidController;
+        $VALUES = new OaidController[]{oaidController};
+    }
 
-        public /* synthetic */ OaidHelper(OaidController oaidController, AnonymousClass1 anonymousClass1) {
-            this(oaidController);
+    public static OaidController[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return (OaidController[]) $VALUES.clone();
+        }
+        return (OaidController[]) invokeV.objValue;
+    }
+
+    public boolean isLoaded() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.oaidHelper.isInit();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String oaid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.oaidHelper.getOaid();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public OaidController(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                String str2 = (String) objArr2[0];
+                ((Integer) objArr2[1]).intValue();
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.oaidHelper = new OaidHelper(this, null);
+    }
+
+    public static boolean ignore(Context context) {
+        String str;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                str = ArdUtil.getSjp(context);
+            } catch (Throwable th) {
+                th.printStackTrace();
+                str = null;
+            }
+            if ((str != null && (str.trim().equalsIgnoreCase(ManufacturerUtils.SAMSUNG) || str.trim().equalsIgnoreCase("YUFLY"))) || Build.VERSION.SDK_INT < 28) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void loadLib(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
+            try {
+                if (ignore(context)) {
+                    return;
+                }
+                JLibrary.InitEntry(context);
+            } catch (Throwable th) {
+                Log.e("OaidController", "JLibrary.InitEntry(context)", th);
+            }
+        }
+    }
+
+    public static OaidController valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return (OaidController) Enum.valueOf(OaidController.class, str);
+        }
+        return (OaidController) invokeL.objValue;
+    }
+
+    public void addListener(OaidInitListener oaidInitListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, oaidInitListener) == null) {
+            this.oaidHelper.addListener(oaidInitListener);
+        }
+    }
+
+    public void initOaidAsyn(Context context, OaidInitListener oaidInitListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, oaidInitListener) == null) {
+            this.oaidHelper.initOaid(context, oaidInitListener);
         }
     }
 }

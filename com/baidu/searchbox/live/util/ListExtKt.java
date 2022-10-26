@@ -31,10 +31,10 @@ public final class ListExtKt {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
             Context appContext = MiniShellRuntime.INSTANCE.getAppContext();
-            if (appContext == null || (resources = appContext.getResources()) == null || (displayMetrics = resources.getDisplayMetrics()) == null) {
-                return 0;
+            if (appContext != null && (resources = appContext.getResources()) != null && (displayMetrics = resources.getDisplayMetrics()) != null) {
+                return displayMetrics.heightPixels;
             }
-            return displayMetrics.heightPixels;
+            return 0;
         }
         return invokeV.intValue;
     }
@@ -46,10 +46,10 @@ public final class ListExtKt {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             Context appContext = MiniShellRuntime.INSTANCE.getAppContext();
-            if (appContext == null || (resources = appContext.getResources()) == null || (displayMetrics = resources.getDisplayMetrics()) == null) {
-                return 0;
+            if (appContext != null && (resources = appContext.getResources()) != null && (displayMetrics = resources.getDisplayMetrics()) != null) {
+                return displayMetrics.widthPixels;
             }
-            return displayMetrics.widthPixels;
+            return 0;
         }
         return invokeV.intValue;
     }
@@ -57,57 +57,10 @@ public final class ListExtKt {
     public static final int getPlayQualityScore() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? CyberPlayerManager.getDevicePlayQualityScore(MimeTypes.VIDEO_H265, 0, RecordConstants.VIDEO_CONSTANT_WIDTH_OLD, 960, null) : invokeV.intValue;
-    }
-
-    public static final float getStaticDeviceScore(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            AppInfoService appInfoService = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
-            if (appInfoService != null) {
-                return appInfoService.getStaticDeviceScore(context);
-            }
-            return -1.0f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return CyberPlayerManager.getDevicePlayQualityScore(MimeTypes.VIDEO_H265, 0, RecordConstants.VIDEO_CONSTANT_WIDTH_OLD, 960, null);
         }
-        return invokeL.floatValue;
-    }
-
-    public static final boolean isDynamicDisplay(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? isHwMagicWindows(context) || isHwMagicWindows(context) : invokeL.booleanValue;
-    }
-
-    public static final boolean isHwMagicWindows(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            Resources resources = context.getResources();
-            Intrinsics.checkExpressionValueIsNotNull(resources, "resources");
-            String configuration = resources.getConfiguration().toString();
-            Intrinsics.checkExpressionValueIsNotNull(configuration, "resources.configuration.toString()");
-            return StringsKt__StringsKt.contains$default((CharSequence) configuration, (CharSequence) "hw-magic-windows", false, 2, (Object) null);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static final IntentData parseLiveData(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, intent)) == null) {
-            String stringExtra = intent.getStringExtra("params");
-            if (stringExtra == null) {
-                stringExtra = "";
-            }
-            String stringExtra2 = intent.getStringExtra("scheme");
-            String str = stringExtra2 != null ? stringExtra2 : "";
-            IntentData.SchemeModel parseSchemeData = IntentData.Companion.parseSchemeData(stringExtra);
-            IntentData intentData = new IntentData(parseSchemeData.getRoomId(), parseSchemeData.getSource(), str, parseSchemeData, null, null, 48, null);
-            intentData.setTranslucent(Boolean.valueOf(intent.getBooleanExtra("translucent", false)));
-            return intentData;
-        }
-        return (IntentData) invokeL.objValue;
+        return invokeV.intValue;
     }
 
     public static final int getDisplayHeight(Context context) {
@@ -130,5 +83,66 @@ public final class ListExtKt {
             return resources.getDisplayMetrics().widthPixels;
         }
         return invokeL.intValue;
+    }
+
+    public static final float getStaticDeviceScore(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            AppInfoService appInfoService = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
+            if (appInfoService != null) {
+                return appInfoService.getStaticDeviceScore(context);
+            }
+            return -1.0f;
+        }
+        return invokeL.floatValue;
+    }
+
+    public static final boolean isDynamicDisplay(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            if (!isHwMagicWindows(context) && !isHwMagicWindows(context)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static final boolean isHwMagicWindows(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            Resources resources = context.getResources();
+            Intrinsics.checkExpressionValueIsNotNull(resources, "resources");
+            String configuration = resources.getConfiguration().toString();
+            Intrinsics.checkExpressionValueIsNotNull(configuration, "resources.configuration.toString()");
+            return StringsKt__StringsKt.contains$default((CharSequence) configuration, (CharSequence) "hw-magic-windows", false, 2, (Object) null);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static final IntentData parseLiveData(Intent intent) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, intent)) == null) {
+            String stringExtra = intent.getStringExtra("params");
+            if (stringExtra == null) {
+                stringExtra = "";
+            }
+            String stringExtra2 = intent.getStringExtra("scheme");
+            if (stringExtra2 == null) {
+                str = "";
+            } else {
+                str = stringExtra2;
+            }
+            IntentData.SchemeModel parseSchemeData = IntentData.Companion.parseSchemeData(stringExtra);
+            IntentData intentData = new IntentData(parseSchemeData.getRoomId(), parseSchemeData.getSource(), str, parseSchemeData, null, null, 48, null);
+            intentData.setTransitionStatus(intent.getBooleanExtra("translucent", false) ? 1 : 0);
+            return intentData;
+        }
+        return (IntentData) invokeL.objValue;
     }
 }

@@ -53,6 +53,38 @@ public class LinearCurveFit extends CurveFit {
         }
     }
 
+    @Override // androidx.constraintlayout.motion.utils.CurveFit
+    public double getSlope(double d, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d), Integer.valueOf(i)})) == null) {
+            double[] dArr = this.mT;
+            int length = dArr.length;
+            int i2 = 0;
+            if (d < dArr[0]) {
+                d = dArr[0];
+            } else {
+                int i3 = length - 1;
+                if (d >= dArr[i3]) {
+                    d = dArr[i3];
+                }
+            }
+            while (i2 < length - 1) {
+                double[] dArr2 = this.mT;
+                int i4 = i2 + 1;
+                if (d <= dArr2[i4]) {
+                    double d2 = dArr2[i4] - dArr2[i2];
+                    double d3 = dArr2[i2];
+                    double[][] dArr3 = this.mY;
+                    return (dArr3[i4][i] - dArr3[i2][i]) / d2;
+                }
+                i2 = i4;
+            }
+            return 0.0d;
+        }
+        return invokeCommon.doubleValue;
+    }
+
     private double getLength2D(double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -101,6 +133,72 @@ public class LinearCurveFit extends CurveFit {
     }
 
     @Override // androidx.constraintlayout.motion.utils.CurveFit
+    public double getPos(double d, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d), Integer.valueOf(i)})) == null) {
+            double[] dArr = this.mT;
+            int length = dArr.length;
+            int i2 = 0;
+            if (d <= dArr[0]) {
+                return this.mY[0][i];
+            }
+            int i3 = length - 1;
+            if (d >= dArr[i3]) {
+                return this.mY[i3][i];
+            }
+            while (i2 < i3) {
+                double[] dArr2 = this.mT;
+                if (d == dArr2[i2]) {
+                    return this.mY[i2][i];
+                }
+                int i4 = i2 + 1;
+                if (d < dArr2[i4]) {
+                    double d2 = (d - dArr2[i2]) / (dArr2[i4] - dArr2[i2]);
+                    double[][] dArr3 = this.mY;
+                    return (dArr3[i2][i] * (1.0d - d2)) + (dArr3[i4][i] * d2);
+                }
+                i2 = i4;
+            }
+            return 0.0d;
+        }
+        return invokeCommon.doubleValue;
+    }
+
+    @Override // androidx.constraintlayout.motion.utils.CurveFit
+    public void getSlope(double d, double[] dArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Double.valueOf(d), dArr}) == null) {
+            double[] dArr2 = this.mT;
+            int length = dArr2.length;
+            int length2 = this.mY[0].length;
+            if (d <= dArr2[0]) {
+                d = dArr2[0];
+            } else {
+                int i = length - 1;
+                if (d >= dArr2[i]) {
+                    d = dArr2[i];
+                }
+            }
+            int i2 = 0;
+            while (i2 < length - 1) {
+                double[] dArr3 = this.mT;
+                int i3 = i2 + 1;
+                if (d <= dArr3[i3]) {
+                    double d2 = dArr3[i3] - dArr3[i2];
+                    double d3 = dArr3[i2];
+                    for (int i4 = 0; i4 < length2; i4++) {
+                        double[][] dArr4 = this.mY;
+                        dArr[i4] = (dArr4[i3][i4] - dArr4[i2][i4]) / d2;
+                    }
+                    return;
+                }
+                i2 = i3;
+            }
+        }
+    }
+
+    @Override // androidx.constraintlayout.motion.utils.CurveFit
     public void getPos(double d, double[] dArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d), dArr}) == null) {
@@ -143,78 +241,6 @@ public class LinearCurveFit extends CurveFit {
                 i4 = i6;
             }
         }
-    }
-
-    @Override // androidx.constraintlayout.motion.utils.CurveFit
-    public void getSlope(double d, double[] dArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Double.valueOf(d), dArr}) == null) {
-            double[] dArr2 = this.mT;
-            int length = dArr2.length;
-            int length2 = this.mY[0].length;
-            if (d <= dArr2[0]) {
-                d = dArr2[0];
-            } else {
-                int i = length - 1;
-                if (d >= dArr2[i]) {
-                    d = dArr2[i];
-                }
-            }
-            int i2 = 0;
-            while (i2 < length - 1) {
-                double[] dArr3 = this.mT;
-                int i3 = i2 + 1;
-                if (d <= dArr3[i3]) {
-                    double d2 = dArr3[i3] - dArr3[i2];
-                    double d3 = dArr3[i2];
-                    for (int i4 = 0; i4 < length2; i4++) {
-                        double[][] dArr4 = this.mY;
-                        dArr[i4] = (dArr4[i3][i4] - dArr4[i2][i4]) / d2;
-                    }
-                    return;
-                }
-                i2 = i3;
-            }
-        }
-    }
-
-    @Override // androidx.constraintlayout.motion.utils.CurveFit
-    public double[] getTimePoints() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mT : (double[]) invokeV.objValue;
-    }
-
-    @Override // androidx.constraintlayout.motion.utils.CurveFit
-    public double getSlope(double d, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d), Integer.valueOf(i)})) == null) {
-            double[] dArr = this.mT;
-            int length = dArr.length;
-            int i2 = 0;
-            if (d < dArr[0]) {
-                d = dArr[0];
-            } else {
-                int i3 = length - 1;
-                if (d >= dArr[i3]) {
-                    d = dArr[i3];
-                }
-            }
-            while (i2 < length - 1) {
-                double[] dArr2 = this.mT;
-                int i4 = i2 + 1;
-                if (d <= dArr2[i4]) {
-                    double d2 = dArr2[i4] - dArr2[i2];
-                    double d3 = dArr2[i2];
-                    double[][] dArr3 = this.mY;
-                    return (dArr3[i4][i] - dArr3[i2][i]) / d2;
-                }
-                i2 = i4;
-            }
-            return 0.0d;
-        }
-        return invokeCommon.doubleValue;
     }
 
     @Override // androidx.constraintlayout.motion.utils.CurveFit
@@ -263,35 +289,12 @@ public class LinearCurveFit extends CurveFit {
     }
 
     @Override // androidx.constraintlayout.motion.utils.CurveFit
-    public double getPos(double d, int i) {
-        InterceptResult invokeCommon;
+    public double[] getTimePoints() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d), Integer.valueOf(i)})) == null) {
-            double[] dArr = this.mT;
-            int length = dArr.length;
-            int i2 = 0;
-            if (d <= dArr[0]) {
-                return this.mY[0][i];
-            }
-            int i3 = length - 1;
-            if (d >= dArr[i3]) {
-                return this.mY[i3][i];
-            }
-            while (i2 < i3) {
-                double[] dArr2 = this.mT;
-                if (d == dArr2[i2]) {
-                    return this.mY[i2][i];
-                }
-                int i4 = i2 + 1;
-                if (d < dArr2[i4]) {
-                    double d2 = (d - dArr2[i2]) / (dArr2[i4] - dArr2[i2]);
-                    double[][] dArr3 = this.mY;
-                    return (dArr3[i2][i] * (1.0d - d2)) + (dArr3[i4][i] * d2);
-                }
-                i2 = i4;
-            }
-            return 0.0d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mT;
         }
-        return invokeCommon.doubleValue;
+        return (double[]) invokeV.objValue;
     }
 }

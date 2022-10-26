@@ -8,26 +8,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
-import io.reactivex.annotations.Nullable;
 import io.reactivex.internal.observers.BasicIntQueueDisposable;
 /* loaded from: classes8.dex */
-public final class ObservableRangeLong extends Observable<Long> {
+public final class ObservableRangeLong extends Observable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long count;
     public final long start;
 
     /* loaded from: classes8.dex */
-    public static final class RangeDisposable extends BasicIntQueueDisposable<Long> {
+    public final class RangeDisposable extends BasicIntQueueDisposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 396518478098735504L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super Long> actual;
+        public final Observer actual;
         public final long end;
         public boolean fused;
         public long index;
 
-        public RangeDisposable(Observer<? super Long> observer, long j, long j2) {
+        public RangeDisposable(Observer observer, long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,14 +67,43 @@ public final class ObservableRangeLong extends Observable<Long> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? get() != 0 : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                if (get() != 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
         public boolean isEmpty() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.index == this.end : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (this.index == this.end) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // io.reactivex.internal.fuseable.SimpleQueue
+        public Long poll() throws Exception {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                long j = this.index;
+                if (j != this.end) {
+                    this.index = 1 + j;
+                    return Long.valueOf(j);
+                }
+                lazySet(1);
+                return null;
+            }
+            return (Long) invokeV.objValue;
         }
 
         @Override // io.reactivex.internal.fuseable.QueueFuseable
@@ -94,10 +122,10 @@ public final class ObservableRangeLong extends Observable<Long> {
 
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.fused) {
+            if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || this.fused) {
                 return;
             }
-            Observer<? super Long> observer = this.actual;
+            Observer observer = this.actual;
             long j = this.end;
             for (long j2 = this.index; j2 != j && get() == 0; j2++) {
                 observer.onNext(Long.valueOf(j2));
@@ -106,24 +134,6 @@ public final class ObservableRangeLong extends Observable<Long> {
                 lazySet(1);
                 observer.onComplete();
             }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // io.reactivex.internal.fuseable.SimpleQueue
-        @Nullable
-        public Long poll() throws Exception {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                long j = this.index;
-                if (j != this.end) {
-                    this.index = 1 + j;
-                    return Long.valueOf(j);
-                }
-                lazySet(1);
-                return null;
-            }
-            return (Long) invokeV.objValue;
         }
     }
 
@@ -147,7 +157,7 @@ public final class ObservableRangeLong extends Observable<Long> {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super Long> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             long j = this.start;

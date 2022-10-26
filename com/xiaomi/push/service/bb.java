@@ -11,6 +11,7 @@ import com.xiaomi.push.hu;
 import com.xiaomi.push.ig;
 import com.xiaomi.push.ih;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class bb {
@@ -26,7 +27,7 @@ public class bb {
         return invokeLL.intValue;
     }
 
-    public static List<Pair<Integer, Object>> a(List<hu> list, boolean z) {
+    public static List a(List list, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, list, z)) == null) {
@@ -34,7 +35,9 @@ public class bb {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            for (hu huVar : list) {
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                hu huVar = (hu) it.next();
                 int a = huVar.a();
                 hq a2 = hq.a(huVar.b());
                 if (a2 != null) {
@@ -42,7 +45,7 @@ public class bb {
                         arrayList.add(new Pair(Integer.valueOf(a), null));
                     } else {
                         int i = bc.b[a2.ordinal()];
-                        arrayList.add(i != 1 ? i != 2 ? i != 3 ? i != 4 ? null : new Pair(Integer.valueOf(a), Boolean.valueOf(huVar.g())) : new Pair(Integer.valueOf(a), huVar.m418a()) : new Pair(Integer.valueOf(a), Long.valueOf(huVar.m417a())) : new Pair(Integer.valueOf(a), Integer.valueOf(huVar.c())));
+                        arrayList.add(i != 1 ? i != 2 ? i != 3 ? i != 4 ? null : new Pair(Integer.valueOf(a), Boolean.valueOf(huVar.g())) : new Pair(Integer.valueOf(a), huVar.m417a()) : new Pair(Integer.valueOf(a), Long.valueOf(huVar.m416a())) : new Pair(Integer.valueOf(a), Integer.valueOf(huVar.c())));
                     }
                 }
             }
@@ -65,8 +68,8 @@ public class bb {
             ArrayList arrayList = new ArrayList();
             ArrayList arrayList2 = new ArrayList();
             for (hs hsVar : ihVar.a()) {
-                arrayList.add(new Pair<>(hsVar.m413a(), Integer.valueOf(hsVar.a())));
-                List<Pair<Integer, Object>> a = a(hsVar.f504a, false);
+                arrayList.add(new Pair(hsVar.m412a(), Integer.valueOf(hsVar.a())));
+                List a = a(hsVar.f504a, false);
                 if (!com.xiaomi.push.ag.a(a)) {
                     arrayList2.addAll(a);
                 }

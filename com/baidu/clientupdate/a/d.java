@@ -249,34 +249,9 @@ public final class d {
         return (List) invokeV.objValue;
     }
 
-    /* JADX WARN: Can't wrap try/catch for region: R(11:3|4|5|(1:7)(1:57)|8|9|(5:(3:42|43|(5:45|(1:49)|51|17|(2:19|20)(1:22)))|15|16|17|(0)(0))|11|12|13|14) */
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x0110, code lost:
-        r0 = th;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x0111, code lost:
-        r21 = r15;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x0116, code lost:
-        r0 = e;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:39:0x0117, code lost:
-        r21 = r15;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:46:0x0128, code lost:
-        r6.close();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:47:0x012b, code lost:
-        return;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:49:0x012e, code lost:
-        r6.close();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:65:?, code lost:
-        return;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x0108  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x0128  */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x012e  */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x010a  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x012a  */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x0130  */
     /* JADX WARN: Removed duplicated region for block: B:63:? A[RETURN, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:65:? A[RETURN, SYNTHETIC] */
     /*
@@ -310,71 +285,91 @@ public final class d {
             th = th;
         }
         try {
-            if (a != null) {
-                try {
-                    if (a.moveToNext()) {
-                        a a2 = a(a);
-                        if (a2.c.equals(str4) && a2.d.equals(str2)) {
-                            LogUtil.logE(LogUtils.TAG, "update");
-                            a2.a(str10);
-                            a2.f.put(str5);
-                            a2.e.put(str6);
-                            a2.g.put(System.currentTimeMillis() / 1000);
-                            a2.h.put(str8);
-                            a2.i.put(str9);
-                            this.c.b(a2);
-                        }
-                        cursor = a;
-                        LogUtil.logE(LogUtils.TAG, "log time:" + (System.currentTimeMillis() - currentTimeMillis));
-                        if (cursor == null) {
-                            cursor.close();
+            try {
+                if (a != null) {
+                    try {
+                        if (a.moveToNext()) {
+                            a a2 = a(a);
+                            if (a2.c.equals(str4) && a2.d.equals(str2)) {
+                                LogUtil.logE(LogUtils.TAG, "update");
+                                a2.a(str10);
+                                a2.f.put(str5);
+                                a2.e.put(str6);
+                                a2.g.put(System.currentTimeMillis() / 1000);
+                                a2.h.put(str8);
+                                a2.i.put(str9);
+                                this.c.b(a2);
+                            }
+                            cursor = a;
+                            LogUtil.logE(LogUtils.TAG, "log time:" + (System.currentTimeMillis() - currentTimeMillis));
+                            if (cursor == null) {
+                                cursor.close();
+                                return;
+                            }
                             return;
                         }
-                        return;
+                    } catch (Exception e3) {
+                        e = e3;
+                        cursor2 = a;
+                        LogUtil.logE(LogUtils.TAG, Log.getStackTraceString(e));
+                        if (cursor2 != null) {
+                        }
+                    } catch (Throwable th2) {
+                        th = th2;
+                        cursor2 = a;
+                        if (cursor2 != null) {
+                        }
+                        throw th;
                     }
-                } catch (Exception e3) {
-                    e = e3;
-                    cursor2 = a;
-                    LogUtil.logE(LogUtils.TAG, Log.getStackTraceString(e));
-                    if (cursor2 != null) {
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    cursor2 = a;
-                    if (cursor2 != null) {
-                    }
-                    throw th;
                 }
+                this.c.a(new a(str, str2, str10, str4, jSONArray, jSONArray2, jSONArray3, jSONArray4, jSONArray5));
+                LogUtil.logE(LogUtils.TAG, "log time:" + (System.currentTimeMillis() - currentTimeMillis));
+                if (cursor == null) {
+                }
+            } catch (Exception e4) {
+                e = e4;
+                cursor2 = cursor;
+                LogUtil.logE(LogUtils.TAG, Log.getStackTraceString(e));
+                if (cursor2 != null) {
+                    cursor2.close();
+                    return;
+                }
+                return;
+            } catch (Throwable th3) {
+                th = th3;
+                cursor2 = cursor;
+                if (cursor2 != null) {
+                    cursor2.close();
+                }
+                throw th;
             }
-            this.c.a(new a(str, str2, str10, str4, jSONArray, jSONArray2, jSONArray3, jSONArray4, jSONArray5));
-            LogUtil.logE(LogUtils.TAG, "log time:" + (System.currentTimeMillis() - currentTimeMillis));
-            if (cursor == null) {
-            }
-        } catch (Exception e4) {
-            e = e4;
+            LogUtil.logE(LogUtils.TAG, "insert");
+            jSONArray = new JSONArray();
+            jSONArray.put(str6);
+            jSONArray2 = new JSONArray();
+            jSONArray2.put(str5);
+            jSONArray3 = new JSONArray();
+            jSONArray3.put((System.currentTimeMillis() / 1000) + "");
+            jSONArray4 = new JSONArray();
+            jSONArray4.put(str8);
+            jSONArray5 = new JSONArray();
+            jSONArray5.put(str9);
+            cursor = a;
+        } catch (Exception e5) {
+            e = e5;
+            cursor = a;
             cursor2 = cursor;
             LogUtil.logE(LogUtils.TAG, Log.getStackTraceString(e));
             if (cursor2 != null) {
             }
-        } catch (Throwable th3) {
-            th = th3;
+        } catch (Throwable th4) {
+            th = th4;
+            cursor = a;
             cursor2 = cursor;
             if (cursor2 != null) {
             }
             throw th;
         }
-        LogUtil.logE(LogUtils.TAG, "insert");
-        jSONArray = new JSONArray();
-        jSONArray.put(str6);
-        jSONArray2 = new JSONArray();
-        jSONArray2.put(str5);
-        jSONArray3 = new JSONArray();
-        jSONArray3.put((System.currentTimeMillis() / 1000) + "");
-        jSONArray4 = new JSONArray();
-        jSONArray4.put(str8);
-        jSONArray5 = new JSONArray();
-        jSONArray5.put(str9);
-        cursor = a;
     }
 
     public byte[] a(byte[] bArr) {

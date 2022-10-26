@@ -1,6 +1,5 @@
 package tv.athena.revenue.payui.view.dialog;
 
-import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-@Keep
 /* loaded from: classes9.dex */
 public final class CancelType {
     public static final /* synthetic */ CancelType[] $VALUES;
@@ -65,12 +63,18 @@ public final class CancelType {
     public static CancelType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (CancelType) Enum.valueOf(CancelType.class, str) : (CancelType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (CancelType) Enum.valueOf(CancelType.class, str);
+        }
+        return (CancelType) invokeL.objValue;
     }
 
     public static CancelType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CancelType[]) $VALUES.clone() : (CancelType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (CancelType[]) $VALUES.clone();
+        }
+        return (CancelType[]) invokeV.objValue;
     }
 }

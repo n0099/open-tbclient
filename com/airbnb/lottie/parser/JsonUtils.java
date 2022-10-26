@@ -2,7 +2,6 @@ package com.airbnb.lottie.parser;
 
 import android.graphics.Color;
 import android.graphics.PointF;
-import androidx.annotation.ColorInt;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,7 +12,7 @@ public class JsonUtils {
 
     /* renamed from: com.airbnb.lottie.parser.JsonUtils$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$parser$moshi$JsonReader$Token;
 
         static {
@@ -54,36 +53,37 @@ public class JsonUtils {
         return new PointF(nextDouble * f, nextDouble2 * f);
     }
 
+    public static List jsonToPoints(JsonReader jsonReader, float f) throws IOException {
+        ArrayList arrayList = new ArrayList();
+        jsonReader.beginArray();
+        while (jsonReader.peek() == JsonReader.Token.BEGIN_ARRAY) {
+            jsonReader.beginArray();
+            arrayList.add(jsonToPoint(jsonReader, f));
+            jsonReader.endArray();
+        }
+        jsonReader.endArray();
+        return arrayList;
+    }
+
     public static PointF jsonObjectToPoint(JsonReader jsonReader, float f) throws IOException {
         jsonReader.beginObject();
         float f2 = 0.0f;
         float f3 = 0.0f;
         while (jsonReader.hasNext()) {
             int selectName = jsonReader.selectName(POINT_NAMES);
-            if (selectName == 0) {
-                f2 = valueFromObject(jsonReader);
-            } else if (selectName != 1) {
-                jsonReader.skipName();
-                jsonReader.skipValue();
+            if (selectName != 0) {
+                if (selectName != 1) {
+                    jsonReader.skipName();
+                    jsonReader.skipValue();
+                } else {
+                    f3 = valueFromObject(jsonReader);
+                }
             } else {
-                f3 = valueFromObject(jsonReader);
+                f2 = valueFromObject(jsonReader);
             }
         }
         jsonReader.endObject();
         return new PointF(f2 * f, f3 * f);
-    }
-
-    @ColorInt
-    public static int jsonToColor(JsonReader jsonReader) throws IOException {
-        jsonReader.beginArray();
-        int nextDouble = (int) (jsonReader.nextDouble() * 255.0d);
-        int nextDouble2 = (int) (jsonReader.nextDouble() * 255.0d);
-        int nextDouble3 = (int) (jsonReader.nextDouble() * 255.0d);
-        while (jsonReader.hasNext()) {
-            jsonReader.skipValue();
-        }
-        jsonReader.endArray();
-        return Color.argb(255, nextDouble, nextDouble2, nextDouble3);
     }
 
     public static PointF jsonToPoint(JsonReader jsonReader, float f) throws IOException {
@@ -100,16 +100,16 @@ public class JsonUtils {
         return jsonNumbersToPoint(jsonReader, f);
     }
 
-    public static List<PointF> jsonToPoints(JsonReader jsonReader, float f) throws IOException {
-        ArrayList arrayList = new ArrayList();
+    public static int jsonToColor(JsonReader jsonReader) throws IOException {
         jsonReader.beginArray();
-        while (jsonReader.peek() == JsonReader.Token.BEGIN_ARRAY) {
-            jsonReader.beginArray();
-            arrayList.add(jsonToPoint(jsonReader, f));
-            jsonReader.endArray();
+        int nextDouble = (int) (jsonReader.nextDouble() * 255.0d);
+        int nextDouble2 = (int) (jsonReader.nextDouble() * 255.0d);
+        int nextDouble3 = (int) (jsonReader.nextDouble() * 255.0d);
+        while (jsonReader.hasNext()) {
+            jsonReader.skipValue();
         }
         jsonReader.endArray();
-        return arrayList;
+        return Color.argb(255, nextDouble, nextDouble2, nextDouble3);
     }
 
     public static float valueFromObject(JsonReader jsonReader) throws IOException {

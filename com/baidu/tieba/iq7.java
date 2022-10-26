@@ -4,16 +4,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class iq7 {
+public abstract class iq7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<l45> a;
-    public boolean b;
+
+    public abstract void a(Object... objArr);
 
     public iq7() {
         Interceptable interceptable = $ic;
@@ -27,22 +23,5 @@ public class iq7 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public void a(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        JSONArray optJSONArray = jSONObject.optJSONArray("user_info_list");
-        if (optJSONArray != null && optJSONArray.length() != 0) {
-            this.a = new ArrayList();
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                l45 l45Var = new l45();
-                l45Var.a(optJSONArray.optJSONObject(i));
-                this.a.add(l45Var);
-            }
-        }
-        this.b = jSONObject.optInt("has_more", 0) == 1;
     }
 }

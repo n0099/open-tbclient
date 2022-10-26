@@ -4,7 +4,6 @@ import android.os.SystemClock;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.ViewConfiguration;
-import androidx.annotation.UiThread;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -67,7 +66,15 @@ public final class FakeDrag {
         }
     }
 
-    @UiThread
+    public boolean isFakeDragging() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mScrollEventAdapter.isFakeDragging();
+        }
+        return invokeV.booleanValue;
+    }
+
     public boolean beginFakeDrag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -89,54 +96,69 @@ public final class FakeDrag {
         return invokeV.booleanValue;
     }
 
-    @UiThread
     public boolean endFakeDrag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.mScrollEventAdapter.isFakeDragging()) {
-                this.mScrollEventAdapter.notifyEndFakeDrag();
-                VelocityTracker velocityTracker = this.mVelocityTracker;
-                velocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
-                if (this.mRecyclerView.fling((int) velocityTracker.getXVelocity(), (int) velocityTracker.getYVelocity())) {
-                    return true;
-                }
+            if (!this.mScrollEventAdapter.isFakeDragging()) {
+                return false;
+            }
+            this.mScrollEventAdapter.notifyEndFakeDrag();
+            VelocityTracker velocityTracker = this.mVelocityTracker;
+            velocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
+            if (!this.mRecyclerView.fling((int) velocityTracker.getXVelocity(), (int) velocityTracker.getYVelocity())) {
                 this.mViewPager.snapToPage();
                 return true;
             }
-            return false;
+            return true;
         }
         return invokeV.booleanValue;
     }
 
-    @UiThread
     public boolean fakeDragBy(float f) {
         InterceptResult invokeF;
+        boolean z;
+        int i;
+        float f2;
+        float f3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f)) == null) {
-            if (this.mScrollEventAdapter.isFakeDragging()) {
-                float f2 = this.mRequestedDragDistance - f;
-                this.mRequestedDragDistance = f2;
-                int round = Math.round(f2 - this.mActualDraggedDistance);
-                this.mActualDraggedDistance += round;
-                long uptimeMillis = SystemClock.uptimeMillis();
-                boolean z = this.mViewPager.getOrientation() == 0;
-                int i = z ? round : 0;
-                int i2 = z ? 0 : round;
-                float f3 = z ? this.mRequestedDragDistance : 0.0f;
-                float f4 = z ? 0.0f : this.mRequestedDragDistance;
-                this.mRecyclerView.scrollBy(i, i2);
-                addFakeMotionEvent(uptimeMillis, 2, f3, f4);
-                return true;
+            int i2 = 0;
+            if (!this.mScrollEventAdapter.isFakeDragging()) {
+                return false;
             }
-            return false;
+            float f4 = this.mRequestedDragDistance - f;
+            this.mRequestedDragDistance = f4;
+            int round = Math.round(f4 - this.mActualDraggedDistance);
+            this.mActualDraggedDistance += round;
+            long uptimeMillis = SystemClock.uptimeMillis();
+            if (this.mViewPager.getOrientation() == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                i = round;
+            } else {
+                i = 0;
+            }
+            if (!z) {
+                i2 = round;
+            }
+            if (z) {
+                f2 = this.mRequestedDragDistance;
+            } else {
+                f2 = 0.0f;
+            }
+            if (z) {
+                f3 = 0.0f;
+            } else {
+                f3 = this.mRequestedDragDistance;
+            }
+            this.mRecyclerView.scrollBy(i, i2);
+            addFakeMotionEvent(uptimeMillis, 2, f2, f3);
+            return true;
         }
         return invokeF.booleanValue;
-    }
-
-    public boolean isFakeDragging() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mScrollEventAdapter.isFakeDragging() : invokeV.booleanValue;
     }
 }

@@ -21,17 +21,17 @@ import java.io.InputStream;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public class WebpTranscodeProducer implements Producer<EncodedImage> {
+public class WebpTranscodeProducer implements Producer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_JPEG_QUALITY = 80;
     public static final String PRODUCER_NAME = "WebpTranscodeProducer";
     public transient /* synthetic */ FieldHolder $fh;
     public final Executor mExecutor;
-    public final Producer<EncodedImage> mInputProducer;
+    public final Producer mInputProducer;
     public final PooledByteBufferFactory mPooledByteBufferFactory;
 
     /* loaded from: classes7.dex */
-    public class WebpTranscodeConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
+    public class WebpTranscodeConsumer extends DelegatingConsumer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ProducerContext mContext;
@@ -39,7 +39,7 @@ public class WebpTranscodeProducer implements Producer<EncodedImage> {
         public final /* synthetic */ WebpTranscodeProducer this$0;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public WebpTranscodeConsumer(WebpTranscodeProducer webpTranscodeProducer, Consumer<EncodedImage> consumer, ProducerContext producerContext) {
+        public WebpTranscodeConsumer(WebpTranscodeProducer webpTranscodeProducer, Consumer consumer, ProducerContext producerContext) {
             super(consumer);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -72,17 +72,17 @@ public class WebpTranscodeProducer implements Producer<EncodedImage> {
                 if (this.mShouldTranscodeWhenFinished == TriState.NO) {
                     getConsumer().onNewResult(encodedImage, i);
                 } else if (BaseConsumer.isLast(i)) {
-                    if (this.mShouldTranscodeWhenFinished == TriState.YES && encodedImage != null) {
-                        this.this$0.transcodeLastResult(encodedImage, getConsumer(), this.mContext);
-                    } else {
+                    if (this.mShouldTranscodeWhenFinished != TriState.YES || encodedImage == null) {
                         getConsumer().onNewResult(encodedImage, i);
+                    } else {
+                        this.this$0.transcodeLastResult(encodedImage, getConsumer(), this.mContext);
                     }
                 }
             }
         }
     }
 
-    public WebpTranscodeProducer(Executor executor, PooledByteBufferFactory pooledByteBufferFactory, Producer<EncodedImage> producer) {
+    public WebpTranscodeProducer(Executor executor, PooledByteBufferFactory pooledByteBufferFactory, Producer producer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,6 +100,14 @@ public class WebpTranscodeProducer implements Producer<EncodedImage> {
         this.mExecutor = (Executor) Preconditions.checkNotNull(executor);
         this.mPooledByteBufferFactory = (PooledByteBufferFactory) Preconditions.checkNotNull(pooledByteBufferFactory);
         this.mInputProducer = (Producer) Preconditions.checkNotNull(producer);
+    }
+
+    @Override // com.facebook.imagepipeline.producers.Producer
+    public void produceResults(Consumer consumer, ProducerContext producerContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, consumer, producerContext) == null) {
+            this.mInputProducer.produceResults(new WebpTranscodeConsumer(this, consumer, producerContext), producerContext);
+        }
     }
 
     public static void doTranscode(EncodedImage encodedImage, PooledByteBufferOutputStream pooledByteBufferOutputStream) throws Exception {
@@ -142,11 +150,11 @@ public class WebpTranscodeProducer implements Producer<EncodedImage> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void transcodeLastResult(EncodedImage encodedImage, Consumer<EncodedImage> consumer, ProducerContext producerContext) {
+    public void transcodeLastResult(EncodedImage encodedImage, Consumer consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65543, this, encodedImage, consumer, producerContext) == null) {
             Preconditions.checkNotNull(encodedImage);
-            this.mExecutor.execute(new StatefulProducerRunnable<EncodedImage>(this, consumer, producerContext.getProducerListener(), producerContext, PRODUCER_NAME, EncodedImage.cloneOrNull(encodedImage)) { // from class: com.facebook.imagepipeline.producers.WebpTranscodeProducer.1
+            this.mExecutor.execute(new StatefulProducerRunnable(this, consumer, producerContext.getProducerListener(), producerContext, PRODUCER_NAME, EncodedImage.cloneOrNull(encodedImage)) { // from class: com.facebook.imagepipeline.producers.WebpTranscodeProducer.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ WebpTranscodeProducer this$0;
@@ -175,12 +183,12 @@ public class WebpTranscodeProducer implements Producer<EncodedImage> {
                     this.val$encodedImageCopy = r15;
                 }
 
+                /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.facebook.imagepipeline.producers.StatefulProducerRunnable, com.facebook.common.executors.StatefulRunnable
-                public void onCancellation() {
+                public void disposeResult(EncodedImage encodedImage2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048580, this) == null) {
-                        EncodedImage.closeSafely(this.val$encodedImageCopy);
-                        super.onCancellation();
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, encodedImage2) == null) {
+                        EncodedImage.closeSafely(encodedImage2);
                     }
                 }
 
@@ -195,10 +203,11 @@ public class WebpTranscodeProducer implements Producer<EncodedImage> {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.facebook.imagepipeline.producers.StatefulProducerRunnable, com.facebook.common.executors.StatefulRunnable
-                public void disposeResult(EncodedImage encodedImage2) {
+                public void onSuccess(EncodedImage encodedImage2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, encodedImage2) == null) {
-                        EncodedImage.closeSafely(encodedImage2);
+                    if (interceptable2 == null || interceptable2.invokeL(1048582, this, encodedImage2) == null) {
+                        EncodedImage.closeSafely(this.val$encodedImageCopy);
+                        super.onSuccess((Object) encodedImage2);
                     }
                 }
 
@@ -223,24 +232,15 @@ public class WebpTranscodeProducer implements Producer<EncodedImage> {
                     return (EncodedImage) invokeV.objValue;
                 }
 
-                /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.facebook.imagepipeline.producers.StatefulProducerRunnable, com.facebook.common.executors.StatefulRunnable
-                public void onSuccess(EncodedImage encodedImage2) {
+                public void onCancellation() {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048582, this, encodedImage2) == null) {
+                    if (interceptable2 == null || interceptable2.invokeV(1048580, this) == null) {
                         EncodedImage.closeSafely(this.val$encodedImageCopy);
-                        super.onSuccess((AnonymousClass1) encodedImage2);
+                        super.onCancellation();
                     }
                 }
             });
-        }
-    }
-
-    @Override // com.facebook.imagepipeline.producers.Producer
-    public void produceResults(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, consumer, producerContext) == null) {
-            this.mInputProducer.produceResults(new WebpTranscodeConsumer(this, consumer, producerContext), producerContext);
         }
     }
 }

@@ -8,28 +8,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableSubscriber;
-import io.reactivex.annotations.Experimental;
-import io.reactivex.annotations.Nullable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.internal.fuseable.ConditionalSubscriber;
 import io.reactivex.internal.subscribers.BasicFuseableConditionalSubscriber;
 import io.reactivex.internal.subscribers.BasicFuseableSubscriber;
 import org.reactivestreams.Subscriber;
-@Experimental
 /* loaded from: classes8.dex */
-public final class FlowableDoAfterNext<T> extends AbstractFlowableWithUpstream<T, T> {
+public final class FlowableDoAfterNext extends AbstractFlowableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Consumer<? super T> onAfterNext;
+    public final Consumer onAfterNext;
 
     /* loaded from: classes8.dex */
-    public static final class DoAfterConditionalSubscriber<T> extends BasicFuseableConditionalSubscriber<T, T> {
+    public final class DoAfterConditionalSubscriber extends BasicFuseableConditionalSubscriber {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Consumer<? super T> onAfterNext;
+        public final Consumer onAfterNext;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public DoAfterConditionalSubscriber(ConditionalSubscriber<? super T> conditionalSubscriber, Consumer<? super T> consumer) {
+        public DoAfterConditionalSubscriber(ConditionalSubscriber conditionalSubscriber, Consumer consumer) {
             super(conditionalSubscriber);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -50,13 +47,13 @@ public final class FlowableDoAfterNext<T> extends AbstractFlowableWithUpstream<T
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
-                this.actual.onNext(t);
+            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+                this.actual.onNext(obj);
                 if (this.sourceMode == 0) {
                     try {
-                        this.onAfterNext.accept(t);
+                        this.onAfterNext.accept(obj);
                     } catch (Throwable th) {
                         fail(th);
                     }
@@ -64,36 +61,24 @@ public final class FlowableDoAfterNext<T> extends AbstractFlowableWithUpstream<T
             }
         }
 
-        @Override // io.reactivex.internal.fuseable.SimpleQueue
-        @Nullable
-        public T poll() throws Exception {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                T poll = this.qs.poll();
-                if (poll != null) {
-                    this.onAfterNext.accept(poll);
-                }
-                return poll;
-            }
-            return (T) invokeV.objValue;
-        }
-
         @Override // io.reactivex.internal.fuseable.QueueFuseable
         public int requestFusion(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? transitiveBoundaryFusion(i) : invokeI.intValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                return transitiveBoundaryFusion(i);
+            }
+            return invokeI.intValue;
         }
 
         @Override // io.reactivex.internal.fuseable.ConditionalSubscriber
-        public boolean tryOnNext(T t) {
+        public boolean tryOnNext(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, t)) == null) {
-                boolean tryOnNext = this.actual.tryOnNext(t);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+                boolean tryOnNext = this.actual.tryOnNext(obj);
                 try {
-                    this.onAfterNext.accept(t);
+                    this.onAfterNext.accept(obj);
                 } catch (Throwable th) {
                     fail(th);
                 }
@@ -101,16 +86,30 @@ public final class FlowableDoAfterNext<T> extends AbstractFlowableWithUpstream<T
             }
             return invokeL.booleanValue;
         }
+
+        @Override // io.reactivex.internal.fuseable.SimpleQueue
+        public Object poll() throws Exception {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                Object poll = this.qs.poll();
+                if (poll != null) {
+                    this.onAfterNext.accept(poll);
+                }
+                return poll;
+            }
+            return invokeV.objValue;
+        }
     }
 
     /* loaded from: classes8.dex */
-    public static final class DoAfterSubscriber<T> extends BasicFuseableSubscriber<T, T> {
+    public final class DoAfterSubscriber extends BasicFuseableSubscriber {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Consumer<? super T> onAfterNext;
+        public final Consumer onAfterNext;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public DoAfterSubscriber(Subscriber<? super T> subscriber, Consumer<? super T> consumer) {
+        public DoAfterSubscriber(Subscriber subscriber, Consumer consumer) {
             super(subscriber);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -131,46 +130,48 @@ public final class FlowableDoAfterNext<T> extends AbstractFlowableWithUpstream<T
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, t) == null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, obj) != null) || this.done) {
                 return;
             }
-            this.actual.onNext(t);
+            this.actual.onNext(obj);
             if (this.sourceMode == 0) {
                 try {
-                    this.onAfterNext.accept(t);
+                    this.onAfterNext.accept(obj);
                 } catch (Throwable th) {
                     fail(th);
                 }
             }
         }
 
+        @Override // io.reactivex.internal.fuseable.QueueFuseable
+        public int requestFusion(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                return transitiveBoundaryFusion(i);
+            }
+            return invokeI.intValue;
+        }
+
         @Override // io.reactivex.internal.fuseable.SimpleQueue
-        @Nullable
-        public T poll() throws Exception {
+        public Object poll() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                T poll = this.qs.poll();
+                Object poll = this.qs.poll();
                 if (poll != null) {
                     this.onAfterNext.accept(poll);
                 }
                 return poll;
             }
-            return (T) invokeV.objValue;
-        }
-
-        @Override // io.reactivex.internal.fuseable.QueueFuseable
-        public int requestFusion(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? transitiveBoundaryFusion(i) : invokeI.intValue;
+            return invokeV.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableDoAfterNext(Flowable<T> flowable, Consumer<? super T> consumer) {
+    public FlowableDoAfterNext(Flowable flowable, Consumer consumer) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -191,7 +192,7 @@ public final class FlowableDoAfterNext<T> extends AbstractFlowableWithUpstream<T
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super T> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             if (subscriber instanceof ConditionalSubscriber) {

@@ -13,11 +13,10 @@ import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ho5;
+import com.baidu.tieba.oo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,9 +47,16 @@ public class SlideBarView extends View implements View.OnTouchListener {
     public boolean s;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public interface c {
+        void a(float f);
+
+        void onProgress(float f);
     }
 
     /* loaded from: classes6.dex */
@@ -58,6 +64,16 @@ public class SlideBarView extends View implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SlideBarView a;
+
+        @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+        public boolean onDown(MotionEvent motionEvent) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
 
         public b(SlideBarView slideBarView) {
             Interceptable interceptable = $ic;
@@ -77,14 +93,8 @@ public class SlideBarView extends View implements View.OnTouchListener {
             this.a = slideBarView;
         }
 
-        @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-        public boolean onDown(MotionEvent motionEvent) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
+        public /* synthetic */ b(SlideBarView slideBarView, a aVar) {
+            this(slideBarView);
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -97,17 +107,6 @@ public class SlideBarView extends View implements View.OnTouchListener {
             }
             return invokeCommon.booleanValue;
         }
-
-        public /* synthetic */ b(SlideBarView slideBarView, a aVar) {
-            this(slideBarView);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface c {
-        void a(float f);
-
-        void onProgress(float f);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -128,11 +127,84 @@ public class SlideBarView extends View implements View.OnTouchListener {
                 return;
             }
         }
-        this.a = R.drawable.obfuscated_res_0x7f080fad;
+        this.a = R.drawable.obfuscated_res_0x7f080fbe;
         this.e = 12.0f;
         this.m = new Rect();
         this.n = new RectF();
         this.o = new Paint();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public SlideBarView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = R.drawable.obfuscated_res_0x7f080fbe;
+        this.e = 12.0f;
+        this.m = new Rect();
+        this.n = new RectF();
+        this.o = new Paint();
+        a(context, attributeSet, 0, 0);
+    }
+
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, view2, motionEvent)) == null) {
+            if (motionEvent.getAction() == 1) {
+                c cVar = this.g;
+                if (cVar != null) {
+                    cVar.onProgress(this.p);
+                }
+            } else if (motionEvent.getAction() == 2 && this.g != null && System.currentTimeMillis() - this.q > 200) {
+                this.q = System.currentTimeMillis();
+                this.g.a(this.p);
+            }
+            return this.f.onTouchEvent(motionEvent);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public SlideBarView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = R.drawable.obfuscated_res_0x7f080fbe;
+        this.e = 12.0f;
+        this.m = new Rect();
+        this.n = new RectF();
+        this.o = new Paint();
+        a(context, attributeSet, i, 0);
     }
 
     private float getRealLeftRange() {
@@ -166,16 +238,49 @@ public class SlideBarView extends View implements View.OnTouchListener {
     private float getRealSlideRange() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? getRealRightRange() - getRealLeftRange() : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+            return getRealRightRange() - getRealLeftRange();
+        }
+        return invokeV.floatValue;
+    }
+
+    public float getCurrentPercent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.p;
+        }
+        return invokeV.floatValue;
+    }
+
+    @Override // android.view.View
+    public void onFinishInflate() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.onFinishInflate();
+            setOnTouchListener(this);
+            this.f = new GestureDetector(new b(this, null));
+        }
     }
 
     public final void a(Context context, AttributeSet attributeSet, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLII(1048576, this, context, attributeSet, i, i2) == null) {
-            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, ho5.SlideBarView, i, i2);
+            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, oo5.SlideBarView, i, i2);
             this.e = obtainStyledAttributes.getDimension(0, 12.0f);
             obtainStyledAttributes.recycle();
             this.o.setAntiAlias(true);
+        }
+    }
+
+    @Override // android.view.View
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, i3, i4) == null) {
+            super.onSizeChanged(i, i2, i3, i4);
+            float f = this.e;
+            this.k = i - ((int) f);
+            this.l = i2 - ((int) f);
         }
     }
 
@@ -195,7 +300,7 @@ public class SlideBarView extends View implements View.OnTouchListener {
 
     public void c(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) || getRealSlideRange() <= 0.0f) {
+        if ((interceptable != null && interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) != null) || getRealSlideRange() <= 0.0f) {
             return;
         }
         b(f);
@@ -223,10 +328,51 @@ public class SlideBarView extends View implements View.OnTouchListener {
         }
     }
 
-    public float getCurrentPercent() {
-        InterceptResult invokeV;
+    public void setCoverStyle(boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.p : invokeV.floatValue;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.s = z;
+        }
+    }
+
+    public void setImageBitmap(Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, bitmap) == null) {
+            Bitmap bitmap2 = this.h;
+            if (bitmap2 != null) {
+                bitmap2.recycle();
+            }
+            this.h = bitmap;
+            if (bitmap != null) {
+                this.i = bitmap.getWidth();
+                this.j = bitmap.getHeight();
+            } else {
+                this.i = 0;
+                this.j = 0;
+            }
+            invalidate();
+        }
+    }
+
+    public void setOnProgressListener(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, cVar) == null) {
+            this.g = cVar;
+        }
+    }
+
+    public void setPickDrawable(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public void setProgress(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048590, this, f) == null) {
+            c((f * getRealSlideRange()) + getRealLeftRange() + (getWidth() / 2));
+        }
     }
 
     @Override // android.view.View
@@ -293,152 +439,11 @@ public class SlideBarView extends View implements View.OnTouchListener {
         }
     }
 
-    @Override // android.view.View
-    public void onFinishInflate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.onFinishInflate();
-            setOnTouchListener(this);
-            this.f = new GestureDetector(new b(this, null));
-        }
-    }
-
-    @Override // android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, i3, i4) == null) {
-            super.onSizeChanged(i, i2, i3, i4);
-            float f = this.e;
-            this.k = i - ((int) f);
-            this.l = i2 - ((int) f);
-        }
-    }
-
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, view2, motionEvent)) == null) {
-            if (motionEvent.getAction() == 1) {
-                c cVar = this.g;
-                if (cVar != null) {
-                    cVar.onProgress(this.p);
-                }
-            } else if (motionEvent.getAction() == 2 && this.g != null && System.currentTimeMillis() - this.q > 200) {
-                this.q = System.currentTimeMillis();
-                this.g.a(this.p);
-            }
-            return this.f.onTouchEvent(motionEvent);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public void setCoverStyle(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.s = z;
-        }
-    }
-
-    public void setImageBitmap(Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, bitmap) == null) {
-            Bitmap bitmap2 = this.h;
-            if (bitmap2 != null) {
-                bitmap2.recycle();
-            }
-            this.h = bitmap;
-            if (bitmap != null) {
-                this.i = bitmap.getWidth();
-                this.j = bitmap.getHeight();
-            } else {
-                this.i = 0;
-                this.j = 0;
-            }
-            invalidate();
-        }
-    }
-
-    public void setOnProgressListener(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, cVar) == null) {
-            this.g = cVar;
-        }
-    }
-
-    public void setPickDrawable(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    public void setProgress(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048590, this, f) == null) {
-            c((f * getRealSlideRange()) + getRealLeftRange() + (getWidth() / 2));
-        }
-    }
-
     public void setSlideRange(float f, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
             this.c = f;
             this.d = f2;
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SlideBarView(Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = R.drawable.obfuscated_res_0x7f080fad;
-        this.e = 12.0f;
-        this.m = new Rect();
-        this.n = new RectF();
-        this.o = new Paint();
-        a(context, attributeSet, 0, 0);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SlideBarView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = R.drawable.obfuscated_res_0x7f080fad;
-        this.e = 12.0f;
-        this.m = new Rect();
-        this.n = new RectF();
-        this.o = new Paint();
-        a(context, attributeSet, i, 0);
     }
 }

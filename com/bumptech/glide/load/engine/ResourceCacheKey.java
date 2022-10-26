@@ -1,6 +1,5 @@
 package com.bumptech.glide.load.engine;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,15 +19,15 @@ import java.security.MessageDigest;
 /* loaded from: classes7.dex */
 public final class ResourceCacheKey implements Key {
     public static /* synthetic */ Interceptable $ic;
-    public static final LruCache<Class<?>, byte[]> RESOURCE_CLASS_BYTES;
+    public static final LruCache RESOURCE_CLASS_BYTES;
     public transient /* synthetic */ FieldHolder $fh;
     public final ArrayPool arrayPool;
-    public final Class<?> decodedResourceClass;
+    public final Class decodedResourceClass;
     public final int height;
     public final Options options;
     public final Key signature;
     public final Key sourceKey;
-    public final Transformation<?> transformation;
+    public final Transformation transformation;
     public final int width;
 
     static {
@@ -44,10 +43,10 @@ public final class ResourceCacheKey implements Key {
                 return;
             }
         }
-        RESOURCE_CLASS_BYTES = new LruCache<>(50L);
+        RESOURCE_CLASS_BYTES = new LruCache(50L);
     }
 
-    public ResourceCacheKey(ArrayPool arrayPool, Key key, Key key2, int i, int i2, Transformation<?> transformation, Class<?> cls, Options options) {
+    public ResourceCacheKey(ArrayPool arrayPool, Key key, Key key2, int i, int i2, Transformation transformation, Class cls, Options options) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,7 +75,7 @@ public final class ResourceCacheKey implements Key {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            byte[] bArr = RESOURCE_CLASS_BYTES.get(this.decodedResourceClass);
+            byte[] bArr = (byte[]) RESOURCE_CLASS_BYTES.get(this.decodedResourceClass);
             if (bArr == null) {
                 byte[] bytes = this.decodedResourceClass.getName().getBytes(Key.CHARSET);
                 RESOURCE_CLASS_BYTES.put(this.decodedResourceClass, bytes);
@@ -92,13 +91,35 @@ public final class ResourceCacheKey implements Key {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj instanceof ResourceCacheKey) {
-                ResourceCacheKey resourceCacheKey = (ResourceCacheKey) obj;
-                return this.height == resourceCacheKey.height && this.width == resourceCacheKey.width && Util.bothNullOrEqual(this.transformation, resourceCacheKey.transformation) && this.decodedResourceClass.equals(resourceCacheKey.decodedResourceClass) && this.sourceKey.equals(resourceCacheKey.sourceKey) && this.signature.equals(resourceCacheKey.signature) && this.options.equals(resourceCacheKey.options);
+            if (!(obj instanceof ResourceCacheKey)) {
+                return false;
             }
-            return false;
+            ResourceCacheKey resourceCacheKey = (ResourceCacheKey) obj;
+            if (this.height != resourceCacheKey.height || this.width != resourceCacheKey.width || !Util.bothNullOrEqual(this.transformation, resourceCacheKey.transformation) || !this.decodedResourceClass.equals(resourceCacheKey.decodedResourceClass) || !this.sourceKey.equals(resourceCacheKey.sourceKey) || !this.signature.equals(resourceCacheKey.signature) || !this.options.equals(resourceCacheKey.options)) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
+    }
+
+    @Override // com.bumptech.glide.load.Key
+    public void updateDiskCacheKey(MessageDigest messageDigest) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, messageDigest) == null) {
+            byte[] bArr = (byte[]) this.arrayPool.getExact(8, byte[].class);
+            ByteBuffer.wrap(bArr).putInt(this.width).putInt(this.height).array();
+            this.signature.updateDiskCacheKey(messageDigest);
+            this.sourceKey.updateDiskCacheKey(messageDigest);
+            messageDigest.update(bArr);
+            Transformation transformation = this.transformation;
+            if (transformation != null) {
+                transformation.updateDiskCacheKey(messageDigest);
+            }
+            this.options.updateDiskCacheKey(messageDigest);
+            messageDigest.update(getResourceClassBytes());
+            this.arrayPool.put(bArr);
+        }
     }
 
     @Override // com.bumptech.glide.load.Key
@@ -107,7 +128,7 @@ public final class ResourceCacheKey implements Key {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             int hashCode = (((((this.sourceKey.hashCode() * 31) + this.signature.hashCode()) * 31) + this.width) * 31) + this.height;
-            Transformation<?> transformation = this.transformation;
+            Transformation transformation = this.transformation;
             if (transformation != null) {
                 hashCode = (hashCode * 31) + transformation.hashCode();
             }
@@ -123,24 +144,5 @@ public final class ResourceCacheKey implements Key {
             return "ResourceCacheKey{sourceKey=" + this.sourceKey + ", signature=" + this.signature + ", width=" + this.width + ", height=" + this.height + ", decodedResourceClass=" + this.decodedResourceClass + ", transformation='" + this.transformation + "', options=" + this.options + '}';
         }
         return (String) invokeV.objValue;
-    }
-
-    @Override // com.bumptech.glide.load.Key
-    public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, messageDigest) == null) {
-            byte[] bArr = (byte[]) this.arrayPool.getExact(8, byte[].class);
-            ByteBuffer.wrap(bArr).putInt(this.width).putInt(this.height).array();
-            this.signature.updateDiskCacheKey(messageDigest);
-            this.sourceKey.updateDiskCacheKey(messageDigest);
-            messageDigest.update(bArr);
-            Transformation<?> transformation = this.transformation;
-            if (transformation != null) {
-                transformation.updateDiskCacheKey(messageDigest);
-            }
-            this.options.updateDiskCacheKey(messageDigest);
-            messageDigest.update(getResourceClassBytes());
-            this.arrayPool.put(bArr);
-        }
     }
 }

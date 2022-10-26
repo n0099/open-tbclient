@@ -1,34 +1,37 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.media.AudioManager;
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
+import android.graphics.Color;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
+import android.widget.TextView;
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.player.ui.VerticalVolumeBar;
 import com.baidu.searchbox.player.event.ControlEvent;
 import com.baidu.searchbox.player.event.LayerEvent;
-import com.baidu.searchbox.player.event.SystemEvent;
-import com.baidu.tieba.t21;
+import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.material.badge.BadgeDrawable;
 /* loaded from: classes3.dex */
-public class et0 extends vs0 {
+public class et0 extends ws0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public VerticalVolumeBar b;
-    public AudioManager c;
+    public TextView b;
+    public FrameLayout.LayoutParams c;
     public boolean d;
-    public boolean e;
-    public boolean f;
-    public int g;
-    public final Runnable h;
+    public Animator e;
+    public Animator f;
+    public String g;
+    public int h;
+    public int i;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -58,7 +61,7 @@ public class et0 extends vs0 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.y();
+                this.a.w();
             }
         }
     }
@@ -73,131 +76,209 @@ public class et0 extends vs0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.e = false;
-        this.f = false;
-        this.h = new a(this);
     }
 
-    public final void A(boolean z) {
+    public void F() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            if (this.b == null) {
-                i();
-            }
-            this.b.setLayoutParams(w(z));
-            y();
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.b.bringToFront();
+            this.e.start();
+            v();
+            z(true);
         }
     }
 
-    @Override // com.baidu.tieba.ws0
-    @NonNull
+    @Override // com.baidu.tieba.xs0
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (View) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
+        }
+        return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ps0
-    public void i() {
+    public void v() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            VerticalVolumeBar verticalVolumeBar = new VerticalVolumeBar(getContext(), null, 16842872);
-            this.b = verticalVolumeBar;
-            verticalVolumeBar.setLayoutParams(w(false));
-            this.b.setProgressDrawable(ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080e39));
-            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080e3a);
-            int dimension = (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f07059d);
-            int i = dimension / 2;
-            this.b.setPadding(i, dimension, i, dimension);
-            this.b.setVisibility(8);
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.b.postDelayed(new a(this), 3000L);
         }
     }
 
-    @Override // com.baidu.tieba.ps0
-    public void j() {
+    public void w() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && !this.f.isRunning() && this.b.getAlpha() != 0.0f) {
+            this.f.start();
+            z(false);
+        }
+    }
+
+    public boolean y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if (!this.e.isRunning() && this.b.getAlpha() != 1.0f) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void A(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            if (z) {
+                this.h = R.string.obfuscated_res_0x7f0f0c44;
+                this.i = R.string.obfuscated_res_0x7f0f0c40;
+                return;
+            }
+            this.h = R.string.obfuscated_res_0x7f0f0c41;
+            this.i = R.string.obfuscated_res_0x7f0f0c35;
+        }
+    }
+
+    public final void z(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            vt0 w = lt0.w(LayerEvent.ACTION_POPUP_SHOW);
+            w.n(28, Boolean.valueOf(z));
+            q().q0(w);
+        }
+    }
+
+    public final void B() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.b.getLayoutParams();
+            layoutParams.width = -2;
+            layoutParams.height = -2;
+            this.b.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e19));
+            this.b.setText(getContext().getResources().getText(R.string.obfuscated_res_0x7f0f0c44));
+            this.b.setPadding(38, 14, 38, 14);
+            this.b.setLayoutParams(layoutParams);
+        }
+    }
+
+    public final void C() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.b.getLayoutParams();
+            layoutParams.width = -1;
+            layoutParams.height = d41.b(35.0f);
+            this.b.setPadding(0, 0, d41.b(15.0f), 0);
+            this.b.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c41));
+            this.b.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e17));
+            this.b.setLayoutParams(layoutParams);
+        }
+    }
+
+    public void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.e = ObjectAnimator.ofFloat(this.b, Key.ALPHA, 0.0f, 1.0f).setDuration(250L);
+            this.f = ObjectAnimator.ofFloat(this.b, Key.ALPHA, 1.0f, 0.0f).setDuration(250L);
+        }
+    }
+
+    public void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.j();
-            y();
+            if (q().V0()) {
+                this.c.bottomMargin = d41.b(7.0f);
+            } else {
+                this.c.bottomMargin = 2;
+                this.b.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e17));
+            }
+            this.b.setLayoutParams(this.c);
+        }
+    }
+
+    public void E() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (q().V0()) {
+                this.c.bottomMargin = d41.b(81.0f);
+            } else {
+                this.c.bottomMargin = d41.b(32.0f);
+                this.b.setBackgroundColor(0);
+                this.c.height = d41.b(32.0f);
+            }
+            this.b.setLayoutParams(this.c);
+        }
+    }
+
+    @Override // com.baidu.tieba.qs0
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            TextView textView = new TextView(getContext());
+            this.b = textView;
+            textView.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c41));
+            this.b.setTextSize(0, getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705cb));
+            this.b.setShadowLayer(0.0f, 0.0f, 1.0f, Color.parseColor("#80000000"));
+            this.b.setTextColor(-1);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, d41.b(35.0f));
+            this.c = layoutParams;
+            layoutParams.gravity = BadgeDrawable.BOTTOM_END;
+            this.b.setLayoutParams(layoutParams);
+            this.b.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080e3b));
+            this.b.setGravity(8388629);
+            this.b.setAlpha(0.0f);
+            this.b.setPadding(0, 0, d41.b(15.0f), 0);
+            x();
+            A(false);
         }
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.baidu.tieba.ps0
-    public void k(@NonNull ut0 ut0Var) {
+    @Override // com.baidu.tieba.qs0
+    public void k(vt0 vt0Var) {
         char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ut0Var) == null) {
-            String c2 = ut0Var.c();
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, vt0Var) == null) {
+            super.k(vt0Var);
+            String c2 = vt0Var.c();
             switch (c2.hashCode()) {
-                case -915923721:
-                    if (c2.equals(LayerEvent.ACTION_ADJUST_VOLUME)) {
-                        c = 7;
+                case -1244137507:
+                    if (c2.equals(PlayerEvent.ACTION_SEEK_COMPLETE)) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -882902390:
+                    if (c2.equals(PlayerEvent.ACTION_SET_DATA_SOURCE)) {
+                        c = 0;
                         break;
                     }
                     c = 65535;
                     break;
                 case -552621273:
                     if (c2.equals(LayerEvent.ACTION_SWITCH_FULL)) {
-                        c = 5;
+                        c = 4;
                         break;
                     }
                     c = 65535;
                     break;
                 case -552580917:
                     if (c2.equals(LayerEvent.ACTION_SWITCH_HALF)) {
-                        c = 6;
+                        c = 5;
                         break;
                     }
                     c = 65535;
                     break;
-                case -316059751:
-                    if (c2.equals(LayerEvent.ACTION_ADJUST_LIGHT)) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -21461611:
-                    if (c2.equals(LayerEvent.ACTION_TOUCH_DOWN)) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -14542718:
-                    if (c2.equals(LayerEvent.ACTION_HIDE_VOLUME_BAR)) {
-                        c = '\t';
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 649538615:
-                    if (c2.equals(LayerEvent.ACTION_ADJUST_VOLUME_COMPLETE)) {
-                        c = '\b';
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1547354793:
-                    if (c2.equals(ControlEvent.ACTION_STOP)) {
+                case 723345051:
+                    if (c2.equals(ControlEvent.ACTION_START)) {
                         c = 2;
                         break;
                     }
                     c = 65535;
                     break;
-                case 1822725860:
-                    if (c2.equals(SystemEvent.ACTION_VOLUME_CHANGED)) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 2064424334:
-                    if (c2.equals(LayerEvent.ACTION_POSITION_SLIDE)) {
+                case 1933234291:
+                    if (c2.equals(ControlEvent.ACTION_CONTINUE_TIPS_SHOW)) {
                         c = 3;
                         break;
                     }
@@ -207,152 +288,54 @@ public class et0 extends vs0 {
                     c = 65535;
                     break;
             }
-            switch (c) {
-                case 0:
-                    z();
-                    return;
-                case 1:
-                    if (this.d) {
+            if (c != 0 && c != 1 && c != 2) {
+                if (c != 3) {
+                    if (c != 4) {
+                        if (c == 5) {
+                            C();
+                            A(false);
+                            return;
+                        }
                         return;
                     }
-                    y();
-                    return;
-                case 2:
-                case 3:
-                case 4:
-                    y();
-                    return;
-                case 5:
+                    B();
                     A(true);
                     return;
-                case 6:
-                    A(false);
+                } else if (q().r1()) {
                     return;
-                case 7:
-                    this.f = true;
-                    this.g = ut0Var.g(20);
-                    z();
-                    return;
-                case '\b':
-                    this.f = false;
-                    return;
-                case '\t':
-                    VerticalVolumeBar verticalVolumeBar = this.b;
-                    if (verticalVolumeBar == null || verticalVolumeBar.getVisibility() != 0) {
-                        return;
+                } else {
+                    boolean e = vt0Var.e(8, false);
+                    boolean e2 = vt0Var.e(9, false);
+                    if (e) {
+                        this.b.setText(getContext().getResources().getString(this.i));
+                    } else if (e2) {
+                        if (!TextUtils.isEmpty(this.g)) {
+                            this.b.setText(this.g);
+                            this.b.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e17));
+                        }
+                    } else {
+                        this.b.setText(getContext().getResources().getString(this.h));
                     }
-                    this.b.setVisibility(8);
+                    if (this.d) {
+                        E();
+                    } else {
+                        D();
+                    }
+                    F();
                     return;
-                default:
-                    return;
+                }
             }
+            w();
         }
     }
 
-    @Override // com.baidu.tieba.vs0
+    @Override // com.baidu.tieba.ws0
     public void s(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            super.s(z, z2);
             this.d = z;
-            if (z) {
-                y();
-            }
-        }
-    }
-
-    public FrameLayout.LayoutParams w(boolean z) {
-        InterceptResult invokeZ;
-        int i;
-        float dimension;
-        float dimension2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-            int dimension3 = (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f07059d);
-            int min = Math.min(t21.c.e(getContext()), t21.c.c(getContext()));
-            if (!z) {
-                i = ((min / 16) * 9) / 2;
-            } else {
-                i = min / 2;
-            }
-            int i2 = i + dimension3;
-            int dimension4 = (dimension3 * 2) + ((int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f07059b));
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.b.getLayoutParams();
-            if (layoutParams == null) {
-                layoutParams = new FrameLayout.LayoutParams(i2, dimension4);
-            }
-            layoutParams.width = i2;
-            layoutParams.height = dimension4;
-            if (!z) {
-                dimension = getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f07059c);
-            } else {
-                dimension = getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f07059a);
-            }
-            layoutParams.leftMargin = ((int) dimension) - dimension3;
-            layoutParams.gravity = 80;
-            if (!z) {
-                dimension2 = getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070598);
-            } else {
-                dimension2 = getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070599);
-            }
-            layoutParams.bottomMargin = ((int) dimension2) - dimension3;
-            return layoutParams;
-        }
-        return (FrameLayout.LayoutParams) invokeZ.objValue;
-    }
-
-    public void x() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && r() != null && r().V()) {
-            r().W(false);
-        }
-    }
-
-    public final void y() {
-        VerticalVolumeBar verticalVolumeBar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (verticalVolumeBar = this.b) != null && verticalVolumeBar.getVisibility() == 0) {
-            this.b.setVisibility(8);
-            e(kt0.w(LayerEvent.ACTION_HIDE_VOLUME_BAR));
-        }
-    }
-
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            Activity activity = q().getActivity();
-            if (activity != null && activity.hasWindowFocus()) {
-                if ((!q().Y() && !q().W()) || this.e) {
-                    y();
-                    return;
-                }
-                VerticalVolumeBar verticalVolumeBar = this.b;
-                if (verticalVolumeBar != null && verticalVolumeBar.getVisibility() != 0) {
-                    this.b.setVisibility(0);
-                    ut0 w = kt0.w(LayerEvent.ACTION_SHOW_VOLUME_BAR);
-                    e(w);
-                    o(w);
-                }
-                x();
-                if (this.c == null) {
-                    this.c = (AudioManager) getContext().getApplicationContext().getSystemService("audio");
-                }
-                int streamMaxVolume = this.c.getStreamMaxVolume(3);
-                int streamVolume = this.c.getStreamVolume(3);
-                VerticalVolumeBar verticalVolumeBar2 = this.b;
-                if (verticalVolumeBar2 != null) {
-                    if (!this.f) {
-                        verticalVolumeBar2.setMax(streamMaxVolume);
-                        this.b.setProgress(streamVolume);
-                    } else {
-                        verticalVolumeBar2.setMax(100);
-                        this.b.setProgress(this.g);
-                    }
-                }
-                r().w().removeCallbacks(this.h);
-                r().w().postDelayed(this.h, 1000L);
-                return;
-            }
-            y();
+            w();
         }
     }
 }

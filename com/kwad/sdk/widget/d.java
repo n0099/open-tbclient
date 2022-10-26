@@ -4,20 +4,18 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ViewParent;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 /* loaded from: classes8.dex */
 public class d extends ViewPager {
     public int ara;
     public boolean arb;
 
-    public d(@NonNull Context context) {
+    public d(Context context) {
         super(context);
         this.arb = false;
     }
 
-    public d(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public d(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.arb = false;
     }

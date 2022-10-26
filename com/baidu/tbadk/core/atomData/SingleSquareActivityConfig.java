@@ -37,24 +37,6 @@ public class SingleSquareActivityConfig extends IntentConfig {
         }
     }
 
-    public static String makeStatisticsParam(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(PAGE_NAME);
-            try {
-                sb.append(URLEncoder.encode("|", IMAudioTransRequest.CHARSET));
-            } catch (Exception e) {
-                e.printStackTrace();
-                sb.append("|");
-            }
-            sb.append(str + "_" + str2);
-            return sb.toString();
-        }
-        return (String) invokeLL.objValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SingleSquareActivityConfig(Context context, String str, boolean z) {
         super(context);
@@ -75,5 +57,23 @@ public class SingleSquareActivityConfig extends IntentConfig {
         }
         getIntent().putExtra("start_from", str);
         getIntent().putExtra("back_special", z);
+    }
+
+    public static String makeStatisticsParam(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(PAGE_NAME);
+            try {
+                sb.append(URLEncoder.encode("|", IMAudioTransRequest.CHARSET));
+            } catch (Exception e) {
+                e.printStackTrace();
+                sb.append("|");
+            }
+            sb.append(str + "_" + str2);
+            return sb.toString();
+        }
+        return (String) invokeLL.objValue;
     }
 }

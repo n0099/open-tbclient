@@ -6,10 +6,6 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.CancellationSignal;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.annotation.RestrictTo;
 import androidx.collection.SimpleArrayMap;
 import androidx.core.content.res.FontResourcesParserCompat;
 import androidx.core.provider.FontsContractCompat;
@@ -28,8 +24,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.nio.ByteBuffer;
 import java.util.List;
-@RequiresApi(24)
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class TypefaceCompatApi24Impl extends TypefaceCompatBaseImpl {
     public static /* synthetic */ Interceptable $ic = null;
@@ -92,6 +86,34 @@ public class TypefaceCompatApi24Impl extends TypefaceCompatBaseImpl {
         }
     }
 
+    public static boolean isUsable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (sAddFontWeightStyle == null) {
+                Log.w(TAG, "Unable to collect necessary private methods.Fallback to legacy implementation.");
+            }
+            if (sAddFontWeightStyle != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static Object newFamily() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            try {
+                return sFontFamilyCtor.newInstance(new Object[0]);
+            } catch (IllegalAccessException | InstantiationException | InvocationTargetException unused) {
+                return null;
+            }
+        }
+        return invokeV.objValue;
+    }
+
     public static boolean addFontWeightStyle(Object obj, ByteBuffer byteBuffer, int i, int i2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -120,33 +142,7 @@ public class TypefaceCompatApi24Impl extends TypefaceCompatBaseImpl {
         return (Typeface) invokeL.objValue;
     }
 
-    public static boolean isUsable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (sAddFontWeightStyle == null) {
-                Log.w(TAG, "Unable to collect necessary private methods.Fallback to legacy implementation.");
-            }
-            return sAddFontWeightStyle != null;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static Object newFamily() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            try {
-                return sFontFamilyCtor.newInstance(new Object[0]);
-            } catch (IllegalAccessException | InstantiationException | InvocationTargetException unused) {
-                return null;
-            }
-        }
-        return invokeV.objValue;
-    }
-
     @Override // androidx.core.graphics.TypefaceCompatBaseImpl
-    @Nullable
     public Typeface createFromFontFamilyFilesResourceEntry(Context context, FontResourcesParserCompat.FontFamilyFilesResourceEntry fontFamilyFilesResourceEntry, Resources resources, int i) {
         InterceptResult invokeLLLI;
         FontResourcesParserCompat.FontFileResourceEntry[] entries;
@@ -168,8 +164,7 @@ public class TypefaceCompatApi24Impl extends TypefaceCompatBaseImpl {
     }
 
     @Override // androidx.core.graphics.TypefaceCompatBaseImpl
-    @Nullable
-    public Typeface createFromFontInfo(Context context, @Nullable CancellationSignal cancellationSignal, @NonNull FontsContractCompat.FontInfo[] fontInfoArr, int i) {
+    public Typeface createFromFontInfo(Context context, CancellationSignal cancellationSignal, FontsContractCompat.FontInfo[] fontInfoArr, int i) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, cancellationSignal, fontInfoArr, i)) == null) {

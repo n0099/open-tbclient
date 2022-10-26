@@ -20,9 +20,9 @@ public class a {
     public static final String TAG = "a";
     public static a cG;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<com.baidu.ar.mdl.a> cD;
-    public SparseArray<Integer> cE;
-    public SparseArray<Boolean> cF;
+    public SparseArray cD;
+    public SparseArray cE;
+    public SparseArray cF;
     public boolean cH;
 
     static {
@@ -53,9 +53,9 @@ public class a {
                 return;
             }
         }
-        this.cD = new SparseArray<>();
-        this.cE = new SparseArray<>();
-        this.cF = new SparseArray<>();
+        this.cD = new SparseArray();
+        this.cE = new SparseArray();
+        this.cF = new SparseArray();
         this.cH = false;
     }
 
@@ -102,7 +102,7 @@ public class a {
         }
     }
 
-    public void a(Context context, SparseArray<com.baidu.ar.mdl.a> sparseArray) {
+    public void a(Context context, SparseArray sparseArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, sparseArray) == null) {
             this.cD = sparseArray;
@@ -131,7 +131,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             synchronized (this) {
-                z = this.cE.get(i) != null;
+                z = ((Integer) this.cE.get(i)) != null;
             }
             return z;
         }
@@ -162,7 +162,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
             synchronized (this.cF) {
-                bool = this.cF.get(i);
+                bool = (Boolean) this.cF.get(i);
             }
             if (bool == null) {
                 return false;
@@ -175,6 +175,6 @@ public class a {
     public com.baidu.ar.mdl.a g(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? this.cD.get(i) : (com.baidu.ar.mdl.a) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? (com.baidu.ar.mdl.a) this.cD.get(i) : (com.baidu.ar.mdl.a) invokeI.objValue;
     }
 }

@@ -11,6 +11,8 @@ public class RimArmor {
     public static RimArmor a;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public native String getToken();
+
     public RimArmor() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -40,6 +42,4 @@ public class RimArmor {
         }
         return (RimArmor) invokeV.objValue;
     }
-
-    public native String getToken();
 }

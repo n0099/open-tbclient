@@ -28,9 +28,12 @@ public class DefaultUserStickinessBusinessDataProvider implements IUserStickines
     }
 
     @Override // com.baidu.searchbox.aideviceperformance.stickiness.IUserStickinessBusinessDataProvider
-    public List<String> getRegisteredBusinessIdsList() {
+    public List getRegisteredBusinessIdsList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Arrays.asList(new String[0]) : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return Arrays.asList(new String[0]);
+        }
+        return (List) invokeV.objValue;
     }
 }

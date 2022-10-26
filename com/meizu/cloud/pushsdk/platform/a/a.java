@@ -89,7 +89,7 @@ public class a {
         return com.meizu.cloud.pushsdk.b.a.b(this.f).a(linkedHashMap2).a().a();
     }
 
-    public c<String> a(String str, String str2, String str3, File file) {
+    public c a(String str, String str2, String str3, File file) {
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         linkedHashMap.put("msgId", str);
         linkedHashMap.put("deviceId", str2);

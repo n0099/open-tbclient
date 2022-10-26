@@ -30,7 +30,10 @@ public class ProcessMediaResponse extends AbstractBceResponse {
     public String getMediaId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mediaId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mediaId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setMediaId(String str) {

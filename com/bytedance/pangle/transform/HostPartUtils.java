@@ -1,6 +1,5 @@
 package com.bytedance.pangle.transform;
 
-import androidx.annotation.Keep;
 import androidx.fragment.app.FragmentActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Keep
 /* loaded from: classes7.dex */
 public class HostPartUtils {
     public static /* synthetic */ Interceptable $ic;
@@ -17,7 +15,7 @@ public class HostPartUtils {
     public Class fragmentActivityClazz;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final HostPartUtils a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,12 +57,6 @@ public class HostPartUtils {
         }
     }
 
-    public static FragmentActivity getFragmentActivity(Object obj, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, obj, str)) == null) ? (FragmentActivity) ZeusTransformUtils._getActivity(obj, str) : (FragmentActivity) invokeLL.objValue;
-    }
-
     public static final Class getFragmentActivityClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -73,5 +65,14 @@ public class HostPartUtils {
             return a.a.fragmentActivityClazz;
         }
         return (Class) invokeV.objValue;
+    }
+
+    public static FragmentActivity getFragmentActivity(Object obj, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, obj, str)) == null) {
+            return (FragmentActivity) ZeusTransformUtils._getActivity(obj, str);
+        }
+        return (FragmentActivity) invokeLL.objValue;
     }
 }

@@ -13,17 +13,17 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableDelaySubscriptionOther<T, U> extends Flowable<T> {
+public final class FlowableDelaySubscriptionOther extends Flowable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Publisher<? extends T> main;
-    public final Publisher<U> other;
+    public final Publisher main;
+    public final Publisher other;
 
     /* loaded from: classes8.dex */
-    public final class DelaySubscriber implements FlowableSubscriber<U> {
+    public final class DelaySubscriber implements FlowableSubscriber {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super T> child;
+        public final Subscriber child;
         public boolean done;
         public final SubscriptionArbiter serial;
         public final /* synthetic */ FlowableDelaySubscriptionOther this$0;
@@ -34,6 +34,13 @@ public final class FlowableDelaySubscriptionOther<T, U> extends Flowable<T> {
             public transient /* synthetic */ FieldHolder $fh;
             public final Subscription s;
             public final /* synthetic */ DelaySubscriber this$1;
+
+            @Override // org.reactivestreams.Subscription
+            public void request(long j) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+                }
+            }
 
             public DelaySubscription(DelaySubscriber delaySubscriber, Subscription subscription) {
                 Interceptable interceptable = $ic;
@@ -61,17 +68,10 @@ public final class FlowableDelaySubscriptionOther<T, U> extends Flowable<T> {
                     this.s.cancel();
                 }
             }
-
-            @Override // org.reactivestreams.Subscription
-            public void request(long j) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                }
-            }
         }
 
         /* loaded from: classes8.dex */
-        public final class OnCompleteSubscriber implements FlowableSubscriber<T> {
+        public final class OnCompleteSubscriber implements FlowableSubscriber {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DelaySubscriber this$1;
@@ -95,14 +95,6 @@ public final class FlowableDelaySubscriptionOther<T, U> extends Flowable<T> {
             }
 
             @Override // org.reactivestreams.Subscriber
-            public void onComplete() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.this$1.child.onComplete();
-                }
-            }
-
-            @Override // org.reactivestreams.Subscriber
             public void onError(Throwable th) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -111,10 +103,10 @@ public final class FlowableDelaySubscriptionOther<T, U> extends Flowable<T> {
             }
 
             @Override // org.reactivestreams.Subscriber
-            public void onNext(T t) {
+            public void onNext(Object obj) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-                    this.this$1.child.onNext(t);
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+                    this.this$1.child.onNext(obj);
                 }
             }
 
@@ -125,9 +117,17 @@ public final class FlowableDelaySubscriptionOther<T, U> extends Flowable<T> {
                     this.this$1.serial.setSubscription(subscription);
                 }
             }
+
+            @Override // org.reactivestreams.Subscriber
+            public void onComplete() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.this$1.child.onComplete();
+                }
+            }
         }
 
-        public DelaySubscriber(FlowableDelaySubscriptionOther flowableDelaySubscriptionOther, SubscriptionArbiter subscriptionArbiter, Subscriber<? super T> subscriber) {
+        public DelaySubscriber(FlowableDelaySubscriptionOther flowableDelaySubscriptionOther, SubscriptionArbiter subscriptionArbiter, Subscriber subscriber) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -150,7 +150,7 @@ public final class FlowableDelaySubscriptionOther<T, U> extends Flowable<T> {
         @Override // org.reactivestreams.Subscriber
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.done) {
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.done) {
                 return;
             }
             this.done = true;
@@ -171,9 +171,9 @@ public final class FlowableDelaySubscriptionOther<T, U> extends Flowable<T> {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(U u) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, u) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
                 onComplete();
             }
         }
@@ -188,7 +188,7 @@ public final class FlowableDelaySubscriptionOther<T, U> extends Flowable<T> {
         }
     }
 
-    public FlowableDelaySubscriptionOther(Publisher<? extends T> publisher, Publisher<U> publisher2) {
+    public FlowableDelaySubscriptionOther(Publisher publisher, Publisher publisher2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -208,7 +208,7 @@ public final class FlowableDelaySubscriptionOther<T, U> extends Flowable<T> {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super T> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             SubscriptionArbiter subscriptionArbiter = new SubscriptionArbiter();

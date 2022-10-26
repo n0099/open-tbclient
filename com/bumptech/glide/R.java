@@ -13,8 +13,9 @@ public final class R {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static final class attr {
+    public final class attr {
         public static /* synthetic */ Interceptable $ic = null;
+        public static final int alpha = 0x7f04008a;
         public static final int coordinatorLayoutStyle = 0x7f04019d;
         public static final int font = 0x7f0402d8;
         public static final int fontProviderAuthority = 0x7f0402da;
@@ -24,6 +25,7 @@ public final class R {
         public static final int fontProviderPackage = 0x7f0402de;
         public static final int fontProviderQuery = 0x7f0402df;
         public static final int fontStyle = 0x7f0402e0;
+        public static final int fontVariationSettings = 0x7f0402e1;
         public static final int fontWeight = 0x7f0402e2;
         public static final int keylines = 0x7f04037e;
         public static final int layout_anchor = 0x7f04040d;
@@ -33,6 +35,7 @@ public final class R {
         public static final int layout_insetEdge = 0x7f040419;
         public static final int layout_keyline = 0x7f04041a;
         public static final int statusBarBackground = 0x7f04065c;
+        public static final int ttcIndex = 0x7f040749;
         public transient /* synthetic */ FieldHolder $fh;
 
         public attr() {
@@ -51,28 +54,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class bool {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final int abc_action_bar_embed_tabs = 0x7f050000;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public bool() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class color {
+    public final class color {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int notification_action_color_filter = 0x7f0608b4;
         public static final int notification_icon_bg_color = 0x7f0608b5;
@@ -96,13 +78,15 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class dimen {
+    public final class dimen {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int compat_button_inset_horizontal_material = 0x7f0701ca;
         public static final int compat_button_inset_vertical_material = 0x7f0701cb;
         public static final int compat_button_padding_horizontal_material = 0x7f0701cc;
         public static final int compat_button_padding_vertical_material = 0x7f0701cd;
         public static final int compat_control_corner_material = 0x7f0701ce;
+        public static final int compat_notification_large_icon_max_height = 0x7f0701cf;
+        public static final int compat_notification_large_icon_max_width = 0x7f0701d0;
         public static final int notification_action_icon_size = 0x7f0705dc;
         public static final int notification_action_text_size = 0x7f0705dd;
         public static final int notification_big_circle_margin = 0x7f0705de;
@@ -136,20 +120,20 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class drawable {
+    public final class drawable {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int notification_action_background = 0x7f080e6d;
-        public static final int notification_bg = 0x7f080e6e;
-        public static final int notification_bg_low = 0x7f080e6f;
-        public static final int notification_bg_low_normal = 0x7f080e70;
-        public static final int notification_bg_low_pressed = 0x7f080e71;
-        public static final int notification_bg_normal = 0x7f080e72;
-        public static final int notification_bg_normal_pressed = 0x7f080e73;
-        public static final int notification_icon_background = 0x7f080e74;
-        public static final int notification_template_icon_bg = 0x7f080e75;
-        public static final int notification_template_icon_low_bg = 0x7f080e76;
-        public static final int notification_tile_bg = 0x7f080e77;
-        public static final int notify_panel_notification_icon_bg = 0x7f080e79;
+        public static final int notification_action_background = 0x7f080e7e;
+        public static final int notification_bg = 0x7f080e7f;
+        public static final int notification_bg_low = 0x7f080e80;
+        public static final int notification_bg_low_normal = 0x7f080e81;
+        public static final int notification_bg_low_pressed = 0x7f080e82;
+        public static final int notification_bg_normal = 0x7f080e83;
+        public static final int notification_bg_normal_pressed = 0x7f080e84;
+        public static final int notification_icon_background = 0x7f080e85;
+        public static final int notification_template_icon_bg = 0x7f080e86;
+        public static final int notification_template_icon_low_bg = 0x7f080e87;
+        public static final int notification_tile_bg = 0x7f080e88;
+        public static final int notify_panel_notification_icon_bg = 0x7f080e8a;
         public transient /* synthetic */ FieldHolder $fh;
 
         public drawable() {
@@ -168,7 +152,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class id {
+    public final class id {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int action_container = 0x7f090063;
         public static final int action_divider = 0x7f090065;
@@ -176,34 +160,36 @@ public final class R {
         public static final int action_text = 0x7f09006f;
         public static final int actions = 0x7f090070;
         public static final int async = 0x7f0902ca;
-        public static final int blocking = 0x7f0903b0;
-        public static final int bottom = 0x7f0903d6;
-        public static final int chronometer = 0x7f09063e;
-        public static final int end = 0x7f0908f5;
-        public static final int forever = 0x7f090a42;
-        public static final int glide_custom_view_target_tag = 0x7f090cc9;
-        public static final int icon = 0x7f090e20;
-        public static final int icon_group = 0x7f090e28;
-        public static final int info = 0x7f090f25;
-        public static final int italic = 0x7f090f8d;
-        public static final int left = 0x7f0912bd;
-        public static final int line1 = 0x7f091308;
-        public static final int line3 = 0x7f09130a;
-        public static final int none = 0x7f0916ea;
-        public static final int normal = 0x7f0916f0;
-        public static final int notification_background = 0x7f091704;
-        public static final int notification_main_column = 0x7f091706;
-        public static final int notification_main_column_container = 0x7f091707;
-        public static final int right = 0x7f091c24;
-        public static final int right_icon = 0x7f091c3c;
-        public static final int right_side = 0x7f091c42;
-        public static final int start = 0x7f091f73;
-        public static final int tag_transition_group = 0x7f09208e;
-        public static final int text = 0x7f092100;
-        public static final int text2 = 0x7f092101;
-        public static final int time = 0x7f0921e8;
-        public static final int title = 0x7f092219;
-        public static final int top = 0x7f092287;
+        public static final int blocking = 0x7f0903b9;
+        public static final int bottom = 0x7f0903df;
+        public static final int chronometer = 0x7f090647;
+        public static final int end = 0x7f0908ff;
+        public static final int forever = 0x7f090a4c;
+        public static final int glide_custom_view_target_tag = 0x7f090cd3;
+        public static final int icon = 0x7f090e14;
+        public static final int icon_group = 0x7f090e1c;
+        public static final int info = 0x7f090f19;
+        public static final int italic = 0x7f090f81;
+        public static final int left = 0x7f0912b1;
+        public static final int line1 = 0x7f0912fe;
+        public static final int line3 = 0x7f091300;
+        public static final int none = 0x7f0916dc;
+        public static final int normal = 0x7f0916e2;
+        public static final int notification_background = 0x7f0916f6;
+        public static final int notification_main_column = 0x7f0916f8;
+        public static final int notification_main_column_container = 0x7f0916f9;
+        public static final int right = 0x7f091c20;
+        public static final int right_icon = 0x7f091c38;
+        public static final int right_side = 0x7f091c3e;
+        public static final int start = 0x7f091f72;
+        public static final int tag_transition_group = 0x7f09208d;
+        public static final int tag_unhandled_key_event_manager = 0x7f09208f;
+        public static final int tag_unhandled_key_listeners = 0x7f092090;
+        public static final int text = 0x7f0920ff;
+        public static final int text2 = 0x7f092100;
+        public static final int time = 0x7f0921d2;
+        public static final int title = 0x7f092203;
+        public static final int top = 0x7f092271;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -222,7 +208,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class integer {
+    public final class integer {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int status_bar_notification_info_maxnum = 0x7f0a0027;
         public transient /* synthetic */ FieldHolder $fh;
@@ -243,7 +229,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class layout {
+    public final class layout {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int notification_action = 0x7f0d0669;
         public static final int notification_action_tombstone = 0x7f0d066a;
@@ -269,9 +255,9 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class string {
+    public final class string {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int status_bar_notification_info_overflow = 0x7f0f1212;
+        public static final int status_bar_notification_info_overflow = 0x7f0f1226;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {
@@ -290,7 +276,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class style {
+    public final class style {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TextAppearance_Compat_Notification = 0x7f1001ee;
         public static final int TextAppearance_Compat_Notification_Info = 0x7f1001ef;
@@ -318,8 +304,12 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class styleable {
+    public final class styleable {
         public static /* synthetic */ Interceptable $ic = null;
+        public static final int[] ColorStateListItem;
+        public static final int ColorStateListItem_alpha = 0x00000002;
+        public static final int ColorStateListItem_android_alpha = 0x00000001;
+        public static final int ColorStateListItem_android_color = 0x00000000;
         public static final int[] CoordinatorLayout;
         public static final int[] CoordinatorLayout_Layout;
         public static final int CoordinatorLayout_Layout_android_layout_gravity = 0x00000000;
@@ -349,6 +339,22 @@ public final class R {
         public static final int FontFamily_fontProviderFetchTimeout = 0x00000003;
         public static final int FontFamily_fontProviderPackage = 0x00000004;
         public static final int FontFamily_fontProviderQuery = 0x00000005;
+        public static final int[] GradientColor;
+        public static final int[] GradientColorItem;
+        public static final int GradientColorItem_android_color = 0x00000000;
+        public static final int GradientColorItem_android_offset = 0x00000001;
+        public static final int GradientColor_android_centerColor = 0x00000007;
+        public static final int GradientColor_android_centerX = 0x00000003;
+        public static final int GradientColor_android_centerY = 0x00000004;
+        public static final int GradientColor_android_endColor = 0x00000001;
+        public static final int GradientColor_android_endX = 0x0000000a;
+        public static final int GradientColor_android_endY = 0x0000000b;
+        public static final int GradientColor_android_gradientRadius = 0x00000005;
+        public static final int GradientColor_android_startColor = 0x00000000;
+        public static final int GradientColor_android_startX = 0x00000008;
+        public static final int GradientColor_android_startY = 0x00000009;
+        public static final int GradientColor_android_tileMode = 0x00000006;
+        public static final int GradientColor_android_type = 0x00000002;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -364,10 +370,13 @@ public final class R {
                     return;
                 }
             }
+            ColorStateListItem = new int[]{16843173, 16843551, com.baidu.tieba.R.attr.obfuscated_res_0x7f04008a};
             CoordinatorLayout = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f04037e, com.baidu.tieba.R.attr.obfuscated_res_0x7f04065c};
             CoordinatorLayout_Layout = new int[]{16842931, com.baidu.tieba.R.attr.obfuscated_res_0x7f04040d, com.baidu.tieba.R.attr.obfuscated_res_0x7f04040e, com.baidu.tieba.R.attr.obfuscated_res_0x7f04040f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040415, com.baidu.tieba.R.attr.obfuscated_res_0x7f040419, com.baidu.tieba.R.attr.obfuscated_res_0x7f04041a};
             FontFamily = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f0402da, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402db, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402dc, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402dd, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402de, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402df};
             FontFamilyFont = new int[]{16844082, 16844083, 16844095, 16844143, 16844144, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402d8, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402e0, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402e1, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402e2, com.baidu.tieba.R.attr.obfuscated_res_0x7f040749};
+            GradientColor = new int[]{16843165, 16843166, 16843169, 16843170, 16843171, 16843172, 16843265, 16843275, 16844048, 16844049, 16844050, 16844051};
+            GradientColorItem = new int[]{16843173, 16844052};
         }
 
         public styleable() {

@@ -34,6 +34,46 @@ public class j7 {
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public j7(int i) {
+        this(true, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(((Boolean) objArr2[0]).booleanValue(), ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public j7(boolean z, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.c = z;
+        this.a = new float[i];
+    }
+
     public void a(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
@@ -48,11 +88,41 @@ public class j7 {
         }
     }
 
+    public float[] d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            float[] fArr = new float[i];
+            System.arraycopy(this.a, 0, fArr, 0, Math.min(this.b, i));
+            this.a = fArr;
+            return fArr;
+        }
+        return (float[]) invokeI.objValue;
+    }
+
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.b = 0;
         }
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (!this.c) {
+                return super.hashCode();
+            }
+            float[] fArr = this.a;
+            int i = this.b;
+            int i2 = 1;
+            for (int i3 = 0; i3 < i; i3++) {
+                i2 = (i2 * 31) + u7.b(fArr[i3]);
+            }
+            return i2;
+        }
+        return invokeV.intValue;
     }
 
     public float c(int i) {
@@ -67,18 +137,6 @@ public class j7 {
         return invokeI.floatValue;
     }
 
-    public float[] d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            float[] fArr = new float[i];
-            System.arraycopy(this.a, 0, fArr, 0, Math.min(this.b, i));
-            this.a = fArr;
-            return fArr;
-        }
-        return (float[]) invokeI.objValue;
-    }
-
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         int i;
@@ -87,41 +145,23 @@ public class j7 {
             if (obj == this) {
                 return true;
             }
-            if (this.c && (obj instanceof j7)) {
-                j7 j7Var = (j7) obj;
-                if (j7Var.c && (i = this.b) == j7Var.b) {
-                    float[] fArr = this.a;
-                    float[] fArr2 = j7Var.a;
-                    for (int i2 = 0; i2 < i; i2++) {
-                        if (fArr[i2] != fArr2[i2]) {
-                            return false;
-                        }
-                    }
-                    return true;
-                }
+            if (!this.c || !(obj instanceof j7)) {
                 return false;
             }
-            return false;
+            j7 j7Var = (j7) obj;
+            if (!j7Var.c || (i = this.b) != j7Var.b) {
+                return false;
+            }
+            float[] fArr = this.a;
+            float[] fArr2 = j7Var.a;
+            for (int i2 = 0; i2 < i; i2++) {
+                if (fArr[i2] != fArr2[i2]) {
+                    return false;
+                }
+            }
+            return true;
         }
         return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.c) {
-                float[] fArr = this.a;
-                int i = this.b;
-                int i2 = 1;
-                for (int i3 = 0; i3 < i; i3++) {
-                    i2 = (i2 * 31) + u7.b(fArr[i3]);
-                }
-                return i2;
-            }
-            return super.hashCode();
-        }
-        return invokeV.intValue;
     }
 
     public void insert(int i, float f) {
@@ -165,45 +205,5 @@ public class j7 {
             return k8Var.toString();
         }
         return (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public j7(int i) {
-        this(true, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Boolean) objArr2[0]).booleanValue(), ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public j7(boolean z, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.c = z;
-        this.a = new float[i];
     }
 }

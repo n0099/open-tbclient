@@ -39,10 +39,9 @@ public class AdBillingLogHttpResMsg extends HttpResponsedMessage {
         AdNewLogResIdl adNewLogResIdl;
         Error error;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (adNewLogResIdl = (AdNewLogResIdl) new Wire(new Class[0]).parseFrom(bArr, AdNewLogResIdl.class)) == null || (error = adNewLogResIdl.error) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && (adNewLogResIdl = (AdNewLogResIdl) new Wire(new Class[0]).parseFrom(bArr, AdNewLogResIdl.class)) != null && (error = adNewLogResIdl.error) != null) {
+            setError(error.errorno.intValue());
+            setErrorString(adNewLogResIdl.error.usermsg);
         }
-        setError(error.errorno.intValue());
-        setErrorString(adNewLogResIdl.error.usermsg);
     }
 }

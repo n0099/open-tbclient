@@ -49,6 +49,14 @@ public class AbstractContainerBox extends BasicContainer implements Box {
         }
     }
 
+    @Override // com.coremedia.iso.boxes.Box
+    public void setParent(Container container) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, container) == null) {
+            this.parent = container;
+        }
+    }
+
     public ByteBuffer getHeader() {
         InterceptResult invokeV;
         ByteBuffer wrap;
@@ -78,22 +86,34 @@ public class AbstractContainerBox extends BasicContainer implements Box {
     public long getOffset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.offset : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.offset;
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.coremedia.iso.boxes.Box
     public Container getParent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.parent : (Container) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.parent;
+        }
+        return (Container) invokeV.objValue;
     }
 
     public long getSize() {
         InterceptResult invokeV;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             long containerSize = getContainerSize();
-            return containerSize + ((this.largeBox || 8 + containerSize >= 4294967296L) ? 16 : 8);
+            if (!this.largeBox && 8 + containerSize < 4294967296L) {
+                i = 8;
+            } else {
+                i = 16;
+            }
+            return containerSize + i;
         }
         return invokeV.longValue;
     }
@@ -102,23 +122,24 @@ public class AbstractContainerBox extends BasicContainer implements Box {
     public String getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.type : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.type;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j), boxParser}) == null) {
             this.offset = dataSource.position() - byteBuffer.remaining();
-            this.largeBox = byteBuffer.remaining() == 16;
+            if (byteBuffer.remaining() == 16) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.largeBox = z;
             parseContainer(dataSource, j, boxParser);
-        }
-    }
-
-    @Override // com.coremedia.iso.boxes.Box
-    public void setParent(Container container) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, container) == null) {
-            this.parent = container;
         }
     }
 }

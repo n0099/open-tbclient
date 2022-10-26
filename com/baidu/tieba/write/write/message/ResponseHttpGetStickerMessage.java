@@ -16,7 +16,7 @@ import tbclient.GetSticker.GetStickerResIdl;
 public class ResponseHttpGetStickerMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> mUrlList;
+    public List mUrlList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseHttpGetStickerMessage() {
@@ -36,10 +36,13 @@ public class ResponseHttpGetStickerMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public List<String> getUrlList() {
+    public List getUrlList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mUrlList : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mUrlList;
+        }
+        return (List) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -48,14 +51,13 @@ public class ResponseHttpGetStickerMessage extends TbHttpResponsedMessage {
         GetStickerResIdl getStickerResIdl;
         DataRes dataRes;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (getStickerResIdl = (GetStickerResIdl) new Wire(new Class[0]).parseFrom(bArr, GetStickerResIdl.class)) == null) {
+        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) != null) || (getStickerResIdl = (GetStickerResIdl) new Wire(new Class[0]).parseFrom(bArr, GetStickerResIdl.class)) == null) {
             return;
         }
         setError(getStickerResIdl.error.errorno.intValue());
         setErrorString(getStickerResIdl.error.usermsg);
-        if (getError() != 0 || (dataRes = getStickerResIdl.data) == null) {
-            return;
+        if (getError() == 0 && (dataRes = getStickerResIdl.data) != null) {
+            this.mUrlList = dataRes.pic_info;
         }
-        this.mUrlList = dataRes.pic_info;
     }
 }

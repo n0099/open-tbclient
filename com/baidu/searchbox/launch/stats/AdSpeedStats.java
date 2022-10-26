@@ -69,7 +69,7 @@ public final class AdSpeedStats extends AbstractSpeedStats {
     public long mAdViewEndTimeStamp;
     public boolean mBearLoadResult;
     public int mFailCount;
-    public HashMap<String, Long> mLaunchTaskDuration;
+    public HashMap mLaunchTaskDuration;
     public long mLoadBearEndTimeStamp;
     public long mLoadPrologueEndTimeStamp;
     public String mNetType;
@@ -110,7 +110,7 @@ public final class AdSpeedStats extends AbstractSpeedStats {
         this.mPlgLoadResult = false;
         this.isTimeout = false;
         this.mAdLoadCostPure = -1L;
-        this.mLaunchTaskDuration = new HashMap<>();
+        this.mLaunchTaskDuration = new HashMap();
         this.isNeedBear = true;
         this.isNeedPlg = true;
         this.mFailCount = 0;
@@ -182,6 +182,40 @@ public final class AdSpeedStats extends AbstractSpeedStats {
         }
     }
 
+    public long getDurationWithoutAD(long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            if (j > j2) {
+                return 0L;
+            }
+            long j3 = this.mAdShowEndTimeStamp;
+            if (this.mAdShowStartTimeStamp > 0 && j3 < 0) {
+                j3 = this.mAdViewEndTimeStamp;
+            }
+            long j4 = this.mAdShowStartTimeStamp;
+            if (j4 > 0 && j4 < j2 && j3 > j) {
+                if (j4 <= j && j3 >= j2) {
+                    return 0L;
+                }
+                long j5 = this.mAdShowStartTimeStamp;
+                if (j5 > j && j3 < j2) {
+                    return (j2 - j) - (j3 - j5);
+                }
+                if (this.mAdShowStartTimeStamp <= j && j3 < j2) {
+                    return j2 - j3;
+                }
+                long j6 = this.mAdShowStartTimeStamp;
+                if (j6 > j && j3 >= j2) {
+                    return j6 - j;
+                }
+                return j2 - j;
+            }
+            return j2 - j;
+        }
+        return invokeCommon.longValue;
+    }
+
     public long getAdShowDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -210,41 +244,35 @@ public final class AdSpeedStats extends AbstractSpeedStats {
         return invokeV.longValue;
     }
 
-    public long getDurationWithoutAD(long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            if (j > j2) {
-                return 0L;
-            }
-            long j3 = this.mAdShowEndTimeStamp;
-            if (this.mAdShowStartTimeStamp > 0 && j3 < 0) {
-                j3 = this.mAdViewEndTimeStamp;
-            }
-            long j4 = this.mAdShowStartTimeStamp;
-            if (j4 <= 0 || j4 >= j2 || j3 <= j) {
-                return j2 - j;
-            }
-            if (j4 > j || j3 < j2) {
-                long j5 = this.mAdShowStartTimeStamp;
-                if (j5 <= j || j3 >= j2) {
-                    if (this.mAdShowStartTimeStamp > j || j3 >= j2) {
-                        long j6 = this.mAdShowStartTimeStamp;
-                        return (j6 <= j || j3 < j2) ? j2 - j : j6 - j;
-                    }
-                    return j2 - j3;
-                }
-                return (j2 - j) - (j3 - j5);
-            }
-            return 0L;
-        }
-        return invokeCommon.longValue;
-    }
-
     public boolean isLoadEnd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mAdShowStartTimeStamp > 0 || this.mAdViewEndTimeStamp > 0 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.mAdShowStartTimeStamp <= 0 && this.mAdViewEndTimeStamp <= 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.mAdLoadMethodStartTimeStamp = -1L;
+            this.mAdLoadMethodEndTimeStamp = -1L;
+            this.mAdLoadIdleEndTimeStamp = -1L;
+            this.mAdLoadHandlerEndTimeStamp = -1L;
+            this.mLoadPrologueEndTimeStamp = -1L;
+            this.mLoadBearEndTimeStamp = -1L;
+            this.mAdShowMethodStartTimeStamp = -1L;
+            this.mAdShowMethodEndTimeStamp = -1L;
+            this.mAdShowStartTimeStamp = -1L;
+            this.mAdShowEndTimeStamp = -1L;
+            this.mAdViewEndTimeStamp = -1L;
+            this.mSecondDrawDispatchedTimeStamp = -1L;
+        }
     }
 
     /* JADX WARN: Removed duplicated region for block: B:212:0x0389 A[ADDED_TO_REGION, ORIG_RETURN, RETURN] */
@@ -281,268 +309,330 @@ public final class AdSpeedStats extends AbstractSpeedStats {
         long j8;
         long j9;
         long j10;
+        long j11;
+        long j12;
+        long j13;
+        long j14;
+        long j15;
+        long j16;
+        long j17;
+        long j18;
+        long j19;
+        long j20;
+        long j21;
+        long j22;
+        long j23;
+        long j24;
         int i;
         int i2;
         int i3;
         int i4;
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        String str5;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048582, this, jSONObject)) != null) {
-            return invokeL.booleanValue;
-        }
-        super.packData(jSONObject);
-        if (jSONObject == null) {
-            return false;
-        }
-        long j11 = this.mAdShowEndTimeStamp;
-        if (j11 < 0) {
-            j11 = this.mAdViewEndTimeStamp;
-        }
-        long j12 = this.mAdLoadMethodEndTimeStamp - this.mAdLoadMethodStartTimeStamp;
-        long j13 = this.mAdShowStartTimeStamp > 0 ? this.mAdShowMethodStartTimeStamp : j11;
-        long j14 = j13 - this.mAdLoadMethodEndTimeStamp;
-        if (j14 < 0) {
-            j14 = 0;
-        }
-        long j15 = this.mAdLoadIdleEndTimeStamp;
-        if (j15 <= 0 || j15 >= j13) {
-            j = j11;
-            j2 = 0;
-        } else {
-            j2 = j13 - j15;
-            j = j11;
-        }
-        long j16 = this.mAdLoadHandlerEndTimeStamp;
-        long j17 = (j16 >= j13 || j16 <= 0) ? 0L : j13 - j16;
-        long j18 = this.mAdLoadHandlerEndTimeStamp;
-        long j19 = j17;
-        if (j18 < j13) {
-            long j20 = this.mAdLoadMethodEndTimeStamp;
-            if (j18 > j20) {
-                j3 = j18 - j20;
-                long j21 = this.mLoadBearEndTimeStamp;
-                long j22 = j3;
-                long j23 = j21 <= 0 ? j21 - this.mAdPreLoadBearStartTimeStamp : 0L;
-                long j24 = this.mAdLoadMethodStartTimeStamp;
-                long j25 = j23;
-                long j26 = this.mAdPreLoadBearStartTimeStamp;
-                long j27 = j24 - j26;
-                long j28 = j14;
-                long j29 = this.mAdViewEndTimeStamp - j26;
-                long j30 = this.mLoadPrologueEndTimeStamp;
-                long j31 = j30 <= 0 ? j30 - j24 : 0L;
-                long j32 = this.mLoadBearEndTimeStamp;
-                j4 = j32 <= 0 ? j32 - this.mAdLoadMethodStartTimeStamp : 0L;
-                if (this.mAdShowStartTimeStamp <= 0 && this.mAdShowPolicySoEndStamp > 0) {
-                    if ("5".equals(this.adSource)) {
-                        long j33 = this.mAdShowPolicySoEndStamp;
-                        j5 = j4;
-                        long j34 = this.mLoadPrologueEndTimeStamp;
-                        j7 = j33 - j34;
-                        j6 = this.mAdShowMethodStartTimeStamp - j34;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) {
+            super.packData(jSONObject);
+            if (jSONObject == null) {
+                return false;
+            }
+            long j25 = this.mAdShowEndTimeStamp;
+            if (j25 < 0) {
+                j25 = this.mAdViewEndTimeStamp;
+            }
+            long j26 = this.mAdLoadMethodEndTimeStamp - this.mAdLoadMethodStartTimeStamp;
+            if (this.mAdShowStartTimeStamp > 0) {
+                j = this.mAdShowMethodStartTimeStamp;
+            } else {
+                j = j25;
+            }
+            long j27 = j - this.mAdLoadMethodEndTimeStamp;
+            if (j27 < 0) {
+                j27 = 0;
+            }
+            long j28 = this.mAdLoadIdleEndTimeStamp;
+            if (j28 > 0 && j28 < j) {
+                j3 = j - j28;
+                j2 = j25;
+            } else {
+                j2 = j25;
+                j3 = 0;
+            }
+            long j29 = this.mAdLoadHandlerEndTimeStamp;
+            if (j29 < j && j29 > 0) {
+                j4 = j - j29;
+            } else {
+                j4 = 0;
+            }
+            long j30 = this.mAdLoadHandlerEndTimeStamp;
+            long j31 = j4;
+            if (j30 < j) {
+                long j32 = this.mAdLoadMethodEndTimeStamp;
+                if (j30 > j32) {
+                    j5 = j30 - j32;
+                    j6 = this.mLoadBearEndTimeStamp;
+                    long j33 = j5;
+                    if (j6 <= 0) {
+                        j7 = j6 - this.mAdPreLoadBearStartTimeStamp;
                     } else {
-                        j5 = j4;
-                        if ("6".equals(this.adSource)) {
-                            long j35 = this.mAdShowPolicySoEndStamp;
-                            long j36 = this.mLoadBearEndTimeStamp;
-                            j7 = j35 - j36;
-                            j6 = this.mAdShowMethodStartTimeStamp - j36;
-                        }
+                        j7 = 0;
                     }
-                    long j37 = j13 - this.mAdLoadMethodStartTimeStamp;
-                    long j38 = j13;
-                    long j39 = j6;
-                    long j40 = this.mAdShowStartTimeStamp > 0 ? 1L : 0L;
-                    if (this.mAdShowStartTimeStamp > 0) {
-                        j8 = j40;
-                        j9 = this.mAdShowMethodEndTimeStamp - this.mAdShowMethodStartTimeStamp;
+                    long j34 = this.mAdLoadMethodStartTimeStamp;
+                    long j35 = j7;
+                    long j36 = this.mAdPreLoadBearStartTimeStamp;
+                    long j37 = j34 - j36;
+                    long j38 = j27;
+                    long j39 = this.mAdViewEndTimeStamp - j36;
+                    j8 = this.mLoadPrologueEndTimeStamp;
+                    if (j8 <= 0) {
+                        j9 = j8 - j34;
                     } else {
-                        j8 = j40;
                         j9 = 0;
                     }
-                    long j41 = this.mAdShowStartTimeStamp;
-                    long j42 = j31;
-                    long j43 = j41 > 0 ? j41 - this.mAdShowMethodEndTimeStamp : 0L;
-                    long j44 = this.mAdShowStartTimeStamp;
-                    long j45 = j44 > 0 ? j - j44 : 0L;
-                    long j46 = this.mAdShowStartTimeStamp;
-                    long j47 = j43;
-                    long j48 = j46 > 0 ? j46 - this.mAdShowMethodStartTimeStamp : 0L;
-                    j10 = j - this.mAdLoadMethodStartTimeStamp;
-                    long j49 = j37 + j48;
-                    long j50 = j48;
-                    this.mAdLoadCostPure = j12 + j2 + j9 + j47 + j45;
-                    if (j10 < 0 || j10 > 60000 || j49 < 0 || j49 > 60000 || j12 < 0 || j12 > 60000 || j2 < 0 || j2 > 60000 || j42 < 0 || j42 > 60000 || j5 < 0 || j5 > 60000 || j37 < 0 || j37 > 60000 || j9 < 0 || j9 > 60000 || j47 < 0 || j47 > 60000 || j45 < 0 || j45 > 60000 || j50 < 0 || j50 > 60000) {
-                        return false;
+                    j10 = this.mLoadBearEndTimeStamp;
+                    if (j10 <= 0) {
+                        j11 = j10 - this.mAdLoadMethodStartTimeStamp;
+                    } else {
+                        j11 = 0;
                     }
-                    HashMap hashMap = new HashMap();
-                    hashMap.put(AD_WITH_SHOW_DURATION, String.valueOf(j10));
-                    hashMap.put(AD_NO_SHOW_DURATION, String.valueOf(j49));
-                    hashMap.put(AD_SHOW_SOURCE, String.valueOf(this.adSource));
-                    hashMap.put(AD_LOAD_RESULT, String.valueOf(this.mAdLoadResult));
-                    hashMap.put(IS_AD_SHOW_SOURCE, String.valueOf(j8));
-                    hashMap.put(IS_AD_TIMEOUT, this.isTimeout ? "1" : "0");
-                    hashMap.put(IS_NEED_BEAR, this.isNeedBear ? "1" : "0");
-                    hashMap.put(IS_NEED_PLG, this.isNeedPlg ? "1" : "0");
-                    hashMap.put(AD_FAIL_COUNT, String.valueOf(this.mFailCount));
-                    hashMap.put(AD_NET_TYPE, this.mNetType);
-                    hashMap.put(AD_BEAR_LOAD_RESULT, this.mBearLoadResult ? "1" : "0");
-                    hashMap.put(AD_PLG_LOAD_RESULT, this.mPlgLoadResult ? "1" : "0");
-                    String str = this.mPlgAdType;
-                    if (str != null) {
-                        hashMap.put(AD_PLG_AD_TYPE, str);
-                    }
-                    hashMap.put(AD_LOAD_METHOD_DURATION, String.valueOf(j12));
-                    hashMap.put(AD_WAIT_LOAD_DURATION, String.valueOf(j28));
-                    hashMap.put(AD_LOAD_TOTAL_DURATION, String.valueOf(j37));
-                    if (j8 == 1) {
-                        hashMap.put(AD_SHOW_METHOD_DURATION, String.valueOf(j9));
-                        hashMap.put(AD_WAIT_SHOW_DURATION, String.valueOf(j47));
-                        hashMap.put(AD_SHOW_VIEW_DURATION, String.valueOf(j45));
-                        hashMap.put(AD_SHOW_TOTAL_DURATION, String.valueOf(j50));
-                    } else if (j29 > 0 && j29 < 60000) {
-                        hashMap.put(AD_BEAR_REAL_TIMEOUT_DURATION, String.valueOf(j29));
-                    }
-                    hashMap.put(AD_LOAD_IDLE_DURATION, String.valueOf(j2));
-                    hashMap.put(AD_LOAD_HANDLER_B_DURATION, String.valueOf(j19));
-                    hashMap.put(AD_LOAD_HANDLER_A_DURATION, String.valueOf(j22));
-                    if (i > 0 && i2 < 0) {
-                        hashMap.put(AD_PROLOGUE_LOAD_DURATION, String.valueOf(j42));
-                    }
-                    if (i3 > 0 && i4 < 0) {
-                        hashMap.put(AD_BEAR_LOAD_DURATION, String.valueOf(j5));
-                    }
-                    if (j7 > 0 && j7 < 60000) {
-                        hashMap.put(AD_POLICY_SO_DURATION, String.valueOf(j7));
-                    }
-                    if (j39 > 0 && j39 < 60000) {
-                        hashMap.put(AD_POST_SHOW_GAP_DURATION, String.valueOf(j39));
-                    }
-                    long j51 = this.mAdShowMethodStartTimeStamp - this.mSecondDrawDispatchedTimeStamp;
-                    if (j51 > 0 && j51 < 60000) {
-                        hashMap.put(DRAW_DONE_2_AD_SHOW_GAP, String.valueOf(j51));
-                    }
-                    if (j25 > 0 && j25 < 60000) {
-                        hashMap.put(AD_BEAR_REAL_LOAD_DURATION, String.valueOf(j25));
-                    }
-                    if (j27 > 0 && j27 < 60000) {
-                        hashMap.put(AD_BEAR_PRE_LOAD_DURATION, String.valueOf(j27));
-                    }
-                    long appLaunchEndTimeStamp = SpeedStatsManager.getInstance().getAppLaunchEndTimeStamp() - j38;
-                    if (appLaunchEndTimeStamp > 0 && appLaunchEndTimeStamp < 60000) {
-                        hashMap.put(AD_TO_END_DURATION, String.valueOf(appLaunchEndTimeStamp));
-                    }
-                    synchronized (this.mLaunchTaskDuration) {
-                        for (Map.Entry<String, Long> entry : this.mLaunchTaskDuration.entrySet()) {
-                            hashMap.put(entry.getKey(), String.valueOf(entry.getValue()));
+                    if (this.mAdShowStartTimeStamp <= 0 && this.mAdShowPolicySoEndStamp > 0) {
+                        if ("5".equals(this.adSource)) {
+                            long j40 = this.mAdShowPolicySoEndStamp;
+                            j12 = j11;
+                            long j41 = this.mLoadPrologueEndTimeStamp;
+                            j14 = j40 - j41;
+                            j13 = this.mAdShowMethodStartTimeStamp - j41;
+                        } else {
+                            j12 = j11;
+                            if ("6".equals(this.adSource)) {
+                                long j42 = this.mAdShowPolicySoEndStamp;
+                                long j43 = this.mLoadBearEndTimeStamp;
+                                j14 = j42 - j43;
+                                j13 = this.mAdShowMethodStartTimeStamp - j43;
+                            }
                         }
-                    }
-                    JSONObject jsonData = SpeedStatsUtils.getJsonData(j49, hashMap);
-                    if (jsonData != null) {
-                        try {
-                            jSONObject.put(SpeedStatsMainTable.AD_SHOW, jsonData);
-                            return true;
-                        } catch (JSONException e) {
-                            if (AppConfig.isDebug()) {
-                                e.printStackTrace();
-                                return true;
+                        long j44 = j - this.mAdLoadMethodStartTimeStamp;
+                        long j45 = j;
+                        long j46 = j13;
+                        if (this.mAdShowStartTimeStamp > 0) {
+                            j15 = 1;
+                        } else {
+                            j15 = 0;
+                        }
+                        if (this.mAdShowStartTimeStamp > 0) {
+                            j16 = j15;
+                            j17 = this.mAdShowMethodEndTimeStamp - this.mAdShowMethodStartTimeStamp;
+                        } else {
+                            j16 = j15;
+                            j17 = 0;
+                        }
+                        j18 = this.mAdShowStartTimeStamp;
+                        long j47 = j9;
+                        if (j18 > 0) {
+                            j19 = j18 - this.mAdShowMethodEndTimeStamp;
+                        } else {
+                            j19 = 0;
+                        }
+                        j20 = this.mAdShowStartTimeStamp;
+                        if (j20 > 0) {
+                            j21 = j2 - j20;
+                        } else {
+                            j21 = 0;
+                        }
+                        j22 = this.mAdShowStartTimeStamp;
+                        long j48 = j19;
+                        if (j22 > 0) {
+                            j23 = j22 - this.mAdShowMethodStartTimeStamp;
+                        } else {
+                            j23 = 0;
+                        }
+                        j24 = j2 - this.mAdLoadMethodStartTimeStamp;
+                        long j49 = j44 + j23;
+                        long j50 = j23;
+                        this.mAdLoadCostPure = j26 + j3 + j17 + j48 + j21;
+                        if (j24 >= 0 && j24 <= 60000 && j49 >= 0 && j49 <= 60000 && j26 >= 0 && j26 <= 60000 && j3 >= 0 && j3 <= 60000 && j47 >= 0 && j47 <= 60000 && j12 >= 0 && j12 <= 60000 && j44 >= 0 && j44 <= 60000 && j17 >= 0 && j17 <= 60000 && j48 >= 0 && j48 <= 60000 && j21 >= 0 && j21 <= 60000 && j50 >= 0 && j50 <= 60000) {
+                            HashMap hashMap = new HashMap();
+                            hashMap.put(AD_WITH_SHOW_DURATION, String.valueOf(j24));
+                            hashMap.put(AD_NO_SHOW_DURATION, String.valueOf(j49));
+                            hashMap.put(AD_SHOW_SOURCE, String.valueOf(this.adSource));
+                            hashMap.put(AD_LOAD_RESULT, String.valueOf(this.mAdLoadResult));
+                            hashMap.put(IS_AD_SHOW_SOURCE, String.valueOf(j16));
+                            if (this.isTimeout) {
+                                str = "1";
+                            } else {
+                                str = "0";
+                            }
+                            hashMap.put(IS_AD_TIMEOUT, str);
+                            if (this.isNeedBear) {
+                                str2 = "1";
+                            } else {
+                                str2 = "0";
+                            }
+                            hashMap.put(IS_NEED_BEAR, str2);
+                            if (this.isNeedPlg) {
+                                str3 = "1";
+                            } else {
+                                str3 = "0";
+                            }
+                            hashMap.put(IS_NEED_PLG, str3);
+                            hashMap.put(AD_FAIL_COUNT, String.valueOf(this.mFailCount));
+                            hashMap.put(AD_NET_TYPE, this.mNetType);
+                            if (this.mBearLoadResult) {
+                                str4 = "1";
+                            } else {
+                                str4 = "0";
+                            }
+                            hashMap.put(AD_BEAR_LOAD_RESULT, str4);
+                            if (this.mPlgLoadResult) {
+                                str5 = "1";
+                            } else {
+                                str5 = "0";
+                            }
+                            hashMap.put(AD_PLG_LOAD_RESULT, str5);
+                            String str6 = this.mPlgAdType;
+                            if (str6 != null) {
+                                hashMap.put(AD_PLG_AD_TYPE, str6);
+                            }
+                            hashMap.put(AD_LOAD_METHOD_DURATION, String.valueOf(j26));
+                            hashMap.put(AD_WAIT_LOAD_DURATION, String.valueOf(j38));
+                            hashMap.put(AD_LOAD_TOTAL_DURATION, String.valueOf(j44));
+                            if (j16 == 1) {
+                                hashMap.put(AD_SHOW_METHOD_DURATION, String.valueOf(j17));
+                                hashMap.put(AD_WAIT_SHOW_DURATION, String.valueOf(j48));
+                                hashMap.put(AD_SHOW_VIEW_DURATION, String.valueOf(j21));
+                                hashMap.put(AD_SHOW_TOTAL_DURATION, String.valueOf(j50));
+                            } else if (j39 > 0 && j39 < 60000) {
+                                hashMap.put(AD_BEAR_REAL_TIMEOUT_DURATION, String.valueOf(j39));
+                            }
+                            hashMap.put(AD_LOAD_IDLE_DURATION, String.valueOf(j3));
+                            hashMap.put(AD_LOAD_HANDLER_B_DURATION, String.valueOf(j31));
+                            hashMap.put(AD_LOAD_HANDLER_A_DURATION, String.valueOf(j33));
+                            if (i > 0 && i2 < 0) {
+                                hashMap.put(AD_PROLOGUE_LOAD_DURATION, String.valueOf(j47));
+                            }
+                            if (i3 > 0 && i4 < 0) {
+                                hashMap.put(AD_BEAR_LOAD_DURATION, String.valueOf(j12));
+                            }
+                            if (j14 > 0 && j14 < 60000) {
+                                hashMap.put(AD_POLICY_SO_DURATION, String.valueOf(j14));
+                            }
+                            if (j46 > 0 && j46 < 60000) {
+                                hashMap.put(AD_POST_SHOW_GAP_DURATION, String.valueOf(j46));
+                            }
+                            long j51 = this.mAdShowMethodStartTimeStamp - this.mSecondDrawDispatchedTimeStamp;
+                            if (j51 > 0 && j51 < 60000) {
+                                hashMap.put(DRAW_DONE_2_AD_SHOW_GAP, String.valueOf(j51));
+                            }
+                            if (j35 > 0 && j35 < 60000) {
+                                hashMap.put(AD_BEAR_REAL_LOAD_DURATION, String.valueOf(j35));
+                            }
+                            if (j37 > 0 && j37 < 60000) {
+                                hashMap.put(AD_BEAR_PRE_LOAD_DURATION, String.valueOf(j37));
+                            }
+                            long appLaunchEndTimeStamp = SpeedStatsManager.getInstance().getAppLaunchEndTimeStamp() - j45;
+                            if (appLaunchEndTimeStamp > 0 && appLaunchEndTimeStamp < 60000) {
+                                hashMap.put(AD_TO_END_DURATION, String.valueOf(appLaunchEndTimeStamp));
+                            }
+                            synchronized (this.mLaunchTaskDuration) {
+                                for (Map.Entry entry : this.mLaunchTaskDuration.entrySet()) {
+                                    hashMap.put(entry.getKey(), String.valueOf(entry.getValue()));
+                                }
+                            }
+                            JSONObject jsonData = SpeedStatsUtils.getJsonData(j49, hashMap);
+                            if (jsonData != null) {
+                                try {
+                                    jSONObject.put(SpeedStatsMainTable.AD_SHOW, jsonData);
+                                    return true;
+                                } catch (JSONException e) {
+                                    if (AppConfig.isDebug()) {
+                                        e.printStackTrace();
+                                        return true;
+                                    }
+                                    return true;
+                                }
                             }
                             return true;
                         }
+                        return false;
                     }
-                    return true;
+                    j12 = j11;
+                    j13 = 0;
+                    j14 = 0;
+                    long j442 = j - this.mAdLoadMethodStartTimeStamp;
+                    long j452 = j;
+                    long j462 = j13;
+                    if (this.mAdShowStartTimeStamp > 0) {
+                    }
+                    if (this.mAdShowStartTimeStamp > 0) {
+                    }
+                    j18 = this.mAdShowStartTimeStamp;
+                    long j472 = j9;
+                    if (j18 > 0) {
+                    }
+                    j20 = this.mAdShowStartTimeStamp;
+                    if (j20 > 0) {
+                    }
+                    j22 = this.mAdShowStartTimeStamp;
+                    long j482 = j19;
+                    if (j22 > 0) {
+                    }
+                    j24 = j2 - this.mAdLoadMethodStartTimeStamp;
+                    long j492 = j442 + j23;
+                    long j502 = j23;
+                    this.mAdLoadCostPure = j26 + j3 + j17 + j482 + j21;
+                    return j24 >= 0 ? false : false;
                 }
-                j5 = j4;
-                j6 = 0;
-                j7 = 0;
-                long j372 = j13 - this.mAdLoadMethodStartTimeStamp;
-                long j382 = j13;
-                long j392 = j6;
-                if (this.mAdShowStartTimeStamp > 0) {
-                }
-                if (this.mAdShowStartTimeStamp > 0) {
-                }
-                long j412 = this.mAdShowStartTimeStamp;
-                long j422 = j31;
-                if (j412 > 0) {
-                }
-                long j442 = this.mAdShowStartTimeStamp;
-                if (j442 > 0) {
-                }
-                long j462 = this.mAdShowStartTimeStamp;
-                long j472 = j43;
-                if (j462 > 0) {
-                }
-                j10 = j - this.mAdLoadMethodStartTimeStamp;
-                long j492 = j372 + j48;
-                long j502 = j48;
-                this.mAdLoadCostPure = j12 + j2 + j9 + j472 + j45;
-                return j10 < 0 ? false : false;
             }
-        }
-        j3 = 0;
-        long j212 = this.mLoadBearEndTimeStamp;
-        long j222 = j3;
-        if (j212 <= 0) {
-        }
-        long j242 = this.mAdLoadMethodStartTimeStamp;
-        long j252 = j23;
-        long j262 = this.mAdPreLoadBearStartTimeStamp;
-        long j272 = j242 - j262;
-        long j282 = j14;
-        long j292 = this.mAdViewEndTimeStamp - j262;
-        long j302 = this.mLoadPrologueEndTimeStamp;
-        if (j302 <= 0) {
-        }
-        long j322 = this.mLoadBearEndTimeStamp;
-        if (j322 <= 0) {
-        }
-        if (this.mAdShowStartTimeStamp <= 0) {
-        }
-        j5 = j4;
-        j6 = 0;
-        j7 = 0;
-        long j3722 = j13 - this.mAdLoadMethodStartTimeStamp;
-        long j3822 = j13;
-        long j3922 = j6;
-        if (this.mAdShowStartTimeStamp > 0) {
-        }
-        if (this.mAdShowStartTimeStamp > 0) {
-        }
-        long j4122 = this.mAdShowStartTimeStamp;
-        long j4222 = j31;
-        if (j4122 > 0) {
-        }
-        long j4422 = this.mAdShowStartTimeStamp;
-        if (j4422 > 0) {
-        }
-        long j4622 = this.mAdShowStartTimeStamp;
-        long j4722 = j43;
-        if (j4622 > 0) {
-        }
-        j10 = j - this.mAdLoadMethodStartTimeStamp;
-        long j4922 = j3722 + j48;
-        long j5022 = j48;
-        this.mAdLoadCostPure = j12 + j2 + j9 + j4722 + j45;
-        if (j10 < 0) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.mAdLoadMethodStartTimeStamp = -1L;
-            this.mAdLoadMethodEndTimeStamp = -1L;
-            this.mAdLoadIdleEndTimeStamp = -1L;
-            this.mAdLoadHandlerEndTimeStamp = -1L;
-            this.mLoadPrologueEndTimeStamp = -1L;
-            this.mLoadBearEndTimeStamp = -1L;
-            this.mAdShowMethodStartTimeStamp = -1L;
-            this.mAdShowMethodEndTimeStamp = -1L;
-            this.mAdShowStartTimeStamp = -1L;
-            this.mAdShowEndTimeStamp = -1L;
-            this.mAdViewEndTimeStamp = -1L;
-            this.mSecondDrawDispatchedTimeStamp = -1L;
+            j5 = 0;
+            j6 = this.mLoadBearEndTimeStamp;
+            long j332 = j5;
+            if (j6 <= 0) {
+            }
+            long j342 = this.mAdLoadMethodStartTimeStamp;
+            long j352 = j7;
+            long j362 = this.mAdPreLoadBearStartTimeStamp;
+            long j372 = j342 - j362;
+            long j382 = j27;
+            long j392 = this.mAdViewEndTimeStamp - j362;
+            j8 = this.mLoadPrologueEndTimeStamp;
+            if (j8 <= 0) {
+            }
+            j10 = this.mLoadBearEndTimeStamp;
+            if (j10 <= 0) {
+            }
+            if (this.mAdShowStartTimeStamp <= 0) {
+            }
+            j12 = j11;
+            j13 = 0;
+            j14 = 0;
+            long j4422 = j - this.mAdLoadMethodStartTimeStamp;
+            long j4522 = j;
+            long j4622 = j13;
+            if (this.mAdShowStartTimeStamp > 0) {
+            }
+            if (this.mAdShowStartTimeStamp > 0) {
+            }
+            j18 = this.mAdShowStartTimeStamp;
+            long j4722 = j9;
+            if (j18 > 0) {
+            }
+            j20 = this.mAdShowStartTimeStamp;
+            if (j20 > 0) {
+            }
+            j22 = this.mAdShowStartTimeStamp;
+            long j4822 = j19;
+            if (j22 > 0) {
+            }
+            j24 = j2 - this.mAdLoadMethodStartTimeStamp;
+            long j4922 = j4422 + j23;
+            long j5022 = j23;
+            this.mAdLoadCostPure = j26 + j3 + j17 + j4822 + j21;
+            if (j24 >= 0) {
+            }
+        } else {
+            return invokeL.booleanValue;
         }
     }
 
@@ -555,7 +645,7 @@ public final class AdSpeedStats extends AbstractSpeedStats {
 
     public void setAdLoadResult(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048585, this, i) == null) || this.mAdLoadResult > 0) {
+        if ((interceptable != null && interceptable.invokeI(1048585, this, i) != null) || this.mAdLoadResult > 0) {
             return;
         }
         this.mAdLoadResult = i;

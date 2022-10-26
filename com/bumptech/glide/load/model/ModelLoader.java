@@ -1,7 +1,5 @@
 package com.bumptech.glide.load.model;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,18 +11,21 @@ import com.bumptech.glide.util.Preconditions;
 import java.util.Collections;
 import java.util.List;
 /* loaded from: classes7.dex */
-public interface ModelLoader<Model, Data> {
+public interface ModelLoader {
+    LoadData buildLoadData(Object obj, int i, int i2, Options options);
+
+    boolean handles(Object obj);
 
     /* loaded from: classes7.dex */
-    public static class LoadData<Data> {
+    public class LoadData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final List<Key> alternateKeys;
-        public final DataFetcher<Data> fetcher;
+        public final List alternateKeys;
+        public final DataFetcher fetcher;
         public final Key sourceKey;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public LoadData(@NonNull Key key, @NonNull DataFetcher<Data> dataFetcher) {
+        public LoadData(Key key, DataFetcher dataFetcher) {
             this(key, Collections.emptyList(), dataFetcher);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -44,7 +45,7 @@ public interface ModelLoader<Model, Data> {
             }
         }
 
-        public LoadData(@NonNull Key key, @NonNull List<Key> list, @NonNull DataFetcher<Data> dataFetcher) {
+        public LoadData(Key key, List list, DataFetcher dataFetcher) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -64,9 +65,4 @@ public interface ModelLoader<Model, Data> {
             this.fetcher = (DataFetcher) Preconditions.checkNotNull(dataFetcher);
         }
     }
-
-    @Nullable
-    LoadData<Data> buildLoadData(@NonNull Model model, int i, int i2, @NonNull Options options);
-
-    boolean handles(@NonNull Model model);
 }

@@ -66,11 +66,11 @@ public final class ArrayTypeAdapter<E> extends TypeAdapter<Object> {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, gson, typeToken)) == null) {
                     Type type = typeToken.getType();
-                    if ((type instanceof GenericArrayType) || ((type instanceof Class) && ((Class) type).isArray())) {
-                        Type arrayComponentType = C$Gson$Types.getArrayComponentType(type);
-                        return new ArrayTypeAdapter(gson, gson.getAdapter(TypeToken.get(arrayComponentType)), C$Gson$Types.getRawType(arrayComponentType));
+                    if (!(type instanceof GenericArrayType) && (!(type instanceof Class) || !((Class) type).isArray())) {
+                        return null;
                     }
-                    return null;
+                    Type arrayComponentType = C$Gson$Types.getArrayComponentType(type);
+                    return new ArrayTypeAdapter(gson, gson.getAdapter(TypeToken.get(arrayComponentType)), C$Gson$Types.getRawType(arrayComponentType));
                 }
                 return (TypeAdapter) invokeLL.objValue;
             }

@@ -4,8 +4,8 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.tg;
+import com.baidu.tieba.eh;
+import com.baidu.tieba.ug;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ public class PvCacheModel {
     public static /* synthetic */ Interceptable $ic;
     public static PvCacheModel mCacheModel;
     public transient /* synthetic */ FieldHolder $fh;
-    public tg<String, String> mCache;
+    public ug mCache;
 
     public PvCacheModel() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class PvCacheModel {
             }
         }
         this.mCache = null;
-        this.mCache = new tg<>(256);
+        this.mCache = new ug(256);
     }
 
     public static synchronized PvCacheModel getInstance() {
@@ -53,12 +53,11 @@ public class PvCacheModel {
 
     public void addCacheData(String str, Long l) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, l) == null) || str == null || str.length() <= 0) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, l) == null) && str != null && str.length() > 0) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            ug ugVar = this.mCache;
+            ugVar.h(currentAccount + str, String.valueOf(l));
         }
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        tg<String, String> tgVar = this.mCache;
-        tgVar.h(currentAccount + str, String.valueOf(l));
     }
 
     public boolean isSameDay(String str) {
@@ -69,23 +68,22 @@ public class PvCacheModel {
                 return false;
             }
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            tg<String, String> tgVar = this.mCache;
-            String f = tgVar.f(currentAccount + str);
-            if (TextUtils.isEmpty(f)) {
+            ug ugVar = this.mCache;
+            String str2 = (String) ugVar.f(currentAccount + str);
+            if (TextUtils.isEmpty(str2)) {
                 return false;
             }
-            return UtilHelper.isSameDay(dh.g(f, 0L), System.currentTimeMillis());
+            return UtilHelper.isSameDay(eh.g(str2, 0L), System.currentTimeMillis());
         }
         return invokeL.booleanValue;
     }
 
     public void removeCacheData(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || str == null || str.length() <= 0) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && str != null && str.length() > 0) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            ug ugVar = this.mCache;
+            ugVar.i(currentAccount + str);
         }
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        tg<String, String> tgVar = this.mCache;
-        tgVar.i(currentAccount + str);
     }
 }

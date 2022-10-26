@@ -95,25 +95,43 @@ public class RetrieveReportImpl implements IRetrieveReportTask {
 
     @Override // com.baidu.android.imsdk.retrieve.IRetrieveReportTask
     public void reportDispatch(String str, String str2, String str3, JSONObject jSONObject, String str4, IReportListener iReportListener) {
+        String jSONObject2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, str3, jSONObject, str4, iReportListener}) == null) {
-            reportAsyncRequest(new RetrieveTaskObj(str, "1", str2, str3, str4, jSONObject == null ? "" : jSONObject.toString(), "", ""), iReportListener);
+            if (jSONObject == null) {
+                jSONObject2 = "";
+            } else {
+                jSONObject2 = jSONObject.toString();
+            }
+            reportAsyncRequest(new RetrieveTaskObj(str, "1", str2, str3, str4, jSONObject2, "", ""), iReportListener);
         }
     }
 
     @Override // com.baidu.android.imsdk.retrieve.IRetrieveReportTask
     public void reportDispatchCheckFail(String str, String str2, String str3, String str4, JSONObject jSONObject) {
+        String jSONObject2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, str, str2, str3, str4, jSONObject) == null) {
-            reportAsyncRequest(new RetrieveTaskObj(str, "-1", str2, str3, str4, jSONObject == null ? "" : jSONObject.toString(), "", ""), null);
+            if (jSONObject == null) {
+                jSONObject2 = "";
+            } else {
+                jSONObject2 = jSONObject.toString();
+            }
+            reportAsyncRequest(new RetrieveTaskObj(str, "-1", str2, str3, str4, jSONObject2, "", ""), null);
         }
     }
 
     @Override // com.baidu.android.imsdk.retrieve.IRetrieveReportTask
     public void reportTaskCheckFail(String str, String str2, String str3, JSONObject jSONObject, IReportListener iReportListener) {
+        String jSONObject2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048579, this, str, str2, str3, jSONObject, iReportListener) == null) {
-            reportAsyncRequest(new RetrieveTaskObj(str, "2", str2, str3, "", jSONObject == null ? "" : jSONObject.toString(), "", ""), iReportListener);
+            if (jSONObject == null) {
+                jSONObject2 = "";
+            } else {
+                jSONObject2 = jSONObject.toString();
+            }
+            reportAsyncRequest(new RetrieveTaskObj(str, "2", str2, str3, "", jSONObject2, "", ""), iReportListener);
         }
     }
 

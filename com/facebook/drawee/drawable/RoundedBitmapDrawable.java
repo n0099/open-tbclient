@@ -15,7 +15,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import java.lang.ref.WeakReference;
 import javax.annotation.Nullable;
@@ -26,8 +25,29 @@ public class RoundedBitmapDrawable extends RoundedDrawable {
     @Nullable
     public final Bitmap mBitmap;
     public final Paint mBorderPaint;
-    public WeakReference<Bitmap> mLastBitmap;
+    public WeakReference mLastBitmap;
     public final Paint mPaint;
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public RoundedBitmapDrawable(Resources resources, Bitmap bitmap) {
+        this(resources, bitmap, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {resources, bitmap};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Resources) objArr2[0], (Bitmap) objArr2[1], (Paint) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RoundedBitmapDrawable(Resources resources, @Nullable Bitmap bitmap, @Nullable Paint paint) {
@@ -60,15 +80,18 @@ public class RoundedBitmapDrawable extends RoundedDrawable {
     public static RoundedBitmapDrawable fromBitmapDrawable(Resources resources, BitmapDrawable bitmapDrawable) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, resources, bitmapDrawable)) == null) ? new RoundedBitmapDrawable(resources, bitmapDrawable.getBitmap(), bitmapDrawable.getPaint()) : (RoundedBitmapDrawable) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, resources, bitmapDrawable)) == null) {
+            return new RoundedBitmapDrawable(resources, bitmapDrawable.getBitmap(), bitmapDrawable.getPaint());
+        }
+        return (RoundedBitmapDrawable) invokeLL.objValue;
     }
 
     private void updatePaint() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            WeakReference<Bitmap> weakReference = this.mLastBitmap;
+            WeakReference weakReference = this.mLastBitmap;
             if (weakReference == null || weakReference.get() != this.mBitmap) {
-                this.mLastBitmap = new WeakReference<>(this.mBitmap);
+                this.mLastBitmap = new WeakReference(this.mBitmap);
                 Paint paint = this.mPaint;
                 Bitmap bitmap = this.mBitmap;
                 Shader.TileMode tileMode = Shader.TileMode.CLAMP;
@@ -120,7 +143,23 @@ public class RoundedBitmapDrawable extends RoundedDrawable {
     public Paint getPaint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mPaint : (Paint) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mPaint;
+        }
+        return (Paint) invokeV.objValue;
+    }
+
+    @Override // com.facebook.drawee.drawable.RoundedDrawable
+    public boolean shouldRound() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (super.shouldRound() && this.mBitmap != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.facebook.drawee.drawable.RoundedDrawable, android.graphics.drawable.Drawable
@@ -151,35 +190,6 @@ public class RoundedBitmapDrawable extends RoundedDrawable {
             super.setColorFilter(colorFilter);
             this.mPaint.setColorFilter(colorFilter);
             setBorderColorFilter(colorFilter);
-        }
-    }
-
-    @Override // com.facebook.drawee.drawable.RoundedDrawable
-    @VisibleForTesting
-    public boolean shouldRound() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? super.shouldRound() && this.mBitmap != null : invokeV.booleanValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public RoundedBitmapDrawable(Resources resources, Bitmap bitmap) {
-        this(resources, bitmap, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {resources, bitmap};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Resources) objArr2[0], (Bitmap) objArr2[1], (Paint) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
         }
     }
 }

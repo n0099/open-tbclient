@@ -3,7 +3,6 @@ package com.kwad.sdk.core.diskcache;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import androidx.annotation.NonNull;
 import com.baidu.nps.utils.Constant;
 import com.ksad.download.f;
 import com.kwad.sdk.core.e.b;
@@ -38,7 +37,7 @@ public class a {
         }
     };
 
-    public a(@NonNull Context context) {
+    public a(Context context) {
         this.VV = false;
         this.VU = new com.kwad.sdk.core.download.a.a(context);
         try {
@@ -52,7 +51,7 @@ public class a {
         this.VV = true;
     }
 
-    public static a bn(@NonNull Context context) {
+    public static a bn(Context context) {
         if (VW == null) {
             synchronized (a.class) {
                 if (VW == null) {
@@ -64,7 +63,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public List<File> j(@NonNull File file) {
+    public List j(File file) {
         ArrayList arrayList = new ArrayList();
         File[] listFiles = file.listFiles();
         if (listFiles == null) {
@@ -93,8 +92,8 @@ public class a {
         return null;
     }
 
-    private void n(List<File> list) {
-        Collections.sort(list, new Comparator<File>() { // from class: com.kwad.sdk.core.diskcache.a.2
+    private void n(List list) {
+        Collections.sort(list, new Comparator() { // from class: com.kwad.sdk.core.diskcache.a.2
             public static int a(File file, File file2) {
                 if (file.lastModified() >= file2.lastModified()) {
                     return file.lastModified() == file2.lastModified() ? 0 : 1;
@@ -102,10 +101,9 @@ public class a {
                 return -1;
             }
 
-            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
             @Override // java.util.Comparator
-            public final /* synthetic */ int compare(File file, File file2) {
-                return a(file, file2);
+            public final /* synthetic */ int compare(Object obj, Object obj2) {
+                return a((File) obj, (File) obj2);
             }
         });
     }

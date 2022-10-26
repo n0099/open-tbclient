@@ -1,7 +1,6 @@
 package com.bun.miitmdid.core;
 
 import android.content.Context;
-import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,11 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Keep
 /* loaded from: classes7.dex */
 public class CertChecker {
     public static /* synthetic */ Interceptable $ic;
-    @Keep
     public static final CertChecker a;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -52,7 +49,6 @@ public class CertChecker {
         }
     }
 
-    @Keep
     public static native CertChecker a();
 
     public native boolean verifyCert(Context context, String str);

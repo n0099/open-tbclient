@@ -12,6 +12,10 @@ public abstract class PermissionsCallback implements com.baidu.pass.a {
     public static final int ERROR_NO_PERMISSION = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract void onFailure(int i);
+
+    public abstract void onSuccess();
+
     public PermissionsCallback() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -25,8 +29,4 @@ public abstract class PermissionsCallback implements com.baidu.pass.a {
             }
         }
     }
-
-    public abstract void onFailure(int i);
-
-    public abstract void onSuccess();
 }

@@ -1,6 +1,5 @@
 package com.baidu.searchbox.logsystem.basic.javacrash;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.logsystem.javacrash.ProcessExceptionListener;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,6 +12,48 @@ public class BaseProcessExceptionListener implements ProcessExceptionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.searchbox.logsystem.javacrash.ProcessExceptionListener
+    public void onProcessExceptionFail(Thread.UncaughtExceptionHandler uncaughtExceptionHandler, Throwable th, Throwable th2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, uncaughtExceptionHandler, th, th2) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.logsystem.javacrash.ProcessExceptionListener
+    public void onProcessExceptionStart(Thread.UncaughtExceptionHandler uncaughtExceptionHandler, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uncaughtExceptionHandler, th) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.logsystem.javacrash.ProcessExceptionListener
+    public void onProcessExceptionSuccess(Thread.UncaughtExceptionHandler uncaughtExceptionHandler, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, uncaughtExceptionHandler, th) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.logsystem.javacrash.ProcessExceptionListener
+    public void onProxyProcessExceptionFail(Thread.UncaughtExceptionHandler uncaughtExceptionHandler, Throwable th, Throwable th2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, uncaughtExceptionHandler, th, th2) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.logsystem.javacrash.ProcessExceptionListener
+    public void onProxyProcessExceptionStart(Thread.UncaughtExceptionHandler uncaughtExceptionHandler, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, uncaughtExceptionHandler, th) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.logsystem.javacrash.ProcessExceptionListener
+    public void onProxyProcessExceptionSuccess(Thread.UncaughtExceptionHandler uncaughtExceptionHandler, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, uncaughtExceptionHandler, th) == null) {
+        }
+    }
+
     public BaseProcessExceptionListener() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -24,48 +65,6 @@ public class BaseProcessExceptionListener implements ProcessExceptionListener {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    @Override // com.baidu.searchbox.logsystem.javacrash.ProcessExceptionListener
-    public void onProcessExceptionFail(@NonNull Thread.UncaughtExceptionHandler uncaughtExceptionHandler, @NonNull Throwable th, @NonNull Throwable th2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, uncaughtExceptionHandler, th, th2) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.logsystem.javacrash.ProcessExceptionListener
-    public void onProcessExceptionStart(@NonNull Thread.UncaughtExceptionHandler uncaughtExceptionHandler, @NonNull Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uncaughtExceptionHandler, th) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.logsystem.javacrash.ProcessExceptionListener
-    public void onProcessExceptionSuccess(@NonNull Thread.UncaughtExceptionHandler uncaughtExceptionHandler, @NonNull Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, uncaughtExceptionHandler, th) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.logsystem.javacrash.ProcessExceptionListener
-    public void onProxyProcessExceptionFail(@NonNull Thread.UncaughtExceptionHandler uncaughtExceptionHandler, @NonNull Throwable th, @NonNull Throwable th2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, uncaughtExceptionHandler, th, th2) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.logsystem.javacrash.ProcessExceptionListener
-    public void onProxyProcessExceptionStart(@NonNull Thread.UncaughtExceptionHandler uncaughtExceptionHandler, @NonNull Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, uncaughtExceptionHandler, th) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.logsystem.javacrash.ProcessExceptionListener
-    public void onProxyProcessExceptionSuccess(@NonNull Thread.UncaughtExceptionHandler uncaughtExceptionHandler, @NonNull Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, uncaughtExceptionHandler, th) == null) {
         }
     }
 }

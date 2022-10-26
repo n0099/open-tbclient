@@ -1,7 +1,6 @@
 package com.kwad.components.ad.reward;
 
 import android.view.ViewGroup;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,9 +21,7 @@ public final class p extends com.kwad.components.ad.reward.presenter.a implement
     public com.kwad.components.ad.reward.presenter.n eu;
     public com.kwad.components.ad.reward.model.c mModel;
     public k nM;
-    @Nullable
     public a nN;
-    @Nullable
     public com.kwad.components.ad.reward.presenter.p nO;
 
     /* loaded from: classes7.dex */
@@ -105,7 +102,7 @@ public final class p extends com.kwad.components.ad.reward.presenter.a implement
         return invokeL.booleanValue;
     }
 
-    public final void a(@Nullable a aVar) {
+    public final void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             this.nN = aVar;

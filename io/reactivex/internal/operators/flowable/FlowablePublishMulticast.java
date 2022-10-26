@@ -30,15 +30,15 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowablePublishMulticast<T, R> extends AbstractFlowableWithUpstream<T, R> {
+public final class FlowablePublishMulticast extends AbstractFlowableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean delayError;
     public final int prefetch;
-    public final Function<? super Flowable<T>, ? extends Publisher<? extends R>> selector;
+    public final Function selector;
 
     /* loaded from: classes8.dex */
-    public static final class MulticastProcessor<T> extends Flowable<T> implements FlowableSubscriber<T>, Disposable {
+    public final class MulticastProcessor extends Flowable implements FlowableSubscriber, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public static final MulticastSubscription[] EMPTY;
         public static final MulticastSubscription[] TERMINATED;
@@ -49,10 +49,10 @@ public final class FlowablePublishMulticast<T, R> extends AbstractFlowableWithUp
         public Throwable error;
         public final int limit;
         public final int prefetch;
-        public volatile SimpleQueue<T> queue;
-        public final AtomicReference<Subscription> s;
+        public volatile SimpleQueue queue;
+        public final AtomicReference s;
         public int sourceMode;
-        public final AtomicReference<MulticastSubscription<T>[]> subscribers;
+        public final AtomicReference subscribers;
         public final AtomicInteger wip;
 
         static {
@@ -70,6 +70,49 @@ public final class FlowablePublishMulticast<T, R> extends AbstractFlowableWithUp
             }
             EMPTY = new MulticastSubscription[0];
             TERMINATED = new MulticastSubscription[0];
+        }
+
+        public void completeAll() {
+            MulticastSubscription[] multicastSubscriptionArr;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                for (MulticastSubscription multicastSubscription : (MulticastSubscription[]) this.subscribers.getAndSet(TERMINATED)) {
+                    if (multicastSubscription.get() != Long.MIN_VALUE) {
+                        multicastSubscription.actual.onComplete();
+                    }
+                }
+            }
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public void dispose() {
+            SimpleQueue simpleQueue;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                SubscriptionHelper.cancel(this.s);
+                if (this.wip.getAndIncrement() == 0 && (simpleQueue = this.queue) != null) {
+                    simpleQueue.clear();
+                }
+            }
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public boolean isDisposed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return SubscriptionHelper.isCancelled((Subscription) this.s.get());
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // org.reactivestreams.Subscriber
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && !this.done) {
+                this.done = true;
+                drain();
+            }
         }
 
         public MulticastProcessor(int i, boolean z) {
@@ -91,18 +134,18 @@ public final class FlowablePublishMulticast<T, R> extends AbstractFlowableWithUp
             this.limit = i - (i >> 2);
             this.delayError = z;
             this.wip = new AtomicInteger();
-            this.s = new AtomicReference<>();
-            this.subscribers = new AtomicReference<>(EMPTY);
+            this.s = new AtomicReference();
+            this.subscribers = new AtomicReference(EMPTY);
         }
 
-        public boolean add(MulticastSubscription<T> multicastSubscription) {
-            MulticastSubscription<T>[] multicastSubscriptionArr;
-            MulticastSubscription<T>[] multicastSubscriptionArr2;
+        public boolean add(MulticastSubscription multicastSubscription) {
+            MulticastSubscription[] multicastSubscriptionArr;
+            MulticastSubscription[] multicastSubscriptionArr2;
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, multicastSubscription)) == null) {
                 do {
-                    multicastSubscriptionArr = this.subscribers.get();
+                    multicastSubscriptionArr = (MulticastSubscription[]) this.subscribers.get();
                     if (multicastSubscriptionArr == TERMINATED) {
                         return false;
                     }
@@ -116,28 +159,29 @@ public final class FlowablePublishMulticast<T, R> extends AbstractFlowableWithUp
             return invokeL.booleanValue;
         }
 
-        public void completeAll() {
-            MulticastSubscription<T>[] andSet;
+        public void errorAll(Throwable th) {
+            MulticastSubscription[] multicastSubscriptionArr;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                for (MulticastSubscription<T> multicastSubscription : this.subscribers.getAndSet(TERMINATED)) {
+            if (interceptable == null || interceptable.invokeL(1048580, this, th) == null) {
+                for (MulticastSubscription multicastSubscription : (MulticastSubscription[]) this.subscribers.getAndSet(TERMINATED)) {
                     if (multicastSubscription.get() != Long.MIN_VALUE) {
-                        multicastSubscription.actual.onComplete();
+                        multicastSubscription.actual.onError(th);
                     }
                 }
             }
         }
 
-        @Override // io.reactivex.disposables.Disposable
-        public void dispose() {
-            SimpleQueue<T> simpleQueue;
+        @Override // org.reactivestreams.Subscriber
+        public void onError(Throwable th) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                SubscriptionHelper.cancel(this.s);
-                if (this.wip.getAndIncrement() != 0 || (simpleQueue = this.queue) == null) {
+            if (interceptable == null || interceptable.invokeL(1048583, this, th) == null) {
+                if (this.done) {
+                    RxJavaPlugins.onError(th);
                     return;
                 }
-                simpleQueue.clear();
+                this.error = th;
+                this.done = true;
+                drain();
             }
         }
 
@@ -205,36 +249,42 @@ public final class FlowablePublishMulticast<T, R> extends AbstractFlowableWithUp
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void drain() {
-            AtomicReference<MulticastSubscription<T>[]> atomicReference;
+            boolean z;
+            AtomicReference atomicReference;
+            boolean z2;
             Throwable th;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.wip.getAndIncrement() != 0) {
                 return;
             }
-            SimpleQueue<T> simpleQueue = this.queue;
+            SimpleQueue simpleQueue = this.queue;
             int i = this.consumed;
             int i2 = this.limit;
-            boolean z = this.sourceMode != 1;
-            AtomicReference<MulticastSubscription<T>[]> atomicReference2 = this.subscribers;
-            MulticastSubscription<T>[] multicastSubscriptionArr = atomicReference2.get();
+            if (this.sourceMode != 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            AtomicReference atomicReference2 = this.subscribers;
+            MulticastSubscription[] multicastSubscriptionArr = (MulticastSubscription[]) atomicReference2.get();
             int i3 = 1;
             while (true) {
                 int length = multicastSubscriptionArr.length;
-                if (simpleQueue == null || length == 0) {
-                    atomicReference = atomicReference2;
-                } else {
+                if (simpleQueue != null && length != 0) {
                     int length2 = multicastSubscriptionArr.length;
                     long j = Long.MAX_VALUE;
                     long j2 = Long.MAX_VALUE;
                     int i4 = 0;
                     while (i4 < length2) {
-                        MulticastSubscription<T> multicastSubscription = multicastSubscriptionArr[i4];
-                        AtomicReference<MulticastSubscription<T>[]> atomicReference3 = atomicReference2;
+                        MulticastSubscription multicastSubscription = multicastSubscriptionArr[i4];
+                        AtomicReference atomicReference3 = atomicReference2;
                         long j3 = multicastSubscription.get() - multicastSubscription.emitted;
-                        if (j3 == Long.MIN_VALUE) {
+                        if (j3 != Long.MIN_VALUE) {
+                            if (j2 > j3) {
+                                j2 = j3;
+                            }
+                        } else {
                             length--;
-                        } else if (j2 > j3) {
-                            j2 = j3;
                         }
                         i4++;
                         atomicReference2 = atomicReference3;
@@ -252,15 +302,19 @@ public final class FlowablePublishMulticast<T, R> extends AbstractFlowableWithUp
                             simpleQueue.clear();
                             return;
                         } else {
-                            boolean z2 = this.done;
-                            if (z2 && !this.delayError && (th = this.error) != null) {
+                            boolean z3 = this.done;
+                            if (z3 && !this.delayError && (th = this.error) != null) {
                                 errorAll(th);
                                 return;
                             }
                             try {
-                                T poll = simpleQueue.poll();
-                                boolean z3 = poll == null;
-                                if (z2 && z3) {
+                                Object poll = simpleQueue.poll();
+                                if (poll == null) {
+                                    z2 = true;
+                                } else {
+                                    z2 = false;
+                                }
+                                if (z3 && z2) {
                                     Throwable th2 = this.error;
                                     if (th2 != null) {
                                         errorAll(th2);
@@ -269,14 +323,14 @@ public final class FlowablePublishMulticast<T, R> extends AbstractFlowableWithUp
                                         completeAll();
                                         return;
                                     }
-                                } else if (z3) {
+                                } else if (z2) {
                                     break;
                                 } else {
                                     int length3 = multicastSubscriptionArr.length;
                                     int i6 = 0;
                                     boolean z4 = false;
                                     while (i6 < length3) {
-                                        MulticastSubscription<T> multicastSubscription2 = multicastSubscriptionArr[i6];
+                                        MulticastSubscription multicastSubscription2 = multicastSubscriptionArr[i6];
                                         long j5 = multicastSubscription2.get();
                                         if (j5 != Long.MIN_VALUE) {
                                             if (j5 != j) {
@@ -291,10 +345,10 @@ public final class FlowablePublishMulticast<T, R> extends AbstractFlowableWithUp
                                     }
                                     j2--;
                                     if (z && (i = i + 1) == i2) {
-                                        this.s.get().request(i2);
+                                        ((Subscription) this.s.get()).request(i2);
                                         i = 0;
                                     }
-                                    MulticastSubscription<T>[] multicastSubscriptionArr2 = atomicReference.get();
+                                    MulticastSubscription[] multicastSubscriptionArr2 = (MulticastSubscription[]) atomicReference.get();
                                     if (z4 || multicastSubscriptionArr2 != multicastSubscriptionArr) {
                                         break;
                                     }
@@ -309,6 +363,8 @@ public final class FlowablePublishMulticast<T, R> extends AbstractFlowableWithUp
                             }
                         }
                     }
+                } else {
+                    atomicReference = atomicReference2;
                 }
                 this.consumed = i;
                 i3 = this.wip.addAndGet(-i3);
@@ -318,66 +374,47 @@ public final class FlowablePublishMulticast<T, R> extends AbstractFlowableWithUp
                 if (simpleQueue == null) {
                     simpleQueue = this.queue;
                 }
-                multicastSubscriptionArr = atomicReference.get();
+                multicastSubscriptionArr = (MulticastSubscription[]) atomicReference.get();
                 atomicReference2 = atomicReference;
             }
         }
 
-        public void errorAll(Throwable th) {
-            MulticastSubscription<T>[] andSet;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, th) == null) {
-                for (MulticastSubscription<T> multicastSubscription : this.subscribers.getAndSet(TERMINATED)) {
-                    if (multicastSubscription.get() != Long.MIN_VALUE) {
-                        multicastSubscription.actual.onError(th);
-                    }
-                }
-            }
-        }
-
-        @Override // io.reactivex.disposables.Disposable
-        public boolean isDisposed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? SubscriptionHelper.isCancelled(this.s.get()) : invokeV.booleanValue;
-        }
-
         @Override // org.reactivestreams.Subscriber
-        public void onComplete() {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj) != null) || this.done) {
                 return;
             }
-            this.done = true;
-            drain();
-        }
-
-        @Override // org.reactivestreams.Subscriber
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, th) == null) {
-                if (this.done) {
-                    RxJavaPlugins.onError(th);
-                    return;
-                }
-                this.error = th;
-                this.done = true;
-                drain();
-            }
-        }
-
-        @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t) == null) || this.done) {
-                return;
-            }
-            if (this.sourceMode == 0 && !this.queue.offer(t)) {
-                this.s.get().cancel();
+            if (this.sourceMode == 0 && !this.queue.offer(obj)) {
+                ((Subscription) this.s.get()).cancel();
                 onError(new MissingBackpressureException());
                 return;
             }
             drain();
+        }
+
+        @Override // io.reactivex.Flowable
+        public void subscribeActual(Subscriber subscriber) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048587, this, subscriber) == null) {
+                MulticastSubscription multicastSubscription = new MulticastSubscription(subscriber, this);
+                subscriber.onSubscribe(multicastSubscription);
+                if (add(multicastSubscription)) {
+                    if (multicastSubscription.isCancelled()) {
+                        remove(multicastSubscription);
+                        return;
+                    } else {
+                        drain();
+                        return;
+                    }
+                }
+                Throwable th = this.error;
+                if (th != null) {
+                    subscriber.onError(th);
+                } else {
+                    subscriber.onComplete();
+                }
+            }
         }
 
         @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
@@ -405,15 +442,13 @@ public final class FlowablePublishMulticast<T, R> extends AbstractFlowableWithUp
             }
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: java.util.concurrent.atomic.AtomicReference<io.reactivex.internal.operators.flowable.FlowablePublishMulticast$MulticastSubscription<T>[]> */
-        /* JADX WARN: Multi-variable type inference failed */
-        public void remove(MulticastSubscription<T> multicastSubscription) {
-            MulticastSubscription<T>[] multicastSubscriptionArr;
+        public void remove(MulticastSubscription multicastSubscription) {
+            MulticastSubscription[] multicastSubscriptionArr;
             MulticastSubscription[] multicastSubscriptionArr2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048586, this, multicastSubscription) == null) {
                 do {
-                    multicastSubscriptionArr = this.subscribers.get();
+                    multicastSubscriptionArr = (MulticastSubscription[]) this.subscribers.get();
                     int length = multicastSubscriptionArr.length;
                     if (length == 0) {
                         return;
@@ -444,42 +479,18 @@ public final class FlowablePublishMulticast<T, R> extends AbstractFlowableWithUp
                 } while (!this.subscribers.compareAndSet(multicastSubscriptionArr, multicastSubscriptionArr2));
             }
         }
-
-        @Override // io.reactivex.Flowable
-        public void subscribeActual(Subscriber<? super T> subscriber) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048587, this, subscriber) == null) {
-                MulticastSubscription<T> multicastSubscription = new MulticastSubscription<>(subscriber, this);
-                subscriber.onSubscribe(multicastSubscription);
-                if (add(multicastSubscription)) {
-                    if (multicastSubscription.isCancelled()) {
-                        remove(multicastSubscription);
-                        return;
-                    } else {
-                        drain();
-                        return;
-                    }
-                }
-                Throwable th = this.error;
-                if (th != null) {
-                    subscriber.onError(th);
-                } else {
-                    subscriber.onComplete();
-                }
-            }
-        }
     }
 
     /* loaded from: classes8.dex */
-    public static final class MulticastSubscription<T> extends AtomicLong implements Subscription {
+    public final class MulticastSubscription extends AtomicLong implements Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8664815189257569791L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super T> actual;
+        public final Subscriber actual;
         public long emitted;
-        public final MulticastProcessor<T> parent;
+        public final MulticastProcessor parent;
 
-        public MulticastSubscription(Subscriber<? super T> subscriber, MulticastProcessor<T> multicastProcessor) {
+        public MulticastSubscription(Subscriber subscriber, MulticastProcessor multicastProcessor) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -501,17 +512,22 @@ public final class FlowablePublishMulticast<T, R> extends AbstractFlowableWithUp
         @Override // org.reactivestreams.Subscription
         public void cancel() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || getAndSet(Long.MIN_VALUE) == Long.MIN_VALUE) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && getAndSet(Long.MIN_VALUE) != Long.MIN_VALUE) {
+                this.parent.remove(this);
+                this.parent.drain();
             }
-            this.parent.remove(this);
-            this.parent.drain();
         }
 
         public boolean isCancelled() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? get() == Long.MIN_VALUE : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (get() == Long.MIN_VALUE) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // org.reactivestreams.Subscription
@@ -525,14 +541,14 @@ public final class FlowablePublishMulticast<T, R> extends AbstractFlowableWithUp
     }
 
     /* loaded from: classes8.dex */
-    public static final class OutputCanceller<R> implements FlowableSubscriber<R>, Subscription {
+    public final class OutputCanceller implements FlowableSubscriber, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super R> actual;
-        public final MulticastProcessor<?> processor;
+        public final Subscriber actual;
+        public final MulticastProcessor processor;
         public Subscription s;
 
-        public OutputCanceller(Subscriber<? super R> subscriber, MulticastProcessor<?> multicastProcessor) {
+        public OutputCanceller(Subscriber subscriber, MulticastProcessor multicastProcessor) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -579,10 +595,10 @@ public final class FlowablePublishMulticast<T, R> extends AbstractFlowableWithUp
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(R r) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, r) == null) {
-                this.actual.onNext(r);
+            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+                this.actual.onNext(obj);
             }
         }
 
@@ -605,7 +621,7 @@ public final class FlowablePublishMulticast<T, R> extends AbstractFlowableWithUp
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowablePublishMulticast(Flowable<T> flowable, Function<? super Flowable<T>, ? extends Publisher<? extends R>> function, int i, boolean z) {
+    public FlowablePublishMulticast(Flowable flowable, Function function, int i, boolean z) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -628,7 +644,7 @@ public final class FlowablePublishMulticast<T, R> extends AbstractFlowableWithUp
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super R> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             MulticastProcessor multicastProcessor = new MulticastProcessor(this.prefetch, this.delayError);

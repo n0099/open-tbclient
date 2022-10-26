@@ -42,8 +42,8 @@ public final class FlowInfoHelper {
     public static final String KEY_SIGLE_PART = "sigle_part";
     public static final String TAG = "lp-ubcClient";
     public static final String V_SLOT_LINK_CONNECTOR = "_to_";
-    public static HashMap<String, HashMap<String, Object>> flowInfo;
-    public static HashMap<String, Object> mLaunchInfo;
+    public static HashMap flowInfo;
+    public static HashMap mLaunchInfo;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -61,7 +61,7 @@ public final class FlowInfoHelper {
         }
         IS_DEBUG = Boolean.TRUE;
         IS_CLIENT = Boolean.FALSE;
-        flowInfo = new HashMap<>();
+        flowInfo = new HashMap();
     }
 
     public FlowInfoHelper() {
@@ -78,7 +78,7 @@ public final class FlowInfoHelper {
         }
     }
 
-    private void addRoomId(String str, HashMap<String, Object> hashMap) {
+    private void addRoomId(String str, HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, this, str, hashMap) == null) {
             if (TextUtils.isEmpty(str)) {
@@ -89,7 +89,7 @@ public final class FlowInfoHelper {
         }
     }
 
-    public static void addSigleStartTime(HashMap<String, Object> hashMap, String str) {
+    public static void addSigleStartTime(HashMap hashMap, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, hashMap, str) == null) {
             HashMap hashMap2 = (HashMap) hashMap.get(KEY_SIGLE_EVENTLIST);
@@ -101,14 +101,64 @@ public final class FlowInfoHelper {
         }
     }
 
-    public static HashMap<String, Object> createFlow(String str) {
+    public static Object get(HashMap hashMap, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, hashMap, str)) == null) {
+            if (hashMap != null && str != null) {
+                return hashMap.get(str);
+            }
+            return null;
+        }
+        return invokeLL.objValue;
+    }
+
+    public static Long getSigleStartTime(HashMap hashMap, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, hashMap, str)) == null) {
+            HashMap hashMap2 = (HashMap) hashMap.get(KEY_SIGLE_EVENTLIST);
+            if (hashMap2 != null) {
+                return (Long) hashMap2.get(str);
+            }
+            return null;
+        }
+        return (Long) invokeLL.objValue;
+    }
+
+    public static Object remove(HashMap hashMap, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, hashMap, str)) == null) {
+            if (hashMap != null && str != null) {
+                return hashMap.remove(str);
+            }
+            return null;
+        }
+        return invokeLL.objValue;
+    }
+
+    public static Long removeSingleStartTime(HashMap hashMap, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, hashMap, str)) == null) {
+            HashMap hashMap2 = (HashMap) hashMap.get(KEY_SIGLE_EVENTLIST);
+            if (hashMap2 != null) {
+                return (Long) hashMap2.remove(str);
+            }
+            return null;
+        }
+        return (Long) invokeLL.objValue;
+    }
+
+    public static HashMap createFlow(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             if (IS_DEBUG.booleanValue()) {
                 logDebug("createEmptyFlow " + str);
             }
-            HashMap<String, Object> hashMap = new HashMap<>();
+            HashMap hashMap = new HashMap();
             put(hashMap, KEY_PART_STARTTIME, Long.valueOf(System.currentTimeMillis()));
             if (!TextUtils.isEmpty(str)) {
                 put(hashMap, KEY_ROOM_ID, str);
@@ -118,27 +168,64 @@ public final class FlowInfoHelper {
         return (HashMap) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r4v3, resolved type: java.util.HashMap<java.lang.String, java.lang.Long> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public static void endAllSigleSlot(HashMap<String, Object> hashMap) {
-        HashMap hashMap2;
+    public static JSONArray eventlistToJSONArray(HashMap hashMap) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, null, hashMap) == null) || (hashMap2 = (HashMap) hashMap.get(KEY_SIGLE_EVENTLIST)) == null) {
-            return;
-        }
-        for (Map.Entry entry : hashMap2.entrySet()) {
-            if (entry.getKey() != null && entry.getValue() != null) {
-                Long valueOf = Long.valueOf(System.currentTimeMillis() - ((Long) entry.getValue()).longValue());
-                if (IS_DEBUG.booleanValue()) {
-                    logDebug("endAllSigleSlot " + ((String) entry.getKey()) + ": " + valueOf);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, hashMap)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            for (Map.Entry entry : hashMap.entrySet()) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.putOpt("id", entry.getKey());
+                    jSONObject.putOpt("timestamp", String.valueOf(((float) ((Long) entry.getValue()).longValue()) / 1000.0f));
+                    jSONArray.put(jSONObject);
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
-                getAndCreatePartList(hashMap).put(entry.getKey(), valueOf);
             }
+            return jSONArray;
         }
-        hashMap2.clear();
+        return (JSONArray) invokeL.objValue;
     }
 
-    public static HashMap<String, Object> endFlow(String str, HashMap<String, Object> hashMap, String str2) {
+    public static JSONArray partToJSONArray(HashMap hashMap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, hashMap)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            for (Map.Entry entry : hashMap.entrySet()) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.putOpt("id", entry.getKey());
+                    jSONObject.putOpt("d", String.valueOf(((Long) entry.getValue()).longValue() / 1000));
+                    jSONArray.put(jSONObject);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONArray;
+        }
+        return (JSONArray) invokeL.objValue;
+    }
+
+    public static void endAllSigleSlot(HashMap hashMap) {
+        HashMap hashMap2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, null, hashMap) == null) && (hashMap2 = (HashMap) hashMap.get(KEY_SIGLE_EVENTLIST)) != null) {
+            for (Map.Entry entry : hashMap2.entrySet()) {
+                if (entry.getKey() != null && entry.getValue() != null) {
+                    Long valueOf = Long.valueOf(System.currentTimeMillis() - ((Long) entry.getValue()).longValue());
+                    if (IS_DEBUG.booleanValue()) {
+                        logDebug("endAllSigleSlot " + ((String) entry.getKey()) + ": " + valueOf);
+                    }
+                    getAndCreatePartList(hashMap).put(entry.getKey(), valueOf);
+                }
+            }
+            hashMap2.clear();
+        }
+    }
+
+    public static HashMap endFlow(String str, HashMap hashMap, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, str, hashMap, str2)) == null) {
@@ -163,7 +250,32 @@ public final class FlowInfoHelper {
         return (HashMap) invokeLLL.objValue;
     }
 
-    public static void endSingleSlot(HashMap<String, Object> hashMap, String str) {
+    public static void flowEndLinkSlot(HashMap hashMap, String str, String str2) {
+        Long l;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65545, null, hashMap, str, str2) == null) {
+            if (hashMap == null) {
+                if (IS_DEBUG.booleanValue()) {
+                    logDebug("flowEndLinkSlot " + str + " tobe " + str2 + " with map null return");
+                    return;
+                }
+                return;
+            }
+            HashMap hashMap2 = (HashMap) hashMap.get(KEY_EVENTLIST);
+            if (hashMap2 != null && (l = (Long) hashMap2.get(str)) != null) {
+                long currentTimeMillis = System.currentTimeMillis() - l.longValue();
+                if (IS_CLIENT.booleanValue()) {
+                    getAndCreatePartList(hashMap).put(str2, Long.valueOf(currentTimeMillis));
+                }
+                getAndCreateLinkedPartList(hashMap).put(str2, Long.valueOf(currentTimeMillis));
+                if (IS_DEBUG.booleanValue()) {
+                    logDebug("flowEndLinkSlot " + str + " tobe " + str2 + " " + currentTimeMillis);
+                }
+            }
+        }
+    }
+
+    public static void endSingleSlot(HashMap hashMap, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, hashMap, str) == null) {
             if (hashMap == null) {
@@ -184,71 +296,13 @@ public final class FlowInfoHelper {
         }
     }
 
-    public static JSONArray eventlistToJSONArray(HashMap<String, Long> hashMap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, hashMap)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            for (Map.Entry<String, Long> entry : hashMap.entrySet()) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.putOpt("id", entry.getKey());
-                    jSONObject.putOpt("timestamp", String.valueOf(((float) entry.getValue().longValue()) / 1000.0f));
-                    jSONArray.put(jSONObject);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONArray;
-        }
-        return (JSONArray) invokeL.objValue;
-    }
-
-    public static void flowEndLinkSlot(HashMap<String, Object> hashMap, String str, String str2) {
-        Long l;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65545, null, hashMap, str, str2) == null) {
-            if (hashMap == null) {
-                if (IS_DEBUG.booleanValue()) {
-                    logDebug("flowEndLinkSlot " + str + " tobe " + str2 + " with map null return");
-                    return;
-                }
-                return;
-            }
-            HashMap hashMap2 = (HashMap) hashMap.get(KEY_EVENTLIST);
-            if (hashMap2 == null || (l = (Long) hashMap2.get(str)) == null) {
-                return;
-            }
-            long currentTimeMillis = System.currentTimeMillis() - l.longValue();
-            if (IS_CLIENT.booleanValue()) {
-                getAndCreatePartList(hashMap).put(str2, Long.valueOf(currentTimeMillis));
-            }
-            getAndCreateLinkedPartList(hashMap).put(str2, Long.valueOf(currentTimeMillis));
-            if (IS_DEBUG.booleanValue()) {
-                logDebug("flowEndLinkSlot " + str + " tobe " + str2 + " " + currentTimeMillis);
-            }
-        }
-    }
-
-    public static Object get(HashMap<String, Object> hashMap, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, hashMap, str)) == null) {
-            if (hashMap == null || str == null) {
-                return null;
-            }
-            return hashMap.get(str);
-        }
-        return invokeLL.objValue;
-    }
-
-    public static HashMap<String, Long> getAndCreateEventList(HashMap<String, Object> hashMap) {
+    public static HashMap getAndCreateEventList(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, hashMap)) == null) {
-            HashMap<String, Long> hashMap2 = (HashMap) hashMap.get(KEY_EVENTLIST);
+            HashMap hashMap2 = (HashMap) hashMap.get(KEY_EVENTLIST);
             if (hashMap2 == null) {
-                HashMap<String, Long> hashMap3 = new HashMap<>();
+                HashMap hashMap3 = new HashMap();
                 hashMap.put(KEY_EVENTLIST, hashMap3);
                 return hashMap3;
             }
@@ -257,7 +311,7 @@ public final class FlowInfoHelper {
         return (HashMap) invokeL.objValue;
     }
 
-    public static HashMap<String, Long> getAndCreateLinkedPartList(HashMap<String, Object> hashMap) {
+    public static HashMap getAndCreateLinkedPartList(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, hashMap)) == null) {
@@ -272,13 +326,13 @@ public final class FlowInfoHelper {
         return (HashMap) invokeL.objValue;
     }
 
-    public static HashMap<String, Long> getAndCreatePartList(HashMap<String, Object> hashMap) {
+    public static HashMap getAndCreatePartList(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, hashMap)) == null) {
-            HashMap<String, Long> hashMap2 = (HashMap) hashMap.get("part");
+            HashMap hashMap2 = (HashMap) hashMap.get("part");
             if (hashMap2 == null) {
-                HashMap<String, Long> hashMap3 = new HashMap<>();
+                HashMap hashMap3 = new HashMap();
                 hashMap.put("part", hashMap3);
                 return hashMap3;
             }
@@ -287,25 +341,15 @@ public final class FlowInfoHelper {
         return (HashMap) invokeL.objValue;
     }
 
-    public static Long getSigleStartTime(HashMap<String, Object> hashMap, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, hashMap, str)) == null) {
-            HashMap hashMap2 = (HashMap) hashMap.get(KEY_SIGLE_EVENTLIST);
-            if (hashMap2 != null) {
-                return (Long) hashMap2.get(str);
-            }
-            return null;
-        }
-        return (Long) invokeLL.objValue;
-    }
-
-    public static boolean isFlowClosed(HashMap<String, Object> hashMap) {
+    public static boolean isFlowClosed(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, hashMap)) == null) {
             Object obj = get(hashMap, KEY_IS_CLOSED);
-            return (obj instanceof Boolean) && ((Boolean) obj).booleanValue();
+            if ((obj instanceof Boolean) && ((Boolean) obj).booleanValue()) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
@@ -318,89 +362,84 @@ public final class FlowInfoHelper {
         }
     }
 
-    public static JSONArray partToJSONArray(HashMap<String, Long> hashMap) {
+    private HashMap remove(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, hashMap)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            for (Map.Entry<String, Long> entry : hashMap.entrySet()) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.putOpt("id", entry.getKey());
-                    jSONObject.putOpt("d", String.valueOf(entry.getValue().longValue() / 1000));
-                    jSONArray.put(jSONObject);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65557, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                HashMap hashMap = mLaunchInfo;
+                mLaunchInfo = null;
+                return hashMap;
             }
-            return jSONArray;
+            HashMap hashMap2 = (HashMap) flowInfo.remove(str);
+            if (hashMap2 == null) {
+                HashMap hashMap3 = mLaunchInfo;
+                mLaunchInfo = null;
+                return hashMap3;
+            }
+            return hashMap2;
         }
-        return (JSONArray) invokeL.objValue;
+        return (HashMap) invokeL.objValue;
     }
 
-    public static HashMap<String, Object> popFlow(String str) {
+    public static void updateFlow(HashMap hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65563, null, hashMap) == null) {
+            mLaunchInfo = hashMap;
+        }
+    }
+
+    public static HashMap popFlow(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, str)) == null) {
             if (IS_DEBUG.booleanValue()) {
                 logDebug("popFlow " + str);
             }
-            HashMap<String, Object> hashMap = mLaunchInfo;
+            HashMap hashMap = mLaunchInfo;
             updateFlow(null);
             return hashMap;
         }
         return (HashMap) invokeL.objValue;
     }
 
-    public static void put(HashMap<String, Object> hashMap, String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65555, null, hashMap, str, obj) == null) || hashMap == null) {
-            return;
-        }
-        if (IS_DEBUG.booleanValue()) {
-            logDebug("+ " + str + ": " + obj);
-        }
-        hashMap.put(str, obj);
-    }
-
-    private HashMap<String, Object> remove(String str) {
+    public HashMap getOrCreateFlowInfo(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65557, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                HashMap<String, Object> hashMap = mLaunchInfo;
-                mLaunchInfo = null;
-                return hashMap;
+                startNewFlow(str, false);
+                return mLaunchInfo;
             }
-            HashMap<String, Object> remove = flowInfo.remove(str);
-            if (remove == null) {
-                HashMap<String, Object> hashMap2 = mLaunchInfo;
+            HashMap hashMap = (HashMap) flowInfo.get(str);
+            if (hashMap == null) {
+                if (mLaunchInfo == null) {
+                    startNewFlow(str, true);
+                }
+                hashMap = mLaunchInfo;
+                addRoomId(str, hashMap);
                 mLaunchInfo = null;
-                return hashMap2;
             }
-            return remove;
+            return hashMap;
         }
         return (HashMap) invokeL.objValue;
     }
 
-    public static Long removeSingleStartTime(HashMap<String, Object> hashMap, String str) {
-        InterceptResult invokeLL;
+    public static void put(HashMap hashMap, String str, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, hashMap, str)) == null) {
-            HashMap hashMap2 = (HashMap) hashMap.get(KEY_SIGLE_EVENTLIST);
-            if (hashMap2 != null) {
-                return (Long) hashMap2.remove(str);
+        if ((interceptable == null || interceptable.invokeLLL(65555, null, hashMap, str, obj) == null) && hashMap != null) {
+            if (IS_DEBUG.booleanValue()) {
+                logDebug("+ " + str + ": " + obj);
             }
-            return null;
+            hashMap.put(str, obj);
         }
-        return (Long) invokeLL.objValue;
     }
 
-    public static HashMap<String, Object> startNewFlow(String str, boolean z) {
+    public static HashMap startNewFlow(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65559, null, str, z)) == null) {
-            HashMap<String, Object> hashMap = mLaunchInfo;
+            HashMap hashMap = mLaunchInfo;
             if (hashMap != null && !isFlowClosed(hashMap) && !z) {
                 if (!TextUtils.isEmpty(str)) {
                     Object obj = get(mLaunchInfo, KEY_ROOM_ID);
@@ -422,7 +461,31 @@ public final class FlowInfoHelper {
         return (HashMap) invokeLZ.objValue;
     }
 
-    public static void startSigleLineSlot(HashMap<String, Object> hashMap, String str, boolean z) {
+    public static void startSingleSlot(HashMap hashMap, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65561, null, hashMap, str) == null) {
+            if (hashMap == null) {
+                if (IS_DEBUG.booleanValue()) {
+                    logDebug("flowStartSlot: " + str + " with map null return");
+                }
+            } else if (isFlowClosed(hashMap)) {
+                if (IS_DEBUG.booleanValue()) {
+                    logDebug("flowStartSlot: " + str + " with closed");
+                }
+            } else if (getSigleStartTime(hashMap, str) != null) {
+                if (IS_DEBUG.booleanValue()) {
+                    logDebug("flowStartSlot: " + str + " has same slot return");
+                }
+            } else {
+                if (IS_DEBUG.booleanValue()) {
+                    logDebug("flowStartSlot: " + str);
+                }
+                addSigleStartTime(hashMap, str);
+            }
+        }
+    }
+
+    public static void startSigleLineSlot(HashMap hashMap, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(65560, null, hashMap, str, z) == null) {
             if (hashMap == null) {
@@ -451,49 +514,24 @@ public final class FlowInfoHelper {
                         }
                     }
                 }
-                if (TextUtils.isEmpty(str)) {
-                    return;
-                }
-                getAndCreateEventList(hashMap).put(str, Long.valueOf(System.currentTimeMillis()));
-                if (z) {
-                    put(hashMap, KEY_LAST_LINK_SLOT_TAG, str);
+                if (!TextUtils.isEmpty(str)) {
+                    getAndCreateEventList(hashMap).put(str, Long.valueOf(System.currentTimeMillis()));
+                    if (z) {
+                        put(hashMap, KEY_LAST_LINK_SLOT_TAG, str);
+                    }
                 }
             }
         }
     }
 
-    public static void startSingleSlot(HashMap<String, Object> hashMap, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65561, null, hashMap, str) == null) {
-            if (hashMap == null) {
-                if (IS_DEBUG.booleanValue()) {
-                    logDebug("flowStartSlot: " + str + " with map null return");
-                }
-            } else if (isFlowClosed(hashMap)) {
-                if (IS_DEBUG.booleanValue()) {
-                    logDebug("flowStartSlot: " + str + " with closed");
-                }
-            } else if (getSigleStartTime(hashMap, str) != null) {
-                if (IS_DEBUG.booleanValue()) {
-                    logDebug("flowStartSlot: " + str + " has same slot return");
-                }
-            } else {
-                if (IS_DEBUG.booleanValue()) {
-                    logDebug("flowStartSlot: " + str);
-                }
-                addSigleStartTime(hashMap, str);
-            }
-        }
-    }
-
-    public static JSONObject toJson(HashMap<String, Object> hashMap, JSONObject jSONObject) {
+    public static JSONObject toJson(HashMap hashMap, JSONObject jSONObject) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65562, null, hashMap, jSONObject)) == null) {
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            for (Map.Entry<String, Object> entry : hashMap.entrySet()) {
+            for (Map.Entry entry : hashMap.entrySet()) {
                 if (KEY_LINKED_PART.equals(entry.getKey())) {
                     if (entry.getValue() != null) {
                         try {
@@ -535,9 +573,9 @@ public final class FlowInfoHelper {
                     }
                 } else {
                     try {
-                        jSONObject.put(entry.getKey(), entry.getValue());
+                        jSONObject.put((String) entry.getKey(), entry.getValue());
                         if (IS_DEBUG.booleanValue()) {
-                            logDebug("toJson " + entry.getKey() + ": " + entry.getValue());
+                            logDebug("toJson " + ((String) entry.getKey()) + ": " + entry.getValue());
                         }
                     } catch (Exception e4) {
                         logDebug(e4.getMessage());
@@ -548,46 +586,5 @@ public final class FlowInfoHelper {
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;
-    }
-
-    public static void updateFlow(HashMap<String, Object> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65563, null, hashMap) == null) {
-            mLaunchInfo = hashMap;
-        }
-    }
-
-    public HashMap<String, Object> getOrCreateFlowInfo(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                startNewFlow(str, false);
-                return mLaunchInfo;
-            }
-            HashMap<String, Object> hashMap = flowInfo.get(str);
-            if (hashMap == null) {
-                if (mLaunchInfo == null) {
-                    startNewFlow(str, true);
-                }
-                hashMap = mLaunchInfo;
-                addRoomId(str, hashMap);
-                mLaunchInfo = null;
-            }
-            return hashMap;
-        }
-        return (HashMap) invokeL.objValue;
-    }
-
-    public static Object remove(HashMap<String, Object> hashMap, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, hashMap, str)) == null) {
-            if (hashMap == null || str == null) {
-                return null;
-            }
-            return hashMap.remove(str);
-        }
-        return invokeLL.objValue;
     }
 }

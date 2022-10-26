@@ -42,6 +42,49 @@ public abstract class AppleVariableSignedIntegerBox extends AppleDataBox {
         ajc$preClinit();
     }
 
+    @Override // com.googlecode.mp4parser.boxes.apple.AppleDataBox
+    public int getDataLength() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.intLength;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getIntLength() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+            return this.intLength;
+        }
+        return invokeV.intValue;
+    }
+
+    public long getValue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
+            return this.value;
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.googlecode.mp4parser.boxes.apple.AppleDataBox
+    public byte[] writeData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            int dataLength = getDataLength();
+            ByteBuffer wrap = ByteBuffer.wrap(new byte[dataLength]);
+            IsoTypeWriterVariable.write(this.value, wrap, dataLength);
+            return wrap.array();
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AppleVariableSignedIntegerBox(String str) {
         super(str, 15);
@@ -70,33 +113,6 @@ public abstract class AppleVariableSignedIntegerBox extends AppleDataBox {
         ajc$tjp_1 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setIntLength", "com.googlecode.mp4parser.boxes.apple.AppleVariableSignedIntegerBox", "int", "intLength", "", "void"), 23);
         ajc$tjp_2 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getValue", "com.googlecode.mp4parser.boxes.apple.AppleVariableSignedIntegerBox", "", "", "", "long"), 27);
         ajc$tjp_3 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setValue", "com.googlecode.mp4parser.boxes.apple.AppleVariableSignedIntegerBox", "long", "value", "", "void"), 31);
-    }
-
-    @Override // com.googlecode.mp4parser.boxes.apple.AppleDataBox
-    public int getDataLength() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.intLength : invokeV.intValue;
-    }
-
-    public int getIntLength() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return this.intLength;
-        }
-        return invokeV.intValue;
-    }
-
-    public long getValue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return this.value;
-        }
-        return invokeV.longValue;
     }
 
     @Override // com.googlecode.mp4parser.boxes.apple.AppleDataBox
@@ -132,18 +148,5 @@ public abstract class AppleVariableSignedIntegerBox extends AppleDataBox {
             }
             this.value = j;
         }
-    }
-
-    @Override // com.googlecode.mp4parser.boxes.apple.AppleDataBox
-    public byte[] writeData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int dataLength = getDataLength();
-            ByteBuffer wrap = ByteBuffer.wrap(new byte[dataLength]);
-            IsoTypeWriterVariable.write(this.value, wrap, dataLength);
-            return wrap.array();
-        }
-        return (byte[]) invokeV.objValue;
     }
 }

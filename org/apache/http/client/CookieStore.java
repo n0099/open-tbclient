@@ -12,5 +12,5 @@ public interface CookieStore {
 
     boolean clearExpired(Date date);
 
-    List<Cookie> getCookies();
+    List getCookies();
 }

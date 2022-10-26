@@ -38,6 +38,124 @@ public final class BidiFormatter {
     public final boolean mIsRtlContext;
 
     /* loaded from: classes.dex */
+    public static final class Builder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int mFlags;
+        public boolean mIsRtlContext;
+        public TextDirectionHeuristicCompat mTextDirectionHeuristicCompat;
+
+        public Builder() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            initialize(BidiFormatter.isRtlLocale(Locale.getDefault()));
+        }
+
+        public BidiFormatter build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.mFlags == 2 && this.mTextDirectionHeuristicCompat == BidiFormatter.DEFAULT_TEXT_DIRECTION_HEURISTIC) {
+                    return getDefaultInstanceFromContext(this.mIsRtlContext);
+                }
+                return new BidiFormatter(this.mIsRtlContext, this.mFlags, this.mTextDirectionHeuristicCompat);
+            }
+            return (BidiFormatter) invokeV.objValue;
+        }
+
+        public Builder(Locale locale) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {locale};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            initialize(BidiFormatter.isRtlLocale(locale));
+        }
+
+        public Builder(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
+            initialize(z);
+        }
+
+        public static BidiFormatter getDefaultInstanceFromContext(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(65539, null, z)) == null) {
+                if (z) {
+                    return BidiFormatter.DEFAULT_RTL_INSTANCE;
+                }
+                return BidiFormatter.DEFAULT_LTR_INSTANCE;
+            }
+            return (BidiFormatter) invokeZ.objValue;
+        }
+
+        private void initialize(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, this, z) == null) {
+                this.mIsRtlContext = z;
+                this.mTextDirectionHeuristicCompat = BidiFormatter.DEFAULT_TEXT_DIRECTION_HEURISTIC;
+                this.mFlags = 2;
+            }
+        }
+
+        public Builder setTextDirectionHeuristic(TextDirectionHeuristicCompat textDirectionHeuristicCompat) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textDirectionHeuristicCompat)) == null) {
+                this.mTextDirectionHeuristicCompat = textDirectionHeuristicCompat;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder stereoReset(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+                if (z) {
+                    this.mFlags |= 2;
+                } else {
+                    this.mFlags &= -3;
+                }
+                return this;
+            }
+            return (Builder) invokeZ.objValue;
+        }
+    }
+
+    /* loaded from: classes.dex */
     public static class DirectionalityEstimator {
         public static /* synthetic */ Interceptable $ic = null;
         public static final byte[] DIR_TYPE_CACHE;
@@ -68,32 +186,6 @@ public final class BidiFormatter {
             }
         }
 
-        public DirectionalityEstimator(CharSequence charSequence, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {charSequence, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.text = charSequence;
-            this.isHtml = z;
-            this.length = charSequence.length();
-        }
-
-        public static byte getCachedDirectionality(char c) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Character.valueOf(c)})) == null) ? c < 1792 ? DIR_TYPE_CACHE[c] : Character.getDirectionality(c) : invokeCommon.byteValue;
-        }
-
         private byte skipEntityBackward() {
             InterceptResult invokeV;
             char charAt;
@@ -121,6 +213,38 @@ public final class BidiFormatter {
             return invokeV.byteValue;
         }
 
+        public DirectionalityEstimator(CharSequence charSequence, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {charSequence, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.text = charSequence;
+            this.isHtml = z;
+            this.length = charSequence.length();
+        }
+
+        public static byte getCachedDirectionality(char c) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Character.valueOf(c)})) == null) {
+                if (c < 1792) {
+                    return DIR_TYPE_CACHE[c];
+                }
+                return Character.getDirectionality(c);
+            }
+            return invokeCommon.byteValue;
+        }
+
         private byte skipEntityForward() {
             char charAt;
             InterceptResult invokeV;
@@ -128,13 +252,14 @@ public final class BidiFormatter {
             if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
                 do {
                     int i = this.charIndex;
-                    if (i >= this.length) {
+                    if (i < this.length) {
+                        CharSequence charSequence = this.text;
+                        this.charIndex = i + 1;
+                        charAt = charSequence.charAt(i);
+                        this.lastChar = charAt;
+                    } else {
                         return (byte) 12;
                     }
-                    CharSequence charSequence = this.text;
-                    this.charIndex = i + 1;
-                    charAt = charSequence.charAt(i);
-                    this.lastChar = charAt;
                 } while (charAt != ';');
                 return (byte) 12;
             }
@@ -187,37 +312,38 @@ public final class BidiFormatter {
             InterceptResult invokeV;
             char charAt;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeV = interceptable.invokeV(65542, this)) != null) {
-                return invokeV.byteValue;
-            }
-            int i = this.charIndex;
-            while (true) {
-                int i2 = this.charIndex;
-                if (i2 < this.length) {
-                    CharSequence charSequence = this.text;
-                    this.charIndex = i2 + 1;
-                    char charAt2 = charSequence.charAt(i2);
-                    this.lastChar = charAt2;
-                    if (charAt2 == '>') {
-                        return (byte) 12;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
+                int i = this.charIndex;
+                while (true) {
+                    int i2 = this.charIndex;
+                    if (i2 < this.length) {
+                        CharSequence charSequence = this.text;
+                        this.charIndex = i2 + 1;
+                        char charAt2 = charSequence.charAt(i2);
+                        this.lastChar = charAt2;
+                        if (charAt2 == '>') {
+                            return (byte) 12;
+                        }
+                        if (charAt2 == '\"' || charAt2 == '\'') {
+                            char c = this.lastChar;
+                            do {
+                                int i3 = this.charIndex;
+                                if (i3 < this.length) {
+                                    CharSequence charSequence2 = this.text;
+                                    this.charIndex = i3 + 1;
+                                    charAt = charSequence2.charAt(i3);
+                                    this.lastChar = charAt;
+                                }
+                            } while (charAt != c);
+                        }
+                    } else {
+                        this.charIndex = i;
+                        this.lastChar = '<';
+                        return StrictLineReader.CR;
                     }
-                    if (charAt2 == '\"' || charAt2 == '\'') {
-                        char c = this.lastChar;
-                        do {
-                            int i3 = this.charIndex;
-                            if (i3 < this.length) {
-                                CharSequence charSequence2 = this.text;
-                                this.charIndex = i3 + 1;
-                                charAt = charSequence2.charAt(i3);
-                                this.lastChar = charAt;
-                            }
-                        } while (charAt != c);
-                    }
-                } else {
-                    this.charIndex = i;
-                    this.lastChar = '<';
-                    return StrictLineReader.CR;
                 }
+            } else {
+                return invokeV.byteValue;
             }
         }
 
@@ -239,7 +365,10 @@ public final class BidiFormatter {
                     if (c == '>') {
                         return skipTagBackward();
                     }
-                    return c == ';' ? skipEntityBackward() : cachedDirectionality;
+                    if (c == ';') {
+                        return skipEntityBackward();
+                    }
+                    return cachedDirectionality;
                 }
                 return cachedDirectionality;
             }
@@ -264,11 +393,75 @@ public final class BidiFormatter {
                     if (c == '<') {
                         return skipTagForward();
                     }
-                    return c == '&' ? skipEntityForward() : cachedDirectionality;
+                    if (c == '&') {
+                        return skipEntityForward();
+                    }
+                    return cachedDirectionality;
                 }
                 return cachedDirectionality;
             }
             return invokeV.byteValue;
+        }
+
+        public int getExitDir() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                this.charIndex = this.length;
+                int i = 0;
+                int i2 = 0;
+                while (this.charIndex > 0) {
+                    byte dirTypeBackward = dirTypeBackward();
+                    if (dirTypeBackward != 0) {
+                        if (dirTypeBackward != 1 && dirTypeBackward != 2) {
+                            if (dirTypeBackward != 9) {
+                                switch (dirTypeBackward) {
+                                    case 14:
+                                    case 15:
+                                        if (i2 == i) {
+                                            return -1;
+                                        }
+                                        i--;
+                                        break;
+                                    case 16:
+                                    case 17:
+                                        if (i2 == i) {
+                                            return 1;
+                                        }
+                                        i--;
+                                        break;
+                                    case 18:
+                                        i++;
+                                        break;
+                                    default:
+                                        if (i2 != 0) {
+                                            break;
+                                        } else {
+                                            i2 = i;
+                                            break;
+                                        }
+                                }
+                            } else {
+                                continue;
+                            }
+                        } else if (i == 0) {
+                            return 1;
+                        } else {
+                            if (i2 == 0) {
+                                i2 = i;
+                            }
+                        }
+                    } else if (i == 0) {
+                        return -1;
+                    } else {
+                        if (i2 == 0) {
+                            i2 = i;
+                        }
+                    }
+                }
+                return 0;
+            }
+            return invokeV.intValue;
         }
 
         public int getEntryDir() {
@@ -282,27 +475,27 @@ public final class BidiFormatter {
                 while (this.charIndex < this.length && i == 0) {
                     byte dirTypeForward = dirTypeForward();
                     if (dirTypeForward != 0) {
-                        if (dirTypeForward == 1 || dirTypeForward == 2) {
-                            if (i3 == 0) {
-                                return 1;
+                        if (dirTypeForward != 1 && dirTypeForward != 2) {
+                            if (dirTypeForward != 9) {
+                                switch (dirTypeForward) {
+                                    case 14:
+                                    case 15:
+                                        i3++;
+                                        i2 = -1;
+                                        break;
+                                    case 16:
+                                    case 17:
+                                        i3++;
+                                        i2 = 1;
+                                        break;
+                                    case 18:
+                                        i3--;
+                                        i2 = 0;
+                                        break;
+                                }
                             }
-                        } else if (dirTypeForward != 9) {
-                            switch (dirTypeForward) {
-                                case 14:
-                                case 15:
-                                    i3++;
-                                    i2 = -1;
-                                    break;
-                                case 16:
-                                case 17:
-                                    i3++;
-                                    i2 = 1;
-                                    break;
-                                case 18:
-                                    i3--;
-                                    i2 = 0;
-                                    break;
-                            }
+                        } else if (i3 == 0) {
+                            return 1;
                         }
                     } else if (i3 == 0) {
                         return -1;
@@ -334,66 +527,6 @@ public final class BidiFormatter {
                             continue;
                     }
                     i3--;
-                }
-                return 0;
-            }
-            return invokeV.intValue;
-        }
-
-        public int getExitDir() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                this.charIndex = this.length;
-                int i = 0;
-                int i2 = 0;
-                while (this.charIndex > 0) {
-                    byte dirTypeBackward = dirTypeBackward();
-                    if (dirTypeBackward != 0) {
-                        if (dirTypeBackward == 1 || dirTypeBackward == 2) {
-                            if (i == 0) {
-                                return 1;
-                            }
-                            if (i2 == 0) {
-                                i2 = i;
-                            }
-                        } else if (dirTypeBackward != 9) {
-                            switch (dirTypeBackward) {
-                                case 14:
-                                case 15:
-                                    if (i2 == i) {
-                                        return -1;
-                                    }
-                                    i--;
-                                    break;
-                                case 16:
-                                case 17:
-                                    if (i2 == i) {
-                                        return 1;
-                                    }
-                                    i--;
-                                    break;
-                                case 18:
-                                    i++;
-                                    break;
-                                default:
-                                    if (i2 != 0) {
-                                        break;
-                                    } else {
-                                        i2 = i;
-                                        break;
-                                    }
-                            }
-                        } else {
-                            continue;
-                        }
-                    } else if (i == 0) {
-                        return -1;
-                    } else {
-                        if (i2 == 0) {
-                            i2 = i;
-                        }
-                    }
                 }
                 return 0;
             }
@@ -444,25 +577,115 @@ public final class BidiFormatter {
     public static int getEntryDir(CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, charSequence)) == null) ? new DirectionalityEstimator(charSequence, false).getEntryDir() : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, charSequence)) == null) {
+            return new DirectionalityEstimator(charSequence, false).getEntryDir();
+        }
+        return invokeL.intValue;
     }
 
     public static int getExitDir(CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, charSequence)) == null) ? new DirectionalityEstimator(charSequence, false).getExitDir() : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, charSequence)) == null) {
+            return new DirectionalityEstimator(charSequence, false).getExitDir();
+        }
+        return invokeL.intValue;
     }
 
-    public static BidiFormatter getInstance() {
-        InterceptResult invokeV;
+    public static BidiFormatter getInstance(Locale locale) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new Builder().build() : (BidiFormatter) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, locale)) == null) {
+            return new Builder(locale).build();
+        }
+        return (BidiFormatter) invokeL.objValue;
     }
 
     public static boolean isRtlLocale(Locale locale) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, locale)) == null) ? TextUtilsCompat.getLayoutDirectionFromLocale(locale) == 1 : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, locale)) == null) {
+            if (TextUtilsCompat.getLayoutDirectionFromLocale(locale) == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean isRtl(CharSequence charSequence) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence)) == null) {
+            return this.mDefaultTextDirectionHeuristicCompat.isRtl(charSequence, 0, charSequence.length());
+        }
+        return invokeL.booleanValue;
+    }
+
+    public CharSequence unicodeWrap(CharSequence charSequence) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, charSequence)) == null) {
+            return unicodeWrap(charSequence, this.mDefaultTextDirectionHeuristicCompat, true);
+        }
+        return (CharSequence) invokeL.objValue;
+    }
+
+    public static BidiFormatter getInstance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return new Builder().build();
+        }
+        return (BidiFormatter) invokeV.objValue;
+    }
+
+    public boolean getStereoReset() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if ((this.mFlags & 2) != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isRtlContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mIsRtlContext;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static BidiFormatter getInstance(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65542, null, z)) == null) {
+            return new Builder(z).build();
+        }
+        return (BidiFormatter) invokeZ.objValue;
+    }
+
+    public boolean isRtl(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return isRtl((CharSequence) str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public String unicodeWrap(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            return unicodeWrap(str, this.mDefaultTextDirectionHeuristicCompat, true);
+        }
+        return (String) invokeL.objValue;
     }
 
     private String markAfter(CharSequence charSequence, TextDirectionHeuristicCompat textDirectionHeuristicCompat) {
@@ -470,10 +693,16 @@ public final class BidiFormatter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, this, charSequence, textDirectionHeuristicCompat)) == null) {
             boolean isRtl = textDirectionHeuristicCompat.isRtl(charSequence, 0, charSequence.length());
-            if (this.mIsRtlContext || !(isRtl || getExitDir(charSequence) == 1)) {
-                return this.mIsRtlContext ? (!isRtl || getExitDir(charSequence) == -1) ? RLM_STRING : "" : "";
+            if (!this.mIsRtlContext && (isRtl || getExitDir(charSequence) == 1)) {
+                return LRM_STRING;
             }
-            return LRM_STRING;
+            if (this.mIsRtlContext) {
+                if (!isRtl || getExitDir(charSequence) == -1) {
+                    return RLM_STRING;
+                }
+                return "";
+            }
+            return "";
         }
         return (String) invokeLL.objValue;
     }
@@ -483,30 +712,90 @@ public final class BidiFormatter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, this, charSequence, textDirectionHeuristicCompat)) == null) {
             boolean isRtl = textDirectionHeuristicCompat.isRtl(charSequence, 0, charSequence.length());
-            if (this.mIsRtlContext || !(isRtl || getEntryDir(charSequence) == 1)) {
-                return this.mIsRtlContext ? (!isRtl || getEntryDir(charSequence) == -1) ? RLM_STRING : "" : "";
+            if (!this.mIsRtlContext && (isRtl || getEntryDir(charSequence) == 1)) {
+                return LRM_STRING;
             }
-            return LRM_STRING;
+            if (this.mIsRtlContext) {
+                if (!isRtl || getEntryDir(charSequence) == -1) {
+                    return RLM_STRING;
+                }
+                return "";
+            }
+            return "";
         }
         return (String) invokeLL.objValue;
     }
 
-    public boolean getStereoReset() {
-        InterceptResult invokeV;
+    public CharSequence unicodeWrap(CharSequence charSequence, TextDirectionHeuristicCompat textDirectionHeuristicCompat) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.mFlags & 2) != 0 : invokeV.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, charSequence, textDirectionHeuristicCompat)) == null) {
+            return unicodeWrap(charSequence, textDirectionHeuristicCompat, true);
+        }
+        return (CharSequence) invokeLL.objValue;
     }
 
-    public boolean isRtl(String str) {
-        InterceptResult invokeL;
+    public CharSequence unicodeWrap(CharSequence charSequence, TextDirectionHeuristicCompat textDirectionHeuristicCompat, boolean z) {
+        InterceptResult invokeLLZ;
+        TextDirectionHeuristicCompat textDirectionHeuristicCompat2;
+        char c;
+        TextDirectionHeuristicCompat textDirectionHeuristicCompat3;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? isRtl((CharSequence) str) : invokeL.booleanValue;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048582, this, charSequence, textDirectionHeuristicCompat, z)) == null) {
+            if (charSequence == null) {
+                return null;
+            }
+            boolean isRtl = textDirectionHeuristicCompat.isRtl(charSequence, 0, charSequence.length());
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            if (getStereoReset() && z) {
+                if (isRtl) {
+                    textDirectionHeuristicCompat3 = TextDirectionHeuristicsCompat.RTL;
+                } else {
+                    textDirectionHeuristicCompat3 = TextDirectionHeuristicsCompat.LTR;
+                }
+                spannableStringBuilder.append((CharSequence) markBefore(charSequence, textDirectionHeuristicCompat3));
+            }
+            if (isRtl != this.mIsRtlContext) {
+                if (isRtl) {
+                    c = RLE;
+                } else {
+                    c = LRE;
+                }
+                spannableStringBuilder.append(c);
+                spannableStringBuilder.append(charSequence);
+                spannableStringBuilder.append(PDF);
+            } else {
+                spannableStringBuilder.append(charSequence);
+            }
+            if (z) {
+                if (isRtl) {
+                    textDirectionHeuristicCompat2 = TextDirectionHeuristicsCompat.RTL;
+                } else {
+                    textDirectionHeuristicCompat2 = TextDirectionHeuristicsCompat.LTR;
+                }
+                spannableStringBuilder.append((CharSequence) markAfter(charSequence, textDirectionHeuristicCompat2));
+            }
+            return spannableStringBuilder;
+        }
+        return (CharSequence) invokeLLZ.objValue;
     }
 
-    public boolean isRtlContext() {
-        InterceptResult invokeV;
+    public CharSequence unicodeWrap(CharSequence charSequence, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mIsRtlContext : invokeV.booleanValue;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048583, this, charSequence, z)) == null) {
+            return unicodeWrap(charSequence, this.mDefaultTextDirectionHeuristicCompat, z);
+        }
+        return (CharSequence) invokeLZ.objValue;
+    }
+
+    public String unicodeWrap(String str, TextDirectionHeuristicCompat textDirectionHeuristicCompat) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, textDirectionHeuristicCompat)) == null) {
+            return unicodeWrap(str, textDirectionHeuristicCompat, true);
+        }
+        return (String) invokeLL.objValue;
     }
 
     public String unicodeWrap(String str, TextDirectionHeuristicCompat textDirectionHeuristicCompat, boolean z) {
@@ -521,196 +810,12 @@ public final class BidiFormatter {
         return (String) invokeLLZ.objValue;
     }
 
-    /* loaded from: classes.dex */
-    public static final class Builder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int mFlags;
-        public boolean mIsRtlContext;
-        public TextDirectionHeuristicCompat mTextDirectionHeuristicCompat;
-
-        public Builder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            initialize(BidiFormatter.isRtlLocale(Locale.getDefault()));
-        }
-
-        public static BidiFormatter getDefaultInstanceFromContext(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(65539, null, z)) == null) ? z ? BidiFormatter.DEFAULT_RTL_INSTANCE : BidiFormatter.DEFAULT_LTR_INSTANCE : (BidiFormatter) invokeZ.objValue;
-        }
-
-        private void initialize(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, this, z) == null) {
-                this.mIsRtlContext = z;
-                this.mTextDirectionHeuristicCompat = BidiFormatter.DEFAULT_TEXT_DIRECTION_HEURISTIC;
-                this.mFlags = 2;
-            }
-        }
-
-        public BidiFormatter build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.mFlags == 2 && this.mTextDirectionHeuristicCompat == BidiFormatter.DEFAULT_TEXT_DIRECTION_HEURISTIC) {
-                    return getDefaultInstanceFromContext(this.mIsRtlContext);
-                }
-                return new BidiFormatter(this.mIsRtlContext, this.mFlags, this.mTextDirectionHeuristicCompat);
-            }
-            return (BidiFormatter) invokeV.objValue;
-        }
-
-        public Builder setTextDirectionHeuristic(TextDirectionHeuristicCompat textDirectionHeuristicCompat) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textDirectionHeuristicCompat)) == null) {
-                this.mTextDirectionHeuristicCompat = textDirectionHeuristicCompat;
-                return this;
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        public Builder stereoReset(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                if (z) {
-                    this.mFlags |= 2;
-                } else {
-                    this.mFlags &= -3;
-                }
-                return this;
-            }
-            return (Builder) invokeZ.objValue;
-        }
-
-        public Builder(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
-                    return;
-                }
-            }
-            initialize(z);
-        }
-
-        public Builder(Locale locale) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {locale};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            initialize(BidiFormatter.isRtlLocale(locale));
-        }
-    }
-
-    public static BidiFormatter getInstance(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(65542, null, z)) == null) ? new Builder(z).build() : (BidiFormatter) invokeZ.objValue;
-    }
-
-    public boolean isRtl(CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence)) == null) ? this.mDefaultTextDirectionHeuristicCompat.isRtl(charSequence, 0, charSequence.length()) : invokeL.booleanValue;
-    }
-
-    public CharSequence unicodeWrap(CharSequence charSequence, TextDirectionHeuristicCompat textDirectionHeuristicCompat, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048582, this, charSequence, textDirectionHeuristicCompat, z)) == null) {
-            if (charSequence == null) {
-                return null;
-            }
-            boolean isRtl = textDirectionHeuristicCompat.isRtl(charSequence, 0, charSequence.length());
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            if (getStereoReset() && z) {
-                spannableStringBuilder.append((CharSequence) markBefore(charSequence, isRtl ? TextDirectionHeuristicsCompat.RTL : TextDirectionHeuristicsCompat.LTR));
-            }
-            if (isRtl != this.mIsRtlContext) {
-                spannableStringBuilder.append(isRtl ? RLE : LRE);
-                spannableStringBuilder.append(charSequence);
-                spannableStringBuilder.append(PDF);
-            } else {
-                spannableStringBuilder.append(charSequence);
-            }
-            if (z) {
-                spannableStringBuilder.append((CharSequence) markAfter(charSequence, isRtl ? TextDirectionHeuristicsCompat.RTL : TextDirectionHeuristicsCompat.LTR));
-            }
-            return spannableStringBuilder;
-        }
-        return (CharSequence) invokeLLZ.objValue;
-    }
-
-    public static BidiFormatter getInstance(Locale locale) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, locale)) == null) ? new Builder(locale).build() : (BidiFormatter) invokeL.objValue;
-    }
-
-    public String unicodeWrap(String str, TextDirectionHeuristicCompat textDirectionHeuristicCompat) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, textDirectionHeuristicCompat)) == null) ? unicodeWrap(str, textDirectionHeuristicCompat, true) : (String) invokeLL.objValue;
-    }
-
-    public CharSequence unicodeWrap(CharSequence charSequence, TextDirectionHeuristicCompat textDirectionHeuristicCompat) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, charSequence, textDirectionHeuristicCompat)) == null) ? unicodeWrap(charSequence, textDirectionHeuristicCompat, true) : (CharSequence) invokeLL.objValue;
-    }
-
     public String unicodeWrap(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048587, this, str, z)) == null) ? unicodeWrap(str, this.mDefaultTextDirectionHeuristicCompat, z) : (String) invokeLZ.objValue;
-    }
-
-    public CharSequence unicodeWrap(CharSequence charSequence, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048583, this, charSequence, z)) == null) ? unicodeWrap(charSequence, this.mDefaultTextDirectionHeuristicCompat, z) : (CharSequence) invokeLZ.objValue;
-    }
-
-    public String unicodeWrap(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? unicodeWrap(str, this.mDefaultTextDirectionHeuristicCompat, true) : (String) invokeL.objValue;
-    }
-
-    public CharSequence unicodeWrap(CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, charSequence)) == null) ? unicodeWrap(charSequence, this.mDefaultTextDirectionHeuristicCompat, true) : (CharSequence) invokeL.objValue;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048587, this, str, z)) == null) {
+            return unicodeWrap(str, this.mDefaultTextDirectionHeuristicCompat, z);
+        }
+        return (String) invokeLZ.objValue;
     }
 }

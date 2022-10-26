@@ -15,7 +15,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
     public static volatile d gA;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<c> gB;
+    public List gB;
 
     static {
         InterceptResult invokeClinit;
@@ -79,7 +79,7 @@ public class d {
             }
             c cVar2 = new c();
             cVar2.a(i, i2, i3);
-            List<c> list2 = this.gB;
+            List list2 = this.gB;
             if (list2 != null) {
                 list2.add(cVar2);
             }

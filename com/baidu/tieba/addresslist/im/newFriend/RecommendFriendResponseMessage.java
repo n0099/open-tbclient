@@ -2,7 +2,7 @@ package com.baidu.tieba.addresslist.im.newFriend;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.h97;
+import com.baidu.tieba.p97;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public class RecommendFriendResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<h97> mDatas;
+    public List mDatas;
     public int mErrCode;
     public String mErrMsg;
 
@@ -54,44 +54,52 @@ public class RecommendFriendResponseMessage extends JsonHttpResponsedMessage {
                 this.mErrCode = jSONObject.optInt("errno");
                 this.mErrMsg = jSONObject.optString("errmsg");
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                if (optJSONObject == null || (optJSONArray = optJSONObject.optJSONArray("recommend_list")) == null) {
-                    return;
-                }
-                this.mDatas = new ArrayList();
-                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    h97 h97Var = new h97();
-                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
-                    h97Var.h(jSONObject2.optLong("user_id"));
-                    h97Var.j(jSONObject2.optString("user_name"));
-                    h97Var.k(jSONObject2.optString("portrait"));
-                    h97Var.g(jSONObject2.optString("message"));
-                    if (jSONObject2.optInt("type") == 0) {
-                        h97Var.l(0);
-                    } else {
-                        h97Var.l(1);
+                if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray("recommend_list")) != null) {
+                    this.mDatas = new ArrayList();
+                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                        p97 p97Var = new p97();
+                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
+                        p97Var.h(jSONObject2.optLong("user_id"));
+                        p97Var.j(jSONObject2.optString("user_name"));
+                        p97Var.k(jSONObject2.optString("portrait"));
+                        p97Var.g(jSONObject2.optString("message"));
+                        if (jSONObject2.optInt("type") == 0) {
+                            p97Var.l(0);
+                        } else {
+                            p97Var.l(1);
+                        }
+                        p97Var.i(1);
+                        this.mDatas.add(p97Var);
                     }
-                    h97Var.i(1);
-                    this.mDatas.add(h97Var);
                 }
             }
         }
     }
 
-    public List<h97> getDatas() {
+    public List getDatas() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDatas : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mDatas;
+        }
+        return (List) invokeV.objValue;
     }
 
     public int getErrCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mErrCode : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mErrCode;
+        }
+        return invokeV.intValue;
     }
 
     public String getErrMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mErrMsg : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mErrMsg;
+        }
+        return (String) invokeV.objValue;
     }
 }

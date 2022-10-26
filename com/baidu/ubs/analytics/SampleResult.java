@@ -75,12 +75,18 @@ public final class SampleResult {
     public static SampleResult valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (SampleResult) Enum.valueOf(SampleResult.class, str) : (SampleResult) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (SampleResult) Enum.valueOf(SampleResult.class, str);
+        }
+        return (SampleResult) invokeL.objValue;
     }
 
     public static SampleResult[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (SampleResult[]) $VALUES.clone() : (SampleResult[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (SampleResult[]) $VALUES.clone();
+        }
+        return (SampleResult[]) invokeV.objValue;
     }
 }

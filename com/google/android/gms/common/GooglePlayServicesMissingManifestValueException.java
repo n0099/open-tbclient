@@ -4,8 +4,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.annotation.KeepName;
-@KeepName
 /* loaded from: classes7.dex */
 public final class GooglePlayServicesMissingManifestValueException extends GooglePlayServicesManifestException {
     public static /* synthetic */ Interceptable $ic;

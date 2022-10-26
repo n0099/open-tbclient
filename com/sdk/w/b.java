@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class b implements com.sdk.e.a<T> {
+public class b implements com.sdk.e.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ d a;
@@ -38,10 +38,10 @@ public class b implements com.sdk.e.a<T> {
     }
 
     @Override // com.sdk.e.a
-    public void onSuccess(int i, String str, int i2, T t, String str2) {
+    public void onSuccess(int i, String str, int i2, Object obj, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), t, str2}) == null) {
-            this.a.a(i, str, i2, t, str2);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), obj, str2}) == null) {
+            this.a.a(i, str, i2, obj, str2);
         }
     }
 }

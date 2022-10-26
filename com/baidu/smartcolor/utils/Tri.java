@@ -59,12 +59,18 @@ public final class Tri {
     public static Tri valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Tri) Enum.valueOf(Tri.class, str) : (Tri) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (Tri) Enum.valueOf(Tri.class, str);
+        }
+        return (Tri) invokeL.objValue;
     }
 
     public static Tri[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Tri[]) $VALUES.clone() : (Tri[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (Tri[]) $VALUES.clone();
+        }
+        return (Tri[]) invokeV.objValue;
     }
 }

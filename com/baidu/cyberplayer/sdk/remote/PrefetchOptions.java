@@ -3,7 +3,6 @@ package com.baidu.cyberplayer.sdk.remote;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,13 +12,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-@Keep
 /* loaded from: classes2.dex */
 public class PrefetchOptions implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<PrefetchOptions> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, String> a;
+    public Map a;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +32,7 @@ public class PrefetchOptions implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<PrefetchOptions>() { // from class: com.baidu.cyberplayer.sdk.remote.PrefetchOptions.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.cyberplayer.sdk.remote.PrefetchOptions.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -117,7 +115,7 @@ public class PrefetchOptions implements Parcelable {
         return invokeV.intValue;
     }
 
-    public Map<String, String> getOptions() {
+    public Map getOptions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (Map) invokeV.objValue;

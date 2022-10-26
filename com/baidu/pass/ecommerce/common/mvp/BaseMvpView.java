@@ -3,8 +3,6 @@ package com.baidu.pass.ecommerce.common.mvp;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,8 +13,15 @@ public abstract class BaseMvpView extends FrameLayout implements IBaseView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
+    public void showLoading(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+        }
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BaseMvpView(@NonNull Context context) {
+    public BaseMvpView(Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -36,31 +41,8 @@ public abstract class BaseMvpView extends FrameLayout implements IBaseView {
         }
     }
 
-    @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
-    public final void doFailure(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-            doFailure(Integer.MIN_VALUE, i, str);
-        }
-    }
-
-    @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
-    public final void doResult(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-            doResult(Integer.MIN_VALUE, obj);
-        }
-    }
-
-    @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
-    public void showLoading(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BaseMvpView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public BaseMvpView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -80,24 +62,8 @@ public abstract class BaseMvpView extends FrameLayout implements IBaseView {
         }
     }
 
-    @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
-    public final void doFailure(int i, int i2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, str) == null) {
-            doFailure(i, i2, str, null);
-        }
-    }
-
-    @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
-    public final void doResult(int i, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, obj) == null) {
-            doResult(i, obj, null);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BaseMvpView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public BaseMvpView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -114,6 +80,38 @@ public abstract class BaseMvpView extends FrameLayout implements IBaseView {
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
+        }
+    }
+
+    @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
+    public final void doFailure(int i, int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, str) == null) {
+            doFailure(i, i2, str, null);
+        }
+    }
+
+    @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
+    public final void doFailure(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+            doFailure(Integer.MIN_VALUE, i, str);
+        }
+    }
+
+    @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
+    public final void doResult(int i, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, obj) == null) {
+            doResult(i, obj, null);
+        }
+    }
+
+    @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
+    public final void doResult(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+            doResult(Integer.MIN_VALUE, obj);
         }
     }
 }

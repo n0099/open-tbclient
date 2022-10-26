@@ -16,11 +16,15 @@ public final class a {
     public static int d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: $VALUES field not found */
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "0.4.0" : (String) invokeV.objValue;
+    }
+
     /* renamed from: com.baidu.ubs.analytics.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static final class EnumC0488a {
+    public final class C0482a extends Enum {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int aV = 1;
         public static final int aW = 2;
@@ -61,13 +65,19 @@ public final class a {
         b = a + "/baidu/ab/crash/";
         c = a + "/baidu/ab/sdklog/";
         String str = a + "/baidu/ab/sdkupdata/" + b() + "/";
-        d = EnumC0488a.aV;
+        d = C0482a.aV;
     }
 
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? d == EnumC0488a.aV : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (d == C0482a.aV) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public static int b() {
@@ -86,11 +96,5 @@ public final class a {
             }
         }
         return invokeV.intValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "0.4.0" : (String) invokeV.objValue;
     }
 }

@@ -5,7 +5,7 @@ import android.media.MediaRecorder;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.e05;
+import com.baidu.tieba.j05;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +17,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 /* loaded from: classes3.dex */
-public class MyAudioRecorder implements e05 {
+public class MyAudioRecorder implements j05 {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] n;
     public static Object o;
@@ -38,9 +38,15 @@ public class MyAudioRecorder implements e05 {
     public byte[] l;
     public int m;
 
+    public final short g(byte b, byte b2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Byte.valueOf(b), Byte.valueOf(b2)})) == null) ? (short) (b | (b2 << 8)) : invokeCommon.shortValue;
+    }
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public static final class State {
+    public final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final State ERROR;
@@ -94,13 +100,19 @@ public class MyAudioRecorder implements e05 {
         public static State valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (State) Enum.valueOf(State.class, str) : (State) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (State) Enum.valueOf(State.class, str);
+            }
+            return (State) invokeL.objValue;
         }
 
         public static State[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (State[]) $VALUES.clone() : (State[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (State[]) $VALUES.clone();
+            }
+            return (State[]) invokeV.objValue;
         }
     }
 
@@ -131,9 +143,10 @@ public class MyAudioRecorder implements e05 {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.n();
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
             }
+            this.a.n();
         }
     }
 
@@ -154,6 +167,23 @@ public class MyAudioRecorder implements e05 {
         o = new Object();
         p = null;
         q = null;
+    }
+
+    @Override // com.baidu.tieba.j05
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (o) {
+                if (this.a == null || !this.a.isAlive()) {
+                    Thread thread = new Thread(new a(this));
+                    this.a = thread;
+                    thread.start();
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public MyAudioRecorder(boolean z, int i, int i2, int i3, int i4) {
@@ -225,6 +255,19 @@ public class MyAudioRecorder implements e05 {
         }
     }
 
+    @Override // com.baidu.tieba.j05
+    public boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (k(str)) {
+                return i();
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
     public static MyAudioRecorder f(Boolean bool) {
         InterceptResult invokeL;
         MyAudioRecorder myAudioRecorder;
@@ -251,7 +294,7 @@ public class MyAudioRecorder implements e05 {
         return (MyAudioRecorder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.e05
+    @Override // com.baidu.tieba.j05
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -259,53 +302,26 @@ public class MyAudioRecorder implements e05 {
         }
     }
 
-    @Override // com.baidu.tieba.e05
+    @Override // com.baidu.tieba.j05
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e == State.RECORDING : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.e05
-    public boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (k(str)) {
-                return i();
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.e05
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (o) {
-                if (this.a == null || !this.a.isAlive()) {
-                    Thread thread = new Thread(new a(this));
-                    this.a = thread;
-                    thread.start();
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.e == State.RECORDING) {
+                return true;
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    public final short g(byte b, byte b2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Byte.valueOf(b), Byte.valueOf(b2)})) == null) ? (short) (b | (b2 << 8)) : invokeCommon.shortValue;
-    }
-
     public State h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : (State) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.e;
+        }
+        return (State) invokeV.objValue;
     }
 
     public boolean i() {
@@ -395,33 +411,6 @@ public class MyAudioRecorder implements e05 {
         }
     }
 
-    public boolean k(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            try {
-                if (this.e == State.INITIALIZING) {
-                    this.d = str;
-                    if (this.b) {
-                        return true;
-                    }
-                    q.setOutputFile(str);
-                    return true;
-                }
-                return true;
-            } catch (Exception e) {
-                if (e.getMessage() != null) {
-                    BdLog.e(MyAudioRecorder.class.getName() + e.getMessage());
-                } else {
-                    BdLog.e(MyAudioRecorder.class.getName() + "Unknown error occured while setting output path");
-                }
-                this.e = State.ERROR;
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -441,6 +430,33 @@ public class MyAudioRecorder implements e05 {
             BdLog.e(MyAudioRecorder.class.getName() + "start() called on illegal state");
             this.e = State.ERROR;
         }
+    }
+
+    public boolean k(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            try {
+                if (this.e == State.INITIALIZING) {
+                    this.d = str;
+                    if (!this.b) {
+                        q.setOutputFile(str);
+                        return true;
+                    }
+                    return true;
+                }
+                return true;
+            } catch (Exception e) {
+                if (e.getMessage() != null) {
+                    BdLog.e(MyAudioRecorder.class.getName() + e.getMessage());
+                } else {
+                    BdLog.e(MyAudioRecorder.class.getName() + "Unknown error occured while setting output path");
+                }
+                this.e = State.ERROR;
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
     }
 
     public void m() {
@@ -465,7 +481,7 @@ public class MyAudioRecorder implements e05 {
 
     public final void n() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || p == null) {
+        if ((interceptable != null && interceptable.invokeV(1048587, this) != null) || p == null) {
             return;
         }
         try {

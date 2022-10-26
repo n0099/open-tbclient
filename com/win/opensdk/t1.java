@@ -143,19 +143,20 @@ public class t1 {
         String str;
         String str2;
         String str3;
+        String str4;
         HashMap hashMap;
         String f;
-        String str4;
         String str5;
-        String a2;
         String str6;
+        String a2;
+        String str7;
         double d;
         String b2;
         String c;
         String a3;
         NetworkInfo activeNetworkInfo;
         String deviceId;
-        String str7;
+        String str8;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             if (b) {
@@ -185,42 +186,48 @@ public class t1 {
                 }
                 str = "";
                 hashMap3.put("appvn", str);
-                a.put("rt", Y1.a() ? "1" : "0");
+                HashMap hashMap4 = a;
+                if (Y1.a()) {
+                    str2 = "1";
+                } else {
+                    str2 = "0";
+                }
+                hashMap4.put("rt", str2);
                 a.put("dpi", String.valueOf(context.getResources().getDisplayMetrics().densityDpi));
                 try {
-                    str2 = Build.SERIAL;
+                    str3 = Build.SERIAL;
                     try {
-                        if (TextUtils.equals(str2, "unknown") && Build.VERSION.SDK_INT >= 26) {
-                            str2 = Build.getSerial();
+                        if (TextUtils.equals(str3, "unknown") && Build.VERSION.SDK_INT >= 26) {
+                            str3 = Build.getSerial();
                         }
                     } catch (Exception e) {
                         e = e;
                         e.printStackTrace();
-                        if (!TextUtils.isEmpty(str2)) {
+                        if (!TextUtils.isEmpty(str3)) {
                         }
-                        str3 = ApiReplaceUtil.getSubscriberId((TelephonyManager) context.getSystemService("phone"));
+                        str4 = ApiReplaceUtil.getSubscriberId((TelephonyManager) context.getSystemService("phone"));
                     }
                 } catch (Exception e2) {
                     e = e2;
-                    str2 = "";
+                    str3 = "";
                 }
-                if (!TextUtils.isEmpty(str2)) {
-                    HashMap hashMap4 = a;
+                if (!TextUtils.isEmpty(str3)) {
+                    HashMap hashMap5 = a;
                     try {
-                        str2 = M.a(str2);
+                        str3 = M.a(str3);
                     } catch (Exception unused3) {
                     }
-                    hashMap4.put("serial", str2);
+                    hashMap5.put("serial", str3);
                 }
                 try {
-                    str3 = ApiReplaceUtil.getSubscriberId((TelephonyManager) context.getSystemService("phone"));
+                    str4 = ApiReplaceUtil.getSubscriberId((TelephonyManager) context.getSystemService("phone"));
                 } catch (Exception e3) {
                     e3.printStackTrace();
                 }
             }
-            HashMap hashMap5 = new HashMap();
+            HashMap hashMap6 = new HashMap();
             if (hashMap != null) {
-                hashMap5.putAll(hashMap);
+                hashMap6.putAll(hashMap);
             }
             f = Z1.f(context);
             int i2 = 2;
@@ -228,24 +235,26 @@ public class t1 {
             try {
                 if (TextUtils.isEmpty(f)) {
                     TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                    if (Build.VERSION.SDK_INT < 23) {
-                        deviceId = ApiReplaceUtil.getDeviceId(telephonyManager);
-                        str7 = "";
-                    } else if (context.checkSelfPermission(com.kuaishou.weapon.p0.h.c) == 0) {
-                        deviceId = telephonyManager.getDeviceId(1);
-                        str7 = telephonyManager.getDeviceId(2);
+                    if (Build.VERSION.SDK_INT >= 23) {
+                        if (context.checkSelfPermission(com.kuaishou.weapon.p0.h.c) != 0) {
+                            str8 = "";
+                            deviceId = str8;
+                        } else {
+                            deviceId = telephonyManager.getDeviceId(1);
+                            str8 = telephonyManager.getDeviceId(2);
+                        }
                     } else {
-                        str7 = "";
-                        deviceId = str7;
+                        deviceId = ApiReplaceUtil.getDeviceId(telephonyManager);
+                        str8 = "";
                     }
-                    if (TextUtils.isEmpty(str7)) {
+                    if (TextUtils.isEmpty(str8)) {
                         try {
                             Z1.d(context, deviceId);
                         } catch (Exception unused4) {
                         }
                         f = deviceId;
                     } else {
-                        f = deviceId + "_" + str7;
+                        f = deviceId + "_" + str8;
                         Z1.d(context, f);
                     }
                 }
@@ -256,23 +265,23 @@ public class t1 {
                     f = M.a(f);
                 } catch (Exception unused6) {
                 }
-                hashMap5.put("imei", f);
+                hashMap6.put("imei", f);
             }
             try {
-                str4 = ((TelephonyManager) context.getSystemService("phone")).getNetworkOperator();
+                str5 = ((TelephonyManager) context.getSystemService("phone")).getNetworkOperator();
             } catch (Exception unused7) {
-                str4 = "";
-            }
-            if (!TextUtils.isEmpty(str4)) {
-                hashMap5.put("opcode", str4);
-            }
-            try {
-                str5 = ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
-            } catch (Exception unused8) {
-                str5 = HlsPlaylistParser.BOOLEAN_FALSE;
+                str5 = "";
             }
             if (!TextUtils.isEmpty(str5)) {
-                hashMap5.put("anid", str5);
+                hashMap6.put("opcode", str5);
+            }
+            try {
+                str6 = ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
+            } catch (Exception unused8) {
+                str6 = HlsPlaylistParser.BOOLEAN_FALSE;
+            }
+            if (!TextUtils.isEmpty(str6)) {
+                hashMap6.put("anid", str6);
             }
             a2 = Q1.a(context);
             if (!TextUtils.isEmpty(a2)) {
@@ -280,62 +289,60 @@ public class t1 {
                     a2 = M.a(a2);
                 } catch (Exception unused9) {
                 }
-                hashMap5.put("oaid", a2);
+                hashMap6.put("oaid", a2);
             }
-            hashMap5.put("lic", context.getSharedPreferences("_prefs", 0).getString("lcss", ""));
-            hashMap5.put("locale", Locale.getDefault().getLanguage());
+            hashMap6.put("lic", context.getSharedPreferences("_prefs", 0).getString("lcss", ""));
+            hashMap6.put("locale", Locale.getDefault().getLanguage());
             try {
                 activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
             } catch (Exception unused10) {
             }
             if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
-                if (activeNetworkInfo.getType() == 1) {
-                    if (activeNetworkInfo.getType() == 0) {
-                        str6 = activeNetworkInfo.getSubtypeName();
-                        switch (activeNetworkInfo.getSubtype()) {
-                            case 1:
-                            case 2:
-                            case 4:
-                            case 7:
-                            case 11:
-                                str6 = "2G";
+                if (activeNetworkInfo.getType() != 1) {
+                    str7 = "WIFI";
+                } else if (activeNetworkInfo.getType() == 0) {
+                    str7 = activeNetworkInfo.getSubtypeName();
+                    switch (activeNetworkInfo.getSubtype()) {
+                        case 1:
+                        case 2:
+                        case 4:
+                        case 7:
+                        case 11:
+                            str7 = "2G";
+                            break;
+                        case 3:
+                        case 5:
+                        case 6:
+                        case 8:
+                        case 9:
+                        case 10:
+                        case 12:
+                        case 14:
+                        case 15:
+                            str7 = "3G";
+                            break;
+                        case 13:
+                            str7 = "4G";
+                            break;
+                        default:
+                            if (!str7.equalsIgnoreCase("TD-SCDMA") && !str7.equalsIgnoreCase("WCDMA")) {
                                 break;
-                            case 3:
-                            case 5:
-                            case 6:
-                            case 8:
-                            case 9:
-                            case 10:
-                            case 12:
-                            case 14:
-                            case 15:
-                                str6 = "3G";
-                                break;
-                            case 13:
-                                str6 = "4G";
-                                break;
-                            default:
-                                if (!str6.equalsIgnoreCase("TD-SCDMA") && !str6.equalsIgnoreCase("WCDMA")) {
-                                    break;
-                                }
-                                str6 = "3G";
-                                break;
-                        }
+                            }
+                            str7 = "3G";
+                            break;
                     }
-                } else {
-                    str6 = "WIFI";
                 }
-                if (!TextUtils.isEmpty(str6)) {
-                    hashMap5.put("net", str6);
+                if (!TextUtils.isEmpty(str7)) {
+                    hashMap6.put("net", str7);
                 }
-                hashMap5.put("bt", context.getSharedPreferences("_prefs", 0).getString("sever_tk", ""));
-                String str8 = null;
+                hashMap6.put("bt", context.getSharedPreferences("_prefs", 0).getString("sever_tk", ""));
+                String str9 = null;
                 if (!TextUtils.isEmpty(null)) {
                     try {
-                        str8 = M.a((String) null);
+                        str9 = M.a((String) null);
                     } catch (Exception unused11) {
                     }
-                    hashMap5.put("wm", str8);
+                    hashMap6.put("wm", str9);
                 }
                 d = T1.c.a;
                 if (d > 0.0d) {
@@ -344,13 +351,13 @@ public class t1 {
                         valueOf = M.a(valueOf);
                     } catch (Exception unused12) {
                     }
-                    hashMap5.put("lau", valueOf);
+                    hashMap6.put("lau", valueOf);
                     String valueOf2 = String.valueOf(T1.c.b);
                     try {
                         valueOf2 = M.a(valueOf2);
                     } catch (Exception unused13) {
                     }
-                    hashMap5.put("lon", valueOf2);
+                    hashMap6.put("lon", valueOf2);
                 }
                 b2 = X1.a(context).b();
                 if (!TextUtils.isEmpty(b2)) {
@@ -358,7 +365,7 @@ public class t1 {
                         b2 = M.a(b2);
                     } catch (Exception unused14) {
                     }
-                    hashMap5.put("oid", b2);
+                    hashMap6.put("oid", b2);
                 }
                 c = X1.a(context).c();
                 if (!TextUtils.isEmpty(c)) {
@@ -366,7 +373,7 @@ public class t1 {
                         c = M.a(c);
                     } catch (Exception unused15) {
                     }
-                    hashMap5.put(TiebaStatic.Params.VID, c);
+                    hashMap6.put(TiebaStatic.Params.VID, c);
                 }
                 a3 = X1.a(context).a();
                 if (!TextUtils.isEmpty(a3)) {
@@ -374,19 +381,19 @@ public class t1 {
                         a3 = M.a(a3);
                     } catch (Exception unused16) {
                     }
-                    hashMap5.put("aid", a3);
+                    hashMap6.put("aid", a3);
                 }
                 i2 = FunReportSdk.getInstance().isPaidUser();
-                hashMap5.put("ibu", String.valueOf(i2));
-                String str9 = FunAdSdk.getFunAdConfig().userId;
-                hashMap5.put("tk", str9);
-                return hashMap5;
+                hashMap6.put("ibu", String.valueOf(i2));
+                String str10 = FunAdSdk.getFunAdConfig().userId;
+                hashMap6.put("tk", str10);
+                return hashMap6;
             }
-            str6 = "";
-            if (!TextUtils.isEmpty(str6)) {
+            str7 = "";
+            if (!TextUtils.isEmpty(str7)) {
             }
-            hashMap5.put("bt", context.getSharedPreferences("_prefs", 0).getString("sever_tk", ""));
-            String str82 = null;
+            hashMap6.put("bt", context.getSharedPreferences("_prefs", 0).getString("sever_tk", ""));
+            String str92 = null;
             if (!TextUtils.isEmpty(null)) {
             }
             d = T1.c.a;
@@ -402,24 +409,24 @@ public class t1 {
             if (!TextUtils.isEmpty(a3)) {
             }
             i2 = FunReportSdk.getInstance().isPaidUser();
-            hashMap5.put("ibu", String.valueOf(i2));
-            String str92 = FunAdSdk.getFunAdConfig().userId;
-            hashMap5.put("tk", str92);
-            return hashMap5;
+            hashMap6.put("ibu", String.valueOf(i2));
+            String str102 = FunAdSdk.getFunAdConfig().userId;
+            hashMap6.put("tk", str102);
+            return hashMap6;
         }
         return (HashMap) invokeL.objValue;
-        str3 = "";
-        if (!TextUtils.isEmpty(str3)) {
-            HashMap hashMap6 = a;
+        str4 = "";
+        if (!TextUtils.isEmpty(str4)) {
+            HashMap hashMap7 = a;
             try {
-                str3 = M.a(str3);
+                str4 = M.a(str4);
             } catch (Exception unused17) {
             }
-            hashMap6.put(BaseStatisContent.IMSI, str3);
+            hashMap7.put(BaseStatisContent.IMSI, str4);
         }
         b = true;
         hashMap = a;
-        HashMap hashMap52 = new HashMap();
+        HashMap hashMap62 = new HashMap();
         if (hashMap != null) {
         }
         f = Z1.f(context);
@@ -429,25 +436,25 @@ public class t1 {
         }
         if (!TextUtils.isEmpty(f)) {
         }
-        str4 = ((TelephonyManager) context.getSystemService("phone")).getNetworkOperator();
-        if (!TextUtils.isEmpty(str4)) {
-        }
-        str5 = ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
+        str5 = ((TelephonyManager) context.getSystemService("phone")).getNetworkOperator();
         if (!TextUtils.isEmpty(str5)) {
+        }
+        str6 = ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
+        if (!TextUtils.isEmpty(str6)) {
         }
         a2 = Q1.a(context);
         if (!TextUtils.isEmpty(a2)) {
         }
-        hashMap52.put("lic", context.getSharedPreferences("_prefs", 0).getString("lcss", ""));
-        hashMap52.put("locale", Locale.getDefault().getLanguage());
+        hashMap62.put("lic", context.getSharedPreferences("_prefs", 0).getString("lcss", ""));
+        hashMap62.put("locale", Locale.getDefault().getLanguage());
         activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
         if (activeNetworkInfo != null) {
-            if (activeNetworkInfo.getType() == 1) {
+            if (activeNetworkInfo.getType() != 1) {
             }
-            if (!TextUtils.isEmpty(str6)) {
+            if (!TextUtils.isEmpty(str7)) {
             }
-            hashMap52.put("bt", context.getSharedPreferences("_prefs", 0).getString("sever_tk", ""));
-            String str822 = null;
+            hashMap62.put("bt", context.getSharedPreferences("_prefs", 0).getString("sever_tk", ""));
+            String str922 = null;
             if (!TextUtils.isEmpty(null)) {
             }
             d = T1.c.a;
@@ -463,16 +470,16 @@ public class t1 {
             if (!TextUtils.isEmpty(a3)) {
             }
             i22 = FunReportSdk.getInstance().isPaidUser();
-            hashMap52.put("ibu", String.valueOf(i22));
-            String str922 = FunAdSdk.getFunAdConfig().userId;
-            hashMap52.put("tk", str922);
-            return hashMap52;
+            hashMap62.put("ibu", String.valueOf(i22));
+            String str1022 = FunAdSdk.getFunAdConfig().userId;
+            hashMap62.put("tk", str1022);
+            return hashMap62;
         }
-        str6 = "";
-        if (!TextUtils.isEmpty(str6)) {
+        str7 = "";
+        if (!TextUtils.isEmpty(str7)) {
         }
-        hashMap52.put("bt", context.getSharedPreferences("_prefs", 0).getString("sever_tk", ""));
-        String str8222 = null;
+        hashMap62.put("bt", context.getSharedPreferences("_prefs", 0).getString("sever_tk", ""));
+        String str9222 = null;
         if (!TextUtils.isEmpty(null)) {
         }
         d = T1.c.a;
@@ -488,14 +495,14 @@ public class t1 {
         if (!TextUtils.isEmpty(a3)) {
         }
         i22 = FunReportSdk.getInstance().isPaidUser();
-        hashMap52.put("ibu", String.valueOf(i22));
-        String str9222 = FunAdSdk.getFunAdConfig().userId;
-        hashMap52.put("tk", str9222);
-        return hashMap52;
-        hashMap6.put(BaseStatisContent.IMSI, str3);
+        hashMap62.put("ibu", String.valueOf(i22));
+        String str10222 = FunAdSdk.getFunAdConfig().userId;
+        hashMap62.put("tk", str10222);
+        return hashMap62;
+        hashMap7.put(BaseStatisContent.IMSI, str4);
         b = true;
         hashMap = a;
-        HashMap hashMap522 = new HashMap();
+        HashMap hashMap622 = new HashMap();
         if (hashMap != null) {
         }
         f = Z1.f(context);
@@ -505,25 +512,25 @@ public class t1 {
         }
         if (!TextUtils.isEmpty(f)) {
         }
-        str4 = ((TelephonyManager) context.getSystemService("phone")).getNetworkOperator();
-        if (!TextUtils.isEmpty(str4)) {
-        }
-        str5 = ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
+        str5 = ((TelephonyManager) context.getSystemService("phone")).getNetworkOperator();
         if (!TextUtils.isEmpty(str5)) {
+        }
+        str6 = ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
+        if (!TextUtils.isEmpty(str6)) {
         }
         a2 = Q1.a(context);
         if (!TextUtils.isEmpty(a2)) {
         }
-        hashMap522.put("lic", context.getSharedPreferences("_prefs", 0).getString("lcss", ""));
-        hashMap522.put("locale", Locale.getDefault().getLanguage());
+        hashMap622.put("lic", context.getSharedPreferences("_prefs", 0).getString("lcss", ""));
+        hashMap622.put("locale", Locale.getDefault().getLanguage());
         activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
         if (activeNetworkInfo != null) {
         }
-        str6 = "";
-        if (!TextUtils.isEmpty(str6)) {
+        str7 = "";
+        if (!TextUtils.isEmpty(str7)) {
         }
-        hashMap522.put("bt", context.getSharedPreferences("_prefs", 0).getString("sever_tk", ""));
-        String str82222 = null;
+        hashMap622.put("bt", context.getSharedPreferences("_prefs", 0).getString("sever_tk", ""));
+        String str92222 = null;
         if (!TextUtils.isEmpty(null)) {
         }
         d = T1.c.a;
@@ -539,9 +546,9 @@ public class t1 {
         if (!TextUtils.isEmpty(a3)) {
         }
         i222 = FunReportSdk.getInstance().isPaidUser();
-        hashMap522.put("ibu", String.valueOf(i222));
-        String str92222 = FunAdSdk.getFunAdConfig().userId;
-        hashMap522.put("tk", str92222);
-        return hashMap522;
+        hashMap622.put("ibu", String.valueOf(i222));
+        String str102222 = FunAdSdk.getFunAdConfig().userId;
+        hashMap622.put("tk", str102222);
+        return hashMap622;
     }
 }

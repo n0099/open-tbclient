@@ -13,12 +13,21 @@ public final class IndexingSequence$iterator$1 implements Iterator<IndexedValue<
     public final Iterator<T> iterator;
     public final /* synthetic */ IndexingSequence this$0;
 
+    @Override // java.util.Iterator
+    public void remove() {
+        throw new UnsupportedOperationException("Operation is not supported for read-only collection");
+    }
+
     /* JADX DEBUG: Incorrect args count in method signature: ()V */
     public IndexingSequence$iterator$1(IndexingSequence indexingSequence) {
         Sequence sequence;
         this.this$0 = indexingSequence;
         sequence = indexingSequence.sequence;
         this.iterator = sequence.iterator();
+    }
+
+    public final void setIndex(int i) {
+        this.index = i;
     }
 
     public final int getIndex() {
@@ -32,15 +41,6 @@ public final class IndexingSequence$iterator$1 implements Iterator<IndexedValue<
     @Override // java.util.Iterator
     public boolean hasNext() {
         return this.iterator.hasNext();
-    }
-
-    @Override // java.util.Iterator
-    public void remove() {
-        throw new UnsupportedOperationException("Operation is not supported for read-only collection");
-    }
-
-    public final void setIndex(int i) {
-        this.index = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

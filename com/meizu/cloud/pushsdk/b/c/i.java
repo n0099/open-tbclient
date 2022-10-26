@@ -13,7 +13,7 @@ public class i {
     public final Object e;
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public class a {
         public f a;
         public String b = "GET";
         public c.a c = new c.a();

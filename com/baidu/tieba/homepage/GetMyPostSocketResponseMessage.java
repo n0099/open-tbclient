@@ -1,6 +1,5 @@
 package com.baidu.tieba.homepage;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,8 +34,16 @@ public class GetMyPostSocketResponseMessage extends SocketResponsedMessage {
         }
     }
 
+    public GetMyPostResIdl getResponseData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mResponseData;
+        }
+        return (GetMyPostResIdl) invokeV.objValue;
+    }
+
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -51,11 +58,5 @@ public class GetMyPostSocketResponseMessage extends SocketResponsedMessage {
             return this.mResponseData;
         }
         return invokeIL.objValue;
-    }
-
-    public GetMyPostResIdl getResponseData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mResponseData : (GetMyPostResIdl) invokeV.objValue;
     }
 }

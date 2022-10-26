@@ -53,16 +53,6 @@ public class IncompatibleApkWebViewProviderFactory implements WebViewProviderFac
     }
 
     @Override // androidx.webkit.internal.WebViewProviderFactory
-    public WebViewProviderBoundaryInterface createWebView(WebView webView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, webView)) == null) {
-            throw new UnsupportedOperationException(UNSUPPORTED_EXCEPTION_EXPLANATION);
-        }
-        return (WebViewProviderBoundaryInterface) invokeL.objValue;
-    }
-
-    @Override // androidx.webkit.internal.WebViewProviderFactory
     public ProxyControllerBoundaryInterface getProxyController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -106,7 +96,10 @@ public class IncompatibleApkWebViewProviderFactory implements WebViewProviderFac
     public String[] getWebViewFeatures() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? EMPTY_STRING_ARRAY : (String[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return EMPTY_STRING_ARRAY;
+        }
+        return (String[]) invokeV.objValue;
     }
 
     @Override // androidx.webkit.internal.WebViewProviderFactory
@@ -117,5 +110,15 @@ public class IncompatibleApkWebViewProviderFactory implements WebViewProviderFac
             throw new UnsupportedOperationException(UNSUPPORTED_EXCEPTION_EXPLANATION);
         }
         return (WebkitToCompatConverterBoundaryInterface) invokeV.objValue;
+    }
+
+    @Override // androidx.webkit.internal.WebViewProviderFactory
+    public WebViewProviderBoundaryInterface createWebView(WebView webView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, webView)) == null) {
+            throw new UnsupportedOperationException(UNSUPPORTED_EXCEPTION_EXPLANATION);
+        }
+        return (WebViewProviderBoundaryInterface) invokeL.objValue;
     }
 }

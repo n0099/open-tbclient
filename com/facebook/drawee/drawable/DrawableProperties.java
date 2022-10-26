@@ -1,6 +1,5 @@
 package com.facebook.drawee.drawable;
 
-import android.annotation.SuppressLint;
 import android.graphics.ColorFilter;
 import android.graphics.drawable.Drawable;
 import com.baidu.android.imsdk.internal.Constants;
@@ -39,10 +38,10 @@ public class DrawableProperties {
         this.mFilterBitmap = -1;
     }
 
-    @SuppressLint({"Range"})
     public void applyTo(Drawable drawable) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) || drawable == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, drawable) != null) || drawable == null) {
             return;
         }
         int i = this.mAlpha;
@@ -53,12 +52,21 @@ public class DrawableProperties {
             drawable.setColorFilter(this.mColorFilter);
         }
         int i2 = this.mDither;
+        boolean z2 = true;
         if (i2 != -1) {
-            drawable.setDither(i2 != 0);
+            if (i2 != 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            drawable.setDither(z);
         }
         int i3 = this.mFilterBitmap;
         if (i3 != -1) {
-            drawable.setFilterBitmap(i3 != 0);
+            if (i3 == 0) {
+                z2 = false;
+            }
+            drawable.setFilterBitmap(z2);
         }
     }
 

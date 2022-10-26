@@ -10,6 +10,8 @@ public abstract class WebBindWidgetCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract void onFinish(WebBindWidgetResult webBindWidgetResult);
+
     public WebBindWidgetCallback() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -23,6 +25,4 @@ public abstract class WebBindWidgetCallback {
             }
         }
     }
-
-    public abstract void onFinish(WebBindWidgetResult webBindWidgetResult);
 }

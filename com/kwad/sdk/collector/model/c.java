@@ -1,7 +1,5 @@
 package com.kwad.sdk.collector.model;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.kwad.sdk.collector.AppStatusNative;
 import com.kwad.sdk.collector.AppStatusRules;
 import com.kwad.sdk.collector.model.jni.AnalyseTaskNative;
@@ -18,7 +16,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public final class c {
-    public static AppRunningInfoNative a(InstalledAppInfoManager.AppPackageInfo appPackageInfo, @Nullable AppStatusRules.Strategy strategy) {
+    public static AppRunningInfoNative a(InstalledAppInfoManager.AppPackageInfo appPackageInfo, AppStatusRules.Strategy strategy) {
         try {
             return new AppRunningInfoNative(strategy == null ? -1L : strategy.getHistoryGranularity(), appPackageInfo.appName, appPackageInfo.packageName);
         } catch (Throwable th) {
@@ -41,14 +39,14 @@ public final class c {
         return null;
     }
 
-    public static void a(@NonNull AppStatusRules.Strategy strategy, @NonNull Map<String, InstalledAppInfoManager.AppPackageInfo> map, @NonNull List<a> list) {
+    public static void a(AppStatusRules.Strategy strategy, Map map, List list) {
         InstalledAppInfoManager.AppPackageInfo appPackageInfo;
         ArrayList<d> target = strategy.getTarget();
         if (target == null || target.size() == 0) {
             return;
         }
         for (d dVar : target) {
-            if (b(dVar) != null && b(dVar).size() != 0 && (appPackageInfo = map.get(a(dVar))) != null) {
+            if (b(dVar) != null && b(dVar).size() != 0 && (appPackageInfo = (InstalledAppInfoManager.AppPackageInfo) map.get(a(dVar))) != null) {
                 HashSet hashSet = new HashSet(b(dVar));
                 long startTimeWithMS = strategy.getStartTimeWithMS();
                 AppRunningInfoNative a = a(appPackageInfo, strategy);
@@ -70,7 +68,7 @@ public final class c {
         return null;
     }
 
-    public static List<String> b(d dVar) {
+    public static List b(d dVar) {
         if (dVar instanceof RulesTargetNative) {
             return Arrays.asList(AppStatusNative.rulesTargetGetPaths((RulesTargetNative) dVar));
         }
@@ -84,15 +82,15 @@ public final class c {
         return 0L;
     }
 
-    public static ArrayList<d> d(JSONArray jSONArray) {
+    public static ArrayList d(JSONArray jSONArray) {
         if (jSONArray == null) {
             return null;
         }
         return e(jSONArray);
     }
 
-    public static ArrayList<d> e(@NonNull JSONArray jSONArray) {
-        ArrayList<d> arrayList = new ArrayList<>();
+    public static ArrayList e(JSONArray jSONArray) {
+        ArrayList arrayList = new ArrayList();
         int length = jSONArray.length();
         for (int i = 0; i < length; i++) {
             JSONObject jSONObject = null;

@@ -30,7 +30,19 @@ public final class ShareStaticAutoGenerateUrlCollectorImpl implements ICmdRouter
     }
 
     @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
-    public Map<String, String> getCmdRouterMap() {
+    public Map getConfigRouterMap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("com.baidu.tieba.sharesdk.ShareStatic", new ArrayList());
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
+    public Map getCmdRouterMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -41,18 +53,6 @@ public final class ShareStaticAutoGenerateUrlCollectorImpl implements ICmdRouter
             hashMap.put("1003473", "com.baidu.tieba.sharesdk.ShareStatic");
             hashMap.put("2016567", "com.baidu.tieba.sharesdk.ShareStatic");
             hashMap.put("1003542", "com.baidu.tieba.sharesdk.ShareStatic");
-            return hashMap;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
-    public Map<String, ArrayList<String>> getConfigRouterMap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("com.baidu.tieba.sharesdk.ShareStatic", new ArrayList());
             return hashMap;
         }
         return (Map) invokeV.objValue;

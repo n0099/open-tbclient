@@ -67,13 +67,12 @@ public final class UnsafeReflectionAccessor extends ReflectionAccessor {
     @Override // com.google.gson.internal.reflect.ReflectionAccessor
     public void makeAccessible(AccessibleObject accessibleObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, accessibleObject) == null) || makeAccessibleWithUnsafe(accessibleObject)) {
-            return;
-        }
-        try {
-            accessibleObject.setAccessible(true);
-        } catch (SecurityException e) {
-            throw new JsonIOException("Gson couldn't modify fields for " + accessibleObject + "\nand sun.misc.Unsafe not found.\nEither write a custom type adapter, or make fields accessible, or include sun.misc.Unsafe.", e);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, accessibleObject) == null) && !makeAccessibleWithUnsafe(accessibleObject)) {
+            try {
+                accessibleObject.setAccessible(true);
+            } catch (SecurityException e) {
+                throw new JsonIOException("Gson couldn't modify fields for " + accessibleObject + "\nand sun.misc.Unsafe not found.\nEither write a custom type adapter, or make fields accessible, or include sun.misc.Unsafe.", e);
+            }
         }
     }
 

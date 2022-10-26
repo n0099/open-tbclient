@@ -1,7 +1,6 @@
 package com.baidu.searchbox.aperf.bosuploader;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.imsdk.internal.Constants;
@@ -59,14 +58,17 @@ public class ContentUtil {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, sTSInfo)) == null) {
-            if (sTSInfo == null || TextUtils.isEmpty(sTSInfo.ak) || TextUtils.isEmpty(sTSInfo.sk) || TextUtils.isEmpty(sTSInfo.token) || TextUtils.isEmpty(sTSInfo.expired) || TextUtils.isEmpty(sTSInfo.bucket) || TextUtils.isEmpty(sTSInfo.endpoint)) {
-                return false;
+            if (sTSInfo != null && !TextUtils.isEmpty(sTSInfo.ak) && !TextUtils.isEmpty(sTSInfo.sk) && !TextUtils.isEmpty(sTSInfo.token) && !TextUtils.isEmpty(sTSInfo.expired) && !TextUtils.isEmpty(sTSInfo.bucket) && !TextUtils.isEmpty(sTSInfo.endpoint)) {
+                try {
+                    if (sTSInfo.expiredAt >= System.currentTimeMillis()) {
+                        return true;
+                    }
+                    return false;
+                } catch (NumberFormatException unused) {
+                    return false;
+                }
             }
-            try {
-                return sTSInfo.expiredAt >= System.currentTimeMillis();
-            } catch (NumberFormatException unused) {
-                return false;
-            }
+            return false;
         }
         return invokeL.booleanValue;
     }
@@ -96,20 +98,32 @@ public class ContentUtil {
         InterceptResult invokeL;
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, str)) != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                if (!"0".equals(jSONObject.optString("errno", "-1")) || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
+                    return null;
+                }
+                optJSONObject.put(KEY_LOCAL_EXPIRED_AT, System.currentTimeMillis() + (optJSONObject.optLong("expire") * 1000));
+                return createSTSInfo(optJSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        } else {
             return (STSInfo) invokeL.objValue;
         }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            if (!"0".equals(jSONObject.optString("errno", "-1")) || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
-                return null;
-            }
-            optJSONObject.put(KEY_LOCAL_EXPIRED_AT, System.currentTimeMillis() + (optJSONObject.optLong("expire") * 1000));
-            return createSTSInfo(optJSONObject);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
         return null;
+    }
+
+    public static STSInfo createSTSInfo(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, jSONObject)) == null) {
+            STSInfo sTSInfo = new STSInfo(jSONObject.optString(RESULT_KEY_AK), jSONObject.optString("sk"), jSONObject.optString("token"), jSONObject.optLong(KEY_LOCAL_EXPIRED_AT), jSONObject.optString("expire"), jSONObject.optString(RESULT_KEY_BUCKET), jSONObject.optString(RESULT_KEY_ENDPOINT));
+            sTSInfo.setOrigin(jSONObject.toString());
+            return sTSInfo;
+        }
+        return (STSInfo) invokeL.objValue;
     }
 
     public static STSInfo createSTSInfo(String str) {
@@ -146,7 +160,7 @@ public class ContentUtil {
                     }
                 }
                 ArrayList<Map.Entry> arrayList = new ArrayList(hashMap.entrySet());
-                Collections.sort(arrayList, new Comparator<Map.Entry<String, String>>() { // from class: com.baidu.searchbox.aperf.bosuploader.ContentUtil.1
+                Collections.sort(arrayList, new Comparator() { // from class: com.baidu.searchbox.aperf.bosuploader.ContentUtil.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -166,10 +180,13 @@ public class ContentUtil {
 
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // java.util.Comparator
-                    public int compare(Map.Entry<String, String> entry, Map.Entry<String, String> entry2) {
+                    public int compare(Map.Entry entry, Map.Entry entry2) {
                         InterceptResult invokeLL;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, entry, entry2)) == null) ? entry.getKey().compareTo(entry2.getKey()) : invokeLL.intValue;
+                        if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, entry, entry2)) == null) {
+                            return ((String) entry.getKey()).compareTo((String) entry2.getKey());
+                        }
+                        return invokeLL.intValue;
                     }
                 });
                 for (Map.Entry entry : arrayList) {
@@ -187,16 +204,5 @@ public class ContentUtil {
             return "";
         }
         return (String) invokeL.objValue;
-    }
-
-    public static STSInfo createSTSInfo(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, jSONObject)) == null) {
-            STSInfo sTSInfo = new STSInfo(jSONObject.optString(RESULT_KEY_AK), jSONObject.optString("sk"), jSONObject.optString("token"), jSONObject.optLong(KEY_LOCAL_EXPIRED_AT), jSONObject.optString("expire"), jSONObject.optString(RESULT_KEY_BUCKET), jSONObject.optString(RESULT_KEY_ENDPOINT));
-            sTSInfo.setOrigin(jSONObject.toString());
-            return sTSInfo;
-        }
-        return (STSInfo) invokeL.objValue;
     }
 }

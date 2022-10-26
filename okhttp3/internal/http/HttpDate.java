@@ -92,7 +92,10 @@ public final class HttpDate {
     public static String format(Date date) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, date)) == null) ? STANDARD_DATE_FORMAT.get().format(date) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, date)) == null) {
+            return STANDARD_DATE_FORMAT.get().format(date);
+        }
+        return (String) invokeL.objValue;
     }
 
     public static Date parse(String str) {

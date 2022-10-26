@@ -18,6 +18,12 @@ public class HelperReference {
     public final State mState;
     public final State.Helper mType;
 
+    public void apply() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
     public HelperReference(State state, State.Helper helper) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -50,28 +56,28 @@ public class HelperReference {
         return (HelperReference) invokeL.objValue;
     }
 
-    public void apply() {
+    public void setHelperWidget(HelperWidget helperWidget) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, helperWidget) == null) {
+            this.mHelperWidget = helperWidget;
         }
     }
 
     public HelperWidget getHelperWidget() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mHelperWidget : (HelperWidget) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mHelperWidget;
+        }
+        return (HelperWidget) invokeV.objValue;
     }
 
     public State.Helper getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mType : (State.Helper) invokeV.objValue;
-    }
-
-    public void setHelperWidget(HelperWidget helperWidget) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, helperWidget) == null) {
-            this.mHelperWidget = helperWidget;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mType;
         }
+        return (State.Helper) invokeV.objValue;
     }
 }

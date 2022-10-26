@@ -12,7 +12,7 @@ public final class DefaultHttpDataSourceFactory extends HttpDataSource.BaseFacto
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean allowCrossProtocolRedirects;
     public final int connectTimeoutMillis;
-    public final TransferListener<? super DataSource> listener;
+    public final TransferListener listener;
     public final int readTimeoutMillis;
     public final String userAgent;
 
@@ -38,7 +38,7 @@ public final class DefaultHttpDataSourceFactory extends HttpDataSource.BaseFacto
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DefaultHttpDataSourceFactory(String str, TransferListener<? super DataSource> transferListener) {
+    public DefaultHttpDataSourceFactory(String str, TransferListener transferListener) {
         this(str, transferListener, 8000, 8000, false);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -58,15 +58,7 @@ public final class DefaultHttpDataSourceFactory extends HttpDataSource.BaseFacto
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.android.exoplayer2.upstream.HttpDataSource.BaseFactory
-    public DefaultHttpDataSource createDataSourceInternal(HttpDataSource.RequestProperties requestProperties) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, requestProperties)) == null) ? new DefaultHttpDataSource(this.userAgent, null, this.listener, this.connectTimeoutMillis, this.readTimeoutMillis, this.allowCrossProtocolRedirects, requestProperties) : (DefaultHttpDataSource) invokeL.objValue;
-    }
-
-    public DefaultHttpDataSourceFactory(String str, TransferListener<? super DataSource> transferListener, int i, int i2, boolean z) {
+    public DefaultHttpDataSourceFactory(String str, TransferListener transferListener, int i, int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,5 +78,16 @@ public final class DefaultHttpDataSourceFactory extends HttpDataSource.BaseFacto
         this.connectTimeoutMillis = i;
         this.readTimeoutMillis = i2;
         this.allowCrossProtocolRedirects = z;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.google.android.exoplayer2.upstream.HttpDataSource.BaseFactory
+    public DefaultHttpDataSource createDataSourceInternal(HttpDataSource.RequestProperties requestProperties) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, requestProperties)) == null) {
+            return new DefaultHttpDataSource(this.userAgent, null, this.listener, this.connectTimeoutMillis, this.readTimeoutMillis, this.allowCrossProtocolRedirects, requestProperties);
+        }
+        return (DefaultHttpDataSource) invokeL.objValue;
     }
 }

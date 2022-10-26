@@ -8,30 +8,29 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
-import io.reactivex.annotations.Nullable;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.internal.observers.BasicQueueDisposable;
 import java.util.Iterator;
 /* loaded from: classes8.dex */
-public final class ObservableFromIterable<T> extends Observable<T> {
+public final class ObservableFromIterable extends Observable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Iterable<? extends T> source;
+    public final Iterable source;
 
     /* loaded from: classes8.dex */
-    public static final class FromIterableDisposable<T> extends BasicQueueDisposable<T> {
+    public final class FromIterableDisposable extends BasicQueueDisposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super T> actual;
+        public final Observer actual;
         public boolean checkNext;
         public volatile boolean disposed;
         public boolean done;
         public boolean fusionMode;
-        public final Iterator<? extends T> it;
+        public final Iterator it;
 
-        public FromIterableDisposable(Observer<? super T> observer, Iterator<? extends T> it) {
+        public FromIterableDisposable(Observer observer, Iterator it) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -70,19 +69,24 @@ public final class ObservableFromIterable<T> extends Observable<T> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.disposed : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.disposed;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
         public boolean isEmpty() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.done : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.done;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
-        @Nullable
-        public T poll() {
+        public Object poll() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -97,9 +101,9 @@ public final class ObservableFromIterable<T> extends Observable<T> {
                 } else {
                     this.checkNext = true;
                 }
-                return (T) ObjectHelper.requireNonNull(this.it.next(), "The iterator returned a null value");
+                return ObjectHelper.requireNonNull(this.it.next(), "The iterator returned a null value");
             }
-            return (T) invokeV.objValue;
+            return invokeV.objValue;
         }
 
         @Override // io.reactivex.internal.fuseable.QueueFuseable
@@ -127,10 +131,10 @@ public final class ObservableFromIterable<T> extends Observable<T> {
                         }
                         try {
                             if (!this.it.hasNext()) {
-                                if (isDisposed()) {
+                                if (!isDisposed()) {
+                                    this.actual.onComplete();
                                     return;
                                 }
-                                this.actual.onComplete();
                                 return;
                             }
                         } catch (Throwable th) {
@@ -148,7 +152,7 @@ public final class ObservableFromIterable<T> extends Observable<T> {
         }
     }
 
-    public ObservableFromIterable(Iterable<? extends T> iterable) {
+    public ObservableFromIterable(Iterable iterable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -167,11 +171,11 @@ public final class ObservableFromIterable<T> extends Observable<T> {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super T> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             try {
-                Iterator<? extends T> it = this.source.iterator();
+                Iterator it = this.source.iterator();
                 try {
                     if (!it.hasNext()) {
                         EmptyDisposable.complete(observer);
@@ -179,10 +183,9 @@ public final class ObservableFromIterable<T> extends Observable<T> {
                     }
                     FromIterableDisposable fromIterableDisposable = new FromIterableDisposable(observer, it);
                     observer.onSubscribe(fromIterableDisposable);
-                    if (fromIterableDisposable.fusionMode) {
-                        return;
+                    if (!fromIterableDisposable.fusionMode) {
+                        fromIterableDisposable.run();
                     }
-                    fromIterableDisposable.run();
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     EmptyDisposable.error(th, observer);

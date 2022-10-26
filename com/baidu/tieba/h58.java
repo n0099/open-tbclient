@@ -7,18 +7,16 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.holder.CardViewHolder;
-import com.baidu.tieba.personCenter.data.PersonVipCardData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class h58 extends qn<PersonVipCardData, CardViewHolder<p68>> {
+public class h58 extends rn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public p68 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h58(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -42,65 +40,28 @@ public class h58 extends qn<PersonVipCardData, CardViewHolder<p68>> {
         this.a = tbPageContext;
     }
 
-    public void onDestroy() {
-        p68 p68Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (p68Var = this.b) == null) {
-            return;
-        }
-        p68Var.s();
-    }
-
-    public void onPause() {
-        p68 p68Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (p68Var = this.b) == null) {
-            return;
-        }
-        p68Var.t();
-    }
-
-    public void onResume() {
-        p68 p68Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (p68Var = this.b) == null) {
-            return;
-        }
-        p68Var.v();
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
+    @Override // com.baidu.tieba.rn
     /* renamed from: s */
-    public CardViewHolder<p68> onCreateViewHolder(ViewGroup viewGroup) {
+    public CardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
-            this.b = new p68(this.a);
-            return new CardViewHolder<>(this.b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new CardViewHolder(new o68(this.a));
         }
         return (CardViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
+    @Override // com.baidu.tieba.rn
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, PersonVipCardData personVipCardData, CardViewHolder<p68> cardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, z58 z58Var, CardViewHolder cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, personVipCardData, cardViewHolder})) == null) {
-            cardViewHolder.a().i(personVipCardData);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, z58Var, cardViewHolder})) == null) {
+            ((o68) cardViewHolder.a()).l(z58Var);
             return cardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
-    }
-
-    public void u(boolean z) {
-        p68 p68Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || (p68Var = this.b) == null) {
-            return;
-        }
-        p68Var.u(z);
     }
 }

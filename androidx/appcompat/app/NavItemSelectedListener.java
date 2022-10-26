@@ -14,6 +14,13 @@ public class NavItemSelectedListener implements AdapterView.OnItemSelectedListen
     public transient /* synthetic */ FieldHolder $fh;
     public final ActionBar.OnNavigationListener mListener;
 
+    @Override // android.widget.AdapterView.OnItemSelectedListener
+    public void onNothingSelected(AdapterView<?> adapterView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adapterView) == null) {
+        }
+    }
+
     public NavItemSelectedListener(ActionBar.OnNavigationListener onNavigationListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -36,16 +43,8 @@ public class NavItemSelectedListener implements AdapterView.OnItemSelectedListen
     public void onItemSelected(AdapterView<?> adapterView, View view2, int i, long j) {
         ActionBar.OnNavigationListener onNavigationListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || (onNavigationListener = this.mListener) == null) {
-            return;
-        }
-        onNavigationListener.onNavigationItemSelected(i, j);
-    }
-
-    @Override // android.widget.AdapterView.OnItemSelectedListener
-    public void onNothingSelected(AdapterView<?> adapterView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adapterView) == null) {
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) && (onNavigationListener = this.mListener) != null) {
+            onNavigationListener.onNavigationItemSelected(i, j);
         }
     }
 }

@@ -49,7 +49,7 @@ public final class DefaultHlsExtractorFactory implements HlsExtractorFactory {
     }
 
     @Override // com.google.android.exoplayer2.source.hls.HlsExtractorFactory
-    public Pair<Extractor, Boolean> createExtractor(Extractor extractor, Uri uri, Format format, List<Format> list, DrmInitData drmInitData, TimestampAdjuster timestampAdjuster) {
+    public Pair createExtractor(Extractor extractor, Uri uri, Format format, List list, DrmInitData drmInitData, TimestampAdjuster timestampAdjuster) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{extractor, uri, format, list, drmInitData, timestampAdjuster})) == null) {

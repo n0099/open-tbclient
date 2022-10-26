@@ -7,42 +7,46 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.common.CacheKey;
-import com.facebook.common.memory.PooledByteBuffer;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.imagepipeline.cache.BoundedLinkedHashSet;
 import com.facebook.imagepipeline.cache.BufferedDiskCache;
 import com.facebook.imagepipeline.cache.CacheKeyFactory;
 import com.facebook.imagepipeline.cache.MemoryCache;
-import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 /* loaded from: classes7.dex */
-public class BitmapProbeProducer implements Producer<CloseableReference<CloseableImage>> {
+public class BitmapProbeProducer implements Producer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PRODUCER_NAME = "BitmapProbeProducer";
     public transient /* synthetic */ FieldHolder $fh;
     public final CacheKeyFactory mCacheKeyFactory;
     public final BufferedDiskCache mDefaultBufferedDiskCache;
-    public final BoundedLinkedHashSet<CacheKey> mDiskCacheHistory;
-    public final MemoryCache<CacheKey, PooledByteBuffer> mEncodedMemoryCache;
-    public final BoundedLinkedHashSet<CacheKey> mEncodedMemoryCacheHistory;
-    public final Producer<CloseableReference<CloseableImage>> mInputProducer;
+    public final BoundedLinkedHashSet mDiskCacheHistory;
+    public final MemoryCache mEncodedMemoryCache;
+    public final BoundedLinkedHashSet mEncodedMemoryCacheHistory;
+    public final Producer mInputProducer;
     public final BufferedDiskCache mSmallImageBufferedDiskCache;
 
+    public String getProducerName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? PRODUCER_NAME : (String) invokeV.objValue;
+    }
+
     /* loaded from: classes7.dex */
-    public static class ProbeConsumer extends DelegatingConsumer<CloseableReference<CloseableImage>, CloseableReference<CloseableImage>> {
+    public class ProbeConsumer extends DelegatingConsumer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final CacheKeyFactory mCacheKeyFactory;
         public final BufferedDiskCache mDefaultBufferedDiskCache;
-        public final BoundedLinkedHashSet<CacheKey> mDiskCacheHistory;
-        public final MemoryCache<CacheKey, PooledByteBuffer> mEncodedMemoryCache;
-        public final BoundedLinkedHashSet<CacheKey> mEncodedMemoryCacheHistory;
+        public final BoundedLinkedHashSet mDiskCacheHistory;
+        public final MemoryCache mEncodedMemoryCache;
+        public final BoundedLinkedHashSet mEncodedMemoryCacheHistory;
         public final ProducerContext mProducerContext;
         public final BufferedDiskCache mSmallImageBufferedDiskCache;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ProbeConsumer(Consumer<CloseableReference<CloseableImage>> consumer, ProducerContext producerContext, MemoryCache<CacheKey, PooledByteBuffer> memoryCache, BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory, BoundedLinkedHashSet<CacheKey> boundedLinkedHashSet, BoundedLinkedHashSet<CacheKey> boundedLinkedHashSet2) {
+        public ProbeConsumer(Consumer consumer, ProducerContext producerContext, MemoryCache memoryCache, BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory, BoundedLinkedHashSet boundedLinkedHashSet, BoundedLinkedHashSet boundedLinkedHashSet2) {
             super(consumer);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -71,8 +75,10 @@ public class BitmapProbeProducer implements Producer<CloseableReference<Closeabl
         /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, IF] complete} */
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.imagepipeline.producers.BaseConsumer
-        public void onNewResultImpl(CloseableReference<CloseableImage> closeableReference, int i) {
+        public void onNewResultImpl(CloseableReference closeableReference, int i) {
             boolean isTracing;
+            boolean z;
+            BufferedDiskCache bufferedDiskCache;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, closeableReference, i) == null) {
                 try {
@@ -88,7 +94,17 @@ public class BitmapProbeProducer implements Producer<CloseableReference<Closeabl
                                 this.mEncodedMemoryCacheHistory.add(encodedCacheKey);
                             }
                             if (this.mProducerContext.getImagePipelineConfig().getExperiments().isDiskCacheProbingEnabled() && !this.mDiskCacheHistory.contains(encodedCacheKey)) {
-                                (imageRequest.getCacheChoice() == ImageRequest.CacheChoice.SMALL ? this.mSmallImageBufferedDiskCache : this.mDefaultBufferedDiskCache).addKeyForAsyncProbing(encodedCacheKey);
+                                if (imageRequest.getCacheChoice() == ImageRequest.CacheChoice.SMALL) {
+                                    z = true;
+                                } else {
+                                    z = false;
+                                }
+                                if (z) {
+                                    bufferedDiskCache = this.mSmallImageBufferedDiskCache;
+                                } else {
+                                    bufferedDiskCache = this.mDefaultBufferedDiskCache;
+                                }
+                                bufferedDiskCache.addKeyForAsyncProbing(encodedCacheKey);
                                 this.mDiskCacheHistory.add(encodedCacheKey);
                             }
                         }
@@ -111,7 +127,7 @@ public class BitmapProbeProducer implements Producer<CloseableReference<Closeabl
         }
     }
 
-    public BitmapProbeProducer(MemoryCache<CacheKey, PooledByteBuffer> memoryCache, BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory, BoundedLinkedHashSet<CacheKey> boundedLinkedHashSet, BoundedLinkedHashSet<CacheKey> boundedLinkedHashSet2, Producer<CloseableReference<CloseableImage>> producer) {
+    public BitmapProbeProducer(MemoryCache memoryCache, BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory, BoundedLinkedHashSet boundedLinkedHashSet, BoundedLinkedHashSet boundedLinkedHashSet2, Producer producer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -135,14 +151,8 @@ public class BitmapProbeProducer implements Producer<CloseableReference<Closeabl
         this.mInputProducer = producer;
     }
 
-    public String getProducerName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? PRODUCER_NAME : (String) invokeV.objValue;
-    }
-
     @Override // com.facebook.imagepipeline.producers.Producer
-    public void produceResults(Consumer<CloseableReference<CloseableImage>> consumer, ProducerContext producerContext) {
+    public void produceResults(Consumer consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, consumer, producerContext) == null) {
             try {

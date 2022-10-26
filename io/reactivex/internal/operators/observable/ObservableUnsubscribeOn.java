@@ -14,17 +14,17 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes8.dex */
-public final class ObservableUnsubscribeOn<T> extends AbstractObservableWithUpstream<T, T> {
+public final class ObservableUnsubscribeOn extends AbstractObservableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Scheduler scheduler;
 
     /* loaded from: classes8.dex */
-    public static final class UnsubscribeObserver<T> extends AtomicBoolean implements Observer<T>, Disposable {
+    public final class UnsubscribeObserver extends AtomicBoolean implements Observer, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1015244841293359600L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super T> actual;
+        public final Observer actual;
         public Disposable s;
         public final Scheduler scheduler;
 
@@ -61,7 +61,7 @@ public final class ObservableUnsubscribeOn<T> extends AbstractObservableWithUpst
             }
         }
 
-        public UnsubscribeObserver(Observer<? super T> observer, Scheduler scheduler) {
+        public UnsubscribeObserver(Observer observer, Scheduler scheduler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,16 +92,18 @@ public final class ObservableUnsubscribeOn<T> extends AbstractObservableWithUpst
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? get() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return get();
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || get()) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !get()) {
+                this.actual.onComplete();
             }
-            this.actual.onComplete();
         }
 
         @Override // io.reactivex.Observer
@@ -117,12 +119,11 @@ public final class ObservableUnsubscribeOn<T> extends AbstractObservableWithUpst
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, t) == null) || get()) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, obj) == null) && !get()) {
+                this.actual.onNext(obj);
             }
-            this.actual.onNext(t);
         }
 
         @Override // io.reactivex.Observer
@@ -136,7 +137,7 @@ public final class ObservableUnsubscribeOn<T> extends AbstractObservableWithUpst
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableUnsubscribeOn(ObservableSource<T> observableSource, Scheduler scheduler) {
+    public ObservableUnsubscribeOn(ObservableSource observableSource, Scheduler scheduler) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -157,7 +158,7 @@ public final class ObservableUnsubscribeOn<T> extends AbstractObservableWithUpst
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super T> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new UnsubscribeObserver(observer, this.scheduler));

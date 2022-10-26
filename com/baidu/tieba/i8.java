@@ -51,13 +51,13 @@ public class i8 {
         }
     }
 
-    public <T> void c(T[] tArr, Comparator<? super T> comparator, int i, int i2) {
+    public void c(Object[] objArr, Comparator comparator, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tArr, comparator, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr, comparator, i, i2) == null) {
             if (this.a == null) {
                 this.a = new m8();
             }
-            this.a.c(tArr, comparator, i, i2);
+            this.a.c(objArr, comparator, i, i2);
         }
     }
 }

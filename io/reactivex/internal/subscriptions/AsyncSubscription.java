@@ -16,8 +16,8 @@ public final class AsyncSubscription extends AtomicLong implements Subscription,
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 7028635084060361255L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference<Subscription> actual;
-    public final AtomicReference<Disposable> resource;
+    public final AtomicReference actual;
+    public final AtomicReference resource;
 
     public AsyncSubscription() {
         Interceptable interceptable = $ic;
@@ -32,8 +32,8 @@ public final class AsyncSubscription extends AtomicLong implements Subscription,
                 return;
             }
         }
-        this.resource = new AtomicReference<>();
-        this.actual = new AtomicReference<>();
+        this.resource = new AtomicReference();
+        this.actual = new AtomicReference();
     }
 
     @Override // org.reactivestreams.Subscription
@@ -57,34 +57,13 @@ public final class AsyncSubscription extends AtomicLong implements Subscription,
     public boolean isDisposed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.actual.get() == SubscriptionHelper.CANCELLED : invokeV.booleanValue;
-    }
-
-    public boolean replaceResource(Disposable disposable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, disposable)) == null) ? DisposableHelper.replace(this.resource, disposable) : invokeL.booleanValue;
-    }
-
-    @Override // org.reactivestreams.Subscription
-    public void request(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            SubscriptionHelper.deferredRequest(this.actual, this, j);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.actual.get() == SubscriptionHelper.CANCELLED) {
+                return true;
+            }
+            return false;
         }
-    }
-
-    public boolean setResource(Disposable disposable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, disposable)) == null) ? DisposableHelper.set(this.resource, disposable) : invokeL.booleanValue;
-    }
-
-    public void setSubscription(Subscription subscription) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, subscription) == null) {
-            SubscriptionHelper.deferredSetOnce(this.actual, this, subscription);
-        }
+        return invokeV.booleanValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -106,5 +85,38 @@ public final class AsyncSubscription extends AtomicLong implements Subscription,
             }
         }
         this.resource.lazySet(disposable);
+    }
+
+    public boolean replaceResource(Disposable disposable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, disposable)) == null) {
+            return DisposableHelper.replace(this.resource, disposable);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // org.reactivestreams.Subscription
+    public void request(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            SubscriptionHelper.deferredRequest(this.actual, this, j);
+        }
+    }
+
+    public boolean setResource(Disposable disposable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, disposable)) == null) {
+            return DisposableHelper.set(this.resource, disposable);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setSubscription(Subscription subscription) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, subscription) == null) {
+            SubscriptionHelper.deferredSetOnce(this.actual, this, subscription);
+        }
     }
 }

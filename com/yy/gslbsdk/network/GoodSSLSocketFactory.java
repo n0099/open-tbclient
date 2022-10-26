@@ -105,39 +105,10 @@ public class GoodSSLSocketFactory extends SSLSocketFactory {
                 sSLSocket.setEnabledProtocols(new String[]{"TLSv1", "TLSv1.1"});
                 LogTools.printDebug(TAG, String.format(Locale.US, "getEnabledProtocols: %s", Arrays.toString(sSLSocket.getEnabledProtocols())));
             }
-            if (Build.VERSION.SDK_INT >= 21 || (strArr = cipherSuites) == null) {
-                return;
+            if (Build.VERSION.SDK_INT < 21 && (strArr = cipherSuites) != null) {
+                sSLSocket.setEnabledCipherSuites(strArr);
             }
-            sSLSocket.setEnabledCipherSuites(strArr);
         }
-    }
-
-    @Override // javax.net.ssl.SSLSocketFactory
-    public Socket createSocket(Socket socket, String str, int i, boolean z) throws IOException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{socket, str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            Socket createSocket = this.defaultFactory.createSocket(socket, str, i, z);
-            if (createSocket instanceof SSLSocket) {
-                upgradeTLS((SSLSocket) createSocket);
-            }
-            return createSocket;
-        }
-        return (Socket) invokeCommon.objValue;
-    }
-
-    @Override // javax.net.ssl.SSLSocketFactory
-    public String[] getDefaultCipherSuites() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? cipherSuites : (String[]) invokeV.objValue;
-    }
-
-    @Override // javax.net.ssl.SSLSocketFactory
-    public String[] getSupportedCipherSuites() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? cipherSuites : (String[]) invokeV.objValue;
     }
 
     @Override // javax.net.SocketFactory
@@ -194,5 +165,39 @@ public class GoodSSLSocketFactory extends SSLSocketFactory {
             return createSocket;
         }
         return (Socket) invokeCommon.objValue;
+    }
+
+    @Override // javax.net.ssl.SSLSocketFactory
+    public Socket createSocket(Socket socket, String str, int i, boolean z) throws IOException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{socket, str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            Socket createSocket = this.defaultFactory.createSocket(socket, str, i, z);
+            if (createSocket instanceof SSLSocket) {
+                upgradeTLS((SSLSocket) createSocket);
+            }
+            return createSocket;
+        }
+        return (Socket) invokeCommon.objValue;
+    }
+
+    @Override // javax.net.ssl.SSLSocketFactory
+    public String[] getDefaultCipherSuites() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return cipherSuites;
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    @Override // javax.net.ssl.SSLSocketFactory
+    public String[] getSupportedCipherSuites() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return cipherSuites;
+        }
+        return (String[]) invokeV.objValue;
     }
 }

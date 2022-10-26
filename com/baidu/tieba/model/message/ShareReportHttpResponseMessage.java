@@ -37,14 +37,10 @@ public class ShareReportHttpResponseMessage extends TbHttpResponsedMessage {
     public ShareResIdl getIdl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.idl : (ShareResIdl) invokeV.objValue;
-    }
-
-    public void setIdl(ShareResIdl shareResIdl) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, shareResIdl) == null) {
-            this.idl = shareResIdl;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.idl;
         }
+        return (ShareResIdl) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -53,6 +49,13 @@ public class ShareReportHttpResponseMessage extends TbHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             this.idl = (ShareResIdl) new Wire(new Class[0]).parseFrom(bArr, ShareResIdl.class);
+        }
+    }
+
+    public void setIdl(ShareResIdl shareResIdl) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, shareResIdl) == null) {
+            this.idl = shareResIdl;
         }
     }
 }

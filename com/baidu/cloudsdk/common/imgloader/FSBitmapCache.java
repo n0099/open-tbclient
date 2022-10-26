@@ -21,7 +21,7 @@ public class FSBitmapCache implements IBitmapCache {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int mHitCountRequired;
-    public Map<String, Integer> mMap;
+    public Map mMap;
     public int mMaxNumOfPixels;
     public IBitmapCache mMemCache;
     public String mStorageDir;
@@ -71,40 +71,10 @@ public class FSBitmapCache implements IBitmapCache {
     public boolean exists(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? new File(getFilePath(str)).exists() : invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.cloudsdk.common.imgloader.IBitmapCache
-    public Bitmap get(String str) {
-        InterceptResult invokeL;
-        IBitmapCache iBitmapCache;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (exists(str)) {
-                BitmapFactory.Options options = new BitmapFactory.Options();
-                options.inJustDecodeBounds = true;
-                BitmapFactory.decodeFile(getFilePath(str), options);
-                options.inSampleSize = AsyncImageLoader.computeSampleSize(options, -1, this.mMaxNumOfPixels);
-                options.inJustDecodeBounds = false;
-                Bitmap decodeFile = BitmapFactory.decodeFile(getFilePath(str), options);
-                if (decodeFile != null) {
-                    Integer num = this.mMap.get(str);
-                    if (num == null) {
-                        num = 0;
-                    }
-                    if (num.intValue() + 1 >= this.mHitCountRequired && (iBitmapCache = this.mMemCache) != null) {
-                        iBitmapCache.put(str, decodeFile);
-                        this.mMap.remove(str);
-                        return decodeFile;
-                    }
-                    this.mMap.put(str, Integer.valueOf(num.intValue() + 1));
-                    return decodeFile;
-                }
-                return null;
-            }
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return new File(getFilePath(str)).exists();
         }
-        return (Bitmap) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
     public String getFilePath(String str) {
@@ -114,6 +84,69 @@ public class FSBitmapCache implements IBitmapCache {
             return this.mStorageDir + "/" + str + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX;
         }
         return (String) invokeL.objValue;
+    }
+
+    public FSBitmapCache setHitCountRequired(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            this.mHitCountRequired = i;
+            return this;
+        }
+        return (FSBitmapCache) invokeI.objValue;
+    }
+
+    public FSBitmapCache setMaxNumOfPixels(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            this.mMaxNumOfPixels = i;
+            return this;
+        }
+        return (FSBitmapCache) invokeI.objValue;
+    }
+
+    public FSBitmapCache setStorageDir(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            this.mStorageDir = str;
+            return this;
+        }
+        return (FSBitmapCache) invokeL.objValue;
+    }
+
+    @Override // com.baidu.cloudsdk.common.imgloader.IBitmapCache
+    public Bitmap get(String str) {
+        InterceptResult invokeL;
+        IBitmapCache iBitmapCache;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (!exists(str)) {
+                return null;
+            }
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            BitmapFactory.decodeFile(getFilePath(str), options);
+            options.inSampleSize = AsyncImageLoader.computeSampleSize(options, -1, this.mMaxNumOfPixels);
+            options.inJustDecodeBounds = false;
+            Bitmap decodeFile = BitmapFactory.decodeFile(getFilePath(str), options);
+            if (decodeFile == null) {
+                return null;
+            }
+            Integer num = (Integer) this.mMap.get(str);
+            if (num == null) {
+                num = 0;
+            }
+            if (num.intValue() + 1 >= this.mHitCountRequired && (iBitmapCache = this.mMemCache) != null) {
+                iBitmapCache.put(str, decodeFile);
+                this.mMap.remove(str);
+                return decodeFile;
+            }
+            this.mMap.put(str, Integer.valueOf(num.intValue() + 1));
+            return decodeFile;
+        }
+        return (Bitmap) invokeL.objValue;
     }
 
     @Override // com.baidu.cloudsdk.common.imgloader.IBitmapCache
@@ -167,35 +200,5 @@ public class FSBitmapCache implements IBitmapCache {
             } catch (IOException unused2) {
             }
         }
-    }
-
-    public FSBitmapCache setHitCountRequired(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            this.mHitCountRequired = i;
-            return this;
-        }
-        return (FSBitmapCache) invokeI.objValue;
-    }
-
-    public FSBitmapCache setMaxNumOfPixels(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            this.mMaxNumOfPixels = i;
-            return this;
-        }
-        return (FSBitmapCache) invokeI.objValue;
-    }
-
-    public FSBitmapCache setStorageDir(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            this.mStorageDir = str;
-            return this;
-        }
-        return (FSBitmapCache) invokeL.objValue;
     }
 }

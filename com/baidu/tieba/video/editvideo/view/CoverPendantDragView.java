@@ -25,12 +25,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cw8;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.ji5;
-import com.baidu.tieba.kv8;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.hw8;
+import com.baidu.tieba.mw8;
+import com.baidu.tieba.oi5;
+import com.baidu.tieba.uv8;
 import com.baidu.tieba.video.editvideo.data.PendantData;
-import com.baidu.tieba.xv8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,7 +60,7 @@ public class CoverPendantDragView extends FrameLayout {
     public int O;
     public float P;
     public int Q;
-    public Map<String, Bitmap> R;
+    public Map R;
     public Bitmap S;
     public long T;
     public float U;
@@ -90,7 +90,7 @@ public class CoverPendantDragView extends FrameLayout {
     public float w;
     public float x;
     public float y;
-    public cw8 z;
+    public mw8 z;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnTouchListener {
@@ -124,30 +124,34 @@ public class CoverPendantDragView extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 int action = motionEvent.getAction();
-                if (action == 0) {
+                if (action != 0) {
+                    if (action != 1) {
+                        if (action != 2) {
+                            if (action == 6) {
+                                this.b.q = 0.0f;
+                                this.b.r = 0.0f;
+                            }
+                        } else if (!this.b.C(motionEvent)) {
+                            this.b.F(motionEvent);
+                        }
+                    } else {
+                        float rawX = motionEvent.getRawX();
+                        float rawY = motionEvent.getRawY();
+                        float abs = Math.abs(rawX - this.b.l);
+                        float abs2 = Math.abs(rawY - this.b.m);
+                        if (!this.b.p && abs < this.b.k && abs2 < this.b.k && System.currentTimeMillis() - this.a < 300) {
+                            this.b.S();
+                        }
+                        this.b.q = 0.0f;
+                        this.b.r = 0.0f;
+                        this.b.p = false;
+                    }
+                } else {
                     this.a = System.currentTimeMillis();
                     this.b.J(view2, motionEvent);
                     if (this.b.h == 4) {
                         this.b.R();
                     }
-                } else if (action == 1) {
-                    float rawX = motionEvent.getRawX();
-                    float rawY = motionEvent.getRawY();
-                    float abs = Math.abs(rawX - this.b.l);
-                    float abs2 = Math.abs(rawY - this.b.m);
-                    if (!this.b.p && abs < this.b.k && abs2 < this.b.k && System.currentTimeMillis() - this.a < 300) {
-                        this.b.S();
-                    }
-                    this.b.q = 0.0f;
-                    this.b.r = 0.0f;
-                    this.b.p = false;
-                } else if (action != 2) {
-                    if (action == 6) {
-                        this.b.q = 0.0f;
-                        this.b.r = 0.0f;
-                    }
-                } else if (!this.b.C(motionEvent)) {
-                    this.b.F(motionEvent);
                 }
                 return true;
             }
@@ -219,14 +223,16 @@ public class CoverPendantDragView extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 int action = motionEvent.getAction();
-                if (action == 0) {
-                    this.a.J(view2, motionEvent);
-                } else if (action != 1) {
-                    if (action == 2 && !this.a.C(motionEvent)) {
-                        this.a.O(motionEvent);
+                if (action != 0) {
+                    if (action != 1) {
+                        if (action == 2 && !this.a.C(motionEvent)) {
+                            this.a.O(motionEvent);
+                        }
+                    } else {
+                        this.a.r = 0.0f;
                     }
                 } else {
-                    this.a.r = 0.0f;
+                    this.a.J(view2, motionEvent);
                 }
                 return true;
             }
@@ -239,6 +245,20 @@ public class CoverPendantDragView extends FrameLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CoverPendantDragView a;
+
+        @Override // android.text.TextWatcher
+        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
+            }
+        }
+
+        @Override // android.text.TextWatcher
+        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
+            }
+        }
 
         public d(CoverPendantDragView coverPendantDragView) {
             Interceptable interceptable = $ic;
@@ -267,35 +287,19 @@ public class CoverPendantDragView extends FrameLayout {
                     String E = this.a.E(this.a.d.getPaint(), obj);
                     if (!E.equals(obj)) {
                         editable.delete(E.length(), obj.length());
-                        ej.M(this.a.getContext(), R.string.obfuscated_res_0x7f0f046b);
+                        fj.M(this.a.getContext(), R.string.obfuscated_res_0x7f0f0472);
                     }
-                } else if (ji5.c(obj) < 20) {
-                    if (obj.length() > this.a.d.getText().length()) {
-                        this.a.M(obj);
-                    } else {
-                        this.a.N(obj);
-                    }
+                } else if (oi5.c(obj) >= 20) {
+                    String k = oi5.k(obj, 20);
+                    editable.delete(k.length(), obj.length());
+                    this.a.M(k);
+                    fj.M(this.a.getContext(), R.string.obfuscated_res_0x7f0f0471);
+                } else if (obj.length() > this.a.d.getText().length()) {
+                    this.a.M(obj);
                 } else {
-                    String m = ji5.m(obj, 20);
-                    editable.delete(m.length(), obj.length());
-                    this.a.M(m);
-                    ej.M(this.a.getContext(), R.string.obfuscated_res_0x7f0f046a);
+                    this.a.N(obj);
                 }
                 this.a.d.setText(editable.toString());
-            }
-        }
-
-        @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
-            }
-        }
-
-        @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
             }
         }
     }
@@ -328,19 +332,25 @@ public class CoverPendantDragView extends FrameLayout {
         public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i, keyEvent)) == null) ? keyEvent.getKeyCode() == 66 : invokeLIL.booleanValue;
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i, keyEvent)) == null) {
+                if (keyEvent.getKeyCode() == 66) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeLIL.booleanValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class f implements xv8.b {
+    public class f implements hw8.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference<kv8.c> a;
-        public WeakReference<CoverPendantDragView> b;
-        public WeakReference<PendantData> c;
+        public WeakReference a;
+        public WeakReference b;
+        public WeakReference c;
 
-        public f(kv8.c cVar, CoverPendantDragView coverPendantDragView, PendantData pendantData) {
+        public f(uv8.c cVar, CoverPendantDragView coverPendantDragView, PendantData pendantData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -356,56 +366,53 @@ public class CoverPendantDragView extends FrameLayout {
                 }
             }
             if (cVar != null) {
-                this.a = new WeakReference<>(cVar);
+                this.a = new WeakReference(cVar);
             }
             if (coverPendantDragView != null) {
-                this.b = new WeakReference<>(coverPendantDragView);
+                this.b = new WeakReference(coverPendantDragView);
             }
             if (pendantData != null) {
-                this.c = new WeakReference<>(pendantData);
+                this.c = new WeakReference(pendantData);
             }
         }
 
-        @Override // com.baidu.tieba.xv8.b
+        @Override // com.baidu.tieba.hw8.b
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                WeakReference<kv8.c> weakReference = this.a;
+                WeakReference weakReference = this.a;
                 if (weakReference != null && weakReference.get() != null) {
-                    this.a.get().c.setVisibility(8);
+                    ((uv8.c) this.a.get()).c.setVisibility(8);
                 }
-                WeakReference<CoverPendantDragView> weakReference2 = this.b;
-                if (weakReference2 == null || weakReference2.get() == null) {
-                    return;
+                WeakReference weakReference2 = this.b;
+                if (weakReference2 != null && weakReference2.get() != null) {
+                    fj.N(((CoverPendantDragView) this.b.get()).getContext(), str);
                 }
-                ej.N(this.b.get().getContext(), str);
             }
         }
 
-        @Override // com.baidu.tieba.xv8.b
+        @Override // com.baidu.tieba.hw8.b
         public void b() {
-            WeakReference<kv8.c> weakReference;
+            WeakReference weakReference;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (weakReference = this.a) == null || weakReference.get() == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (weakReference = this.a) != null && weakReference.get() != null) {
+                ((uv8.c) this.a.get()).c.setVisibility(8);
             }
-            this.a.get().c.setVisibility(8);
         }
 
-        @Override // com.baidu.tieba.xv8.b
+        @Override // com.baidu.tieba.hw8.b
         public void c(String str, String str2) {
-            WeakReference<PendantData> weakReference;
+            WeakReference weakReference;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-                WeakReference<kv8.c> weakReference2 = this.a;
+                WeakReference weakReference2 = this.a;
                 if (weakReference2 != null && weakReference2.get() != null) {
-                    this.a.get().c.setVisibility(8);
+                    ((uv8.c) this.a.get()).c.setVisibility(8);
                 }
-                WeakReference<CoverPendantDragView> weakReference3 = this.b;
-                if (weakReference3 == null || weakReference3.get() == null || (weakReference = this.c) == null || weakReference.get() == null) {
-                    return;
+                WeakReference weakReference3 = this.b;
+                if (weakReference3 != null && weakReference3.get() != null && (weakReference = this.c) != null && weakReference.get() != null) {
+                    ((CoverPendantDragView) this.b.get()).G(str2, (PendantData) this.c.get());
                 }
-                this.b.get().G(str2, this.c.get());
             }
         }
     }
@@ -431,6 +438,185 @@ public class CoverPendantDragView extends FrameLayout {
         }
     }
 
+    public final boolean C(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
+            float abs = Math.abs(motionEvent.getRawX() - this.l);
+            float abs2 = Math.abs(motionEvent.getRawY() - this.m);
+            float f2 = this.k;
+            if (abs < f2 && abs2 < f2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public CoverPendantDragView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public CoverPendantDragView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.h = 0;
+        this.x = 1.0f;
+        this.y = 1.0f;
+        this.F = true;
+        this.R = new HashMap();
+        this.T = 0L;
+        this.U = 0.0f;
+        this.V = 0.0f;
+        this.E = fj.k(TbadkCoreApplication.getInst());
+        this.G = fj.f(getContext(), R.dimen.obfuscated_res_0x7f070330);
+        this.O = fj.f(getContext(), R.dimen.obfuscated_res_0x7f0701d4);
+        this.k = ViewConfiguration.get(getContext()).getScaledTouchSlop();
+        this.a = (FrameLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0493, (ViewGroup) null);
+        B();
+        addView(this.a);
+        this.a.setOnTouchListener(new a(this));
+        this.f.setOnClickListener(new b(this));
+        this.g.setOnTouchListener(new c(this));
+        this.e.addTextChangedListener(new d(this));
+        this.e.setOnEditorActionListener(new e(this));
+        this.a.setVisibility(8);
+    }
+
+    public void K(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(1048586, this, z) != null) || this.h == 0) {
+            return;
+        }
+        if (z) {
+            v();
+            this.a.setVisibility(0);
+            return;
+        }
+        A();
+        getTempBitmap();
+        this.a.setVisibility(8);
+    }
+
+    public void setEditTextEnable(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
+            if (z) {
+                this.e.setFocusable(true);
+                this.e.setFocusableInTouchMode(true);
+                this.e.requestFocus();
+                return;
+            }
+            this.e.setFocusable(false);
+            this.e.setFocusableInTouchMode(false);
+        }
+    }
+
+    public void setParentViewController(mw8 mw8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, mw8Var) == null) {
+            this.z = mw8Var;
+        }
+    }
+
+    public final float w(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, motionEvent)) == null) {
+            float[] t = t(motionEvent, 0);
+            float f2 = t[0];
+            float f3 = t[1];
+            float[] t2 = t(motionEvent, 1);
+            return (float) Math.toDegrees(Math.atan2(f3 - t2[1], f2 - t2[0]));
+        }
+        return invokeL.floatValue;
+    }
+
+    public final float x(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, motionEvent)) == null) {
+            return (float) Math.toDegrees(Math.atan2(this.v - motionEvent.getRawY(), this.u - motionEvent.getRawX()));
+        }
+        return invokeL.floatValue;
+    }
+
+    public final float y(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, motionEvent)) == null) {
+            float x = motionEvent.getX(0) - motionEvent.getX(1);
+            float y = motionEvent.getY(0) - motionEvent.getY(1);
+            return (float) Math.sqrt((x * x) + (y * y));
+        }
+        return invokeL.floatValue;
+    }
+
+    public final void D(String str, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLF(1048579, this, str, f2) == null) {
+            TextPaint paint = this.e.getPaint();
+            float measureText = paint.measureText(str);
+            while (measureText > f2) {
+                setTextSize(0, this.e.getTextSize() - 1.0f);
+                measureText = paint.measureText(str);
+            }
+        }
+    }
+
+    @Override // android.widget.FrameLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048597, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            if (this.i == 0 && this.j == 0) {
+                this.i = getMeasuredWidth();
+                this.j = getMeasuredHeight();
+            }
+        }
+    }
+
+    public void setVideoSize(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048603, this, i, i2) == null) {
+            this.i = i;
+            this.j = i2;
+        }
+    }
+
     public void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -452,36 +638,12 @@ public class CoverPendantDragView extends FrameLayout {
     public final void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = (RotateFrameLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0906e9);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090723);
-            this.c = (FrameLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0906f5);
-            this.e = (EditText) this.a.findViewById(R.id.obfuscated_res_0x7f090717);
-            this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090716);
-            this.g = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09071d);
-        }
-    }
-
-    public final boolean C(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            float abs = Math.abs(motionEvent.getRawX() - this.l);
-            float abs2 = Math.abs(motionEvent.getRawY() - this.m);
-            float f2 = this.k;
-            return abs < f2 && abs2 < f2;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void D(String str, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048579, this, str, f2) == null) {
-            TextPaint paint = this.e.getPaint();
-            float measureText = paint.measureText(str);
-            while (measureText > f2) {
-                setTextSize(0, this.e.getTextSize() - 1.0f);
-                measureText = paint.measureText(str);
-            }
+            this.b = (RotateFrameLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0906f2);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09072c);
+            this.c = (FrameLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0906fe);
+            this.e = (EditText) this.a.findViewById(R.id.obfuscated_res_0x7f090720);
+            this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09071f);
+            this.g = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090726);
         }
     }
 
@@ -490,13 +652,38 @@ public class CoverPendantDragView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, textPaint, str)) == null) {
             float measureText = textPaint.measureText(str);
-            while (str.length() > 0 && measureText > this.i - ej.f(getContext(), R.dimen.obfuscated_res_0x7f07023c)) {
-                str = ji5.n(str, ji5.d(str) - 1);
+            while (str.length() > 0 && measureText > this.i - fj.f(getContext(), R.dimen.obfuscated_res_0x7f07023c)) {
+                str = oi5.l(str, oi5.d(str) - 1);
                 measureText = textPaint.measureText(str);
             }
             return str;
         }
         return (String) invokeLL.objValue;
+    }
+
+    public void setTextSize(int i, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+            if (this.e.getTextSize() != f2) {
+                this.e.setTextSize(i, f2);
+            }
+            if (this.d.getTextSize() != f2) {
+                this.d.setTextSize(i, f2);
+            }
+        }
+    }
+
+    public final float[] t(MotionEvent motionEvent, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048604, this, motionEvent, i)) == null) {
+            Matrix matrix = new Matrix();
+            matrix.postRotate(this.a.getRotation());
+            float[] fArr = {motionEvent.getX(i), motionEvent.getY(i)};
+            matrix.mapPoints(fArr);
+            return fArr;
+        }
+        return (float[]) invokeLI.objValue;
     }
 
     public final void F(MotionEvent motionEvent) {
@@ -554,207 +741,63 @@ public class CoverPendantDragView extends FrameLayout {
     }
 
     public final void G(String str, PendantData pendantData) {
-        Map<String, Bitmap> map;
+        Map map;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, pendantData) == null) || TextUtils.isEmpty(str) || pendantData == null || (map = this.R) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, str, pendantData) == null) && !TextUtils.isEmpty(str) && pendantData != null && (map = this.R) != null) {
+            Bitmap bitmap = (Bitmap) map.get(str);
+            if ((bitmap == null || bitmap.isRecycled()) && (bitmap = BitmapHelper.loadBitmap(str)) != null) {
+                this.R.put(str, bitmap);
+            }
+            if (bitmap != null && !bitmap.isRecycled() && bitmap.getWidth() != 0 && bitmap.getHeight() != 0) {
+                z();
+                int width = bitmap.getWidth();
+                int height = bitmap.getHeight();
+                this.x = 1.0f;
+                this.y = 1.0f;
+                int d2 = fj.d(getContext(), width / 2);
+                float f2 = d2;
+                float f3 = height;
+                float f4 = width;
+                int i = (int) ((f2 * f3) / f4);
+                int i2 = (this.i * 2) / 3;
+                if (d2 > i2) {
+                    float f5 = i2;
+                    this.x = (f5 * 1.0f) / f2;
+                    i = (int) ((f5 * f3) / f4);
+                    d2 = i2;
+                }
+                this.c.setBackgroundDrawable(new BitmapDrawable(bitmap));
+                L(d2, i, this.E, pendantData);
+                int i3 = this.L;
+                int i4 = width + (i3 * 2);
+                this.s = i4;
+                int i5 = height + (i3 * 2);
+                this.t = i5;
+                this.w = (i4 * 1.0f) / i5;
+                this.a.setX((((this.i - d2) - (i3 * 2)) / 2) + this.A);
+                this.a.setY((((this.j - i) - (this.L * 2)) / 2) + this.B);
+            }
         }
-        Bitmap bitmap = map.get(str);
-        if ((bitmap == null || bitmap.isRecycled()) && (bitmap = BitmapHelper.loadBitmap(str)) != null) {
-            this.R.put(str, bitmap);
-        }
-        if (bitmap == null || bitmap.isRecycled() || bitmap.getWidth() == 0 || bitmap.getHeight() == 0) {
-            return;
-        }
-        z();
-        int width = bitmap.getWidth();
-        int height = bitmap.getHeight();
-        this.x = 1.0f;
-        this.y = 1.0f;
-        int d2 = ej.d(getContext(), width / 2);
-        float f2 = d2;
-        float f3 = height;
-        float f4 = width;
-        int i = (int) ((f2 * f3) / f4);
-        int i2 = (this.i * 2) / 3;
-        if (d2 > i2) {
-            float f5 = i2;
-            this.x = (f5 * 1.0f) / f2;
-            i = (int) ((f5 * f3) / f4);
-            d2 = i2;
-        }
-        this.c.setBackgroundDrawable(new BitmapDrawable(bitmap));
-        L(d2, i, this.E, pendantData);
-        int i3 = this.L;
-        int i4 = width + (i3 * 2);
-        this.s = i4;
-        int i5 = height + (i3 * 2);
-        this.t = i5;
-        this.w = (i4 * 1.0f) / i5;
-        this.a.setX((((this.i - d2) - (i3 * 2)) / 2) + this.A);
-        this.a.setY((((this.j - i) - (this.L * 2)) / 2) + this.B);
     }
 
     public final void H(PendantData pendantData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, pendantData) == null) {
             z();
-            L(this.i, ej.f(getContext(), R.dimen.obfuscated_res_0x7f07019a), this.E, pendantData);
+            L(this.i, fj.f(getContext(), R.dimen.obfuscated_res_0x7f07019a), this.E, pendantData);
             int i = this.h;
             if (i == 4 || i == 0) {
                 this.a.setX(this.A);
-                this.a.setY(((this.j - ej.f(getContext(), R.dimen.obfuscated_res_0x7f07019a)) / 2) + this.B);
+                this.a.setY(((this.j - fj.f(getContext(), R.dimen.obfuscated_res_0x7f07019a)) / 2) + this.B);
                 String obj = this.e.getText().toString();
-                if (TextUtils.isEmpty(obj)) {
-                    return;
-                }
-                String E = E(this.e.getPaint(), obj);
-                if (E.equals(obj)) {
-                    return;
-                }
-                this.d.setText(E);
-                this.e.setText(E);
-            }
-        }
-    }
-
-    public void I() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            for (Map.Entry<String, Bitmap> entry : this.R.entrySet()) {
-                Bitmap value = entry.getValue();
-                if (value != null && !value.isRecycled()) {
-                    value.recycle();
-                }
-            }
-            this.R.clear();
-            this.R = null;
-            v();
-        }
-    }
-
-    public final void J(View view2, MotionEvent motionEvent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, view2, motionEvent) == null) {
-            this.l = motionEvent.getRawX();
-            float rawY = motionEvent.getRawY();
-            this.m = rawY;
-            this.n = this.l;
-            this.o = rawY;
-            this.u = (this.a.getWidth() / 2) + this.a.getX();
-            this.v = (this.a.getHeight() / 2) + this.a.getY();
-            this.d.setText(this.e.getText());
-            this.d.setVisibility(0);
-            this.e.setVisibility(8);
-            setEditTextEnable(false);
-            this.z.HidenSoftKeyPad(this.e);
-        }
-    }
-
-    public void K(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || this.h == 0) {
-            return;
-        }
-        if (z) {
-            v();
-            this.a.setVisibility(0);
-            return;
-        }
-        A();
-        getTempBitmap();
-        this.a.setVisibility(8);
-    }
-
-    public void L(int i, int i2, int i3, PendantData pendantData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), pendantData}) == null) {
-            if (pendantData.pendantType != 4) {
-                this.e.setTextAppearance(getContext(), R.style.obfuscated_res_0x7f1003aa);
-                this.d.setTextAppearance(getContext(), R.style.obfuscated_res_0x7f1003aa);
-                float f2 = i;
-                float f3 = i3;
-                i2 = (int) ((ej.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f07019a) * f2) / f3);
-                setTextSize(0, (ej.f(getContext(), R.dimen.obfuscated_res_0x7f070330) * f2) / f3);
-                this.L = 0;
-                this.e.setMaxLines(1);
-                this.d.setMaxLines(1);
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.d.getLayoutParams();
-                layoutParams.height = -1;
-                layoutParams.width = -2;
-                layoutParams.gravity = 17;
-                this.e.setLayoutParams(layoutParams);
-                this.c.setPadding(ej.f(getContext(), R.dimen.obfuscated_res_0x7f070253), 0, ej.f(getContext(), R.dimen.obfuscated_res_0x7f070253), 0);
-            } else {
-                this.e.setTextAppearance(getContext(), R.style.obfuscated_res_0x7f1003a9);
-                this.d.setTextAppearance(getContext(), R.style.obfuscated_res_0x7f1003a9);
-                this.L = ej.f(getContext(), R.dimen.obfuscated_res_0x7f070225);
-                this.e.setMaxLines(2);
-                this.d.setMaxLines(2);
-                FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.d.getLayoutParams();
-                layoutParams2.height = -2;
-                layoutParams2.width = -2;
-                layoutParams2.gravity = 17;
-                this.e.setLayoutParams(layoutParams2);
-                this.H = (int) (ej.d(getContext(), pendantData.left) * this.x);
-                this.I = (int) (ej.d(getContext(), pendantData.top) * this.x);
-                this.J = (int) (ej.d(getContext(), pendantData.right) * this.x);
-                int d2 = (int) (ej.d(getContext(), pendantData.bottom) * this.x);
-                this.K = d2;
-                this.c.setPadding(this.H, this.I, this.J, d2);
-                this.G = ej.f(getContext(), R.dimen.obfuscated_res_0x7f070330) * this.x;
-                String text = getText();
-                this.M = (i2 - this.I) - this.K;
-                this.N = (i - this.H) - this.J;
-                this.P = this.O + ej.f(getContext(), R.dimen.obfuscated_res_0x7f0702e6);
-                setTextSize(0, this.G);
-                if (TextUtils.isEmpty(text)) {
-                    D(getContext().getString(R.string.obfuscated_res_0x7f0f0469), this.N);
-                    this.G = this.e.getTextSize();
-                    R();
-                    S();
-                } else {
-                    if (ji5.c(text) > 20) {
-                        text = ji5.m(text, 20);
-                        this.e.setText(text);
-                        this.d.setText(text);
+                if (!TextUtils.isEmpty(obj)) {
+                    String E = E(this.e.getPaint(), obj);
+                    if (!E.equals(obj)) {
+                        this.d.setText(E);
+                        this.e.setText(E);
                     }
-                    M(text);
                 }
             }
-            this.d.setIncludeFontPadding(false);
-            this.e.setIncludeFontPadding(false);
-            this.d.setLineSpacing(this.O, 1.0f);
-            this.e.setLineSpacing(this.O, 1.0f);
-            this.a.setRotation(0.0f);
-            FrameLayout.LayoutParams layoutParams3 = (FrameLayout.LayoutParams) this.a.getLayoutParams();
-            int i4 = this.L;
-            layoutParams3.height = i2 + (i4 * 2);
-            layoutParams3.width = (i4 * 2) + i;
-            this.a.setLayoutParams(layoutParams3);
-            this.Q = i + (this.L * 2);
-            int i5 = this.L;
-            ((FrameLayout.LayoutParams) this.b.getLayoutParams()).setMargins(i5, i5, i5, i5);
-            this.a.setVisibility(0);
-        }
-    }
-
-    public final void M(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(1048588, this, str) != null) {
-            return;
-        }
-        TextPaint paint = this.e.getPaint();
-        float measureText = paint.measureText(str);
-        while (true) {
-            float textSize = this.e.getTextSize();
-            float f2 = this.M;
-            float f3 = this.y;
-            if (textSize <= ((f2 * f3) / 2.0f) - (this.P * f3) || measureText <= this.N * f3) {
-                return;
-            }
-            setTextSize(0, this.e.getTextSize() - 1.0f);
-            measureText = paint.measureText(str);
         }
     }
 
@@ -773,7 +816,7 @@ public class CoverPendantDragView extends FrameLayout {
                 setTextSize(0, this.e.getTextSize() + 1.0f);
                 measureText = paint.measureText(str);
             }
-            if (ji5.c(str) <= ji5.c(getResources().getString(R.string.obfuscated_res_0x7f0f0469))) {
+            if (oi5.c(str) <= oi5.c(getResources().getString(R.string.obfuscated_res_0x7f0f0470))) {
                 float textSize2 = this.e.getTextSize();
                 float f4 = this.G;
                 float f5 = this.y;
@@ -813,15 +856,87 @@ public class CoverPendantDragView extends FrameLayout {
         }
     }
 
-    public final void P() {
+    @Override // android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            buildDrawingCache();
-            Bitmap drawingCache = getDrawingCache();
-            if (drawingCache != null) {
-                this.S = Bitmap.createBitmap(drawingCache);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (action != 0) {
+                if (action == 1) {
+                    float rawX = motionEvent.getRawX();
+                    float rawY = motionEvent.getRawY();
+                    float abs = Math.abs(rawX - this.U);
+                    float abs2 = Math.abs(rawY - this.V);
+                    if (motionEvent.getPointerCount() <= 1) {
+                        float f2 = this.k;
+                        if (abs < f2 && abs2 < f2 && System.currentTimeMillis() - this.T < 300) {
+                            A();
+                        }
+                    }
+                }
+            } else {
+                this.T = System.currentTimeMillis();
+                this.U = motionEvent.getRawX();
+                this.V = motionEvent.getRawY();
             }
-            destroyDrawingCache();
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void I() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            for (Map.Entry entry : this.R.entrySet()) {
+                Bitmap bitmap = (Bitmap) entry.getValue();
+                if (bitmap != null && !bitmap.isRecycled()) {
+                    bitmap.recycle();
+                }
+            }
+            this.R.clear();
+            this.R = null;
+            v();
+        }
+    }
+
+    public void S() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            this.d.setText(this.e.getText());
+            this.d.setVisibility(8);
+            this.e.setVisibility(0);
+            setEditTextEnable(true);
+            this.z.ShowSoftKeyPad(this.e);
+        }
+    }
+
+    public final void z() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048610, this) != null) || !this.F) {
+            return;
+        }
+        this.F = false;
+        this.f.setVisibility(8);
+        this.g.setVisibility(8);
+        this.b.setBackgroundColor(getResources().getColor(R.color.transparent));
+    }
+
+    public final void J(View view2, MotionEvent motionEvent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, view2, motionEvent) == null) {
+            this.l = motionEvent.getRawX();
+            float rawY = motionEvent.getRawY();
+            this.m = rawY;
+            this.n = this.l;
+            this.o = rawY;
+            this.u = (this.a.getWidth() / 2) + this.a.getX();
+            this.v = (this.a.getHeight() / 2) + this.a.getY();
+            this.d.setText(this.e.getText());
+            this.d.setVisibility(0);
+            this.e.setVisibility(8);
+            setEditTextEnable(false);
+            this.z.HidenSoftKeyPad(this.e);
         }
     }
 
@@ -852,26 +967,119 @@ public class CoverPendantDragView extends FrameLayout {
         }
     }
 
+    public void L(int i, int i2, int i3, PendantData pendantData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), pendantData}) == null) {
+            if (pendantData.pendantType != 4) {
+                this.e.setTextAppearance(getContext(), R.style.obfuscated_res_0x7f1003aa);
+                this.d.setTextAppearance(getContext(), R.style.obfuscated_res_0x7f1003aa);
+                float f2 = i;
+                float f3 = i3;
+                i2 = (int) ((fj.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f07019a) * f2) / f3);
+                setTextSize(0, (fj.f(getContext(), R.dimen.obfuscated_res_0x7f070330) * f2) / f3);
+                this.L = 0;
+                this.e.setMaxLines(1);
+                this.d.setMaxLines(1);
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.d.getLayoutParams();
+                layoutParams.height = -1;
+                layoutParams.width = -2;
+                layoutParams.gravity = 17;
+                this.e.setLayoutParams(layoutParams);
+                this.c.setPadding(fj.f(getContext(), R.dimen.obfuscated_res_0x7f070253), 0, fj.f(getContext(), R.dimen.obfuscated_res_0x7f070253), 0);
+            } else {
+                this.e.setTextAppearance(getContext(), R.style.obfuscated_res_0x7f1003a9);
+                this.d.setTextAppearance(getContext(), R.style.obfuscated_res_0x7f1003a9);
+                this.L = fj.f(getContext(), R.dimen.obfuscated_res_0x7f070225);
+                this.e.setMaxLines(2);
+                this.d.setMaxLines(2);
+                FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.d.getLayoutParams();
+                layoutParams2.height = -2;
+                layoutParams2.width = -2;
+                layoutParams2.gravity = 17;
+                this.e.setLayoutParams(layoutParams2);
+                this.H = (int) (fj.d(getContext(), pendantData.left) * this.x);
+                this.I = (int) (fj.d(getContext(), pendantData.top) * this.x);
+                this.J = (int) (fj.d(getContext(), pendantData.right) * this.x);
+                int d2 = (int) (fj.d(getContext(), pendantData.bottom) * this.x);
+                this.K = d2;
+                this.c.setPadding(this.H, this.I, this.J, d2);
+                this.G = fj.f(getContext(), R.dimen.obfuscated_res_0x7f070330) * this.x;
+                String text = getText();
+                this.M = (i2 - this.I) - this.K;
+                this.N = (i - this.H) - this.J;
+                this.P = this.O + fj.f(getContext(), R.dimen.obfuscated_res_0x7f0702e6);
+                setTextSize(0, this.G);
+                if (TextUtils.isEmpty(text)) {
+                    D(getContext().getString(R.string.obfuscated_res_0x7f0f0470), this.N);
+                    this.G = this.e.getTextSize();
+                    R();
+                    S();
+                } else {
+                    if (oi5.c(text) > 20) {
+                        text = oi5.k(text, 20);
+                        this.e.setText(text);
+                        this.d.setText(text);
+                    }
+                    M(text);
+                }
+            }
+            this.d.setIncludeFontPadding(false);
+            this.e.setIncludeFontPadding(false);
+            this.d.setLineSpacing(this.O, 1.0f);
+            this.e.setLineSpacing(this.O, 1.0f);
+            this.a.setRotation(0.0f);
+            FrameLayout.LayoutParams layoutParams3 = (FrameLayout.LayoutParams) this.a.getLayoutParams();
+            int i4 = this.L;
+            layoutParams3.height = i2 + (i4 * 2);
+            layoutParams3.width = (i4 * 2) + i;
+            this.a.setLayoutParams(layoutParams3);
+            this.Q = i + (this.L * 2);
+            int i5 = this.L;
+            ((FrameLayout.LayoutParams) this.b.getLayoutParams()).setMargins(i5, i5, i5, i5);
+            this.a.setVisibility(0);
+        }
+    }
+
+    public final void M(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            TextPaint paint = this.e.getPaint();
+            float measureText = paint.measureText(str);
+            while (true) {
+                float textSize = this.e.getTextSize();
+                float f2 = this.M;
+                float f3 = this.y;
+                if (textSize > ((f2 * f3) / 2.0f) - (this.P * f3) && measureText > this.N * f3) {
+                    setTextSize(0, this.e.getTextSize() - 1.0f);
+                    measureText = paint.measureText(str);
+                } else {
+                    return;
+                }
+            }
+        }
+    }
+
+    public final void P() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            buildDrawingCache();
+            Bitmap drawingCache = getDrawingCache();
+            if (drawingCache != null) {
+                this.S = Bitmap.createBitmap(drawingCache);
+            }
+            destroyDrawingCache();
+        }
+    }
+
     public final void R() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || this.F) {
+        if ((interceptable != null && interceptable.invokeV(1048593, this) != null) || this.F) {
             return;
         }
         this.F = true;
         this.f.setVisibility(0);
         this.g.setVisibility(0);
         this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080266);
-    }
-
-    public void S() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.d.setText(this.e.getText());
-            this.d.setVisibility(8);
-            this.e.setVisibility(0);
-            setEditTextEnable(true);
-            this.z.ShowSoftKeyPad(this.e);
-        }
     }
 
     public Bitmap getTempBitmap() {
@@ -891,83 +1099,20 @@ public class CoverPendantDragView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
             TextView textView = this.d;
-            if (textView == null || textView.getText() == null) {
-                return null;
+            if (textView != null && textView.getText() != null) {
+                return this.d.getText().toString();
             }
-            return this.d.getText().toString();
+            return null;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // android.widget.FrameLayout, android.view.View
-    public void onMeasure(int i, int i2) {
+    public void v() {
+        Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048597, this, i, i2) == null) {
-            super.onMeasure(i, i2);
-            if (this.i == 0 && this.j == 0) {
-                this.i = getMeasuredWidth();
-                this.j = getMeasuredHeight();
-            }
-        }
-    }
-
-    @Override // android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (action == 0) {
-                this.T = System.currentTimeMillis();
-                this.U = motionEvent.getRawX();
-                this.V = motionEvent.getRawY();
-            } else if (action == 1) {
-                float rawX = motionEvent.getRawX();
-                float rawY = motionEvent.getRawY();
-                float abs = Math.abs(rawX - this.U);
-                float abs2 = Math.abs(rawY - this.V);
-                if (motionEvent.getPointerCount() <= 1) {
-                    float f2 = this.k;
-                    if (abs < f2 && abs2 < f2 && System.currentTimeMillis() - this.T < 300) {
-                        A();
-                    }
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void setEditTextEnable(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
-            if (z) {
-                this.e.setFocusable(true);
-                this.e.setFocusableInTouchMode(true);
-                this.e.requestFocus();
-                return;
-            }
-            this.e.setFocusable(false);
-            this.e.setFocusableInTouchMode(false);
-        }
-    }
-
-    public void setParentViewController(cw8 cw8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, cw8Var) == null) {
-            this.z = cw8Var;
-        }
-    }
-
-    public void setTextSize(int i, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
-            if (this.e.getTextSize() != f2) {
-                this.e.setTextSize(i, f2);
-            }
-            if (this.d.getTextSize() != f2) {
-                this.d.setTextSize(i, f2);
-            }
+        if ((interceptable == null || interceptable.invokeV(1048606, this) == null) && (bitmap = this.S) != null && !bitmap.isRecycled()) {
+            this.S.recycle();
+            this.S = null;
         }
     }
 
@@ -1009,174 +1154,46 @@ public class CoverPendantDragView extends FrameLayout {
         }
     }
 
-    public void setVideoSize(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048603, this, i, i2) == null) {
-            this.i = i;
-            this.j = i2;
-        }
-    }
-
-    public final float[] t(MotionEvent motionEvent, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048604, this, motionEvent, i)) == null) {
-            Matrix matrix = new Matrix();
-            matrix.postRotate(this.a.getRotation());
-            float[] fArr = {motionEvent.getX(i), motionEvent.getY(i)};
-            matrix.mapPoints(fArr);
-            return fArr;
-        }
-        return (float[]) invokeLI.objValue;
-    }
-
     public void u(View view2, PendantData pendantData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048605, this, view2, pendantData) == null) || pendantData == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048605, this, view2, pendantData) != null) || pendantData == null) {
             return;
         }
         int i = pendantData.pendantType;
-        if (i == 0) {
-            this.e.setText("");
-            A();
-        } else if (i == 1) {
-            H(pendantData);
-            this.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f080265);
-            S();
-        } else if (i == 2) {
-            H(pendantData);
-            this.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f080264);
-            S();
-        } else if (i != 3) {
-            A();
-            String f2 = xv8.g().f(pendantData.resource);
-            if (TextUtils.isEmpty(f2)) {
-                if (view2 != null && (view2.getTag() instanceof kv8.c)) {
-                    kv8.c cVar = (kv8.c) view2.getTag();
-                    cVar.c.setVisibility(0);
-                    xv8.g().e(pendantData.id, pendantData.resource, new f(cVar, this, pendantData));
+        if (i != 0) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        A();
+                        String f2 = hw8.g().f(pendantData.resource);
+                        if (TextUtils.isEmpty(f2)) {
+                            if (view2 != null && (view2.getTag() instanceof uv8.c)) {
+                                uv8.c cVar = (uv8.c) view2.getTag();
+                                cVar.c.setVisibility(0);
+                                hw8.g().e(pendantData.id, pendantData.resource, new f(cVar, this, pendantData));
+                            }
+                        } else {
+                            G(f2, pendantData);
+                        }
+                    } else {
+                        H(pendantData);
+                        this.c.setBackgroundDrawable(null);
+                        S();
+                    }
+                } else {
+                    H(pendantData);
+                    this.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f080264);
+                    S();
                 }
             } else {
-                G(f2, pendantData);
+                H(pendantData);
+                this.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f080265);
+                S();
             }
         } else {
-            H(pendantData);
-            this.c.setBackgroundDrawable(null);
-            S();
+            this.e.setText("");
+            A();
         }
         this.h = pendantData.pendantType;
-    }
-
-    public void v() {
-        Bitmap bitmap;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048606, this) == null) || (bitmap = this.S) == null || bitmap.isRecycled()) {
-            return;
-        }
-        this.S.recycle();
-        this.S = null;
-    }
-
-    public final float w(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, motionEvent)) == null) {
-            float[] t = t(motionEvent, 0);
-            float f2 = t[0];
-            float f3 = t[1];
-            float[] t2 = t(motionEvent, 1);
-            return (float) Math.toDegrees(Math.atan2(f3 - t2[1], f2 - t2[0]));
-        }
-        return invokeL.floatValue;
-    }
-
-    public final float x(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, motionEvent)) == null) ? (float) Math.toDegrees(Math.atan2(this.v - motionEvent.getRawY(), this.u - motionEvent.getRawX())) : invokeL.floatValue;
-    }
-
-    public final float y(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, motionEvent)) == null) {
-            float x = motionEvent.getX(0) - motionEvent.getX(1);
-            float y = motionEvent.getY(0) - motionEvent.getY(1);
-            return (float) Math.sqrt((x * x) + (y * y));
-        }
-        return invokeL.floatValue;
-    }
-
-    public final void z() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048610, this) == null) && this.F) {
-            this.F = false;
-            this.f.setVisibility(8);
-            this.g.setVisibility(8);
-            this.b.setBackgroundColor(getResources().getColor(R.color.transparent));
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CoverPendantDragView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CoverPendantDragView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.h = 0;
-        this.x = 1.0f;
-        this.y = 1.0f;
-        this.F = true;
-        this.R = new HashMap();
-        this.T = 0L;
-        this.U = 0.0f;
-        this.V = 0.0f;
-        this.E = ej.k(TbadkCoreApplication.getInst());
-        this.G = ej.f(getContext(), R.dimen.obfuscated_res_0x7f070330);
-        this.O = ej.f(getContext(), R.dimen.obfuscated_res_0x7f0701d4);
-        this.k = ViewConfiguration.get(getContext()).getScaledTouchSlop();
-        this.a = (FrameLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0496, (ViewGroup) null);
-        B();
-        addView(this.a);
-        this.a.setOnTouchListener(new a(this));
-        this.f.setOnClickListener(new b(this));
-        this.g.setOnTouchListener(new c(this));
-        this.e.addTextChangedListener(new d(this));
-        this.e.setOnEditorActionListener(new e(this));
-        this.a.setVisibility(8);
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.searchbox.afx.recode;
 
-import android.annotation.SuppressLint;
 import android.media.MediaCodec;
 import android.media.MediaFormat;
 import android.media.MediaMuxer;
@@ -17,7 +16,6 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.ArrayList;
 import java.util.List;
-@SuppressLint({"NewApi"})
 /* loaded from: classes2.dex */
 public class QueuedMuxer {
     public static /* synthetic */ Interceptable $ic = null;
@@ -26,14 +24,14 @@ public class QueuedMuxer {
     public transient /* synthetic */ FieldHolder $fh;
     public ByteBuffer mByteBuffer;
     public final MediaMuxer mMuxer;
-    public final List<SampleInfo> mSampleInfoList;
+    public final List mSampleInfoList;
     public boolean mStarted;
     public MediaFormat mVideoFormat;
     public int mVideoTrackIndex;
 
     /* renamed from: com.baidu.searchbox.afx.recode.QueuedMuxer$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$afx$recode$QueuedMuxer$SampleType;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,25 +59,13 @@ public class QueuedMuxer {
     }
 
     /* loaded from: classes2.dex */
-    public static class SampleInfo {
+    public class SampleInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int mFlags;
         public final long mPresentationTimeUs;
         public final SampleType mSampleType;
         public final int mSize;
-
-        public /* synthetic */ SampleInfo(SampleType sampleType, int i, MediaCodec.BufferInfo bufferInfo, AnonymousClass1 anonymousClass1) {
-            this(sampleType, i, bufferInfo);
-        }
-
-        /* JADX INFO: Access modifiers changed from: private */
-        public void writeToBufferInfo(MediaCodec.BufferInfo bufferInfo, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(65541, this, bufferInfo, i) == null) {
-                bufferInfo.set(i, this.mSize, this.mPresentationTimeUs, this.mFlags);
-            }
-        }
 
         public SampleInfo(SampleType sampleType, int i, MediaCodec.BufferInfo bufferInfo) {
             Interceptable interceptable = $ic;
@@ -101,11 +87,23 @@ public class QueuedMuxer {
             this.mPresentationTimeUs = bufferInfo.presentationTimeUs;
             this.mFlags = bufferInfo.flags;
         }
+
+        public /* synthetic */ SampleInfo(SampleType sampleType, int i, MediaCodec.BufferInfo bufferInfo, AnonymousClass1 anonymousClass1) {
+            this(sampleType, i, bufferInfo);
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public void writeToBufferInfo(MediaCodec.BufferInfo bufferInfo, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(65541, this, bufferInfo, i) == null) {
+                bufferInfo.set(i, this.mSize, this.mPresentationTimeUs, this.mFlags);
+            }
+        }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class SampleType {
+    public final class SampleType {
         public static final /* synthetic */ SampleType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SampleType VIDEO;
@@ -127,6 +125,15 @@ public class QueuedMuxer {
             SampleType sampleType = new SampleType(HlsPlaylistParser.TYPE_VIDEO, 0);
             VIDEO = sampleType;
             $VALUES = new SampleType[]{sampleType};
+        }
+
+        public static SampleType[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (SampleType[]) $VALUES.clone();
+            }
+            return (SampleType[]) invokeV.objValue;
         }
 
         public SampleType(String str, int i) {
@@ -151,13 +158,10 @@ public class QueuedMuxer {
         public static SampleType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (SampleType) Enum.valueOf(SampleType.class, str) : (SampleType) invokeL.objValue;
-        }
-
-        public static SampleType[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (SampleType[]) $VALUES.clone() : (SampleType[]) invokeV.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (SampleType) Enum.valueOf(SampleType.class, str);
+            }
+            return (SampleType) invokeL.objValue;
         }
     }
 
@@ -180,7 +184,6 @@ public class QueuedMuxer {
         this.mSampleInfoList = new ArrayList();
     }
 
-    @SuppressLint({"BDThrowableCheck"})
     private int getTrackIndexForSampleType(SampleType sampleType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -196,7 +199,7 @@ public class QueuedMuxer {
     private void onSetOutputFormat() {
         MediaFormat mediaFormat;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (mediaFormat = this.mVideoFormat) == null) {
+        if ((interceptable != null && interceptable.invokeV(65538, this) != null) || (mediaFormat = this.mVideoFormat) == null) {
             return;
         }
         this.mVideoTrackIndex = this.mMuxer.addTrack(mediaFormat);
@@ -217,7 +220,6 @@ public class QueuedMuxer {
         this.mByteBuffer = null;
     }
 
-    @SuppressLint({"BDThrowableCheck"})
     public void setOutputFormat(SampleType sampleType, MediaFormat mediaFormat) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, sampleType, mediaFormat) == null) {

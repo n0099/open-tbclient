@@ -4,7 +4,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.ImageView;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,6 +19,11 @@ public class NadLongPressView extends ImageView {
     public boolean c;
     public final Runnable d;
     public b e;
+
+    /* loaded from: classes2.dex */
+    public interface b {
+        void a();
+    }
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
@@ -48,16 +52,10 @@ public class NadLongPressView extends ImageView {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.e == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.e != null) {
+                this.a.e.a();
             }
-            this.a.e.a();
         }
-    }
-
-    /* loaded from: classes2.dex */
-    public interface b {
-        void a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -82,41 +80,8 @@ public class NadLongPressView extends ImageView {
         this.e = null;
     }
 
-    @Override // android.view.View
-    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            int x = (int) motionEvent.getX();
-            int y = (int) motionEvent.getY();
-            int action = motionEvent.getAction();
-            if (action == 0) {
-                this.a = x;
-                this.b = y;
-                this.c = false;
-                postDelayed(this.d, 5000L);
-            } else if (action != 1) {
-                if (action == 2 && !this.c && (Math.abs(this.a - x) > 20 || Math.abs(this.b - y) > 20)) {
-                    this.c = true;
-                    removeCallbacks(this.d);
-                }
-            } else {
-                removeCallbacks(this.d);
-            }
-            return super.dispatchTouchEvent(motionEvent);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void setHandler(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.e = bVar;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NadLongPressView(Context context, @Nullable AttributeSet attributeSet) {
+    public NadLongPressView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -139,7 +104,7 @@ public class NadLongPressView extends ImageView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NadLongPressView(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public NadLongPressView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -159,5 +124,40 @@ public class NadLongPressView extends ImageView {
         }
         this.d = new a(this);
         this.e = null;
+    }
+
+    public void setHandler(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.e = bVar;
+        }
+    }
+
+    @Override // android.view.View
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            int x = (int) motionEvent.getX();
+            int y = (int) motionEvent.getY();
+            int action = motionEvent.getAction();
+            if (action != 0) {
+                if (action != 1) {
+                    if (action == 2 && !this.c && (Math.abs(this.a - x) > 20 || Math.abs(this.b - y) > 20)) {
+                        this.c = true;
+                        removeCallbacks(this.d);
+                    }
+                } else {
+                    removeCallbacks(this.d);
+                }
+            } else {
+                this.a = x;
+                this.b = y;
+                this.c = false;
+                postDelayed(this.d, 5000L);
+            }
+            return super.dispatchTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
     }
 }

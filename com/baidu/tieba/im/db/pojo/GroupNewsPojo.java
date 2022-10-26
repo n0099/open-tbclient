@@ -49,96 +49,127 @@ public class GroupNewsPojo implements Serializable {
         }
     }
 
-    private void initByValidateData(ValidateItemData validateItemData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, validateItemData) == null) || validateItemData == null) {
-            return;
-        }
-        setCmd("apply_join_group");
-        this.notice_id = validateItemData.getNotice_id();
-        this.content = validateItemData.toJsonString();
-        setTime(validateItemData.getApplyTime());
-        setGid(validateItemData.getGroupId());
-        setContent_status(validateItemData.isShown() ? 2 : 1);
-        setExt(validateItemData.getExt());
-    }
-
-    private void setSelfNewsRead() {
-        UpdatesItemData convertToUpdatesItem;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65541, this) == null) || TextUtils.isEmpty(getCmd())) {
-            return;
-        }
-        if ((!getCmd().equals("group_intro_change") && !getCmd().equals("group_name_change") && !getCmd().equals("group_notice_change")) || ModelHelper.getInstance().getUpdatasModel() == null || (convertToUpdatesItem = ModelHelper.getInstance().getUpdatasModel().convertToUpdatesItem(this)) == null) {
-            return;
-        }
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (TextUtils.isEmpty(currentAccount)) {
-            return;
-        }
-        String authorId = convertToUpdatesItem.getAuthorId();
-        if (TextUtils.isEmpty(authorId)) {
-            return;
-        }
-        if (currentAccount.equals(authorId)) {
-            setContent_status(2);
-        } else {
-            setContent_status(1);
-        }
-    }
-
     public String getCmd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.cmd : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.cmd;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.content : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.content;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getContent_status() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.content_status : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.content_status;
+        }
+        return invokeV.intValue;
     }
 
     public String getExt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.ext : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.ext;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getGid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.gid : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.gid;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getNotice_id() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.notice_id : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.notice_id;
+        }
+        return (String) invokeV.objValue;
     }
 
     public CommonMsgPojo getOriginalChatMsgPojo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.originalChatMsgPojo : (CommonMsgPojo) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.originalChatMsgPojo;
+        }
+        return (CommonMsgPojo) invokeV.objValue;
     }
 
     public ChatMessage getOriginalPushMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.originalPushMsg : (ChatMessage) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.originalPushMsg;
+        }
+        return (ChatMessage) invokeV.objValue;
     }
 
     public long getTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.time : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.time;
+        }
+        return invokeV.longValue;
+    }
+
+    public GroupNewsPojo(UpdatesItemData updatesItemData) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {updatesItemData};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        if (updatesItemData == null) {
+            return;
+        }
+        setCmd(updatesItemData.getUpdatesType());
+        this.notice_id = updatesItemData.getNotice_id();
+        this.content = updatesItemData.toJsonString();
+        setTime(updatesItemData.getTime());
+    }
+
+    public GroupNewsPojo(ValidateItemData validateItemData) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {validateItemData};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        initByValidateData(validateItemData);
     }
 
     public void setCmd(String str) {
@@ -266,8 +297,10 @@ public class GroupNewsPojo implements Serializable {
             str2 = "upload_stat";
         } else if (TbEnum.SystemMessage.EVENT_ID_PLUGIN_CONFIG_SYNC.equals(str)) {
             str2 = "plugin_config_sync";
+        } else if (TbEnum.SystemMessage.EVENT_ID_OFFLINE_DEBUG.equals(str)) {
+            str2 = "offline_debug";
         } else {
-            str2 = TbEnum.SystemMessage.EVENT_ID_OFFLINE_DEBUG.equals(str) ? "offline_debug" : "000";
+            str2 = "000";
         }
         setCmd(str2);
         setContent(chatMessage.getContent());
@@ -285,51 +318,52 @@ public class GroupNewsPojo implements Serializable {
                 e.printStackTrace();
             }
         }
-        if (!str2.equals("apply_join_group") || ModelHelper.getInstance().getValidateModel() == null) {
-            return;
+        if (str2.equals("apply_join_group") && ModelHelper.getInstance().getValidateModel() != null) {
+            initByValidateData(ModelHelper.getInstance().getValidateModel().convertToValidateItemData(this));
         }
-        initByValidateData(ModelHelper.getInstance().getValidateModel().convertToValidateItemData(this));
     }
 
-    public GroupNewsPojo(ValidateItemData validateItemData) {
+    private void initByValidateData(ValidateItemData validateItemData) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {validateItemData};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        initByValidateData(validateItemData);
-    }
-
-    public GroupNewsPojo(UpdatesItemData updatesItemData) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {updatesItemData};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        if (updatesItemData == null) {
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, validateItemData) != null) || validateItemData == null) {
             return;
         }
-        setCmd(updatesItemData.getUpdatesType());
-        this.notice_id = updatesItemData.getNotice_id();
-        this.content = updatesItemData.toJsonString();
-        setTime(updatesItemData.getTime());
+        setCmd("apply_join_group");
+        this.notice_id = validateItemData.getNotice_id();
+        this.content = validateItemData.toJsonString();
+        setTime(validateItemData.getApplyTime());
+        setGid(validateItemData.getGroupId());
+        if (validateItemData.isShown()) {
+            i = 2;
+        } else {
+            i = 1;
+        }
+        setContent_status(i);
+        setExt(validateItemData.getExt());
+    }
+
+    private void setSelfNewsRead() {
+        UpdatesItemData convertToUpdatesItem;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65541, this) != null) || TextUtils.isEmpty(getCmd())) {
+            return;
+        }
+        if ((!getCmd().equals("group_intro_change") && !getCmd().equals("group_name_change") && !getCmd().equals("group_notice_change")) || ModelHelper.getInstance().getUpdatasModel() == null || (convertToUpdatesItem = ModelHelper.getInstance().getUpdatasModel().convertToUpdatesItem(this)) == null) {
+            return;
+        }
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (TextUtils.isEmpty(currentAccount)) {
+            return;
+        }
+        String authorId = convertToUpdatesItem.getAuthorId();
+        if (TextUtils.isEmpty(authorId)) {
+            return;
+        }
+        if (currentAccount.equals(authorId)) {
+            setContent_status(2);
+        } else {
+            setContent_status(1);
+        }
     }
 }

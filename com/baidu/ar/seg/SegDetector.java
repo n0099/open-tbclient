@@ -572,7 +572,7 @@ public class SegDetector extends com.baidu.ar.b.a.a {
                                         this.vP.cb.setUsingHandle(0L);
                                         ReserveHandleData reserveHandleData = new ReserveHandleData();
                                         this.vP.cb.getHandleReserveData(createHandle3, reserveHandleData);
-                                        bArr3 = (reserveHandleData.getByteArrayListData() == null || reserveHandleData.getByteArrayListData().size() <= 0) ? bArr : reserveHandleData.getByteArrayListData().get(0);
+                                        bArr3 = (reserveHandleData.getByteArrayListData() == null || reserveHandleData.getByteArrayListData().size() <= 0) ? bArr : (byte[]) reserveHandleData.getByteArrayListData().get(0);
                                         try {
                                             bVar.n(createHandle3);
                                         } catch (Exception e3) {

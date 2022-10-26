@@ -1,9 +1,12 @@
 package com.baidu.tbadk.core.util.schemeaction;
 
 import android.os.Bundle;
+import com.baidu.android.common.others.url.UrlUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.schemeaction.SchemeActionManager;
 import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkAction;
+import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
+import com.baidu.tieba.b20;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.JsonObject;
 /* loaded from: classes3.dex */
 public class SchemeActionStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -69,7 +73,7 @@ public class SchemeActionStatic {
                 }
 
                 @Override // com.baidu.tbadk.core.util.schemeaction.SchemeActionManager.SchemeActionHandler
-                public void deal(TbPageContext<?> tbPageContext, UriBuilder uriBuilder, Bundle bundle) {
+                public void deal(TbPageContext tbPageContext, UriBuilder uriBuilder, Bundle bundle) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, tbPageContext, uriBuilder, bundle) == null) {
                         DeepLinkAction.dealDeepLink(tbPageContext.getPageActivity(), uriBuilder, bundle);
@@ -79,5 +83,17 @@ public class SchemeActionStatic {
             SchemeActionManager.getInstance().registerSchemeAction(SchemeActionName.SCHEME_ACTION_DEEPLINK, schemeActionHandler);
             SchemeActionManager.getInstance().registerSchemeAction(SchemeActionName.SCHEME_ACTION_DOLINK, schemeActionHandler);
         }
+    }
+
+    public static String wrapThirdDeeplink(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            JsonObject jsonObject = new JsonObject();
+            jsonObject.addProperty(DeepLinkItem.DEEPLINK_APPURL_KEY, str);
+            jsonObject.addProperty(DeepLinkItem.DEEPLINK_WEBURL_KEY, str2);
+            return UrlUtils.appendParam(SchemeActionName.SCHEME_ACTION_DEEPLINK, "params", b20.a(jsonObject.toString()));
+        }
+        return (String) invokeLL.objValue;
     }
 }

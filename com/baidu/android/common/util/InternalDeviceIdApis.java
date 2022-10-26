@@ -1,7 +1,7 @@
 package com.baidu.android.common.util;
 
 import android.content.Context;
-import com.baidu.tieba.mz;
+import com.baidu.tieba.nz;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ public class InternalDeviceIdApis {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public static class TargetPackageCuidV270Info {
+    public class TargetPackageCuidV270Info {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String iscChannelCuid;
@@ -48,21 +48,21 @@ public class InternalDeviceIdApis {
         }
     }
 
-    public static mz a(Context context) {
+    public static nz a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             DeviceId.getCUID(context);
             return DeviceId.a(context).c();
         }
-        return (mz) invokeL.objValue;
+        return (nz) invokeL.objValue;
     }
 
     public static String getSelfC270Ids(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            mz.a k = a(context).k();
+            nz.a k = a(context).k();
             if (k != null) {
                 return k.r();
             }
@@ -75,13 +75,13 @@ public class InternalDeviceIdApis {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            mz a = a(context);
+            nz a = a(context);
             TargetPackageCuidV270Info targetPackageCuidV270Info = new TargetPackageCuidV270Info();
-            mz.a b = a.b(str, "upc");
+            nz.a b = a.b(str, "upc");
             if (b != null) {
                 targetPackageCuidV270Info.upcChannelCuid = b.r();
             }
-            mz.a b2 = a.b(str, "isc");
+            nz.a b2 = a.b(str, "isc");
             if (b2 != null) {
                 targetPackageCuidV270Info.iscChannelCuid = b2.r();
             }

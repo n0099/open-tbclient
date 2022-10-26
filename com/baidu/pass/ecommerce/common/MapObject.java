@@ -18,9 +18,19 @@ import java.util.Set;
 /* loaded from: classes2.dex */
 public class MapObject implements NoProguard, Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<MapObject> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, Object> nameValuePairs;
+    public HashMap nameValuePairs;
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +45,7 @@ public class MapObject implements NoProguard, Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<MapObject>() { // from class: com.baidu.pass.ecommerce.common.MapObject.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.pass.ecommerce.common.MapObject.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,21 +64,25 @@ public class MapObject implements NoProguard, Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public MapObject createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new MapObject(parcel) : (MapObject) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new MapObject(parcel);
+                }
+                return (MapObject) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public MapObject[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new MapObject[i] : (MapObject[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new MapObject[i];
+                }
+                return (MapObject[]) invokeI.objValue;
             }
         };
     }
@@ -89,70 +103,13 @@ public class MapObject implements NoProguard, Parcelable {
         this.nameValuePairs = new LinkedHashMap();
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
+    public Iterator keyIterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.nameValuePairs.keySet().iterator();
         }
-        return invokeV.intValue;
-    }
-
-    public int getIntValue(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? ((Integer) this.nameValuePairs.get(str)).intValue() : invokeL.intValue;
-    }
-
-    public Object getObjValue(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.nameValuePairs.get(str) : invokeL.objValue;
-    }
-
-    public String getStrValue(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? (String) this.nameValuePairs.get(str) : (String) invokeL.objValue;
-    }
-
-    public Iterator<String> keyIterator() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.nameValuePairs.keySet().iterator() : (Iterator) invokeV.objValue;
-    }
-
-    public void putValue(String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, str, obj) == null) {
-            this.nameValuePairs.put(str, obj);
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            Set<String> keySet = this.nameValuePairs.keySet();
-            StringBuilder sb = new StringBuilder();
-            for (String str : keySet) {
-                sb.append(str);
-                sb.append("=");
-                sb.append(getObjValue(str));
-                sb.append(",");
-            }
-            return "MapObject{" + sb.toString() + '}';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048583, this, parcel, i) == null) {
-            parcel.writeMap(this.nameValuePairs);
-        }
+        return (Iterator) invokeV.objValue;
     }
 
     public MapObject(Parcel parcel) {
@@ -171,5 +128,64 @@ public class MapObject implements NoProguard, Parcelable {
             }
         }
         this.nameValuePairs = parcel.readHashMap(Object.class.getClassLoader());
+    }
+
+    public int getIntValue(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return ((Integer) this.nameValuePairs.get(str)).intValue();
+        }
+        return invokeL.intValue;
+    }
+
+    public Object getObjValue(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return this.nameValuePairs.get(str);
+        }
+        return invokeL.objValue;
+    }
+
+    public String getStrValue(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return (String) this.nameValuePairs.get(str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void putValue(String str, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, obj) == null) {
+            this.nameValuePairs.put(str, obj);
+        }
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048583, this, parcel, i) == null) {
+            parcel.writeMap(this.nameValuePairs);
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            Set<String> keySet = this.nameValuePairs.keySet();
+            StringBuilder sb = new StringBuilder();
+            for (String str : keySet) {
+                sb.append(str);
+                sb.append("=");
+                sb.append(getObjValue(str));
+                sb.append(",");
+            }
+            return "MapObject{" + sb.toString() + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

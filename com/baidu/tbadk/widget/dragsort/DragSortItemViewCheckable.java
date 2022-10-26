@@ -40,23 +40,12 @@ public class DragSortItemViewCheckable extends DragSortItemView implements Check
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             View childAt = getChildAt(0);
-            if (childAt instanceof Checkable) {
-                return ((Checkable) childAt).isChecked();
+            if (!(childAt instanceof Checkable)) {
+                return false;
             }
-            return false;
+            return ((Checkable) childAt).isChecked();
         }
         return invokeV.booleanValue;
-    }
-
-    @Override // android.widget.Checkable
-    public void setChecked(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            View childAt = getChildAt(0);
-            if (childAt instanceof Checkable) {
-                ((Checkable) childAt).setChecked(z);
-            }
-        }
     }
 
     @Override // android.widget.Checkable
@@ -66,6 +55,17 @@ public class DragSortItemViewCheckable extends DragSortItemView implements Check
             View childAt = getChildAt(0);
             if (childAt instanceof Checkable) {
                 ((Checkable) childAt).toggle();
+            }
+        }
+    }
+
+    @Override // android.widget.Checkable
+    public void setChecked(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            View childAt = getChildAt(0);
+            if (childAt instanceof Checkable) {
+                ((Checkable) childAt).setChecked(z);
             }
         }
     }

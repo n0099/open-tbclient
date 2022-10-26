@@ -44,11 +44,11 @@ public class b {
     public a cr;
     public boolean cs;
     public boolean ct;
-    public ArrayList<String> cu;
+    public ArrayList cu;
     public boolean cv;
 
     /* loaded from: classes.dex */
-    public static final class a extends Handler {
+    public final class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean cC;
@@ -127,7 +127,7 @@ public class b {
         this.cp = null;
         this.cs = true;
         this.cb = null;
-        this.cu = new ArrayList<>();
+        this.cu = new ArrayList();
         this.cv = true;
         this.cp = interfaceC0047b;
         if (this.cq == null) {
@@ -140,7 +140,7 @@ public class b {
         }
     }
 
-    private long a(ArrayList<byte[]> arrayList) {
+    private long a(ArrayList arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, arrayList)) == null) {
@@ -179,7 +179,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i, String str, ArrayList<byte[]> arrayList) {
+    public void a(int i, String str, ArrayList arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(65541, this, i, str, arrayList) == null) {
             if (this.cp == null) {
@@ -203,14 +203,14 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, this, iHttpResponse, str) == null) {
             if (!this.cs) {
-                a(201, "cancel ability", (ArrayList<byte[]>) null);
+                a(201, "cancel ability", (ArrayList) null);
             } else if (x(str)) {
             } else {
                 try {
                     String content = iHttpResponse.getContent();
                     com.baidu.ar.h.b.aS("response.getContent():" + content);
                     if (TextUtils.isEmpty(content)) {
-                        a(203, "response json error", (ArrayList<byte[]>) null);
+                        a(203, "response json error", (ArrayList) null);
                         return;
                     }
                     JSONObject jSONObject = new JSONObject(content);
@@ -218,10 +218,10 @@ public class b {
                     String optString = jSONObject.optString(PmsConstant.Statistic.STATISTIC_ERRMSG, null);
                     String optString2 = jSONObject.optString(TiebaStatic.LogFields.RESULT, null);
                     if (optInt != 0) {
-                        a(203, "service error, errorNum:" + optInt + " errorMsg:" + optString, (ArrayList<byte[]>) null);
+                        a(203, "service error, errorNum:" + optInt + " errorMsg:" + optString, (ArrayList) null);
                     } else if (x(str)) {
                     } else {
-                        ArrayList<byte[]> y = y(optString2);
+                        ArrayList y = y(optString2);
                         if (x(str)) {
                             return;
                         }
@@ -231,7 +231,7 @@ public class b {
                 } catch (Exception e) {
                     e.printStackTrace();
                     com.baidu.ar.h.b.aS("processResponse Exception:" + e.getMessage());
-                    a(203, "Exception:" + e.getMessage(), (ArrayList<byte[]>) null);
+                    a(203, "Exception:" + e.getMessage(), (ArrayList) null);
                 }
             }
         }
@@ -268,7 +268,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, this, str)) == null) {
-            ArrayList<String> arrayList = this.cu;
+            ArrayList arrayList = this.cu;
             if (arrayList == null || arrayList.size() <= 0 || !this.cu.contains(str)) {
                 com.baidu.ar.h.b.aS("checkCancelStatus mTaskTimeStampList:" + this.cu);
                 return true;
@@ -278,11 +278,11 @@ public class b {
         return invokeL.booleanValue;
     }
 
-    private ArrayList<byte[]> y(String str) {
+    private ArrayList y(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, this, str)) == null) {
-            ArrayList<byte[]> arrayList = new ArrayList<>();
+            ArrayList arrayList = new ArrayList();
             String str2 = new String(Base64.decode(str, 0), "UTF-8");
             com.baidu.ar.h.b.aS("result:" + str2);
             JSONObject jSONObject = new JSONObject(str2);
@@ -320,7 +320,7 @@ public class b {
             return;
         }
         String valueOf = String.valueOf(framePixels.getTimestamp());
-        ArrayList<String> arrayList = this.cu;
+        ArrayList arrayList = this.cu;
         if (arrayList == null) {
             return;
         }
@@ -404,7 +404,7 @@ public class b {
                             Interceptable interceptable3 = $ic;
                             if (interceptable3 == null || interceptable3.invokeL(1048576, this, httpException) == null) {
                                 b bVar = this.cA.cy;
-                                bVar.a(202, httpException.getCode() + "/" + httpException.getMessage(), (ArrayList<byte[]>) null);
+                                bVar.a(202, httpException.getCode() + "/" + httpException.getMessage(), (ArrayList) null);
                             }
                         }
 
@@ -433,7 +433,7 @@ public class b {
     public void ar() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ArrayList<String> arrayList = this.cu;
+            ArrayList arrayList = this.cu;
             if (arrayList != null) {
                 arrayList.clear();
             }
@@ -457,7 +457,7 @@ public class b {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.cs = false;
             this.cp = null;
-            ArrayList<String> arrayList = this.cu;
+            ArrayList arrayList = this.cu;
             if (arrayList != null) {
                 arrayList.clear();
                 this.cu = null;
@@ -521,7 +521,7 @@ public class b {
                 return;
             }
             String str2 = String.valueOf(this.f1030cn.getTimestamp()) + String.valueOf(System.currentTimeMillis());
-            ArrayList<String> arrayList = this.cu;
+            ArrayList arrayList = this.cu;
             if (arrayList == null) {
                 return;
             }
@@ -591,7 +591,7 @@ public class b {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeL(1048576, this, httpException) == null) {
                                     b bVar = this.cB.cy;
-                                    bVar.a(202, httpException.getCode() + "/" + httpException.getMessage(), (ArrayList<byte[]>) null);
+                                    bVar.a(202, httpException.getCode() + "/" + httpException.getMessage(), (ArrayList) null);
                                 }
                             }
 

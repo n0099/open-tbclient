@@ -29,6 +29,65 @@ public class User {
         }
     }
 
+    public String getDisplayName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.displayName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.id;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        int hashCode;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String str = this.displayName;
+            int i = 0;
+            if (str == null) {
+                hashCode = 0;
+            } else {
+                hashCode = str.hashCode();
+            }
+            int i2 = (hashCode + 31) * 31;
+            String str2 = this.id;
+            if (str2 != null) {
+                i = str2.hashCode();
+            }
+            return i2 + i;
+        }
+        return invokeV.intValue;
+    }
+
+    public User(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        setId(str);
+        setDisplayName(str2);
+    }
+
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -36,53 +95,29 @@ public class User {
             if (this == obj) {
                 return true;
             }
-            if (obj != null && User.class == obj.getClass()) {
-                User user = (User) obj;
-                String str = this.displayName;
-                if (str == null) {
-                    if (user.displayName != null) {
-                        return false;
-                    }
-                } else if (!str.equals(user.displayName)) {
-                    return false;
-                }
-                String str2 = this.id;
-                if (str2 == null) {
-                    if (user.id != null) {
-                        return false;
-                    }
-                } else if (!str2.equals(user.id)) {
-                    return false;
-                }
-                return true;
+            if (obj == null || User.class != obj.getClass()) {
+                return false;
             }
-            return false;
+            User user = (User) obj;
+            String str = this.displayName;
+            if (str == null) {
+                if (user.displayName != null) {
+                    return false;
+                }
+            } else if (!str.equals(user.displayName)) {
+                return false;
+            }
+            String str2 = this.id;
+            if (str2 == null) {
+                if (user.id != null) {
+                    return false;
+                }
+            } else if (!str2.equals(user.id)) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
-    }
-
-    public String getDisplayName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.displayName : (String) invokeV.objValue;
-    }
-
-    public String getId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.id : (String) invokeV.objValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String str = this.displayName;
-            int hashCode = ((str == null ? 0 : str.hashCode()) + 31) * 31;
-            String str2 = this.id;
-            return hashCode + (str2 != null ? str2.hashCode() : 0);
-        }
-        return invokeV.intValue;
     }
 
     public void setDisplayName(String str) {
@@ -97,15 +132,6 @@ public class User {
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             this.id = str;
         }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "User [id=" + this.id + ", displayName=" + this.displayName + PreferencesUtil.RIGHT_MOUNT;
-        }
-        return (String) invokeV.objValue;
     }
 
     public User withDisplayName(String str) {
@@ -128,22 +154,12 @@ public class User {
         return (User) invokeL.objValue;
     }
 
-    public User(String str, String str2) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "User [id=" + this.id + ", displayName=" + this.displayName + PreferencesUtil.RIGHT_MOUNT;
         }
-        setId(str);
-        setDisplayName(str2);
+        return (String) invokeV.objValue;
     }
 }

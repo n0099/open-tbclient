@@ -39,88 +39,28 @@ public class b {
 
     public static void a(a aVar, com.cmic.sso.sdk.a aVar2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, aVar, aVar2) == null) || aVar == null || aVar2 == null) {
-            return;
-        }
-        aVar.b(aVar2.b("appid", ""));
-        aVar.f(m.a());
-        aVar.i(aVar2.b("interfaceType", ""));
-        aVar.h(aVar2.b("interfaceCode", ""));
-        aVar.g(aVar2.b("interfaceElasped", ""));
-        aVar.l(aVar2.b("timeOut"));
-        aVar.s(aVar2.b("traceId"));
-        aVar.v(aVar2.b("networkClass"));
-        aVar.n(aVar2.b("simCardNum"));
-        aVar.o(aVar2.b("operatortype"));
-        aVar.p(m.b());
-        aVar.q(m.c());
-        aVar.y(String.valueOf(aVar2.b("networktype", 0)));
-        aVar.t(aVar2.b(LaunchedTaskSpeedStats.KEY_START_TIME));
-        aVar.w(aVar2.b("endtime"));
-        aVar.m(String.valueOf(aVar2.b("systemEndTime", 0L) - aVar2.b("systemStartTime", 0L)));
-        aVar.d(aVar2.b("imsiState"));
-        aVar.z(k.b("AID", ""));
-        aVar.A(aVar2.b("operatortype"));
-        aVar.B(aVar2.b("scripType"));
-        c.a("SendLog", "traceId" + aVar2.b("traceId"));
-    }
-
-    public void a(Context context, String str, com.cmic.sso.sdk.a aVar) {
-        StackTraceElement[] stackTrace;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, context, str, aVar) == null) {
-            String str2 = "";
-            try {
-                a a = aVar.a();
-                String b = f.b(context);
-                a.e(str);
-                a.x(aVar.b("loginMethod", ""));
-                if (aVar.b("isCacheScrip", false)) {
-                    a.r("scrip");
-                } else {
-                    a.r("pgw");
-                }
-                a.j(f.a(context));
-                if (!TextUtils.isEmpty(b)) {
-                    str2 = b;
-                }
-                a.k(str2);
-                a.c(aVar.b("hsaReadPhoneStatePermission", false) ? "1" : "0");
-                a(a, aVar);
-                JSONArray jSONArray = null;
-                if (a.a.size() > 0) {
-                    jSONArray = new JSONArray();
-                    Iterator<Throwable> it = a.a.iterator();
-                    while (it.hasNext()) {
-                        Throwable next = it.next();
-                        StringBuffer stringBuffer = new StringBuffer();
-                        JSONObject jSONObject = new JSONObject();
-                        for (StackTraceElement stackTraceElement : next.getStackTrace()) {
-                            stringBuffer.append("\n");
-                            stringBuffer.append(stackTraceElement.toString());
-                        }
-                        jSONObject.put("message", next.toString());
-                        jSONObject.put("stack", stringBuffer.toString());
-                        jSONArray.put(jSONObject);
-                    }
-                    a.a.clear();
-                }
-                if (jSONArray != null && jSONArray.length() > 0) {
-                    a.a(jSONArray);
-                }
-                c.a("SendLog", "登录日志");
-                a(a.b(), aVar);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    private void a(JSONObject jSONObject, com.cmic.sso.sdk.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, jSONObject, aVar) == null) {
-            this.a = aVar;
-            a(jSONObject);
+        if ((interceptable == null || interceptable.invokeLL(65538, null, aVar, aVar2) == null) && aVar != null && aVar2 != null) {
+            aVar.b(aVar2.b("appid", ""));
+            aVar.f(m.a());
+            aVar.i(aVar2.b("interfaceType", ""));
+            aVar.h(aVar2.b("interfaceCode", ""));
+            aVar.g(aVar2.b("interfaceElasped", ""));
+            aVar.l(aVar2.b("timeOut"));
+            aVar.s(aVar2.b("traceId"));
+            aVar.v(aVar2.b("networkClass"));
+            aVar.n(aVar2.b("simCardNum"));
+            aVar.o(aVar2.b("operatortype"));
+            aVar.p(m.b());
+            aVar.q(m.c());
+            aVar.y(String.valueOf(aVar2.b("networktype", 0)));
+            aVar.t(aVar2.b(LaunchedTaskSpeedStats.KEY_START_TIME));
+            aVar.w(aVar2.b("endtime"));
+            aVar.m(String.valueOf(aVar2.b("systemEndTime", 0L) - aVar2.b("systemStartTime", 0L)));
+            aVar.d(aVar2.b("imsiState"));
+            aVar.z(k.b("AID", ""));
+            aVar.A(aVar2.b("operatortype"));
+            aVar.B(aVar2.b("scripType"));
+            c.a("SendLog", "traceId" + aVar2.b("traceId"));
         }
     }
 
@@ -174,6 +114,71 @@ public class b {
                     }
                 }
             });
+        }
+    }
+
+    private void a(JSONObject jSONObject, com.cmic.sso.sdk.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, jSONObject, aVar) == null) {
+            this.a = aVar;
+            a(jSONObject);
+        }
+    }
+
+    public void a(Context context, String str, com.cmic.sso.sdk.a aVar) {
+        String str2;
+        StackTraceElement[] stackTrace;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, context, str, aVar) == null) {
+            String str3 = "";
+            try {
+                a a = aVar.a();
+                String b = f.b(context);
+                a.e(str);
+                a.x(aVar.b("loginMethod", ""));
+                if (aVar.b("isCacheScrip", false)) {
+                    a.r("scrip");
+                } else {
+                    a.r("pgw");
+                }
+                a.j(f.a(context));
+                if (!TextUtils.isEmpty(b)) {
+                    str3 = b;
+                }
+                a.k(str3);
+                if (aVar.b("hsaReadPhoneStatePermission", false)) {
+                    str2 = "1";
+                } else {
+                    str2 = "0";
+                }
+                a.c(str2);
+                a(a, aVar);
+                JSONArray jSONArray = null;
+                if (a.a.size() > 0) {
+                    jSONArray = new JSONArray();
+                    Iterator it = a.a.iterator();
+                    while (it.hasNext()) {
+                        Throwable th = (Throwable) it.next();
+                        StringBuffer stringBuffer = new StringBuffer();
+                        JSONObject jSONObject = new JSONObject();
+                        for (StackTraceElement stackTraceElement : th.getStackTrace()) {
+                            stringBuffer.append("\n");
+                            stringBuffer.append(stackTraceElement.toString());
+                        }
+                        jSONObject.put("message", th.toString());
+                        jSONObject.put("stack", stringBuffer.toString());
+                        jSONArray.put(jSONObject);
+                    }
+                    a.a.clear();
+                }
+                if (jSONArray != null && jSONArray.length() > 0) {
+                    a.a(jSONArray);
+                }
+                c.a("SendLog", "登录日志");
+                a(a.b(), aVar);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }

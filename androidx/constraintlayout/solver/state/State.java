@@ -131,13 +131,19 @@ public class State {
         public static Chain valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Chain) Enum.valueOf(Chain.class, str) : (Chain) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Chain) Enum.valueOf(Chain.class, str);
+            }
+            return (Chain) invokeL.objValue;
         }
 
         public static Chain[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Chain[]) $VALUES.clone() : (Chain[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Chain[]) $VALUES.clone();
+            }
+            return (Chain[]) invokeV.objValue;
         }
     }
 
@@ -217,13 +223,19 @@ public class State {
         public static Constraint valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Constraint) Enum.valueOf(Constraint.class, str) : (Constraint) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Constraint) Enum.valueOf(Constraint.class, str);
+            }
+            return (Constraint) invokeL.objValue;
         }
 
         public static Constraint[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Constraint[]) $VALUES.clone() : (Constraint[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Constraint[]) $VALUES.clone();
+            }
+            return (Constraint[]) invokeV.objValue;
         }
     }
 
@@ -285,13 +297,19 @@ public class State {
         public static Direction valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Direction) Enum.valueOf(Direction.class, str) : (Direction) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Direction) Enum.valueOf(Direction.class, str);
+            }
+            return (Direction) invokeL.objValue;
         }
 
         public static Direction[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Direction[]) $VALUES.clone() : (Direction[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Direction[]) $VALUES.clone();
+            }
+            return (Direction[]) invokeV.objValue;
         }
     }
 
@@ -355,13 +373,19 @@ public class State {
         public static Helper valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Helper) Enum.valueOf(Helper.class, str) : (Helper) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Helper) Enum.valueOf(Helper.class, str);
+            }
+            return (Helper) invokeL.objValue;
         }
 
         public static Helper[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Helper[]) $VALUES.clone() : (Helper[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Helper[]) $VALUES.clone();
+            }
+            return (Helper[]) invokeV.objValue;
         }
     }
 
@@ -379,6 +403,37 @@ public class State {
             }
         }
         PARENT = 0;
+    }
+
+    private String createHelperKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("__HELPER_KEY_");
+            int i = this.numHelpers;
+            this.numHelpers = i + 1;
+            sb.append(i);
+            sb.append("__");
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void directMapping() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            for (Object obj : this.mReferences.keySet()) {
+                constraints(obj).setView(obj);
+            }
+        }
+    }
+
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            this.mHelperReferences.clear();
+        }
     }
 
     public State() {
@@ -400,21 +455,6 @@ public class State {
         this.mParent = constraintReference;
         this.numHelpers = 0;
         this.mReferences.put(PARENT, constraintReference);
-    }
-
-    private String createHelperKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("__HELPER_KEY_");
-            int i = this.numHelpers;
-            this.numHelpers = i + 1;
-            sb.append(i);
-            sb.append("__");
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
     }
 
     public void apply(ConstraintWidgetContainer constraintWidgetContainer) {
@@ -471,6 +511,31 @@ public class State {
             return barrierReference;
         }
         return (BarrierReference) invokeLL.objValue;
+    }
+
+    public GuidelineReference guideline(Object obj, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj, i)) == null) {
+            Reference reference = this.mReferences.get(obj);
+            GuidelineReference guidelineReference = reference;
+            if (reference == null) {
+                GuidelineReference guidelineReference2 = new GuidelineReference(this);
+                guidelineReference2.setOrientation(i);
+                guidelineReference2.setKey(obj);
+                this.mReferences.put(obj, guidelineReference2);
+                guidelineReference = guidelineReference2;
+            }
+            return (GuidelineReference) guidelineReference;
+        }
+        return (GuidelineReference) invokeLI.objValue;
+    }
+
+    public void map(Object obj, Object obj2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048589, this, obj, obj2) == null) {
+            constraints(obj).setView(obj2);
+        }
     }
 
     public AlignHorizontallyReference centerHorizontally(Object... objArr) {
@@ -531,73 +596,19 @@ public class State {
     public ConstraintReference createConstraintReference(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) ? new ConstraintReference(this) : (ConstraintReference) invokeL.objValue;
-    }
-
-    public void directMapping() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            for (Object obj : this.mReferences.keySet()) {
-                constraints(obj).setView(obj);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
+            return new ConstraintReference(this);
         }
-    }
-
-    public GuidelineReference guideline(Object obj, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj, i)) == null) {
-            Reference reference = this.mReferences.get(obj);
-            GuidelineReference guidelineReference = reference;
-            if (reference == null) {
-                GuidelineReference guidelineReference2 = new GuidelineReference(this);
-                guidelineReference2.setOrientation(i);
-                guidelineReference2.setKey(obj);
-                this.mReferences.put(obj, guidelineReference2);
-                guidelineReference = guidelineReference2;
-            }
-            return (GuidelineReference) guidelineReference;
-        }
-        return (GuidelineReference) invokeLI.objValue;
+        return (ConstraintReference) invokeL.objValue;
     }
 
     public State height(Dimension dimension) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, dimension)) == null) ? setHeight(dimension) : (State) invokeL.objValue;
-    }
-
-    public HelperReference helper(Object obj, Helper helper) {
-        InterceptResult invokeLL;
-        HelperReference horizontalChainReference;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, obj, helper)) == null) {
-            if (obj == null) {
-                obj = createHelperKey();
-            }
-            HelperReference helperReference = this.mHelperReferences.get(obj);
-            if (helperReference == null) {
-                int i = AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$state$State$Helper[helper.ordinal()];
-                if (i == 1) {
-                    horizontalChainReference = new HorizontalChainReference(this);
-                } else if (i == 2) {
-                    horizontalChainReference = new VerticalChainReference(this);
-                } else if (i == 3) {
-                    horizontalChainReference = new AlignHorizontallyReference(this);
-                } else if (i == 4) {
-                    horizontalChainReference = new AlignVerticallyReference(this);
-                } else if (i != 5) {
-                    helperReference = new HelperReference(this, helper);
-                    this.mHelperReferences.put(obj, helperReference);
-                } else {
-                    horizontalChainReference = new BarrierReference(this);
-                }
-                helperReference = horizontalChainReference;
-                this.mHelperReferences.put(obj, helperReference);
-            }
-            return helperReference;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, dimension)) == null) {
+            return setHeight(dimension);
         }
-        return (HelperReference) invokeLL.objValue;
+        return (State) invokeL.objValue;
     }
 
     public HorizontalChainReference horizontalChain(Object... objArr) {
@@ -614,27 +625,19 @@ public class State {
     public GuidelineReference horizontalGuideline(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, obj)) == null) ? guideline(obj, 0) : (GuidelineReference) invokeL.objValue;
-    }
-
-    public void map(Object obj, Object obj2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048589, this, obj, obj2) == null) {
-            constraints(obj).setView(obj2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, obj)) == null) {
+            return guideline(obj, 0);
         }
+        return (GuidelineReference) invokeL.objValue;
     }
 
     public Reference reference(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, obj)) == null) ? this.mReferences.get(obj) : (Reference) invokeL.objValue;
-    }
-
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.mHelperReferences.clear();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, obj)) == null) {
+            return this.mReferences.get(obj);
         }
+        return (Reference) invokeL.objValue;
     }
 
     public State setHeight(Dimension dimension) {
@@ -671,12 +674,59 @@ public class State {
     public GuidelineReference verticalGuideline(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, obj)) == null) ? guideline(obj, 1) : (GuidelineReference) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, obj)) == null) {
+            return guideline(obj, 1);
+        }
+        return (GuidelineReference) invokeL.objValue;
     }
 
     public State width(Dimension dimension) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, dimension)) == null) ? setWidth(dimension) : (State) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, dimension)) == null) {
+            return setWidth(dimension);
+        }
+        return (State) invokeL.objValue;
+    }
+
+    public HelperReference helper(Object obj, Helper helper) {
+        InterceptResult invokeLL;
+        HelperReference horizontalChainReference;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, obj, helper)) == null) {
+            if (obj == null) {
+                obj = createHelperKey();
+            }
+            HelperReference helperReference = this.mHelperReferences.get(obj);
+            if (helperReference == null) {
+                int i = AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$state$State$Helper[helper.ordinal()];
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            if (i != 4) {
+                                if (i != 5) {
+                                    helperReference = new HelperReference(this, helper);
+                                    this.mHelperReferences.put(obj, helperReference);
+                                } else {
+                                    horizontalChainReference = new BarrierReference(this);
+                                }
+                            } else {
+                                horizontalChainReference = new AlignVerticallyReference(this);
+                            }
+                        } else {
+                            horizontalChainReference = new AlignHorizontallyReference(this);
+                        }
+                    } else {
+                        horizontalChainReference = new VerticalChainReference(this);
+                    }
+                } else {
+                    horizontalChainReference = new HorizontalChainReference(this);
+                }
+                helperReference = horizontalChainReference;
+                this.mHelperReferences.put(obj, helperReference);
+            }
+            return helperReference;
+        }
+        return (HelperReference) invokeLL.objValue;
     }
 }

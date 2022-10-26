@@ -9,6 +9,13 @@ public class HeartbeatMessage extends Message {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.android.imsdk.request.Message
+    public void buildBody() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
     public HeartbeatMessage() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -24,12 +31,5 @@ public class HeartbeatMessage extends Message {
         }
         setHeartbeat(true);
         setNeedReplay(true);
-    }
-
-    @Override // com.baidu.android.imsdk.request.Message
-    public void buildBody() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
     }
 }

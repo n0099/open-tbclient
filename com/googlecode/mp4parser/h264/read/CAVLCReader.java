@@ -46,12 +46,38 @@ public class CAVLCReader extends BitstreamReader {
             while (read1Bit() == 0) {
                 i++;
             }
-            if (i > 0) {
-                return (int) (((1 << i) - 1) + readNBit(i));
+            if (i <= 0) {
+                return 0;
             }
-            return 0;
+            return (int) (((1 << i) - 1) + readNBit(i));
         }
         return invokeV.intValue;
+    }
+
+    public boolean readAE() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            throw new UnsupportedOperationException("Stan");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int readAEI() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            throw new UnsupportedOperationException("Stan");
+        }
+        return invokeV.intValue;
+    }
+
+    public void readTrailingBits() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            read1Bit();
+            readRemainingByte();
+        }
     }
 
     private void trace(String str, String str2) {
@@ -89,69 +115,35 @@ public class CAVLCReader extends BitstreamReader {
         return (byte[]) invokeI.objValue;
     }
 
-    public boolean readAE() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            throw new UnsupportedOperationException("Stan");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int readAEI() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            throw new UnsupportedOperationException("Stan");
-        }
-        return invokeV.intValue;
-    }
-
     public boolean readBool(String str) throws IOException {
         InterceptResult invokeL;
+        boolean z;
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            boolean z = read1Bit() != 0;
-            trace(str, z ? "1" : "0");
+            if (read1Bit() == 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                str2 = "1";
+            } else {
+                str2 = "0";
+            }
+            trace(str, str2);
             return z;
         }
         return invokeL.booleanValue;
     }
 
-    public Object readCE(BTree bTree, String str) throws IOException {
-        Object value;
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, bTree, str)) == null) {
-            do {
-                bTree = bTree.down(read1Bit());
-                if (bTree != null) {
-                    value = bTree.getValue();
-                } else {
-                    throw new RuntimeException("Illegal code");
-                }
-            } while (value == null);
-            trace(str, value.toString());
-            return value;
-        }
-        return invokeLL.objValue;
-    }
-
     public int readME(String str) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? readUE(str) : invokeL.intValue;
-    }
-
-    public long readNBit(int i, String str) throws IOException {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i, str)) == null) {
-            long readNBit = readNBit(i);
-            trace(str, String.valueOf(readNBit));
-            return readNBit;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            return readUE(str);
         }
-        return invokeIL.longValue;
+        return invokeL.intValue;
     }
 
     public int readSE(String str) throws IOException {
@@ -179,18 +171,15 @@ public class CAVLCReader extends BitstreamReader {
         return invokeI.intValue;
     }
 
-    public void readTrailingBits() throws IOException {
+    public int readUE(String str) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            read1Bit();
-            readRemainingByte();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            int readUE = readUE();
+            trace(str, String.valueOf(readUE));
+            return readUE;
         }
-    }
-
-    public int readU(int i, String str) throws IOException {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i, str)) == null) ? (int) readNBit(i, str) : invokeIL.intValue;
+        return invokeL.intValue;
     }
 
     public int readZeroBitCount(String str) throws IOException {
@@ -207,14 +196,42 @@ public class CAVLCReader extends BitstreamReader {
         return invokeL.intValue;
     }
 
-    public int readUE(String str) throws IOException {
-        InterceptResult invokeL;
+    public Object readCE(BTree bTree, String str) throws IOException {
+        Object value;
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            int readUE = readUE();
-            trace(str, String.valueOf(readUE));
-            return readUE;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, bTree, str)) == null) {
+            do {
+                bTree = bTree.down(read1Bit());
+                if (bTree != null) {
+                    value = bTree.getValue();
+                } else {
+                    throw new RuntimeException("Illegal code");
+                }
+            } while (value == null);
+            trace(str, value.toString());
+            return value;
         }
-        return invokeL.intValue;
+        return invokeLL.objValue;
+    }
+
+    public long readNBit(int i, String str) throws IOException {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i, str)) == null) {
+            long readNBit = readNBit(i);
+            trace(str, String.valueOf(readNBit));
+            return readNBit;
+        }
+        return invokeIL.longValue;
+    }
+
+    public int readU(int i, String str) throws IOException {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i, str)) == null) {
+            return (int) readNBit(i, str);
+        }
+        return invokeIL.intValue;
     }
 }

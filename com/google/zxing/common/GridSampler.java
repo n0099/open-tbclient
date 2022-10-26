@@ -15,6 +15,10 @@ public abstract class GridSampler {
     public static GridSampler gridSampler;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract BitMatrix sampleGrid(BitMatrix bitMatrix, int i, int i2, float f, float f2, float f3, float f4, float f5, float f6, float f7, float f8, float f9, float f10, float f11, float f12, float f13, float f14, float f15, float f16) throws NotFoundException;
+
+    public abstract BitMatrix sampleGrid(BitMatrix bitMatrix, int i, int i2, PerspectiveTransform perspectiveTransform) throws NotFoundException;
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -45,6 +49,15 @@ public abstract class GridSampler {
         }
     }
 
+    public static GridSampler getInstance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return gridSampler;
+        }
+        return (GridSampler) invokeV.objValue;
+    }
+
     /* JADX WARN: Removed duplicated region for block: B:20:0x0038  */
     /* JADX WARN: Removed duplicated region for block: B:22:0x003c  */
     /* JADX WARN: Removed duplicated region for block: B:42:0x0075  */
@@ -62,60 +75,56 @@ public abstract class GridSampler {
                 int i2 = (int) fArr[i];
                 int i3 = i + 1;
                 int i4 = (int) fArr[i3];
-                if (i2 < -1 || i2 > width || i4 < -1 || i4 > height) {
-                    throw NotFoundException.getNotFoundInstance();
-                }
-                if (i2 == -1) {
-                    fArr[i] = 0.0f;
-                } else if (i2 == width) {
-                    fArr[i] = width - 1;
-                } else {
-                    z = false;
-                    if (i4 != -1) {
-                        fArr[i3] = 0.0f;
-                    } else if (i4 == height) {
-                        fArr[i3] = height - 1;
+                if (i2 >= -1 && i2 <= width && i4 >= -1 && i4 <= height) {
+                    if (i2 == -1) {
+                        fArr[i] = 0.0f;
+                    } else if (i2 == width) {
+                        fArr[i] = width - 1;
+                    } else {
+                        z = false;
+                        if (i4 != -1) {
+                            fArr[i3] = 0.0f;
+                        } else if (i4 == height) {
+                            fArr[i3] = height - 1;
+                        }
+                        z = true;
                     }
                     z = true;
+                    if (i4 != -1) {
+                    }
+                    z = true;
+                } else {
+                    throw NotFoundException.getNotFoundInstance();
                 }
-                z = true;
-                if (i4 != -1) {
-                }
-                z = true;
             }
             boolean z2 = true;
             for (int length = fArr.length - 2; length >= 0 && z2; length -= 2) {
                 int i5 = (int) fArr[length];
                 int i6 = length + 1;
                 int i7 = (int) fArr[i6];
-                if (i5 < -1 || i5 > width || i7 < -1 || i7 > height) {
-                    throw NotFoundException.getNotFoundInstance();
-                }
-                if (i5 == -1) {
-                    fArr[length] = 0.0f;
-                } else if (i5 == width) {
-                    fArr[length] = width - 1;
-                } else {
-                    z2 = false;
-                    if (i7 != -1) {
-                        fArr[i6] = 0.0f;
-                    } else if (i7 == height) {
-                        fArr[i6] = height - 1;
+                if (i5 >= -1 && i5 <= width && i7 >= -1 && i7 <= height) {
+                    if (i5 == -1) {
+                        fArr[length] = 0.0f;
+                    } else if (i5 == width) {
+                        fArr[length] = width - 1;
+                    } else {
+                        z2 = false;
+                        if (i7 != -1) {
+                            fArr[i6] = 0.0f;
+                        } else if (i7 == height) {
+                            fArr[i6] = height - 1;
+                        }
+                        z2 = true;
                     }
                     z2 = true;
+                    if (i7 != -1) {
+                    }
+                    z2 = true;
+                } else {
+                    throw NotFoundException.getNotFoundInstance();
                 }
-                z2 = true;
-                if (i7 != -1) {
-                }
-                z2 = true;
             }
         }
-    }
-
-    public static GridSampler getInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? gridSampler : (GridSampler) invokeV.objValue;
     }
 
     public static void setGridSampler(GridSampler gridSampler2) {
@@ -124,8 +133,4 @@ public abstract class GridSampler {
             gridSampler = gridSampler2;
         }
     }
-
-    public abstract BitMatrix sampleGrid(BitMatrix bitMatrix, int i, int i2, float f, float f2, float f3, float f4, float f5, float f6, float f7, float f8, float f9, float f10, float f11, float f12, float f13, float f14, float f15, float f16) throws NotFoundException;
-
-    public abstract BitMatrix sampleGrid(BitMatrix bitMatrix, int i, int i2, PerspectiveTransform perspectiveTransform) throws NotFoundException;
 }

@@ -1,26 +1,20 @@
 package com.kwad.sdk.core.network;
 
-import androidx.annotation.CallSuper;
-import androidx.annotation.NonNull;
-import androidx.annotation.WorkerThread;
-import com.kwad.sdk.core.network.g;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 /* loaded from: classes7.dex */
-public abstract class a<R extends g> {
+public abstract class a {
     public static final ExecutorService sExecutors = com.kwad.sdk.core.threads.b.vn();
-    public Future<?> mTask;
+    public Future mTask;
 
-    @CallSuper
     public void cancel() {
-        Future<?> future = this.mTask;
+        Future future = this.mTask;
         if (future != null) {
             future.cancel(true);
         }
     }
 
-    @NonNull
-    public abstract R createRequest();
+    public abstract g createRequest();
 
     public void fetch() {
         try {
@@ -39,12 +33,11 @@ public abstract class a<R extends g> {
         }
     }
 
-    @WorkerThread
     public abstract void fetchImpl();
 
     public ExecutorService getExecutor() {
         return sExecutors;
     }
 
-    public abstract void onResponse(R r, c cVar);
+    public abstract void onResponse(g gVar, c cVar);
 }

@@ -21,7 +21,7 @@ import org.json.JSONObject;
 public final class WebSocketManager {
     public static /* synthetic */ Interceptable $ic;
     public static final WebSocketManager INSTANCE;
-    public static HashMap<String, WebSocketTask> mTasks;
+    public static HashMap mTasks;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +38,7 @@ public final class WebSocketManager {
             }
         }
         INSTANCE = new WebSocketManager();
-        mTasks = new HashMap<>();
+        mTasks = new HashMap();
     }
 
     public WebSocketManager() {
@@ -58,7 +58,10 @@ public final class WebSocketManager {
     private final IWebSocketClient createWebSocketClientImpl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? new JavaWebSockeClientImpl() : (IWebSocketClient) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+            return new JavaWebSockeClientImpl();
+        }
+        return (IWebSocketClient) invokeV.objValue;
     }
 
     public final void close(String taskId, int i, String reason) {
@@ -66,9 +69,9 @@ public final class WebSocketManager {
         if (interceptable == null || interceptable.invokeLIL(1048576, this, taskId, i, reason) == null) {
             Intrinsics.checkNotNullParameter(taskId, "taskId");
             Intrinsics.checkNotNullParameter(reason, "reason");
-            HashMap<String, WebSocketTask> hashMap = mTasks;
+            HashMap hashMap = mTasks;
             if (hashMap.containsKey(taskId)) {
-                WebSocketTask webSocketTask = hashMap.get(taskId);
+                WebSocketTask webSocketTask = (WebSocketTask) hashMap.get(taskId);
                 if (webSocketTask != null) {
                     webSocketTask.close(i, reason);
                 }
@@ -92,6 +95,33 @@ public final class WebSocketManager {
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ IWebSocketListener $listener;
                 public final /* synthetic */ WebSocketTask $task;
+
+                @Override // com.baidu.searchbox.websocket.IWebSocketListener
+                public void onMessage(String message) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
+                        Intrinsics.checkNotNullParameter(message, "message");
+                        this.$$delegate_0.onMessage(message);
+                    }
+                }
+
+                @Override // com.baidu.searchbox.websocket.IWebSocketListener
+                public void onMessage(ByteBuffer data) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048579, this, data) == null) {
+                        Intrinsics.checkNotNullParameter(data, "data");
+                        this.$$delegate_0.onMessage(data);
+                    }
+                }
+
+                @Override // com.baidu.searchbox.websocket.IWebSocketListener
+                public void onOpen(Map headers) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048580, this, headers) == null) {
+                        Intrinsics.checkNotNullParameter(headers, "headers");
+                        this.$$delegate_0.onOpen(headers);
+                    }
+                }
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -137,33 +167,6 @@ public final class WebSocketManager {
                         hashMap.remove(this.$task.getTaskId());
                     }
                 }
-
-                @Override // com.baidu.searchbox.websocket.IWebSocketListener
-                public void onMessage(String message) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
-                        Intrinsics.checkNotNullParameter(message, "message");
-                        this.$$delegate_0.onMessage(message);
-                    }
-                }
-
-                @Override // com.baidu.searchbox.websocket.IWebSocketListener
-                public void onMessage(ByteBuffer data) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048579, this, data) == null) {
-                        Intrinsics.checkNotNullParameter(data, "data");
-                        this.$$delegate_0.onMessage(data);
-                    }
-                }
-
-                @Override // com.baidu.searchbox.websocket.IWebSocketListener
-                public void onOpen(Map<String, String> headers) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048580, this, headers) == null) {
-                        Intrinsics.checkNotNullParameter(headers, "headers");
-                        this.$$delegate_0.onOpen(headers);
-                    }
-                }
             });
             mTasks.put(webSocketTask.getTaskId(), webSocketTask);
             return webSocketTask;
@@ -176,7 +179,7 @@ public final class WebSocketManager {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, taskId, message) == null) {
             Intrinsics.checkNotNullParameter(taskId, "taskId");
             Intrinsics.checkNotNullParameter(message, "message");
-            WebSocketTask webSocketTask = mTasks.get(taskId);
+            WebSocketTask webSocketTask = (WebSocketTask) mTasks.get(taskId);
             if (webSocketTask != null) {
                 webSocketTask.send(message);
                 return;
@@ -190,7 +193,7 @@ public final class WebSocketManager {
         if (interceptable == null || interceptable.invokeLL(1048579, this, taskId, data) == null) {
             Intrinsics.checkNotNullParameter(taskId, "taskId");
             Intrinsics.checkNotNullParameter(data, "data");
-            WebSocketTask webSocketTask = mTasks.get(taskId);
+            WebSocketTask webSocketTask = (WebSocketTask) mTasks.get(taskId);
             if (webSocketTask != null) {
                 webSocketTask.send(data);
                 return;

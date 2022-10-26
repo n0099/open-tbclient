@@ -1,125 +1,49 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.net.exception.RequestError;
 import com.baidu.nadcore.net.request.Headers;
+import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.channels.Channels;
-import java.nio.channels.FileChannel;
-import java.nio.channels.ReadableByteChannel;
+import okhttp3.Request;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes6.dex */
-public final class uq0 {
+public class uq0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a implements jq0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ File a;
-        public final /* synthetic */ b b;
-
-        public a(File file, b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {file, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static Request.Builder a(tq0 tq0Var) throws RequestError {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tq0Var)) == null) {
+            Request.Builder builder = new Request.Builder();
+            try {
+                builder.url(tq0Var.a);
+                Object obj = tq0Var.e;
+                if (obj != null) {
+                    builder.tag(obj);
                 }
-            }
-            this.a = file;
-            this.b = bVar;
-        }
-
-        @Override // com.baidu.tieba.jq0
-        public void a(Exception exc, int i) {
-            b bVar;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) || (bVar = this.b) == null) {
-                return;
-            }
-            bVar.a(exc.getMessage(), i);
-        }
-
-        @Override // com.baidu.tieba.jq0
-        public void c(Headers headers, InputStream inputStream, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, headers, inputStream, i) == null) {
-                if (i == 200) {
-                    try {
-                        uq0.b(inputStream, this.a);
-                        if (this.b != null) {
-                            this.b.b();
-                            return;
-                        }
-                        return;
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        b bVar = this.b;
-                        if (bVar != null) {
-                            bVar.a(e.getMessage(), -1);
-                            return;
-                        }
-                        return;
+                if (tq0Var.k) {
+                    builder.header("Content-Type", "application/x-www-form-urlencoded");
+                    builder.header(BOSTokenRequest.CHARSET, "UTF-8");
+                    builder.header(HTTP.CONN_DIRECTIVE, "close");
+                    builder.header(BOSTokenRequest.ACCEPT, "*/*");
+                }
+                Headers.a aVar = tq0Var.c;
+                if (aVar != null) {
+                    Headers c = aVar.c();
+                    for (int i = 0; i < c.g(); i++) {
+                        builder.header(c.f(i), c.h(i));
                     }
                 }
-                b bVar2 = this.b;
-                if (bVar2 != null) {
-                    bVar2.a("", i);
-                }
+                String str = tq0Var.b;
+                builder.method(str, qq0.g(str, tq0Var.d));
+                return builder;
+            } catch (Throwable th) {
+                throw new RequestError("Invalid request url: " + tq0Var.a, th);
             }
         }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(String str, int i);
-
-        void b();
-    }
-
-    public static void a(@NonNull File file, @NonNull String str, @Nullable b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, file, str, bVar) == null) {
-            dq0 a2 = zp0.b().a();
-            sq0 sq0Var = new sq0();
-            sq0Var.k(str);
-            sq0Var.c();
-            a2.b(sq0Var, new a(file, bVar));
-        }
-    }
-
-    public static void b(@NonNull InputStream inputStream, @NonNull File file) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, inputStream, file) == null) {
-            FileOutputStream fileOutputStream = new FileOutputStream(file);
-            ReadableByteChannel newChannel = Channels.newChannel(inputStream);
-            FileChannel channel = fileOutputStream.getChannel();
-            long j = 4096;
-            long j2 = 0;
-            while (j > 0) {
-                try {
-                    j = channel.transferFrom(newChannel, j2, 4096L);
-                    j2 += j;
-                } finally {
-                    cj0.a(fileOutputStream);
-                }
-            }
-        }
+        return (Request.Builder) invokeL.objValue;
     }
 }

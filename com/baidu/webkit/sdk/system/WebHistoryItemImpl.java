@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebHistoryItem;
 import java.lang.reflect.Method;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class WebHistoryItemImpl extends WebHistoryItem implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static Method cloneMethod;

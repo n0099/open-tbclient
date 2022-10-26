@@ -44,60 +44,6 @@ public class BestStringsFitTextView extends TextView {
         this.e = false;
     }
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c = (getWidth() - getPaddingLeft()) - getPaddingRight();
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < this.a.length; i++) {
-                if (i > 0) {
-                    sb.append(this.b);
-                }
-                sb.append(this.a[i]);
-                String sb2 = sb.toString();
-                if (this.c < getPaint().measureText(sb2)) {
-                    break;
-                }
-                this.e = true;
-                this.d = sb2;
-            }
-            setText(this.d);
-        }
-    }
-
-    public String getSeperator() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    @Override // android.widget.TextView, android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
-            super.onDraw(canvas);
-            if (this.a == null || this.e) {
-                return;
-            }
-            a();
-        }
-    }
-
-    public void setSeperator(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void setTextArray(String[] strArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, strArr) == null) {
-            this.a = strArr;
-            a();
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BestStringsFitTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -146,5 +92,61 @@ public class BestStringsFitTextView extends TextView {
         this.c = 0.0f;
         this.d = "";
         this.e = false;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c = (getWidth() - getPaddingLeft()) - getPaddingRight();
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < this.a.length; i++) {
+                if (i > 0) {
+                    sb.append(this.b);
+                }
+                sb.append(this.a[i]);
+                String sb2 = sb.toString();
+                if (this.c < getPaint().measureText(sb2)) {
+                    break;
+                }
+                this.e = true;
+                this.d = sb2;
+            }
+            setText(this.d);
+        }
+    }
+
+    public String getSeperator() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
+            super.onDraw(canvas);
+            if (this.a != null && !this.e) {
+                a();
+            }
+        }
+    }
+
+    public void setSeperator(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void setTextArray(String[] strArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, strArr) == null) {
+            this.a = strArr;
+            a();
+        }
     }
 }

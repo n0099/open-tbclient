@@ -8,10 +8,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.request.transition.ViewPropertyTransition;
 /* loaded from: classes7.dex */
-public class ViewPropertyAnimationFactory<R> implements TransitionFactory<R> {
+public class ViewPropertyAnimationFactory implements TransitionFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ViewPropertyTransition<R> animation;
+    public ViewPropertyTransition animation;
     public final ViewPropertyTransition.Animator animator;
 
     public ViewPropertyAnimationFactory(ViewPropertyTransition.Animator animator) {
@@ -33,13 +33,13 @@ public class ViewPropertyAnimationFactory<R> implements TransitionFactory<R> {
     }
 
     @Override // com.bumptech.glide.request.transition.TransitionFactory
-    public Transition<R> build(DataSource dataSource, boolean z) {
+    public Transition build(DataSource dataSource, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, dataSource, z)) == null) {
             if (dataSource != DataSource.MEMORY_CACHE && z) {
                 if (this.animation == null) {
-                    this.animation = new ViewPropertyTransition<>(this.animator);
+                    this.animation = new ViewPropertyTransition(this.animator);
                 }
                 return this.animation;
             }

@@ -11,7 +11,7 @@ import java.util.List;
 public class ConfigModule {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ConfigAction> mConfigActions;
+    public List mConfigActions;
     public String mModule;
 
     public ConfigModule() {
@@ -28,33 +28,25 @@ public class ConfigModule {
         }
     }
 
-    public List<ConfigAction> getConfigActions() {
+    public List getConfigActions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mConfigActions : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mConfigActions;
+        }
+        return (List) invokeV.objValue;
     }
 
     public String getModule() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mModule : (String) invokeV.objValue;
-    }
-
-    public void setConfigActions(List<ConfigAction> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.mConfigActions = list;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mModule;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void setModule(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.mModule = str;
-        }
-    }
-
-    public ConfigModule(String str, List<ConfigAction> list) {
+    public ConfigModule(String str, List list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,5 +63,19 @@ public class ConfigModule {
         }
         this.mModule = str;
         this.mConfigActions = list;
+    }
+
+    public void setConfigActions(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.mConfigActions = list;
+        }
+    }
+
+    public void setModule(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.mModule = str;
+        }
     }
 }

@@ -23,6 +23,14 @@ public final class RegionKt$iterator$1 implements Iterator<Rect>, KMappedMarker 
     public final RegionIterator iterator;
     public final Rect rect;
 
+    @Override // java.util.Iterator
+    public void remove() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            throw new UnsupportedOperationException("Operation is not supported for read-only collection");
+        }
+    }
+
     public RegionKt$iterator$1(Region region) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -49,15 +57,10 @@ public final class RegionKt$iterator$1 implements Iterator<Rect>, KMappedMarker 
     public boolean hasNext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.hasMore : invokeV.booleanValue;
-    }
-
-    @Override // java.util.Iterator
-    public void remove() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            throw new UnsupportedOperationException("Operation is not supported for read-only collection");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.hasMore;
         }
+        return invokeV.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

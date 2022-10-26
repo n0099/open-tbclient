@@ -63,12 +63,18 @@ public final class BubblePosition {
     public static BubblePosition valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (BubblePosition) Enum.valueOf(BubblePosition.class, str) : (BubblePosition) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (BubblePosition) Enum.valueOf(BubblePosition.class, str);
+        }
+        return (BubblePosition) invokeL.objValue;
     }
 
     public static BubblePosition[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (BubblePosition[]) $VALUES.clone() : (BubblePosition[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (BubblePosition[]) $VALUES.clone();
+        }
+        return (BubblePosition[]) invokeV.objValue;
     }
 }

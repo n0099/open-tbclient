@@ -1,6 +1,5 @@
 package com.baidu.tieba.video.record;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -42,42 +41,6 @@ public class RoundProgressBar extends View {
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d = 4;
-            this.a = Color.rgb(255, 255, 255);
-        }
-    }
-
-    public void b(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
-            this.e = f;
-            invalidate();
-        }
-    }
-
-    @Override // android.view.View
-    @SuppressLint({"DrawAllocation"})
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
-            super.onDraw(canvas);
-            this.b = getWidth();
-            int height = getHeight();
-            this.c = height;
-            if (this.b > height) {
-                this.b = height;
-            }
-            this.f.setAntiAlias(true);
-            this.f.setStyle(Paint.Style.STROKE);
-            this.f.setStrokeWidth(this.d);
-            this.f.setColor(this.a);
-            canvas.drawArc(new RectF(5.0f, 5.0f, this.b - 5, this.c - 5), 270.0f, (this.e * 360.0f) / 100.0f, false, this.f);
         }
     }
 
@@ -123,5 +86,40 @@ public class RoundProgressBar extends View {
         }
         this.f = new Paint();
         a();
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d = 4;
+            this.a = Color.rgb(255, 255, 255);
+        }
+    }
+
+    public void b(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
+            this.e = f;
+            invalidate();
+        }
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
+            super.onDraw(canvas);
+            this.b = getWidth();
+            int height = getHeight();
+            this.c = height;
+            if (this.b > height) {
+                this.b = height;
+            }
+            this.f.setAntiAlias(true);
+            this.f.setStyle(Paint.Style.STROKE);
+            this.f.setStrokeWidth(this.d);
+            this.f.setColor(this.a);
+            canvas.drawArc(new RectF(5.0f, 5.0f, this.b - 5, this.c - 5), 270.0f, (this.e * 360.0f) / 100.0f, false, this.f);
+        }
     }
 }

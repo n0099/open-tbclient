@@ -1,6 +1,5 @@
 package com.google.android.exoplayer2.drm;
 
-import android.annotation.TargetApi;
 import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -20,7 +19,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
-@TargetApi(18)
 /* loaded from: classes7.dex */
 public final class HttpMediaDrmCallback implements MediaDrmCallback {
     public static /* synthetic */ Interceptable $ic;
@@ -28,7 +26,7 @@ public final class HttpMediaDrmCallback implements MediaDrmCallback {
     public final HttpDataSource.Factory dataSourceFactory;
     public final String defaultLicenseUrl;
     public final boolean forceDefaultLicenseUrl;
-    public final Map<String, String> keyRequestProperties;
+    public final Map keyRequestProperties;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public HttpMediaDrmCallback(String str, HttpDataSource.Factory factory) {
@@ -51,14 +49,35 @@ public final class HttpMediaDrmCallback implements MediaDrmCallback {
         }
     }
 
-    public static byte[] executePost(HttpDataSource.Factory factory, String str, byte[] bArr, Map<String, String> map) throws IOException {
+    public HttpMediaDrmCallback(String str, boolean z, HttpDataSource.Factory factory) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Boolean.valueOf(z), factory};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.dataSourceFactory = factory;
+        this.defaultLicenseUrl = str;
+        this.forceDefaultLicenseUrl = z;
+        this.keyRequestProperties = new HashMap();
+    }
+
+    public static byte[] executePost(HttpDataSource.Factory factory, String str, byte[] bArr, Map map) throws IOException {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, factory, str, bArr, map)) == null) {
             HttpDataSource createDataSource = factory.createDataSource();
             if (map != null) {
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    createDataSource.setRequestProperty(entry.getKey(), entry.getValue());
+                for (Map.Entry entry : map.entrySet()) {
+                    createDataSource.setRequestProperty((String) entry.getKey(), (String) entry.getValue());
                 }
             }
             DataSourceInputStream dataSourceInputStream = new DataSourceInputStream(createDataSource, new DataSpec(Uri.parse(str), bArr, 0L, 0L, -1L, null, 1));
@@ -103,8 +122,10 @@ public final class HttpMediaDrmCallback implements MediaDrmCallback {
             HashMap hashMap = new HashMap();
             if (C.PLAYREADY_UUID.equals(uuid)) {
                 str = "text/xml";
+            } else if (C.CLEARKEY_UUID.equals(uuid)) {
+                str = "application/json";
             } else {
-                str = C.CLEARKEY_UUID.equals(uuid) ? "application/json" : "application/octet-stream";
+                str = "application/octet-stream";
             }
             hashMap.put("Content-Type", str);
             if (C.PLAYREADY_UUID.equals(uuid)) {
@@ -137,26 +158,5 @@ public final class HttpMediaDrmCallback implements MediaDrmCallback {
                 this.keyRequestProperties.put(str, str2);
             }
         }
-    }
-
-    public HttpMediaDrmCallback(String str, boolean z, HttpDataSource.Factory factory) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Boolean.valueOf(z), factory};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.dataSourceFactory = factory;
-        this.defaultLicenseUrl = str;
-        this.forceDefaultLicenseUrl = z;
-        this.keyRequestProperties = new HashMap();
     }
 }

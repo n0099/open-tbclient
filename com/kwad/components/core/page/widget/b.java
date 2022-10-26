@@ -2,12 +2,10 @@ package com.kwad.components.core.page.widget;
 
 import android.content.Context;
 import android.view.TextureView;
-import androidx.annotation.RequiresApi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RequiresApi(api = 14)
 /* loaded from: classes7.dex */
 public final class b extends TextureView {
     public static /* synthetic */ Interceptable $ic;

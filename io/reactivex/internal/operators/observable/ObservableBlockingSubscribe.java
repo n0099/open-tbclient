@@ -38,11 +38,26 @@ public final class ObservableBlockingSubscribe {
         throw new IllegalStateException("No instances!");
     }
 
+    public static void subscribe(ObservableSource observableSource) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, observableSource) == null) {
+            BlockingIgnoringReceiver blockingIgnoringReceiver = new BlockingIgnoringReceiver();
+            LambdaObserver lambdaObserver = new LambdaObserver(Functions.emptyConsumer(), blockingIgnoringReceiver, blockingIgnoringReceiver, Functions.emptyConsumer());
+            observableSource.subscribe(lambdaObserver);
+            BlockingHelper.awaitForComplete(blockingIgnoringReceiver, lambdaObserver);
+            Throwable th = blockingIgnoringReceiver.error;
+            if (th == null) {
+                return;
+            }
+            throw ExceptionHelper.wrapOrThrow(th);
+        }
+    }
+
     /* JADX WARN: Removed duplicated region for block: B:8:0x001b  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static <T> void subscribe(ObservableSource<? extends T> observableSource, Observer<? super T> observer) {
+    public static void subscribe(ObservableSource observableSource, Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, observableSource, observer) == null) {
             LinkedBlockingQueue linkedBlockingQueue = new LinkedBlockingQueue();
@@ -69,21 +84,7 @@ public final class ObservableBlockingSubscribe {
         }
     }
 
-    public static <T> void subscribe(ObservableSource<? extends T> observableSource) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, observableSource) == null) {
-            BlockingIgnoringReceiver blockingIgnoringReceiver = new BlockingIgnoringReceiver();
-            LambdaObserver lambdaObserver = new LambdaObserver(Functions.emptyConsumer(), blockingIgnoringReceiver, blockingIgnoringReceiver, Functions.emptyConsumer());
-            observableSource.subscribe(lambdaObserver);
-            BlockingHelper.awaitForComplete(blockingIgnoringReceiver, lambdaObserver);
-            Throwable th = blockingIgnoringReceiver.error;
-            if (th != null) {
-                throw ExceptionHelper.wrapOrThrow(th);
-            }
-        }
-    }
-
-    public static <T> void subscribe(ObservableSource<? extends T> observableSource, Consumer<? super T> consumer, Consumer<? super Throwable> consumer2, Action action) {
+    public static void subscribe(ObservableSource observableSource, Consumer consumer, Consumer consumer2, Action action) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65539, null, observableSource, consumer, consumer2, action) == null) {
             ObjectHelper.requireNonNull(consumer, "onNext is null");

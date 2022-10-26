@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.viewpager.widget.PagerAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.y94;
+import com.baidu.tieba.z94;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,12 +16,33 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class PagerAdapterImpl extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public y94<View> a;
-    public SparseArray<View> b;
+    public z94 a;
+    public SparseArray b;
 
     /* loaded from: classes3.dex */
     public interface a {
         void recycle();
+    }
+
+    public abstract void b(View view2, int i);
+
+    public abstract View c(ViewGroup viewGroup, int i);
+
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public boolean isViewFromObject(View view2, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, view2, obj)) == null) ? view2 == obj : invokeLL.booleanValue;
     }
 
     public PagerAdapterImpl() {
@@ -37,13 +58,9 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
                 return;
             }
         }
-        this.a = new y94<>(5);
-        this.b = new SparseArray<>();
+        this.a = new z94(5);
+        this.b = new SparseArray();
     }
-
-    public abstract void b(View view2, int i);
-
-    public abstract View c(ViewGroup viewGroup, int i);
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
@@ -60,45 +77,27 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
-            View a2 = this.a.a();
-            if (a2 == null) {
-                a2 = c(viewGroup, i);
+            View view2 = (View) this.a.a();
+            if (view2 == null) {
+                view2 = c(viewGroup, i);
             }
-            this.b.put(i, a2);
-            viewGroup.addView(a2);
-            b(a2, i);
-            return a2;
+            this.b.put(i, view2);
+            viewGroup.addView(view2);
+            b(view2, i);
+            return view2;
         }
         return invokeLI.objValue;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public boolean isViewFromObject(View view2, Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, view2, obj)) == null) ? view2 == obj : invokeLL.booleanValue;
-    }
-
-    @Override // androidx.viewpager.widget.PagerAdapter
     public void unregisterDataSetObserver(DataSetObserver dataSetObserver) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, dataSetObserver) == null) || dataSetObserver == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, dataSetObserver) == null) && dataSetObserver != null) {
+            super.unregisterDataSetObserver(dataSetObserver);
         }
-        super.unregisterDataSetObserver(dataSetObserver);
     }
 }

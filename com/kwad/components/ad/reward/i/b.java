@@ -1,6 +1,5 @@
 package com.kwad.components.ad.reward.i;
 
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -85,7 +84,7 @@ public abstract class b extends Observable implements c, com.kwad.sdk.core.b {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.tZ : (String) invokeV.objValue;
     }
 
-    public void parseJson(@Nullable JSONObject jSONObject) {
+    public void parseJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
             try {

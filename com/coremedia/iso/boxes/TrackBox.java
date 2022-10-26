@@ -57,12 +57,12 @@ public class TrackBox extends AbstractContainerBox {
                 return sampleTableBox;
             }
             MediaBox mediaBox = getMediaBox();
-            if (mediaBox == null || (mediaInformationBox = mediaBox.getMediaInformationBox()) == null) {
-                return null;
+            if (mediaBox != null && (mediaInformationBox = mediaBox.getMediaInformationBox()) != null) {
+                SampleTableBox sampleTableBox2 = mediaInformationBox.getSampleTableBox();
+                this.sampleTableBox = sampleTableBox2;
+                return sampleTableBox2;
             }
-            SampleTableBox sampleTableBox2 = mediaInformationBox.getSampleTableBox();
-            this.sampleTableBox = sampleTableBox2;
-            return sampleTableBox2;
+            return null;
         }
         return (SampleTableBox) invokeV.objValue;
     }
@@ -82,7 +82,7 @@ public class TrackBox extends AbstractContainerBox {
     }
 
     @Override // com.googlecode.mp4parser.BasicContainer, com.coremedia.iso.boxes.Container
-    public void setBoxes(List<Box> list) {
+    public void setBoxes(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             super.setBoxes(list);

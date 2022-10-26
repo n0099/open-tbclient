@@ -12,26 +12,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import okhttp3.EventListener;
-import okhttp3.Request;
 /* loaded from: classes2.dex */
 public interface IHttpContext {
     public static final IHttpContext EMPTY = new IHttpContext() { // from class: com.baidu.searchbox.http.IHttpContext.1
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
 
         @Override // com.baidu.searchbox.http.IHttpContext
         public boolean forceHttpDnsIPv4OnlyInDualStack(HttpRequest httpRequest) {
@@ -41,13 +26,6 @@ public interface IHttpContext {
                 return false;
             }
             return invokeL.booleanValue;
-        }
-
-        @Override // com.baidu.searchbox.http.IHttpContext
-        public CookieManager getCookieManager(boolean z, boolean z2) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? CookieManager.WEBKIT_COOKIES : (CookieManager) invokeCommon.objValue;
         }
 
         @Override // com.baidu.searchbox.http.IHttpContext
@@ -91,7 +69,7 @@ public interface IHttpContext {
         }
 
         @Override // com.baidu.searchbox.http.IHttpContext
-        public NetworkStat<Request> getNewNetworkStat() {
+        public NetworkStat getNewNetworkStat() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -120,6 +98,30 @@ public interface IHttpContext {
             if (interceptable == null || interceptable.invokeL(1048585, this, networkInfoRecord) == null) {
             }
         }
+
+        {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.http.IHttpContext
+        public CookieManager getCookieManager(boolean z, boolean z2) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+                return CookieManager.WEBKIT_COOKIES;
+            }
+            return (CookieManager) invokeCommon.objValue;
+        }
     };
 
     boolean forceHttpDnsIPv4OnlyInDualStack(HttpRequest httpRequest);
@@ -134,7 +136,7 @@ public interface IHttpContext {
 
     IHttpDns getNewHttpDns();
 
-    NetworkStat<Request> getNewNetworkStat();
+    NetworkStat getNewNetworkStat();
 
     void init();
 

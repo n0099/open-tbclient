@@ -16,15 +16,16 @@ import com.baidu.tbadk.gif.GifInfo;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jh5;
-import com.baidu.tieba.on;
-import com.baidu.tieba.sc6;
+import com.baidu.tieba.ph5;
+import com.baidu.tieba.pn;
+import com.baidu.tieba.zc6;
+import com.baidu.tieba.zp4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
+public class EmotionImageActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar a;
@@ -103,10 +104,24 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
+            String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 int i = this.a.p;
-                this.a.sendMessage(new CustomMessage(2002001, new FacePackageDetailActivityConfig(this.a.getPageContext().getPageActivity(), this.a.f, false, i != 1 ? i != 2 ? i != 3 ? "emotion_image" : "faceshop_from_gchat_detail" : "faceshop_from_pchat_detail" : "faceshop_from_forum_detail")));
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            str = "emotion_image";
+                        } else {
+                            str = "faceshop_from_gchat_detail";
+                        }
+                    } else {
+                        str = "faceshop_from_pchat_detail";
+                    }
+                } else {
+                    str = "faceshop_from_forum_detail";
+                }
+                this.a.sendMessage(new CustomMessage(2002001, new FacePackageDetailActivityConfig(this.a.getPageContext().getPageActivity(), this.a.f, false, str)));
             }
         }
     }
@@ -127,12 +142,41 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
         this.p = 0;
     }
 
-    public final void B1(Bundle bundle) {
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onDestroy();
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+            super.onCreate(bundle);
+            setContentView(R.layout.obfuscated_res_0x7f0d024b);
+            A1(bundle);
+            B1();
+        }
+    }
+
+    public final void A1(Bundle bundle) {
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            int i = (getResources().getDisplayMetrics().density > 1.5d ? 1 : (getResources().getDisplayMetrics().density == 1.5d ? 0 : -1));
-            this.n = i < 0 ? 160 : 240;
-            this.o = i >= 0 ? 240 : 160;
+            int i2 = 160;
+            int i3 = (getResources().getDisplayMetrics().density > 1.5d ? 1 : (getResources().getDisplayMetrics().density == 1.5d ? 0 : -1));
+            if (i3 < 0) {
+                i = 160;
+            } else {
+                i = 240;
+            }
+            this.n = i;
+            if (i3 >= 0) {
+                i2 = 240;
+            }
+            this.o = i2;
             if (bundle != null) {
                 this.f = bundle.getString("pid");
                 this.g = bundle.getString("panme");
@@ -157,22 +201,22 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
         }
     }
 
-    public final void C1() {
+    public final void B1() {
         FrameLayout.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091657);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091649);
             this.a = navigationBar;
-            navigationBar.setTitleText(getString(R.string.obfuscated_res_0x7f0f0567));
+            navigationBar.setTitleText(getString(R.string.obfuscated_res_0x7f0f056f));
             this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            this.b = (GifView) findViewById(R.id.obfuscated_res_0x7f090cc7);
+            this.b = (GifView) findViewById(R.id.obfuscated_res_0x7f090cd1);
             if (this.l != 0 && this.m != 0) {
                 layoutParams = new FrameLayout.LayoutParams(this.l, this.m, 17);
             } else {
                 layoutParams = new FrameLayout.LayoutParams(this.n, this.o, 17);
             }
             this.b.setLayoutParams(layoutParams);
-            boolean c = jh5.c();
+            boolean c = ph5.c();
             GifInfo gifInfo = new GifInfo();
             gifInfo.mSharpText = this.k;
             gifInfo.mGid = this.f;
@@ -183,20 +227,20 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
             } else {
                 gifInfo.mStaticUrl = this.j;
             }
-            this.b.i0(gifInfo);
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0908aa);
+            this.b.j0(gifInfo);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0908b3);
             if (!TextUtils.isEmpty(this.h)) {
-                this.c.K(this.h, 10, false);
+                this.c.L(this.h, 10, false);
             } else {
-                Bitmap f = sc6.f(this.f, "panel.png");
+                Bitmap f = zc6.f(this.f, "panel.png");
                 if (f != null) {
-                    new on(f, false).h(this.c);
+                    new pn(f, false).h(this.c);
                 }
             }
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0908cd);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0908d7);
             this.d = textView;
             textView.setText(this.g);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f09089a);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0908a3);
             this.e = textView2;
             textView2.setOnClickListener(new b(this));
         }
@@ -207,28 +251,14 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            getLayoutMode().l(i == 1);
-            getLayoutMode().k(findViewById(R.id.obfuscated_res_0x7f0908ab));
+            zp4 layoutMode = getLayoutMode();
+            boolean z = true;
+            if (i != 1) {
+                z = false;
+            }
+            layoutMode.l(z);
+            getLayoutMode().k(findViewById(R.id.obfuscated_res_0x7f0908b4));
             this.a.onChangeSkinType(getPageContext(), i);
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
-            super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d024c);
-            B1(bundle);
-            C1();
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onDestroy();
         }
     }
 

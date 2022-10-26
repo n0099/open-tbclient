@@ -35,7 +35,10 @@ public class CacheIp {
     public String getIp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.lastIP : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.lastIP;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void inc() {
@@ -48,7 +51,13 @@ public class CacheIp {
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.lastIP != null && this.lastIPTimes < 1000 && this.cacheTime != 0 && System.currentTimeMillis() - this.cacheTime < 21600000 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.lastIP == null || this.lastIPTimes >= 1000 || this.cacheTime == 0 || System.currentTimeMillis() - this.cacheTime >= 21600000) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public void reset(String str) {

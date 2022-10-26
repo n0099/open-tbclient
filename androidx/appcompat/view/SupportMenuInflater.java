@@ -16,8 +16,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
-import androidx.annotation.LayoutRes;
-import androidx.annotation.RestrictTo;
 import androidx.appcompat.R;
 import androidx.appcompat.view.menu.MenuItemImpl;
 import androidx.appcompat.view.menu.MenuItemWrapperICS;
@@ -39,7 +37,6 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class SupportMenuInflater extends MenuInflater {
     public static /* synthetic */ Interceptable $ic = null;
@@ -221,10 +218,17 @@ public class SupportMenuInflater extends MenuInflater {
         }
 
         private void setItem(MenuItem menuItem) {
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65539, this, menuItem) == null) {
-                boolean z = false;
-                menuItem.setChecked(this.itemChecked).setVisible(this.itemVisible).setEnabled(this.itemEnabled).setCheckable(this.itemCheckable >= 1).setTitleCondensed(this.itemTitleCondensed).setIcon(this.itemIconResId);
+                MenuItem enabled = menuItem.setChecked(this.itemChecked).setVisible(this.itemVisible).setEnabled(this.itemEnabled);
+                boolean z2 = false;
+                if (this.itemCheckable >= 1) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                enabled.setCheckable(z).setTitleCondensed(this.itemTitleCondensed).setIcon(this.itemIconResId);
                 int i = this.itemShowAsAction;
                 if (i >= 0) {
                     menuItem.setShowAsAction(i);
@@ -246,11 +250,11 @@ public class SupportMenuInflater extends MenuInflater {
                 String str = this.itemActionViewClassName;
                 if (str != null) {
                     menuItem.setActionView((View) newInstance(str, SupportMenuInflater.ACTION_VIEW_CONSTRUCTOR_SIGNATURE, this.this$0.mActionViewConstructorArguments));
-                    z = true;
+                    z2 = true;
                 }
                 int i2 = this.itemActionViewLayout;
                 if (i2 > 0) {
-                    if (!z) {
+                    if (!z2) {
                         menuItem.setActionView(i2);
                     } else {
                         Log.w(SupportMenuInflater.LOG_TAG, "Ignoring attribute 'itemActionViewLayout'. Action view already specified.");
@@ -298,7 +302,22 @@ public class SupportMenuInflater extends MenuInflater {
         public boolean hasAddedItem() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.itemAdded : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.itemAdded;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public void resetGroup() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                this.groupId = 0;
+                this.groupCategory = 0;
+                this.groupOrder = 0;
+                this.groupCheckable = 0;
+                this.groupVisible = true;
+                this.groupEnabled = true;
+            }
         }
 
         public void readGroup(AttributeSet attributeSet) {
@@ -335,6 +354,7 @@ public class SupportMenuInflater extends MenuInflater {
                 }
                 this.itemChecked = obtainStyledAttributes.getBoolean(3, false);
                 this.itemVisible = obtainStyledAttributes.getBoolean(4, this.groupVisible);
+                boolean z = true;
                 this.itemEnabled = obtainStyledAttributes.getBoolean(1, this.groupEnabled);
                 this.itemShowAsAction = obtainStyledAttributes.getInt(21, -1);
                 this.itemListenerMethodName = obtainStyledAttributes.getString(12);
@@ -342,7 +362,9 @@ public class SupportMenuInflater extends MenuInflater {
                 this.itemActionViewClassName = obtainStyledAttributes.getString(15);
                 String string = obtainStyledAttributes.getString(14);
                 this.itemActionProviderClassName = string;
-                boolean z = string != null;
+                if (string == null) {
+                    z = false;
+                }
                 if (z && this.itemActionViewLayout == 0 && this.itemActionViewClassName == null) {
                     this.itemActionProvider = (ActionProvider) newInstance(this.itemActionProviderClassName, SupportMenuInflater.ACTION_PROVIDER_CONSTRUCTOR_SIGNATURE, this.this$0.mActionProviderConstructorArguments);
                 } else {
@@ -367,18 +389,6 @@ public class SupportMenuInflater extends MenuInflater {
                 this.itemAdded = false;
             }
         }
-
-        public void resetGroup() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.groupId = 0;
-                this.groupCategory = 0;
-                this.groupOrder = 0;
-                this.groupCheckable = 0;
-                this.groupVisible = true;
-                this.groupEnabled = true;
-            }
-        }
     }
 
     static {
@@ -397,6 +407,18 @@ public class SupportMenuInflater extends MenuInflater {
         Class<?>[] clsArr = {Context.class};
         ACTION_VIEW_CONSTRUCTOR_SIGNATURE = clsArr;
         ACTION_PROVIDER_CONSTRUCTOR_SIGNATURE = clsArr;
+    }
+
+    public Object getRealOwner() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.mRealOwner == null) {
+                this.mRealOwner = findRealOwner(this.mContext);
+            }
+            return this.mRealOwner;
+        }
+        return invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -426,7 +448,16 @@ public class SupportMenuInflater extends MenuInflater {
     private Object findRealOwner(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, obj)) == null) ? (!(obj instanceof Activity) && (obj instanceof ContextWrapper)) ? findRealOwner(((ContextWrapper) obj).getBaseContext()) : obj : invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, obj)) == null) {
+            if (obj instanceof Activity) {
+                return obj;
+            }
+            if (obj instanceof ContextWrapper) {
+                return findRealOwner(((ContextWrapper) obj).getBaseContext());
+            }
+            return obj;
+        }
+        return invokeL.objValue;
     }
 
     private void parseMenu(XmlPullParser xmlPullParser, AttributeSet attributeSet, Menu menu) throws XmlPullParserException, IOException {
@@ -496,20 +527,8 @@ public class SupportMenuInflater extends MenuInflater {
         }
     }
 
-    public Object getRealOwner() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.mRealOwner == null) {
-                this.mRealOwner = findRealOwner(this.mContext);
-            }
-            return this.mRealOwner;
-        }
-        return invokeV.objValue;
-    }
-
     @Override // android.view.MenuInflater
-    public void inflate(@LayoutRes int i, Menu menu) {
+    public void inflate(int i, Menu menu) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, menu) == null) {
             if (!(menu instanceof SupportMenu)) {

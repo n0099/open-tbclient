@@ -2,7 +2,6 @@ package com.bumptech.glide.load.resource.drawable;
 
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,17 +13,17 @@ import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.resource.gif.GifDrawable;
 import com.bumptech.glide.util.Preconditions;
 /* loaded from: classes7.dex */
-public abstract class DrawableResource<T extends Drawable> implements Resource<T>, Initializable {
+public abstract class DrawableResource implements Resource, Initializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final T drawable;
+    public final Drawable drawable;
 
-    public DrawableResource(T t) {
+    public DrawableResource(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t};
+            Object[] objArr = {drawable};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,25 +33,12 @@ public abstract class DrawableResource<T extends Drawable> implements Resource<T
                 return;
             }
         }
-        this.drawable = (T) Preconditions.checkNotNull(t);
-    }
-
-    public void initialize() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            T t = this.drawable;
-            if (t instanceof BitmapDrawable) {
-                ((BitmapDrawable) t).getBitmap().prepareToDraw();
-            } else if (t instanceof GifDrawable) {
-                ((GifDrawable) t).getFirstFrame().prepareToDraw();
-            }
-        }
+        this.drawable = (Drawable) Preconditions.checkNotNull(drawable);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.engine.Resource
-    @NonNull
-    public final T get() {
+    public final Drawable get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -60,8 +46,20 @@ public abstract class DrawableResource<T extends Drawable> implements Resource<T
             if (constantState == null) {
                 return this.drawable;
             }
-            return (T) constantState.newDrawable();
+            return constantState.newDrawable();
         }
-        return (T) invokeV.objValue;
+        return (Drawable) invokeV.objValue;
+    }
+
+    public void initialize() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            Drawable drawable = this.drawable;
+            if (drawable instanceof BitmapDrawable) {
+                ((BitmapDrawable) drawable).getBitmap().prepareToDraw();
+            } else if (drawable instanceof GifDrawable) {
+                ((GifDrawable) drawable).getFirstFrame().prepareToDraw();
+            }
+        }
     }
 }

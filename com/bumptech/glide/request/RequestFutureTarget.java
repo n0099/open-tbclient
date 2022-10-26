@@ -1,10 +1,6 @@
 package com.bumptech.glide.request;
 
 import android.graphics.drawable.Drawable;
-import android.os.Handler;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -25,28 +21,65 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 /* loaded from: classes7.dex */
-public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<R>, Runnable {
+public class RequestFutureTarget implements FutureTarget, RequestListener {
     public static /* synthetic */ Interceptable $ic;
     public static final Waiter DEFAULT_WAITER;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean assertBackgroundThread;
-    @Nullable
     public GlideException exception;
     public final int height;
     public boolean isCancelled;
     public boolean loadFailed;
-    public final Handler mainHandler;
-    @Nullable
     public Request request;
-    @Nullable
-    public R resource;
+    public Object resource;
     public boolean resultReceived;
     public final Waiter waiter;
     public final int width;
 
-    @VisibleForTesting
+    @Override // com.bumptech.glide.manager.LifecycleListener
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
+    }
+
+    @Override // com.bumptech.glide.request.target.Target
+    public void onLoadCleared(Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, drawable) == null) {
+        }
+    }
+
+    @Override // com.bumptech.glide.request.target.Target
+    public void onLoadStarted(Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, drawable) == null) {
+        }
+    }
+
+    @Override // com.bumptech.glide.manager.LifecycleListener
+    public void onStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        }
+    }
+
+    @Override // com.bumptech.glide.manager.LifecycleListener
+    public void onStop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+        }
+    }
+
+    @Override // com.bumptech.glide.request.target.Target
+    public void removeCallback(SizeReadyCallback sizeReadyCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, sizeReadyCallback) == null) {
+        }
+    }
+
     /* loaded from: classes7.dex */
-    public static class Waiter {
+    public class Waiter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -95,20 +128,81 @@ public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<
         DEFAULT_WAITER = new Waiter();
     }
 
+    @Override // java.util.concurrent.Future
+    public Object get() throws InterruptedException, ExecutionException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            try {
+                return doGet(null);
+            } catch (TimeoutException e) {
+                throw new AssertionError(e);
+            }
+        }
+        return invokeV.objValue;
+    }
+
+    @Override // com.bumptech.glide.request.target.Target
+    public synchronized Request getRequest() {
+        InterceptResult invokeV;
+        Request request;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this) {
+                request = this.request;
+            }
+            return request;
+        }
+        return (Request) invokeV.objValue;
+    }
+
+    @Override // java.util.concurrent.Future
+    public synchronized boolean isCancelled() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this) {
+                z = this.isCancelled;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // java.util.concurrent.Future
+    public synchronized boolean isDone() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            synchronized (this) {
+                if (!this.isCancelled && !this.resultReceived) {
+                    if (!this.loadFailed) {
+                        z = false;
+                    }
+                }
+                z = true;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public RequestFutureTarget(Handler handler, int i, int i2) {
-        this(handler, i, i2, true, DEFAULT_WAITER);
+    public RequestFutureTarget(int i, int i2) {
+        this(i, i2, true, DEFAULT_WAITER);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {handler, Integer.valueOf(i), Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
                 int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((Handler) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Boolean) objArr2[3]).booleanValue(), (Waiter) objArr2[4]);
+                this(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), ((Boolean) objArr2[2]).booleanValue(), (Waiter) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -116,17 +210,31 @@ public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<
         }
     }
 
-    private void clearOnMainThread() {
+    public RequestFutureTarget(int i, int i2, boolean z, Waiter waiter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.mainHandler.post(this);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), waiter};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
+        this.width = i;
+        this.height = i2;
+        this.assertBackgroundThread = z;
+        this.waiter = waiter;
     }
 
-    private synchronized R doGet(Long l) throws ExecutionException, InterruptedException, TimeoutException {
+    private synchronized Object doGet(Long l) throws ExecutionException, InterruptedException, TimeoutException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, l)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, l)) == null) {
             synchronized (this) {
                 if (this.assertBackgroundThread && !isDone()) {
                     Util.assertBackgroundThread();
@@ -165,11 +273,11 @@ public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<
                 throw new CancellationException();
             }
         }
-        return (R) invokeL.objValue;
+        return invokeL.objValue;
     }
 
     @Override // java.util.concurrent.Future
-    public synchronized boolean cancel(boolean z) {
+    public boolean cancel(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
@@ -179,8 +287,14 @@ public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<
                 }
                 this.isCancelled = true;
                 this.waiter.notifyAll(this);
+                Request request = null;
                 if (z) {
-                    clearOnMainThread();
+                    Request request2 = this.request;
+                    this.request = null;
+                    request = request2;
+                }
+                if (request != null) {
+                    request.clear();
                 }
                 return true;
             }
@@ -189,81 +303,34 @@ public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<
     }
 
     @Override // java.util.concurrent.Future
-    public R get() throws InterruptedException, ExecutionException {
-        InterceptResult invokeV;
+    public Object get(long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
+        InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            try {
-                return doGet(null);
-            } catch (TimeoutException e) {
-                throw new AssertionError(e);
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, timeUnit)) == null) {
+            return doGet(Long.valueOf(timeUnit.toMillis(j)));
+        }
+        return invokeJL.objValue;
+    }
+
+    @Override // com.bumptech.glide.request.target.Target
+    public synchronized void onResourceReady(Object obj, Transition transition) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, obj, transition) == null) {
+            synchronized (this) {
             }
         }
-        return (R) invokeV.objValue;
     }
 
     @Override // com.bumptech.glide.request.target.Target
-    @Nullable
-    public Request getRequest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.request : (Request) invokeV.objValue;
-    }
-
-    @Override // com.bumptech.glide.request.target.Target
-    public void getSize(@NonNull SizeReadyCallback sizeReadyCallback) {
+    public void getSize(SizeReadyCallback sizeReadyCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, sizeReadyCallback) == null) {
             sizeReadyCallback.onSizeReady(this.width, this.height);
         }
     }
 
-    @Override // java.util.concurrent.Future
-    public synchronized boolean isCancelled() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this) {
-                z = this.isCancelled;
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // java.util.concurrent.Future
-    public synchronized boolean isDone() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            synchronized (this) {
-                if (!this.isCancelled && !this.resultReceived) {
-                    z = this.loadFailed;
-                }
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.bumptech.glide.manager.LifecycleListener
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-        }
-    }
-
     @Override // com.bumptech.glide.request.target.Target
-    public void onLoadCleared(@Nullable Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, drawable) == null) {
-        }
-    }
-
-    @Override // com.bumptech.glide.request.target.Target
-    public synchronized void onLoadFailed(@Nullable Drawable drawable) {
+    public synchronized void onLoadFailed(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, drawable) == null) {
             synchronized (this) {
@@ -272,85 +339,17 @@ public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<
     }
 
     @Override // com.bumptech.glide.request.target.Target
-    public void onLoadStarted(@Nullable Drawable drawable) {
+    public synchronized void setRequest(Request request) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, drawable) == null) {
-        }
-    }
-
-    @Override // com.bumptech.glide.request.target.Target
-    public synchronized void onResourceReady(@NonNull R r, @Nullable Transition<? super R> transition) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, r, transition) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, request) == null) {
             synchronized (this) {
+                this.request = request;
             }
         }
-    }
-
-    @Override // com.bumptech.glide.manager.LifecycleListener
-    public void onStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-        }
-    }
-
-    @Override // com.bumptech.glide.manager.LifecycleListener
-    public void onStop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-        }
-    }
-
-    @Override // com.bumptech.glide.request.target.Target
-    public void removeCallback(@NonNull SizeReadyCallback sizeReadyCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, sizeReadyCallback) == null) {
-        }
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Request request;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (request = this.request) == null) {
-            return;
-        }
-        request.clear();
-        this.request = null;
-    }
-
-    @Override // com.bumptech.glide.request.target.Target
-    public void setRequest(@Nullable Request request) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, request) == null) {
-            this.request = request;
-        }
-    }
-
-    public RequestFutureTarget(Handler handler, int i, int i2, boolean z, Waiter waiter) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {handler, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), waiter};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mainHandler = handler;
-        this.width = i;
-        this.height = i2;
-        this.assertBackgroundThread = z;
-        this.waiter = waiter;
     }
 
     @Override // com.bumptech.glide.request.RequestListener
-    public synchronized boolean onLoadFailed(@Nullable GlideException glideException, Object obj, Target<R> target, boolean z) {
+    public synchronized boolean onLoadFailed(GlideException glideException, Object obj, Target target, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{glideException, obj, target, Boolean.valueOf(z)})) == null) {
@@ -365,24 +364,17 @@ public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<
     }
 
     @Override // com.bumptech.glide.request.RequestListener
-    public synchronized boolean onResourceReady(R r, Object obj, Target<R> target, DataSource dataSource, boolean z) {
+    public synchronized boolean onResourceReady(Object obj, Object obj2, Target target, DataSource dataSource, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{r, obj, target, dataSource, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{obj, obj2, target, dataSource, Boolean.valueOf(z)})) == null) {
             synchronized (this) {
                 this.resultReceived = true;
-                this.resource = r;
+                this.resource = obj;
                 this.waiter.notifyAll(this);
             }
             return false;
         }
         return invokeCommon.booleanValue;
-    }
-
-    @Override // java.util.concurrent.Future
-    public R get(long j, @NonNull TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, timeUnit)) == null) ? doGet(Long.valueOf(timeUnit.toMillis(j))) : (R) invokeJL.objValue;
     }
 }

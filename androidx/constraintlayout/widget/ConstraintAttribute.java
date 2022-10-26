@@ -37,6 +37,16 @@ public class ConstraintAttribute {
     public String mStringValue;
     public AttributeType mType;
 
+    public static int clamp(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            int i2 = (i & (~(i >> 31))) + UIMsg.m_AppUI.V_WM_ADDLISTUPDATE;
+            return (i2 & (i2 >> 31)) + 255;
+        }
+        return invokeI.intValue;
+    }
+
     /* renamed from: androidx.constraintlayout.widget.ConstraintAttribute$1  reason: invalid class name */
     /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
@@ -150,14 +160,40 @@ public class ConstraintAttribute {
         public static AttributeType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (AttributeType) Enum.valueOf(AttributeType.class, str) : (AttributeType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (AttributeType) Enum.valueOf(AttributeType.class, str);
+            }
+            return (AttributeType) invokeL.objValue;
         }
 
         public static AttributeType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (AttributeType[]) $VALUES.clone() : (AttributeType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (AttributeType[]) $VALUES.clone();
+            }
+            return (AttributeType[]) invokeV.objValue;
         }
+    }
+
+    public ConstraintAttribute(ConstraintAttribute constraintAttribute, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {constraintAttribute, obj};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mName = constraintAttribute.mName;
+        this.mType = constraintAttribute.mType;
+        setValue(obj);
     }
 
     public ConstraintAttribute(String str, AttributeType attributeType) {
@@ -179,14 +215,24 @@ public class ConstraintAttribute {
         this.mType = attributeType;
     }
 
-    public static int clamp(int i) {
-        InterceptResult invokeI;
+    public ConstraintAttribute(String str, AttributeType attributeType, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            int i2 = (i & (~(i >> 31))) + UIMsg.m_AppUI.V_WM_ADDLISTUPDATE;
-            return (i2 & (i2 >> 31)) + 255;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, attributeType, obj};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
-        return invokeI.intValue;
+        this.mName = str;
+        this.mType = attributeType;
+        setValue(obj);
     }
 
     public static HashMap<String, ConstraintAttribute> extractAttributes(HashMap<String, ConstraintAttribute> hashMap, View view2) {
@@ -324,131 +370,6 @@ public class ConstraintAttribute {
         }
     }
 
-    public boolean diff(ConstraintAttribute constraintAttribute) {
-        InterceptResult invokeL;
-        AttributeType attributeType;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, constraintAttribute)) == null) {
-            if (constraintAttribute == null || (attributeType = this.mType) != constraintAttribute.mType) {
-                return false;
-            }
-            switch (AnonymousClass1.$SwitchMap$androidx$constraintlayout$widget$ConstraintAttribute$AttributeType[attributeType.ordinal()]) {
-                case 1:
-                case 2:
-                    return this.mColorValue == constraintAttribute.mColorValue;
-                case 3:
-                    return this.mIntegerValue == constraintAttribute.mIntegerValue;
-                case 4:
-                    return this.mFloatValue == constraintAttribute.mFloatValue;
-                case 5:
-                    return this.mIntegerValue == constraintAttribute.mIntegerValue;
-                case 6:
-                    return this.mBooleanValue == constraintAttribute.mBooleanValue;
-                case 7:
-                    return this.mFloatValue == constraintAttribute.mFloatValue;
-                default:
-                    return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public AttributeType getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mType : (AttributeType) invokeV.objValue;
-    }
-
-    public float getValueToInterpolate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            switch (AnonymousClass1.$SwitchMap$androidx$constraintlayout$widget$ConstraintAttribute$AttributeType[this.mType.ordinal()]) {
-                case 1:
-                case 2:
-                    throw new RuntimeException("Color does not have a single color to interpolate");
-                case 3:
-                    return this.mIntegerValue;
-                case 4:
-                    return this.mFloatValue;
-                case 5:
-                    throw new RuntimeException("Cannot interpolate String");
-                case 6:
-                    return this.mBooleanValue ? 1.0f : 0.0f;
-                case 7:
-                    return this.mFloatValue;
-                default:
-                    return Float.NaN;
-            }
-        }
-        return invokeV.floatValue;
-    }
-
-    public void getValuesToInterpolate(float[] fArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, fArr) == null) {
-            switch (AnonymousClass1.$SwitchMap$androidx$constraintlayout$widget$ConstraintAttribute$AttributeType[this.mType.ordinal()]) {
-                case 1:
-                case 2:
-                    int i = this.mColorValue;
-                    float pow = (float) Math.pow(((i >> 16) & 255) / 255.0f, 2.2d);
-                    float pow2 = (float) Math.pow(((i >> 8) & 255) / 255.0f, 2.2d);
-                    fArr[0] = pow;
-                    fArr[1] = pow2;
-                    fArr[2] = (float) Math.pow((i & 255) / 255.0f, 2.2d);
-                    fArr[3] = ((i >> 24) & 255) / 255.0f;
-                    return;
-                case 3:
-                    fArr[0] = this.mIntegerValue;
-                    return;
-                case 4:
-                    fArr[0] = this.mFloatValue;
-                    return;
-                case 5:
-                    throw new RuntimeException("Color does not have a single color to interpolate");
-                case 6:
-                    fArr[0] = this.mBooleanValue ? 1.0f : 0.0f;
-                    return;
-                case 7:
-                    fArr[0] = this.mFloatValue;
-                    return;
-                default:
-                    return;
-            }
-        }
-    }
-
-    public int noOfInterpValues() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i = AnonymousClass1.$SwitchMap$androidx$constraintlayout$widget$ConstraintAttribute$AttributeType[this.mType.ordinal()];
-            return (i == 1 || i == 2) ? 4 : 1;
-        }
-        return invokeV.intValue;
-    }
-
-    public void setColorValue(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.mColorValue = i;
-        }
-    }
-
-    public void setFloatValue(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048582, this, f) == null) {
-            this.mFloatValue = f;
-        }
-    }
-
-    public void setIntValue(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.mIntegerValue = i;
-        }
-    }
-
     public void setInterpolatedValue(View view2, float[] fArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, fArr) == null) {
@@ -503,16 +424,97 @@ public class ConstraintAttribute {
         }
     }
 
-    public void setStringValue(String str) {
+    public boolean diff(ConstraintAttribute constraintAttribute) {
+        InterceptResult invokeL;
+        AttributeType attributeType;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.mStringValue = str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, constraintAttribute)) == null) {
+            if (constraintAttribute == null || (attributeType = this.mType) != constraintAttribute.mType) {
+                return false;
+            }
+            switch (AnonymousClass1.$SwitchMap$androidx$constraintlayout$widget$ConstraintAttribute$AttributeType[attributeType.ordinal()]) {
+                case 1:
+                case 2:
+                    if (this.mColorValue != constraintAttribute.mColorValue) {
+                        return false;
+                    }
+                    return true;
+                case 3:
+                    if (this.mIntegerValue != constraintAttribute.mIntegerValue) {
+                        return false;
+                    }
+                    return true;
+                case 4:
+                    if (this.mFloatValue != constraintAttribute.mFloatValue) {
+                        return false;
+                    }
+                    return true;
+                case 5:
+                    if (this.mIntegerValue != constraintAttribute.mIntegerValue) {
+                        return false;
+                    }
+                    return true;
+                case 6:
+                    if (this.mBooleanValue != constraintAttribute.mBooleanValue) {
+                        return false;
+                    }
+                    return true;
+                case 7:
+                    if (this.mFloatValue != constraintAttribute.mFloatValue) {
+                        return false;
+                    }
+                    return true;
+                default:
+                    return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void getValuesToInterpolate(float[] fArr) {
+        float f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, fArr) == null) {
+            switch (AnonymousClass1.$SwitchMap$androidx$constraintlayout$widget$ConstraintAttribute$AttributeType[this.mType.ordinal()]) {
+                case 1:
+                case 2:
+                    int i = this.mColorValue;
+                    float pow = (float) Math.pow(((i >> 16) & 255) / 255.0f, 2.2d);
+                    float pow2 = (float) Math.pow(((i >> 8) & 255) / 255.0f, 2.2d);
+                    fArr[0] = pow;
+                    fArr[1] = pow2;
+                    fArr[2] = (float) Math.pow((i & 255) / 255.0f, 2.2d);
+                    fArr[3] = ((i >> 24) & 255) / 255.0f;
+                    return;
+                case 3:
+                    fArr[0] = this.mIntegerValue;
+                    return;
+                case 4:
+                    fArr[0] = this.mFloatValue;
+                    return;
+                case 5:
+                    throw new RuntimeException("Color does not have a single color to interpolate");
+                case 6:
+                    if (this.mBooleanValue) {
+                        f = 1.0f;
+                    } else {
+                        f = 0.0f;
+                    }
+                    fArr[0] = f;
+                    return;
+                case 7:
+                    fArr[0] = this.mFloatValue;
+                    return;
+                default:
+                    return;
+            }
         }
     }
 
     public void setValue(float[] fArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, fArr) == null) {
+            boolean z = false;
             switch (AnonymousClass1.$SwitchMap$androidx$constraintlayout$widget$ConstraintAttribute$AttributeType[this.mType.ordinal()]) {
                 case 1:
                 case 2:
@@ -529,7 +531,10 @@ public class ConstraintAttribute {
                 case 5:
                     throw new RuntimeException("Color does not have a single color to interpolate");
                 case 6:
-                    this.mBooleanValue = ((double) fArr[0]) > 0.5d;
+                    if (fArr[0] > 0.5d) {
+                        z = true;
+                    }
+                    this.mBooleanValue = z;
                     return;
                 case 7:
                     this.mFloatValue = fArr[0];
@@ -540,44 +545,82 @@ public class ConstraintAttribute {
         }
     }
 
-    public ConstraintAttribute(String str, AttributeType attributeType, Object obj) {
+    public AttributeType getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, attributeType, obj};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mType;
         }
-        this.mName = str;
-        this.mType = attributeType;
-        setValue(obj);
+        return (AttributeType) invokeV.objValue;
     }
 
-    public ConstraintAttribute(ConstraintAttribute constraintAttribute, Object obj) {
+    public int noOfInterpValues() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {constraintAttribute, obj};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int i = AnonymousClass1.$SwitchMap$androidx$constraintlayout$widget$ConstraintAttribute$AttributeType[this.mType.ordinal()];
+            if (i != 1 && i != 2) {
+                return 1;
+            }
+            return 4;
+        }
+        return invokeV.intValue;
+    }
+
+    public float getValueToInterpolate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            switch (AnonymousClass1.$SwitchMap$androidx$constraintlayout$widget$ConstraintAttribute$AttributeType[this.mType.ordinal()]) {
+                case 1:
+                case 2:
+                    throw new RuntimeException("Color does not have a single color to interpolate");
+                case 3:
+                    return this.mIntegerValue;
+                case 4:
+                    return this.mFloatValue;
+                case 5:
+                    throw new RuntimeException("Cannot interpolate String");
+                case 6:
+                    if (this.mBooleanValue) {
+                        return 1.0f;
+                    }
+                    return 0.0f;
+                case 7:
+                    return this.mFloatValue;
+                default:
+                    return Float.NaN;
             }
         }
-        this.mName = constraintAttribute.mName;
-        this.mType = constraintAttribute.mType;
-        setValue(obj);
+        return invokeV.floatValue;
+    }
+
+    public void setColorValue(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.mColorValue = i;
+        }
+    }
+
+    public void setFloatValue(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048582, this, f) == null) {
+            this.mFloatValue = f;
+        }
+    }
+
+    public void setIntValue(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.mIntegerValue = i;
+        }
+    }
+
+    public void setStringValue(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.mStringValue = str;
+        }
     }
 
     public void setValue(Object obj) {

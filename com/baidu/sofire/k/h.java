@@ -34,6 +34,15 @@ public final class h {
         c = new h();
     }
 
+    public static Looper a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return c.b.getLooper();
+        }
+        return (Looper) invokeV.objValue;
+    }
+
     public h() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -51,11 +60,5 @@ public final class h {
         this.a = handlerThread;
         handlerThread.start();
         this.b = new Handler(this.a.getLooper());
-    }
-
-    public static Looper a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.b.getLooper() : (Looper) invokeV.objValue;
     }
 }

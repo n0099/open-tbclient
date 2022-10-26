@@ -14,11 +14,31 @@ public final class DefaultDataSourceFactory implements DataSource.Factory {
     public transient /* synthetic */ FieldHolder $fh;
     public final DataSource.Factory baseDataSourceFactory;
     public final Context context;
-    public final TransferListener<? super DataSource> listener;
+    public final TransferListener listener;
+
+    public DefaultDataSourceFactory(Context context, TransferListener transferListener, DataSource.Factory factory) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, transferListener, factory};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.context = context.getApplicationContext();
+        this.listener = transferListener;
+        this.baseDataSourceFactory = factory;
+    }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public DefaultDataSourceFactory(Context context, String str) {
-        this(context, str, (TransferListener<? super DataSource>) null);
+        this(context, str, (TransferListener) null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -38,7 +58,7 @@ public final class DefaultDataSourceFactory implements DataSource.Factory {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DefaultDataSourceFactory(Context context, String str, TransferListener<? super DataSource> transferListener) {
+    public DefaultDataSourceFactory(Context context, String str, TransferListener transferListener) {
         this(context, transferListener, new DefaultHttpDataSourceFactory(str, transferListener));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -63,26 +83,9 @@ public final class DefaultDataSourceFactory implements DataSource.Factory {
     public DefaultDataSource createDataSource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new DefaultDataSource(this.context, this.listener, this.baseDataSourceFactory.createDataSource()) : (DefaultDataSource) invokeV.objValue;
-    }
-
-    public DefaultDataSourceFactory(Context context, TransferListener<? super DataSource> transferListener, DataSource.Factory factory) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, transferListener, factory};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new DefaultDataSource(this.context, this.listener, this.baseDataSourceFactory.createDataSource());
         }
-        this.context = context.getApplicationContext();
-        this.listener = transferListener;
-        this.baseDataSourceFactory = factory;
+        return (DefaultDataSource) invokeV.objValue;
     }
 }

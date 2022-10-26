@@ -11,7 +11,7 @@ public final class c {
     public static final Charset ISO_8859_1 = Charset.forName("ISO-8859-1");
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public final class a {
         public static final int[] Xr;
         public final boolean Xt;
         public final boolean Xu = false;
@@ -188,7 +188,7 @@ public final class c {
     }
 
     /* loaded from: classes7.dex */
-    public static class b {
+    public final class b {
         public static final b Xv = new b(false, null, -1, true);
         public static final b Xw = new b(true, null, -1, false);
         public static final char[] Xx = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', WebvttCueParser.CHAR_SLASH};

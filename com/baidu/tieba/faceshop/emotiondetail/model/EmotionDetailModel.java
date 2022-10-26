@@ -23,6 +23,16 @@ public class EmotionDetailModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
     public HttpMessageListener a;
 
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
@@ -54,9 +64,10 @@ public class EmotionDetailModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003361 && (httpResponsedMessage instanceof EmotionDetailResponseMessage) && this.a.mLoadDataCallBack != null) {
-                this.a.mLoadDataCallBack.c(((EmotionDetailResponseMessage) httpResponsedMessage).data);
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003361 || !(httpResponsedMessage instanceof EmotionDetailResponseMessage) || this.a.mLoadDataCallBack == null) {
+                return;
             }
+            this.a.mLoadDataCallBack.c(((EmotionDetailResponseMessage) httpResponsedMessage).data);
         }
     }
 
@@ -86,12 +97,13 @@ public class EmotionDetailModel extends BdBaseModel {
     public void B(long j, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
-            if (j >= 0 || i >= 0) {
-                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_EMOTION_DETAIL);
-                httpMessage.addParam(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY, j);
-                httpMessage.addParam("pck_id", i);
-                sendMessage(httpMessage);
+            if (j < 0 && i < 0) {
+                return;
             }
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_EMOTION_DETAIL);
+            httpMessage.addParam(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY, j);
+            httpMessage.addParam("pck_id", i);
+            sendMessage(httpMessage);
         }
     }
 
@@ -103,16 +115,6 @@ public class EmotionDetailModel extends BdBaseModel {
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_EMOTION_DETAIL);
             MessageManager.getInstance().unRegisterListener(this.a);
             return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
         }
         return invokeV.booleanValue;
     }

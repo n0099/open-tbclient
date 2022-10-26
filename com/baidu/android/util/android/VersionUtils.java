@@ -54,33 +54,11 @@ public class VersionUtils {
     }
 
     @Deprecated
-    public static String getVersionCode(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? getVersionCode() : (String) invokeL.objValue;
-    }
-
-    @Deprecated
     public static String getVersionName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? getVersionName(AppRuntime.getAppContext()) : (String) invokeV.objValue;
-    }
-
-    @Deprecated
-    public static String readFourDotVersionName() {
-        InterceptResult invokeV;
-        Bundle bundle;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            Context appContext = AppRuntime.getAppContext();
-            try {
-                ApplicationInfo applicationInfo = appContext.getPackageManager().getApplicationInfo(appContext.getPackageName(), 128);
-                return (applicationInfo == null || (bundle = applicationInfo.metaData) == null) ? "" : bundle.getString(PushManager.APP_VERSION_NAME);
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                return "";
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return getVersionName(AppRuntime.getAppContext());
         }
         return (String) invokeV.objValue;
     }
@@ -100,6 +78,37 @@ public class VersionUtils {
             return sBoxVersionCode;
         }
         return (String) invokeV.objValue;
+    }
+
+    @Deprecated
+    public static String readFourDotVersionName() {
+        InterceptResult invokeV;
+        Bundle bundle;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            try {
+                ApplicationInfo applicationInfo = appContext.getPackageManager().getApplicationInfo(appContext.getPackageName(), 128);
+                if (applicationInfo == null || (bundle = applicationInfo.metaData) == null) {
+                    return "";
+                }
+                return bundle.getString(PushManager.APP_VERSION_NAME);
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Deprecated
+    public static String getVersionCode(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            return getVersionCode();
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String getVersionName(Context context) {

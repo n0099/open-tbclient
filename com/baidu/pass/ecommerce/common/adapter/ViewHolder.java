@@ -8,10 +8,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class ViewHolder<D> {
+public class ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View convertView;
+
+    public void bindView(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+        }
+    }
 
     public ViewHolder(View view2) {
         Interceptable interceptable = $ic;
@@ -31,15 +37,12 @@ public class ViewHolder<D> {
         this.convertView = view2;
     }
 
-    public void bindView(D d) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, d) == null) {
-        }
-    }
-
-    public <T extends View> T findViewById(int i) {
+    public View findViewById(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? (T) this.convertView.findViewById(i) : (T) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return this.convertView.findViewById(i);
+        }
+        return (View) invokeI.objValue;
     }
 }

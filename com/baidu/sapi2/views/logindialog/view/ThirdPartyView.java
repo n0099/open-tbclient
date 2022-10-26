@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.CoreViewRouter;
@@ -53,6 +52,12 @@ public class ThirdPartyView extends LinearLayout implements View.OnClickListener
     public ILoginConfirmCallback l;
     public QuickLoginType m;
     public QuickLoginType n;
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
 
     /* loaded from: classes2.dex */
     public class a extends ThirdLoginCallback {
@@ -181,7 +186,7 @@ public class ThirdPartyView extends LinearLayout implements View.OnClickListener
     }
 
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class c {
+    public /* synthetic */ class c {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -237,20 +242,92 @@ public class ThirdPartyView extends LinearLayout implements View.OnClickListener
         }
     }
 
+    private void a(WebSocialLoginDTO webSocialLoginDTO) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, webSocialLoginDTO) == null) {
+            ILoginConfirmCallback iLoginConfirmCallback = this.l;
+            if (iLoginConfirmCallback == null) {
+                Log.e(QuickLoginDialog.STAG, "thirdLogin mWebAuthListener is null");
+            } else if (!iLoginConfirmCallback.onPreStart(false)) {
+                Log.e(QuickLoginDialog.STAG, "thirdLogin privacy is not agree");
+            } else {
+                CoreViewRouter.getInstance().loadThirdPartyLogin(new a(this, System.currentTimeMillis()), webSocialLoginDTO);
+            }
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public ThirdPartyView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ThirdPartyView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = context;
+        d();
+    }
+
+    public void setDialogLoginType(QuickLoginType quickLoginType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, quickLoginType) == null) {
+            this.n = quickLoginType;
+        }
+    }
+
+    public void setLoginCallback(ILoginConfirmCallback iLoginConfirmCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, iLoginConfirmCallback) == null) {
+            this.l = iLoginConfirmCallback;
+        }
+    }
+
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04db, this);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d4e);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d4c);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d4d);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d50);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d49);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d48);
-            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d4f);
-            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d4a);
-            this.j = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d4b);
-            this.k = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091d54);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04d8, this);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d4a);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d48);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d49);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d4c);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d45);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d44);
+            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d4b);
+            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d46);
+            this.j = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d47);
+            this.k = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091d50);
             this.b.setOnClickListener(this);
             this.c.setOnClickListener(this);
             this.d.setOnClickListener(this);
@@ -260,10 +337,10 @@ public class ThirdPartyView extends LinearLayout implements View.OnClickListener
             this.h.setOnClickListener(this);
             this.i.setOnClickListener(this);
             this.j.setOnClickListener(this);
-            List<FastLoginFeature> thirdPartyConfig = getThirdPartyConfig();
+            List thirdPartyConfig = getThirdPartyConfig();
             int min = Math.min(thirdPartyConfig.size(), 5);
             for (int i = 0; i < min; i++) {
-                FastLoginFeature fastLoginFeature = thirdPartyConfig.get(i);
+                FastLoginFeature fastLoginFeature = (FastLoginFeature) thirdPartyConfig.get(i);
                 if (fastLoginFeature == FastLoginFeature.TX_WEIXIN_SSO) {
                     this.b.setVisibility(0);
                 } else if (fastLoginFeature == FastLoginFeature.TX_QQ_SSO) {
@@ -299,12 +376,16 @@ public class ThirdPartyView extends LinearLayout implements View.OnClickListener
                 QuickLoginType quickLoginType = this.n;
                 if (quickLoginType != null) {
                     int i = c.a[quickLoginType.ordinal()];
-                    if (i == 1) {
+                    if (i != 1) {
+                        if (i != 2) {
+                            if (i == 3) {
+                                webLoginDTO.excludeTypes = LoginTypes.ONE_KEY_LOGIN;
+                            }
+                        } else {
+                            webLoginDTO.excludeTypes = LoginTypes.SHARE;
+                        }
+                    } else {
                         webLoginDTO.excludeTypes = LoginTypes.HISTORY;
-                    } else if (i == 2) {
-                        webLoginDTO.excludeTypes = LoginTypes.SHARE;
-                    } else if (i == 3) {
-                        webLoginDTO.excludeTypes = LoginTypes.ONE_KEY_LOGIN;
                     }
                 }
                 webLoginDTO.isAcceptBrowseModeAgreement = true;
@@ -313,14 +394,17 @@ public class ThirdPartyView extends LinearLayout implements View.OnClickListener
         }
     }
 
-    private List<FastLoginFeature> getThirdPartyConfig() {
+    private List getThirdPartyConfig() {
         InterceptResult invokeV;
-        SapiConfiguration confignation;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
             ArrayList arrayList = new ArrayList();
             SapiAccountManager sapiAccountManager = SapiAccountManager.getInstance();
-            if (sapiAccountManager == null || (confignation = sapiAccountManager.getConfignation()) == null) {
+            if (sapiAccountManager == null) {
+                return arrayList;
+            }
+            SapiConfiguration confignation = sapiAccountManager.getConfignation();
+            if (confignation == null) {
                 return arrayList;
             }
             arrayList.addAll(confignation.fastLoginFeatureList);
@@ -329,9 +413,10 @@ public class ThirdPartyView extends LinearLayout implements View.OnClickListener
         return (List) invokeV.objValue;
     }
 
-    public void a() {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.k.setVisibility(8);
         }
     }
 
@@ -347,121 +432,42 @@ public class ThirdPartyView extends LinearLayout implements View.OnClickListener
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
             WebSocialLoginDTO webSocialLoginDTO = new WebSocialLoginDTO();
-            if (view2.getId() == R.id.obfuscated_res_0x7f091d4e) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091d4a) {
                 this.m = QuickLoginType.WECHAT;
                 webSocialLoginDTO.socialType = SocialType.WEIXIN;
                 a(webSocialLoginDTO);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d4c) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d48) {
                 this.m = QuickLoginType.QQ;
                 webSocialLoginDTO.socialType = SocialType.QQ_SSO;
                 a(webSocialLoginDTO);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d50) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d4c) {
                 this.m = QuickLoginType.YY;
                 webSocialLoginDTO.socialType = SocialType.YY;
                 a(webSocialLoginDTO);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d4d) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d49) {
                 this.m = QuickLoginType.SINA;
                 webSocialLoginDTO.socialType = SocialType.SINA_WEIBO_SSO;
                 a(webSocialLoginDTO);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d49) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d45) {
                 this.m = QuickLoginType.HUAWEI;
                 webSocialLoginDTO.socialType = SocialType.HUAWEI;
                 a(webSocialLoginDTO);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d48) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d44) {
                 this.m = QuickLoginType.HONOR;
                 webSocialLoginDTO.socialType = SocialType.HONOR;
                 a(webSocialLoginDTO);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d4f) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d4b) {
                 this.m = QuickLoginType.XIAOMI;
                 webSocialLoginDTO.socialType = SocialType.XIAOMI;
                 a(webSocialLoginDTO);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d4a) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d46) {
                 this.m = QuickLoginType.MEIZU;
                 webSocialLoginDTO.socialType = SocialType.MEIZU;
                 a(webSocialLoginDTO);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d4b) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d47) {
                 this.m = QuickLoginType.FULL_SCREEN;
                 e();
             }
         }
-    }
-
-    public void setDialogLoginType(QuickLoginType quickLoginType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, quickLoginType) == null) {
-            this.n = quickLoginType;
-        }
-    }
-
-    public void setLoginCallback(ILoginConfirmCallback iLoginConfirmCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, iLoginConfirmCallback) == null) {
-            this.l = iLoginConfirmCallback;
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ThirdPartyView(Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    private void a(WebSocialLoginDTO webSocialLoginDTO) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, webSocialLoginDTO) == null) {
-            ILoginConfirmCallback iLoginConfirmCallback = this.l;
-            if (iLoginConfirmCallback == null) {
-                Log.e(QuickLoginDialog.STAG, "thirdLogin mWebAuthListener is null");
-            } else if (!iLoginConfirmCallback.onPreStart(false)) {
-                Log.e(QuickLoginDialog.STAG, "thirdLogin privacy is not agree");
-            } else {
-                CoreViewRouter.getInstance().loadThirdPartyLogin(new a(this, System.currentTimeMillis()), webSocialLoginDTO);
-            }
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.k.setVisibility(8);
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ThirdPartyView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = context;
-        d();
     }
 }

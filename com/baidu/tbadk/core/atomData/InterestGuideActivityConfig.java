@@ -45,36 +45,6 @@ public class InterestGuideActivityConfig extends IntentConfig {
         }
     }
 
-    public void setCustomTitle(String[] strArr) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, strArr) == null) || strArr == null || strArr.length < 3) {
-            return;
-        }
-        getIntent().putExtra(KEY_CUSTOM_TITLE, strArr);
-    }
-
-    public void setIsBackToMainTab(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            getIntent().putExtra(KEY_INTEREST_BACK_TO_MAINTAB, z);
-        }
-    }
-
-    public void setOnlyShowInterestedForum(boolean z, ArrayList<Integer> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, arrayList) == null) {
-            getIntent().putExtra(KEY_ONLY_SHOW_INTERESTED_FORUM, z);
-            getIntent().putExtra(KEY_CLASS_ID_WHEN_ONLY_SHOW_INTERESTED_FORUM, arrayList);
-        }
-    }
-
-    public void setScene(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            getIntent().putExtra(KEY_INTEREST_GUID_SHOW_SCENE, i);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public InterestGuideActivityConfig(Context context, int i) {
         super(context);
@@ -94,5 +64,34 @@ public class InterestGuideActivityConfig extends IntentConfig {
             }
         }
         getIntent().putExtra(KEY_INTEREST_GUID_SHOW_SCENE, i);
+    }
+
+    public void setCustomTitle(String[] strArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, strArr) == null) && strArr != null && strArr.length >= 3) {
+            getIntent().putExtra(KEY_CUSTOM_TITLE, strArr);
+        }
+    }
+
+    public void setIsBackToMainTab(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            getIntent().putExtra(KEY_INTEREST_BACK_TO_MAINTAB, z);
+        }
+    }
+
+    public void setScene(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            getIntent().putExtra(KEY_INTEREST_GUID_SHOW_SCENE, i);
+        }
+    }
+
+    public void setOnlyShowInterestedForum(boolean z, ArrayList arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, arrayList) == null) {
+            getIntent().putExtra(KEY_ONLY_SHOW_INTERESTED_FORUM, z);
+            getIntent().putExtra(KEY_CLASS_ID_WHEN_ONLY_SHOW_INTERESTED_FORUM, arrayList);
+        }
     }
 }

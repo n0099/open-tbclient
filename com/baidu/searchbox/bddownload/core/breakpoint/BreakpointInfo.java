@@ -1,7 +1,5 @@
 package com.baidu.searchbox.bddownload.core.breakpoint;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.DownloadTask;
@@ -20,20 +18,18 @@ import java.util.List;
 public class BreakpointInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<BlockInfo> blockInfoList;
+    public final List blockInfoList;
     public boolean chunked;
     public String etag;
     public final DownloadStrategy.FilenameHolder filenameHolder;
     public final int id;
     public String mimeType;
-    @NonNull
     public final File parentFile;
-    @Nullable
     public File targetFile;
     public final boolean taskOnlyProvidedParentPath;
     public final String url;
 
-    public BreakpointInfo(int i, @NonNull String str, @NonNull File file, @Nullable String str2) {
+    public BreakpointInfo(int i, String str, File file, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,10 +58,87 @@ public class BreakpointInfo {
         this.targetFile = new File(file, str2);
     }
 
+    public BreakpointInfo(int i, String str, File file, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, file, str2, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.id = i;
+        this.url = str;
+        this.parentFile = file;
+        this.blockInfoList = new ArrayList();
+        if (Util.isEmpty(str2)) {
+            this.filenameHolder = new DownloadStrategy.FilenameHolder();
+        } else {
+            this.filenameHolder = new DownloadStrategy.FilenameHolder(str2);
+        }
+        this.taskOnlyProvidedParentPath = z;
+    }
+
     public void addBlock(BlockInfo blockInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, blockInfo) == null) {
             this.blockInfoList.add(blockInfo);
+        }
+    }
+
+    public BlockInfo getBlock(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return (BlockInfo) this.blockInfoList.get(i);
+        }
+        return (BlockInfo) invokeI.objValue;
+    }
+
+    public boolean isLastBlock(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
+            if (i == this.blockInfoList.size() - 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void reuseBlocks(BreakpointInfo breakpointInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, breakpointInfo) == null) {
+            this.blockInfoList.clear();
+            this.blockInfoList.addAll(breakpointInfo.blockInfoList);
+        }
+    }
+
+    public void setChunked(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
+            this.chunked = z;
+        }
+    }
+
+    public void setEtag(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
+            this.etag = str;
+        }
+    }
+
+    public void setMimeType(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
+            this.mimeType = str;
         }
     }
 
@@ -97,6 +170,28 @@ public class BreakpointInfo {
         return (BreakpointInfo) invokeI.objValue;
     }
 
+    public boolean isSameFrom(DownloadTask downloadTask) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, downloadTask)) == null) {
+            if (!this.parentFile.equals(downloadTask.getParentFile()) || !this.url.equals(downloadTask.getUrl())) {
+                return false;
+            }
+            String filename = downloadTask.getFilename();
+            if (filename != null && filename.equals(this.filenameHolder.get())) {
+                return true;
+            }
+            if (!this.taskOnlyProvidedParentPath || !downloadTask.isFilenameFromResponse()) {
+                return false;
+            }
+            if (filename != null && !filename.equals(this.filenameHolder.get())) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
     public BreakpointInfo copyWithReplaceIdAndUrl(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -111,26 +206,24 @@ public class BreakpointInfo {
         return (BreakpointInfo) invokeIL.objValue;
     }
 
-    public BlockInfo getBlock(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? this.blockInfoList.get(i) : (BlockInfo) invokeI.objValue;
-    }
-
     public int getBlockCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.blockInfoList.size() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.blockInfoList.size();
+        }
+        return invokeV.intValue;
     }
 
-    @Nullable
     public String getEtag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.etag : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.etag;
+        }
+        return (String) invokeV.objValue;
     }
 
-    @Nullable
     public File getFile() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -147,43 +240,112 @@ public class BreakpointInfo {
         return (File) invokeV.objValue;
     }
 
-    @Nullable
     public String getFilename() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.filenameHolder.get() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.filenameHolder.get();
+        }
+        return (String) invokeV.objValue;
     }
 
     public DownloadStrategy.FilenameHolder getFilenameHolder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.filenameHolder : (DownloadStrategy.FilenameHolder) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.filenameHolder;
+        }
+        return (DownloadStrategy.FilenameHolder) invokeV.objValue;
     }
 
     public int getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.id : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.id;
+        }
+        return invokeV.intValue;
     }
 
     public long getLastLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? getTotalLength() - getTotalOffset() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return getTotalLength() - getTotalOffset();
+        }
+        return invokeV.longValue;
     }
 
-    @Nullable
     public String getMimeType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mimeType : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.mimeType;
+        }
+        return (String) invokeV.objValue;
     }
 
-    @NonNull
     public File getParentFile() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.parentFile : (File) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.parentFile;
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public String getUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.url;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean isChunked() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.chunked;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isSingleBlock() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            if (this.blockInfoList.size() == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isTaskOnlyProvidedParentPath() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return this.taskOnlyProvidedParentPath;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void resetBlockInfos() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+            this.blockInfoList.clear();
+        }
+    }
+
+    public void resetInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+            this.blockInfoList.clear();
+            this.etag = null;
+        }
     }
 
     public long getTotalLength() {
@@ -218,99 +380,6 @@ public class BreakpointInfo {
         return invokeV.longValue;
     }
 
-    public String getUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.url : (String) invokeV.objValue;
-    }
-
-    public boolean isChunked() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.chunked : invokeV.booleanValue;
-    }
-
-    public boolean isLastBlock(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) ? i == this.blockInfoList.size() - 1 : invokeI.booleanValue;
-    }
-
-    public boolean isSameFrom(DownloadTask downloadTask) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, downloadTask)) == null) {
-            if (this.parentFile.equals(downloadTask.getParentFile()) && this.url.equals(downloadTask.getUrl())) {
-                String filename = downloadTask.getFilename();
-                if (filename == null || !filename.equals(this.filenameHolder.get())) {
-                    if (this.taskOnlyProvidedParentPath && downloadTask.isFilenameFromResponse()) {
-                        return filename == null || filename.equals(this.filenameHolder.get());
-                    }
-                    return false;
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean isSingleBlock() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.blockInfoList.size() == 1 : invokeV.booleanValue;
-    }
-
-    public boolean isTaskOnlyProvidedParentPath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.taskOnlyProvidedParentPath : invokeV.booleanValue;
-    }
-
-    public void resetBlockInfos() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            this.blockInfoList.clear();
-        }
-    }
-
-    public void resetInfo() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            this.blockInfoList.clear();
-            this.etag = null;
-        }
-    }
-
-    public void reuseBlocks(BreakpointInfo breakpointInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, breakpointInfo) == null) {
-            this.blockInfoList.clear();
-            this.blockInfoList.addAll(breakpointInfo.blockInfoList);
-        }
-    }
-
-    public void setChunked(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
-            this.chunked = z;
-        }
-    }
-
-    public void setEtag(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
-            this.etag = str;
-        }
-    }
-
-    public void setMimeType(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
-            this.mimeType = str;
-        }
-    }
-
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -318,32 +387,5 @@ public class BreakpointInfo {
             return "id[" + this.id + "] url[" + this.url + "] etag[" + this.etag + "] taskOnlyProvidedParentPath[" + this.taskOnlyProvidedParentPath + "] parent path[" + this.parentFile + "] filename[" + this.filenameHolder.get() + "] block(s):" + this.blockInfoList.toString();
         }
         return (String) invokeV.objValue;
-    }
-
-    public BreakpointInfo(int i, @NonNull String str, @NonNull File file, @Nullable String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, file, str2, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.id = i;
-        this.url = str;
-        this.parentFile = file;
-        this.blockInfoList = new ArrayList();
-        if (Util.isEmpty(str2)) {
-            this.filenameHolder = new DownloadStrategy.FilenameHolder();
-        } else {
-            this.filenameHolder = new DownloadStrategy.FilenameHolder(str2);
-        }
-        this.taskOnlyProvidedParentPath = z;
     }
 }

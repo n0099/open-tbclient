@@ -18,12 +18,12 @@ public class b extends al.a {
     public ii a;
 
     /* renamed from: a  reason: collision with other field name */
-    public WeakReference<XMPushService> f919a;
+    public WeakReference f919a;
 
     /* renamed from: a  reason: collision with other field name */
     public boolean f920a;
 
-    public b(ii iiVar, WeakReference<XMPushService> weakReference, boolean z) {
+    public b(ii iiVar, WeakReference weakReference, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,7 +46,7 @@ public class b extends al.a {
 
     @Override // com.xiaomi.push.al.a
     /* renamed from: a */
-    public String mo208a() {
+    public String mo207a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "22" : (String) invokeV.objValue;
@@ -54,15 +54,15 @@ public class b extends al.a {
 
     @Override // java.lang.Runnable
     public void run() {
-        WeakReference<XMPushService> weakReference;
+        WeakReference weakReference;
         XMPushService xMPushService;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (weakReference = this.f919a) == null || this.a == null || (xMPushService = weakReference.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (weakReference = this.f919a) == null || this.a == null || (xMPushService = (XMPushService) weakReference.get()) == null) {
             return;
         }
         this.a.a(bd.a());
         this.a.a(false);
-        com.xiaomi.channel.commonutils.logger.b.c("MoleInfo aw_ping : send aw_Ping msg " + this.a.m481a());
+        com.xiaomi.channel.commonutils.logger.b.c("MoleInfo aw_ping : send aw_Ping msg " + this.a.m480a());
         try {
             String c = this.a.c();
             xMPushService.a(c, it.a(ah.a(c, this.a.b(), this.a, hj.i)), this.f920a);

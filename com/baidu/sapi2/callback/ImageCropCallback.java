@@ -11,10 +11,14 @@ public abstract class ImageCropCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract void onImageCrop(Context context, Uri uri, int i, int i2, ImageCropResult imageCropResult);
+
     /* loaded from: classes2.dex */
-    public static abstract class ImageCropResult {
+    public abstract class ImageCropResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public abstract void onImageResult(String str);
 
         public ImageCropResult() {
             Interceptable interceptable = $ic;
@@ -29,8 +33,6 @@ public abstract class ImageCropCallback {
                 }
             }
         }
-
-        public abstract void onImageResult(String str);
     }
 
     public ImageCropCallback() {
@@ -46,6 +48,4 @@ public abstract class ImageCropCallback {
             }
         }
     }
-
-    public abstract void onImageCrop(Context context, Uri uri, int i, int i2, ImageCropResult imageCropResult);
 }

@@ -24,6 +24,32 @@ public class BaseDefaultStatisLogWriter implements IBaseStatisLogWriter {
     public int mLogMaxLen;
     public final boolean mWriteDebugLog;
 
+    public BaseDefaultStatisLogWriter(String str, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mLogMaxLen = 4194304;
+        this.isFileExist = false;
+        this.fileWriter = null;
+        this.length = new AtomicLong(0L);
+        this.mFilePath = str;
+        int min = Math.min(i, 33554432);
+        this.mLogMaxLen = min;
+        this.mLogMaxLen = Math.max(min, 262144);
+        this.mWriteDebugLog = z;
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public BaseDefaultStatisLogWriter(String str, boolean z) {
         this(str, 4194304, z);
@@ -80,12 +106,12 @@ public class BaseDefaultStatisLogWriter implements IBaseStatisLogWriter {
                     if (!file.exists()) {
                         file.createNewFile();
                     }
-                    if (file.canWrite()) {
-                        FileWriter fileWriter = new FileWriter(file, true);
-                        this.fileWriter = fileWriter;
-                        return fileWriter;
+                    if (!file.canWrite()) {
+                        return null;
                     }
-                    return null;
+                    FileWriter fileWriter = new FileWriter(file, true);
+                    this.fileWriter = fileWriter;
+                    return fileWriter;
                 } catch (IOException unused) {
                     return null;
                 }
@@ -121,7 +147,10 @@ public class BaseDefaultStatisLogWriter implements IBaseStatisLogWriter {
     public boolean outputDebug() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mWriteDebugLog : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mWriteDebugLog;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.yy.hiidostatis.inner.util.log.IBaseStatisLogWriter
@@ -130,31 +159,5 @@ public class BaseDefaultStatisLogWriter implements IBaseStatisLogWriter {
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
             writeLogOrThrow(str);
         }
-    }
-
-    public BaseDefaultStatisLogWriter(String str, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mLogMaxLen = 4194304;
-        this.isFileExist = false;
-        this.fileWriter = null;
-        this.length = new AtomicLong(0L);
-        this.mFilePath = str;
-        int min = Math.min(i, 33554432);
-        this.mLogMaxLen = min;
-        this.mLogMaxLen = Math.max(min, 262144);
-        this.mWriteDebugLog = z;
     }
 }

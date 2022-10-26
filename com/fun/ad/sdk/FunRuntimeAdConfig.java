@@ -11,7 +11,7 @@ import java.util.Set;
 public class FunRuntimeAdConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<PersonalRecommendObserver> a;
+    public final Set a;
     public volatile boolean personalRecommendStatus;
 
     public FunRuntimeAdConfig() {

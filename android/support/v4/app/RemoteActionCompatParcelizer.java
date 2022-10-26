@@ -1,6 +1,5 @@
 package android.support.v4.app;
 
-import androidx.annotation.RestrictTo;
 import androidx.core.app.RemoteActionCompat;
 import androidx.versionedparcelable.VersionedParcel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
 public final class RemoteActionCompatParcelizer extends androidx.core.app.RemoteActionCompatParcelizer {
     public static /* synthetic */ Interceptable $ic;
@@ -31,7 +29,10 @@ public final class RemoteActionCompatParcelizer extends androidx.core.app.Remote
     public static RemoteActionCompat read(VersionedParcel versionedParcel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, versionedParcel)) == null) ? androidx.core.app.RemoteActionCompatParcelizer.read(versionedParcel) : (RemoteActionCompat) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, versionedParcel)) == null) {
+            return androidx.core.app.RemoteActionCompatParcelizer.read(versionedParcel);
+        }
+        return (RemoteActionCompat) invokeL.objValue;
     }
 
     public static void write(RemoteActionCompat remoteActionCompat, VersionedParcel versionedParcel) {

@@ -42,6 +42,15 @@ public final class GslbEvent {
         $VALUES = new GslbEvent[]{gslbEvent};
     }
 
+    public static GslbEvent[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (GslbEvent[]) $VALUES.clone();
+        }
+        return (GslbEvent[]) invokeV.objValue;
+    }
+
     public GslbEvent(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -64,28 +73,24 @@ public final class GslbEvent {
     public static GslbEvent valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (GslbEvent) Enum.valueOf(GslbEvent.class, str) : (GslbEvent) invokeL.objValue;
-    }
-
-    public static GslbEvent[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (GslbEvent[]) $VALUES.clone() : (GslbEvent[]) invokeV.objValue;
-    }
-
-    public void onMessage(String str) {
-        GslbEventListener gslbEventListener;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (gslbEventListener = this.listener) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (GslbEvent) Enum.valueOf(GslbEvent.class, str);
         }
-        gslbEventListener.onMessage("gslb id:" + DataCacheMgr.INSTANCE.getIdentity(GlobalTools.APP_CONTEXT) + " msg:" + str);
+        return (GslbEvent) invokeL.objValue;
     }
 
     public void setListener(GslbEventListener gslbEventListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gslbEventListener) == null) {
             this.listener = gslbEventListener;
+        }
+    }
+
+    public void onMessage(String str) {
+        GslbEventListener gslbEventListener;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (gslbEventListener = this.listener) != null) {
+            gslbEventListener.onMessage("gslb id:" + DataCacheMgr.INSTANCE.getIdentity(GlobalTools.APP_CONTEXT) + " msg:" + str);
         }
     }
 }

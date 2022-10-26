@@ -2,9 +2,6 @@ package com.kwad.sdk.core.config;
 
 import android.content.Context;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
 import com.ksad.annotation.invoker.ForInvoker;
 import com.kwad.sdk.components.DevelopMangerComponents;
 import com.kwad.sdk.core.config.item.e;
@@ -21,7 +18,6 @@ public final class d {
     public static volatile boolean HK;
     public static volatile SdkConfigData Vy;
 
-    @WorkerThread
     public static void aV(Context context) {
         com.kwad.sdk.core.e.b.d("SdkConfigManager", "load");
         c.init();
@@ -47,11 +43,11 @@ public final class d {
         return ((j) b(context, c.TL)).getValue().intValue() > 0;
     }
 
-    public static <T extends com.kwad.sdk.core.config.item.b> T b(Context context, T t) {
+    public static com.kwad.sdk.core.config.item.b b(Context context, com.kwad.sdk.core.config.item.b bVar) {
         if (!isLoaded()) {
-            b.a(context, t);
+            b.a(context, bVar);
         }
-        return t;
+        return bVar;
     }
 
     public static float ba(Context context) {
@@ -155,7 +151,7 @@ public final class d {
         return c.UF.getOaid();
     }
 
-    public static List<String> lD() {
+    public static List lD() {
         return c.Ud.getValue();
     }
 
@@ -246,8 +242,7 @@ public final class d {
         return c.Uc.getValue();
     }
 
-    @NonNull
-    public static List<String> rI() {
+    public static List rI() {
         return c.Ue.getValue();
     }
 
@@ -315,7 +310,6 @@ public final class d {
         return c.UK.getValue().intValue();
     }
 
-    @Nullable
     public static SdkConfigData rZ() {
         if (Vy != null) {
             return Vy;
@@ -402,7 +396,7 @@ public final class d {
     }
 
     public static com.kwad.sdk.core.network.idc.kwai.a sq() {
-        return c.Vr.getValue();
+        return (com.kwad.sdk.core.network.idc.kwai.a) c.Vr.getValue();
     }
 
     public static long sr() {

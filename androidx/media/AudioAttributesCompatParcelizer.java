@@ -1,13 +1,11 @@
 package androidx.media;
 
-import androidx.annotation.RestrictTo;
 import androidx.versionedparcelable.VersionedParcel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
 public class AudioAttributesCompatParcelizer {
     public static /* synthetic */ Interceptable $ic;

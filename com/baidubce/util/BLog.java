@@ -45,13 +45,6 @@ public class BLog {
         }
     }
 
-    public static void debug(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && enableLog) {
-            Log.d(LOG_TAG, str);
-        }
-    }
-
     public static void disableLog() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
@@ -63,6 +56,22 @@ public class BLog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, null) == null) {
             enableLog = true;
+        }
+    }
+
+    public static boolean isEnableLog() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
+            return enableLog;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void debug(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && enableLog) {
+            Log.d(LOG_TAG, str);
         }
     }
 
@@ -78,12 +87,6 @@ public class BLog {
         if ((interceptable == null || interceptable.invokeL(65550, null, str) == null) && enableLog) {
             Log.i(LOG_TAG, str);
         }
-    }
-
-    public static boolean isEnableLog() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? enableLog : invokeV.booleanValue;
     }
 
     public static void warn(String str) {
@@ -157,34 +160,6 @@ public class BLog {
         }
     }
 
-    public static void debug(String str, Throwable th) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65542, null, str, th) == null) && enableLog) {
-            Log.d(LOG_TAG, str, th);
-        }
-    }
-
-    public static void error(String str, Throwable th) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65549, null, str, th) == null) && enableLog) {
-            Log.e(LOG_TAG, str, th);
-        }
-    }
-
-    public static void info(String str, Throwable th) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65554, null, str, th) == null) && enableLog) {
-            Log.i(LOG_TAG, str, th);
-        }
-    }
-
-    public static void warn(String str, Throwable th) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65560, null, str, th) == null) && enableLog) {
-            Log.w(LOG_TAG, str, th);
-        }
-    }
-
     public static void debug(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65541, null, str, str2, th) == null) && enableLog) {
@@ -214,6 +189,34 @@ public class BLog {
         if ((interceptable == null || interceptable.invokeLLL(65559, null, str, str2, th) == null) && enableLog) {
             String str3 = LOG_TAG;
             Log.w(str3, str + str2, th);
+        }
+    }
+
+    public static void debug(String str, Throwable th) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65542, null, str, th) == null) && enableLog) {
+            Log.d(LOG_TAG, str, th);
+        }
+    }
+
+    public static void error(String str, Throwable th) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65549, null, str, th) == null) && enableLog) {
+            Log.e(LOG_TAG, str, th);
+        }
+    }
+
+    public static void info(String str, Throwable th) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65554, null, str, th) == null) && enableLog) {
+            Log.i(LOG_TAG, str, th);
+        }
+    }
+
+    public static void warn(String str, Throwable th) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65560, null, str, th) == null) && enableLog) {
+            Log.w(LOG_TAG, str, th);
         }
     }
 }

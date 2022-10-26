@@ -7,8 +7,8 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.data.ThreadRecommendTagData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gz4;
-import com.baidu.tieba.ol8;
+import com.baidu.tieba.lz4;
+import com.baidu.tieba.vl8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,19 +45,19 @@ public class ThreadRecommendTagUtil {
                 return -1;
             }
             if (TbadkApplication.getInst().getSkinType() == 1) {
-                if (isElementValid(themeColorInfo.night)) {
-                    return ol8.f(themeColorInfo.night.common_color);
+                if (!isElementValid(themeColorInfo.night)) {
+                    return -1;
                 }
-                return -1;
+                return vl8.f(themeColorInfo.night.common_color);
             } else if (TbadkApplication.getInst().getSkinType() == 4) {
-                if (isElementValid(themeColorInfo.dark)) {
-                    return ol8.f(themeColorInfo.dark.common_color);
+                if (!isElementValid(themeColorInfo.dark)) {
+                    return -1;
                 }
+                return vl8.f(themeColorInfo.dark.common_color);
+            } else if (!isElementValid(themeColorInfo.day)) {
                 return -1;
-            } else if (isElementValid(themeColorInfo.day)) {
-                return ol8.f(themeColorInfo.day.common_color);
             } else {
-                return -1;
+                return vl8.f(themeColorInfo.day.common_color);
             }
         }
         return invokeL.intValue;
@@ -66,40 +66,44 @@ public class ThreadRecommendTagUtil {
     public static boolean isElementValid(ThemeElement themeElement) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, themeElement)) == null) ? (themeElement == null || StringUtils.isNull(themeElement.common_color)) ? false : true : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, themeElement)) == null) {
+            if (themeElement != null && !StringUtils.isNull(themeElement.common_color)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public static void setTag(SpannableStringBuilder spannableStringBuilder, ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, spannableStringBuilder, threadData) == null) || spannableStringBuilder == null || threadData == null || threadData.getThreadRecommendTagData() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(65539, null, spannableStringBuilder, threadData) == null) && spannableStringBuilder != null && threadData != null && threadData.getThreadRecommendTagData() != null) {
+            ThreadRecommendTagData threadRecommendTagData = threadData.getThreadRecommendTagData();
+            String text = threadRecommendTagData.getText();
+            if (!TextUtils.isEmpty(text)) {
+                if (StringHelper.getChineseAndEnglishLength(text) > 8) {
+                    text = StringHelper.cutChineseAndEnglishWithEmoji(text, 8, null);
+                }
+                spannableStringBuilder.insert(0, (CharSequence) text);
+                int color = getColor(threadRecommendTagData.getTextColor());
+                int color2 = getColor(threadRecommendTagData.getBackgroundColor());
+                int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
+                int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X002);
+                lz4.b bVar = new lz4.b();
+                bVar.n(UtilHelper.getDimenPixelSize(R.dimen.tbds10));
+                bVar.q(R.dimen.T_X10);
+                bVar.o(dimenPixelSize);
+                bVar.m(dimenPixelSize2);
+                bVar.p(dimenPixelSize2);
+                bVar.l(UtilHelper.getDimenPixelSize(R.dimen.tbds4));
+                if (color != -1) {
+                    bVar.r(color);
+                }
+                if (color2 != -1) {
+                    bVar.k(color2);
+                }
+                spannableStringBuilder.setSpan(bVar.j(), 0, text.length(), 33);
+            }
         }
-        ThreadRecommendTagData threadRecommendTagData = threadData.getThreadRecommendTagData();
-        String text = threadRecommendTagData.getText();
-        if (TextUtils.isEmpty(text)) {
-            return;
-        }
-        if (StringHelper.getChineseAndEnglishLength(text) > 8) {
-            text = StringHelper.cutChineseAndEnglishWithEmoji(text, 8, null);
-        }
-        spannableStringBuilder.insert(0, (CharSequence) text);
-        int color = getColor(threadRecommendTagData.getTextColor());
-        int color2 = getColor(threadRecommendTagData.getBackgroundColor());
-        int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
-        int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X002);
-        gz4.b bVar = new gz4.b();
-        bVar.n(UtilHelper.getDimenPixelSize(R.dimen.tbds10));
-        bVar.q(R.dimen.T_X10);
-        bVar.o(dimenPixelSize);
-        bVar.m(dimenPixelSize2);
-        bVar.p(dimenPixelSize2);
-        bVar.l(UtilHelper.getDimenPixelSize(R.dimen.tbds4));
-        if (color != -1) {
-            bVar.r(color);
-        }
-        if (color2 != -1) {
-            bVar.k(color2);
-        }
-        spannableStringBuilder.setSpan(bVar.j(), 0, text.length(), 33);
     }
 }

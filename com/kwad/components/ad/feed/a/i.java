@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +29,7 @@ public final class i extends a implements View.OnClickListener {
     public ImageView dg;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i(@NonNull Context context) {
+    public i(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -53,24 +52,24 @@ public final class i extends a implements View.OnClickListener {
     public final void bg() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f091088)).setRatio(0.56f);
-            this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f091047);
-            this.df = (ImageView) findViewById(R.id.obfuscated_res_0x7f09104d);
-            this.dg = (ImageView) findViewById(R.id.obfuscated_res_0x7f091049);
-            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0910b4);
+            ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f09107c)).setRatio(0.56f);
+            this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f09103b);
+            this.df = (ImageView) findViewById(R.id.obfuscated_res_0x7f091041);
+            this.dg = (ImageView) findViewById(R.id.obfuscated_res_0x7f09103d);
+            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0910a8);
         }
     }
 
     @Override // com.kwad.components.core.widget.b
-    public final void c(@NonNull AdTemplate adTemplate) {
+    public final void c(AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate) == null) {
-            super.c((i) adTemplate);
+            super.c(adTemplate);
             this.de.setText(com.kwad.components.ad.feed.f.d(this.mAdTemplate));
-            List<String> aA = com.kwad.sdk.core.response.a.a.aA(this.mAdInfo);
+            List aA = com.kwad.sdk.core.response.a.a.aA(this.mAdInfo);
             this.bq.T(adTemplate);
             if (aA.size() > 0) {
-                KSImageLoader.loadFeeImage(this.df, aA.get(0), this.mAdTemplate);
+                KSImageLoader.loadFeeImage(this.df, (String) aA.get(0), this.mAdTemplate);
             } else {
                 com.kwad.sdk.core.e.b.e("FeedTextImmerseImageView", "getImageUrlList size less than one");
             }
@@ -86,7 +85,7 @@ public final class i extends a implements View.OnClickListener {
     public final int getLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d0427 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d0424 : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -103,7 +102,7 @@ public final class i extends a implements View.OnClickListener {
             } else if (view2 == this.df) {
                 i = 100;
             }
-            if (com.kwad.components.core.c.a.d.a(new a.C0570a(getContext()).L(this.mAdTemplate), 1) == 1) {
+            if (com.kwad.components.core.c.a.d.a(new a.C0566a(getContext()).L(this.mAdTemplate), 1) == 1) {
                 aq(i);
                 return;
             }

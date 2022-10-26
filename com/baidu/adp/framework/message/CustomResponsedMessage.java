@@ -33,27 +33,6 @@ public class CustomResponsedMessage<T> extends ResponsedMessage<T> {
         this.mData = null;
     }
 
-    @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, T t) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, t) == null) {
-            this.mData = t;
-        }
-    }
-
-    public T getData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (T) invokeV.objValue;
-    }
-
-    @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public boolean hasError() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? getError() != 0 : invokeV.booleanValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CustomResponsedMessage(int i, T t) {
         super(i);
@@ -74,5 +53,35 @@ public class CustomResponsedMessage<T> extends ResponsedMessage<T> {
         }
         this.mData = null;
         this.mData = t;
+    }
+
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
+    public void decodeInBackGround(int i, T t) throws Exception {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, t) == null) {
+            this.mData = t;
+        }
+    }
+
+    public T getData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mData;
+        }
+        return (T) invokeV.objValue;
+    }
+
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
+    public boolean hasError() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (getError() != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

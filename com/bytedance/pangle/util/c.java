@@ -1,6 +1,5 @@
 package com.bytedance.pangle.util;
 
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,45 +8,54 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static <T> boolean a(@Nullable T[] tArr) {
+    public static boolean a(Object[] objArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tArr)) == null) ? tArr == null || tArr.length == 0 : invokeL.booleanValue;
-    }
-
-    public static <T> boolean a(@Nullable T[] tArr, T[] tArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, tArr, tArr2)) == null) {
-            if (tArr2 == null) {
-                return true;
-            }
-            for (T t : tArr2) {
-                if (!a(tArr, t)) {
-                    return false;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, objArr)) == null) {
+            if (objArr != null && objArr.length != 0) {
+                return false;
             }
             return true;
         }
-        return invokeLL.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public static <T> boolean a(@Nullable T[] tArr, T t) {
+    public static boolean a(Object[] objArr, Object obj) {
         InterceptResult invokeLL;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tArr, t)) == null) {
-            if (tArr != null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, objArr, obj)) == null) {
+            if (objArr != null) {
                 i = 0;
-                while (i < tArr.length) {
-                    if (tArr[i] == t || (tArr[i] != null && tArr[i].equals(t))) {
+                while (i < objArr.length) {
+                    if (objArr[i] == obj || (objArr[i] != null && objArr[i].equals(obj))) {
                         break;
                     }
                     i++;
                 }
             }
             i = -1;
-            return i != -1;
+            if (i == -1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean a(Object[] objArr, Object[] objArr2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, objArr, objArr2)) == null) {
+            if (objArr2 == null) {
+                return true;
+            }
+            for (Object obj : objArr2) {
+                if (!a(objArr, obj)) {
+                    return false;
+                }
+            }
+            return true;
         }
         return invokeLL.booleanValue;
     }

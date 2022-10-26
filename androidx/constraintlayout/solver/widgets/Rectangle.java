@@ -29,27 +29,36 @@ public class Rectangle {
         }
     }
 
+    public int getCenterX() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return (this.x + this.width) / 2;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getCenterY() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return (this.y + this.height) / 2;
+        }
+        return invokeV.intValue;
+    }
+
     public boolean contains(int i, int i2) {
         InterceptResult invokeII;
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
             int i4 = this.x;
-            return i >= i4 && i < i4 + this.width && i2 >= (i3 = this.y) && i2 < i3 + this.height;
+            if (i >= i4 && i < i4 + this.width && i2 >= (i3 = this.y) && i2 < i3 + this.height) {
+                return true;
+            }
+            return false;
         }
         return invokeII.booleanValue;
-    }
-
-    public int getCenterX() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.x + this.width) / 2 : invokeV.intValue;
-    }
-
-    public int getCenterY() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.y + this.height) / 2 : invokeV.intValue;
     }
 
     public void grow(int i, int i2) {
@@ -70,7 +79,10 @@ public class Rectangle {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, rectangle)) == null) {
             int i3 = this.x;
             int i4 = rectangle.x;
-            return i3 >= i4 && i3 < i4 + rectangle.width && (i = this.y) >= (i2 = rectangle.y) && i < i2 + rectangle.height;
+            if (i3 >= i4 && i3 < i4 + rectangle.width && (i = this.y) >= (i2 = rectangle.y) && i < i2 + rectangle.height) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }

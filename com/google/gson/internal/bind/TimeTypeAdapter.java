@@ -115,10 +115,16 @@ public final class TimeTypeAdapter extends TypeAdapter<Time> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
     public synchronized void write(JsonWriter jsonWriter, Time time) throws IOException {
+        String format;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, jsonWriter, time) == null) {
             synchronized (this) {
-                jsonWriter.value(time == null ? null : this.format.format((Date) time));
+                if (time == null) {
+                    format = null;
+                } else {
+                    format = this.format.format((Date) time);
+                }
+                jsonWriter.value(format);
             }
         }
     }

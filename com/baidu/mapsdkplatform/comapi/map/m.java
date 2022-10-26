@@ -1,6 +1,5 @@
 package com.baidu.mapsdkplatform.comapi.map;
 
-import android.annotation.SuppressLint;
 import android.graphics.SurfaceTexture;
 import android.opengl.GLUtils;
 import androidx.core.view.InputDeviceCompat;
@@ -20,7 +19,6 @@ import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.egl.EGLSurface;
 import javax.microedition.khronos.opengles.GL10;
 import org.webrtc.EglBase10;
-@SuppressLint({"NewApi"})
 /* loaded from: classes2.dex */
 public class m extends Thread {
     public static /* synthetic */ Interceptable $ic;

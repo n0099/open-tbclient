@@ -41,37 +41,55 @@ public class ShareFromTopicMsgData extends ShareBaseMsgData {
     public String getContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.content : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.content;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getHotTopicID() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.hotTopicID : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.hotTopicID;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getHotTopicName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.hotTopicName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.hotTopicName;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getImageUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.imageUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.imageUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getLinkUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.linkUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.linkUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.title : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.title;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setContent(String str) {
@@ -118,13 +136,19 @@ public class ShareFromTopicMsgData extends ShareBaseMsgData {
 
     @Override // com.baidu.tbadk.data.ShareBaseMsgData
     public String toChatMessageContent() {
+        String str;
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("themeContent", this.content);
-                jSONObject.put("themeImageUrl", this.imageUrl == null ? "" : this.imageUrl);
+                if (this.imageUrl == null) {
+                    str = "";
+                } else {
+                    str = this.imageUrl;
+                }
+                jSONObject.put("themeImageUrl", str);
                 jSONObject.put("themeTitle", this.title);
                 jSONObject.put("hotTopicID", this.hotTopicID);
                 jSONObject.put("hotTopicName", this.hotTopicName);

@@ -8,6 +8,12 @@ import java.io.IOException;
 /* loaded from: classes.dex */
 public class PathKeyframeParser {
     public static PathKeyframe parse(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {
-        return new PathKeyframe(lottieComposition, KeyframeParser.parse(jsonReader, lottieComposition, Utils.dpScale(), PathParser.INSTANCE, jsonReader.peek() == JsonReader.Token.BEGIN_OBJECT));
+        boolean z;
+        if (jsonReader.peek() == JsonReader.Token.BEGIN_OBJECT) {
+            z = true;
+        } else {
+            z = false;
+        }
+        return new PathKeyframe(lottieComposition, KeyframeParser.parse(jsonReader, lottieComposition, Utils.dpScale(), PathParser.INSTANCE, z));
     }
 }

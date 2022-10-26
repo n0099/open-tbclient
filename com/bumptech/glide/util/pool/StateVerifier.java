@@ -1,6 +1,5 @@
 package com.bumptech.glide.util.pool;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,13 +14,17 @@ public abstract class StateVerifier {
 
     /* renamed from: com.bumptech.glide.util.pool.StateVerifier$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
+    public abstract void setRecycled(boolean z);
+
+    public abstract void throwIfRecycled();
+
     /* loaded from: classes7.dex */
-    public static class DebugStateVerifier extends StateVerifier {
+    public class DebugStateVerifier extends StateVerifier {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile RuntimeException recycledAtStackTraceException;
@@ -45,6 +48,15 @@ public abstract class StateVerifier {
         }
 
         @Override // com.bumptech.glide.util.pool.StateVerifier
+        public void throwIfRecycled() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.recycledAtStackTraceException == null) {
+                return;
+            }
+            throw new IllegalStateException("Already released", this.recycledAtStackTraceException);
+        }
+
+        @Override // com.bumptech.glide.util.pool.StateVerifier
         public void setRecycled(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -55,18 +67,10 @@ public abstract class StateVerifier {
                 }
             }
         }
-
-        @Override // com.bumptech.glide.util.pool.StateVerifier
-        public void throwIfRecycled() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.recycledAtStackTraceException != null) {
-                throw new IllegalStateException("Already released", this.recycledAtStackTraceException);
-            }
-        }
     }
 
     /* loaded from: classes7.dex */
-    public static class DefaultStateVerifier extends StateVerifier {
+    public class DefaultStateVerifier extends StateVerifier {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile boolean isReleased;
@@ -90,36 +94,22 @@ public abstract class StateVerifier {
         }
 
         @Override // com.bumptech.glide.util.pool.StateVerifier
+        public void throwIfRecycled() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !this.isReleased) {
+                return;
+            }
+            throw new IllegalStateException("Already released");
+        }
+
+        @Override // com.bumptech.glide.util.pool.StateVerifier
         public void setRecycled(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 this.isReleased = z;
             }
         }
-
-        @Override // com.bumptech.glide.util.pool.StateVerifier
-        public void throwIfRecycled() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.isReleased) {
-                throw new IllegalStateException("Already released");
-            }
-        }
     }
-
-    public /* synthetic */ StateVerifier(AnonymousClass1 anonymousClass1) {
-        this();
-    }
-
-    @NonNull
-    public static StateVerifier newInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new DefaultStateVerifier() : (StateVerifier) invokeV.objValue;
-    }
-
-    public abstract void setRecycled(boolean z);
-
-    public abstract void throwIfRecycled();
 
     public StateVerifier() {
         Interceptable interceptable = $ic;
@@ -133,5 +123,18 @@ public abstract class StateVerifier {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public static StateVerifier newInstance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new DefaultStateVerifier();
+        }
+        return (StateVerifier) invokeV.objValue;
+    }
+
+    public /* synthetic */ StateVerifier(AnonymousClass1 anonymousClass1) {
+        this();
     }
 }

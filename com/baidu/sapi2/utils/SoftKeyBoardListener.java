@@ -101,17 +101,17 @@ public class SoftKeyBoardListener implements NoProguard {
         decorView.getViewTreeObserver().addOnGlobalLayoutListener(new a(this));
     }
 
-    public static void setListener(Activity activity, OnSoftKeyBoardChangeListener onSoftKeyBoardChangeListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, onSoftKeyBoardChangeListener) == null) {
-            new SoftKeyBoardListener(activity).a(onSoftKeyBoardChangeListener);
-        }
-    }
-
     private void a(OnSoftKeyBoardChangeListener onSoftKeyBoardChangeListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, onSoftKeyBoardChangeListener) == null) {
             this.c = onSoftKeyBoardChangeListener;
+        }
+    }
+
+    public static void setListener(Activity activity, OnSoftKeyBoardChangeListener onSoftKeyBoardChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, onSoftKeyBoardChangeListener) == null) {
+            new SoftKeyBoardListener(activity).a(onSoftKeyBoardChangeListener);
         }
     }
 }

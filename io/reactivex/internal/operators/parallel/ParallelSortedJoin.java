@@ -21,21 +21,28 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class ParallelSortedJoin<T> extends Flowable<T> {
+public final class ParallelSortedJoin extends Flowable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Comparator<? super T> comparator;
-    public final ParallelFlowable<List<T>> source;
+    public final Comparator comparator;
+    public final ParallelFlowable source;
 
     /* loaded from: classes8.dex */
-    public static final class SortedJoinInnerSubscriber<T> extends AtomicReference<Subscription> implements FlowableSubscriber<List<T>> {
+    public final class SortedJoinInnerSubscriber extends AtomicReference implements FlowableSubscriber {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6751017204873808094L;
         public transient /* synthetic */ FieldHolder $fh;
         public final int index;
-        public final SortedJoinSubscription<T> parent;
+        public final SortedJoinSubscription parent;
 
-        public SortedJoinInnerSubscriber(SortedJoinSubscription<T> sortedJoinSubscription, int i) {
+        @Override // org.reactivestreams.Subscriber
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
+        public SortedJoinInnerSubscriber(SortedJoinSubscription sortedJoinSubscription, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,23 +69,11 @@ public final class ParallelSortedJoin<T> extends Flowable<T> {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        @Override // org.reactivestreams.Subscriber
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
                 this.parent.innerError(th);
             }
-        }
-
-        @Override // org.reactivestreams.Subscriber
-        public /* bridge */ /* synthetic */ void onNext(Object obj) {
-            onNext((List) ((List) obj));
         }
 
         @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
@@ -89,7 +84,9 @@ public final class ParallelSortedJoin<T> extends Flowable<T> {
             }
         }
 
-        public void onNext(List<T> list) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // org.reactivestreams.Subscriber
+        public void onNext(List list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
                 this.parent.innerNext(list, this.index);
@@ -98,21 +95,21 @@ public final class ParallelSortedJoin<T> extends Flowable<T> {
     }
 
     /* loaded from: classes8.dex */
-    public static final class SortedJoinSubscription<T> extends AtomicInteger implements Subscription {
+    public final class SortedJoinSubscription extends AtomicInteger implements Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3481980673745556697L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super T> actual;
+        public final Subscriber actual;
         public volatile boolean cancelled;
-        public final Comparator<? super T> comparator;
-        public final AtomicReference<Throwable> error;
+        public final Comparator comparator;
+        public final AtomicReference error;
         public final int[] indexes;
-        public final List<T>[] lists;
+        public final List[] lists;
         public final AtomicInteger remaining;
         public final AtomicLong requested;
-        public final SortedJoinInnerSubscriber<T>[] subscribers;
+        public final SortedJoinInnerSubscriber[] subscribers;
 
-        public SortedJoinSubscription(Subscriber<? super T> subscriber, int i, Comparator<? super T> comparator) {
+        public SortedJoinSubscription(Subscriber subscriber, int i, Comparator comparator) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -129,12 +126,12 @@ public final class ParallelSortedJoin<T> extends Flowable<T> {
             }
             this.requested = new AtomicLong();
             this.remaining = new AtomicInteger();
-            this.error = new AtomicReference<>();
+            this.error = new AtomicReference();
             this.actual = subscriber;
             this.comparator = comparator;
-            SortedJoinInnerSubscriber<T>[] sortedJoinInnerSubscriberArr = new SortedJoinInnerSubscriber[i];
+            SortedJoinInnerSubscriber[] sortedJoinInnerSubscriberArr = new SortedJoinInnerSubscriber[i];
             for (int i4 = 0; i4 < i; i4++) {
-                sortedJoinInnerSubscriberArr[i4] = new SortedJoinInnerSubscriber<>(this, i4);
+                sortedJoinInnerSubscriberArr[i4] = new SortedJoinInnerSubscriber(this, i4);
             }
             this.subscribers = sortedJoinInnerSubscriberArr;
             this.lists = new List[i];
@@ -145,20 +142,19 @@ public final class ParallelSortedJoin<T> extends Flowable<T> {
         @Override // org.reactivestreams.Subscription
         public void cancel() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.cancelled) {
-                return;
-            }
-            this.cancelled = true;
-            cancelAll();
-            if (getAndIncrement() == 0) {
-                Arrays.fill(this.lists, (Object) null);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.cancelled) {
+                this.cancelled = true;
+                cancelAll();
+                if (getAndIncrement() == 0) {
+                    Arrays.fill(this.lists, (Object) null);
+                }
             }
         }
 
         public void cancelAll() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                for (SortedJoinInnerSubscriber<T> sortedJoinInnerSubscriber : this.subscribers) {
+                for (SortedJoinInnerSubscriber sortedJoinInnerSubscriber : this.subscribers) {
                     sortedJoinInnerSubscriber.cancel();
                 }
             }
@@ -177,7 +173,7 @@ public final class ParallelSortedJoin<T> extends Flowable<T> {
             return;
          */
         /* JADX WARN: Code restructure failed: missing block: B:50:0x00b2, code lost:
-            r10 = r16.error.get();
+            r10 = (java.lang.Throwable) r16.error.get();
          */
         /* JADX WARN: Code restructure failed: missing block: B:51:0x00bb, code lost:
             if (r10 == null) goto L60;
@@ -247,12 +243,13 @@ public final class ParallelSortedJoin<T> extends Flowable<T> {
         */
         public void drain() {
             int i;
+            boolean z;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || getAndIncrement() != 0) {
                 return;
             }
-            Subscriber<? super T> subscriber = this.actual;
-            List<T>[] listArr = this.lists;
+            Subscriber subscriber = this.actual;
+            List[] listArr = this.lists;
             int[] iArr = this.indexes;
             int length = iArr.length;
             int i2 = 1;
@@ -267,7 +264,7 @@ public final class ParallelSortedJoin<T> extends Flowable<T> {
                         Arrays.fill(listArr, (Object) null);
                         return;
                     } else {
-                        Throwable th = this.error.get();
+                        Throwable th = (Throwable) this.error.get();
                         if (th != null) {
                             cancelAll();
                             Arrays.fill(listArr, (Object) null);
@@ -275,18 +272,23 @@ public final class ParallelSortedJoin<T> extends Flowable<T> {
                             return;
                         }
                         int i4 = -1;
-                        T t = (Object) null;
+                        Object obj = null;
                         for (int i5 = 0; i5 < length; i5++) {
-                            List<T> list = listArr[i5];
+                            List list = listArr[i5];
                             int i6 = iArr[i5];
                             if (list.size() != i6) {
-                                if (t == null) {
-                                    t = list.get(i6);
+                                if (obj == null) {
+                                    obj = list.get(i6);
                                 } else {
-                                    T t2 = list.get(i6);
+                                    Object obj2 = list.get(i6);
                                     try {
-                                        if (this.comparator.compare(t, t2) > 0) {
-                                            t = t2;
+                                        if (this.comparator.compare(obj, obj2) > 0) {
+                                            z = true;
+                                        } else {
+                                            z = false;
+                                        }
+                                        if (z) {
+                                            obj = obj2;
                                         }
                                     } catch (Throwable th2) {
                                         Exceptions.throwIfFatal(th2);
@@ -295,19 +297,19 @@ public final class ParallelSortedJoin<T> extends Flowable<T> {
                                         if (!this.error.compareAndSet(null, th2)) {
                                             RxJavaPlugins.onError(th2);
                                         }
-                                        subscriber.onError(this.error.get());
+                                        subscriber.onError((Throwable) this.error.get());
                                         return;
                                     }
                                 }
                                 i4 = i5;
                             }
                         }
-                        if (t == null) {
+                        if (obj == null) {
                             Arrays.fill(listArr, (Object) null);
                             subscriber.onComplete();
                             return;
                         }
-                        subscriber.onNext(t);
+                        subscriber.onNext(obj);
                         iArr[i4] = iArr[i4] + 1;
                         j2++;
                     }
@@ -327,16 +329,6 @@ public final class ParallelSortedJoin<T> extends Flowable<T> {
             }
         }
 
-        public void innerNext(List<T> list, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048580, this, list, i) == null) {
-                this.lists[i] = list;
-                if (this.remaining.decrementAndGet() == 0) {
-                    drain();
-                }
-            }
-        }
-
         @Override // org.reactivestreams.Subscription
         public void request(long j) {
             Interceptable interceptable = $ic;
@@ -347,9 +339,19 @@ public final class ParallelSortedJoin<T> extends Flowable<T> {
                 }
             }
         }
+
+        public void innerNext(List list, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048580, this, list, i) == null) {
+                this.lists[i] = list;
+                if (this.remaining.decrementAndGet() == 0) {
+                    drain();
+                }
+            }
+        }
     }
 
-    public ParallelSortedJoin(ParallelFlowable<List<T>> parallelFlowable, Comparator<? super T> comparator) {
+    public ParallelSortedJoin(ParallelFlowable parallelFlowable, Comparator comparator) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -369,7 +371,7 @@ public final class ParallelSortedJoin<T> extends Flowable<T> {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super T> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             SortedJoinSubscription sortedJoinSubscription = new SortedJoinSubscription(subscriber, this.source.parallelism(), this.comparator);

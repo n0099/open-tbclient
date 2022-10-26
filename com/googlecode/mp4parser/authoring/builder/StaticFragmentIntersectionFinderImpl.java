@@ -11,9 +11,9 @@ import java.util.Map;
 public class StaticFragmentIntersectionFinderImpl implements FragmentIntersectionFinder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<Track, long[]> sampleNumbers;
+    public Map sampleNumbers;
 
-    public StaticFragmentIntersectionFinderImpl(Map<Track, long[]> map) {
+    public StaticFragmentIntersectionFinderImpl(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -35,6 +35,9 @@ public class StaticFragmentIntersectionFinderImpl implements FragmentIntersectio
     public long[] sampleNumbers(Track track) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, track)) == null) ? this.sampleNumbers.get(track) : (long[]) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, track)) == null) {
+            return (long[]) this.sampleNumbers.get(track);
+        }
+        return (long[]) invokeL.objValue;
     }
 }

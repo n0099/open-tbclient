@@ -1,68 +1,49 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.os.Build;
+import android.view.Window;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.JvmStatic;
+import com.google.protobuf.CodedInputStream;
 /* loaded from: classes5.dex */
-public final class n41 {
-    public static /* synthetic */ Interceptable $ic;
-    public static i41 a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface n41 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "statusBarTool");
+    public static final n41 b = new a();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947952382, "Lcom/baidu/tieba/n41;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947952382, "Lcom/baidu/tieba/n41;");
-        }
-    }
+    void a(Activity activity);
 
-    public n41() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+    /* loaded from: classes5.dex */
+    public final class a implements n41 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    @JvmStatic
-    public static final i41 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (n41.class) {
-                    if (a == null) {
-                        a = (i41) ServiceManager.getService(i41.a);
-                    }
-                    if (a == null) {
-                        a = i41.b;
-                    }
-                    Unit unit = Unit.INSTANCE;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            return a;
         }
-        return (i41) invokeV.objValue;
+
+        @Override // com.baidu.tieba.n41
+        public void a(Activity activity) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && Build.VERSION.SDK_INT >= 21) {
+                Window window = activity.getWindow();
+                window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+                window.addFlags(Integer.MIN_VALUE);
+                window.setStatusBarColor(activity.getResources().getColor(R.color.obfuscated_res_0x7f060898));
+            }
+        }
     }
 }

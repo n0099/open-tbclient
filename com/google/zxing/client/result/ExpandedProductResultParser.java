@@ -122,249 +122,259 @@ public final class ExpandedProductResultParser extends ResultParser {
                 int hashCode = findAIvalue.hashCode();
                 String str14 = str11;
                 String str15 = str10;
-                if (hashCode == 1536) {
+                if (hashCode != 1536) {
+                    if (hashCode != 1537) {
+                        if (hashCode != 1567) {
+                            if (hashCode != 1568) {
+                                if (hashCode != 1570) {
+                                    if (hashCode != 1572) {
+                                        if (hashCode != 1574) {
+                                            switch (hashCode) {
+                                                case 1567966:
+                                                    if (findAIvalue.equals("3100")) {
+                                                        c = 7;
+                                                        break;
+                                                    }
+                                                    c = 65535;
+                                                    break;
+                                                case 1567967:
+                                                    if (findAIvalue.equals("3101")) {
+                                                        c = '\b';
+                                                        break;
+                                                    }
+                                                    c = 65535;
+                                                    break;
+                                                case 1567968:
+                                                    if (findAIvalue.equals("3102")) {
+                                                        c = '\t';
+                                                        break;
+                                                    }
+                                                    c = 65535;
+                                                    break;
+                                                case 1567969:
+                                                    if (findAIvalue.equals("3103")) {
+                                                        c = '\n';
+                                                        break;
+                                                    }
+                                                    c = 65535;
+                                                    break;
+                                                case 1567970:
+                                                    if (findAIvalue.equals("3104")) {
+                                                        c = 11;
+                                                        break;
+                                                    }
+                                                    c = 65535;
+                                                    break;
+                                                case 1567971:
+                                                    if (findAIvalue.equals("3105")) {
+                                                        c = '\f';
+                                                        break;
+                                                    }
+                                                    c = 65535;
+                                                    break;
+                                                case 1567972:
+                                                    if (findAIvalue.equals("3106")) {
+                                                        c = '\r';
+                                                        break;
+                                                    }
+                                                    c = 65535;
+                                                    break;
+                                                case 1567973:
+                                                    if (findAIvalue.equals("3107")) {
+                                                        c = 14;
+                                                        break;
+                                                    }
+                                                    c = 65535;
+                                                    break;
+                                                case 1567974:
+                                                    if (findAIvalue.equals("3108")) {
+                                                        c = 15;
+                                                        break;
+                                                    }
+                                                    c = 65535;
+                                                    break;
+                                                case 1567975:
+                                                    if (findAIvalue.equals("3109")) {
+                                                        c = 16;
+                                                        break;
+                                                    }
+                                                    c = 65535;
+                                                    break;
+                                                default:
+                                                    switch (hashCode) {
+                                                        case 1568927:
+                                                            if (findAIvalue.equals("3200")) {
+                                                                c = 17;
+                                                                break;
+                                                            }
+                                                            c = 65535;
+                                                            break;
+                                                        case 1568928:
+                                                            if (findAIvalue.equals("3201")) {
+                                                                c = 18;
+                                                                break;
+                                                            }
+                                                            c = 65535;
+                                                            break;
+                                                        case 1568929:
+                                                            if (findAIvalue.equals("3202")) {
+                                                                c = 19;
+                                                                break;
+                                                            }
+                                                            c = 65535;
+                                                            break;
+                                                        case 1568930:
+                                                            if (findAIvalue.equals("3203")) {
+                                                                c = 20;
+                                                                break;
+                                                            }
+                                                            c = 65535;
+                                                            break;
+                                                        case 1568931:
+                                                            if (findAIvalue.equals("3204")) {
+                                                                c = 21;
+                                                                break;
+                                                            }
+                                                            c = 65535;
+                                                            break;
+                                                        case 1568932:
+                                                            if (findAIvalue.equals(ColdStartStatsUtil.COLD_START_STATS_ID)) {
+                                                                c = 22;
+                                                                break;
+                                                            }
+                                                            c = 65535;
+                                                            break;
+                                                        case 1568933:
+                                                            if (findAIvalue.equals("3206")) {
+                                                                c = 23;
+                                                                break;
+                                                            }
+                                                            c = 65535;
+                                                            break;
+                                                        case 1568934:
+                                                            if (findAIvalue.equals("3207")) {
+                                                                c = 24;
+                                                                break;
+                                                            }
+                                                            c = 65535;
+                                                            break;
+                                                        case 1568935:
+                                                            if (findAIvalue.equals("3208")) {
+                                                                c = 25;
+                                                                break;
+                                                            }
+                                                            c = 65535;
+                                                            break;
+                                                        case 1568936:
+                                                            if (findAIvalue.equals("3209")) {
+                                                                c = 26;
+                                                                break;
+                                                            }
+                                                            c = 65535;
+                                                            break;
+                                                        default:
+                                                            switch (hashCode) {
+                                                                case 1575716:
+                                                                    if (findAIvalue.equals("3920")) {
+                                                                        c = 27;
+                                                                        break;
+                                                                    }
+                                                                    c = 65535;
+                                                                    break;
+                                                                case 1575717:
+                                                                    if (findAIvalue.equals("3921")) {
+                                                                        c = DecodedBitStreamParser.FS;
+                                                                        break;
+                                                                    }
+                                                                    c = 65535;
+                                                                    break;
+                                                                case 1575718:
+                                                                    if (findAIvalue.equals("3922")) {
+                                                                        c = DecodedBitStreamParser.GS;
+                                                                        break;
+                                                                    }
+                                                                    c = 65535;
+                                                                    break;
+                                                                case 1575719:
+                                                                    if (findAIvalue.equals("3923")) {
+                                                                        c = DecodedBitStreamParser.RS;
+                                                                        break;
+                                                                    }
+                                                                    c = 65535;
+                                                                    break;
+                                                                default:
+                                                                    switch (hashCode) {
+                                                                        case 1575747:
+                                                                            if (findAIvalue.equals("3930")) {
+                                                                                c = 31;
+                                                                                break;
+                                                                            }
+                                                                            c = 65535;
+                                                                            break;
+                                                                        case 1575748:
+                                                                            if (findAIvalue.equals("3931")) {
+                                                                                c = WebvttCueParser.CHAR_SPACE;
+                                                                                break;
+                                                                            }
+                                                                            c = 65535;
+                                                                            break;
+                                                                        case 1575749:
+                                                                            if (findAIvalue.equals("3932")) {
+                                                                                c = '!';
+                                                                                break;
+                                                                            }
+                                                                            c = 65535;
+                                                                            break;
+                                                                        case 1575750:
+                                                                            if (findAIvalue.equals("3933")) {
+                                                                                c = Typography.quote;
+                                                                                break;
+                                                                            }
+                                                                            c = 65535;
+                                                                            break;
+                                                                        default:
+                                                                            c = 65535;
+                                                                            break;
+                                                                    }
+                                                            }
+                                                    }
+                                            }
+                                        } else {
+                                            if (findAIvalue.equals("17")) {
+                                                c = 6;
+                                            }
+                                            c = 65535;
+                                        }
+                                    } else {
+                                        if (findAIvalue.equals("15")) {
+                                            c = 5;
+                                        }
+                                        c = 65535;
+                                    }
+                                } else {
+                                    if (findAIvalue.equals("13")) {
+                                        c = 4;
+                                    }
+                                    c = 65535;
+                                }
+                            } else {
+                                if (findAIvalue.equals("11")) {
+                                    c = 3;
+                                }
+                                c = 65535;
+                            }
+                        }
+                    } else {
+                        if (findAIvalue.equals("01")) {
+                            c = 1;
+                        }
+                        c = 65535;
+                    }
+                } else {
                     if (findAIvalue.equals("00")) {
                         c = 0;
                     }
                     c = 65535;
-                } else if (hashCode == 1537) {
-                    if (findAIvalue.equals("01")) {
-                        c = 1;
-                    }
-                    c = 65535;
-                } else if (hashCode != 1567) {
-                    if (hashCode == 1568) {
-                        if (findAIvalue.equals("11")) {
-                            c = 3;
-                        }
-                        c = 65535;
-                    } else if (hashCode == 1570) {
-                        if (findAIvalue.equals("13")) {
-                            c = 4;
-                        }
-                        c = 65535;
-                    } else if (hashCode == 1572) {
-                        if (findAIvalue.equals("15")) {
-                            c = 5;
-                        }
-                        c = 65535;
-                    } else if (hashCode != 1574) {
-                        switch (hashCode) {
-                            case 1567966:
-                                if (findAIvalue.equals("3100")) {
-                                    c = 7;
-                                    break;
-                                }
-                                c = 65535;
-                                break;
-                            case 1567967:
-                                if (findAIvalue.equals("3101")) {
-                                    c = '\b';
-                                    break;
-                                }
-                                c = 65535;
-                                break;
-                            case 1567968:
-                                if (findAIvalue.equals("3102")) {
-                                    c = '\t';
-                                    break;
-                                }
-                                c = 65535;
-                                break;
-                            case 1567969:
-                                if (findAIvalue.equals("3103")) {
-                                    c = '\n';
-                                    break;
-                                }
-                                c = 65535;
-                                break;
-                            case 1567970:
-                                if (findAIvalue.equals("3104")) {
-                                    c = 11;
-                                    break;
-                                }
-                                c = 65535;
-                                break;
-                            case 1567971:
-                                if (findAIvalue.equals("3105")) {
-                                    c = '\f';
-                                    break;
-                                }
-                                c = 65535;
-                                break;
-                            case 1567972:
-                                if (findAIvalue.equals("3106")) {
-                                    c = '\r';
-                                    break;
-                                }
-                                c = 65535;
-                                break;
-                            case 1567973:
-                                if (findAIvalue.equals("3107")) {
-                                    c = 14;
-                                    break;
-                                }
-                                c = 65535;
-                                break;
-                            case 1567974:
-                                if (findAIvalue.equals("3108")) {
-                                    c = 15;
-                                    break;
-                                }
-                                c = 65535;
-                                break;
-                            case 1567975:
-                                if (findAIvalue.equals("3109")) {
-                                    c = 16;
-                                    break;
-                                }
-                                c = 65535;
-                                break;
-                            default:
-                                switch (hashCode) {
-                                    case 1568927:
-                                        if (findAIvalue.equals("3200")) {
-                                            c = 17;
-                                            break;
-                                        }
-                                        c = 65535;
-                                        break;
-                                    case 1568928:
-                                        if (findAIvalue.equals("3201")) {
-                                            c = 18;
-                                            break;
-                                        }
-                                        c = 65535;
-                                        break;
-                                    case 1568929:
-                                        if (findAIvalue.equals("3202")) {
-                                            c = 19;
-                                            break;
-                                        }
-                                        c = 65535;
-                                        break;
-                                    case 1568930:
-                                        if (findAIvalue.equals("3203")) {
-                                            c = 20;
-                                            break;
-                                        }
-                                        c = 65535;
-                                        break;
-                                    case 1568931:
-                                        if (findAIvalue.equals("3204")) {
-                                            c = 21;
-                                            break;
-                                        }
-                                        c = 65535;
-                                        break;
-                                    case 1568932:
-                                        if (findAIvalue.equals(ColdStartStatsUtil.COLD_START_STATS_ID)) {
-                                            c = 22;
-                                            break;
-                                        }
-                                        c = 65535;
-                                        break;
-                                    case 1568933:
-                                        if (findAIvalue.equals("3206")) {
-                                            c = 23;
-                                            break;
-                                        }
-                                        c = 65535;
-                                        break;
-                                    case 1568934:
-                                        if (findAIvalue.equals("3207")) {
-                                            c = 24;
-                                            break;
-                                        }
-                                        c = 65535;
-                                        break;
-                                    case 1568935:
-                                        if (findAIvalue.equals("3208")) {
-                                            c = 25;
-                                            break;
-                                        }
-                                        c = 65535;
-                                        break;
-                                    case 1568936:
-                                        if (findAIvalue.equals("3209")) {
-                                            c = 26;
-                                            break;
-                                        }
-                                        c = 65535;
-                                        break;
-                                    default:
-                                        switch (hashCode) {
-                                            case 1575716:
-                                                if (findAIvalue.equals("3920")) {
-                                                    c = 27;
-                                                    break;
-                                                }
-                                                c = 65535;
-                                                break;
-                                            case 1575717:
-                                                if (findAIvalue.equals("3921")) {
-                                                    c = DecodedBitStreamParser.FS;
-                                                    break;
-                                                }
-                                                c = 65535;
-                                                break;
-                                            case 1575718:
-                                                if (findAIvalue.equals("3922")) {
-                                                    c = DecodedBitStreamParser.GS;
-                                                    break;
-                                                }
-                                                c = 65535;
-                                                break;
-                                            case 1575719:
-                                                if (findAIvalue.equals("3923")) {
-                                                    c = DecodedBitStreamParser.RS;
-                                                    break;
-                                                }
-                                                c = 65535;
-                                                break;
-                                            default:
-                                                switch (hashCode) {
-                                                    case 1575747:
-                                                        if (findAIvalue.equals("3930")) {
-                                                            c = 31;
-                                                            break;
-                                                        }
-                                                        c = 65535;
-                                                        break;
-                                                    case 1575748:
-                                                        if (findAIvalue.equals("3931")) {
-                                                            c = WebvttCueParser.CHAR_SPACE;
-                                                            break;
-                                                        }
-                                                        c = 65535;
-                                                        break;
-                                                    case 1575749:
-                                                        if (findAIvalue.equals("3932")) {
-                                                            c = '!';
-                                                            break;
-                                                        }
-                                                        c = 65535;
-                                                        break;
-                                                    case 1575750:
-                                                        if (findAIvalue.equals("3933")) {
-                                                            c = Typography.quote;
-                                                            break;
-                                                        }
-                                                        c = 65535;
-                                                        break;
-                                                    default:
-                                                        c = 65535;
-                                                        break;
-                                                }
-                                        }
-                                }
-                        }
-                    } else {
-                        if (findAIvalue.equals("17")) {
-                            c = 6;
-                        }
-                        c = 65535;
-                    }
                 }
                 switch (c) {
                     case 0:

@@ -1,39 +1,51 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.atomData.SelectForumConfig;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
+import com.baidu.tbadk.data.SelectForumData;
+import com.baidu.tieba.j69;
+import com.baidu.tieba.write.view.ForumSelectedView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class l49 extends n49<i59> {
+public class l49 extends y49 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public View g;
-    @Nullable
-    public PlayVoiceBntNew h;
-    @Nullable
-    public ImageView i;
+    public ForumSelectedView g;
+    public j69 h;
+    public SelectForumData i;
+    public final j69.b j;
+
+    @Override // com.baidu.tieba.d59
+    public void a(WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeData) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.d59
+    public void e(WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, writeData) == null) {
+        }
+    }
 
     /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
+    public class a implements j69.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ l49 a;
@@ -56,18 +68,27 @@ public class l49 extends n49<i59> {
             this.a = l49Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tieba.j69.b
+        public void a(SelectForumData selectForumData) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.z();
+            if (interceptable != null && interceptable.invokeL(1048576, this, selectForumData) != null) {
+                return;
             }
+            this.a.i = selectForumData;
+            if (this.a.e != null) {
+                this.a.e.setForumId(selectForumData.forumId);
+                this.a.e.setForumName(selectForumData.forumName);
+            }
+            if (this.a.g != null) {
+                this.a.g.setSelectedForum(selectForumData.forumName);
+            }
+            this.a.y(selectForumData);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l49(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, i59.class);
+    public l49(TbPageContext tbPageContext) {
+        super(tbPageContext, m59.class);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,156 +105,124 @@ public class l49 extends n49<i59> {
                 return;
             }
         }
+        this.j = new a(this);
     }
 
-    @Override // com.baidu.tieba.s49
-    public void b(WriteData writeData) {
-        PlayVoiceBntNew playVoiceBntNew;
+    @Override // com.baidu.tieba.y49, com.baidu.tieba.d59
+    public void q(List list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, writeData) == null) || (playVoiceBntNew = this.h) == null) {
-            return;
-        }
-        VoiceData.VoiceModel voiceModel = playVoiceBntNew.getVoiceModel();
-        writeData.setVoiceModel(voiceModel);
-        if (voiceModel != null) {
-            if (voiceModel.getId() != null) {
-                writeData.setVoice(voiceModel.getId());
-                writeData.setVoiceDuringTime(voiceModel.duration);
-                return;
-            }
-            writeData.setVoice(null);
-            writeData.setVoiceDuringTime(-1);
-            return;
-        }
-        writeData.setVoice(null);
-        writeData.setVoiceDuringTime(-1);
-    }
-
-    @Override // com.baidu.tieba.s49
-    public void d(@NonNull WriteData writeData) {
-        PlayVoiceBntNew playVoiceBntNew;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeData) == null) || (playVoiceBntNew = this.h) == null) {
-            return;
-        }
-        writeData.setVoiceModel(playVoiceBntNew.getVoiceModel());
-    }
-
-    @Override // com.baidu.tieba.s49
-    public void k(@NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) || writeData.getVoiceModel() == null) {
-            return;
-        }
-        y(writeData.getVoiceModel());
-    }
-
-    @Override // com.baidu.tieba.n49, com.baidu.tieba.s49
-    public void l(Bundle bundle, Intent intent, @NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, intent, writeData) == null) {
-            super.l(bundle, intent, writeData);
-        }
-    }
-
-    @Override // com.baidu.tieba.s49
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            WebPManager.setPureDrawable(this.i, R.drawable.obfuscated_res_0x7f080960, R.color.CAM_X0107, null);
-            PlayVoiceBntNew playVoiceBntNew = this.h;
-            if (playVoiceBntNew != null) {
-                playVoiceBntNew.e();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.n49, com.baidu.tieba.s49
-    public void p(h55 h55Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, h55Var) == null) {
-            super.p(h55Var);
-            int i = h55Var.a;
-            if (i != 10) {
-                if (i == 11) {
-                    z();
-                    return;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
+            super.q(list);
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                d59 d59Var = (d59) it.next();
+                if (d59Var instanceof m49) {
+                    w((m49) d59Var);
+                } else if (d59Var instanceof u49) {
+                    w((u49) d59Var);
+                } else if (d59Var instanceof i49) {
+                    w((i49) d59Var);
                 }
-                return;
-            }
-            Object obj = h55Var.c;
-            if (obj instanceof VoiceData.VoiceModel) {
-                y((VoiceData.VoiceModel) obj);
             }
         }
     }
 
-    @Override // com.baidu.tieba.s49
-    public View q(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.d59
+    public void c(WriteData writeData) {
+        SelectForumData selectForumData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0518, viewGroup, false);
-            this.g = inflate;
-            this.h = (PlayVoiceBntNew) inflate.findViewById(R.id.obfuscated_res_0x7f090455);
-            ImageView imageView = (ImageView) this.g.findViewById(R.id.obfuscated_res_0x7f091003);
-            this.i = imageView;
-            if (imageView != null) {
-                imageView.setOnClickListener(new a(this));
-            }
-            return this.g;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) && (selectForumData = this.i) != null) {
+            writeData.setForumId(selectForumData.forumId);
+            writeData.setForumName(this.i.forumName);
         }
-        return (View) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.n49, com.baidu.tieba.s49
-    public boolean r() {
+    @Override // com.baidu.tieba.y49, com.baidu.tieba.d59
+    public void j(f59 f59Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, f59Var) == null) {
+            super.j(f59Var);
+            if (this.h == null) {
+                j69 j69Var = new j69();
+                this.h = j69Var;
+                j69Var.c(this.j);
+            }
+            this.h.b(this.a.getUniqueId());
+        }
+    }
+
+    @Override // com.baidu.tieba.d59
+    public void onChangeSkinType(int i) {
+        ForumSelectedView forumSelectedView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && (forumSelectedView = this.g) != null) {
+            forumSelectedView.c();
+        }
+    }
+
+    public final boolean F() {
         InterceptResult invokeV;
-        PlayVoiceBntNew playVoiceBntNew;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            View view2 = this.g;
-            return (view2 == null || view2.getVisibility() != 0 || (playVoiceBntNew = this.h) == null || playVoiceBntNew.getVoiceModel() == null) ? false : true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            WriteData writeData = this.e;
+            if (writeData != null && "2".equals(writeData.getCallFrom())) {
+                return TextUtils.isEmpty(this.e.getForumName());
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public final void y(VoiceData.VoiceModel voiceModel) {
+    @Override // com.baidu.tieba.y49, com.baidu.tieba.d59
+    public void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, voiceModel) == null) || this.g == null || this.h == null || voiceModel == null || this.e == null || TextUtils.isEmpty(voiceModel.voiceId) || voiceModel.duration <= 0) {
-            return;
-        }
-        ((i59) this.d).a = voiceModel;
-        this.e.setVoiceModel(voiceModel);
-        this.g.setVisibility(0);
-        this.h.setVoiceModel(voiceModel);
-        this.h.o();
-        u49 u49Var = this.b;
-        if (u49Var != null) {
-            u49Var.h();
-            this.b.x(new int[]{34});
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.d();
+            j69 j69Var = this.h;
+            if (j69Var != null) {
+                j69Var.d();
+            }
         }
     }
 
-    public final void z() {
+    @Override // com.baidu.tieba.y49, com.baidu.tieba.d59
+    public boolean o() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.g == null || this.h == null || this.e == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (F()) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectForumConfig(this.a.getPageActivity())));
+                return false;
+            }
+            return true;
         }
-        D d = this.d;
-        if (((i59) d).a != null) {
-            xz4.a(xz4.b(((i59) d).a.voiceId));
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.d59
+    public View s(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d049d, viewGroup, false);
+            this.c = inflate;
+            ForumSelectedView forumSelectedView = (ForumSelectedView) inflate.findViewById(R.id.obfuscated_res_0x7f091e3b);
+            this.g = forumSelectedView;
+            WriteData writeData = this.e;
+            if (writeData != null && forumSelectedView != null) {
+                if ("main_tab".equals(writeData.getFrom()) && !this.e.isFromErrorDialog()) {
+                    this.g.setVisibility(0);
+                } else if (!TextUtils.isEmpty(this.e.getForumName())) {
+                    this.g.setVisibility(0);
+                    this.g.setSelectedForum(this.e.getForumName());
+                    this.g.a();
+                    this.g.setOnClickListener(null);
+                } else {
+                    this.g.setVisibility(8);
+                }
+            }
+            return this.c;
         }
-        ((i59) this.d).a = null;
-        this.e.setVoiceModel(null);
-        this.g.setVisibility(8);
-        this.h.p();
-        this.h.setVoiceModel(null);
-        u49 u49Var = this.b;
-        if (u49Var != null) {
-            u49Var.e();
-            this.b.h();
-            this.b.x(new int[]{34});
-        }
+        return (View) invokeL.objValue;
     }
 }

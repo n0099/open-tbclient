@@ -21,7 +21,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\n¢\u0006\u0002\b\u0004"}, d2 = {"<anonymous>", "", AdvanceSetting.NETWORK_TYPE, "Ljava/io/File;", "invoke"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
-public final class DiskUtilKt$cleanCacheMonitorUBC$1$baidu$1 extends Lambda implements Function1<File, Unit> {
+public final class DiskUtilKt$cleanCacheMonitorUBC$1$baidu$1 extends Lambda implements Function1 {
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ JSONArray $exceptionFiles;
     public final /* synthetic */ JSONObject $extList;
@@ -51,16 +51,14 @@ public final class DiskUtilKt$cleanCacheMonitorUBC$1$baidu$1 extends Lambda impl
         this.$extList = jSONObject;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function1
-    public /* bridge */ /* synthetic */ Unit invoke(File file) {
-        invoke2(file);
+    public /* bridge */ /* synthetic */ Object invoke(Object obj) {
+        invoke((File) obj);
         return Unit.INSTANCE;
     }
 
-    /* renamed from: invoke  reason: avoid collision after fix types in other method */
-    public final void invoke2(File it) {
+    public final void invoke(File it) {
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, it) == null) {
             Intrinsics.checkNotNullParameter(it, "it");
@@ -69,16 +67,21 @@ public final class DiskUtilKt$cleanCacheMonitorUBC$1$baidu$1 extends Lambda impl
                 jSONObject.put("path", it.getAbsolutePath());
                 jSONObject.put(CloudStabilityUBCUtils.KEY_LENGTH, it.length());
                 jSONObject.put("lastModified", it.lastModified());
-                jSONObject.put("lastAccessTime", Build.VERSION.SDK_INT >= 21 ? Os.lstat(it.getAbsolutePath()).st_atime : 0L);
+                if (Build.VERSION.SDK_INT >= 21) {
+                    j = Os.lstat(it.getAbsolutePath()).st_atime;
+                } else {
+                    j = 0;
+                }
+                jSONObject.put("lastAccessTime", j);
                 this.$exceptionFiles.put(jSONObject);
             }
             String filePath = it.getAbsolutePath();
-            for (Map.Entry<String, String> entry : DiskUtilKt.getDIR_BUSINESS_MAP().entrySet()) {
-                String value = entry.getValue();
+            for (Map.Entry entry : DiskUtilKt.getDIR_BUSINESS_MAP().entrySet()) {
+                String str = (String) entry.getValue();
                 Intrinsics.checkNotNullExpressionValue(filePath, "filePath");
-                if (StringsKt__StringsKt.contains$default((CharSequence) filePath, (CharSequence) entry.getKey(), false, 2, (Object) null)) {
+                if (StringsKt__StringsKt.contains$default((CharSequence) filePath, (CharSequence) ((String) entry.getKey()), false, 2, (Object) null)) {
                     JSONObject jSONObject2 = this.$extList;
-                    jSONObject2.put(value, jSONObject2.optLong(value) + it.length());
+                    jSONObject2.put(str, jSONObject2.optLong(str) + it.length());
                     return;
                 }
             }

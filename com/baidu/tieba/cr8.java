@@ -2,6 +2,7 @@ package com.baidu.tieba;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,17 +13,15 @@ public class cr8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final xp8 b;
-    public final lq8 c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cr8(MainTabActivity mainTabActivity, xp8 xp8Var) {
-        super(2921491);
+    public cr8(MainTabActivity mainTabActivity, eq8 eq8Var) {
+        super(2016311);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, xp8Var};
+            Object[] objArr = {mainTabActivity, eq8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,23 +33,14 @@ public class cr8 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = xp8Var;
-        this.c = mainTabActivity.e;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        xp8 xp8Var;
+    public void onMessage(CustomResponsedMessage customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof String) || (xp8Var = this.b) == null || xp8Var.B() == null || this.b.B().getCurrentTabType() == 21) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String) && !"advertevent://ignore".equals((String) customResponsedMessage.getData())) {
+            TbSingleton.getInstance().mIsSplashClick = true;
         }
-        String str = (String) customResponsedMessage.getData();
-        lq8 lq8Var = this.c;
-        if (lq8Var == null || lq8Var.a() == null) {
-            return;
-        }
-        this.c.a().g(str);
     }
 }

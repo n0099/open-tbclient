@@ -17,10 +17,10 @@ import com.baidu.tbadk.coreExtra.data.ActivityPrizeData;
 import com.baidu.tbadk.data.NewsNotifyMessage;
 import com.baidu.tbadk.newFriends.RequestUnreadPointNum;
 import com.baidu.tbadk.newFriends.ResponseUnreadPointNum;
-import com.baidu.tieba.gh;
-import com.baidu.tieba.k95;
-import com.baidu.tieba.ox4;
-import com.baidu.tieba.yf8;
+import com.baidu.tieba.hh;
+import com.baidu.tieba.ig8;
+import com.baidu.tieba.o95;
+import com.baidu.tieba.ux4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -107,10 +107,9 @@ public class PersonRedTipManager {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.hasClicked) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.a.hasClicked) {
+                MessageManager.getInstance().dispatchResponsedMessage(new RequestUnreadPointNum());
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new RequestUnreadPointNum());
         }
     }
 
@@ -143,11 +142,12 @@ public class PersonRedTipManager {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001120) {
-                this.a.processNotify(customResponsedMessage);
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2001120) {
+                return;
             }
+            this.a.processNotify(customResponsedMessage);
         }
     }
 
@@ -180,19 +180,23 @@ public class PersonRedTipManager {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001176 && customResponsedMessage.getError() == 0 && (customResponsedMessage instanceof ResponseUnreadPointNum)) {
                 ResponseUnreadPointNum responseUnreadPointNum = (ResponseUnreadPointNum) customResponsedMessage;
-                if (responseUnreadPointNum.getNum() <= 0 || this.a.maddressListNewCount >= responseUnreadPointNum.getNum()) {
-                    this.a.maddressListNewCount = responseUnreadPointNum.getNum();
-                    this.a.mIsNewAddressList = false;
-                } else {
+                if (responseUnreadPointNum.getNum() > 0 && this.a.maddressListNewCount < responseUnreadPointNum.getNum()) {
+                    boolean z = true;
                     this.a.mIsNewAddressList = true;
                     PersonRedTipManager personRedTipManager = this.a;
-                    personRedTipManager.mShowFriendTip = personRedTipManager.mIsNewAddressList ? true : this.a.mShowFriendTip;
+                    if (!personRedTipManager.mIsNewAddressList) {
+                        z = this.a.mShowFriendTip;
+                    }
+                    personRedTipManager.mShowFriendTip = z;
                     this.a.maddressListNewCount = responseUnreadPointNum.getNum();
                     this.a.notifyRedTipShow();
+                } else {
+                    this.a.maddressListNewCount = responseUnreadPointNum.getNum();
+                    this.a.mIsNewAddressList = false;
                 }
                 this.a.saveAddressListRedState();
             }
@@ -228,14 +232,15 @@ public class PersonRedTipManager {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921740 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean)) {
-                Boolean bool = (Boolean) customResponsedMessage.getData();
-                this.a.mIsDownloadCardMsg = bool.booleanValue();
-                this.a.mShowDownloadCardTip = bool.booleanValue();
-                this.a.notifyRedTipShow();
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921740 || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof Boolean)) {
+                return;
             }
+            Boolean bool = (Boolean) customResponsedMessage.getData();
+            this.a.mIsDownloadCardMsg = bool.booleanValue();
+            this.a.mShowDownloadCardTip = bool.booleanValue();
+            this.a.notifyRedTipShow();
         }
     }
 
@@ -268,12 +273,12 @@ public class PersonRedTipManager {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
                 if (booleanValue) {
-                    ox4.k().u("key_feedback_tip_show", true);
+                    ux4.k().u("key_feedback_tip_show", true);
                 }
                 this.a.mShowFeedbackTip = booleanValue;
                 this.a.mIsFeedbackNewMsg = booleanValue;
@@ -317,14 +322,14 @@ public class PersonRedTipManager {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
                 if (booleanValue) {
                     if (TbadkCoreApplication.isLogin()) {
                         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                        ox4 k = ox4.k();
+                        ux4 k = ux4.k();
                     }
                     booleanValue = false;
                 }
@@ -364,15 +369,20 @@ public class PersonRedTipManager {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+            boolean z;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof Boolean)) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean)) {
+                this.a.mHasNewVersion = ((Boolean) customResponsedMessage.getData()).booleanValue();
+                PersonRedTipManager personRedTipManager = this.a;
+                if (!personRedTipManager.mHasNewVersion) {
+                    z = this.a.mShowSettingTip;
+                } else {
+                    z = true;
+                }
+                personRedTipManager.mShowSettingTip = z;
+                this.a.notifyRedTipShow();
             }
-            this.a.mHasNewVersion = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            PersonRedTipManager personRedTipManager = this.a;
-            personRedTipManager.mShowSettingTip = personRedTipManager.mHasNewVersion ? true : this.a.mShowSettingTip;
-            this.a.notifyRedTipShow();
         }
     }
 
@@ -405,9 +415,9 @@ public class PersonRedTipManager {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
                 return;
             }
             Object data = customResponsedMessage.getData();
@@ -450,9 +460,9 @@ public class PersonRedTipManager {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
                 return;
             }
             this.a.resetRedTip();
@@ -488,31 +498,30 @@ public class PersonRedTipManager {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 ActivityPrizeData activityPrizeData = TbadkCoreApplication.getInst().getActivityPrizeData();
                 if (activityPrizeData.isSwitchTurn()) {
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                    if (StringUtils.isNull(currentAccount)) {
-                        return;
+                    if (!StringUtils.isNull(currentAccount)) {
+                        String dotTimestamp = activityPrizeData.getDotTimestamp();
+                        ux4 k = ux4.k();
+                        String q = k.q("person_item_activity_prize_red_tip" + currentAccount, "");
+                        if (StringUtils.isNull(dotTimestamp) || dotTimestamp.equals(q)) {
+                            return;
+                        }
+                        this.a.mShowActivityTip = true;
+                        this.a.mIsShowActivityNewMsg = true;
+                        this.a.notifyRedTipShow();
                     }
-                    String dotTimestamp = activityPrizeData.getDotTimestamp();
-                    ox4 k = ox4.k();
-                    String q = k.q("person_item_activity_prize_red_tip" + currentAccount, "");
-                    if (StringUtils.isNull(dotTimestamp) || dotTimestamp.equals(q)) {
-                        return;
-                    }
-                    this.a.mShowActivityTip = true;
-                    this.a.mIsShowActivityNewMsg = true;
-                    this.a.notifyRedTipShow();
                 }
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class k {
+    public class k {
         public static /* synthetic */ Interceptable $ic;
         public static final PersonRedTipManager a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -531,273 +540,6 @@ public class PersonRedTipManager {
                 }
             }
             a = new PersonRedTipManager(null);
-        }
-    }
-
-    public /* synthetic */ PersonRedTipManager(b bVar) {
-        this();
-    }
-
-    public static final PersonRedTipManager getInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) ? k.a : (PersonRedTipManager) invokeV.objValue;
-    }
-
-    private void initListener() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65562, this) == null) {
-            MessageManager.getInstance().registerListener(this.bookMarksGiftAndFansListener);
-            MessageManager.getInstance().registerListener(this.unreadNewAddressListListener);
-            MessageManager.getInstance().registerListener(this.updateVersionListener);
-            MessageManager.getInstance().registerListener(this.personInfoChangeListener);
-            MessageManager.getInstance().registerListener(this.memberCenterRedTipListener);
-            MessageManager.getInstance().registerListener(this.mHomePageTabClickListener);
-            MessageManager.getInstance().registerListener(this.feedBackRedTipListener);
-            MessageManager.getInstance().registerListener(this.syncFinishListener);
-            MessageManager.getInstance().registerListener(this.mDownloadCardListener);
-        }
-    }
-
-    private void initRepTipState() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65563, this) == null) {
-            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-            if (!ox4.k().h("member_close_ad_setting_clicked", false) && currentAccountObj != null && currentAccountObj.isMemberCloseAdIsOpen()) {
-                this.mShowSettingTip = true;
-            }
-            TbadkSettings inst = TbadkSettings.getInst();
-            StringBuilder sb = new StringBuilder();
-            sb.append("has_clicked_addresslist_item_in_leftnavi");
-            TbadkCoreApplication.getInst();
-            sb.append(TbadkCoreApplication.getCurrentAccount());
-            this.hasClicked = inst.loadBoolean(sb.toString(), false);
-        }
-    }
-
-    private void initTabTip() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65564, this) == null) && TbadkCoreApplication.isLogin()) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007014, new k95(this.mShowSettingTip)));
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void notifyRedTipShow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65565, this) == null) {
-            SparseArray sparseArray = new SparseArray();
-            if (this.mIsNewAddressList) {
-                sparseArray.append(4, new yf8.a(this.mShowFriendTip, this.maddressListNewCount));
-            }
-            if (this.mIsShowFansNewMsg) {
-                sparseArray.append(2, new yf8.a(this.mShowFanTip, this.mFans));
-            }
-            if (this.mIsShowGiftsNewMsg) {
-                sparseArray.append(1, new yf8.a(this.mShowGifTip, this.mGift));
-            }
-            if (this.mIsShowBookmarkNewMsg) {
-                sparseArray.append(3, new yf8.a(this.mShowBookTip, this.mBookMarks));
-            }
-            if (this.mHasNewVersion) {
-                sparseArray.append(5, new yf8.a(this.mShowSettingTip, 0));
-            }
-            if (this.mIsShowMemberCenerNewMsg) {
-                sparseArray.append(7, new yf8.a(this.mShowMemberTip, 0));
-            }
-            if (this.mIsShowActivityNewMsg) {
-                sparseArray.append(9, new yf8.a(this.mShowActivityTip, 0));
-            }
-            if (this.mIsFeedbackNewMsg) {
-                sparseArray.append(10, new yf8.a(this.mShowFeedbackTip, 0));
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001435, new yf8(sparseArray)));
-            updateTabTip();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void processNotify(ResponsedMessage<?> responsedMessage) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65566, this, responsedMessage) == null) && responsedMessage != null && (responsedMessage instanceof NewsNotifyMessage)) {
-            NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) responsedMessage;
-            this.mIsShowBookmarkNewMsg = newsNotifyMessage.getMsgBookmark() > this.mBookMarks;
-            this.mIsShowFansNewMsg = newsNotifyMessage.getMsgFans() > this.mFans;
-            this.mIsShowGiftsNewMsg = newsNotifyMessage.getMsgGiftNum() > this.mGift;
-            this.mBookMarks = newsNotifyMessage.getMsgBookmark();
-            this.mFans = newsNotifyMessage.getMsgFans();
-            this.mGift = newsNotifyMessage.getMsgGiftNum();
-            if (this.mIsShowBookmarkNewMsg || this.mIsShowFansNewMsg || this.mIsShowGiftsNewMsg || this.mHasNewVersion) {
-                this.mShowFanTip = this.mIsShowFansNewMsg ? true : this.mShowFanTip;
-                this.mShowBookTip = this.mIsShowBookmarkNewMsg ? true : this.mShowBookTip;
-                this.mShowGifTip = this.mIsShowGiftsNewMsg ? true : this.mShowGifTip;
-                this.mShowSettingTip = this.mHasNewVersion ? true : this.mShowSettingTip;
-                notifyRedTipShow();
-            }
-        }
-    }
-
-    private void syncPersonTip() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65567, this) == null) {
-            boolean z = this.mShowGifTip || this.mShowBookTip || this.mShowFanTip || this.mShowFriendTip || this.mShowSettingTip || this.mShowMemberTip || this.mShowActivityTip || this.mShowNewGodInvitedTip;
-            if (this.isPrimary || !TbadkCoreApplication.isLogin()) {
-                return;
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007014, new k95(z, 0)));
-        }
-    }
-
-    private void updateTabTip() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65568, this) == null) {
-            if (((this.mFans > 0 && this.mIsShowFansNewMsg) || (this.mBookMarks > 0 && this.mIsShowBookmarkNewMsg) || this.mHasNewVersion || this.mIsShowActivityNewMsg || this.mIsFeedbackNewMsg || this.mIsDownloadCardMsg) && !this.isPrimary && TbadkCoreApplication.isLogin()) {
-                if (this.mIsFeedbackNewMsg) {
-                    ox4.k().u("key_feedback_tip_tab_show", true);
-                }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007014, new k95(true, 0)));
-            }
-        }
-    }
-
-    public boolean isShowActivityTip() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mShowActivityTip : invokeV.booleanValue;
-    }
-
-    public boolean isShowBookTip() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mShowBookTip : invokeV.booleanValue;
-    }
-
-    public boolean isShowFanTip() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mShowFanTip : invokeV.booleanValue;
-    }
-
-    public boolean isShowMemberTip() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mShowMemberTip : invokeV.booleanValue;
-    }
-
-    public void removeTabTip() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007014, new k95(false)));
-        }
-    }
-
-    public void resetRedTip() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.mShowFanTip = false;
-            this.mShowBookTip = false;
-            this.mShowGifTip = false;
-            this.mShowFriendTip = false;
-            this.mShowSettingTip = false;
-            this.mShowMemberTip = false;
-            this.mShowActivityTip = false;
-            this.mFans = 0;
-            this.mGift = 0;
-            this.mBookMarks = 0;
-            this.maddressListNewCount = 0;
-            this.mIsNewAddressList = false;
-            this.mHasNewVersion = false;
-            this.mIsShowFansNewMsg = false;
-            this.mIsShowGiftsNewMsg = false;
-            this.mIsShowBookmarkNewMsg = false;
-            this.mIsShowMemberCenerNewMsg = false;
-            this.mIsShowActivityNewMsg = false;
-            initRepTipState();
-            gh.a().post(new a(this));
-            initTabTip();
-        }
-    }
-
-    public void saveAddressListRedState() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            TbadkSettings inst = TbadkSettings.getInst();
-            StringBuilder sb = new StringBuilder();
-            sb.append("has_clicked_addresslist_item_in_leftnavi");
-            TbadkCoreApplication.getInst();
-            sb.append(TbadkCoreApplication.getCurrentAccount());
-            inst.saveBoolean(sb.toString(), !this.mIsNewAddressList);
-        }
-    }
-
-    public void setIsPrimary(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.isPrimary = z;
-        }
-    }
-
-    public void syncRedTipState(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && z) {
-            SparseArray sparseArray = new SparseArray();
-            sparseArray.append(4, new yf8.a(this.mShowFriendTip, this.maddressListNewCount));
-            sparseArray.append(2, new yf8.a(this.mShowFanTip, this.mFans));
-            sparseArray.append(1, new yf8.a(this.mShowGifTip, this.mGift));
-            sparseArray.append(3, new yf8.a(this.mShowBookTip, this.mBookMarks));
-            sparseArray.append(5, new yf8.a(this.mShowSettingTip, 0));
-            sparseArray.append(7, new yf8.a(this.mShowMemberTip, 0));
-            sparseArray.append(9, new yf8.a(this.mShowActivityTip, 0));
-            sparseArray.append(10, new yf8.a(this.mShowFeedbackTip, 0));
-            sparseArray.append(11, new yf8.a(this.mShowNewGodInvitedTip, 0));
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001435, new yf8(sparseArray)));
-        }
-    }
-
-    public void updateRedTipState(int i2, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && z2) {
-            switch (i2) {
-                case 1:
-                    this.mShowGifTip = z;
-                    break;
-                case 2:
-                    this.mShowFanTip = z;
-                    break;
-                case 3:
-                    this.mShowBookTip = z;
-                    break;
-                case 4:
-                    this.mShowFriendTip = z;
-                    break;
-                case 5:
-                    AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-                    if (currentAccountObj != null && currentAccountObj.isMemberCloseAdIsOpen()) {
-                        ox4.k().u("member_close_ad_setting_clicked", true);
-                    }
-                    this.mShowSettingTip = z;
-                    break;
-                case 7:
-                    String currentAccount = !TbadkCoreApplication.isLogin() ? SevenZipUtils.FILE_NAME_TEMP : TbadkCoreApplication.getCurrentAccount();
-                    ox4 k2 = ox4.k();
-                    k2.x("maintab_member_center_red_tip_" + currentAccount, TbadkCoreApplication.getInst().getLastUpdateMemberCenterTime());
-                    this.mShowMemberTip = z;
-                    break;
-                case 9:
-                    this.mShowActivityTip = z;
-                    String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
-                    ox4 k3 = ox4.k();
-                    k3.y("person_item_activity_prize_red_tip" + currentAccount2, TbadkCoreApplication.getInst().getActivityPrizeData().getDotTimestamp());
-                    break;
-                case 10:
-                    this.mShowFeedbackTip = z;
-                    break;
-                case 11:
-                    this.mShowNewGodInvitedTip = z;
-                    break;
-            }
-            syncRedTipState(true);
-            syncPersonTip();
         }
     }
 
@@ -822,7 +564,7 @@ public class PersonRedTipManager {
         this.mShowSettingTip = false;
         this.mShowMemberTip = false;
         this.mShowActivityTip = false;
-        this.mShowFeedbackTip = ox4.k().h("key_feedback_tip_show", false);
+        this.mShowFeedbackTip = ux4.k().h("key_feedback_tip_show", false);
         this.mShowNewGodInvitedTip = false;
         this.mShowDownloadCardTip = false;
         this.mFans = 0;
@@ -848,5 +590,343 @@ public class PersonRedTipManager {
         this.personInfoChangeListener = new i(this, 2005016);
         this.syncFinishListener = new j(this, 2001371);
         initListener();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void notifyRedTipShow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65565, this) == null) {
+            SparseArray sparseArray = new SparseArray();
+            if (this.mIsNewAddressList) {
+                sparseArray.append(4, new ig8.a(this.mShowFriendTip, this.maddressListNewCount));
+            }
+            if (this.mIsShowFansNewMsg) {
+                sparseArray.append(2, new ig8.a(this.mShowFanTip, this.mFans));
+            }
+            if (this.mIsShowGiftsNewMsg) {
+                sparseArray.append(1, new ig8.a(this.mShowGifTip, this.mGift));
+            }
+            if (this.mIsShowBookmarkNewMsg) {
+                sparseArray.append(3, new ig8.a(this.mShowBookTip, this.mBookMarks));
+            }
+            if (this.mHasNewVersion) {
+                sparseArray.append(5, new ig8.a(this.mShowSettingTip, 0));
+            }
+            if (this.mIsShowMemberCenerNewMsg) {
+                sparseArray.append(7, new ig8.a(this.mShowMemberTip, 0));
+            }
+            if (this.mIsShowActivityNewMsg) {
+                sparseArray.append(9, new ig8.a(this.mShowActivityTip, 0));
+            }
+            if (this.mIsFeedbackNewMsg) {
+                sparseArray.append(10, new ig8.a(this.mShowFeedbackTip, 0));
+            }
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001435, new ig8(sparseArray)));
+            updateTabTip();
+        }
+    }
+
+    public /* synthetic */ PersonRedTipManager(b bVar) {
+        this();
+    }
+
+    public void setIsPrimary(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.isPrimary = z;
+        }
+    }
+
+    public static final PersonRedTipManager getInstance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) {
+            return k.a;
+        }
+        return (PersonRedTipManager) invokeV.objValue;
+    }
+
+    private void initTabTip() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65564, this) == null) && TbadkCoreApplication.isLogin()) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007014, new o95(this.mShowSettingTip)));
+        }
+    }
+
+    public boolean isShowActivityTip() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mShowActivityTip;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isShowBookTip() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mShowBookTip;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isShowFanTip() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mShowFanTip;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isShowMemberTip() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mShowMemberTip;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void removeTabTip() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007014, new o95(false)));
+        }
+    }
+
+    private void initListener() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65562, this) == null) {
+            MessageManager.getInstance().registerListener(this.bookMarksGiftAndFansListener);
+            MessageManager.getInstance().registerListener(this.unreadNewAddressListListener);
+            MessageManager.getInstance().registerListener(this.updateVersionListener);
+            MessageManager.getInstance().registerListener(this.personInfoChangeListener);
+            MessageManager.getInstance().registerListener(this.memberCenterRedTipListener);
+            MessageManager.getInstance().registerListener(this.mHomePageTabClickListener);
+            MessageManager.getInstance().registerListener(this.feedBackRedTipListener);
+            MessageManager.getInstance().registerListener(this.syncFinishListener);
+            MessageManager.getInstance().registerListener(this.mDownloadCardListener);
+        }
+    }
+
+    private void initRepTipState() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65563, this) == null) {
+            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+            if (!ux4.k().h("member_close_ad_setting_clicked", false) && currentAccountObj != null && currentAccountObj.isMemberCloseAdIsOpen()) {
+                this.mShowSettingTip = true;
+            }
+            TbadkSettings inst = TbadkSettings.getInst();
+            StringBuilder sb = new StringBuilder();
+            sb.append("has_clicked_addresslist_item_in_leftnavi");
+            TbadkCoreApplication.getInst();
+            sb.append(TbadkCoreApplication.getCurrentAccount());
+            this.hasClicked = inst.loadBoolean(sb.toString(), false);
+        }
+    }
+
+    private void syncPersonTip() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65567, this) == null) {
+            if (!this.mShowGifTip && !this.mShowBookTip && !this.mShowFanTip && !this.mShowFriendTip && !this.mShowSettingTip && !this.mShowMemberTip && !this.mShowActivityTip && !this.mShowNewGodInvitedTip) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (!this.isPrimary && TbadkCoreApplication.isLogin()) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007014, new o95(z, 0)));
+            }
+        }
+    }
+
+    private void updateTabTip() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65568, this) == null) {
+            if ((this.mFans <= 0 || !this.mIsShowFansNewMsg) && ((this.mBookMarks <= 0 || !this.mIsShowBookmarkNewMsg) && !this.mHasNewVersion && !this.mIsShowActivityNewMsg && !this.mIsFeedbackNewMsg && !this.mIsDownloadCardMsg)) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z && !this.isPrimary && TbadkCoreApplication.isLogin()) {
+                if (this.mIsFeedbackNewMsg) {
+                    ux4.k().u("key_feedback_tip_tab_show", true);
+                }
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007014, new o95(true, 0)));
+            }
+        }
+    }
+
+    public void resetRedTip() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.mShowFanTip = false;
+            this.mShowBookTip = false;
+            this.mShowGifTip = false;
+            this.mShowFriendTip = false;
+            this.mShowSettingTip = false;
+            this.mShowMemberTip = false;
+            this.mShowActivityTip = false;
+            this.mFans = 0;
+            this.mGift = 0;
+            this.mBookMarks = 0;
+            this.maddressListNewCount = 0;
+            this.mIsNewAddressList = false;
+            this.mHasNewVersion = false;
+            this.mIsShowFansNewMsg = false;
+            this.mIsShowGiftsNewMsg = false;
+            this.mIsShowBookmarkNewMsg = false;
+            this.mIsShowMemberCenerNewMsg = false;
+            this.mIsShowActivityNewMsg = false;
+            initRepTipState();
+            hh.a().post(new a(this));
+            initTabTip();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void processNotify(ResponsedMessage responsedMessage) {
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        boolean z5;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65566, this, responsedMessage) != null) || responsedMessage == null || !(responsedMessage instanceof NewsNotifyMessage)) {
+            return;
+        }
+        NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) responsedMessage;
+        boolean z6 = false;
+        boolean z7 = true;
+        if (newsNotifyMessage.getMsgBookmark() > this.mBookMarks) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.mIsShowBookmarkNewMsg = z;
+        if (newsNotifyMessage.getMsgFans() > this.mFans) {
+            z2 = true;
+        } else {
+            z2 = false;
+        }
+        this.mIsShowFansNewMsg = z2;
+        if (newsNotifyMessage.getMsgGiftNum() > this.mGift) {
+            z6 = true;
+        }
+        this.mIsShowGiftsNewMsg = z6;
+        this.mBookMarks = newsNotifyMessage.getMsgBookmark();
+        this.mFans = newsNotifyMessage.getMsgFans();
+        this.mGift = newsNotifyMessage.getMsgGiftNum();
+        if (this.mIsShowBookmarkNewMsg || this.mIsShowFansNewMsg || this.mIsShowGiftsNewMsg || this.mHasNewVersion) {
+            if (this.mIsShowFansNewMsg) {
+                z3 = true;
+            } else {
+                z3 = this.mShowFanTip;
+            }
+            this.mShowFanTip = z3;
+            if (this.mIsShowBookmarkNewMsg) {
+                z4 = true;
+            } else {
+                z4 = this.mShowBookTip;
+            }
+            this.mShowBookTip = z4;
+            if (this.mIsShowGiftsNewMsg) {
+                z5 = true;
+            } else {
+                z5 = this.mShowGifTip;
+            }
+            this.mShowGifTip = z5;
+            if (!this.mHasNewVersion) {
+                z7 = this.mShowSettingTip;
+            }
+            this.mShowSettingTip = z7;
+            notifyRedTipShow();
+        }
+    }
+
+    public void saveAddressListRedState() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            TbadkSettings inst = TbadkSettings.getInst();
+            StringBuilder sb = new StringBuilder();
+            sb.append("has_clicked_addresslist_item_in_leftnavi");
+            TbadkCoreApplication.getInst();
+            sb.append(TbadkCoreApplication.getCurrentAccount());
+            inst.saveBoolean(sb.toString(), !this.mIsNewAddressList);
+        }
+    }
+
+    public void syncRedTipState(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) != null) || !z) {
+            return;
+        }
+        SparseArray sparseArray = new SparseArray();
+        sparseArray.append(4, new ig8.a(this.mShowFriendTip, this.maddressListNewCount));
+        sparseArray.append(2, new ig8.a(this.mShowFanTip, this.mFans));
+        sparseArray.append(1, new ig8.a(this.mShowGifTip, this.mGift));
+        sparseArray.append(3, new ig8.a(this.mShowBookTip, this.mBookMarks));
+        sparseArray.append(5, new ig8.a(this.mShowSettingTip, 0));
+        sparseArray.append(7, new ig8.a(this.mShowMemberTip, 0));
+        sparseArray.append(9, new ig8.a(this.mShowActivityTip, 0));
+        sparseArray.append(10, new ig8.a(this.mShowFeedbackTip, 0));
+        sparseArray.append(11, new ig8.a(this.mShowNewGodInvitedTip, 0));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001435, new ig8(sparseArray)));
+    }
+
+    public void updateRedTipState(int i2, boolean z, boolean z2) {
+        String currentAccount;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || !z2) {
+            return;
+        }
+        switch (i2) {
+            case 1:
+                this.mShowGifTip = z;
+                break;
+            case 2:
+                this.mShowFanTip = z;
+                break;
+            case 3:
+                this.mShowBookTip = z;
+                break;
+            case 4:
+                this.mShowFriendTip = z;
+                break;
+            case 5:
+                AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+                if (currentAccountObj != null && currentAccountObj.isMemberCloseAdIsOpen()) {
+                    ux4.k().u("member_close_ad_setting_clicked", true);
+                }
+                this.mShowSettingTip = z;
+                break;
+            case 7:
+                if (!TbadkCoreApplication.isLogin()) {
+                    currentAccount = SevenZipUtils.FILE_NAME_TEMP;
+                } else {
+                    currentAccount = TbadkCoreApplication.getCurrentAccount();
+                }
+                ux4 k2 = ux4.k();
+                k2.x("maintab_member_center_red_tip_" + currentAccount, TbadkCoreApplication.getInst().getLastUpdateMemberCenterTime());
+                this.mShowMemberTip = z;
+                break;
+            case 9:
+                this.mShowActivityTip = z;
+                String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
+                ux4 k3 = ux4.k();
+                k3.y("person_item_activity_prize_red_tip" + currentAccount2, TbadkCoreApplication.getInst().getActivityPrizeData().getDotTimestamp());
+                break;
+            case 10:
+                this.mShowFeedbackTip = z;
+                break;
+            case 11:
+                this.mShowNewGodInvitedTip = z;
+                break;
+        }
+        syncRedTipState(true);
+        syncPersonTip();
     }
 }

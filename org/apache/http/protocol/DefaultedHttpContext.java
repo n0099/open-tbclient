@@ -40,15 +40,6 @@ public final class DefaultedHttpContext implements HttpContext {
         return invokeL.objValue;
     }
 
-    public HttpContext getDefaults() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (HttpContext) invokeV.objValue;
-    }
-
     @Override // org.apache.http.protocol.HttpContext
     public Object removeAttribute(String str) {
         InterceptResult invokeL;
@@ -57,6 +48,15 @@ public final class DefaultedHttpContext implements HttpContext {
             throw new RuntimeException("Stub!");
         }
         return invokeL.objValue;
+    }
+
+    public HttpContext getDefaults() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (HttpContext) invokeV.objValue;
     }
 
     @Override // org.apache.http.protocol.HttpContext

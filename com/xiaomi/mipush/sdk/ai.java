@@ -28,33 +28,33 @@ public class ai {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static <T extends iu<T, ?>> Cif a(Context context, T t, hj hjVar) {
+    public static Cif a(Context context, iu iuVar, hj hjVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, t, hjVar)) == null) ? a(context, t, hjVar, !hjVar.equals(hj.a), context.getPackageName(), b.m132a(context).m133a()) : (Cif) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, iuVar, hjVar)) == null) ? a(context, iuVar, hjVar, !hjVar.equals(hj.a), context.getPackageName(), b.m131a(context).m132a()) : (Cif) invokeLLL.objValue;
     }
 
-    public static <T extends iu<T, ?>> Cif a(Context context, T t, hj hjVar, boolean z, String str, String str2) {
+    public static Cif a(Context context, iu iuVar, hj hjVar, boolean z, String str, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, t, hjVar, Boolean.valueOf(z), str, str2})) == null) ? a(context, t, hjVar, z, str, str2, true) : (Cif) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, iuVar, hjVar, Boolean.valueOf(z), str, str2})) == null) ? a(context, iuVar, hjVar, z, str, str2, true) : (Cif) invokeCommon.objValue;
     }
 
-    public static <T extends iu<T, ?>> Cif a(Context context, T t, hj hjVar, boolean z, String str, String str2, boolean z2) {
+    public static Cif a(Context context, iu iuVar, hj hjVar, boolean z, String str, String str2, boolean z2) {
         InterceptResult invokeCommon;
         String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, t, hjVar, Boolean.valueOf(z), str, str2, Boolean.valueOf(z2)})) == null) {
-            byte[] a = it.a(t);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, iuVar, hjVar, Boolean.valueOf(z), str, str2, Boolean.valueOf(z2)})) == null) {
+            byte[] a = it.a(iuVar);
             if (a != null) {
                 Cif cif = new Cif();
                 if (z) {
-                    String d = b.m132a(context).d();
+                    String d = b.m131a(context).d();
                     if (TextUtils.isEmpty(d)) {
                         str3 = "regSecret is empty, return null";
                     } else {
                         try {
-                            a = com.xiaomi.push.i.b(bm.m203a(d), a);
+                            a = com.xiaomi.push.i.b(bm.m202a(d), a);
                         } catch (Exception unused) {
                             com.xiaomi.channel.commonutils.logger.b.d("encryption error. ");
                         }
@@ -73,7 +73,7 @@ public class ai {
                 return cif;
             }
             str3 = "invoke convertThriftObjectToBytes method, return null.";
-            com.xiaomi.channel.commonutils.logger.b.m90a(str3);
+            com.xiaomi.channel.commonutils.logger.b.m89a(str3);
             return null;
         }
         return (Cif) invokeCommon.objValue;
@@ -81,25 +81,25 @@ public class ai {
 
     public static iu a(Context context, Cif cif) {
         InterceptResult invokeLL;
-        byte[] m472a;
+        byte[] m471a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, cif)) == null) {
-            if (cif.m474b()) {
+            if (cif.m473b()) {
                 byte[] a = i.a(context, cif, e.b);
                 if (a == null) {
-                    a = bm.m203a(b.m132a(context).d());
+                    a = bm.m202a(b.m131a(context).d());
                 }
                 try {
-                    m472a = com.xiaomi.push.i.a(a, cif.m472a());
+                    m471a = com.xiaomi.push.i.a(a, cif.m471a());
                 } catch (Exception e) {
                     throw new u("the aes decrypt failed.", e);
                 }
             } else {
-                m472a = cif.m472a();
+                m471a = cif.m471a();
             }
             iu a2 = a(cif.a(), cif.f634b);
             if (a2 != null) {
-                it.a(a2, m472a);
+                it.a(a2, m471a);
             }
             return a2;
         }
@@ -143,9 +143,9 @@ public class ai {
         return (iu) invokeLZ.objValue;
     }
 
-    public static <T extends iu<T, ?>> Cif b(Context context, T t, hj hjVar, boolean z, String str, String str2) {
+    public static Cif b(Context context, iu iuVar, hj hjVar, boolean z, String str, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, t, hjVar, Boolean.valueOf(z), str, str2})) == null) ? a(context, t, hjVar, z, str, str2, false) : (Cif) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, iuVar, hjVar, Boolean.valueOf(z), str, str2})) == null) ? a(context, iuVar, hjVar, z, str, str2, false) : (Cif) invokeCommon.objValue;
     }
 }

@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.ChecksumException;
-import com.google.zxing.DecodeHintType;
 import com.google.zxing.FormatException;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.DecoderResult;
@@ -56,13 +55,7 @@ public final class Decoder {
         }
     }
 
-    public DecoderResult decode(boolean[][] zArr) throws ChecksumException, FormatException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zArr)) == null) ? decode(zArr, (Map<DecodeHintType, ?>) null) : (DecoderResult) invokeL.objValue;
-    }
-
-    public DecoderResult decode(boolean[][] zArr, Map<DecodeHintType, ?> map) throws ChecksumException, FormatException {
+    public DecoderResult decode(boolean[][] zArr, Map map) throws ChecksumException, FormatException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, zArr, map)) == null) {
@@ -80,13 +73,45 @@ public final class Decoder {
         return (DecoderResult) invokeLL.objValue;
     }
 
+    private DecoderResult decode(BitMatrixParser bitMatrixParser, Map map) throws FormatException, ChecksumException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, bitMatrixParser, map)) == null) {
+            Version readVersion = bitMatrixParser.readVersion();
+            ErrorCorrectionLevel errorCorrectionLevel = bitMatrixParser.readFormatInformation().getErrorCorrectionLevel();
+            DataBlock[] dataBlocks = DataBlock.getDataBlocks(bitMatrixParser.readCodewords(), readVersion, errorCorrectionLevel);
+            int i = 0;
+            for (DataBlock dataBlock : dataBlocks) {
+                i += dataBlock.getNumDataCodewords();
+            }
+            byte[] bArr = new byte[i];
+            int i2 = 0;
+            for (DataBlock dataBlock2 : dataBlocks) {
+                byte[] codewords = dataBlock2.getCodewords();
+                int numDataCodewords = dataBlock2.getNumDataCodewords();
+                correctErrors(codewords, numDataCodewords);
+                int i3 = 0;
+                while (i3 < numDataCodewords) {
+                    bArr[i2] = codewords[i3];
+                    i3++;
+                    i2++;
+                }
+            }
+            return DecodedBitStreamParser.decode(bArr, readVersion, errorCorrectionLevel, map);
+        }
+        return (DecoderResult) invokeLL.objValue;
+    }
+
     public DecoderResult decode(BitMatrix bitMatrix) throws ChecksumException, FormatException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bitMatrix)) == null) ? decode(bitMatrix, (Map<DecodeHintType, ?>) null) : (DecoderResult) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bitMatrix)) == null) {
+            return decode(bitMatrix, (Map) null);
+        }
+        return (DecoderResult) invokeL.objValue;
     }
 
-    public DecoderResult decode(BitMatrix bitMatrix, Map<DecodeHintType, ?> map) throws FormatException, ChecksumException {
+    public DecoderResult decode(BitMatrix bitMatrix, Map map) throws FormatException, ChecksumException {
         InterceptResult invokeLL;
         ChecksumException e;
         Interceptable interceptable = $ic;
@@ -131,32 +156,12 @@ public final class Decoder {
         return (DecoderResult) invokeLL.objValue;
     }
 
-    private DecoderResult decode(BitMatrixParser bitMatrixParser, Map<DecodeHintType, ?> map) throws FormatException, ChecksumException {
-        InterceptResult invokeLL;
+    public DecoderResult decode(boolean[][] zArr) throws ChecksumException, FormatException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, bitMatrixParser, map)) == null) {
-            Version readVersion = bitMatrixParser.readVersion();
-            ErrorCorrectionLevel errorCorrectionLevel = bitMatrixParser.readFormatInformation().getErrorCorrectionLevel();
-            DataBlock[] dataBlocks = DataBlock.getDataBlocks(bitMatrixParser.readCodewords(), readVersion, errorCorrectionLevel);
-            int i = 0;
-            for (DataBlock dataBlock : dataBlocks) {
-                i += dataBlock.getNumDataCodewords();
-            }
-            byte[] bArr = new byte[i];
-            int i2 = 0;
-            for (DataBlock dataBlock2 : dataBlocks) {
-                byte[] codewords = dataBlock2.getCodewords();
-                int numDataCodewords = dataBlock2.getNumDataCodewords();
-                correctErrors(codewords, numDataCodewords);
-                int i3 = 0;
-                while (i3 < numDataCodewords) {
-                    bArr[i2] = codewords[i3];
-                    i3++;
-                    i2++;
-                }
-            }
-            return DecodedBitStreamParser.decode(bArr, readVersion, errorCorrectionLevel, map);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zArr)) == null) {
+            return decode(zArr, (Map) null);
         }
-        return (DecoderResult) invokeLL.objValue;
+        return (DecoderResult) invokeL.objValue;
     }
 }

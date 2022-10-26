@@ -20,6 +20,7 @@ public class t5 implements u5 {
     public final boolean e;
 
     public t5(boolean z, int i) {
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -34,7 +35,11 @@ public class t5 implements u5 {
                 return;
             }
         }
-        boolean z2 = i == 0;
+        if (i == 0) {
+            z2 = true;
+        } else {
+            z2 = false;
+        }
         this.e = z2;
         ByteBuffer e = BufferUtils.e((z2 ? 1 : i) * 2);
         this.b = e;
@@ -76,7 +81,10 @@ public class t5 implements u5 {
     public ShortBuffer getBuffer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (ShortBuffer) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (ShortBuffer) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.u5

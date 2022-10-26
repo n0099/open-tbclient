@@ -17,12 +17,12 @@ import io.reactivex.observers.LambdaConsumerIntrospection;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class CallbackCompletableObserver extends AtomicReference<Disposable> implements CompletableObserver, Disposable, Consumer<Throwable>, LambdaConsumerIntrospection {
+public final class CallbackCompletableObserver extends AtomicReference implements CompletableObserver, Disposable, Consumer, LambdaConsumerIntrospection {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -4361286194466301354L;
     public transient /* synthetic */ FieldHolder $fh;
     public final Action onComplete;
-    public final Consumer<? super Throwable> onError;
+    public final Consumer onError;
 
     public CallbackCompletableObserver(Action action) {
         Interceptable interceptable = $ic;
@@ -41,42 +41,6 @@ public final class CallbackCompletableObserver extends AtomicReference<Disposabl
         }
         this.onError = this;
         this.onComplete = action;
-    }
-
-    @Override // io.reactivex.disposables.Disposable
-    public void dispose() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            DisposableHelper.dispose(this);
-        }
-    }
-
-    @Override // io.reactivex.observers.LambdaConsumerIntrospection
-    public boolean hasCustomOnError() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.onError != this : invokeV.booleanValue;
-    }
-
-    @Override // io.reactivex.disposables.Disposable
-    public boolean isDisposed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? get() == DisposableHelper.DISPOSED : invokeV.booleanValue;
-    }
-
-    @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
-    public void onComplete() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            try {
-                this.onComplete.run();
-            } catch (Throwable th) {
-                Exceptions.throwIfFatal(th);
-                RxJavaPlugins.onError(th);
-            }
-            lazySet(DisposableHelper.DISPOSED);
-        }
     }
 
     @Override // io.reactivex.CompletableObserver
@@ -101,16 +65,7 @@ public final class CallbackCompletableObserver extends AtomicReference<Disposabl
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // io.reactivex.functions.Consumer
-    public void accept(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            RxJavaPlugins.onError(new OnErrorNotImplementedException(th));
-        }
-    }
-
-    public CallbackCompletableObserver(Consumer<? super Throwable> consumer, Action action) {
+    public CallbackCompletableObserver(Consumer consumer, Action action) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -127,5 +82,62 @@ public final class CallbackCompletableObserver extends AtomicReference<Disposabl
         }
         this.onError = consumer;
         this.onComplete = action;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // io.reactivex.functions.Consumer
+    public void accept(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+            RxJavaPlugins.onError(new OnErrorNotImplementedException(th));
+        }
+    }
+
+    @Override // io.reactivex.disposables.Disposable
+    public void dispose() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            DisposableHelper.dispose(this);
+        }
+    }
+
+    @Override // io.reactivex.observers.LambdaConsumerIntrospection
+    public boolean hasCustomOnError() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.onError != this) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // io.reactivex.disposables.Disposable
+    public boolean isDisposed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (get() == DisposableHelper.DISPOSED) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
+    public void onComplete() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            try {
+                this.onComplete.run();
+            } catch (Throwable th) {
+                Exceptions.throwIfFatal(th);
+                RxJavaPlugins.onError(th);
+            }
+            lazySet(DisposableHelper.DISPOSED);
+        }
     }
 }

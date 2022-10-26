@@ -42,7 +42,7 @@ public class b extends TimerTask {
         public void run() {
             int progress;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.a == null || (progress = this.a.a.getProgress()) >= 100) {
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.a == null || (progress = this.a.a.getProgress()) >= 100) {
                 return;
             }
             this.a.a.setProgress(progress + 1);
@@ -82,9 +82,8 @@ public class b extends TimerTask {
     public void run() {
         CircleProgressView circleProgressView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (circleProgressView = this.a) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (circleProgressView = this.a) != null) {
+            circleProgressView.post(new a(this));
         }
-        circleProgressView.post(new a(this));
     }
 }

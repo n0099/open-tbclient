@@ -1,7 +1,6 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 import com.baidu.tbadk.core.data.LoginDialogData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
@@ -25,52 +24,6 @@ public class LoginDialogActivityConfig extends IntentConfig {
     public static final String ONE_KEY_LOGIN_SIGN = "one_key_login_sign";
     public static final String SHARE_MODEL_JSON_STRING = "share_model_json_string";
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LoginDialogActivityConfig(LoginDialogData loginDialogData, @NonNull String str) {
-        this(loginDialogData);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {loginDialogData, str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this((LoginDialogData) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        getIntent().putExtra(SHARE_MODEL_JSON_STRING, str);
-        getIntent().putExtra(LOGIN_DIALOG_DATA_TYPE, DialogLoginHelper.DIALOG_TYPE_SHARE);
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LoginDialogActivityConfig(LoginDialogData loginDialogData, @NonNull String str, @NonNull String str2, @NonNull String str3) {
-        this(loginDialogData);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {loginDialogData, str, str2, str3};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this((LoginDialogData) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        getIntent().putExtra(ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM, str);
-        getIntent().putExtra(ONE_KEY_LOGIN_OPERATOR, str2);
-        getIntent().putExtra(ONE_KEY_LOGIN_SIGN, str3);
-        getIntent().putExtra(LOGIN_DIALOG_DATA_TYPE, DialogLoginHelper.DIALOG_TYPE_ONE_KEY);
-    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LoginDialogActivityConfig(LoginDialogData loginDialogData) {
@@ -184,5 +137,51 @@ public class LoginDialogActivityConfig extends IntentConfig {
             default:
                 return;
         }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public LoginDialogActivityConfig(LoginDialogData loginDialogData, String str) {
+        this(loginDialogData);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {loginDialogData, str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this((LoginDialogData) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        getIntent().putExtra(SHARE_MODEL_JSON_STRING, str);
+        getIntent().putExtra(LOGIN_DIALOG_DATA_TYPE, DialogLoginHelper.DIALOG_TYPE_SHARE);
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public LoginDialogActivityConfig(LoginDialogData loginDialogData, String str, String str2, String str3) {
+        this(loginDialogData);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {loginDialogData, str, str2, str3};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this((LoginDialogData) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        getIntent().putExtra(ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM, str);
+        getIntent().putExtra(ONE_KEY_LOGIN_OPERATOR, str2);
+        getIntent().putExtra(ONE_KEY_LOGIN_SIGN, str3);
+        getIntent().putExtra(LOGIN_DIALOG_DATA_TYPE, DialogLoginHelper.DIALOG_TYPE_ONE_KEY);
     }
 }

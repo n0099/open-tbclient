@@ -13,7 +13,7 @@ public final class R {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static final class attr {
+    public final class attr {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int actualImageResource = 0x7f040024;
         public static final int actualImageScaleType = 0x7f040025;
@@ -64,18 +64,18 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class id {
+    public final class id {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int center = 0x7f0905d5;
-        public static final int centerCrop = 0x7f0905d9;
-        public static final int centerInside = 0x7f0905da;
-        public static final int fitBottomStart = 0x7f0909d7;
-        public static final int fitCenter = 0x7f0909d8;
-        public static final int fitEnd = 0x7f0909d9;
-        public static final int fitStart = 0x7f0909da;
-        public static final int fitXY = 0x7f0909dc;
-        public static final int focusCrop = 0x7f090a17;
-        public static final int none = 0x7f0916ea;
+        public static final int center = 0x7f0905de;
+        public static final int centerCrop = 0x7f0905e2;
+        public static final int centerInside = 0x7f0905e3;
+        public static final int fitBottomStart = 0x7f0909e1;
+        public static final int fitCenter = 0x7f0909e2;
+        public static final int fitEnd = 0x7f0909e3;
+        public static final int fitStart = 0x7f0909e4;
+        public static final int fitXY = 0x7f0909e6;
+        public static final int focusCrop = 0x7f090a21;
+        public static final int none = 0x7f0916dc;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -94,7 +94,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public static final class styleable {
+    public final class styleable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int[] GenericDraweeHierarchy;
         public static final int GenericDraweeHierarchy_actualImageScaleType = 0x00000000;

@@ -1,8 +1,10 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.graphics.PointF;
+import android.graphics.RectF;
+import androidx.core.util.Pools;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardGame;
+import com.baidu.tieba.danmu.ui.DanmakuPlayer;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,12 +12,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public class e76 implements Cdo {
+public final class e76 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static final e76 a;
+    public static final Pools.SimplePool b;
+    public static final Pools.SimplePool c;
+    public static final Pools.SimplePool d;
     public transient /* synthetic */ FieldHolder $fh;
-    public FeatureCardGame a;
 
     static {
         InterceptResult invokeClinit;
@@ -30,7 +35,10 @@ public class e76 implements Cdo {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        a = new e76();
+        b = new Pools.SimplePool(200);
+        c = new Pools.SimplePool(200);
+        d = new Pools.SimplePool(1000);
     }
 
     public e76() {
@@ -47,27 +55,50 @@ public class e76 implements Cdo {
         }
     }
 
-    public FeatureCardGame a() {
+    public final PointF b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (FeatureCardGame) invokeV.objValue;
-    }
-
-    public void b(FeatureCardGame featureCardGame) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, featureCardGame) == null) || featureCardGame == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            PointF pointF = (PointF) c.acquire();
+            if (pointF == null) {
+                return new PointF();
+            }
+            return pointF;
         }
-        this.a = featureCardGame;
-        String str = featureCardGame.title;
-        Integer num = featureCardGame.floor;
-        Integer num2 = featureCardGame.type;
+        return (PointF) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
+    public final RectF c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            RectF rectF = (RectF) b.acquire();
+            if (rectF == null) {
+                return new RectF();
+            }
+            return rectF;
+        }
+        return (RectF) invokeV.objValue;
+    }
+
+    public final x46 a(y46 data, DanmakuPlayer player) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, data, player)) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            Intrinsics.checkNotNullParameter(player, "player");
+            x46 x46Var = (x46) d.acquire();
+            if (x46Var == null) {
+                x46Var = null;
+            } else {
+                x46Var.l(data);
+                x46Var.p(player.m().w());
+            }
+            if (x46Var == null) {
+                return new x46(data, player);
+            }
+            return x46Var;
+        }
+        return (x46) invokeLL.objValue;
     }
 }

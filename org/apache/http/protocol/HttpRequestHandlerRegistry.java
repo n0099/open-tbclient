@@ -39,6 +39,20 @@ public class HttpRequestHandlerRegistry implements HttpRequestHandlerResolver {
         return (HttpRequestHandler) invokeL.objValue;
     }
 
+    public void setHandlers(Map map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, map) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    public void unregister(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
     @Deprecated
     public boolean matchUriRequestPattern(String str, String str2) {
         InterceptResult invokeLL;
@@ -52,20 +66,6 @@ public class HttpRequestHandlerRegistry implements HttpRequestHandlerResolver {
     public void register(String str, HttpRequestHandler httpRequestHandler) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, httpRequestHandler) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    public void setHandlers(Map map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, map) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    public void unregister(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             throw new RuntimeException("Stub!");
         }
     }

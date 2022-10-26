@@ -1,350 +1,51 @@
 package com.baidu.mobstat;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Build;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import java.text.SimpleDateFormat;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class y {
-    public static /* synthetic */ Interceptable $ic;
-    public static y a;
+public final class y {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = true;
+    public static final String b;
+    public static final String c;
+    public static String d;
+    public static String e;
+    public static String f;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context b;
-    public JSONObject c;
-    public long d;
-    public long e;
-    public long f;
-    public long g;
-    public long h;
-    public long i;
-    public long j;
-    public long k;
-    public long l;
-    public long m;
-    public long n;
-    public long o;
-    public String p;
-    public String q;
 
-    public y(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        String str;
+        String str2;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1366709493, "Lcom/baidu/mobstat/y;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1366709493, "Lcom/baidu/mobstat/y;");
                 return;
             }
         }
-        this.c = new JSONObject();
-        this.d = 24L;
-        this.e = 0L;
-        this.f = 0L;
-        this.g = 0L;
-        this.h = 5L;
-        this.i = 24L;
-        this.j = 15L;
-        this.k = 15L;
-        this.l = 30L;
-        this.m = 12L;
-        this.n = 1L;
-        this.o = 24L;
-        this.p = "";
-        this.q = "";
-        this.b = context;
-        m();
-        j();
-        k();
-    }
-
-    public static y a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (a == null) {
-                synchronized (y.class) {
-                    if (a == null) {
-                        a = new y(context);
-                    }
-                }
-            }
-            return a;
+        if (Build.VERSION.SDK_INT < 9) {
+            str = "http://datax.baidu.com/xs.gif";
+        } else {
+            str = "https://datax.baidu.com/xs.gif";
         }
-        return (y) invokeL.objValue;
-    }
-
-    private void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            String b = bo.b("backups/system/.timestamp");
-            try {
-                if (TextUtils.isEmpty(b)) {
-                    return;
-                }
-                this.c = new JSONObject(b);
-            } catch (Exception unused) {
-            }
+        b = str;
+        if (Build.VERSION.SDK_INT < 9) {
+            str2 = "http://dxp.baidu.com/upgrade";
+        } else {
+            str2 = "https://dxp.baidu.com/upgrade";
         }
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f != 0 : invokeV.booleanValue;
-    }
-
-    public long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d * 60 * 60 * 1000 : invokeV.longValue;
-    }
-
-    public long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.o * 60 * 60 * 1000 : invokeV.longValue;
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.h * 60 * 1000 : invokeV.longValue;
-    }
-
-    public long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.i * 60 * 60 * 1000 : invokeV.longValue;
-    }
-
-    public long g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.j * 24 * 60 * 60 * 1000 : invokeV.longValue;
-    }
-
-    public long h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.k * 24 * 60 * 60 * 1000 : invokeV.longValue;
-    }
-
-    public long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.m * 60 * 60 * 1000 : invokeV.longValue;
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            try {
-                String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.b, ".config2").getBytes())));
-                if (TextUtils.isEmpty(str)) {
-                    return;
-                }
-                JSONObject jSONObject = new JSONObject(str);
-                try {
-                    this.e = jSONObject.getLong("c");
-                } catch (JSONException e) {
-                    bb.c().b(e);
-                }
-                try {
-                    this.h = jSONObject.getLong("d");
-                } catch (JSONException e2) {
-                    bb.c().b(e2);
-                }
-                try {
-                    this.i = jSONObject.getLong("e");
-                } catch (JSONException e3) {
-                    bb.c().b(e3);
-                }
-                try {
-                    this.j = jSONObject.getLong("i");
-                } catch (JSONException e4) {
-                    bb.c().b(e4);
-                }
-                try {
-                    this.d = jSONObject.getLong("f");
-                } catch (JSONException e5) {
-                    bb.c().b(e5);
-                }
-                try {
-                    this.o = jSONObject.getLong("s");
-                } catch (JSONException e6) {
-                    bb.c().b(e6);
-                }
-                try {
-                    this.k = jSONObject.getLong(PushConstants.URI_PACKAGE_NAME);
-                } catch (JSONException e7) {
-                    bb.c().b(e7);
-                }
-                try {
-                    this.l = jSONObject.getLong("at");
-                } catch (JSONException e8) {
-                    bb.c().b(e8);
-                }
-                try {
-                    this.m = jSONObject.getLong("as");
-                } catch (JSONException e9) {
-                    bb.c().b(e9);
-                }
-                try {
-                    this.n = jSONObject.getLong("ac");
-                } catch (JSONException e10) {
-                    bb.c().b(e10);
-                }
-                try {
-                    this.f = jSONObject.getLong(Config.DEVICE_MAC_ID);
-                } catch (JSONException e11) {
-                    bb.c().b(e11);
-                }
-                try {
-                    this.g = jSONObject.getLong("lsc");
-                } catch (JSONException e12) {
-                    bb.c().b(e12);
-                }
-            } catch (Exception e13) {
-                bb.c().b(e13);
-            }
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            try {
-                String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.b, ".sign").getBytes())));
-                if (TextUtils.isEmpty(str)) {
-                    return;
-                }
-                JSONObject jSONObject = new JSONObject(str);
-                try {
-                    this.q = jSONObject.getString("sign");
-                } catch (Exception e) {
-                    bb.c().b(e);
-                }
-                try {
-                    this.p = jSONObject.getString("ver");
-                } catch (Exception e2) {
-                    bb.c().b(e2);
-                }
-            } catch (Exception e3) {
-                bb.c().b(e3);
-            }
-        }
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            long a2 = a(g.h);
-            long d = d();
-            bb c = bb.c();
-            c.a("canSend now=" + currentTimeMillis + ";lastSendTime=" + a2 + ";sendLogTimeInterval=" + d);
-            return currentTimeMillis - a2 > d || !a(a2);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            bo.a(this.b, ".sign", str, false);
-            k();
-        }
-    }
-
-    public String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? (TextUtils.isEmpty(this.p) || !this.p.equals(str) || TextUtils.isEmpty(this.q)) ? "" : this.q : (String) invokeL.objValue;
-    }
-
-    private long b(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, this, j)) == null) {
-            if (j - System.currentTimeMillis() > 0) {
-                return 0L;
-            }
-            return j;
-        }
-        return invokeJ.longValue;
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e != 0 : invokeV.booleanValue;
-    }
-
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            bo.a(this.b, ".config2", str, false);
-            j();
-        }
-    }
-
-    public long a(g gVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gVar)) == null) {
-            long j = gVar.j;
-            try {
-                String str = gVar.toString();
-                if (this.c.has(str)) {
-                    j = this.c.getLong(str);
-                }
-            } catch (Exception e) {
-                bb.c().a(e);
-            }
-            return b(j);
-        }
-        return invokeL.longValue;
-    }
-
-    public void a(g gVar, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar, j) == null) {
-            gVar.j = j;
-            try {
-                this.c.put(gVar.toString(), j);
-            } catch (Exception e) {
-                bb.c().a(e);
-            }
-            try {
-                bo.a("backups/system/.timestamp", this.c.toString(), false);
-            } catch (Exception e2) {
-                bb.c().a(e2);
-            }
-        }
-    }
-
-    public boolean a(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
-            return simpleDateFormat.format(Long.valueOf(j)).equals(simpleDateFormat.format(Long.valueOf(System.currentTimeMillis())));
-        }
-        return invokeJ.booleanValue;
+        c = str2;
+        d = ".mtj_timestamp";
+        f = "__send_log_data_";
+        e = ".confd";
     }
 }

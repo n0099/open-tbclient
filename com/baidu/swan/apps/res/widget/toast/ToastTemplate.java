@@ -61,12 +61,18 @@ public final class ToastTemplate {
     public static ToastTemplate valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ToastTemplate) Enum.valueOf(ToastTemplate.class, str) : (ToastTemplate) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (ToastTemplate) Enum.valueOf(ToastTemplate.class, str);
+        }
+        return (ToastTemplate) invokeL.objValue;
     }
 
     public static ToastTemplate[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ToastTemplate[]) $VALUES.clone() : (ToastTemplate[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (ToastTemplate[]) $VALUES.clone();
+        }
+        return (ToastTemplate[]) invokeV.objValue;
     }
 }

@@ -6,9 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public abstract class IqiyiLoginCallback implements SapiCallback<IqiyiLoginResult> {
+public abstract class IqiyiLoginCallback implements SapiCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract void onBindWebview(IqiyiLoginResult iqiyiLoginResult);
+
+    public abstract void onLogin(IqiyiLoginResult iqiyiLoginResult);
 
     public IqiyiLoginCallback() {
         Interceptable interceptable = $ic;
@@ -23,8 +27,4 @@ public abstract class IqiyiLoginCallback implements SapiCallback<IqiyiLoginResul
             }
         }
     }
-
-    public abstract void onBindWebview(IqiyiLoginResult iqiyiLoginResult);
-
-    public abstract void onLogin(IqiyiLoginResult iqiyiLoginResult);
 }

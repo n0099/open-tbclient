@@ -13,7 +13,6 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -21,8 +20,8 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.oy4;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.uy4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,9 +50,14 @@ public class EBusinessProtocolView extends Dialog {
     public f o;
     public WebViewClient p;
 
+    /* loaded from: classes6.dex */
+    public interface f {
+        void a(boolean z);
+    }
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public static final class WindowType {
+    public final class WindowType {
         public static final /* synthetic */ WindowType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final WindowType PROTOCOL;
@@ -101,13 +105,19 @@ public class EBusinessProtocolView extends Dialog {
         public static WindowType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (WindowType) Enum.valueOf(WindowType.class, str) : (WindowType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (WindowType) Enum.valueOf(WindowType.class, str);
+            }
+            return (WindowType) invokeL.objValue;
         }
 
         public static WindowType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (WindowType[]) $VALUES.clone() : (WindowType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (WindowType[]) $VALUES.clone();
+            }
+            return (WindowType[]) invokeV.objValue;
         }
     }
 
@@ -174,13 +184,14 @@ public class EBusinessProtocolView extends Dialog {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.i = true;
-                if (this.a.o != null) {
-                    this.a.o.a(this.a.i);
-                }
-                this.a.dismiss();
+            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+                return;
             }
+            this.a.i = true;
+            if (this.a.o != null) {
+                this.a.o.a(this.a.i);
+            }
+            this.a.dismiss();
         }
     }
 
@@ -211,13 +222,14 @@ public class EBusinessProtocolView extends Dialog {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.i = false;
-                if (this.a.o != null) {
-                    this.a.o.a(this.a.i);
-                }
-                this.a.dismiss();
+            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+                return;
             }
+            this.a.i = false;
+            if (this.a.o != null) {
+                this.a.o.a(this.a.i);
+            }
+            this.a.dismiss();
         }
     }
 
@@ -255,7 +267,7 @@ public class EBusinessProtocolView extends Dialog {
     }
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class e {
+    public /* synthetic */ class e {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -286,13 +298,8 @@ public class EBusinessProtocolView extends Dialog {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public interface f {
-        void a(boolean z);
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EBusinessProtocolView(@NonNull Context context, WindowType windowType) {
+    public EBusinessProtocolView(Context context, WindowType windowType) {
         super(context, R.style.obfuscated_res_0x7f1003b3);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -319,7 +326,28 @@ public class EBusinessProtocolView extends Dialog {
         attributes.width = -1;
         attributes.height = -2;
         getWindow().setAttributes(attributes);
-        this.b = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d023f, (ViewGroup) null);
+        this.b = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d023e, (ViewGroup) null);
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.l = str;
+        }
+    }
+
+    public void l(f fVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, fVar) == null) {
+            this.o = fVar;
+        }
+    }
+
+    public void n(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.j = str;
+        }
     }
 
     public final void f() {
@@ -331,15 +359,27 @@ public class EBusinessProtocolView extends Dialog {
         }
     }
 
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            WebSettings settings = this.d.getSettings();
+            settings.setUseWideViewPort(true);
+            settings.setLoadWithOverviewMode(true);
+            settings.setJavaScriptEnabled(true);
+            this.d.setWebViewClient(this.p);
+            settings.setTextZoom(115);
+        }
+    }
+
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091ada);
-            this.d = (WebView) this.b.findViewById(R.id.obfuscated_res_0x7f091ad5);
+            this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091ad6);
+            this.d = (WebView) this.b.findViewById(R.id.obfuscated_res_0x7f091ad1);
             this.f = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f09015f);
-            this.e = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f09049f);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0921fb);
-            this.h = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f09220b);
+            this.e = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f0904a8);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0921e5);
+            this.h = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f0921f5);
             h();
             f();
         }
@@ -350,49 +390,44 @@ public class EBusinessProtocolView extends Dialog {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.c.setText(this.j);
             int i = e.a[this.m.ordinal()];
-            if (i == 1) {
-                this.g.setVisibility(0);
-                this.h.setVisibility(0);
-                setCanceledOnTouchOutside(true);
-                this.g.setText(this.k);
-                this.h.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f142d));
-                oy4 oy4Var = new oy4();
-                oy4Var.p(R.color.CAM_X0302);
-                this.h.setTextSize(R.dimen.T_X08);
-                this.h.setConfig(oy4Var);
-            } else if (i != 2) {
-            } else {
-                n();
-                this.d.setVisibility(0);
-                this.f.setVisibility(0);
-                this.e.setVisibility(0);
-                this.d.loadUrl(this.l);
-                oy4 oy4Var2 = new oy4();
-                oy4Var2.p(R.color.CAM_X0107);
-                this.e.setConfig(oy4Var2);
-                this.e.setTextSize(R.dimen.tbds42);
-                this.e.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f4f));
-                this.f.setTextSize(R.dimen.tbds42);
-                oy4 oy4Var3 = new oy4();
-                oy4Var3.p(R.color.CAM_X0302);
-                this.f.setConfig(oy4Var3);
-                this.f.setTextSize(R.dimen.tbds42);
-                this.f.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f4e));
+            if (i != 1) {
+                if (i == 2) {
+                    m();
+                    this.d.setVisibility(0);
+                    this.f.setVisibility(0);
+                    this.e.setVisibility(0);
+                    this.d.loadUrl(this.l);
+                    uy4 uy4Var = new uy4();
+                    uy4Var.p(R.color.CAM_X0107);
+                    this.e.setConfig(uy4Var);
+                    this.e.setTextSize(R.dimen.tbds42);
+                    this.e.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f61));
+                    this.f.setTextSize(R.dimen.tbds42);
+                    uy4 uy4Var2 = new uy4();
+                    uy4Var2.p(R.color.CAM_X0302);
+                    this.f.setConfig(uy4Var2);
+                    this.f.setTextSize(R.dimen.tbds42);
+                    this.f.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f60));
+                    return;
+                }
+                return;
             }
-        }
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.l = str;
+            this.g.setVisibility(0);
+            this.h.setVisibility(0);
+            setCanceledOnTouchOutside(true);
+            this.g.setText(this.k);
+            this.h.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1446));
+            uy4 uy4Var3 = new uy4();
+            uy4Var3.p(R.color.CAM_X0302);
+            this.h.setTextSize(R.dimen.T_X08);
+            this.h.setConfig(uy4Var3);
         }
     }
 
     public void j(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            l(i);
+            k(i);
             this.n = i;
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
             SkinManager.setBackgroundColor(this.d, R.color.CAM_X0211);
@@ -402,16 +437,9 @@ public class EBusinessProtocolView extends Dialog {
         }
     }
 
-    public void k(CharSequence charSequence) {
+    public final void k(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, charSequence) == null) {
-            this.k = charSequence;
-        }
-    }
-
-    public final void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.tbds30);
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setCornerRadius(dimensionPixelSize);
@@ -420,40 +448,14 @@ public class EBusinessProtocolView extends Dialog {
         }
     }
 
-    public void m(f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, fVar) == null) {
-            this.o = fVar;
-        }
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            WebSettings settings = this.d.getSettings();
-            settings.setUseWideViewPort(true);
-            settings.setLoadWithOverviewMode(true);
-            settings.setJavaScriptEnabled(true);
-            this.d.setWebViewClient(this.p);
-            settings.setTextZoom(115);
-        }
-    }
-
-    public void o(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.j = str;
-        }
-    }
-
     @Override // android.app.Dialog
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
             super.onCreate(bundle);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-            layoutParams.width = this.a.getResources().getDisplayMetrics().widthPixels - ej.f(this.a, R.dimen.tbds90);
-            layoutParams.height = ej.f(this.a, R.dimen.tbds879);
+            layoutParams.width = this.a.getResources().getDisplayMetrics().widthPixels - fj.f(this.a, R.dimen.tbds90);
+            layoutParams.height = fj.f(this.a, R.dimen.tbds879);
             setContentView(this.b, layoutParams);
             setCanceledOnTouchOutside(true);
             g();

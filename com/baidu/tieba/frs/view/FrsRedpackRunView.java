@@ -8,7 +8,6 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
@@ -25,6 +24,12 @@ public class FrsRedpackRunView extends RelativeLayout {
     public TBLottieAnimationView b;
     public View c;
     public Context d;
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
 
     /* loaded from: classes4.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
@@ -65,6 +70,27 @@ public class FrsRedpackRunView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsRedpackRunView a;
 
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationCancel(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+            }
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationRepeat(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
+            }
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationStart(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
+            }
+        }
+
         public b(FrsRedpackRunView frsRedpackRunView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -84,32 +110,11 @@ public class FrsRedpackRunView extends RelativeLayout {
         }
 
         @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationCancel(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
                 this.a.a.a(((Activity) this.a.d).getWindowManager());
                 this.a.a.c();
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationRepeat(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
             }
         }
     }
@@ -136,59 +141,17 @@ public class FrsRedpackRunView extends RelativeLayout {
         d(context);
     }
 
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.c = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0335, this);
-            this.a = (AutoScrollTextView) findViewById(R.id.obfuscated_res_0x7f0923fb);
-            this.b = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f090c0c);
+            this.c = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0334, this);
+            this.a = (AutoScrollTextView) findViewById(R.id.obfuscated_res_0x7f0923e6);
+            this.b = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f090c16);
         }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setLottieAnimation(this.b, R.raw.obfuscated_res_0x7f11004b);
-            this.b.setImageAssetsFolder("lottie_redpack_runscoll");
-            this.b.addAnimatorUpdateListener(new a(this));
-            this.b.addAnimatorListener(new b(this));
-            this.b.playAnimation();
-        }
-    }
-
-    public void setClickliner(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            View view2 = this.c;
-            if (view2 != null) {
-                view2.setOnClickListener(onClickListener);
-            }
-            AutoScrollTextView autoScrollTextView = this.a;
-            if (autoScrollTextView != null) {
-                autoScrollTextView.setClickliner(onClickListener);
-            }
-        }
-    }
-
-    public void settextTitle(String str) {
-        AutoScrollTextView autoScrollTextView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (autoScrollTextView = this.a) == null) {
-            return;
-        }
-        autoScrollTextView.setText(str);
-        this.a.a(((Activity) this.d).getWindowManager());
-        e();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsRedpackRunView(Context context, @Nullable AttributeSet attributeSet) {
+    public FrsRedpackRunView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -208,5 +171,40 @@ public class FrsRedpackRunView extends RelativeLayout {
         }
         this.d = context;
         d(context);
+    }
+
+    public void setClickliner(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+            View view2 = this.c;
+            if (view2 != null) {
+                view2.setOnClickListener(onClickListener);
+            }
+            AutoScrollTextView autoScrollTextView = this.a;
+            if (autoScrollTextView != null) {
+                autoScrollTextView.setClickliner(onClickListener);
+            }
+        }
+    }
+
+    public void settextTitle(String str) {
+        AutoScrollTextView autoScrollTextView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (autoScrollTextView = this.a) != null) {
+            autoScrollTextView.setText(str);
+            this.a.a(((Activity) this.d).getWindowManager());
+            e();
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SkinManager.setLottieAnimation(this.b, R.raw.obfuscated_res_0x7f11004e);
+            this.b.setImageAssetsFolder("lottie_redpack_runscoll");
+            this.b.addAnimatorUpdateListener(new a(this));
+            this.b.addAnimatorListener(new b(this));
+            this.b.playAnimation();
+        }
     }
 }

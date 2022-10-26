@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +16,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class LiveStatInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<LiveStatInfo> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isYY;
     public String sid;
@@ -23,6 +24,16 @@ public class LiveStatInfo implements Parcelable {
     public int templateId;
     public String tpl;
     public String yyuid;
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +48,7 @@ public class LiveStatInfo implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<LiveStatInfo>() { // from class: com.baidu.live.business.model.data.LiveStatInfo.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.live.business.model.data.LiveStatInfo.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -56,21 +67,25 @@ public class LiveStatInfo implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public LiveStatInfo createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new LiveStatInfo(parcel) : (LiveStatInfo) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new LiveStatInfo(parcel);
+                }
+                return (LiveStatInfo) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public LiveStatInfo[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new LiveStatInfo[i] : (LiveStatInfo[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new LiveStatInfo[i];
+                }
+                return (LiveStatInfo[]) invokeI.objValue;
             }
         };
     }
@@ -89,43 +104,8 @@ public class LiveStatInfo implements Parcelable {
         }
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        this.isYY = jSONObject.optInt("live_type") == 3;
-        this.yyuid = jSONObject.optString(TiebaStatic.YYParams.YYUID, "");
-        this.sid = jSONObject.optString("sid", "");
-        this.ssid = jSONObject.optString("ssid", "");
-        this.tpl = jSONObject.optString("tpl", "");
-        this.templateId = jSONObject.optInt("template_id", 0);
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
-            parcel.writeByte((byte) (this.isYY ? 3 : 0));
-            parcel.writeString(this.yyuid);
-            parcel.writeString(this.sid);
-            parcel.writeString(this.ssid);
-            parcel.writeString(this.tpl);
-            parcel.writeInt(this.templateId);
-        }
-    }
-
     public LiveStatInfo(Parcel parcel) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -140,11 +120,54 @@ public class LiveStatInfo implements Parcelable {
                 return;
             }
         }
-        this.isYY = parcel.readByte() == 3;
+        if (parcel.readByte() == 3) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.isYY = z;
         this.yyuid = parcel.readString();
         this.sid = parcel.readString();
         this.ssid = parcel.readString();
         this.tpl = parcel.readString();
         this.templateId = parcel.readInt();
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        if (jSONObject.optInt("live_type") == 3) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.isYY = z;
+        this.yyuid = jSONObject.optString(TiebaStatic.YYParams.YYUID, "");
+        this.sid = jSONObject.optString("sid", "");
+        this.ssid = jSONObject.optString(YyLiveRoomConfig.KEY_SSID, "");
+        this.tpl = jSONObject.optString("tpl", "");
+        this.templateId = jSONObject.optInt("template_id", 0);
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
+            if (this.isYY) {
+                i2 = 3;
+            } else {
+                i2 = 0;
+            }
+            parcel.writeByte((byte) i2);
+            parcel.writeString(this.yyuid);
+            parcel.writeString(this.sid);
+            parcel.writeString(this.ssid);
+            parcel.writeString(this.tpl);
+            parcel.writeInt(this.templateId);
+        }
     }
 }

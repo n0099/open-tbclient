@@ -45,7 +45,7 @@ public class b {
             }
         }
         this.d = false;
-        com.cmic.sso.sdk.a.a a2 = new a.C0507a().a();
+        com.cmic.sso.sdk.a.a a2 = new a.C0503a().a();
         this.b = a2;
         if (!z) {
             this.a = d();
@@ -54,11 +54,20 @@ public class b {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public com.cmic.sso.sdk.a.a d() {
-        InterceptResult invokeV;
+    public static b a(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) ? new a.C0507a().a(d.b(this.b.a())).c(d.a(this.b.c())).b(d.b(this.b.b())).d(d.c(this.b.d())).d(d.a(this.b.h())).e(d.b(this.b.i())).a(d.e(this.b.e())).b(d.d(this.b.f())).c(d.c(this.b.g())).f(d.f(this.b.j())).a(d.a(this.b.k())).b(d.b(this.b.l())).a() : (com.cmic.sso.sdk.a.a) invokeV.objValue;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65539, null, z)) == null) {
+            if (c == null) {
+                synchronized (b.class) {
+                    if (c == null) {
+                        c = new b(z);
+                    }
+                }
+            }
+            return c;
+        }
+        return (b) invokeZ.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -116,48 +125,32 @@ public class b {
         }
     }
 
-    public void c() {
+    private String a(String str, String str2) {
+        InterceptResult invokeLL;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            k.a b = k.b("sso_config_xf");
-            b.c();
-            b.b();
-        }
-    }
-
-    public void a(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.e = aVar;
-        }
-    }
-
-    public com.cmic.sso.sdk.a.a b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (com.cmic.sso.sdk.a.a) invokeV.objValue;
-    }
-
-    public static b a(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65539, null, z)) == null) {
-            if (c == null) {
-                synchronized (b.class) {
-                    if (c == null) {
-                        c = new b(z);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, str2)) == null) {
+            String[] split = str.split("&");
+            int length = split.length;
+            int i = 0;
+            while (true) {
+                if (i < length) {
+                    str3 = split[i];
+                    if (str3.contains(str2)) {
+                        break;
                     }
+                    i++;
+                } else {
+                    str3 = "";
+                    break;
                 }
             }
-            return c;
+            if (!TextUtils.isEmpty(str3)) {
+                return str3.substring(str3.lastIndexOf("=") + 1);
+            }
+            return str3;
         }
-        return (b) invokeZ.objValue;
-    }
-
-    public com.cmic.sso.sdk.a.a a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (com.cmic.sso.sdk.a.a) invokeV.objValue;
+        return (String) invokeLL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -227,30 +220,6 @@ public class b {
         }
     }
 
-    private String a(String str, String str2) {
-        InterceptResult invokeLL;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, str2)) == null) {
-            String[] split = str.split("&");
-            int length = split.length;
-            int i = 0;
-            while (true) {
-                if (i >= length) {
-                    str3 = "";
-                    break;
-                }
-                str3 = split[i];
-                if (str3.contains(str2)) {
-                    break;
-                }
-                i++;
-            }
-            return !TextUtils.isEmpty(str3) ? str3.substring(str3.lastIndexOf("=") + 1) : str3;
-        }
-        return (String) invokeLL.objValue;
-    }
-
     private void a(JSONObject jSONObject, String str, String str2, k.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65544, this, jSONObject, str, str2, aVar) == null) {
@@ -260,17 +229,61 @@ public class b {
                     if (!"0".equals(optString) && !"1".equals(optString)) {
                         return;
                     }
-                } else if (TextUtils.isEmpty(optString)) {
-                    return;
-                } else {
+                } else if (!TextUtils.isEmpty(optString)) {
                     if (!optString.contains(OneKeyLoginSdkCall.OPERATOR_TYPE_CUCC) && !optString.contains(OneKeyLoginSdkCall.OPERATOR_TYPE_CTCC) && !optString.contains(OneKeyLoginSdkCall.OPERATOR_TYPE_CMCC)) {
                         return;
                     }
+                } else {
+                    return;
                 }
                 aVar.a(str, jSONObject.optString(str, str2));
                 return;
             }
             aVar.a(str);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public com.cmic.sso.sdk.a.a d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
+            return new a.C0503a().a(d.b(this.b.a())).c(d.a(this.b.c())).b(d.b(this.b.b())).d(d.c(this.b.d())).d(d.a(this.b.h())).e(d.b(this.b.i())).a(d.e(this.b.e())).b(d.d(this.b.f())).c(d.c(this.b.g())).f(d.f(this.b.j())).a(d.a(this.b.k())).b(d.b(this.b.l())).a();
+        }
+        return (com.cmic.sso.sdk.a.a) invokeV.objValue;
+    }
+
+    public com.cmic.sso.sdk.a.a a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (com.cmic.sso.sdk.a.a) invokeV.objValue;
+    }
+
+    public com.cmic.sso.sdk.a.a b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (com.cmic.sso.sdk.a.a) invokeV.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            k.a b = k.b("sso_config_xf");
+            b.c();
+            b.b();
+        }
+    }
+
+    public void a(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.e = aVar;
         }
     }
 

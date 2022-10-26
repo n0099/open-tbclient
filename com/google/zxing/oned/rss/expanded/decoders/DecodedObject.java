@@ -32,6 +32,9 @@ public abstract class DecodedObject {
     public final int getNewPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.newPosition : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.newPosition;
+        }
+        return invokeV.intValue;
     }
 }

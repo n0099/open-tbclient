@@ -21,8 +21,8 @@ public final class UserInfo extends Message {
     public static final Integer DEFAULT_ISOFFICIAL;
     public static final Double DEFAULT_LAT;
     public static final Integer DEFAULT_LEVEL;
-    public static final List<LiveMarkInfo> DEFAULT_LIVE_MARK_INFO;
-    public static final List<LiveMarkInfo> DEFAULT_LIVE_MARK_INFO_NEW;
+    public static final List<Object> DEFAULT_LIVE_MARK_INFO;
+    public static final List<Object> DEFAULT_LIVE_MARK_INFO_NEW;
     public static final Double DEFAULT_LNG;
     public static final String DEFAULT_NICKNAME = "";
     public static final Long DEFAULT_NICKNAMEID;
@@ -54,9 +54,9 @@ public final class UserInfo extends Message {
     @ProtoField(tag = 10, type = Message.Datatype.INT32)
     public final Integer level;
     @ProtoField(label = Message.Label.REPEATED, tag = 19)
-    public final List<LiveMarkInfo> live_mark_info;
+    public final List<Object> live_mark_info;
     @ProtoField(label = Message.Label.REPEATED, tag = 20)
-    public final List<LiveMarkInfo> live_mark_info_new;
+    public final List<Object> live_mark_info_new;
     @ProtoField(tag = 8, type = Message.Datatype.DOUBLE)
     public final Double lng;
     @ProtoField(tag = 4, type = Message.Datatype.STRING)
@@ -85,19 +85,25 @@ public final class UserInfo extends Message {
     public final String userName;
 
     /* loaded from: classes.dex */
-    public static final class Builder extends Message.Builder<UserInfo> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Integer audienceLevel;
         public String description;
-        public List<Integer> family_effect;
+        public List family_effect;
         public ImEffect im_effect;
         public Integer isLiveAdmin;
         public Integer isOfficial;
         public Double lat;
         public Integer level;
-        public List<LiveMarkInfo> live_mark_info;
-        public List<LiveMarkInfo> live_mark_info_new;
+        public List live_mark_info;
+        public List live_mark_info_new;
         public Double lng;
         public String nickName;
         public Long nickNameId;
@@ -173,19 +179,15 @@ public final class UserInfo extends Message {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire.Message.Builder
         public UserInfo build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) ? new UserInfo(this, z, null) : (UserInfo) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+                return new UserInfo(this, z, null);
+            }
+            return (UserInfo) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -216,10 +218,6 @@ public final class UserInfo extends Message {
         DEFAULT_LIVE_MARK_INFO_NEW = Collections.emptyList();
         DEFAULT_FAMILY_EFFECT = Collections.emptyList();
         DEFAULT_NOBILITY_IM_EFFECT = 0;
-    }
-
-    public /* synthetic */ UserInfo(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -349,19 +347,19 @@ public final class UserInfo extends Message {
             } else {
                 this.tag_type = num6;
             }
-            List<LiveMarkInfo> list = builder.live_mark_info;
+            List list = builder.live_mark_info;
             if (list == null) {
                 this.live_mark_info = DEFAULT_LIVE_MARK_INFO;
             } else {
                 this.live_mark_info = Message.immutableCopyOf(list);
             }
-            List<LiveMarkInfo> list2 = builder.live_mark_info_new;
+            List list2 = builder.live_mark_info_new;
             if (list2 == null) {
                 this.live_mark_info_new = DEFAULT_LIVE_MARK_INFO_NEW;
             } else {
                 this.live_mark_info_new = Message.immutableCopyOf(list2);
             }
-            List<Integer> list3 = builder.family_effect;
+            List list3 = builder.family_effect;
             if (list3 == null) {
                 this.family_effect = DEFAULT_FAMILY_EFFECT;
             } else {
@@ -399,5 +397,9 @@ public final class UserInfo extends Message {
         this.family_effect = Message.immutableCopyOf(builder.family_effect);
         this.nobility_im_effect = builder.nobility_im_effect;
         this.im_effect = builder.im_effect;
+    }
+
+    public /* synthetic */ UserInfo(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

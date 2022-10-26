@@ -1,33 +1,47 @@
 package com.baidu.tieba;
 
-import android.os.Build;
+import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
-import android.webkit.JsPromptResult;
-import android.webkit.JsResult;
-import android.webkit.WebChromeClient;
-import android.webkit.WebStorage;
-import android.webkit.WebView;
-import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.browser.BaseWebViewActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes3.dex */
-public class cp4 extends WebChromeClient {
+public class cp4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public r9 a;
-    public yn8 b;
+    public final int a;
+    public final NavigationBar b;
+    public final View c;
+    public final Set d;
+    public float e;
+    public boolean f;
+    public boolean g;
+    public int h;
 
-    public cp4(r9 r9Var) {
+    public cp4(NavigationBar navigationBar, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {r9Var};
+            Object[] objArr = {navigationBar, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,109 +51,198 @@ public class cp4 extends WebChromeClient {
                 return;
             }
         }
-        this.a = r9Var;
+        this.a = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds300);
+        this.d = new HashSet();
+        this.e = 1.0f;
+        this.f = false;
+        this.g = false;
+        this.h = Integer.MAX_VALUE;
+        this.b = navigationBar;
+        this.c = view2;
     }
 
-    public final void a(WebView webView, String str, String str2) {
+    public final String i(String str, String str2) {
+        InterceptResult invokeLL;
+        String[] split;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048576, this, webView, str, str2) == null) || webView == null || dj.isEmpty(str) || dj.isEmpty(str2)) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
+            if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
+                try {
+                    String query = new URL(str).getQuery();
+                    if (StringUtils.isNull(query) || (split = query.split("&")) == null) {
+                        return null;
+                    }
+                    for (String str3 : split) {
+                        String[] split2 = str3.split("=");
+                        if (split2 != null && split2.length == 2) {
+                            String str4 = split2[0];
+                            String str5 = split2[1];
+                            if (str2.equalsIgnoreCase(str4)) {
+                                return str5;
+                            }
+                        }
+                    }
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public void a(bp4... bp4VarArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, bp4VarArr) == null) && bp4VarArr != null && bp4VarArr.length > 0) {
+            this.d.addAll(Arrays.asList(bp4VarArr));
+        }
+    }
+
+    public final void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            if (!z && this.g && this.e < 0.5f) {
+                return;
+            }
+            if (this.e < 0.5f) {
+                this.g = true;
+            } else {
+                this.g = false;
+            }
+            for (bp4 bp4Var : this.d) {
+                if (bp4Var.b() != null) {
+                    if (bp4Var.b() instanceof TextView) {
+                        if (this.g && !vl8.e(this.h)) {
+                            ((TextView) bp4Var.b()).setTextColor(this.h);
+                        } else {
+                            SkinManager.setViewTextColor(bp4Var.b(), d());
+                        }
+                    } else if (bp4Var.b() instanceof ImageView) {
+                        if (this.g) {
+                            if (!vl8.e(this.h)) {
+                                ((ImageView) bp4Var.b()).setImageDrawable(SvgManager.getInstance().getPureDrawableWithColorInt(bp4Var.a(), this.h, SvgManager.SvgResourceStateType.NORMAL_PRESS));
+                            } else {
+                                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) bp4Var.b(), bp4Var.a(), R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                            }
+                        } else {
+                            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) bp4Var.b(), bp4Var.a(), R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !this.f) {
             return;
         }
-        if (Build.VERSION.SDK_INT >= 19) {
-            webView.evaluateJavascript("javascript:" + str + "('" + str2 + "')", null);
-            return;
+        float abs = Math.abs(this.e - 0.5f) * 2.0f;
+        for (bp4 bp4Var : this.d) {
+            if (bp4Var.b() != null) {
+                bp4Var.b().setAlpha(abs);
+            }
         }
-        webView.loadUrl("javascript:" + str + "('" + str2 + "')");
     }
 
-    public void b(yn8 yn8Var) {
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yn8Var) == null) {
-            this.b = yn8Var;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.f = false;
+            this.e = 1.0f;
+            NavigationBar navigationBar = this.b;
+            if (navigationBar != null && navigationBar.getBackground() != null && this.b.getBackground().mutate() != null) {
+                this.b.getBackground().mutate().setAlpha(1);
+            }
+            b(true);
+            c();
+            this.d.clear();
         }
     }
 
-    @Override // android.webkit.WebChromeClient
-    public View getVideoLoadingProgressView() {
+    public final int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.a.getPageActivity());
-            frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            return frameLayout;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (!this.f || !this.g) {
+                return R.color.CAM_X0106;
+            }
+            return R.color.CAM_X0101;
         }
-        return (View) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // android.webkit.WebChromeClient
-    public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
-            super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
-            quotaUpdater.updateQuota(j2 * 2);
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || !this.f) {
+            return;
+        }
+        b(true);
+        c();
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        if (str.contains(BaseWebViewActivity.QUERY_OPACITY) && !this.f) {
+            this.f = true;
+            this.e = 0.0f;
+            this.h = vl8.f(i(str, "opacitybtnhex"));
+            NavigationBar navigationBar = this.b;
+            if (navigationBar != null && navigationBar.getBackground() != null && this.b.getBackground().mutate() != null) {
+                this.b.getBackground().mutate().setAlpha(0);
+            }
+            View view2 = this.c;
+            if (view2 != null) {
+                view2.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
+            }
+            b(true);
+        } else if (!str.contains(BaseWebViewActivity.QUERY_OPACITY) && this.f) {
+            this.f = false;
+            this.e = 1.0f;
+            NavigationBar navigationBar2 = this.b;
+            if (navigationBar2 != null && navigationBar2.getBackground() != null && this.b.getBackground().mutate() != null) {
+                this.b.getBackground().mutate().setAlpha(1);
+            }
+            View view3 = this.c;
+            if (view3 != null) {
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view3.getLayoutParams();
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f0925ad);
+                this.c.setLayoutParams(layoutParams);
+            }
+            b(true);
         }
     }
 
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
-        InterceptResult invokeLLLL;
+    public void f(int i) {
+        NavigationBar navigationBar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, jsResult)) == null) {
-            r9 r9Var = this.a;
-            if (r9Var == null || !ih.f(r9Var)) {
-                return true;
-            }
-            return super.onJsAlert(webView, str, str2, jsResult);
+        if ((interceptable != null && interceptable.invokeI(1048581, this, i) != null) || !this.f || (navigationBar = this.b) == null) {
+            return;
         }
-        return invokeLLLL.booleanValue;
+        if (navigationBar.getBackground() != null && this.b.getBackground().mutate() != null) {
+            this.b.getBackground().mutate().setAlpha((int) (this.e * 255.0f));
+        }
+        b(true);
+        c();
     }
 
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
-        InterceptResult invokeLLLL;
+    public void h(int i, int i2, int i3, int i4) {
+        NavigationBar navigationBar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, webView, str, str2, jsResult)) == null) {
-            r9 r9Var = this.a;
-            if (r9Var == null || !ih.f(r9Var)) {
-                return true;
+        if ((interceptable == null || interceptable.invokeIIII(1048583, this, i, i2, i3, i4) == null) && this.f && (navigationBar = this.b) != null && navigationBar.getBackground() != null && this.b.getBackground().mutate() != null) {
+            int i5 = this.a;
+            if (i2 < i5) {
+                this.e = (i2 * 1.0f) / i5;
+            } else {
+                this.e = 1.0f;
             }
-            return super.onJsBeforeUnload(webView, str, str2, jsResult);
+            this.b.getBackground().mutate().setAlpha((int) (this.e * 255.0f));
+            b(false);
+            c();
         }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, webView, str, str2, jsResult)) == null) {
-            r9 r9Var = this.a;
-            if (r9Var == null || !ih.f(r9Var)) {
-                return true;
-            }
-            return super.onJsConfirm(webView, str, str2, jsResult);
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
-        yn8 yn8Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048583, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (!m15.a(str) && str2.startsWith("tiebaapp")) {
-                bo8 bo8Var = new bo8();
-                bo8Var.v(fo8.b(str2));
-                bo8Var.x(301);
-                a(webView, bo8Var.c(), bo8Var.d());
-            }
-            if (m15.a(str) && (yn8Var = this.b) != null && yn8Var.onJsPrompt(str2, jsPromptResult)) {
-                return true;
-            }
-            jsPromptResult.cancel();
-            return true;
-        }
-        return invokeLLLLL.booleanValue;
     }
 }

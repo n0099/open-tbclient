@@ -43,31 +43,72 @@ public class CheckPostHttpResponseMessage extends TbHttpResponsedMessage {
     public long getForumId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.forumId : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.forumId;
+        }
+        return invokeV.longValue;
     }
 
     public String getForumName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.forumName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.forumName;
+        }
+        return (String) invokeV.objValue;
     }
 
     public long getPostState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.postState : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.postState;
+        }
+        return invokeV.longValue;
     }
 
     public long getQuoteId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.quoteId : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.quoteId;
+        }
+        return invokeV.longValue;
     }
 
     public long getRepostId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.repostId : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.repostId;
+        }
+        return invokeV.longValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
+            CheckPostResIdl checkPostResIdl = (CheckPostResIdl) new Wire(new Class[0]).parseFrom(bArr, CheckPostResIdl.class);
+            setError(checkPostResIdl.error.errorno.intValue());
+            setErrorString(checkPostResIdl.error.usermsg);
+            if (getError() != 0) {
+                return;
+            }
+            this.postState = checkPostResIdl.data.postState.longValue();
+            this.forumId = checkPostResIdl.data.forumId.longValue();
+            ResData resData = checkPostResIdl.data;
+            this.forumName = resData.fname;
+            Long l = resData.quoteId;
+            if (l != null) {
+                this.quoteId = l.longValue();
+            }
+            Long l2 = checkPostResIdl.data.repostId;
+            if (l2 != null) {
+                this.repostId = l2.longValue();
+            }
+        }
     }
 
     public void setForumId(long j) {
@@ -95,32 +136,6 @@ public class CheckPostHttpResponseMessage extends TbHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
             this.repostId = j;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
-            CheckPostResIdl checkPostResIdl = (CheckPostResIdl) new Wire(new Class[0]).parseFrom(bArr, CheckPostResIdl.class);
-            setError(checkPostResIdl.error.errorno.intValue());
-            setErrorString(checkPostResIdl.error.usermsg);
-            if (getError() != 0) {
-                return;
-            }
-            this.postState = checkPostResIdl.data.postState.longValue();
-            this.forumId = checkPostResIdl.data.forumId.longValue();
-            ResData resData = checkPostResIdl.data;
-            this.forumName = resData.fname;
-            Long l = resData.quoteId;
-            if (l != null) {
-                this.quoteId = l.longValue();
-            }
-            Long l2 = checkPostResIdl.data.repostId;
-            if (l2 != null) {
-                this.repostId = l2.longValue();
-            }
         }
     }
 }

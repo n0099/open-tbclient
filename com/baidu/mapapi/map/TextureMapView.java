@@ -1,6 +1,5 @@
 package com.baidu.mapapi.map;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -41,7 +40,7 @@ public final class TextureMapView extends ViewGroup {
     public static String i;
     public static int j;
     public static int k;
-    public static final SparseArray<Integer> q;
+    public static final SparseArray q;
     public transient /* synthetic */ FieldHolder $fh;
     public int A;
     public int B;
@@ -83,7 +82,7 @@ public final class TextureMapView extends ViewGroup {
         a = TextureMapView.class.getSimpleName();
         j = 0;
         k = 0;
-        SparseArray<Integer> sparseArray = new SparseArray<>();
+        SparseArray sparseArray = new SparseArray();
         q = sparseArray;
         sparseArray.append(3, 2000000);
         q.append(4, 1000000);
@@ -435,7 +434,7 @@ public final class TextureMapView extends ViewGroup {
     public final int getMapLevel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? q.get((int) this.b.b().E().a).intValue() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ((Integer) q.get((int) this.b.b().E().a)).intValue() : invokeV.intValue;
     }
 
     public int getScaleControlViewHeight() {
@@ -488,7 +487,6 @@ public final class TextureMapView extends ViewGroup {
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    @SuppressLint({"NewApi"})
     public final void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         float f;
         int measuredHeight;

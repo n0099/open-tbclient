@@ -35,7 +35,7 @@ public class ElasticTask implements Runnable {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class Status {
+    public final class Status {
         public static final /* synthetic */ Status[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Status COMPLETE;
@@ -85,13 +85,19 @@ public class ElasticTask implements Runnable {
         public static Status valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Status) Enum.valueOf(Status.class, str) : (Status) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Status) Enum.valueOf(Status.class, str);
+            }
+            return (Status) invokeL.objValue;
         }
 
         public static Status[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Status[]) $VALUES.clone() : (Status[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Status[]) $VALUES.clone();
+            }
+            return (Status[]) invokeV.objValue;
         }
     }
 
@@ -120,55 +126,19 @@ public class ElasticTask implements Runnable {
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.name : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.name;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.priority : invokeV.intValue;
-    }
-
-    public synchronized long getRawWorkTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                if (this.status == Status.WAITING) {
-                    return 0L;
-                }
-                return Math.max(0L, (this.status == Status.RUNNING ? SystemClock.elapsedRealtime() : this.timeOnComplete) - this.timeOnExecute);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.priority;
         }
-        return invokeV.longValue;
-    }
-
-    public synchronized long getWaitingTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this) {
-                if (this.timeOnQueue == 0) {
-                    return 0L;
-                }
-                return Math.max(0L, (this.status == Status.WAITING ? SystemClock.elapsedRealtime() : this.timeOnExecute) - this.timeOnQueue);
-            }
-        }
-        return invokeV.longValue;
-    }
-
-    public synchronized long getWorkTimeInRecordLifeCycle(long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            synchronized (this) {
-                if (this.status == Status.WAITING) {
-                    return 0L;
-                }
-                return Math.max(0L, Math.min(this.status == Status.RUNNING ? SystemClock.elapsedRealtime() : this.timeOnComplete, j2) - Math.max(this.timeOnExecute, j));
-            }
-        }
-        return invokeCommon.longValue;
+        return invokeV.intValue;
     }
 
     public synchronized void recordCompleteTime() {
@@ -219,6 +189,67 @@ public class ElasticTask implements Runnable {
             } catch (Exception unused2) {
             }
         }
+    }
+
+    public synchronized long getRawWorkTime() {
+        InterceptResult invokeV;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                if (this.status == Status.WAITING) {
+                    return 0L;
+                }
+                if (this.status == Status.RUNNING) {
+                    j = SystemClock.elapsedRealtime();
+                } else {
+                    j = this.timeOnComplete;
+                }
+                return Math.max(0L, j - this.timeOnExecute);
+            }
+        }
+        return invokeV.longValue;
+    }
+
+    public synchronized long getWaitingTime() {
+        InterceptResult invokeV;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this) {
+                if (this.timeOnQueue == 0) {
+                    return 0L;
+                }
+                if (this.status == Status.WAITING) {
+                    j = SystemClock.elapsedRealtime();
+                } else {
+                    j = this.timeOnExecute;
+                }
+                return Math.max(0L, j - this.timeOnQueue);
+            }
+        }
+        return invokeV.longValue;
+    }
+
+    public synchronized long getWorkTimeInRecordLifeCycle(long j, long j2) {
+        InterceptResult invokeCommon;
+        long j3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            synchronized (this) {
+                if (this.status == Status.WAITING) {
+                    return 0L;
+                }
+                long max = Math.max(this.timeOnExecute, j);
+                if (this.status == Status.RUNNING) {
+                    j3 = SystemClock.elapsedRealtime();
+                } else {
+                    j3 = this.timeOnComplete;
+                }
+                return Math.max(0L, Math.min(j3, j2) - max);
+            }
+        }
+        return invokeCommon.longValue;
     }
 
     public void setElasticTaskCallback(ElasticTaskCallback elasticTaskCallback) {

@@ -45,13 +45,26 @@ public final class BarcodeMatrix {
     public BarcodeRow getCurrentRow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.matrix[this.currentRow] : (BarcodeRow) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.matrix[this.currentRow];
+        }
+        return (BarcodeRow) invokeV.objValue;
     }
 
     public byte[][] getMatrix() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getScaledMatrix(1, 1) : (byte[][]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return getScaledMatrix(1, 1);
+        }
+        return (byte[][]) invokeV.objValue;
+    }
+
+    public void startRow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.currentRow++;
+        }
     }
 
     public byte[][] getScaledMatrix(int i, int i2) {
@@ -72,13 +85,6 @@ public final class BarcodeMatrix {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Byte.valueOf(b)}) == null) {
             this.matrix[i2].set(i, b);
-        }
-    }
-
-    public void startRow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.currentRow++;
         }
     }
 }

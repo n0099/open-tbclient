@@ -20,7 +20,7 @@ public class MyLocationConfiguration {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class LocationMode {
+    public final class LocationMode {
         public static /* synthetic */ Interceptable $ic;
         public static final LocationMode COMPASS;
         public static final LocationMode FOLLOWING;

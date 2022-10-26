@@ -27,7 +27,120 @@ public class SapiJsCallBacks {
     }
 
     /* loaded from: classes2.dex */
-    public static class BdOauthLoginParams {
+    public interface BiometricsIdentificationLiveCallBack {
+        void getLiveImage(int i, PassFaceRecogCallback passFaceRecogCallback);
+    }
+
+    /* loaded from: classes2.dex */
+    public interface CertGuardianRusultCallback {
+        void onFinish(CertGuardianResult certGuardianResult);
+    }
+
+    /* loaded from: classes2.dex */
+    public interface CurrentAccountBdussExpiredCallback {
+        void onBdussExpired();
+    }
+
+    /* loaded from: classes2.dex */
+    public interface GetCurrentPageNameCallback {
+        void getCurrentPageName(String str);
+    }
+
+    /* loaded from: classes2.dex */
+    public interface GrantWebCallback {
+        public static final int backWap = 0;
+        public static final int remainNa = 1;
+
+        void onGrant(int i);
+    }
+
+    /* loaded from: classes2.dex */
+    public interface IdcardOcrImageCallBack {
+        void getIdcardImage(String str, String str2, IdcardOcrImageCallback idcardOcrImageCallback);
+    }
+
+    /* loaded from: classes2.dex */
+    public interface InvoiceBuildCallback {
+        void onCallback(String str);
+    }
+
+    /* loaded from: classes2.dex */
+    public interface IsForbidRecordCallBack {
+        void onForbidRecord(Boolean bool);
+    }
+
+    /* loaded from: classes2.dex */
+    public interface JumpToUriCallBack {
+        void onJumpTo(String str);
+    }
+
+    /* loaded from: classes2.dex */
+    public interface LoginStatusChangeCallback {
+        void onChange();
+    }
+
+    /* loaded from: classes2.dex */
+    public interface MakeVibrateCallBack {
+        void presetVibrate(String str);
+
+        void vibrate(long[] jArr, int i, String str);
+    }
+
+    /* loaded from: classes2.dex */
+    public interface NormalizeGuestAccountCallback {
+        public static final int MERGE_ACCOUNT = 1;
+
+        void onFailure(int i, String str);
+
+        void onSuccess(boolean z, String str);
+    }
+
+    /* loaded from: classes2.dex */
+    public interface PageStateCallback {
+        public static final int STATE_FIRST = 1;
+        public static final int STATE_OTHER = 2;
+
+        void pageState(int i);
+    }
+
+    /* loaded from: classes2.dex */
+    public interface RealNameStatusCallback {
+        public static final int STATE_JUNIOR_REALNAME = 1;
+        public static final int STATE_SENIOR_REALNAME = 2;
+
+        void onFinish(AccountRealNameResult accountRealNameResult);
+    }
+
+    /* loaded from: classes2.dex */
+    public interface SpeechRecognitionCallback {
+        void onSpeechRecognition(SpeechRecognitionResult speechRecognitionResult);
+    }
+
+    /* loaded from: classes2.dex */
+    public interface StopSlideWebviewCallback {
+        void onStopSlide(boolean z);
+    }
+
+    /* loaded from: classes2.dex */
+    public interface SwitchStyleForCloseBtnAndStatusBarCallBack {
+        public static final String mBlack = "0";
+        public static final String mWhite = "1";
+
+        void switchStyle(String str);
+    }
+
+    /* loaded from: classes2.dex */
+    public interface SyncAccountCallBack {
+        void onSyncAccount(SapiAccount sapiAccount);
+    }
+
+    /* loaded from: classes2.dex */
+    public interface WebviewPageFinishCallback {
+        void onFinish(String str);
+    }
+
+    /* loaded from: classes2.dex */
+    public class BdOauthLoginParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public BdOauthCallback callback;
@@ -51,12 +164,7 @@ public class SapiJsCallBacks {
     }
 
     /* loaded from: classes2.dex */
-    public interface BiometricsIdentificationLiveCallBack {
-        void getLiveImage(int i, PassFaceRecogCallback passFaceRecogCallback);
-    }
-
-    /* loaded from: classes2.dex */
-    public static class CallBacks {
+    public class CallBacks {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public SapiWebView.AccountDestoryCallback accountDestoryCallback;
@@ -139,22 +247,15 @@ public class SapiJsCallBacks {
         public JsPromptResult getPromptResult() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.promptResult : (JsPromptResult) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.promptResult;
+            }
+            return (JsPromptResult) invokeV.objValue;
         }
     }
 
     /* loaded from: classes2.dex */
-    public interface CertGuardianRusultCallback {
-        void onFinish(CertGuardianResult certGuardianResult);
-    }
-
-    /* loaded from: classes2.dex */
-    public interface CurrentAccountBdussExpiredCallback {
-        void onBdussExpired();
-    }
-
-    /* loaded from: classes2.dex */
-    public static class DirectedLoginParams {
+    public class DirectedLoginParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String displayname;
@@ -177,9 +278,11 @@ public class SapiJsCallBacks {
     }
 
     /* loaded from: classes2.dex */
-    public static abstract class FingerprintCallback {
+    public abstract class FingerprintCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public abstract void onCallback(FingerprintResult fingerprintResult);
 
         public FingerprintCallback() {
             Interceptable interceptable = $ic;
@@ -194,16 +297,16 @@ public class SapiJsCallBacks {
                 }
             }
         }
-
-        public abstract void onCallback(FingerprintResult fingerprintResult);
     }
 
     /* loaded from: classes2.dex */
-    public static abstract class FingerprintResult {
+    public abstract class FingerprintResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int authType;
         public String portrait;
+
+        public abstract void setResult(int i);
 
         public FingerprintResult() {
             Interceptable interceptable = $ic;
@@ -218,14 +321,14 @@ public class SapiJsCallBacks {
                 }
             }
         }
-
-        public abstract void setResult(int i);
     }
 
     /* loaded from: classes2.dex */
-    public static abstract class FocusEdittextCoordinateYCallBack {
+    public abstract class FocusEdittextCoordinateYCallBack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public abstract void onCallback(int i);
 
         public FocusEdittextCoordinateYCallBack() {
             Interceptable interceptable = $ic;
@@ -240,43 +343,13 @@ public class SapiJsCallBacks {
                 }
             }
         }
-
-        public abstract void onCallback(int i);
     }
 
     /* loaded from: classes2.dex */
-    public interface GetCurrentPageNameCallback {
-        void getCurrentPageName(String str);
-    }
-
-    /* loaded from: classes2.dex */
-    public interface GrantWebCallback {
-        public static final int backWap = 0;
-        public static final int remainNa = 1;
-
-        void onGrant(int i);
-    }
-
-    /* loaded from: classes2.dex */
-    public interface IdcardOcrImageCallBack {
-        void getIdcardImage(String str, String str2, IdcardOcrImageCallback idcardOcrImageCallback);
-    }
-
-    /* loaded from: classes2.dex */
-    public interface InvoiceBuildCallback {
-        void onCallback(String str);
-    }
-
-    /* loaded from: classes2.dex */
-    public interface IsForbidRecordCallBack {
-        void onForbidRecord(Boolean bool);
-    }
-
-    /* loaded from: classes2.dex */
-    public static class JoinLoginParams {
+    public class JoinLoginParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public LinkedHashMap<String, String> agreement;
+        public LinkedHashMap agreement;
         public boolean hasThirdAccount;
 
         public JoinLoginParams() {
@@ -295,52 +368,14 @@ public class SapiJsCallBacks {
     }
 
     /* loaded from: classes2.dex */
-    public interface JumpToUriCallBack {
-        void onJumpTo(String str);
-    }
-
-    /* loaded from: classes2.dex */
-    public interface LoginStatusChangeCallback {
-        void onChange();
-    }
-
-    /* loaded from: classes2.dex */
-    public interface MakeVibrateCallBack {
-        void presetVibrate(String str);
-
-        void vibrate(long[] jArr, int i, String str);
-    }
-
-    /* loaded from: classes2.dex */
-    public interface NormalizeGuestAccountCallback {
-        public static final int MERGE_ACCOUNT = 1;
-
-        void onFailure(int i, String str);
-
-        void onSuccess(boolean z, String str);
-    }
-
-    /* loaded from: classes2.dex */
-    public interface PageStateCallback {
-        public static final int STATE_FIRST = 1;
-        public static final int STATE_OTHER = 2;
-
-        void pageState(int i);
-    }
-
-    /* loaded from: classes2.dex */
-    public interface RealNameStatusCallback {
-        public static final int STATE_JUNIOR_REALNAME = 1;
-        public static final int STATE_SENIOR_REALNAME = 2;
-
-        void onFinish(AccountRealNameResult accountRealNameResult);
-    }
-
-    /* loaded from: classes2.dex */
-    public static abstract class ShareV2LoginParams {
+    public abstract class ShareV2LoginParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public JSONObject pageParams;
+
+        public abstract void onError();
+
+        public abstract void onSuccess();
 
         public ShareV2LoginParams() {
             Interceptable interceptable = $ic;
@@ -355,21 +390,18 @@ public class SapiJsCallBacks {
                 }
             }
         }
-
-        public abstract void onError();
-
-        public abstract void onSuccess();
     }
 
     /* loaded from: classes2.dex */
-    public interface SpeechRecognitionCallback {
-        void onSpeechRecognition(SpeechRecognitionResult speechRecognitionResult);
-    }
-
-    /* loaded from: classes2.dex */
-    public static abstract class SpeechRecognitionResult {
+    public abstract class SpeechRecognitionResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public void setSpeechData(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+            }
+        }
 
         public SpeechRecognitionResult() {
             Interceptable interceptable = $ic;
@@ -384,35 +416,6 @@ public class SapiJsCallBacks {
                 }
             }
         }
-
-        public void setSpeechData(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public interface StopSlideWebviewCallback {
-        void onStopSlide(boolean z);
-    }
-
-    /* loaded from: classes2.dex */
-    public interface SwitchStyleForCloseBtnAndStatusBarCallBack {
-        public static final String mBlack = "0";
-        public static final String mWhite = "1";
-
-        void switchStyle(String str);
-    }
-
-    /* loaded from: classes2.dex */
-    public interface SyncAccountCallBack {
-        void onSyncAccount(SapiAccount sapiAccount);
-    }
-
-    /* loaded from: classes2.dex */
-    public interface WebviewPageFinishCallback {
-        void onFinish(String str);
     }
 
     public SapiJsCallBacks() {

@@ -13,6 +13,7 @@ import com.xiaomi.push.hj;
 import com.xiaomi.push.ht;
 import com.xiaomi.push.hw;
 import com.xiaomi.push.ii;
+import com.xiaomi.push.iu;
 import com.xiaomi.push.service.bd;
 import java.util.HashMap;
 /* loaded from: classes8.dex */
@@ -35,36 +36,36 @@ public class c implements eh {
     }
 
     @Override // com.xiaomi.push.eh
-    public void a(Context context, HashMap<String, String> hashMap) {
+    public void a(Context context, HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, hashMap) == null) {
             ii iiVar = new ii();
-            iiVar.b(ed.a(context).m308a());
+            iiVar.b(ed.a(context).m307a());
             iiVar.d(ed.a(context).b());
             iiVar.c(ht.I.f506a);
             iiVar.a(bd.a());
             iiVar.f645a = hashMap;
-            ao.a(context).a((ao) iiVar, hj.i, true, (hw) null, true);
-            com.xiaomi.channel.commonutils.logger.b.m90a("MoleInfo：\u3000send data in app layer");
+            ao.a(context).a((iu) iiVar, hj.i, true, (hw) null, true);
+            com.xiaomi.channel.commonutils.logger.b.m89a("MoleInfo：\u3000send data in app layer");
         }
     }
 
     @Override // com.xiaomi.push.eh
-    public void b(Context context, HashMap<String, String> hashMap) {
+    public void b(Context context, HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, hashMap) == null) {
             MiTinyDataClient.upload("category_awake_app", "wake_up_app", 1L, dy.a(hashMap));
-            com.xiaomi.channel.commonutils.logger.b.m90a("MoleInfo：\u3000send data in app layer");
+            com.xiaomi.channel.commonutils.logger.b.m89a("MoleInfo：\u3000send data in app layer");
         }
     }
 
     @Override // com.xiaomi.push.eh
-    public void c(Context context, HashMap<String, String> hashMap) {
+    public void c(Context context, HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, context, hashMap) == null) {
-            com.xiaomi.channel.commonutils.logger.b.m90a("MoleInfo：\u3000" + dy.b(hashMap));
-            String str = hashMap.get("awake_info");
-            if (String.valueOf(1007).equals(hashMap.get(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY))) {
+            com.xiaomi.channel.commonutils.logger.b.m89a("MoleInfo：\u3000" + dy.b(hashMap));
+            String str = (String) hashMap.get("awake_info");
+            if (String.valueOf(1007).equals((String) hashMap.get(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY))) {
                 o.a(context, str);
             }
         }

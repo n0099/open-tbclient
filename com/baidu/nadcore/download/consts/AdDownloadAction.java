@@ -80,12 +80,18 @@ public final class AdDownloadAction {
     public static AdDownloadAction valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (AdDownloadAction) Enum.valueOf(AdDownloadAction.class, str) : (AdDownloadAction) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (AdDownloadAction) Enum.valueOf(AdDownloadAction.class, str);
+        }
+        return (AdDownloadAction) invokeL.objValue;
     }
 
     public static AdDownloadAction[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (AdDownloadAction[]) $VALUES.clone() : (AdDownloadAction[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (AdDownloadAction[]) $VALUES.clone();
+        }
+        return (AdDownloadAction[]) invokeV.objValue;
     }
 }

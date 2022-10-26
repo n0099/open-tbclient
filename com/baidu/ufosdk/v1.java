@@ -21,7 +21,7 @@ public class v1 {
     public ThreadPoolExecutor b;
 
     /* loaded from: classes6.dex */
-    public static class a implements ThreadFactory {
+    public class a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
@@ -61,7 +61,7 @@ public class v1 {
     }
 
     /* loaded from: classes6.dex */
-    public static class b {
+    public class b {
         public static /* synthetic */ Interceptable $ic;
         public static final v1 a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -104,7 +104,10 @@ public class v1 {
     public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Math.max(2, Runtime.getRuntime().availableProcessors() / 2) : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return Math.max(2, Runtime.getRuntime().availableProcessors() / 2);
+        }
+        return invokeV.intValue;
     }
 
     public void a(Runnable runnable) {

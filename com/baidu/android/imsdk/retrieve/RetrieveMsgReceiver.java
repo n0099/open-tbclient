@@ -57,30 +57,29 @@ public class RetrieveMsgReceiver implements IMessageReceiveListener {
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.IMessageReceiveListener
-    public void onReceiveMessage(int i, int i2, ArrayList<ChatMsg> arrayList) {
+    public void onReceiveMessage(int i, int i2, ArrayList arrayList) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, arrayList) == null) || i != 0 || arrayList == null || arrayList.size() <= 0) {
-            return;
-        }
-        synchronized (this) {
-            Iterator<ChatMsg> it = arrayList.iterator();
-            while (it.hasNext()) {
-                ChatMsg next = it.next();
-                LogUtils.d(TAG, "retrieve-->msg type is:" + next.getMsgType());
-                if (next.getMsgType() == 20 && (next instanceof ConfigMsg)) {
-                    String dataList = ((ConfigMsg) next).getDataList();
-                    LogUtils.d(TAG, "retrieve-->retrieve config msg:" + dataList);
-                    if (!TextUtils.isEmpty(dataList)) {
-                        try {
-                            JSONArray jSONArray = new JSONArray(dataList);
-                            if (jSONArray.length() > 0) {
-                                int length = jSONArray.length();
-                                for (int i3 = 0; i3 < length; i3++) {
-                                    RetrieveTaskManager.getInstance(this.mContext).dispatch(jSONArray.optJSONObject(i3));
+        if ((interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, arrayList) == null) && i == 0 && arrayList != null && arrayList.size() > 0) {
+            synchronized (this) {
+                Iterator it = arrayList.iterator();
+                while (it.hasNext()) {
+                    ChatMsg chatMsg = (ChatMsg) it.next();
+                    LogUtils.d(TAG, "retrieve-->msg type is:" + chatMsg.getMsgType());
+                    if (chatMsg.getMsgType() == 20 && (chatMsg instanceof ConfigMsg)) {
+                        String dataList = ((ConfigMsg) chatMsg).getDataList();
+                        LogUtils.d(TAG, "retrieve-->retrieve config msg:" + dataList);
+                        if (!TextUtils.isEmpty(dataList)) {
+                            try {
+                                JSONArray jSONArray = new JSONArray(dataList);
+                                if (jSONArray.length() > 0) {
+                                    int length = jSONArray.length();
+                                    for (int i3 = 0; i3 < length; i3++) {
+                                        RetrieveTaskManager.getInstance(this.mContext).dispatch(jSONArray.optJSONObject(i3));
+                                    }
                                 }
+                            } catch (Exception e) {
+                                e.printStackTrace();
                             }
-                        } catch (Exception e) {
-                            e.printStackTrace();
                         }
                     }
                 }

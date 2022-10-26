@@ -54,10 +54,10 @@ public class TransitionBuilder {
             MotionScene motionScene = motionLayout.mScene;
             if (motionScene != null) {
                 if (motionScene.validateLayout(motionLayout)) {
-                    if (motionScene.mCurrentTransition == null || motionScene.getDefinedTransitions().isEmpty()) {
-                        throw new RuntimeException("Invalid motion layout. Motion Scene doesn't have any transition.");
+                    if (motionScene.mCurrentTransition != null && !motionScene.getDefinedTransitions().isEmpty()) {
+                        return;
                     }
-                    return;
+                    throw new RuntimeException("Invalid motion layout. Motion Scene doesn't have any transition.");
                 }
                 throw new RuntimeException("MotionLayout doesn't have the right motion scene.");
             }

@@ -45,25 +45,14 @@ import com.baidu.sapi2.dto.SetPopularPortraitDTO;
 import com.baidu.sapi2.dto.SetPortraitDTO;
 import com.baidu.sapi2.enums.PortraitCategory;
 import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
-import com.baidu.sapi2.result.CheckUserFaceIdResult;
-import com.baidu.sapi2.result.DynamicPwdLoginResult;
-import com.baidu.sapi2.result.FaceLoginStatusResult;
-import com.baidu.sapi2.result.GetCaptchaResult;
-import com.baidu.sapi2.result.GetDynamicPwdResult;
-import com.baidu.sapi2.result.GetQrCodeImageResult;
 import com.baidu.sapi2.result.GetTplStokenResult;
-import com.baidu.sapi2.result.OAuthResult;
 import com.baidu.sapi2.result.OneKeyLoginOptResult;
 import com.baidu.sapi2.result.OneKeyLoginResult;
-import com.baidu.sapi2.result.QrAppLoginResult;
-import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.service.interfaces.ISAccountService;
-import com.baidu.sapi2.share.GetOnlineRequestShareModel;
 import com.baidu.sapi2.share.ShareStorage;
 import com.baidu.sapi2.share.face.FaceLoginService;
 import com.baidu.sapi2.shell.callback.SapiCallBack;
 import com.baidu.sapi2.shell.response.SapiAccountResponse;
-import com.baidu.sapi2.shell.response.SapiResponse;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiCoreUtil;
 import com.baidu.sapi2.utils.SapiUtils;
@@ -128,6 +117,72 @@ public final class SapiAccountService implements ISAccountService {
         this.sapiAccountRepository = new SapiAccountRepository();
     }
 
+    public String getInvoiceBuildUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+            return this.sapiAccountRepository.getInvoiceAddressUrl() + "?" + getRequestParams(true);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getAuthWidgetUrl(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048596, this, z)) == null) {
+            return this.sapiAccountRepository.getAuthWidgetUrl() + "?" + getAuthRequestParams(z);
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public void getCaptcha(SapiCallback sapiCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, sapiCallback) == null) {
+            EnhancedService.getInstance(this.configuration, "9.6.3.3").getCaptcha(sapiCallback);
+        }
+    }
+
+    public void getCertInfo(GetCertStatusCallback getCertStatusCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, getCertStatusCallback) == null) {
+            this.sapiAccountRepository.getCertStatus(getCertStatusCallback);
+        }
+    }
+
+    public void getOneKeyLoginToken(OneKeyLoginSdkCall.TokenListener tokenListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048617, this, tokenListener) == null) {
+            new OneKeyLoginSdkCall().getToken(this.configuration, tokenListener);
+        }
+    }
+
+    public void sendContactsSms(SendSmsDTO sendSmsDTO) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048656, this, sendSmsDTO) == null) {
+            GetContactsService.getInstance(this.configuration, "9.6.3.3").sendSMS(sendSmsDTO);
+        }
+    }
+
+    public void web2NativeLogin(Web2NativeLoginCallback web2NativeLoginCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048665, this, web2NativeLoginCallback) == null) {
+            this.sapiAccountRepository.web2NativeLogin(web2NativeLoginCallback, true);
+        }
+    }
+
+    public boolean webLogin(Context context) {
+        InterceptResult invokeL;
+        SapiAccount currentAccount;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048667, this, context)) == null) {
+            if (context == null || (currentAccount = SapiContext.getInstance().getCurrentAccount()) == null) {
+                return false;
+            }
+            return SapiUtils.webLogin(context, currentAccount.bduss, currentAccount.ptoken);
+        }
+        return invokeL.booleanValue;
+    }
+
     private boolean asyncBduss2Web(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -179,341 +234,6 @@ public final class SapiAccountService implements ISAccountService {
             return false;
         }
         return invokeLL.booleanValue;
-    }
-
-    private void authorizeOneKeyLoginSuccess(OneKeyLoginCallback oneKeyLoginCallback, AccountType accountType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, this, oneKeyLoginCallback, accountType) == null) {
-            OneKeyLoginResult oneKeyLoginResult = new OneKeyLoginResult();
-            oneKeyLoginResult.setResultCode(0);
-            oneKeyLoginCallback.onSuccess(oneKeyLoginResult);
-        }
-    }
-
-    private SapiAccount sapiAccountResponseToAccount(SapiAccountResponse sapiAccountResponse) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, sapiAccountResponse)) == null) {
-            SapiAccount sapiAccount = new SapiAccount();
-            sapiAccount.uid = sapiAccountResponse.uid;
-            sapiAccount.bduss = sapiAccountResponse.bduss;
-            sapiAccount.displayname = sapiAccountResponse.displayname;
-            sapiAccount.stoken = sapiAccountResponse.stoken;
-            sapiAccount.ptoken = sapiAccountResponse.ptoken;
-            sapiAccount.email = sapiAccountResponse.email;
-            sapiAccount.username = sapiAccountResponse.username;
-            sapiAccount.app = TextUtils.isEmpty(sapiAccountResponse.app) ? SapiUtils.getAppName(this.configuration.context) : sapiAccountResponse.app;
-            sapiAccount.extra = sapiAccountResponse.extra;
-            sapiAccount.fromType = sapiAccountResponse.fromType.getValue();
-            SocialType socialType = SocialType.UNKNOWN;
-            SocialType socialType2 = sapiAccountResponse.socialType;
-            if (socialType != socialType2) {
-                sapiAccount.addSocialInfo(socialType2, sapiAccountResponse.socialPortraitUrl, sapiAccountResponse.socialNickname);
-                sapiAccount.putExtra("account_type", Integer.valueOf(sapiAccountResponse.accountType.getType()));
-            }
-            sapiAccount.putExtra("tpl", this.configuration.tpl);
-            if (!sapiAccountResponse.tplStokenMap.isEmpty()) {
-                sapiAccount.addDispersionCertification(sapiAccountResponse.tplStokenMap);
-            }
-            SapiContext.getInstance().setAccountActionType(sapiAccountResponse.actionType);
-            sapiAccount.addIsGuestAccount(sapiAccountResponse.isGuestAccount);
-            if (!TextUtils.isEmpty(sapiAccountResponse.livingUname)) {
-                new FaceLoginService().syncFaceLoginUID(this.configuration.context, sapiAccountResponse.livingUname);
-            }
-            return sapiAccount;
-        }
-        return (SapiAccount) invokeL.objValue;
-    }
-
-    public void cancelRequest() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.sapiAccountRepository.cancelRequest();
-        }
-    }
-
-    public void checkAvailableLoginHistory(String str, LoginHistoryCallback loginHistoryCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, loginHistoryCallback) == null) {
-            this.sapiAccountRepository.checkAvailableLoginHistory(str, loginHistoryCallback);
-        }
-    }
-
-    public void checkFaceLoginStatus(SapiCallback<FaceLoginStatusResult> sapiCallback, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, sapiCallback, str) == null) {
-            this.sapiAccountRepository.checkFaceLoginStatus(sapiCallback, str);
-        }
-    }
-
-    public void checkUserFaceId(SapiCallback<CheckUserFaceIdResult> sapiCallback, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, sapiCallback, str) == null) {
-            this.sapiAccountRepository.checkUserFaceId(sapiCallback, str, null);
-        }
-    }
-
-    @Deprecated
-    public boolean dynamicPwdLogin(SapiCallBack<SapiAccountResponse> sapiCallBack, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, sapiCallBack, str, str2)) == null) ? this.sapiAccountRepository.dynamicPwdLogin(sapiCallBack, str, str2, true) : invokeLLL.booleanValue;
-    }
-
-    public void extendSysWebViewMethodCheck(SapiCallback<SapiResult> sapiCallback, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048586, this, sapiCallback, str, str2) == null) {
-            this.sapiAccountRepository.extendSysWebViewMethodCheck(sapiCallback, str, str2);
-        }
-    }
-
-    public void faceLoginSwitch(SapiCallback<SapiResult> sapiCallback, String str, boolean z, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{sapiCallback, str, Boolean.valueOf(z), str2}) == null) {
-            this.sapiAccountRepository.faceLoginSwitch(sapiCallback, str, z, str2);
-        }
-    }
-
-    public boolean fastRegDynamicPwdLogin(SapiCallBack<SapiAccountResponse> sapiCallBack, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048588, this, sapiCallBack, str, str2)) == null) ? this.sapiAccountRepository.dynamicPwdLogin(sapiCallBack, str, str2, false) : invokeLLL.booleanValue;
-    }
-
-    public void fillUsername(FillUsernameCallback fillUsernameCallback, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048589, this, fillUsernameCallback, str, str2) == null) {
-            this.sapiAccountRepository.fillUsername(fillUsernameCallback, str, str2);
-        }
-    }
-
-    public void generateSsoHash(SsoHashCallback ssoHashCallback, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048590, this, ssoHashCallback, str, str2) == null) {
-            this.sapiAccountRepository.generateSsoHash(ssoHashCallback, str, str2);
-        }
-    }
-
-    public String getAccountCenterUrl(String str) {
-        InterceptResult invokeL;
-        String acccountCenterUrl;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new PassNameValuePair("adapter", "3"));
-            arrayList.add(new PassNameValuePair("wapsec", "center"));
-            if (this.configuration.accountCenterRealAutnen) {
-                arrayList.add(new PassNameValuePair("realName", "1"));
-            } else {
-                arrayList.add(new PassNameValuePair("realName", "0"));
-            }
-            if (SapiWebView.ACCOUNT_CENTER_REAL_NAME.equals(str)) {
-                acccountCenterUrl = this.sapiAccountRepository.getAccountRealNameUrl();
-            } else if (SapiWebView.ACCOUNT_CENTER_CHECK.equals(str)) {
-                arrayList.add(new PassNameValuePair("hidebtmback", "1"));
-                arrayList.add(new PassNameValuePair(SlideActiviy.EXTRA_PARAMS_SLIDE_PAGE, "1"));
-                acccountCenterUrl = this.sapiAccountRepository.getAccountCenterCheckUrl();
-            } else {
-                acccountCenterUrl = this.sapiAccountRepository.getAcccountCenterUrl();
-            }
-            return acccountCenterUrl + "?" + getRequestParams(false) + "&" + SapiUtils.createRequestParams(arrayList);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public String getAddressManageUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.sapiAccountRepository.getContactAddressUrl() + "?" + getRequestParams();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String getAuthRequestParams(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048594, this, z)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new PassNameValuePair("clientfrom", "native"));
-            if (z) {
-                arrayList.add(new PassNameValuePair("tpl", "tspd_trade"));
-            } else {
-                arrayList.add(new PassNameValuePair("tpl", this.configuration.tpl));
-            }
-            arrayList.add(new PassNameValuePair("login_share_strategy", this.configuration.loginShareStrategy().getStrValue()));
-            arrayList.add(new PassNameValuePair("client", "android"));
-            if (this.configuration.showBottomBack) {
-                arrayList.add(new PassNameValuePair("adapter", "8"));
-            } else {
-                arrayList.add(new PassNameValuePair("adapter", this.configuration.customActionBarEnabled ? "3" : ""));
-            }
-            arrayList.add(new PassNameValuePair("t", String.valueOf(System.currentTimeMillis())));
-            arrayList.add(new PassNameValuePair("act", this.configuration.socialBindType.getName()));
-            arrayList.add(new PassNameValuePair("hideExtraEntry", String.valueOf(this.configuration.smsLoginConfig.flagHideExtraEntry.ordinal())));
-            arrayList.add(new PassNameValuePair("loginLink", String.valueOf(this.configuration.smsLoginConfig.flagShowLoginLink.ordinal())));
-            arrayList.add(new PassNameValuePair("smsLoginLink", String.valueOf(this.configuration.smsLoginConfig.flagShowSmsLoginLink.ordinal())));
-            arrayList.add(new PassNameValuePair("lPFastRegLink", String.valueOf(this.configuration.smsLoginConfig.flagShowFastRegLink.ordinal())));
-            arrayList.add(new PassNameValuePair("lPlayout", String.valueOf(this.configuration.configurableViewLayout.ordinal())));
-            if (this.configuration.uniteVerify) {
-                arrayList.add(new PassNameValuePair("connect", "1"));
-            }
-            if (this.configuration.language == Language.ENGLISH) {
-                arrayList.add(new PassNameValuePair(WebvttCueParser.TAG_LANG, "en"));
-            }
-            arrayList.add(new PassNameValuePair("suppcheck", "1"));
-            if (this.configuration.supportFaceLogin) {
-                arrayList.add(new PassNameValuePair("scanface", "1"));
-                arrayList.add(new PassNameValuePair("liveAbility", "1"));
-            }
-            if (this.configuration.disableVoiceVerify) {
-                arrayList.add(new PassNameValuePair("disable_voice_vcode", "1"));
-            }
-            return SapiUtils.createRequestParams(arrayList);
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public String getAuthWidgetUrl(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048596, this, z)) == null) {
-            return this.sapiAccountRepository.getAuthWidgetUrl() + "?" + getAuthRequestParams(z);
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public int getBdussState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? new OpenBdussService(this.configuration, "9.6.3.3").getBdussState() : invokeV.intValue;
-    }
-
-    public String getBindWidgetUrl(BindWidgetAction bindWidgetAction) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, bindWidgetAction)) == null) {
-            if (bindWidgetAction != null) {
-                ArrayList arrayList = new ArrayList();
-                arrayList.add(new PassNameValuePair("adapter", "3"));
-                return this.sapiAccountRepository.getBindWidgetUrl(bindWidgetAction) + "?" + getRequestParams() + "&" + SapiUtils.createRequestParams(arrayList);
-            }
-            throw new IllegalArgumentException("BindWidgetAction can't be null");
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void getCaptcha(SapiCallback<GetCaptchaResult> sapiCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, sapiCallback) == null) {
-            EnhancedService.getInstance(this.configuration, "9.6.3.3").getCaptcha(sapiCallback);
-        }
-    }
-
-    public String getCaptchaKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? EnhancedService.getInstance(this.configuration, "9.6.3.3").getCaptchaKey() : (String) invokeV.objValue;
-    }
-
-    public String getCertGuardUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            return this.sapiAccountRepository.getCertGuardUrl() + "?" + getRequestParams();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void getCertInfo(GetCertStatusCallback getCertStatusCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, getCertStatusCallback) == null) {
-            this.sapiAccountRepository.getCertStatus(getCertStatusCallback);
-        }
-    }
-
-    public String getChildVerifyUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            return this.sapiAccountRepository.getChildVerifyUrl() + "?" + getRequestParams();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void getContacts(GetContactsCallback getContactsCallback, GetContactsDTO getContactsDTO) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048604, this, getContactsCallback, getContactsDTO) == null) {
-            GetContactsService.getInstance(this.configuration, "9.6.3.3").getContacts(getContactsCallback, getContactsDTO);
-        }
-    }
-
-    @Deprecated
-    public boolean getDynamicPwd(SapiCallBack<SapiResponse> sapiCallBack, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048609, this, sapiCallBack, str)) == null) ? this.sapiAccountRepository.getDynamicPwd(sapiCallBack, str) : invokeLL.booleanValue;
-    }
-
-    public String getExplainCameraDeatilUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
-            return this.sapiAccountRepository.getExplainCameraDeatilUrl() + "?" + getRequestParams();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String getForgetPwdUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new PassNameValuePair("client", "android"));
-            arrayList.add(new PassNameValuePair("clientfrom", "native"));
-            arrayList.add(new PassNameValuePair("adapter", "3"));
-            arrayList.add(new PassNameValuePair(SpeedStatsUtils.UBC_VALUE_BANNER, "1"));
-            arrayList.add(new PassNameValuePair("t", String.valueOf(System.currentTimeMillis())));
-            return this.sapiAccountRepository.getWapForgetPwdUrl() + "?" + getRequestParams(false) + "&" + SapiUtils.createRequestParams(arrayList);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void getHistoryPortraits(GetHistoryPortraitsCallback getHistoryPortraitsCallback, GetHistoryPortraitsDTO getHistoryPortraitsDTO) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048612, this, getHistoryPortraitsCallback, getHistoryPortraitsDTO) == null) {
-            new PortraitService(this.configuration, "9.6.3.3").getHistoryPortraits(getHistoryPortraitsCallback, getHistoryPortraitsDTO);
-        }
-    }
-
-    public String getInvoiceBuildUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
-            return this.sapiAccountRepository.getInvoiceAddressUrl() + "?" + getRequestParams(true);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String getLoginUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
-            return this.sapiAccountRepository.getWapLoginUrl() + "?" + getRequestParams();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String getNormalizeGuestAccountUrl(SocialType socialType) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048615, this, socialType)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new PassNameValuePair("type", socialType.getName()));
-            arrayList.add(new PassNameValuePair("ostype", String.valueOf(socialType.getType())));
-            return this.sapiAccountRepository.getNormalizeGuestAccountUrl() + "?" + getRequestParams() + "&" + SapiUtils.createRequestParams(arrayList);
-        }
-        return (String) invokeL.objValue;
     }
 
     public void getOneKeyLoginIsAvailable(GetOneKeyLoginStateDTO getOneKeyLoginStateDTO, OneKeyLoginCallback oneKeyLoginCallback) {
@@ -574,147 +294,6 @@ public final class SapiAccountService implements ISAccountService {
         }
     }
 
-    public void getOneKeyLoginToken(OneKeyLoginSdkCall.TokenListener tokenListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, tokenListener) == null) {
-            new OneKeyLoginSdkCall().getToken(this.configuration, tokenListener);
-        }
-    }
-
-    public void getOnlineAppShareModel(List<GetOnlineRequestShareModel> list, String str, GetOnlineAppCallback getOnlineAppCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048618, this, list, str, getOnlineAppCallback) == null) {
-            this.sapiAccountRepository.getOnlineAppShareModel(list, str, getOnlineAppCallback);
-        }
-    }
-
-    public void getOpenBduss(GetOpenBdussDTO getOpenBdussDTO, GetOpenBdussCallback getOpenBdussCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048619, this, getOpenBdussDTO, getOpenBdussCallback) == null) {
-            new OpenBdussService(this.configuration, "9.6.3.3").getOpenBduss(getOpenBdussDTO, getOpenBdussCallback);
-        }
-    }
-
-    public JSONObject getPhoneNumAndOperatorType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? new OneKeyLoginSdkCall().getEncryptPhone() : (JSONObject) invokeV.objValue;
-    }
-
-    public void getPopularPortraitsInfo(GetPopularPortraitsCallback getPopularPortraitsCallback, String str, PortraitCategory portraitCategory) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048622, this, getPopularPortraitsCallback, str, portraitCategory) == null) {
-            new PortraitService(this.configuration, "9.6.3.3").getPopularPortraitsInfo(getPopularPortraitsCallback, str, portraitCategory);
-        }
-    }
-
-    public void getQrCodeImage(SapiCallback<GetQrCodeImageResult> sapiCallback, GetQrCodeImageDTO getQrCodeImageDTO) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048623, this, sapiCallback, getQrCodeImageDTO) == null) {
-            QrCodeService.getInstance(this.configuration, "9.6.3.3").getQrCodeImage(sapiCallback, getQrCodeImageDTO);
-        }
-    }
-
-    public void getQrCodeLoginWithEncuidImage(SapiCallback<GetQrCodeImageResult> sapiCallback, GetQrCodeImageDTO getQrCodeImageDTO, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048624, this, sapiCallback, getQrCodeImageDTO, str, str2) == null) {
-            QrCodeService.getInstance(this.configuration, "9.6.3.3").getQrCodeLoginWithEnuidImage(sapiCallback, getQrCodeImageDTO, str, str2);
-        }
-    }
-
-    public String getRealnameAuthenticateUrl() {
-        InterceptResult invokeV;
-        ArrayList arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
-            SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
-            String str = sapiConfiguration.environment.getWap() + "/wp/";
-            new ArrayList().add(new PassNameValuePair("appid", sapiConfiguration.appId));
-            SapiUtils.getClientId(sapiConfiguration.context);
-            return str + "?" + getRequestParams() + "&" + SapiUtils.createRequestParams(arrayList);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String getRequestParams() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) ? getRequestParams(true) : (String) invokeV.objValue;
-    }
-
-    public void getShareV3App(String str, List<String> list, String str2, GetShareV3AppCallback getShareV3AppCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048628, this, str, list, str2, getShareV3AppCallback) == null) {
-            this.sapiAccountRepository.getShareV3App(str, list, str2, getShareV3AppCallback);
-        }
-    }
-
-    public String getSwitchAccountUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) {
-            return this.sapiAccountRepository.getSwitchAccountUrl() + "?" + getRequestParams();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public Map<String, String> getTplStoken(GetTplStokenCallback getTplStokenCallback, String str, List<String> list) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048630, this, getTplStokenCallback, str, list)) == null) ? getTplStoken(getTplStokenCallback, str, list, true) : (Map) invokeLLL.objValue;
-    }
-
-    public String getUniteVerifyUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new PassNameValuePair("adapter", "3"));
-            return this.sapiAccountRepository.getUniteVerifyUrl() + "?" + getRequestParams() + "&" + SapiUtils.createRequestParams(arrayList);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String getUrlAfterAuth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) ? this.sapiAccountRepository.getDomainAfterAuth() : (String) invokeV.objValue;
-    }
-
-    public String getUrlFinishBind() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) ? this.sapiAccountRepository.getDomainFinishBind() : (String) invokeV.objValue;
-    }
-
-    public String getUrlSSOFinish() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) ? this.sapiAccountRepository.getDomainSSOFinish() : (String) invokeV.objValue;
-    }
-
-    public String getUrlSSOSecondcard() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) ? this.sapiAccountRepository.getDomainSSOSecondcard() : (String) invokeV.objValue;
-    }
-
-    public void getUserInfo(GetUserInfoCallback getUserInfoCallback, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048637, this, getUserInfoCallback, str) == null) {
-            this.sapiAccountRepository.getUserInfo(getUserInfoCallback, str);
-        }
-    }
-
-    public String getWapShareLoginUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) {
-            return this.sapiAccountRepository.getWapShareLoginUrl() + "?" + getRequestParams();
-        }
-        return (String) invokeV.objValue;
-    }
-
     public void handleOneKeyLoginResult(OneKeyLoginCallback oneKeyLoginCallback, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048641, this, oneKeyLoginCallback, str) == null) {
@@ -736,6 +315,86 @@ public final class SapiAccountService implements ISAccountService {
         }
     }
 
+    private void authorizeOneKeyLoginSuccess(OneKeyLoginCallback oneKeyLoginCallback, AccountType accountType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, this, oneKeyLoginCallback, accountType) == null) {
+            OneKeyLoginResult oneKeyLoginResult = new OneKeyLoginResult();
+            oneKeyLoginResult.setResultCode(0);
+            oneKeyLoginCallback.onSuccess(oneKeyLoginResult);
+        }
+    }
+
+    public void checkAvailableLoginHistory(String str, LoginHistoryCallback loginHistoryCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, loginHistoryCallback) == null) {
+            this.sapiAccountRepository.checkAvailableLoginHistory(str, loginHistoryCallback);
+        }
+    }
+
+    public void checkFaceLoginStatus(SapiCallback sapiCallback, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, sapiCallback, str) == null) {
+            this.sapiAccountRepository.checkFaceLoginStatus(sapiCallback, str);
+        }
+    }
+
+    public void checkUserFaceId(SapiCallback sapiCallback, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, sapiCallback, str) == null) {
+            this.sapiAccountRepository.checkUserFaceId(sapiCallback, str, null);
+        }
+    }
+
+    public void getContacts(GetContactsCallback getContactsCallback, GetContactsDTO getContactsDTO) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048604, this, getContactsCallback, getContactsDTO) == null) {
+            GetContactsService.getInstance(this.configuration, "9.6.3.3").getContacts(getContactsCallback, getContactsDTO);
+        }
+    }
+
+    @Deprecated
+    public void getDynamicPwd(SapiCallback sapiCallback, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048608, this, sapiCallback, str) == null) {
+            EnhancedService.getInstance(this.configuration, "9.6.3.3").getDynamicPwd(sapiCallback, str);
+        }
+    }
+
+    public void getHistoryPortraits(GetHistoryPortraitsCallback getHistoryPortraitsCallback, GetHistoryPortraitsDTO getHistoryPortraitsDTO) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048612, this, getHistoryPortraitsCallback, getHistoryPortraitsDTO) == null) {
+            new PortraitService(this.configuration, "9.6.3.3").getHistoryPortraits(getHistoryPortraitsCallback, getHistoryPortraitsDTO);
+        }
+    }
+
+    public void getOpenBduss(GetOpenBdussDTO getOpenBdussDTO, GetOpenBdussCallback getOpenBdussCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048619, this, getOpenBdussDTO, getOpenBdussCallback) == null) {
+            new OpenBdussService(this.configuration, "9.6.3.3").getOpenBduss(getOpenBdussDTO, getOpenBdussCallback);
+        }
+    }
+
+    public void getPopularPortraitsInfo(GetPopularPortraitsCallback getPopularPortraitsCallback, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048621, this, getPopularPortraitsCallback, str) == null) {
+            new PortraitService(this.configuration, "9.6.3.3").getPopularPortraitsInfo(getPopularPortraitsCallback, str, PortraitCategory.NORMAL);
+        }
+    }
+
+    public void getQrCodeImage(SapiCallback sapiCallback, GetQrCodeImageDTO getQrCodeImageDTO) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048623, this, sapiCallback, getQrCodeImageDTO) == null) {
+            QrCodeService.getInstance(this.configuration, "9.6.3.3").getQrCodeImage(sapiCallback, getQrCodeImageDTO);
+        }
+    }
+
+    public void getUserInfo(GetUserInfoCallback getUserInfoCallback, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048637, this, getUserInfoCallback, str) == null) {
+            this.sapiAccountRepository.getUserInfo(getUserInfoCallback, str);
+        }
+    }
+
     public void iqiyiSSOLogin(IqiyiLoginCallback iqiyiLoginCallback, IqiyiLoginDTO iqiyiLoginDTO) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048642, this, iqiyiLoginCallback, iqiyiLoginDTO) == null) {
@@ -743,57 +402,20 @@ public final class SapiAccountService implements ISAccountService {
         }
     }
 
-    public boolean isStokenExist(String str, List<String> list) {
+    public boolean isStokenExist(SapiAccount sapiAccount, List list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048644, this, str, list)) == null) ? this.sapiAccountRepository.isStokenExist(str, list) : invokeLL.booleanValue;
-    }
-
-    public void loadOneKeyLogin(OneKeyLoginCallback oneKeyLoginCallback, String str, String str2, LoadExternalWebViewActivityCallback loadExternalWebViewActivityCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048645, this, oneKeyLoginCallback, str, str2, loadExternalWebViewActivityCallback) == null) {
-            this.sapiAccountRepository.loadOneKeyLogin(oneKeyLoginCallback, str, str2, loadExternalWebViewActivityCallback);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048643, this, sapiAccount, list)) == null) {
+            return this.sapiAccountRepository.isAccountStokenExist(sapiAccount, list);
         }
+        return invokeLL.booleanValue;
     }
 
     @Deprecated
-    public void oauth(SapiCallback<OAuthResult> sapiCallback, String str) {
+    public void oauth(SapiCallback sapiCallback, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048646, this, sapiCallback, str) == null) {
             this.sapiAccountRepository.oauth(sapiCallback, str, null, null);
-        }
-    }
-
-    public void oauthAccessToken(SapiCallback<OAuthResult> sapiCallback, String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048648, this, new Object[]{sapiCallback, str, str2, Boolean.valueOf(z)}) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || sapiCallback == null) {
-            return;
-        }
-        if (z) {
-            this.sapiAccountRepository.oauth(sapiCallback, str, str2, null);
-        } else {
-            this.sapiAccountRepository.oauthAccessToken(sapiCallback, str, str2);
-        }
-    }
-
-    public void oauthWithScope(SapiCallback<OAuthResult> sapiCallback, String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048649, this, sapiCallback, str, str2, str3) == null) {
-            this.sapiAccountRepository.oauth(sapiCallback, str, str2, str3);
-        }
-    }
-
-    public void preGetPhoneInfo() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048650, this) == null) {
-            new OneKeyLoginSdkCall().preGetPhoneInfo(this.configuration, "product");
-        }
-    }
-
-    public void qrAppLogin(SapiCallback<QrAppLoginResult> sapiCallback, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048652, this, sapiCallback, str, str2) == null) {
-            QrCodeService.getInstance(this.configuration, "9.6.3.3").qrAppLogin(sapiCallback, str, str2);
         }
     }
 
@@ -812,20 +434,6 @@ public final class SapiAccountService implements ISAccountService {
         }
     }
 
-    public void relaseContactsSource() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048655, this) == null) {
-            GetContactsService.getInstance(this.configuration, "9.6.3.3").relaseContactsSource();
-        }
-    }
-
-    public void sendContactsSms(SendSmsDTO sendSmsDTO) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048656, this, sendSmsDTO) == null) {
-            GetContactsService.getInstance(this.configuration, "9.6.3.3").sendSMS(sendSmsDTO);
-        }
-    }
-
     public void setCloudShareAccount(int i, ShareStorage.StorageModel storageModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048657, this, i, storageModel) == null) {
@@ -840,15 +448,10 @@ public final class SapiAccountService implements ISAccountService {
         }
     }
 
-    @Deprecated
-    public void setPortrait(SetPortraitCallback setPortraitCallback, String str, byte[] bArr, String str2) {
+    public void setPortrait(SetPortraitDTO setPortraitDTO, SetPortraitCallback setPortraitCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048659, this, setPortraitCallback, str, bArr, str2) == null) {
-            SetPortraitDTO setPortraitDTO = new SetPortraitDTO();
-            setPortraitDTO.bduss = str;
-            setPortraitDTO.file = bArr;
-            setPortraitDTO.contentType = str2;
-            setPortrait(setPortraitDTO, setPortraitCallback);
+        if (interceptable == null || interceptable.invokeLL(1048660, this, setPortraitDTO, setPortraitCallback) == null) {
+            new PortraitService(this.configuration, "9.6.3.3").setPortrait(setPortraitDTO, setPortraitCallback);
         }
     }
 
@@ -856,6 +459,253 @@ public final class SapiAccountService implements ISAccountService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048661, this, str, dynamicPwdWithAuthCallback) == null) {
             EnhancedService.getInstance(this.configuration, "9.6.3.3").startLooper(str, dynamicPwdWithAuthCallback);
+        }
+    }
+
+    public void userLogout(int i, UserLogoutCallback userLogoutCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048664, this, i, userLogoutCallback) == null) {
+            this.sapiAccountRepository.userLogout(i, userLogoutCallback);
+        }
+    }
+
+    public void web2NativeLogin(Web2NativeLoginCallback web2NativeLoginCallback, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048666, this, web2NativeLoginCallback, z) == null) {
+            this.sapiAccountRepository.web2NativeLogin(web2NativeLoginCallback, z);
+        }
+    }
+
+    private SapiAccount sapiAccountResponseToAccount(SapiAccountResponse sapiAccountResponse) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, sapiAccountResponse)) == null) {
+            SapiAccount sapiAccount = new SapiAccount();
+            sapiAccount.uid = sapiAccountResponse.uid;
+            sapiAccount.bduss = sapiAccountResponse.bduss;
+            sapiAccount.displayname = sapiAccountResponse.displayname;
+            sapiAccount.stoken = sapiAccountResponse.stoken;
+            sapiAccount.ptoken = sapiAccountResponse.ptoken;
+            sapiAccount.email = sapiAccountResponse.email;
+            sapiAccount.username = sapiAccountResponse.username;
+            if (TextUtils.isEmpty(sapiAccountResponse.app)) {
+                str = SapiUtils.getAppName(this.configuration.context);
+            } else {
+                str = sapiAccountResponse.app;
+            }
+            sapiAccount.app = str;
+            sapiAccount.extra = sapiAccountResponse.extra;
+            sapiAccount.fromType = sapiAccountResponse.fromType.getValue();
+            SocialType socialType = SocialType.UNKNOWN;
+            SocialType socialType2 = sapiAccountResponse.socialType;
+            if (socialType != socialType2) {
+                sapiAccount.addSocialInfo(socialType2, sapiAccountResponse.socialPortraitUrl, sapiAccountResponse.socialNickname);
+                sapiAccount.putExtra("account_type", Integer.valueOf(sapiAccountResponse.accountType.getType()));
+            }
+            sapiAccount.putExtra("tpl", this.configuration.tpl);
+            if (!sapiAccountResponse.tplStokenMap.isEmpty()) {
+                sapiAccount.addDispersionCertification(sapiAccountResponse.tplStokenMap);
+            }
+            SapiContext.getInstance().setAccountActionType(sapiAccountResponse.actionType);
+            sapiAccount.addIsGuestAccount(sapiAccountResponse.isGuestAccount);
+            if (!TextUtils.isEmpty(sapiAccountResponse.livingUname)) {
+                new FaceLoginService().syncFaceLoginUID(this.configuration.context, sapiAccountResponse.livingUname);
+            }
+            return sapiAccount;
+        }
+        return (SapiAccount) invokeL.objValue;
+    }
+
+    public String getAccountCenterUrl(String str) {
+        InterceptResult invokeL;
+        String acccountCenterUrl;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new PassNameValuePair("adapter", "3"));
+            arrayList.add(new PassNameValuePair("wapsec", "center"));
+            if (this.configuration.accountCenterRealAutnen) {
+                arrayList.add(new PassNameValuePair("realName", "1"));
+            } else {
+                arrayList.add(new PassNameValuePair("realName", "0"));
+            }
+            if (SapiWebView.ACCOUNT_CENTER_REAL_NAME.equals(str)) {
+                acccountCenterUrl = this.sapiAccountRepository.getAccountRealNameUrl();
+            } else if (SapiWebView.ACCOUNT_CENTER_CHECK.equals(str)) {
+                arrayList.add(new PassNameValuePair("hidebtmback", "1"));
+                arrayList.add(new PassNameValuePair(SlideActiviy.EXTRA_PARAMS_SLIDE_PAGE, "1"));
+                acccountCenterUrl = this.sapiAccountRepository.getAccountCenterCheckUrl();
+            } else {
+                acccountCenterUrl = this.sapiAccountRepository.getAcccountCenterUrl();
+            }
+            return acccountCenterUrl + "?" + getRequestParams(false) + "&" + SapiUtils.createRequestParams(arrayList);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void cancelRequest() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.sapiAccountRepository.cancelRequest();
+        }
+    }
+
+    public String getAddressManageUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.sapiAccountRepository.getContactAddressUrl() + "?" + getRequestParams();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getAuthWidgetUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.sapiAccountRepository.getAuthWidgetUrl() + "?" + getAuthRequestParams();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getBdussState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return new OpenBdussService(this.configuration, "9.6.3.3").getBdussState();
+        }
+        return invokeV.intValue;
+    }
+
+    public String getCaptchaKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return EnhancedService.getInstance(this.configuration, "9.6.3.3").getCaptchaKey();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getCertGuardUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return this.sapiAccountRepository.getCertGuardUrl() + "?" + getRequestParams();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getChildVerifyUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            return this.sapiAccountRepository.getChildVerifyUrl() + "?" + getRequestParams();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getExplainCameraDeatilUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+            return this.sapiAccountRepository.getExplainCameraDeatilUrl() + "?" + getRequestParams();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getLoginUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+            return this.sapiAccountRepository.getWapLoginUrl() + "?" + getRequestParams();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public JSONObject getPhoneNumAndOperatorType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
+            return new OneKeyLoginSdkCall().getEncryptPhone();
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public String getRequestParams() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
+            return getRequestParams(true);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getSwitchAccountUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) {
+            return this.sapiAccountRepository.getSwitchAccountUrl() + "?" + getRequestParams();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getUrlAfterAuth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) {
+            return this.sapiAccountRepository.getDomainAfterAuth();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getUrlFinishBind() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) {
+            return this.sapiAccountRepository.getDomainFinishBind();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getUrlSSOFinish() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) {
+            return this.sapiAccountRepository.getDomainSSOFinish();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getUrlSSOSecondcard() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) {
+            return this.sapiAccountRepository.getDomainSSOSecondcard();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getWapShareLoginUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) {
+            return this.sapiAccountRepository.getWapShareLoginUrl() + "?" + getRequestParams();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void preGetPhoneInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048650, this) == null) {
+            new OneKeyLoginSdkCall().preGetPhoneInfo(this.configuration, "product");
+        }
+    }
+
+    public void relaseContactsSource() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048655, this) == null) {
+            GetContactsService.getInstance(this.configuration, "9.6.3.3").relaseContactsSource();
         }
     }
 
@@ -873,85 +723,300 @@ public final class SapiAccountService implements ISAccountService {
         }
     }
 
-    public void userLogout(int i, UserLogoutCallback userLogoutCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048664, this, i, userLogoutCallback) == null) {
-            this.sapiAccountRepository.userLogout(i, userLogoutCallback);
-        }
-    }
-
-    public void web2NativeLogin(Web2NativeLoginCallback web2NativeLoginCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048665, this, web2NativeLoginCallback) == null) {
-            this.sapiAccountRepository.web2NativeLogin(web2NativeLoginCallback, true);
-        }
-    }
-
-    public boolean webLogin(Context context) {
-        InterceptResult invokeL;
-        SapiAccount currentAccount;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048667, this, context)) == null) {
-            if (context == null || (currentAccount = SapiContext.getInstance().getCurrentAccount()) == null) {
-                return false;
-            }
-            return SapiUtils.webLogin(context, currentAccount.bduss, currentAccount.ptoken);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void checkUserFaceId(SapiCallback<CheckUserFaceIdResult> sapiCallback, String str, Map<String, String> map) {
+    public void checkUserFaceId(SapiCallback sapiCallback, String str, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, sapiCallback, str, map) == null) {
             this.sapiAccountRepository.checkUserFaceId(sapiCallback, str, map);
         }
     }
 
+    public void dynamicPwdLogin(DynamicPwdLoginCallback dynamicPwdLoginCallback, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, dynamicPwdLoginCallback, str, str2) == null) {
+            dynamicPwdLogin(dynamicPwdLoginCallback, str, str2, (Map) null);
+        }
+    }
+
+    public void extendSysWebViewMethodCheck(SapiCallback sapiCallback, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048586, this, sapiCallback, str, str2) == null) {
+            this.sapiAccountRepository.extendSysWebViewMethodCheck(sapiCallback, str, str2);
+        }
+    }
+
+    public boolean fastRegDynamicPwdLogin(SapiCallBack sapiCallBack, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048588, this, sapiCallBack, str, str2)) == null) {
+            return this.sapiAccountRepository.dynamicPwdLogin(sapiCallBack, str, str2, false);
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public void fillUsername(FillUsernameCallback fillUsernameCallback, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048589, this, fillUsernameCallback, str, str2) == null) {
+            this.sapiAccountRepository.fillUsername(fillUsernameCallback, str, str2);
+        }
+    }
+
+    public void generateSsoHash(SsoHashCallback ssoHashCallback, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048590, this, ssoHashCallback, str, str2) == null) {
+            this.sapiAccountRepository.generateSsoHash(ssoHashCallback, str, str2);
+        }
+    }
+
+    public void getDynamicPwd(DynamicPwdWithAuthCallback dynamicPwdWithAuthCallback, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048605, this, dynamicPwdWithAuthCallback, str, z) == null) {
+            EnhancedService.getInstance(this.configuration, "9.6.3.3").getDynamicPwd(dynamicPwdWithAuthCallback, str, z);
+        }
+    }
+
+    public void getOnlineAppShareModel(List list, String str, GetOnlineAppCallback getOnlineAppCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048618, this, list, str, getOnlineAppCallback) == null) {
+            this.sapiAccountRepository.getOnlineAppShareModel(list, str, getOnlineAppCallback);
+        }
+    }
+
+    public void getPopularPortraitsInfo(GetPopularPortraitsCallback getPopularPortraitsCallback, String str, PortraitCategory portraitCategory) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048622, this, getPopularPortraitsCallback, str, portraitCategory) == null) {
+            new PortraitService(this.configuration, "9.6.3.3").getPopularPortraitsInfo(getPopularPortraitsCallback, str, portraitCategory);
+        }
+    }
+
+    public Map getTplStoken(GetTplStokenCallback getTplStokenCallback, String str, List list) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048630, this, getTplStokenCallback, str, list)) == null) {
+            return getTplStoken(getTplStokenCallback, str, list, true);
+        }
+        return (Map) invokeLLL.objValue;
+    }
+
+    public void getUserInfo(String str, String str2, NetCallback netCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048639, this, str, str2, netCallback) == null) {
+            this.sapiAccountRepository.getUserInfo(str, str2, "", "", netCallback);
+        }
+    }
+
+    public void oauth(SapiCallback sapiCallback, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048647, this, sapiCallback, str, str2) == null) {
+            this.sapiAccountRepository.oauth(sapiCallback, str, str2, null);
+        }
+    }
+
+    public void qrAppLogin(SapiCallback sapiCallback, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048652, this, sapiCallback, str, str2) == null) {
+            QrCodeService.getInstance(this.configuration, "9.6.3.3").qrAppLogin(sapiCallback, str, str2);
+        }
+    }
+
+    @Override // com.baidu.sapi2.service.interfaces.ISAccountService
+    public boolean webLogin(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048669, this, context, str, str2)) == null) {
+            return webLogin(context, str);
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public void dynamicPwdLogin(DynamicPwdLoginCallback dynamicPwdLoginCallback, String str, String str2, Map map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048582, this, dynamicPwdLoginCallback, str, str2, map) == null) {
+            EnhancedService.getInstance(this.configuration, "9.6.3.3").dynamicPwdLogin(dynamicPwdLoginCallback, str, str2, map);
+        }
+    }
+
+    public void faceLoginSwitch(SapiCallback sapiCallback, String str, boolean z, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{sapiCallback, str, Boolean.valueOf(z), str2}) == null) {
+            this.sapiAccountRepository.faceLoginSwitch(sapiCallback, str, z, str2);
+        }
+    }
+
+    public void getDynamicPwd(GetDynamicPwdCallback getDynamicPwdCallback, String str, String str2, Map map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048607, this, getDynamicPwdCallback, str, str2, map) == null) {
+            EnhancedService.getInstance(this.configuration, "9.6.3.3").getDynamicPwd(getDynamicPwdCallback, str, str2, map);
+        }
+    }
+
+    public void getQrCodeLoginWithEncuidImage(SapiCallback sapiCallback, GetQrCodeImageDTO getQrCodeImageDTO, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048624, this, sapiCallback, getQrCodeImageDTO, str, str2) == null) {
+            QrCodeService.getInstance(this.configuration, "9.6.3.3").getQrCodeLoginWithEnuidImage(sapiCallback, getQrCodeImageDTO, str, str2);
+        }
+    }
+
+    public void getShareV3App(String str, List list, String str2, GetShareV3AppCallback getShareV3AppCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048628, this, str, list, str2, getShareV3AppCallback) == null) {
+            this.sapiAccountRepository.getShareV3App(str, list, str2, getShareV3AppCallback);
+        }
+    }
+
+    public Map getTplStoken(GetTplStokenCallback getTplStokenCallback, String str, List list, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048631, this, new Object[]{getTplStokenCallback, str, list, Boolean.valueOf(z)})) == null) {
+            return this.sapiAccountRepository.getTplStoken(getTplStokenCallback, str, list, z);
+        }
+        return (Map) invokeCommon.objValue;
+    }
+
+    public void getUserInfo(GetUserInfoCallback getUserInfoCallback, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048638, this, getUserInfoCallback, str, str2, str3) == null) {
+            this.sapiAccountRepository.getUserInfo(getUserInfoCallback, str, str2, str3);
+        }
+    }
+
+    public void loadOneKeyLogin(OneKeyLoginCallback oneKeyLoginCallback, String str, String str2, LoadExternalWebViewActivityCallback loadExternalWebViewActivityCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048645, this, oneKeyLoginCallback, str, str2, loadExternalWebViewActivityCallback) == null) {
+            this.sapiAccountRepository.loadOneKeyLogin(oneKeyLoginCallback, str, str2, loadExternalWebViewActivityCallback);
+        }
+    }
+
+    public void oauthWithScope(SapiCallback sapiCallback, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048649, this, sapiCallback, str, str2, str3) == null) {
+            this.sapiAccountRepository.oauth(sapiCallback, str, str2, str3);
+        }
+    }
+
     @Deprecated
-    public void dynamicPwdLogin(SapiCallback<DynamicPwdLoginResult> sapiCallback, String str, String str2) {
+    public void setPortrait(SetPortraitCallback setPortraitCallback, String str, byte[] bArr, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048659, this, setPortraitCallback, str, bArr, str2) == null) {
+            SetPortraitDTO setPortraitDTO = new SetPortraitDTO();
+            setPortraitDTO.bduss = str;
+            setPortraitDTO.file = bArr;
+            setPortraitDTO.contentType = str2;
+            setPortrait(setPortraitDTO, setPortraitCallback);
+        }
+    }
+
+    public void dynamicPwdLogin(DynamicPwdWithAuthCallback dynamicPwdWithAuthCallback, String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{dynamicPwdWithAuthCallback, str, str2, Boolean.valueOf(z)}) == null) {
+            EnhancedService.getInstance(this.configuration, "9.6.3.3").dynamicPwdLogin(dynamicPwdWithAuthCallback, str, str2, z);
+        }
+    }
+
+    public void oauthAccessToken(SapiCallback sapiCallback, String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048648, this, new Object[]{sapiCallback, str, str2, Boolean.valueOf(z)}) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && sapiCallback != null) {
+            if (z) {
+                this.sapiAccountRepository.oauth(sapiCallback, str, str2, null);
+            } else {
+                this.sapiAccountRepository.oauthAccessToken(sapiCallback, str, str2);
+            }
+        }
+    }
+
+    @Deprecated
+    public void dynamicPwdLogin(SapiCallback sapiCallback, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sapiCallback, str, str2) == null) {
             EnhancedService.getInstance(this.configuration, "9.6.3.3").dynamicPwdLogin(sapiCallback, str, str2, (Map) null);
         }
     }
 
-    public String getAuthWidgetUrl() {
+    public void getDynamicPwd(GetDynamicPwdCallback getDynamicPwdCallback, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048606, this, getDynamicPwdCallback, str, str2) == null) {
+            getDynamicPwd(getDynamicPwdCallback, str, str2, null);
+        }
+    }
+
+    @Deprecated
+    public boolean dynamicPwdLogin(SapiCallBack sapiCallBack, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, sapiCallBack, str, str2)) == null) {
+            return this.sapiAccountRepository.dynamicPwdLogin(sapiCallBack, str, str2, true);
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public String getAuthRequestParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return this.sapiAccountRepository.getAuthWidgetUrl() + "?" + getAuthRequestParams();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new PassNameValuePair("tpl", this.configuration.tpl));
+            arrayList.add(new PassNameValuePair("clientfrom", "native"));
+            arrayList.add(new PassNameValuePair("client", "android"));
+            arrayList.add(new PassNameValuePair("adapter", "3"));
+            arrayList.add(new PassNameValuePair("skin", ""));
+            arrayList.add(new PassNameValuePair("liveAbility", "1"));
+            arrayList.add(new PassNameValuePair("suppcheck", "1"));
+            return SapiUtils.createRequestParams(arrayList);
         }
         return (String) invokeV.objValue;
     }
 
-    @Deprecated
-    public void getDynamicPwd(SapiCallback<GetDynamicPwdResult> sapiCallback, String str) {
+    public String getForgetPwdUrl() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048608, this, sapiCallback, str) == null) {
-            EnhancedService.getInstance(this.configuration, "9.6.3.3").getDynamicPwd(sapiCallback, str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new PassNameValuePair("client", "android"));
+            arrayList.add(new PassNameValuePair("clientfrom", "native"));
+            arrayList.add(new PassNameValuePair("adapter", "3"));
+            arrayList.add(new PassNameValuePair(SpeedStatsUtils.UBC_VALUE_BANNER, "1"));
+            arrayList.add(new PassNameValuePair("t", String.valueOf(System.currentTimeMillis())));
+            return this.sapiAccountRepository.getWapForgetPwdUrl() + "?" + getRequestParams(false) + "&" + SapiUtils.createRequestParams(arrayList);
         }
+        return (String) invokeV.objValue;
     }
 
-    public void getPopularPortraitsInfo(GetPopularPortraitsCallback getPopularPortraitsCallback, String str) {
+    public String getRealnameAuthenticateUrl() {
+        InterceptResult invokeV;
+        ArrayList arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048621, this, getPopularPortraitsCallback, str) == null) {
-            new PortraitService(this.configuration, "9.6.3.3").getPopularPortraitsInfo(getPopularPortraitsCallback, str, PortraitCategory.NORMAL);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
+            SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
+            String str = sapiConfiguration.environment.getWap() + "/wp/";
+            new ArrayList().add(new PassNameValuePair("appid", sapiConfiguration.appId));
+            SapiUtils.getClientId(sapiConfiguration.context);
+            return str + "?" + getRequestParams() + "&" + SapiUtils.createRequestParams(arrayList);
         }
+        return (String) invokeV.objValue;
     }
 
-    public String getRequestParams(boolean z) {
+    public String getAuthRequestParams(boolean z) {
         InterceptResult invokeZ;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048627, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048594, this, z)) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new PassNameValuePair("clientfrom", "native"));
-            arrayList.add(new PassNameValuePair("tpl", this.configuration.tpl));
+            if (z) {
+                arrayList.add(new PassNameValuePair("tpl", "tspd_trade"));
+            } else {
+                arrayList.add(new PassNameValuePair("tpl", this.configuration.tpl));
+            }
             arrayList.add(new PassNameValuePair("login_share_strategy", this.configuration.loginShareStrategy().getStrValue()));
             arrayList.add(new PassNameValuePair("client", "android"));
             if (this.configuration.showBottomBack) {
                 arrayList.add(new PassNameValuePair("adapter", "8"));
-            } else if (z) {
-                arrayList.add(new PassNameValuePair("adapter", this.configuration.customActionBarEnabled ? "3" : ""));
+            } else {
+                if (this.configuration.customActionBarEnabled) {
+                    str = "3";
+                } else {
+                    str = "";
+                }
+                arrayList.add(new PassNameValuePair("adapter", str));
             }
             arrayList.add(new PassNameValuePair("t", String.valueOf(System.currentTimeMillis())));
             arrayList.add(new PassNameValuePair("act", this.configuration.socialBindType.getName()));
@@ -979,30 +1044,106 @@ public final class SapiAccountService implements ISAccountService {
         return (String) invokeZ.objValue;
     }
 
-    public Map<String, String> getTplStoken(GetTplStokenCallback getTplStokenCallback, String str, List<String> list, boolean z) {
-        InterceptResult invokeCommon;
+    public String getRequestParams(boolean z) {
+        InterceptResult invokeZ;
+        String str;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048631, this, new Object[]{getTplStokenCallback, str, list, Boolean.valueOf(z)})) == null) ? this.sapiAccountRepository.getTplStoken(getTplStokenCallback, str, list, z) : (Map) invokeCommon.objValue;
-    }
-
-    public void getUserInfo(GetUserInfoCallback getUserInfoCallback, String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048638, this, getUserInfoCallback, str, str2, str3) == null) {
-            this.sapiAccountRepository.getUserInfo(getUserInfoCallback, str, str2, str3);
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048627, this, z)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new PassNameValuePair("clientfrom", "native"));
+            arrayList.add(new PassNameValuePair("tpl", this.configuration.tpl));
+            arrayList.add(new PassNameValuePair("login_share_strategy", this.configuration.loginShareStrategy().getStrValue()));
+            arrayList.add(new PassNameValuePair("client", "android"));
+            if (this.configuration.showBottomBack) {
+                arrayList.add(new PassNameValuePair("adapter", "8"));
+            } else if (z) {
+                if (this.configuration.customActionBarEnabled) {
+                    str = "3";
+                } else {
+                    str = "";
+                }
+                arrayList.add(new PassNameValuePair("adapter", str));
+            }
+            arrayList.add(new PassNameValuePair("t", String.valueOf(System.currentTimeMillis())));
+            arrayList.add(new PassNameValuePair("act", this.configuration.socialBindType.getName()));
+            arrayList.add(new PassNameValuePair("hideExtraEntry", String.valueOf(this.configuration.smsLoginConfig.flagHideExtraEntry.ordinal())));
+            arrayList.add(new PassNameValuePair("loginLink", String.valueOf(this.configuration.smsLoginConfig.flagShowLoginLink.ordinal())));
+            arrayList.add(new PassNameValuePair("smsLoginLink", String.valueOf(this.configuration.smsLoginConfig.flagShowSmsLoginLink.ordinal())));
+            arrayList.add(new PassNameValuePair("lPFastRegLink", String.valueOf(this.configuration.smsLoginConfig.flagShowFastRegLink.ordinal())));
+            arrayList.add(new PassNameValuePair("lPlayout", String.valueOf(this.configuration.configurableViewLayout.ordinal())));
+            if (this.configuration.uniteVerify) {
+                arrayList.add(new PassNameValuePair("connect", "1"));
+            }
+            if (this.configuration.language == Language.ENGLISH) {
+                arrayList.add(new PassNameValuePair(WebvttCueParser.TAG_LANG, "en"));
+            }
+            arrayList.add(new PassNameValuePair("suppcheck", "1"));
+            if (this.configuration.supportFaceLogin) {
+                arrayList.add(new PassNameValuePair("scanface", "1"));
+                arrayList.add(new PassNameValuePair("liveAbility", "1"));
+            }
+            if (this.configuration.disableVoiceVerify) {
+                arrayList.add(new PassNameValuePair("disable_voice_vcode", "1"));
+            }
+            return SapiUtils.createRequestParams(arrayList);
         }
+        return (String) invokeZ.objValue;
     }
 
-    public boolean isStokenExist(SapiAccount sapiAccount, List<String> list) {
+    public String getBindWidgetUrl(BindWidgetAction bindWidgetAction) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, bindWidgetAction)) == null) {
+            if (bindWidgetAction != null) {
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(new PassNameValuePair("adapter", "3"));
+                return this.sapiAccountRepository.getBindWidgetUrl(bindWidgetAction) + "?" + getRequestParams() + "&" + SapiUtils.createRequestParams(arrayList);
+            }
+            throw new IllegalArgumentException("BindWidgetAction can't be null");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String getNormalizeGuestAccountUrl(SocialType socialType) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048615, this, socialType)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new PassNameValuePair("type", socialType.getName()));
+            arrayList.add(new PassNameValuePair("ostype", String.valueOf(socialType.getType())));
+            return this.sapiAccountRepository.getNormalizeGuestAccountUrl() + "?" + getRequestParams() + "&" + SapiUtils.createRequestParams(arrayList);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Deprecated
+    public boolean getDynamicPwd(SapiCallBack sapiCallBack, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048643, this, sapiAccount, list)) == null) ? this.sapiAccountRepository.isAccountStokenExist(sapiAccount, list) : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048609, this, sapiCallBack, str)) == null) {
+            return this.sapiAccountRepository.getDynamicPwd(sapiCallBack, str);
+        }
+        return invokeLL.booleanValue;
     }
 
-    public void oauth(SapiCallback<OAuthResult> sapiCallback, String str, String str2) {
+    public boolean isStokenExist(String str, List list) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048647, this, sapiCallback, str, str2) == null) {
-            this.sapiAccountRepository.oauth(sapiCallback, str, str2, null);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048644, this, str, list)) == null) {
+            return this.sapiAccountRepository.isStokenExist(str, list);
         }
+        return invokeLL.booleanValue;
+    }
+
+    public String getUniteVerifyUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new PassNameValuePair("adapter", "3"));
+            return this.sapiAccountRepository.getUniteVerifyUrl() + "?" + getRequestParams() + "&" + SapiUtils.createRequestParams(arrayList);
+        }
+        return (String) invokeV.objValue;
     }
 
     public void preGetPhoneInfo(Context context, String str, int i, boolean z, OneKeyLoginOptCallback oneKeyLoginOptCallback) {
@@ -1012,165 +1153,78 @@ public final class SapiAccountService implements ISAccountService {
         }
     }
 
-    public void web2NativeLogin(Web2NativeLoginCallback web2NativeLoginCallback, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048666, this, web2NativeLoginCallback, z) == null) {
-            this.sapiAccountRepository.web2NativeLogin(web2NativeLoginCallback, z);
-        }
-    }
-
-    public void getUserInfo(String str, String str2, NetCallback netCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048639, this, str, str2, netCallback) == null) {
-            this.sapiAccountRepository.getUserInfo(str, str2, "", "", netCallback);
-        }
-    }
-
     @Override // com.baidu.sapi2.service.interfaces.ISAccountService
     public boolean webLogin(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048668, this, context, str)) == null) {
-            if (context == null || TextUtils.isEmpty(str)) {
-                return false;
-            }
-            ArrayList arrayList = new ArrayList();
-            arrayList.add("pp");
-            SapiAccountManager.getInstance().getAccountService().getTplStoken(new GetTplStokenCallback(this, context) { // from class: com.baidu.sapi2.SapiAccountService.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ SapiAccountService this$0;
-                public final /* synthetic */ Context val$context;
+            if (context != null && !TextUtils.isEmpty(str)) {
+                ArrayList arrayList = new ArrayList();
+                arrayList.add("pp");
+                SapiAccountManager.getInstance().getAccountService().getTplStoken(new GetTplStokenCallback(this, context) { // from class: com.baidu.sapi2.SapiAccountService.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ SapiAccountService this$0;
+                    public final /* synthetic */ Context val$context;
 
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, context};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // com.baidu.sapi2.callback.SapiCallback
+                    public void onFailure(GetTplStokenResult getTplStokenResult) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, getTplStokenResult) == null) {
                         }
                     }
-                    this.this$0 = this;
-                    this.val$context = context;
-                }
 
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.sapi2.callback.SapiCallback
-                public void onFailure(GetTplStokenResult getTplStokenResult) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, getTplStokenResult) == null) {
+                    @Override // com.baidu.sapi2.callback.SapiCallback
+                    public void onFinish() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                        }
                     }
-                }
 
-                @Override // com.baidu.sapi2.callback.SapiCallback
-                public void onFinish() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                    @Override // com.baidu.sapi2.callback.SapiCallback
+                    public void onStart() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
+                        }
                     }
-                }
 
-                @Override // com.baidu.sapi2.callback.SapiCallback
-                public void onStart() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, context};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$context = context;
                     }
-                }
 
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.sapi2.callback.SapiCallback
-                public void onSuccess(GetTplStokenResult getTplStokenResult) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048580, this, getTplStokenResult) == null) {
-                        SapiAccountService.asyncStoken2Web(this.val$context, getTplStokenResult.tplStokenMap.get("pp"));
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // com.baidu.sapi2.callback.SapiCallback
+                    public void onSuccess(GetTplStokenResult getTplStokenResult) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048580, this, getTplStokenResult) == null) {
+                            SapiAccountService.asyncStoken2Web(this.val$context, (String) getTplStokenResult.tplStokenMap.get("pp"));
+                        }
                     }
+                }, str, arrayList);
+                SapiAccount accountFromBduss = SapiContext.getInstance().getAccountFromBduss(str);
+                if (accountFromBduss != null) {
+                    return asyncBduss2Web(context, accountFromBduss.bduss, accountFromBduss.ptoken);
                 }
-            }, str, arrayList);
-            SapiAccount accountFromBduss = SapiContext.getInstance().getAccountFromBduss(str);
-            if (accountFromBduss != null) {
-                return asyncBduss2Web(context, accountFromBduss.bduss, accountFromBduss.ptoken);
+                return asyncBduss2Web(context, str, null);
             }
-            return asyncBduss2Web(context, str, null);
+            return false;
         }
         return invokeLL.booleanValue;
-    }
-
-    public void dynamicPwdLogin(DynamicPwdLoginCallback dynamicPwdLoginCallback, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, dynamicPwdLoginCallback, str, str2) == null) {
-            dynamicPwdLogin(dynamicPwdLoginCallback, str, str2, (Map<String, String>) null);
-        }
-    }
-
-    public void getDynamicPwd(GetDynamicPwdCallback getDynamicPwdCallback, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048606, this, getDynamicPwdCallback, str, str2) == null) {
-            getDynamicPwd(getDynamicPwdCallback, str, str2, null);
-        }
-    }
-
-    public void dynamicPwdLogin(DynamicPwdLoginCallback dynamicPwdLoginCallback, String str, String str2, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048582, this, dynamicPwdLoginCallback, str, str2, map) == null) {
-            EnhancedService.getInstance(this.configuration, "9.6.3.3").dynamicPwdLogin(dynamicPwdLoginCallback, str, str2, map);
-        }
-    }
-
-    public void getDynamicPwd(GetDynamicPwdCallback getDynamicPwdCallback, String str, String str2, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048607, this, getDynamicPwdCallback, str, str2, map) == null) {
-            EnhancedService.getInstance(this.configuration, "9.6.3.3").getDynamicPwd(getDynamicPwdCallback, str, str2, map);
-        }
-    }
-
-    public void setPortrait(SetPortraitDTO setPortraitDTO, SetPortraitCallback setPortraitCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048660, this, setPortraitDTO, setPortraitCallback) == null) {
-            new PortraitService(this.configuration, "9.6.3.3").setPortrait(setPortraitDTO, setPortraitCallback);
-        }
-    }
-
-    public void dynamicPwdLogin(DynamicPwdWithAuthCallback dynamicPwdWithAuthCallback, String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{dynamicPwdWithAuthCallback, str, str2, Boolean.valueOf(z)}) == null) {
-            EnhancedService.getInstance(this.configuration, "9.6.3.3").dynamicPwdLogin(dynamicPwdWithAuthCallback, str, str2, z);
-        }
-    }
-
-    public void getDynamicPwd(DynamicPwdWithAuthCallback dynamicPwdWithAuthCallback, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048605, this, dynamicPwdWithAuthCallback, str, z) == null) {
-            EnhancedService.getInstance(this.configuration, "9.6.3.3").getDynamicPwd(dynamicPwdWithAuthCallback, str, z);
-        }
-    }
-
-    @Override // com.baidu.sapi2.service.interfaces.ISAccountService
-    public boolean webLogin(Context context, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048669, this, context, str, str2)) == null) ? webLogin(context, str) : invokeLLL.booleanValue;
-    }
-
-    public String getAuthRequestParams() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new PassNameValuePair("tpl", this.configuration.tpl));
-            arrayList.add(new PassNameValuePair("clientfrom", "native"));
-            arrayList.add(new PassNameValuePair("client", "android"));
-            arrayList.add(new PassNameValuePair("adapter", "3"));
-            arrayList.add(new PassNameValuePair("skin", ""));
-            arrayList.add(new PassNameValuePair("liveAbility", "1"));
-            arrayList.add(new PassNameValuePair("suppcheck", "1"));
-            return SapiUtils.createRequestParams(arrayList);
-        }
-        return (String) invokeV.objValue;
     }
 }

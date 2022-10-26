@@ -12,22 +12,22 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.ArrayDeque;
 /* loaded from: classes8.dex */
-public final class ObservableTakeLast<T> extends AbstractObservableWithUpstream<T, T> {
+public final class ObservableTakeLast extends AbstractObservableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int count;
 
     /* loaded from: classes8.dex */
-    public static final class TakeLastObserver<T> extends ArrayDeque<T> implements Observer<T>, Disposable {
+    public final class TakeLastObserver extends ArrayDeque implements Observer, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7240042530241604978L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer<? super T> actual;
+        public final Observer actual;
         public volatile boolean cancelled;
         public final int count;
         public Disposable s;
 
-        public TakeLastObserver(Observer<? super T> observer, int i) {
+        public TakeLastObserver(Observer observer, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,35 +49,37 @@ public final class ObservableTakeLast<T> extends AbstractObservableWithUpstream<
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.cancelled) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.cancelled) {
+                this.cancelled = true;
+                this.s.dispose();
             }
-            this.cancelled = true;
-            this.s.dispose();
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.cancelled : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.cancelled;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                Observer<? super T> observer = this.actual;
+                Observer observer = this.actual;
                 while (!this.cancelled) {
-                    Object obj = (T) poll();
-                    if (obj == null) {
-                        if (this.cancelled) {
+                    Object poll = poll();
+                    if (poll == null) {
+                        if (!this.cancelled) {
+                            observer.onComplete();
                             return;
                         }
-                        observer.onComplete();
                         return;
                     }
-                    observer.onNext(obj);
+                    observer.onNext(poll);
                 }
             }
         }
@@ -91,13 +93,13 @@ public final class ObservableTakeLast<T> extends AbstractObservableWithUpstream<
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
                 if (this.count == size()) {
                     poll();
                 }
-                offer(t);
+                offer(obj);
             }
         }
 
@@ -112,7 +114,7 @@ public final class ObservableTakeLast<T> extends AbstractObservableWithUpstream<
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableTakeLast(ObservableSource<T> observableSource, int i) {
+    public ObservableTakeLast(ObservableSource observableSource, int i) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -133,7 +135,7 @@ public final class ObservableTakeLast<T> extends AbstractObservableWithUpstream<
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super T> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new TakeLastObserver(observer, this.count));

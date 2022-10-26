@@ -1,8 +1,6 @@
 package com.baidu.searchbox.player.ubc;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -19,7 +17,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class FlowInstanceManager {
     public static /* synthetic */ Interceptable $ic;
-    public static final ConcurrentHashMap<String, Flow> FLOW_FETCHERS;
+    public static final ConcurrentHashMap FLOW_FETCHERS;
     public static final UBCManager UBC_MANAGER;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -36,7 +34,7 @@ public class FlowInstanceManager {
                 return;
             }
         }
-        FLOW_FETCHERS = new ConcurrentHashMap<>();
+        FLOW_FETCHERS = new ConcurrentHashMap();
         UBC_MANAGER = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
     }
 
@@ -54,18 +52,6 @@ public class FlowInstanceManager {
         }
     }
 
-    public static void cancelFlow(@Nullable String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        Flow flow = FLOW_FETCHERS.get(str);
-        if (flow != null) {
-            UBC_MANAGER.flowCancel(flow);
-        }
-        FLOW_FETCHERS.remove(str);
-    }
-
     public static void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
@@ -73,9 +59,21 @@ public class FlowInstanceManager {
         }
     }
 
-    public static void createFlow(@Nullable String str) {
+    public static void cancelFlow(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) || TextUtils.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(65538, null, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        Flow flow = (Flow) FLOW_FETCHERS.get(str);
+        if (flow != null) {
+            UBC_MANAGER.flowCancel(flow);
+        }
+        FLOW_FETCHERS.remove(str);
+    }
+
+    public static void createFlow(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) != null) || TextUtils.isEmpty(str)) {
             return;
         }
         if (hasCreateFlow(str)) {
@@ -87,41 +85,31 @@ public class FlowInstanceManager {
         }
     }
 
-    public static void endFlow(@Nullable String str) {
+    public static void endFlow(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, null, str) == null) || TextUtils.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(65541, null, str) != null) || TextUtils.isEmpty(str)) {
             return;
         }
-        Flow flow = FLOW_FETCHERS.get(str);
+        Flow flow = (Flow) FLOW_FETCHERS.get(str);
         if (flow != null) {
             UBC_MANAGER.flowEnd(flow);
         }
         FLOW_FETCHERS.remove(str);
     }
 
-    public static void endFlowPart(@Nullable String str, @NonNull String str2) {
-        Flow flow;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || (flow = FLOW_FETCHERS.get(str)) == null) {
-            return;
-        }
-        UBC_MANAGER.flowEndSlot(flow, str2);
-    }
-
-    @Nullable
-    public static Flow getFlow(@Nullable String str) {
+    public static Flow getFlow(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return FLOW_FETCHERS.get(str);
+            return (Flow) FLOW_FETCHERS.get(str);
         }
         return (Flow) invokeL.objValue;
     }
 
-    public static boolean hasCreateFlow(@Nullable String str) {
+    public static boolean hasCreateFlow(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
@@ -133,12 +121,20 @@ public class FlowInstanceManager {
         return invokeL.booleanValue;
     }
 
-    public static void setValueAndEndFlow(@Nullable String str, String str2) {
+    public static void endFlowPart(String str, String str2) {
+        Flow flow;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) || TextUtils.isEmpty(str)) {
+        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && (flow = (Flow) FLOW_FETCHERS.get(str)) != null) {
+            UBC_MANAGER.flowEndSlot(flow, str2);
+        }
+    }
+
+    public static void setValueAndEndFlow(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65545, null, str, str2) != null) || TextUtils.isEmpty(str)) {
             return;
         }
-        Flow flow = FLOW_FETCHERS.get(str);
+        Flow flow = (Flow) FLOW_FETCHERS.get(str);
         if (flow != null) {
             UBC_MANAGER.flowSetValueWithDuration(flow, str2);
             UBC_MANAGER.flowEnd(flow);
@@ -146,19 +142,18 @@ public class FlowInstanceManager {
         FLOW_FETCHERS.remove(str);
     }
 
-    public static void startFlowPart(@Nullable String str, @NonNull String str2) {
+    public static void startFlowPart(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) {
             startFlowPart(str, str2, null);
         }
     }
 
-    public static void startFlowPart(@Nullable String str, @NonNull String str2, JSONObject jSONObject) {
+    public static void startFlowPart(String str, String str2, JSONObject jSONObject) {
         Flow flow;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65547, null, str, str2, jSONObject) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || (flow = FLOW_FETCHERS.get(str)) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLLL(65547, null, str, str2, jSONObject) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && (flow = (Flow) FLOW_FETCHERS.get(str)) != null) {
+            UBC_MANAGER.flowStartSlot(flow, str2, jSONObject);
         }
-        UBC_MANAGER.flowStartSlot(flow, str2, jSONObject);
     }
 }

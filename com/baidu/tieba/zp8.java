@@ -1,42 +1,32 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import com.baidu.tieba.tblauncher.MainTabScheduleStrategy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class zp8 implements Comparable<zp8> {
+public class zp8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
-    public zp8() {
+    public static void a(MainTabScheduleStrategy mainTabScheduleStrategy) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeL(65536, null, mainTabScheduleStrategy) == null) {
+            aq8.b(mainTabScheduleStrategy);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(zp8 zp8Var) {
-        InterceptResult invokeL;
+    public static void b(Runnable runnable, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, zp8Var)) == null) ? this.a - zp8Var.a : invokeL.intValue;
+        if (interceptable == null || interceptable.invokeLI(65537, null, runnable, i) == null) {
+            aq8.f(new fq8(runnable, i));
+        }
     }
 
-    public abstract void b();
-
-    public abstract void c();
-
-    public abstract void d();
+    public static void c(View view2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65538, null, view2, i) == null) {
+            aq8.f(new hq8(view2, i));
+        }
+    }
 }

@@ -57,12 +57,18 @@ public final class ProgressStatus {
     public static ProgressStatus valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ProgressStatus) Enum.valueOf(ProgressStatus.class, str) : (ProgressStatus) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (ProgressStatus) Enum.valueOf(ProgressStatus.class, str);
+        }
+        return (ProgressStatus) invokeL.objValue;
     }
 
     public static ProgressStatus[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ProgressStatus[]) a.clone() : (ProgressStatus[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (ProgressStatus[]) a.clone();
+        }
+        return (ProgressStatus[]) invokeV.objValue;
     }
 }

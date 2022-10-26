@@ -23,7 +23,7 @@ public class SpannableClickTextView extends TextView {
     public boolean a;
 
     /* loaded from: classes6.dex */
-    public static class a extends LinkMovementMethod {
+    public class a extends LinkMovementMethod {
         public static /* synthetic */ Interceptable $ic;
         public static a a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,43 +109,6 @@ public class SpannableClickTextView extends TextView {
         }
     }
 
-    @Override // android.widget.TextView, android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            this.a = false;
-            return super.onTouchEvent(motionEvent);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.view.View
-    public boolean performClick() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a) {
-                return true;
-            }
-            return super.performClick();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void setCustomMovementMethod() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            boolean isClickable = isClickable();
-            boolean isLongClickable = isLongClickable();
-            boolean isFocusable = isFocusable();
-            setMovementMethod(a.a());
-            setClickable(isClickable);
-            setLongClickable(isLongClickable);
-            setFocusable(isFocusable);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SpannableClickTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -185,6 +148,43 @@ public class SpannableClickTextView extends TextView {
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
+        }
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            this.a = false;
+            return super.onTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.View
+    public boolean performClick() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a) {
+                return true;
+            }
+            return super.performClick();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void setCustomMovementMethod() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            boolean isClickable = isClickable();
+            boolean isLongClickable = isLongClickable();
+            boolean isFocusable = isFocusable();
+            setMovementMethod(a.a());
+            setClickable(isClickable);
+            setLongClickable(isLongClickable);
+            setFocusable(isFocusable);
         }
     }
 }

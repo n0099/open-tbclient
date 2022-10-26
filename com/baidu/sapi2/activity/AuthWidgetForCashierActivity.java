@@ -69,26 +69,44 @@ public class AuthWidgetForCashierActivity extends BaseActivity {
         }
     }
 
-    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
-            super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0508);
-            this.t = getIntent().getStringExtra("EXTRA_PARAM_AUTH_ID");
-            init();
-            setupViews();
-        }
-    }
-
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void onLeftBtnClick() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onLeftBtnClick();
-            if (this.executeSubClassMethod) {
-                a();
+            if (!this.executeSubClassMethod) {
+                return;
             }
+            a();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
+            SapiWebView sapiWebView = this.sapiWebView;
+            if (sapiWebView != null && sapiWebView.canGoBack()) {
+                this.sapiWebView.goBack();
+                return;
+            }
+            Intent intent = new Intent();
+            intent.putExtra(w, 1);
+            intent.putExtra(x, "用户取消");
+            setResult(102, intent);
+            finish();
+        }
+    }
+
+    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+            super.onCreate(bundle);
+            setContentView(R.layout.obfuscated_res_0x7f0d0505);
+            this.t = getIntent().getStringExtra("EXTRA_PARAM_AUTH_ID");
+            init();
+            setupViews();
         }
     }
 
@@ -123,9 +141,10 @@ public class AuthWidgetForCashierActivity extends BaseActivity {
                 @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
                 public void onBack() {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.a.a();
+                    if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                        return;
                     }
+                    this.a.a();
                 }
             });
             this.sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback(this) { // from class: com.baidu.sapi2.activity.AuthWidgetForCashierActivity.2
@@ -199,6 +218,20 @@ public class AuthWidgetForCashierActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AuthWidgetForCashierActivity a;
 
+                @Override // com.baidu.sapi2.SapiWebView.WebviewClientCallback
+                public void onPageFinished(WebView webView, String str) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webView, str) == null) {
+                    }
+                }
+
+                @Override // com.baidu.sapi2.SapiWebView.WebviewClientCallback
+                public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
+                    }
+                }
+
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
@@ -215,20 +248,6 @@ public class AuthWidgetForCashierActivity extends BaseActivity {
                         }
                     }
                     this.a = this;
-                }
-
-                @Override // com.baidu.sapi2.SapiWebView.WebviewClientCallback
-                public void onPageFinished(WebView webView, String str) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webView, str) == null) {
-                    }
-                }
-
-                @Override // com.baidu.sapi2.SapiWebView.WebviewClientCallback
-                public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
-                    }
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.WebviewClientCallback
@@ -249,23 +268,6 @@ public class AuthWidgetForCashierActivity extends BaseActivity {
             arrayList.add(new PassNameValuePair("isnew", "true"));
             arrayList.add(new PassNameValuePair("authid", this.t));
             this.sapiWebView.loadAuthWidget(arrayList, true);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            SapiWebView sapiWebView = this.sapiWebView;
-            if (sapiWebView != null && sapiWebView.canGoBack()) {
-                this.sapiWebView.goBack();
-                return;
-            }
-            Intent intent = new Intent();
-            intent.putExtra(w, 1);
-            intent.putExtra(x, "用户取消");
-            setResult(102, intent);
-            finish();
         }
     }
 }

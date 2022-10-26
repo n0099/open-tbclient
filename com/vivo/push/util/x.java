@@ -47,18 +47,29 @@ public final class x implements d {
         }
     }
 
-    @Override // com.vivo.push.util.d
-    public final boolean a(Context context) {
-        InterceptResult invokeL;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            if (this.c == null) {
-                this.c = context.getSharedPreferences(b, 0);
-                return true;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SharedPreferences.Editor edit = this.c.edit();
+            if (edit != null) {
+                edit.clear();
+                b.a(edit);
             }
-            return true;
+            p.d(a, "system cache is cleared");
         }
-        return invokeL.booleanValue;
+    }
+
+    @Override // com.vivo.push.util.d
+    public final String a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            String string = this.c.getString(str, str2);
+            String str3 = a;
+            p.d(str3, "getString " + str + " is " + string);
+            return string;
+        }
+        return (String) invokeLL.objValue;
     }
 
     @Override // com.vivo.push.util.d
@@ -77,27 +88,16 @@ public final class x implements d {
     }
 
     @Override // com.vivo.push.util.d
-    public final String a(String str, String str2) {
-        InterceptResult invokeLL;
+    public final boolean a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            String string = this.c.getString(str, str2);
-            String str3 = a;
-            p.d(str3, "getString " + str + " is " + string);
-            return string;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SharedPreferences.Editor edit = this.c.edit();
-            if (edit != null) {
-                edit.clear();
-                b.a(edit);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            if (this.c == null) {
+                this.c = context.getSharedPreferences(b, 0);
+                return true;
             }
-            p.d(a, "system cache is cleared");
+            return true;
         }
+        return invokeL.booleanValue;
     }
 }

@@ -21,8 +21,18 @@ public class TbPageTag implements Parcelable {
     public int tabId;
     public int tabType;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes3.dex */
-    public static class a implements Parcelable.Creator<TbPageTag> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -46,7 +56,10 @@ public class TbPageTag implements Parcelable {
         public TbPageTag createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new TbPageTag(parcel) : (TbPageTag) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new TbPageTag(parcel);
+            }
+            return (TbPageTag) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -55,7 +68,10 @@ public class TbPageTag implements Parcelable {
         public TbPageTag[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new TbPageTag[i] : (TbPageTag[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new TbPageTag[i];
+            }
+            return (TbPageTag[]) invokeI.objValue;
         }
     }
 
@@ -91,37 +107,6 @@ public class TbPageTag implements Parcelable {
         this.sortType = -1;
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "TbPageTag{locatePage='" + this.locatePage + "', sortType=" + this.sortType + ", tabId=" + this.tabId + ", tabType=" + this.tabType + ", isGeneralTab=" + this.isGeneralTab + '}';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
-            parcel.writeString(this.locatePage);
-            parcel.writeInt(this.sortType);
-            parcel.writeInt(this.tabId);
-            parcel.writeInt(this.tabType);
-            parcel.writeInt(this.isGeneralTab);
-        }
-    }
-
     public TbPageTag(Parcel parcel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -143,5 +128,26 @@ public class TbPageTag implements Parcelable {
         this.tabId = parcel.readInt();
         this.tabType = parcel.readInt();
         this.isGeneralTab = parcel.readInt();
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "TbPageTag{locatePage='" + this.locatePage + "', sortType=" + this.sortType + ", tabId=" + this.tabId + ", tabType=" + this.tabType + ", isGeneralTab=" + this.isGeneralTab + '}';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
+            parcel.writeString(this.locatePage);
+            parcel.writeInt(this.sortType);
+            parcel.writeInt(this.tabId);
+            parcel.writeInt(this.tabType);
+            parcel.writeInt(this.isGeneralTab);
+        }
     }
 }

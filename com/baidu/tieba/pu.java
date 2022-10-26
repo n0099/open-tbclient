@@ -1,11 +1,7 @@
 package com.baidu.tieba;
-
-import com.baidu.bdtask.utils.UniqueId;
 /* loaded from: classes5.dex */
-public interface pu {
-    void a(String str);
+public interface pu extends qr {
+    qu d();
 
-    void b(String str, UniqueId uniqueId);
-
-    void c(String str, String str2);
+    yu f();
 }

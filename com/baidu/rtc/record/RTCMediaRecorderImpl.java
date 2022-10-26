@@ -2,10 +2,9 @@ package com.baidu.rtc.record;
 
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.rtc.RemoteAudioSamplesInterceptor;
-import com.baidu.tieba.xw9;
+import com.baidu.tieba.px9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,6 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.IOException;
+import org.webrtc.EglBase;
 import org.webrtc.VideoTrack;
 /* loaded from: classes2.dex */
 public class RTCMediaRecorderImpl implements IMediaRecord {
@@ -24,7 +24,7 @@ public class RTCMediaRecorderImpl implements IMediaRecord {
     public RTCVideoFileRenderer videoFileRenderer;
     public final VideoTrack videoTrack;
 
-    public RTCMediaRecorderImpl(@Nullable VideoTrack videoTrack, @Nullable RemoteAudioSamplesInterceptor remoteAudioSamplesInterceptor) {
+    public RTCMediaRecorderImpl(VideoTrack videoTrack, RemoteAudioSamplesInterceptor remoteAudioSamplesInterceptor) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,7 +47,10 @@ public class RTCMediaRecorderImpl implements IMediaRecord {
     public boolean isRecording() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.isRunning : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.isRunning;
+        }
+        return invokeV.booleanValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:46:0x009a, code lost:
@@ -58,6 +61,7 @@ public class RTCMediaRecorderImpl implements IMediaRecord {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized void startRecording(String str, MediaEncodeParams mediaEncodeParams, RecorderCallback recorderCallback) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, mediaEncodeParams, recorderCallback) == null) {
             synchronized (this) {
@@ -84,7 +88,15 @@ public class RTCMediaRecorderImpl implements IMediaRecord {
                                 return;
                             }
                         }
-                        RTCVideoFileRenderer rTCVideoFileRenderer = new RTCVideoFileRenderer(file.getAbsolutePath(), mediaEncodeParams, xw9.a().getEglBaseContext(), this.audioInterceptor != null, recorderCallback);
+                        MediaEncodeParams mediaEncodeParams2 = mediaEncodeParams;
+                        String absolutePath = file.getAbsolutePath();
+                        EglBase.Context eglBaseContext = px9.a().getEglBaseContext();
+                        if (this.audioInterceptor != null) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        RTCVideoFileRenderer rTCVideoFileRenderer = new RTCVideoFileRenderer(absolutePath, mediaEncodeParams2, eglBaseContext, z, recorderCallback);
                         this.videoFileRenderer = rTCVideoFileRenderer;
                         this.videoTrack.addSink(rTCVideoFileRenderer);
                         if (this.audioInterceptor != null) {
@@ -111,17 +123,18 @@ public class RTCMediaRecorderImpl implements IMediaRecord {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                if (this.isRunning) {
-                    if (this.audioInterceptor != null) {
-                        this.audioInterceptor.detachCallback();
-                    }
-                    if (this.videoTrack != null && this.videoFileRenderer != null) {
-                        this.videoTrack.removeSink(this.videoFileRenderer);
-                        this.videoFileRenderer.release();
-                        this.videoFileRenderer = null;
-                    }
-                    this.isRunning = false;
+                if (!this.isRunning) {
+                    return;
                 }
+                if (this.audioInterceptor != null) {
+                    this.audioInterceptor.detachCallback();
+                }
+                if (this.videoTrack != null && this.videoFileRenderer != null) {
+                    this.videoTrack.removeSink(this.videoFileRenderer);
+                    this.videoFileRenderer.release();
+                    this.videoFileRenderer = null;
+                }
+                this.isRunning = false;
             }
         }
     }

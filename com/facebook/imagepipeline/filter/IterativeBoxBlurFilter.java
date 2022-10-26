@@ -15,6 +15,12 @@ public abstract class IterativeBoxBlurFilter {
     public static final String TAG = "IterativeBoxBlurFilter";
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static int bound(int i, int i2, int i3) {
+        InterceptResult invokeIII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(65537, null, i, i2, i3)) == null) ? i < i2 ? i2 : i > i3 ? i3 : i : invokeIII.intValue;
+    }
+
     public IterativeBoxBlurFilter() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -29,21 +35,39 @@ public abstract class IterativeBoxBlurFilter {
         }
     }
 
-    public static int bound(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(65537, null, i, i2, i3)) == null) ? i < i2 ? i2 : i > i3 ? i3 : i : invokeIII.intValue;
-    }
-
     public static void boxBlurBitmapInPlace(Bitmap bitmap, int i, int i2) {
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(65538, null, bitmap, i, i2) == null) {
             Preconditions.checkNotNull(bitmap);
             Preconditions.checkArgument(bitmap.isMutable());
-            Preconditions.checkArgument(((float) bitmap.getHeight()) <= 2048.0f);
-            Preconditions.checkArgument(((float) bitmap.getWidth()) <= 2048.0f);
-            Preconditions.checkArgument(i2 > 0 && i2 <= 25);
-            Preconditions.checkArgument(i > 0);
+            if (bitmap.getHeight() <= 2048.0f) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Preconditions.checkArgument(z);
+            if (bitmap.getWidth() <= 2048.0f) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            Preconditions.checkArgument(z2);
+            if (i2 > 0 && i2 <= 25) {
+                z3 = true;
+            } else {
+                z3 = false;
+            }
+            Preconditions.checkArgument(z3);
+            if (i > 0) {
+                z4 = true;
+            } else {
+                z4 = false;
+            }
+            Preconditions.checkArgument(z4);
             try {
                 fastBoxBlur(bitmap, i, i2);
             } catch (OutOfMemoryError e) {

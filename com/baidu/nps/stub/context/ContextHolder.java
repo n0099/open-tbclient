@@ -13,6 +13,8 @@ public abstract class ContextHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract String getPackageName();
+
     public ContextHolder() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -32,10 +34,11 @@ public abstract class ContextHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Application applicationContext = com.baidu.nps.utils.ContextHolder.getApplicationContext();
-            return TextUtils.isEmpty(getPackageName()) ? applicationContext : new NPSApplication(applicationContext, getPackageName());
+            if (TextUtils.isEmpty(getPackageName())) {
+                return applicationContext;
+            }
+            return new NPSApplication(applicationContext, getPackageName());
         }
         return (Application) invokeV.objValue;
     }
-
-    public abstract String getPackageName();
 }

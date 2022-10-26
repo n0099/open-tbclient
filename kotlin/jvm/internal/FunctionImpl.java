@@ -31,6 +31,14 @@ import kotlin.jvm.functions.Function9;
 @Deprecated
 /* loaded from: classes8.dex */
 public abstract class FunctionImpl implements Function, Serializable, Function0, Function1, Function2, Function3, Function4, Function5, Function6, Function7, Function8, Function9, Function10, Function11, Function12, Function13, Function14, Function15, Function16, Function17, Function18, Function19, Function20, Function21, Function22 {
+    public abstract int getArity();
+
+    @Override // kotlin.jvm.functions.Function0
+    public Object invoke() {
+        checkArity(0);
+        return invokeVararg(new Object[0]);
+    }
+
     private void checkArity(int i) {
         if (getArity() != i) {
             throwWrongArity(i);
@@ -41,22 +49,14 @@ public abstract class FunctionImpl implements Function, Serializable, Function0,
         throw new IllegalStateException("Wrong function arity, expected: " + i + ", actual: " + getArity());
     }
 
-    public abstract int getArity();
-
-    @Override // kotlin.jvm.functions.Function0
-    public Object invoke() {
-        checkArity(0);
-        return invokeVararg(new Object[0]);
-    }
-
-    public Object invokeVararg(Object... objArr) {
-        throw new UnsupportedOperationException();
-    }
-
     @Override // kotlin.jvm.functions.Function1
     public Object invoke(Object obj) {
         checkArity(1);
         return invokeVararg(obj);
+    }
+
+    public Object invokeVararg(Object... objArr) {
+        throw new UnsupportedOperationException();
     }
 
     @Override // kotlin.jvm.functions.Function2

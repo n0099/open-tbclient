@@ -42,6 +42,11 @@ public class LogInterceptor implements Interceptor {
     public final Logger logger;
 
     /* loaded from: classes2.dex */
+    public interface Logger {
+        void log(String str);
+    }
+
+    /* loaded from: classes2.dex */
     public class DefaultLogger implements Logger {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,10 +69,9 @@ public class LogInterceptor implements Interceptor {
                 }
             }
             this.this$0 = logInterceptor;
-            if (TextUtils.isEmpty(str)) {
-                return;
+            if (!TextUtils.isEmpty(str)) {
+                this.tag = str;
             }
-            this.tag = str;
         }
 
         @Override // com.baidu.searchbox.http.interceptor.LogInterceptor.Logger
@@ -81,7 +85,7 @@ public class LogInterceptor implements Interceptor {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class Level {
+    public final class Level {
         public static final /* synthetic */ Level[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Level BASIC;
@@ -133,19 +137,20 @@ public class LogInterceptor implements Interceptor {
         public static Level valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Level) Enum.valueOf(Level.class, str) : (Level) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Level) Enum.valueOf(Level.class, str);
+            }
+            return (Level) invokeL.objValue;
         }
 
         public static Level[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Level[]) $VALUES.clone() : (Level[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Level[]) $VALUES.clone();
+            }
+            return (Level[]) invokeV.objValue;
         }
-    }
-
-    /* loaded from: classes2.dex */
-    public interface Logger {
-        void log(String str);
     }
 
     static {
@@ -162,6 +167,30 @@ public class LogInterceptor implements Interceptor {
             }
         }
         UTF8 = Charset.forName("UTF-8");
+    }
+
+    public LogInterceptor(Logger logger, String str, Level level) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {logger, str, level};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.level = Level.NONE;
+        if (logger != null) {
+            this.logger = logger;
+        } else {
+            this.logger = new DefaultLogger(this, str);
+        }
+        this.level = level;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -185,29 +214,67 @@ public class LogInterceptor implements Interceptor {
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public LogInterceptor(String str, Level level) {
+        this(null, str, level);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, level};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Logger) objArr2[0], (String) objArr2[1], (Level) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+    }
+
     private boolean bodyEncoded(Headers headers) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, headers)) == null) {
             String str = headers.get("Content-Encoding");
-            return (str == null || str.equalsIgnoreCase("identity")) ? false : true;
+            if (str != null && !str.equalsIgnoreCase("identity")) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
 
+    public void setLevel(Level level) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, level) == null) {
+            this.level = level;
+        }
+    }
+
     public static boolean isPlaintext(Buffer buffer) throws EOFException {
         InterceptResult invokeL;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, buffer)) == null) {
             try {
                 Buffer buffer2 = new Buffer();
-                buffer.copyTo(buffer2, 0L, buffer.size() < 64 ? buffer.size() : 64L);
+                if (buffer.size() < 64) {
+                    j = buffer.size();
+                } else {
+                    j = 64;
+                }
+                buffer.copyTo(buffer2, 0L, j);
                 for (int i = 0; i < 16; i++) {
-                    if (buffer2.exhausted()) {
+                    if (!buffer2.exhausted()) {
+                        if (Character.isISOControl(buffer2.readUtf8CodePoint())) {
+                            return false;
+                        }
+                    } else {
                         return true;
-                    }
-                    if (Character.isISOControl(buffer2.readUtf8CodePoint())) {
-                        return false;
                     }
                 }
                 return true;
@@ -222,24 +289,45 @@ public class LogInterceptor implements Interceptor {
     public Response intercept(Interceptor.Chain chain) throws IOException {
         InterceptResult invokeL;
         boolean z;
-        Headers headers;
         boolean z2;
+        Protocol protocol;
+        boolean z3;
+        String str;
+        String str2;
+        Headers headers;
+        boolean z4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chain)) == null) {
             Level level = this.level;
             Request request = chain.request();
             if (level != null && level != Level.NONE) {
-                boolean z3 = level == Level.BODY;
-                boolean z4 = z3 || level == Level.HEADERS;
-                RequestBody body = request.body();
-                boolean z5 = body != null;
-                Connection connection = chain.connection();
-                String str = "--> " + request.method() + WebvttCueParser.CHAR_SPACE + request.url() + WebvttCueParser.CHAR_SPACE + (connection != null ? connection.protocol() : Protocol.HTTP_1_1);
-                if (!z4 && z5) {
-                    str = str + " (" + body.contentLength() + "-byte body)";
+                boolean z5 = true;
+                if (level == Level.BODY) {
+                    z = true;
+                } else {
+                    z = false;
                 }
-                this.logger.log(str);
-                if (z4) {
+                if (!z && level != Level.HEADERS) {
+                    z2 = false;
+                } else {
+                    z2 = true;
+                }
+                RequestBody body = request.body();
+                if (body == null) {
+                    z5 = false;
+                }
+                Connection connection = chain.connection();
+                if (connection != null) {
+                    protocol = connection.protocol();
+                } else {
+                    protocol = Protocol.HTTP_1_1;
+                }
+                String str3 = "--> " + request.method() + WebvttCueParser.CHAR_SPACE + request.url() + WebvttCueParser.CHAR_SPACE + protocol;
+                if (!z2 && z5) {
+                    str3 = str3 + " (" + body.contentLength() + "-byte body)";
+                }
+                this.logger.log(str3);
+                if (z2) {
                     if (z5) {
                         if (body.contentType() != null) {
                             this.logger.log(Part.CONTENT_TYPE + body.contentType());
@@ -254,18 +342,18 @@ public class LogInterceptor implements Interceptor {
                     while (i < size) {
                         String name = headers2.name(i);
                         int i2 = size;
-                        if ("Content-Type".equalsIgnoreCase(name) || "Content-Length".equalsIgnoreCase(name)) {
-                            z2 = z4;
-                        } else {
-                            z2 = z4;
+                        if (!"Content-Type".equalsIgnoreCase(name) && !"Content-Length".equalsIgnoreCase(name)) {
+                            z4 = z2;
                             this.logger.log(name + ": " + headers2.value(i));
+                        } else {
+                            z4 = z2;
                         }
                         i++;
                         size = i2;
-                        z4 = z2;
+                        z2 = z4;
                     }
-                    z = z4;
-                    if (z3 && z5) {
+                    z3 = z2;
+                    if (z && z5) {
                         if (bodyEncoded(request.headers())) {
                             this.logger.log("--> END " + request.method() + " (encoded body omitted)");
                         } else {
@@ -288,14 +376,18 @@ public class LogInterceptor implements Interceptor {
                         this.logger.log("--> END " + request.method());
                     }
                 } else {
-                    z = z4;
+                    z3 = z2;
                 }
                 long nanoTime = System.nanoTime();
                 Response proceed = chain.proceed(request);
                 long millis = TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - nanoTime);
                 ResponseBody body2 = proceed.body();
                 long contentLength = body2.contentLength();
-                String str2 = contentLength != -1 ? contentLength + "-byte" : "unknown-length";
+                if (contentLength != -1) {
+                    str = contentLength + "-byte";
+                } else {
+                    str = "unknown-length";
+                }
                 Logger logger = this.logger;
                 StringBuilder sb = new StringBuilder();
                 sb.append("<-- ");
@@ -307,15 +399,20 @@ public class LogInterceptor implements Interceptor {
                 sb.append(" (");
                 sb.append(millis);
                 sb.append("ms");
-                sb.append(z ? "" : StringUtil.ARRAY_ELEMENT_SEPARATOR + str2 + " body");
+                if (z3) {
+                    str2 = "";
+                } else {
+                    str2 = StringUtil.ARRAY_ELEMENT_SEPARATOR + str + " body";
+                }
+                sb.append(str2);
                 sb.append(')');
                 logger.log(sb.toString());
-                if (z) {
+                if (z3) {
                     int size2 = proceed.headers().size();
                     for (int i3 = 0; i3 < size2; i3++) {
                         this.logger.log(headers.name(i3) + ": " + headers.value(i3));
                     }
-                    if (z3 && HttpHeaders.hasBody(proceed)) {
+                    if (z && HttpHeaders.hasBody(proceed)) {
                         if (bodyEncoded(proceed.headers())) {
                             this.logger.log("<-- END HTTP (encoded body omitted)");
                         } else {
@@ -354,57 +451,5 @@ public class LogInterceptor implements Interceptor {
             return chain.proceed(request);
         }
         return (Response) invokeL.objValue;
-    }
-
-    public void setLevel(Level level) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, level) == null) {
-            this.level = level;
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LogInterceptor(String str, Level level) {
-        this(null, str, level);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, level};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Logger) objArr2[0], (String) objArr2[1], (Level) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public LogInterceptor(Logger logger, String str, Level level) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {logger, str, level};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.level = Level.NONE;
-        if (logger != null) {
-            this.logger = logger;
-        } else {
-            this.logger = new DefaultLogger(this, str);
-        }
-        this.level = level;
     }
 }

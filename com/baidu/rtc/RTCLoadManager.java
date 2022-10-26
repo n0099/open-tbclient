@@ -5,8 +5,8 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.k10;
 import com.baidu.tieba.l10;
+import com.baidu.tieba.m10;
 import com.baidu.tieba.x;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -27,11 +27,11 @@ public class RTCLoadManager {
     public static final String TAG = "BRTCLoadManager";
     public static RTCLoadManager sInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<LoadListener> mCallbackList;
+    public List mCallbackList;
     public Context mContext;
     public ExecutorService mLoadServer;
     public LoadStatus mLoadStatus;
-    public l10 mSoCallback;
+    public m10 mSoCallback;
 
     /* loaded from: classes2.dex */
     public interface LoadListener {
@@ -44,7 +44,7 @@ public class RTCLoadManager {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class LoadStatus {
+    public final class LoadStatus {
         public static final /* synthetic */ LoadStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final LoadStatus IDLE;
@@ -99,13 +99,19 @@ public class RTCLoadManager {
         public static LoadStatus valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (LoadStatus) Enum.valueOf(LoadStatus.class, str) : (LoadStatus) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (LoadStatus) Enum.valueOf(LoadStatus.class, str);
+            }
+            return (LoadStatus) invokeL.objValue;
         }
 
         public static LoadStatus[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LoadStatus[]) $VALUES.clone() : (LoadStatus[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (LoadStatus[]) $VALUES.clone();
+            }
+            return (LoadStatus[]) invokeV.objValue;
         }
     }
 
@@ -127,7 +133,7 @@ public class RTCLoadManager {
         this.mLoadServer = Executors.newSingleThreadExecutor();
         this.mLoadStatus = LoadStatus.IDLE;
         this.mCallbackList = new ArrayList();
-        this.mSoCallback = new l10.a(this) { // from class: com.baidu.rtc.RTCLoadManager.2
+        this.mSoCallback = new m10.a(this) { // from class: com.baidu.rtc.RTCLoadManager.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ RTCLoadManager this$0;
@@ -150,7 +156,16 @@ public class RTCLoadManager {
                 this.this$0 = this;
             }
 
-            @Override // com.baidu.tieba.l10
+            @Override // com.baidu.tieba.m10.a, com.baidu.tieba.m10
+            public void onDownloadProgress(float f) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null && interceptable2.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) != null) {
+                    return;
+                }
+                this.this$0.callbackProgress(f);
+            }
+
+            @Override // com.baidu.tieba.m10
             public void onDownloadFail(String str, int i3, String str2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, str, i3, str2) == null) {
@@ -161,21 +176,13 @@ public class RTCLoadManager {
                 }
             }
 
-            @Override // com.baidu.tieba.l10.a, com.baidu.tieba.l10
-            public void onDownloadProgress(float f) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
-                    this.this$0.callbackProgress(f);
-                }
-            }
-
-            @Override // com.baidu.tieba.l10
+            @Override // com.baidu.tieba.m10
             public void onDownloadSuccess(String str, String str2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-                    String str3 = k10.k(this.this$0.mContext) + File.separator + "libjingle_peerconnection_so.so";
+                    String str3 = l10.k(this.this$0.mContext) + File.separator + "libjingle_peerconnection_so.so";
                     Log.d(RTCLoadManager.TAG, "RTC so path is: " + str3);
-                    x.k(this.this$0.mContext).n(k10.k(this.this$0.mContext));
+                    x.k(this.this$0.mContext).n(l10.k(this.this$0.mContext));
                     try {
                         System.load(str3);
                         this.this$0.mLoadStatus = LoadStatus.LOAD_COMPLETED;
@@ -195,33 +202,27 @@ public class RTCLoadManager {
     /* JADX INFO: Access modifiers changed from: private */
     public void callbackFail(int i, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(65542, this, i, str) == null) || this.mCallbackList == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeIL(65542, this, i, str) == null) && this.mCallbackList != null) {
+            for (int i2 = 0; i2 < this.mCallbackList.size(); i2++) {
+                ((LoadListener) this.mCallbackList.get(i2)).onLoadError(i, str);
+            }
         }
-        for (int i2 = 0; i2 < this.mCallbackList.size(); i2++) {
-            this.mCallbackList.get(i2).onLoadError(i, str);
+    }
+
+    public void loadLibraries(String str, LoadListener loadListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, loadListener) == null) {
+            loadLibraries(null, str, loadListener);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void callbackProgress(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(65543, this, f) == null) || this.mCallbackList == null) {
-            return;
-        }
-        for (int i = 0; i < this.mCallbackList.size(); i++) {
-            this.mCallbackList.get(i).onLoadProgress(f);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void callbackSuccess() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || this.mCallbackList == null) {
-            return;
-        }
-        for (int i = 0; i < this.mCallbackList.size(); i++) {
-            this.mCallbackList.get(i).onLoadSuccess();
+        if ((interceptable == null || interceptable.invokeF(65543, this, f) == null) && this.mCallbackList != null) {
+            for (int i = 0; i < this.mCallbackList.size(); i++) {
+                ((LoadListener) this.mCallbackList.get(i)).onLoadProgress(f);
+            }
         }
     }
 
@@ -241,19 +242,54 @@ public class RTCLoadManager {
         return (RTCLoadManager) invokeL.objValue;
     }
 
-    public void clearCallback() {
-        List<LoadListener> list;
+    public void registerCallback(LoadListener loadListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (list = this.mCallbackList) == null || list.size() < 1) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, loadListener) != null) || loadListener == null) {
             return;
         }
-        this.mCallbackList.clear();
+        List list = this.mCallbackList;
+        if (list == null) {
+            ArrayList arrayList = new ArrayList();
+            this.mCallbackList = arrayList;
+            arrayList.add(loadListener);
+        } else if (!list.contains(loadListener)) {
+            this.mCallbackList.add(loadListener);
+        }
+    }
+
+    public void unregisterCallback(LoadListener loadListener) {
+        List list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, loadListener) == null) && (list = this.mCallbackList) != null && list.size() >= 1) {
+            this.mCallbackList.remove(loadListener);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void callbackSuccess() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65544, this) == null) && this.mCallbackList != null) {
+            for (int i = 0; i < this.mCallbackList.size(); i++) {
+                ((LoadListener) this.mCallbackList.get(i)).onLoadSuccess();
+            }
+        }
+    }
+
+    public void clearCallback() {
+        List list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (list = this.mCallbackList) != null && list.size() >= 1) {
+            this.mCallbackList.clear();
+        }
     }
 
     public LoadStatus getLoadStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mLoadStatus : (LoadStatus) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mLoadStatus;
+        }
+        return (LoadStatus) invokeV.objValue;
     }
 
     public synchronized boolean isLoadCompleted() {
@@ -262,34 +298,15 @@ public class RTCLoadManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
-                z = this.mLoadStatus == LoadStatus.LOAD_COMPLETED;
+                if (this.mLoadStatus == LoadStatus.LOAD_COMPLETED) {
+                    z = true;
+                } else {
+                    z = false;
+                }
             }
             return z;
         }
         return invokeV.booleanValue;
-    }
-
-    public void loadLibraries(String str, LoadListener loadListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, loadListener) == null) {
-            loadLibraries(null, str, loadListener);
-        }
-    }
-
-    public void registerCallback(LoadListener loadListener) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, loadListener) == null) || loadListener == null) {
-            return;
-        }
-        List<LoadListener> list = this.mCallbackList;
-        if (list == null) {
-            ArrayList arrayList = new ArrayList();
-            this.mCallbackList = arrayList;
-            arrayList.add(loadListener);
-        } else if (list.contains(loadListener)) {
-        } else {
-            this.mCallbackList.add(loadListener);
-        }
     }
 
     public void release() {
@@ -307,87 +324,77 @@ public class RTCLoadManager {
         }
     }
 
+    public synchronized void loadLibraries(String str, String str2, LoadListener loadListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, loadListener) == null) {
+            synchronized (this) {
+                registerCallback(loadListener);
+                if (this.mLoadStatus != LoadStatus.IDLE && this.mLoadStatus != LoadStatus.LOAD_FAILED) {
+                    Log.d(TAG, "Rtc library has loaded.");
+                    return;
+                }
+                this.mLoadStatus = LoadStatus.LIBRARY_LOADING;
+                try {
+                    System.loadLibrary(JINGLE_LIB_NAME);
+                    this.mLoadStatus = LoadStatus.LOAD_COMPLETED;
+                    callbackSuccess();
+                    Log.d(TAG, "Loaded default so in aar.");
+                } catch (UnsatisfiedLinkError e) {
+                    Log.d(TAG, "Load default so fail " + e.getMessage());
+                    if (this.mLoadServer == null || this.mLoadServer.isShutdown()) {
+                        this.mLoadServer = Executors.newSingleThreadExecutor();
+                    }
+                    this.mLoadServer.submit(new Runnable(this, str, str2) { // from class: com.baidu.rtc.RTCLoadManager.1
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ RTCLoadManager this$0;
+                        public final /* synthetic */ String val$cpuType;
+                        public final /* synthetic */ String val$soLaterLoadUrl;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this, str, str2};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.this$0 = this;
+                            this.val$soLaterLoadUrl = str;
+                            this.val$cpuType = str2;
+                        }
+
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                this.this$0.setupSoLaterLoad(this.val$soLaterLoadUrl, this.val$cpuType);
+                            }
+                        }
+                    });
+                }
+            }
+        }
+    }
+
     public void setupSoLaterLoad(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
             Log.d(TAG, "setup so later loading feature cpu type: " + str2);
             x.k(this.mContext).p(str2);
             if (TextUtils.isEmpty(str)) {
-                x.k(this.mContext).j(k10.j(), true, this.mSoCallback);
+                x.k(this.mContext).j(l10.j(), true, this.mSoCallback);
                 return;
             }
             Log.d(TAG, "setup so later load url: " + str);
             x.k(this.mContext).j(str, true, this.mSoCallback);
-        }
-    }
-
-    public void unregisterCallback(LoadListener loadListener) {
-        List<LoadListener> list;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, loadListener) == null) || (list = this.mCallbackList) == null || list.size() < 1) {
-            return;
-        }
-        this.mCallbackList.remove(loadListener);
-    }
-
-    public synchronized void loadLibraries(String str, String str2, LoadListener loadListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLLL(1048580, this, str, str2, loadListener) != null) {
-            return;
-        }
-        synchronized (this) {
-            registerCallback(loadListener);
-            if (this.mLoadStatus != LoadStatus.IDLE && this.mLoadStatus != LoadStatus.LOAD_FAILED) {
-                Log.d(TAG, "Rtc library has loaded.");
-                return;
-            }
-            this.mLoadStatus = LoadStatus.LIBRARY_LOADING;
-            try {
-                System.loadLibrary(JINGLE_LIB_NAME);
-                this.mLoadStatus = LoadStatus.LOAD_COMPLETED;
-                callbackSuccess();
-                Log.d(TAG, "Loaded default so in aar.");
-            } catch (UnsatisfiedLinkError e) {
-                Log.d(TAG, "Load default so fail " + e.getMessage());
-                if (this.mLoadServer == null || this.mLoadServer.isShutdown()) {
-                    this.mLoadServer = Executors.newSingleThreadExecutor();
-                }
-                this.mLoadServer.submit(new Runnable(this, str, str2) { // from class: com.baidu.rtc.RTCLoadManager.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ RTCLoadManager this$0;
-                    public final /* synthetic */ String val$cpuType;
-                    public final /* synthetic */ String val$soLaterLoadUrl;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, str, str2};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$soLaterLoadUrl = str;
-                        this.val$cpuType = str2;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.this$0.setupSoLaterLoad(this.val$soLaterLoadUrl, this.val$cpuType);
-                        }
-                    }
-                });
-            }
         }
     }
 }

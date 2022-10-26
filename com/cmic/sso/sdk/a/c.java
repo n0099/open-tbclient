@@ -1,6 +1,5 @@
 package com.cmic.sso.sdk.a;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -15,7 +14,6 @@ import com.cmic.sso.sdk.e.k;
 /* loaded from: classes7.dex */
 public class c implements b.a {
     public static /* synthetic */ Interceptable $ic;
-    @SuppressLint({"StaticFieldLeak"})
     public static c a;
     public transient /* synthetic */ FieldHolder $fh;
     public a b;

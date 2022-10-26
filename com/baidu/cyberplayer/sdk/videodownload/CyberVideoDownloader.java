@@ -1,20 +1,17 @@
 package com.baidu.cyberplayer.sdk.videodownload;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.d;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Keep
 /* loaded from: classes2.dex */
 public class CyberVideoDownloader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Keep
     /* loaded from: classes2.dex */
     public class DMDownloadError {
         public static /* synthetic */ Interceptable $ic = null;
@@ -34,7 +31,6 @@ public class CyberVideoDownloader {
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    @Keep
     /* loaded from: classes2.dex */
     public interface DownloadListener {
         void onDataTransfer(String str, VideoDownloadBean videoDownloadBean);
@@ -42,7 +38,6 @@ public class CyberVideoDownloader {
         void operationCallback(String str, int i, int i2);
     }
 
-    @Keep
     /* loaded from: classes2.dex */
     public class DownloadOperation {
         public static /* synthetic */ Interceptable $ic;
@@ -69,7 +64,6 @@ public class CyberVideoDownloader {
         }
     }
 
-    @Keep
     /* loaded from: classes2.dex */
     public class DownloadSubStatus {
         public static /* synthetic */ Interceptable $ic = null;
@@ -97,7 +91,6 @@ public class CyberVideoDownloader {
         }
     }
 
-    @Keep
     /* loaded from: classes2.dex */
     public class DownloadTaskStatus {
         public static /* synthetic */ Interceptable $ic = null;

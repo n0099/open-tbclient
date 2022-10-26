@@ -25,7 +25,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 public class Logger {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_SERVER = "http://nsclick.baidu.com/v.gif";
-    public static final HashSet<Integer> LOG_TIMES;
+    public static final HashSet LOG_TIMES;
     public static final long ONE_SECOND = 1000;
     public static ActivityManager activityManager;
     public static Runnable checkThread;
@@ -49,7 +49,7 @@ public class Logger {
                 return;
             }
         }
-        HashSet<Integer> hashSet = new HashSet<>();
+        HashSet hashSet = new HashSet();
         LOG_TIMES = hashSet;
         hashSet.add(2);
         LOG_TIMES.add(6);
@@ -74,6 +74,79 @@ public class Logger {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
+        }
+    }
+
+    public static void onCallUp() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
+            lastCallTime = Util.getTime();
+        }
+    }
+
+    public static String encode(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            try {
+                return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void onClientBoot(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65544, null, context) == null) && lastStartTime < 1) {
+            lastStartTime = Util.getTime();
+            recordCustomAction(context, "appstart");
+            checkOnForeground(context.getApplicationContext());
+        }
+    }
+
+    public static void reportWithUrl(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65551, null, str) == null) {
+            pool.execute(new Thread(str) { // from class: com.baidu.appsearchlib.Logger.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ String val$url;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {str};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.val$url = str;
+                }
+
+                @Override // java.lang.Thread, java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        try {
+                            new DefaultHttpClient().execute(new HttpGet(this.val$url));
+                        } catch (ClientProtocolException e) {
+                            e.printStackTrace();
+                        } catch (IOException e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+                }
+            });
         }
     }
 
@@ -140,20 +213,6 @@ public class Logger {
         }
     }
 
-    public static String encode(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            try {
-                return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
     public static boolean isAppOnForeground() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -183,23 +242,6 @@ public class Logger {
         }
     }
 
-    public static void onCallUp() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            lastCallTime = Util.getTime();
-        }
-    }
-
-    public static void onClientBoot(Context context) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65544, null, context) == null) || lastStartTime >= 1) {
-            return;
-        }
-        lastStartTime = Util.getTime();
-        recordCustomAction(context, "appstart");
-        checkOnForeground(context.getApplicationContext());
-    }
-
     public static void onClientExit(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
@@ -227,17 +269,17 @@ public class Logger {
         }
     }
 
-    public static void recordCustomAction(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, null, context, str) == null) {
-            recordClientAction(context, "%s=%s", Info.kBaiduClientActionKey, str);
-        }
-    }
-
     public static void recordServerAction(Context context, String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65549, null, context, str, objArr) == null) {
             recordAction(context, "&%s=%s&%s", Info.kBaiduActionType, Info.kBaiduServerActionKey, String.format(str, objArr));
+        }
+    }
+
+    public static void recordCustomAction(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65548, null, context, str) == null) {
+            recordClientAction(context, "%s=%s", Info.kBaiduClientActionKey, str);
         }
     }
 
@@ -251,49 +293,6 @@ public class Logger {
             StringBuilder sb2 = new StringBuilder(String.valueOf(String.valueOf(sb.toString()) + "&vcode2="));
             sb2.append(Md5Util.getMd5(String.valueOf(timeStr) + encode + Info.PASSWORD + str));
             reportWithUrl(sb2.toString());
-        }
-    }
-
-    public static void reportWithUrl(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65551, null, str) == null) {
-            pool.execute(new Thread(str) { // from class: com.baidu.appsearchlib.Logger.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ String val$url;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {str};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.val$url = str;
-                }
-
-                @Override // java.lang.Thread, java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        try {
-                            new DefaultHttpClient().execute(new HttpGet(this.val$url));
-                        } catch (ClientProtocolException e) {
-                            e.printStackTrace();
-                        } catch (IOException e2) {
-                            e2.printStackTrace();
-                        }
-                    }
-                }
-            });
         }
     }
 }

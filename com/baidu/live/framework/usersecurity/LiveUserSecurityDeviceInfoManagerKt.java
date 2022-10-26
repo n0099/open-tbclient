@@ -21,6 +21,17 @@ public final class LiveUserSecurityDeviceInfoManagerKt {
     public static final Lazy b;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static final LiveUserSecurityDeviceInfoService c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            Lazy lazy = b;
+            KProperty kProperty = a[0];
+            return (LiveUserSecurityDeviceInfoService) lazy.getValue();
+        }
+        return (LiveUserSecurityDeviceInfoService) invokeV.objValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -44,7 +55,10 @@ public final class LiveUserSecurityDeviceInfoManagerKt {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             LiveUserSecurityDeviceInfoService c = c();
-            return (c == null || (manufacturer = c.getManufacturer(str)) == null) ? "" : manufacturer;
+            if (c == null || (manufacturer = c.getManufacturer(str)) == null) {
+                return "";
+            }
+            return manufacturer;
         }
         return (String) invokeL.objValue;
     }
@@ -56,20 +70,15 @@ public final class LiveUserSecurityDeviceInfoManagerKt {
         return a(str);
     }
 
-    public static final LiveUserSecurityDeviceInfoService c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            Lazy lazy = b;
-            KProperty kProperty = a[0];
-            return (LiveUserSecurityDeviceInfoService) lazy.getValue();
-        }
-        return (LiveUserSecurityDeviceInfoService) invokeV.objValue;
-    }
-
     public static final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? c() != null : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (c() != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

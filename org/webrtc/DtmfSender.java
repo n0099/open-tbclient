@@ -12,6 +12,16 @@ public class DtmfSender {
     public transient /* synthetic */ FieldHolder $fh;
     public long nativeDtmfSender;
 
+    public static native boolean nativeCanInsertDtmf(long j);
+
+    public static native int nativeDuration(long j);
+
+    public static native boolean nativeInsertDtmf(long j, String str, int i, int i2);
+
+    public static native int nativeInterToneGap(long j);
+
+    public static native String nativeTones(long j);
+
     public DtmfSender(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -32,20 +42,11 @@ public class DtmfSender {
 
     private void checkDtmfSenderExists() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && this.nativeDtmfSender == 0) {
-            throw new IllegalStateException("DtmfSender has been disposed.");
+        if ((interceptable != null && interceptable.invokeV(65537, this) != null) || this.nativeDtmfSender != 0) {
+            return;
         }
+        throw new IllegalStateException("DtmfSender has been disposed.");
     }
-
-    public static native boolean nativeCanInsertDtmf(long j);
-
-    public static native int nativeDuration(long j);
-
-    public static native boolean nativeInsertDtmf(long j, String str, int i, int i2);
-
-    public static native int nativeInterToneGap(long j);
-
-    public static native String nativeTones(long j);
 
     public boolean canInsertDtmf() {
         InterceptResult invokeV;
@@ -76,16 +77,6 @@ public class DtmfSender {
         return invokeV.intValue;
     }
 
-    public boolean insertDtmf(String str, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, str, i, i2)) == null) {
-            checkDtmfSenderExists();
-            return nativeInsertDtmf(this.nativeDtmfSender, str, i, i2);
-        }
-        return invokeLII.booleanValue;
-    }
-
     public int interToneGap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -104,5 +95,15 @@ public class DtmfSender {
             return nativeTones(this.nativeDtmfSender);
         }
         return (String) invokeV.objValue;
+    }
+
+    public boolean insertDtmf(String str, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, str, i, i2)) == null) {
+            checkDtmfSenderExists();
+            return nativeInsertDtmf(this.nativeDtmfSender, str, i, i2);
+        }
+        return invokeLII.booleanValue;
     }
 }

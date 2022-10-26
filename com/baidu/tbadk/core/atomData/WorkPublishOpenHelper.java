@@ -22,7 +22,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.auth.NTLMEngineImpl;
 import com.google.protobuf.CodedInputStream;
 import kotlin.Metadata;
-import kotlin.jvm.JvmField;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0003\u0018\u0000 \u00032\u00020\u0001:\u0001\u0003B\u0005¢\u0006\u0002\u0010\u0002¨\u0006\u0004"}, d2 = {"Lcom/baidu/tbadk/core/atomData/WorkPublishOpenHelper;", "", "()V", "Companion", "tbadkcore_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
@@ -30,17 +29,11 @@ import kotlin.jvm.internal.Intrinsics;
 public final class WorkPublishOpenHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final a Companion;
-    @JvmField
     public static final int OPEN_WORK_PUBLISH_FROM_FRS_VIDEO = 4;
-    @JvmField
     public static final int OPEN_WORK_PUBLISH_FROM_FRS_WRITE = 3;
-    @JvmField
     public static final int OPEN_WORK_PUBLISH_FROM_HOME_VIDEO = 2;
-    @JvmField
     public static final int OPEN_WORK_PUBLISH_FROM_HOME_WRITE = 1;
-    @JvmField
     public static final int OPEN_WORK_PUBLISH_FROM_HOTLIST = 5;
-    @JvmField
     public static final int OPEN_WORK_PUBLISH_FROM_PERSON = 6;
     public static final int draftTypeNodraft = 0;
     public static final int draftTypeNodraftCleandraft = 1;
@@ -48,10 +41,30 @@ public final class WorkPublishOpenHelper {
     public static final int draftTypeWriteData = 3;
     public transient /* synthetic */ FieldHolder $fh;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1484275116, "Lcom/baidu/tbadk/core/atomData/WorkPublishOpenHelper;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1484275116, "Lcom/baidu/tbadk/core/atomData/WorkPublishOpenHelper;");
+                return;
+            }
+        }
+        Companion = new a(null);
+    }
+
     /* loaded from: classes3.dex */
-    public static final class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
 
         public a() {
             Interceptable interceptable = $ic;
@@ -67,8 +80,22 @@ public final class WorkPublishOpenHelper {
             }
         }
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+        public final int a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return WorkPublishOpenHelper.draftTypeUsedraft;
+            }
+            return invokeV.intValue;
+        }
+
+        public final int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return WorkPublishOpenHelper.draftTypeWriteData;
+            }
+            return invokeV.intValue;
         }
 
         public static final void g(IntentConfig config) {
@@ -77,18 +104,6 @@ public final class WorkPublishOpenHelper {
                 Intrinsics.checkNotNullParameter(config, "$config");
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, config));
             }
-        }
-
-        public final int a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? WorkPublishOpenHelper.draftTypeUsedraft : invokeV.intValue;
-        }
-
-        public final int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? WorkPublishOpenHelper.draftTypeWriteData : invokeV.intValue;
         }
 
         public final void c(int i, Context mContext, String str, String str2, String str3, String str4, Integer num, boolean z, String str5, String str6, String str7) {
@@ -173,7 +188,7 @@ public final class WorkPublishOpenHelper {
                 PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
                 permissionJudgePolicy.clearRequestPermissionList();
                 permissionJudgePolicy.appendRequestPermission(activity, "android.permission.WRITE_EXTERNAL_STORAGE");
-                permissionJudgePolicy.setOnPermissionsGrantedListener(new PermissionJudgePolicy.OnPermissionsGrantedListener() { // from class: com.baidu.tieba.pq4
+                permissionJudgePolicy.setOnPermissionsGrantedListener(new PermissionJudgePolicy.OnPermissionsGrantedListener() { // from class: com.baidu.tieba.rq4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -189,22 +204,6 @@ public final class WorkPublishOpenHelper {
             }
             return invokeLL.booleanValue;
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1484275116, "Lcom/baidu/tbadk/core/atomData/WorkPublishOpenHelper;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1484275116, "Lcom/baidu/tbadk/core/atomData/WorkPublishOpenHelper;");
-                return;
-            }
-        }
-        Companion = new a(null);
     }
 
     public WorkPublishOpenHelper() {

@@ -33,6 +33,37 @@ public class BasicCookieStore implements CookieStore {
     }
 
     @Override // org.apache.http.client.CookieStore
+    public synchronized void clear() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                throw new RuntimeException("Stub!");
+            }
+        }
+    }
+
+    @Override // org.apache.http.client.CookieStore
+    public synchronized List getCookies() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this) {
+                throw new RuntimeException("Stub!");
+            }
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // org.apache.http.client.CookieStore
     public synchronized void addCookie(Cookie cookie) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cookie) == null) {
@@ -52,16 +83,6 @@ public class BasicCookieStore implements CookieStore {
     }
 
     @Override // org.apache.http.client.CookieStore
-    public synchronized void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                throw new RuntimeException("Stub!");
-            }
-        }
-    }
-
-    @Override // org.apache.http.client.CookieStore
     public synchronized boolean clearExpired(Date date) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -71,26 +92,5 @@ public class BasicCookieStore implements CookieStore {
             }
         }
         return invokeL.booleanValue;
-    }
-
-    @Override // org.apache.http.client.CookieStore
-    public synchronized List<Cookie> getCookies() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                throw new RuntimeException("Stub!");
-            }
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (String) invokeV.objValue;
     }
 }

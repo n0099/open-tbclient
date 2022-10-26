@@ -9,7 +9,6 @@ import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.net.update.CommandPostData;
 import com.baidu.searchbox.net.update.v2.ActionData;
 import com.baidu.searchbox.net.update.v2.JSONObjectCommandListener;
-import com.baidu.searchbox.net.update.v2.UpdateAction;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +19,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-@UpdateAction(action = UserSettingForceListListener.FORCE_LIST_ACTION, module = "usersetting")
 /* loaded from: classes2.dex */
 public class UserSettingForceListListener extends JSONObjectCommandListener {
     public static /* synthetic */ Interceptable $ic = null;
@@ -90,31 +88,37 @@ public class UserSettingForceListListener extends JSONObjectCommandListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, context, str, str2, commandPostData) == null) {
             String localVersion = getLocalVersion(context, str, str2);
-            if (commandPostData == null || commandPostData.getVersion() == null) {
-                return;
-            }
-            commandPostData.getVersion().put(FORCE_LIST_ACTION, localVersion);
-            if (DEBUG) {
-                Log.d(TAG, "post data version: " + localVersion);
+            if (commandPostData != null && commandPostData.getVersion() != null) {
+                commandPostData.getVersion().put(FORCE_LIST_ACTION, localVersion);
+                if (DEBUG) {
+                    Log.d(TAG, "post data version: " + localVersion);
+                }
             }
         }
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.content.Context, java.lang.String, java.lang.String, com.baidu.searchbox.net.update.v2.ActionData] */
     @Override // com.baidu.searchbox.net.update.v2.AbstractCommandListener
     public boolean executeCommand(Context context, String str, String str2, ActionData<JSONObject> actionData) {
         InterceptResult invokeLLLL;
+        String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, actionData)) == null) {
             if (DEBUG) {
                 Log.d(TAG, "execute command action: " + str2);
             }
-            if (actionData == null || !TextUtils.equals(str2, FORCE_LIST_ACTION)) {
-                return false;
+            if (actionData != null && TextUtils.equals(str2, FORCE_LIST_ACTION)) {
+                Object obj = actionData.data;
+                if (obj == null) {
+                    str3 = "";
+                } else {
+                    str3 = ((JSONObject) obj).toString();
+                }
+                new SharedPrefsWrapper("").putString(FORCE_LIST_DATA_KEY, str3);
+                new SharedPrefsWrapper("").putString(FORCE_LIST_VERSION_KEY, actionData.version);
+                return true;
             }
-            JSONObject jSONObject = actionData.data;
-            new SharedPrefsWrapper("").putString(FORCE_LIST_DATA_KEY, jSONObject != null ? jSONObject.toString() : "");
-            new SharedPrefsWrapper("").putString(FORCE_LIST_VERSION_KEY, actionData.version);
-            return true;
+            return false;
         }
         return invokeLLLL.booleanValue;
     }
@@ -123,6 +127,9 @@ public class UserSettingForceListListener extends JSONObjectCommandListener {
     public String getLocalVersion(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, str2)) == null) ? new SharedPrefsWrapper("").getString(FORCE_LIST_VERSION_KEY, "0") : (String) invokeLLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, str2)) == null) {
+            return new SharedPrefsWrapper("").getString(FORCE_LIST_VERSION_KEY, "0");
+        }
+        return (String) invokeLLL.objValue;
     }
 }

@@ -1,68 +1,50 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.widget.RelativeLayout;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.TabPic;
 /* loaded from: classes5.dex */
-public abstract class os6 {
+public class os6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ts6 a;
-    public Intent b;
-    public int c;
-    public a d;
+    public String a;
+    public int b;
+    public ij6 c;
+    public String d;
+    public int e;
+    public TabPic f;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void onStateChanged(int i);
-    }
-
-    public os6(ts6 ts6Var, Intent intent) {
+    public os6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ts6Var, intent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = 0;
-        this.a = ts6Var;
-        this.b = intent;
-        rs6 c = qs6.d().c(this.b.getStringExtra("info_forum_name_text"));
-        c.b();
-        c.a();
-        if (c.c()) {
-            ((RelativeLayout.LayoutParams) this.a.g.getLayoutParams()).topMargin = ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds_104);
-        }
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public void b(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.d = aVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj != null && (obj instanceof os6)) {
+                os6 os6Var = (os6) obj;
+                if (this.b == os6Var.b && (str = this.a) != null && str.equals(os6Var.a)) {
+                    return true;
+                }
+                return super.equals(obj);
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
-
-    public abstract void c();
-
-    public abstract void d();
 }

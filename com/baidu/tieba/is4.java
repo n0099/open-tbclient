@@ -1,34 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.FrsPage.HeadSdk;
 /* loaded from: classes4.dex */
 public class is4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public long c;
-    public String d;
-    public String e;
-    public int f;
-    public String g;
-    public long h;
-    public long i;
-    public long j;
-    public int k;
-    public int l;
-    public long m;
-    public long n;
-    public String o;
-    public long p;
-    public int q;
-    public int r;
-    public int s;
 
     public is4() {
         Interceptable interceptable = $ic;
@@ -44,15 +24,15 @@ public class is4 {
         }
     }
 
-    public long a() {
-        InterceptResult invokeV;
+    public void a(HeadSdk headSdk) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.j : invokeV.longValue;
-    }
-
-    public long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.longValue;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, headSdk) != null) || headSdk == null) {
+            return;
+        }
+        String str = headSdk.head_pic;
+        String str2 = headSdk.head_text;
+        String str3 = headSdk.sdk_name;
+        String str4 = headSdk.sdk_params;
+        headSdk.head_type.intValue();
     }
 }

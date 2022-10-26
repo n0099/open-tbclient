@@ -25,6 +25,47 @@ public final class TextDirectionHeuristicsCompat {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
+    public interface TextDirectionAlgorithm {
+        int checkRtl(CharSequence charSequence, int i, int i2);
+    }
+
+    public static int isRtlText(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i != 0) {
+                return (i == 1 || i == 2) ? 0 : 2;
+            }
+            return 1;
+        }
+        return invokeI.intValue;
+    }
+
+    public static int isRtlTextOrFormat(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            if (i != 0) {
+                if (i == 1 || i == 2) {
+                    return 0;
+                }
+                switch (i) {
+                    case 14:
+                    case 15:
+                        break;
+                    case 16:
+                    case 17:
+                        return 0;
+                    default:
+                        return 2;
+                }
+            }
+            return 1;
+        }
+        return invokeI.intValue;
+    }
+
+    /* loaded from: classes.dex */
     public static class AnyStrong implements TextDirectionAlgorithm {
         public static /* synthetic */ Interceptable $ic;
         public static final AnyStrong INSTANCE_RTL;
@@ -75,11 +116,13 @@ public final class TextDirectionHeuristicsCompat {
                 while (i < i3) {
                     int isRtlText = TextDirectionHeuristicsCompat.isRtlText(Character.getDirectionality(charSequence.charAt(i)));
                     if (isRtlText != 0) {
-                        if (isRtlText != 1) {
+                        if (isRtlText == 1) {
+                            if (!this.mLookForRtl) {
+                                return 1;
+                            }
+                        } else {
                             continue;
                             i++;
-                        } else if (!this.mLookForRtl) {
-                            return 1;
                         }
                     } else if (this.mLookForRtl) {
                         return 0;
@@ -150,15 +193,12 @@ public final class TextDirectionHeuristicsCompat {
     }
 
     /* loaded from: classes.dex */
-    public interface TextDirectionAlgorithm {
-        int checkRtl(CharSequence charSequence, int i, int i2);
-    }
-
-    /* loaded from: classes.dex */
     public static abstract class TextDirectionHeuristicImpl implements TextDirectionHeuristicCompat {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final TextDirectionAlgorithm mAlgorithm;
+
+        public abstract boolean defaultIsRtl();
 
         public TextDirectionHeuristicImpl(TextDirectionAlgorithm textDirectionAlgorithm) {
             Interceptable interceptable = $ic;
@@ -183,24 +223,15 @@ public final class TextDirectionHeuristicsCompat {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, this, charSequence, i, i2)) == null) {
                 int checkRtl = this.mAlgorithm.checkRtl(charSequence, i, i2);
-                if (checkRtl != 0) {
-                    if (checkRtl != 1) {
-                        return defaultIsRtl();
-                    }
-                    return false;
+                if (checkRtl == 0) {
+                    return true;
                 }
-                return true;
+                if (checkRtl != 1) {
+                    return defaultIsRtl();
+                }
+                return false;
             }
             return invokeLII.booleanValue;
-        }
-
-        public abstract boolean defaultIsRtl();
-
-        @Override // androidx.core.text.TextDirectionHeuristicCompat
-        public boolean isRtl(char[] cArr, int i, int i2) {
-            InterceptResult invokeLII;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, cArr, i, i2)) == null) ? isRtl(CharBuffer.wrap(cArr), i, i2) : invokeLII.booleanValue;
         }
 
         @Override // androidx.core.text.TextDirectionHeuristicCompat
@@ -215,6 +246,16 @@ public final class TextDirectionHeuristicsCompat {
                     return doCheck(charSequence, i, i2);
                 }
                 throw new IllegalArgumentException();
+            }
+            return invokeLII.booleanValue;
+        }
+
+        @Override // androidx.core.text.TextDirectionHeuristicCompat
+        public boolean isRtl(char[] cArr, int i, int i2) {
+            InterceptResult invokeLII;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, cArr, i, i2)) == null) {
+                return isRtl(CharBuffer.wrap(cArr), i, i2);
             }
             return invokeLII.booleanValue;
         }
@@ -251,7 +292,10 @@ public final class TextDirectionHeuristicsCompat {
         public boolean defaultIsRtl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mDefaultIsRtl : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.mDefaultIsRtl;
+            }
+            return invokeV.booleanValue;
         }
     }
 
@@ -299,7 +343,13 @@ public final class TextDirectionHeuristicsCompat {
         public boolean defaultIsRtl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TextUtilsCompat.getLayoutDirectionFromLocale(Locale.getDefault()) == 1 : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (TextUtilsCompat.getLayoutDirectionFromLocale(Locale.getDefault()) == 1) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
     }
 
@@ -336,41 +386,5 @@ public final class TextDirectionHeuristicsCompat {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-    }
-
-    public static int isRtlText(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (i != 0) {
-                return (i == 1 || i == 2) ? 0 : 2;
-            }
-            return 1;
-        }
-        return invokeI.intValue;
-    }
-
-    public static int isRtlTextOrFormat(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            if (i != 0) {
-                if (i == 1 || i == 2) {
-                    return 0;
-                }
-                switch (i) {
-                    case 14:
-                    case 15:
-                        break;
-                    case 16:
-                    case 17:
-                        return 0;
-                    default:
-                        return 2;
-                }
-            }
-            return 1;
-        }
-        return invokeI.intValue;
     }
 }

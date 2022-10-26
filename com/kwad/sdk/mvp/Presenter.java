@@ -4,9 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.UiThread;
 import com.kwad.sdk.api.core.ResContext;
 import com.kwad.sdk.core.e.b;
 import java.util.ArrayList;
@@ -16,7 +13,7 @@ import java.util.List;
 public class Presenter {
     public Object ajn;
     public View mRootView;
-    public final List<Presenter> ajm = new ArrayList();
+    public final List ajm = new ArrayList();
     public PresenterState ajo = PresenterState.INIT;
 
     /* loaded from: classes8.dex */
@@ -96,7 +93,6 @@ public class Presenter {
         return this.ajo.index() >= PresenterState.CREATE.index();
     }
 
-    @UiThread
     public final void B(View view2) {
         this.ajo = PresenterState.CREATE;
         this.mRootView = view2;
@@ -115,14 +111,12 @@ public class Presenter {
     public void aq() {
     }
 
-    @UiThread
     public final void bt() {
         this.ajo = PresenterState.UNBIND;
         onUnbind();
         this.ajo.performCallState(this);
     }
 
-    @UiThread
     public final void destroy() {
         if (this.ajo == PresenterState.BIND) {
             bt();
@@ -132,8 +126,7 @@ public class Presenter {
         this.ajo.performCallState(this);
     }
 
-    @UiThread
-    public final void e(@NonNull Object obj) {
+    public final void e(Object obj) {
         if (this.ajo != PresenterState.INIT) {
             PresenterState presenterState = PresenterState.DESTROY;
         }
@@ -146,12 +139,10 @@ public class Presenter {
         this.ajo.performCallState(this);
     }
 
-    public final <T extends View> T findViewById(int i) {
-        return (T) this.mRootView.findViewById(i);
+    public final View findViewById(int i) {
+        return this.mRootView.findViewById(i);
     }
 
-    @Nullable
-    @UiThread
     public final Activity getActivity() {
         Context context = getContext();
         HashSet hashSet = new HashSet();
@@ -195,7 +186,7 @@ public class Presenter {
     public void onUnbind() {
     }
 
-    public final List<Presenter> xQ() {
+    public final List xQ() {
         return this.ajm;
     }
 

@@ -2,7 +2,6 @@ package com.baidu.cyberplayer.sdk.statistics;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberLog;
-import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +12,6 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-@Keep
 /* loaded from: classes2.dex */
 public class DpRTCSession {
     public static /* synthetic */ Interceptable $ic;
@@ -48,7 +46,7 @@ public class DpRTCSession {
         return (JSONObject) invokeL.objValue;
     }
 
-    public static synchronized void uploadSession(int i, HashMap<String, String> hashMap) {
+    public static synchronized void uploadSession(int i, HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65538, null, i, hashMap) == null) {
             synchronized (DpRTCSession.class) {
@@ -74,14 +72,14 @@ public class DpRTCSession {
         }
     }
 
-    public synchronized void add(int i, HashMap<String, String> hashMap) {
+    public synchronized void add(int i, HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, hashMap) == null) {
             synchronized (this) {
                 if (hashMap != null) {
                     if (hashMap.size() > 0) {
-                        for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-                            add(i, entry.getKey(), entry.getValue());
+                        for (Map.Entry entry : hashMap.entrySet()) {
+                            add(i, (String) entry.getKey(), (String) entry.getValue());
                         }
                     }
                 }

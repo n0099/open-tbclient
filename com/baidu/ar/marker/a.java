@@ -14,7 +14,7 @@ import java.lang.ref.WeakReference;
 public class a extends d implements IMarker {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<IMarker> sZ;
+    public WeakReference sZ;
     public IMarkerStateListener ta;
     public b tb;
 
@@ -36,55 +36,55 @@ public class a extends d implements IMarker {
     public void a(c cVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) && (cVar instanceof IMarker)) {
-            WeakReference<IMarker> weakReference = new WeakReference<>((IMarker) cVar);
+            WeakReference weakReference = new WeakReference((IMarker) cVar);
             this.sZ = weakReference;
             if (this.ta != null) {
-                weakReference.get().setMarkerStateListener(this.ta);
+                ((IMarker) weakReference.get()).setMarkerStateListener(this.ta);
             }
             if (this.tb != null) {
-                this.sZ.get().setTrackerSessionCallback(this.tb);
+                ((IMarker) this.sZ.get()).setTrackerSessionCallback(this.tb);
             }
         }
     }
 
     @Override // com.baidu.ar.marker.IMarker
     public void chioceOneCoordinate(com.baidu.ar.marker.a.a aVar) {
-        WeakReference<IMarker> weakReference;
+        WeakReference weakReference;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || (weakReference = this.sZ) == null || weakReference.get() == null) {
             return;
         }
-        this.sZ.get().chioceOneCoordinate(aVar);
+        ((IMarker) this.sZ.get()).chioceOneCoordinate(aVar);
     }
 
     @Override // com.baidu.ar.marker.IMarker
     public void createSession() {
-        WeakReference<IMarker> weakReference;
+        WeakReference weakReference;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (weakReference = this.sZ) == null || weakReference.get() == null) {
             return;
         }
-        this.sZ.get().createSession();
+        ((IMarker) this.sZ.get()).createSession();
     }
 
     @Override // com.baidu.ar.marker.IMarker
     public void hideFinalPoint() {
-        WeakReference<IMarker> weakReference;
+        WeakReference weakReference;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (weakReference = this.sZ) == null || weakReference.get() == null) {
             return;
         }
-        this.sZ.get().hideFinalPoint();
+        ((IMarker) this.sZ.get()).hideFinalPoint();
     }
 
     @Override // com.baidu.ar.marker.IMarker
     public void initMarkerByTrackerType(TrackerType trackerType) {
-        WeakReference<IMarker> weakReference;
+        WeakReference weakReference;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048580, this, trackerType) == null) || (weakReference = this.sZ) == null || weakReference.get() == null) {
             return;
         }
-        this.sZ.get().initMarkerByTrackerType(trackerType);
+        ((IMarker) this.sZ.get()).initMarkerByTrackerType(trackerType);
     }
 
     @Override // com.baidu.ar.marker.IMarker
@@ -92,45 +92,45 @@ public class a extends d implements IMarker {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, fArr)) == null) {
-            WeakReference<IMarker> weakReference = this.sZ;
-            return (weakReference == null || weakReference.get() == null) ? new float[0] : this.sZ.get().location2ScreenPoint(fArr);
+            WeakReference weakReference = this.sZ;
+            return (weakReference == null || weakReference.get() == null) ? new float[0] : ((IMarker) this.sZ.get()).location2ScreenPoint(fArr);
         }
         return (float[]) invokeL.objValue;
     }
 
     @Override // com.baidu.ar.marker.IMarker
     public void postArrow(float f, float f2, float f3) {
-        WeakReference<IMarker> weakReference;
+        WeakReference weakReference;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) || (weakReference = this.sZ) == null || weakReference.get() == null) {
             return;
         }
-        this.sZ.get().postArrow(f, f2, f3);
+        ((IMarker) this.sZ.get()).postArrow(f, f2, f3);
     }
 
     @Override // com.baidu.ar.marker.IMarker
     public void postArrow(String str, int i, double[] dArr, double[] dArr2, double[] dArr3, float f, float f2) {
-        WeakReference<IMarker> weakReference;
+        WeakReference weakReference;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, Integer.valueOf(i), dArr, dArr2, dArr3, Float.valueOf(f), Float.valueOf(f2)}) == null) || (weakReference = this.sZ) == null || weakReference.get() == null) {
             return;
         }
-        this.sZ.get().postArrow(str, i, dArr, dArr2, dArr3, f, f2);
+        ((IMarker) this.sZ.get()).postArrow(str, i, dArr, dArr2, dArr3, f, f2);
     }
 
     @Override // com.baidu.ar.marker.IMarker
     public void postFinalArrow(String str, double[] dArr) {
-        WeakReference<IMarker> weakReference;
+        WeakReference weakReference;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, dArr) == null) || (weakReference = this.sZ) == null || weakReference.get() == null) {
             return;
         }
-        this.sZ.get().postFinalArrow(str, dArr);
+        ((IMarker) this.sZ.get()).postFinalArrow(str, dArr);
     }
 
     @Override // com.baidu.ar.d
     public void release() {
-        WeakReference<IMarker> weakReference;
+        WeakReference weakReference;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (weakReference = this.sZ) == null || weakReference.get() == null) {
             return;
@@ -140,42 +140,42 @@ public class a extends d implements IMarker {
 
     @Override // com.baidu.ar.marker.IMarker
     public void removeAllArrow() {
-        WeakReference<IMarker> weakReference;
+        WeakReference weakReference;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (weakReference = this.sZ) == null || weakReference.get() == null) {
             return;
         }
-        this.sZ.get().removeAllArrow();
+        ((IMarker) this.sZ.get()).removeAllArrow();
     }
 
     @Override // com.baidu.ar.marker.IMarker
     public void removeArrowByArrowId(String str) {
-        WeakReference<IMarker> weakReference;
+        WeakReference weakReference;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || (weakReference = this.sZ) == null || weakReference.get() == null) {
             return;
         }
-        this.sZ.get().removeArrowByArrowId(str);
+        ((IMarker) this.sZ.get()).removeArrowByArrowId(str);
     }
 
     @Override // com.baidu.ar.marker.IMarker
     public void resetMarker() {
-        WeakReference<IMarker> weakReference;
+        WeakReference weakReference;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (weakReference = this.sZ) == null || weakReference.get() == null) {
             return;
         }
-        this.sZ.get().resetMarker();
+        ((IMarker) this.sZ.get()).resetMarker();
     }
 
     @Override // com.baidu.ar.marker.IMarker
     public void setAvailableFrame(MarkerFrameInfo markerFrameInfo) {
-        WeakReference<IMarker> weakReference;
+        WeakReference weakReference;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048589, this, markerFrameInfo) == null) || (weakReference = this.sZ) == null || weakReference.get() == null) {
             return;
         }
-        this.sZ.get().setAvailableFrame(markerFrameInfo);
+        ((IMarker) this.sZ.get()).setAvailableFrame(markerFrameInfo);
     }
 
     @Override // com.baidu.ar.marker.IMarker
@@ -183,11 +183,11 @@ public class a extends d implements IMarker {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, iMarkerStateListener) == null) {
             this.ta = iMarkerStateListener;
-            WeakReference<IMarker> weakReference = this.sZ;
+            WeakReference weakReference = this.sZ;
             if (weakReference == null || weakReference.get() == null) {
                 return;
             }
-            this.sZ.get().setMarkerStateListener(iMarkerStateListener);
+            ((IMarker) this.sZ.get()).setMarkerStateListener(iMarkerStateListener);
         }
     }
 
@@ -196,11 +196,11 @@ public class a extends d implements IMarker {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, bVar) == null) {
             this.tb = bVar;
-            WeakReference<IMarker> weakReference = this.sZ;
+            WeakReference weakReference = this.sZ;
             if (weakReference == null || weakReference.get() == null) {
                 return;
             }
-            this.sZ.get().setTrackerSessionCallback(bVar);
+            ((IMarker) this.sZ.get()).setTrackerSessionCallback(bVar);
         }
     }
 }

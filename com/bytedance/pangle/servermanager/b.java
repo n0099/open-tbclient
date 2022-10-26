@@ -31,8 +31,8 @@ public final class b {
     public static final Object a;
     public static final Object b;
     public static final Object c;
-    public static final Map<String, Boolean> d;
-    public static final Map<String, d> e;
+    public static final Map d;
+    public static final Map e;
     public static c f;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -56,52 +56,6 @@ public final class b {
         e = new ConcurrentHashMap();
     }
 
-    public static d a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            Boolean bool = d.get(str);
-            if (bool == null || !bool.booleanValue()) {
-                e.remove(str);
-            }
-            if (e.get(str) == null) {
-                synchronized (b) {
-                    d dVar = (d) a("service", str);
-                    if (dVar == null) {
-                        ZeusLogger.e(ZeusLogger.TAG_SERVER, "getServiceManager failed!!!");
-                        return null;
-                    }
-                    e.put(str, dVar);
-                }
-            }
-            return e.get(str);
-        }
-        return (d) invokeL.objValue;
-    }
-
-    public static c a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            Boolean bool = d.get("main");
-            if (bool == null || !bool.booleanValue()) {
-                f = null;
-            }
-            if (f == null) {
-                synchronized (c) {
-                    c cVar = (c) a("package", "main");
-                    if (cVar == null) {
-                        ZeusLogger.e(ZeusLogger.TAG_SERVER, "getPackageManager failed!!!");
-                        return null;
-                    }
-                    f = cVar;
-                }
-            }
-            return f;
-        }
-        return (c) invokeV.objValue;
-    }
-
     /* JADX WARN: Removed duplicated region for block: B:19:0x0075  */
     /* JADX WARN: Removed duplicated region for block: B:25:0x0085 A[Catch: RemoteException -> 0x009e, TryCatch #0 {RemoteException -> 0x009e, blocks: (B:17:0x005a, B:32:0x0094, B:34:0x0099, B:22:0x007b, B:25:0x0085), top: B:47:0x005a }] */
     /* JADX WARN: Removed duplicated region for block: B:30:0x0091  */
@@ -117,7 +71,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
             if (Zeus.hasInit()) {
-                if (Zeus.getServerManagerHashMap().get(str2) != null) {
+                if (((ProviderInfo) Zeus.getServerManagerHashMap().get(str2)) != null) {
                     Bundle call = Zeus.getAppApplication().getContentResolver().call(Uri.parse("content://" + providerInfo.authority), AbsServerManager.METHOD_QUERY_BINDER, str, (Bundle) null);
                     if (call != null) {
                         call.setClassLoader(AbsServerManager.class.getClassLoader());
@@ -158,11 +112,11 @@ public final class b {
                                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                                 b.d.put(this.a, Boolean.FALSE);
                                                 ZeusLogger.e(ZeusLogger.TAG_SERVER, "generateServerManager binderDied.");
-                                                HashMap<ServiceConnection, HashSet<ComponentName>> hashMap = ServiceManagerNative.getInstance().process2ConnAndService.get(this.b);
+                                                HashMap hashMap = (HashMap) ServiceManagerNative.getInstance().process2ConnAndService.get(this.b);
                                                 for (ServiceConnection serviceConnection : hashMap.keySet()) {
-                                                    Iterator<ComponentName> it = hashMap.get(serviceConnection).iterator();
+                                                    Iterator it = ((HashSet) hashMap.get(serviceConnection)).iterator();
                                                     while (it.hasNext()) {
-                                                        serviceConnection.onServiceDisconnected(it.next());
+                                                        serviceConnection.onServiceDisconnected((ComponentName) it.next());
                                                     }
                                                 }
                                             }
@@ -173,23 +127,24 @@ public final class b {
                                     if (hashCode == -807062458) {
                                         if (hashCode == 1984153269 && str.equals("service")) {
                                             c2 = 1;
-                                            if (c2 != 0) {
+                                            if (c2 == 0) {
+                                                if (c2 == 1) {
+                                                    return d.a.a(iBinder);
+                                                }
+                                            } else {
                                                 return c.a.a(iBinder);
-                                            }
-                                            if (c2 == 1) {
-                                                return d.a.a(iBinder);
                                             }
                                         }
                                         c2 = 65535;
-                                        if (c2 != 0) {
+                                        if (c2 == 0) {
                                         }
                                     } else {
                                         if (str.equals("package")) {
-                                            if (c2 != 0) {
+                                            if (c2 == 0) {
                                             }
                                         }
                                         c2 = 65535;
-                                        if (c2 != 0) {
+                                        if (c2 == 0) {
                                         }
                                     }
                                 } catch (RemoteException e2) {
@@ -233,11 +188,11 @@ public final class b {
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                     b.d.put(this.a, Boolean.FALSE);
                                     ZeusLogger.e(ZeusLogger.TAG_SERVER, "generateServerManager binderDied.");
-                                    HashMap<ServiceConnection, HashSet<ComponentName>> hashMap = ServiceManagerNative.getInstance().process2ConnAndService.get(this.b);
+                                    HashMap hashMap = (HashMap) ServiceManagerNative.getInstance().process2ConnAndService.get(this.b);
                                     for (ServiceConnection serviceConnection : hashMap.keySet()) {
-                                        Iterator<ComponentName> it = hashMap.get(serviceConnection).iterator();
+                                        Iterator it = ((HashSet) hashMap.get(serviceConnection)).iterator();
                                         while (it.hasNext()) {
-                                            serviceConnection.onServiceDisconnected(it.next());
+                                            serviceConnection.onServiceDisconnected((ComponentName) it.next());
                                         }
                                     }
                                 }
@@ -255,5 +210,51 @@ public final class b {
             throw new RuntimeException("generateServerManager 请先初始化Zeus, processName:".concat(String.valueOf(str2)));
         }
         return (IInterface) invokeLL.objValue;
+    }
+
+    public static c a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            Boolean bool = (Boolean) d.get("main");
+            if (bool == null || !bool.booleanValue()) {
+                f = null;
+            }
+            if (f == null) {
+                synchronized (c) {
+                    c cVar = (c) a("package", "main");
+                    if (cVar == null) {
+                        ZeusLogger.e(ZeusLogger.TAG_SERVER, "getPackageManager failed!!!");
+                        return null;
+                    }
+                    f = cVar;
+                }
+            }
+            return f;
+        }
+        return (c) invokeV.objValue;
+    }
+
+    public static d a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            Boolean bool = (Boolean) d.get(str);
+            if (bool == null || !bool.booleanValue()) {
+                e.remove(str);
+            }
+            if (e.get(str) == null) {
+                synchronized (b) {
+                    d dVar = (d) a("service", str);
+                    if (dVar == null) {
+                        ZeusLogger.e(ZeusLogger.TAG_SERVER, "getServiceManager failed!!!");
+                        return null;
+                    }
+                    e.put(str, dVar);
+                }
+            }
+            return (d) e.get(str);
+        }
+        return (d) invokeL.objValue;
     }
 }

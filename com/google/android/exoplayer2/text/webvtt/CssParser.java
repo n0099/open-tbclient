@@ -70,7 +70,7 @@ public final class CssParser {
 
     private void applySelectorToStyle(WebvttCssStyle webvttCssStyle, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, this, webvttCssStyle, str) == null) || "".equals(str)) {
+        if ((interceptable != null && interceptable.invokeLL(65538, this, webvttCssStyle, str) != null) || "".equals(str)) {
             return;
         }
         int indexOf = str.indexOf(91);
@@ -95,56 +95,6 @@ public final class CssParser {
         }
     }
 
-    public static boolean maybeSkipComment(ParsableByteArray parsableByteArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, parsableByteArray)) != null) {
-            return invokeL.booleanValue;
-        }
-        int position = parsableByteArray.getPosition();
-        int limit = parsableByteArray.limit();
-        byte[] bArr = parsableByteArray.data;
-        if (position + 2 > limit) {
-            return false;
-        }
-        int i = position + 1;
-        if (bArr[position] != 47) {
-            return false;
-        }
-        int i2 = i + 1;
-        if (bArr[i] != 42) {
-            return false;
-        }
-        while (true) {
-            int i3 = i2 + 1;
-            if (i3 < limit) {
-                if (((char) bArr[i2]) == '*' && ((char) bArr[i3]) == '/') {
-                    i2 = i3 + 1;
-                    limit = i2;
-                } else {
-                    i2 = i3;
-                }
-            } else {
-                parsableByteArray.skipBytes(limit - parsableByteArray.getPosition());
-                return true;
-            }
-        }
-    }
-
-    public static boolean maybeSkipWhitespace(ParsableByteArray parsableByteArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, parsableByteArray)) == null) {
-            char peekCharAtPosition = peekCharAtPosition(parsableByteArray, parsableByteArray.getPosition());
-            if (peekCharAtPosition == '\t' || peekCharAtPosition == '\n' || peekCharAtPosition == '\f' || peekCharAtPosition == '\r' || peekCharAtPosition == ' ') {
-                parsableByteArray.skipBytes(1);
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
     public static String parseIdentifier(ParsableByteArray parsableByteArray, StringBuilder sb) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -155,7 +105,7 @@ public final class CssParser {
             int limit = parsableByteArray.limit();
             while (position < limit && !z) {
                 char c = (char) parsableByteArray.data[position];
-                if ((c < 'A' || c > 'Z') && ((c < 'a' || c > 'z') && !((c >= '0' && c <= '9') || c == '#' || c == '-' || c == '.' || c == '_'))) {
+                if ((c < 'A' || c > 'Z') && ((c < 'a' || c > 'z') && ((c < '0' || c > '9') && c != '#' && c != '-' && c != '.' && c != '_'))) {
                     z = true;
                 } else {
                     position++;
@@ -168,6 +118,112 @@ public final class CssParser {
         return (String) invokeLL.objValue;
     }
 
+    public static String parseSelector(ParsableByteArray parsableByteArray, StringBuilder sb) {
+        InterceptResult invokeLL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, parsableByteArray, sb)) == null) {
+            skipWhitespaceAndComments(parsableByteArray);
+            if (parsableByteArray.bytesLeft() < 5 || !"::cue".equals(parsableByteArray.readString(5))) {
+                return null;
+            }
+            int position = parsableByteArray.getPosition();
+            String parseNextToken = parseNextToken(parsableByteArray, sb);
+            if (parseNextToken == null) {
+                return null;
+            }
+            if ("{".equals(parseNextToken)) {
+                parsableByteArray.setPosition(position);
+                return "";
+            }
+            if ("(".equals(parseNextToken)) {
+                str = readCueTarget(parsableByteArray);
+            } else {
+                str = null;
+            }
+            String parseNextToken2 = parseNextToken(parsableByteArray, sb);
+            if (!SmallTailInfo.EMOTION_SUFFIX.equals(parseNextToken2) || parseNextToken2 == null) {
+                return null;
+            }
+            return str;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static boolean maybeSkipComment(ParsableByteArray parsableByteArray) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, parsableByteArray)) == null) {
+            int position = parsableByteArray.getPosition();
+            int limit = parsableByteArray.limit();
+            byte[] bArr = parsableByteArray.data;
+            if (position + 2 <= limit) {
+                int i = position + 1;
+                if (bArr[position] == 47) {
+                    int i2 = i + 1;
+                    if (bArr[i] != 42) {
+                        return false;
+                    }
+                    while (true) {
+                        int i3 = i2 + 1;
+                        if (i3 < limit) {
+                            if (((char) bArr[i2]) == '*' && ((char) bArr[i3]) == '/') {
+                                i2 = i3 + 1;
+                                limit = i2;
+                            } else {
+                                i2 = i3;
+                            }
+                        } else {
+                            parsableByteArray.skipBytes(limit - parsableByteArray.getPosition());
+                            return true;
+                        }
+                    }
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        } else {
+            return invokeL.booleanValue;
+        }
+    }
+
+    public static boolean maybeSkipWhitespace(ParsableByteArray parsableByteArray) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, parsableByteArray)) == null) {
+            char peekCharAtPosition = peekCharAtPosition(parsableByteArray, parsableByteArray.getPosition());
+            if (peekCharAtPosition != '\t' && peekCharAtPosition != '\n' && peekCharAtPosition != '\f' && peekCharAtPosition != '\r' && peekCharAtPosition != ' ') {
+                return false;
+            }
+            parsableByteArray.skipBytes(1);
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String readCueTarget(ParsableByteArray parsableByteArray) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, parsableByteArray)) == null) {
+            int position = parsableByteArray.getPosition();
+            int limit = parsableByteArray.limit();
+            boolean z = false;
+            while (position < limit && !z) {
+                int i = position + 1;
+                if (((char) parsableByteArray.data[position]) == ')') {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                position = i;
+            }
+            return parsableByteArray.readString((position - 1) - parsableByteArray.getPosition()).trim();
+        }
+        return (String) invokeL.objValue;
+    }
+
     public static String parseNextToken(ParsableByteArray parsableByteArray, StringBuilder sb) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -177,10 +233,10 @@ public final class CssParser {
                 return null;
             }
             String parseIdentifier = parseIdentifier(parsableByteArray, sb);
-            if ("".equals(parseIdentifier)) {
-                return "" + ((char) parsableByteArray.readUnsignedByte());
+            if (!"".equals(parseIdentifier)) {
+                return parseIdentifier;
             }
-            return parseIdentifier;
+            return "" + ((char) parsableByteArray.readUnsignedByte());
         }
         return (String) invokeLL.objValue;
     }
@@ -209,51 +265,25 @@ public final class CssParser {
         return (String) invokeLL.objValue;
     }
 
-    public static String parseSelector(ParsableByteArray parsableByteArray, StringBuilder sb) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, parsableByteArray, sb)) == null) {
-            skipWhitespaceAndComments(parsableByteArray);
-            if (parsableByteArray.bytesLeft() >= 5 && "::cue".equals(parsableByteArray.readString(5))) {
-                int position = parsableByteArray.getPosition();
-                String parseNextToken = parseNextToken(parsableByteArray, sb);
-                if (parseNextToken == null) {
-                    return null;
-                }
-                if ("{".equals(parseNextToken)) {
-                    parsableByteArray.setPosition(position);
-                    return "";
-                }
-                String readCueTarget = "(".equals(parseNextToken) ? readCueTarget(parsableByteArray) : null;
-                String parseNextToken2 = parseNextToken(parsableByteArray, sb);
-                if (!SmallTailInfo.EMOTION_SUFFIX.equals(parseNextToken2) || parseNextToken2 == null) {
-                    return null;
-                }
-                return readCueTarget;
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
     public static void parseStyleDeclaration(ParsableByteArray parsableByteArray, WebvttCssStyle webvttCssStyle, StringBuilder sb) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65545, null, parsableByteArray, webvttCssStyle, sb) == null) {
             skipWhitespaceAndComments(parsableByteArray);
             String parseIdentifier = parseIdentifier(parsableByteArray, sb);
-            if (!"".equals(parseIdentifier) && ":".equals(parseNextToken(parsableByteArray, sb))) {
-                skipWhitespaceAndComments(parsableByteArray);
-                String parsePropertyValue = parsePropertyValue(parsableByteArray, sb);
-                if (parsePropertyValue == null || "".equals(parsePropertyValue)) {
-                    return;
-                }
+            if ("".equals(parseIdentifier) || !":".equals(parseNextToken(parsableByteArray, sb))) {
+                return;
+            }
+            skipWhitespaceAndComments(parsableByteArray);
+            String parsePropertyValue = parsePropertyValue(parsableByteArray, sb);
+            if (parsePropertyValue != null && !"".equals(parsePropertyValue)) {
                 int position = parsableByteArray.getPosition();
                 String parseNextToken = parseNextToken(parsableByteArray, sb);
                 if (!ParamableElem.DIVIDE_PARAM.equals(parseNextToken)) {
-                    if (!"}".equals(parseNextToken)) {
+                    if ("}".equals(parseNextToken)) {
+                        parsableByteArray.setPosition(position);
+                    } else {
                         return;
                     }
-                    parsableByteArray.setPosition(position);
                 }
                 if ("color".equals(parseIdentifier)) {
                     webvttCssStyle.setFontColor(ColorParser.parseCssColor(parsePropertyValue));
@@ -279,24 +309,10 @@ public final class CssParser {
     public static char peekCharAtPosition(ParsableByteArray parsableByteArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, parsableByteArray, i)) == null) ? (char) parsableByteArray.data[i] : invokeLI.charValue;
-    }
-
-    public static String readCueTarget(ParsableByteArray parsableByteArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, parsableByteArray)) == null) {
-            int position = parsableByteArray.getPosition();
-            int limit = parsableByteArray.limit();
-            boolean z = false;
-            while (position < limit && !z) {
-                int i = position + 1;
-                z = ((char) parsableByteArray.data[position]) == ')';
-                position = i;
-            }
-            return parsableByteArray.readString((position - 1) - parsableByteArray.getPosition()).trim();
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, parsableByteArray, i)) == null) {
+            return (char) parsableByteArray.data[i];
         }
-        return (String) invokeL.objValue;
+        return invokeLI.charValue;
     }
 
     public static void skipStyleBlock(ParsableByteArray parsableByteArray) {
@@ -322,6 +338,7 @@ public final class CssParser {
 
     public WebvttCssStyle parseBlock(ParsableByteArray parsableByteArray) {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parsableByteArray)) == null) {
             this.stringBuilder.setLength(0);
@@ -336,21 +353,25 @@ public final class CssParser {
             WebvttCssStyle webvttCssStyle = new WebvttCssStyle();
             applySelectorToStyle(webvttCssStyle, parseSelector);
             String str = null;
-            boolean z = false;
-            while (!z) {
+            boolean z2 = false;
+            while (!z2) {
                 int position2 = this.styleInput.getPosition();
                 str = parseNextToken(this.styleInput, this.stringBuilder);
-                boolean z2 = str == null || "}".equals(str);
-                if (!z2) {
+                if (str != null && !"}".equals(str)) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (!z) {
                     this.styleInput.setPosition(position2);
                     parseStyleDeclaration(this.styleInput, webvttCssStyle, this.stringBuilder);
                 }
-                z = z2;
+                z2 = z;
             }
-            if ("}".equals(str)) {
-                return webvttCssStyle;
+            if (!"}".equals(str)) {
+                return null;
             }
-            return null;
+            return webvttCssStyle;
         }
         return (WebvttCssStyle) invokeL.objValue;
     }

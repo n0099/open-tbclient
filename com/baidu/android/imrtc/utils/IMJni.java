@@ -49,7 +49,10 @@ public class IMJni {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             try {
                 byte[] encrypt = AESUtil.encrypt("2011121211143000", "AFD311832EDEEAEF", str.getBytes());
-                return encrypt != null ? Base64.encodeToString(encrypt, 11) : "";
+                if (encrypt != null) {
+                    return Base64.encodeToString(encrypt, 11);
+                }
+                return "";
             } catch (Exception unused) {
                 LogUtils.e(TAG, "AES java exception");
                 return "";

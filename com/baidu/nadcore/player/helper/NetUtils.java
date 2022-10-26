@@ -1,11 +1,9 @@
 package com.baidu.nadcore.player.helper;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import androidx.annotation.Nullable;
-import com.baidu.tieba.zq0;
+import com.baidu.tieba.ar0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +19,7 @@ public class NetUtils {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class NetStatus {
+    public final class NetStatus {
         public static final /* synthetic */ NetStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final NetStatus NET_DOWN;
@@ -71,13 +69,19 @@ public class NetUtils {
         public static NetStatus valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (NetStatus) Enum.valueOf(NetStatus.class, str) : (NetStatus) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (NetStatus) Enum.valueOf(NetStatus.class, str);
+            }
+            return (NetStatus) invokeL.objValue;
         }
 
         public static NetStatus[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (NetStatus[]) $VALUES.clone() : (NetStatus[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (NetStatus[]) $VALUES.clone();
+            }
+            return (NetStatus[]) invokeV.objValue;
         }
     }
 
@@ -113,14 +117,12 @@ public class NetUtils {
         return (NetStatus) invokeV.objValue;
     }
 
-    @Nullable
-    @SuppressLint({"MissingPermission"})
     public static NetworkInfo b() {
         InterceptResult invokeV;
         ConnectivityManager connectivityManager;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            Context b = zq0.b();
+            Context b = ar0.b();
             if (b == null || (connectivityManager = (ConnectivityManager) b.getSystemService("connectivity")) == null) {
                 return null;
             }

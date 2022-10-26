@@ -18,12 +18,12 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e15;
-import com.baidu.tieba.h55;
-import com.baidu.tieba.mc6;
-import com.baidu.tieba.nc6;
-import com.baidu.tieba.t55;
-import com.baidu.tieba.y19;
+import com.baidu.tieba.e29;
+import com.baidu.tieba.j15;
+import com.baidu.tieba.l55;
+import com.baidu.tieba.tc6;
+import com.baidu.tieba.uc6;
+import com.baidu.tieba.x55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 /* loaded from: classes3.dex */
-public class InputView extends EditText implements t55 {
+public class InputView extends EditText implements x55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EditorTools a;
@@ -42,11 +42,25 @@ public class InputView extends EditText implements t55 {
     public boolean e;
     public int f;
 
+    @Override // com.baidu.tieba.x55
+    public void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        }
+    }
+
     /* loaded from: classes3.dex */
     public class a implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ InputView a;
+
+        @Override // android.text.TextWatcher
+        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
+            }
+        }
 
         public a(InputView inputView) {
             Interceptable interceptable = $ic;
@@ -69,24 +83,16 @@ public class InputView extends EditText implements t55 {
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, editable) == null) || editable == null || editable.toString().trim() == null) {
-                return;
-            }
-            InputView inputView = this.a;
-            inputView.K(new h55(4, -1, inputView.getText().toString()));
-        }
-
-        @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, editable) == null) && editable != null && editable.toString().trim() != null) {
+                InputView inputView = this.a;
+                inputView.K(new l55(4, -1, inputView.getText().toString()));
             }
         }
 
         @Override // android.text.TextWatcher
         public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) || this.a.e) {
+            if ((interceptable != null && interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) != null) || this.a.e) {
                 return;
             }
             this.a.e = true;
@@ -128,8 +134,8 @@ public class InputView extends EditText implements t55 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 if (motionEvent.getAction() == 1) {
-                    this.a.K(new h55(5, -1, null));
-                    this.a.K(new h55(64, -1, null));
+                    this.a.K(new l55(5, -1, null));
+                    this.a.K(new l55(64, -1, null));
                     this.a.requestFocus();
                 }
                 return false;
@@ -139,7 +145,7 @@ public class InputView extends EditText implements t55 {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements nc6.h {
+    public class c implements uc6.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ InputView a;
@@ -162,14 +168,14 @@ public class InputView extends EditText implements t55 {
             this.a = inputView;
         }
 
-        @Override // com.baidu.tieba.nc6.h
+        @Override // com.baidu.tieba.uc6.h
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
                 this.a.setText(spannableStringBuilder);
                 InputView inputView = this.a;
                 inputView.setSelection(inputView.getText().length());
-                this.a.K(new h55(5, -1, null));
+                this.a.K(new l55(5, -1, null));
                 this.a.requestFocus();
             }
         }
@@ -201,9 +207,9 @@ public class InputView extends EditText implements t55 {
         setMinHeight(context.getResources().getDimensionPixelSize(R.dimen.tbds104));
         setMaxLines(5);
         if (z) {
-            setHint(context.getString(R.string.obfuscated_res_0x7f0f08d2));
+            setHint(context.getString(R.string.obfuscated_res_0x7f0f08df));
         }
-        y19.l(this, R.drawable.obfuscated_res_0x7f0804c2);
+        e29.l(this, R.drawable.obfuscated_res_0x7f0804c2);
         int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.M_W_X006);
         int dimensionPixelSize2 = context.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
         setPadding(dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2);
@@ -212,171 +218,43 @@ public class InputView extends EditText implements t55 {
         setOnTouchListener(new b(this));
     }
 
-    @Override // com.baidu.tieba.i55
-    public void B(h55 h55Var) {
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, h55Var) == null) || h55Var == null) {
-            return;
-        }
-        int i = h55Var.a;
-        if (i == 3) {
-            if (getSelectionStart() > 0) {
-                String substring = getText().toString().substring(0, getSelectionStart());
-                Matcher matcher = mc6.b.matcher(substring);
-                if (matcher.find()) {
-                    getText().delete(getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), getSelectionStart());
-                } else {
-                    getText().delete(getSelectionStart() - 1, getSelectionStart());
-                }
-            }
-        } else if (i == 6) {
-            Object obj2 = h55Var.c;
-            if (obj2 == null) {
-                setText((CharSequence) null);
-            } else if (obj2 instanceof String) {
-                if (TextUtils.isEmpty((String) obj2)) {
-                    setText((CharSequence) null);
-                } else {
-                    nc6.f(getContext(), (String) h55Var.c, new c(this));
-                }
-            }
-        } else if (i == 9) {
-            if (((Boolean) h55Var.c).booleanValue()) {
-                setText((CharSequence) null);
-            }
-        } else if (i == 17) {
-            Object obj3 = h55Var.c;
-            if (obj3 == null || !(obj3 instanceof ArrayList)) {
-                return;
-            }
-            e((ArrayList) obj3);
-        } else if (i == 24) {
-            g(h55Var);
-        } else if (i == 44 && (obj = h55Var.c) != null && (obj instanceof String)) {
-            f((String) obj);
-        }
-    }
-
-    @Override // com.baidu.tieba.t55
-    public void K(h55 h55Var) {
+    @Override // com.baidu.tieba.x55
+    public void K(l55 l55Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h55Var) == null) || (editorTools = this.a) == null) {
-            return;
-        }
-        editorTools.A(h55Var);
-    }
-
-    @Override // com.baidu.tieba.t55
-    public void display() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            setVisibility(0);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l55Var) == null) && (editorTools = this.a) != null) {
+            editorTools.A(l55Var);
         }
     }
 
-    public final void e(ArrayList<String> arrayList) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) || arrayList == null || arrayList.size() == 0) {
-            return;
-        }
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < arrayList.size(); i++) {
-            sb.append("@");
-            sb.append(arrayList.get(i));
-            sb.append(" ");
-        }
-        String sb2 = sb.toString();
-        getText().insert(getSelectionStart(), sb2);
-    }
-
-    public final void f(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || StringUtils.isNull(str)) {
-            return;
-        }
-        getText().insert(getSelectionStart(), HotSelectActivityConfig.HOT_TOPIC_SING + str);
-    }
-
-    public final void g(h55 h55Var) {
+    public final void g(l55 l55Var) {
         Object obj;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, h55Var) == null) || h55Var == null || (obj = h55Var.c) == null || !(obj instanceof e15)) {
-            return;
-        }
-        e15 e15Var = (e15) obj;
-        if (e15Var.getType() == EmotionGroupType.NET_SUG) {
-            i(e15Var);
-        } else {
-            h(e15Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.t55
-    public int getToolId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public final void h(e15 e15Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, e15Var) == null) {
-            if (!this.c || e15Var.getType() == EmotionGroupType.LOCAL) {
-                String obj = getText().toString();
-                if (this.d && mc6.a(obj) >= 10 && getContext() != null) {
-                    CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1457);
-                } else {
-                    nc6.b(getContext(), e15Var, this);
-                }
+        if ((interceptable == null || interceptable.invokeL(1048581, this, l55Var) == null) && l55Var != null && (obj = l55Var.c) != null && (obj instanceof j15)) {
+            j15 j15Var = (j15) obj;
+            if (j15Var.getType() == EmotionGroupType.NET_SUG) {
+                i(j15Var);
+            } else {
+                h(j15Var);
             }
         }
     }
 
-    @Override // com.baidu.tieba.t55
-    public void hide() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            setVisibility(8);
-        }
-    }
-
-    public final void i(e15 e15Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, e15Var) == null) || e15Var == null || TextUtils.isEmpty(e15Var.d()) || TextUtils.isEmpty(e15Var.g())) {
-            return;
-        }
-        String obj = getText().toString();
-        if (this.d && mc6.a(obj) >= 10 && getContext() != null) {
-            CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1457);
-        } else {
-            nc6.c(getContext(), e15Var, this);
-        }
-    }
-
-    @Override // com.baidu.tieba.t55
-    public void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.t55
+    @Override // com.baidu.tieba.x55
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             SkinManager.setViewTextColor(this, R.color.CAM_X0105, 2, i);
             if (i == 0) {
-                y19.l(this, R.drawable.obfuscated_res_0x7f0804c2);
+                e29.l(this, R.drawable.obfuscated_res_0x7f0804c2);
             } else {
-                y19.l(this, R.drawable.obfuscated_res_0x7f0804c3);
+                e29.l(this, R.drawable.obfuscated_res_0x7f0804c3);
             }
             setHintTextColor(SkinManager.getColor(i, (int) R.color.CAM_X0109));
         }
     }
 
-    @Override // com.baidu.tieba.t55
+    @Override // com.baidu.tieba.x55
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, editorTools) == null) {
@@ -398,11 +276,142 @@ public class InputView extends EditText implements t55 {
         }
     }
 
-    @Override // com.baidu.tieba.t55
+    @Override // com.baidu.tieba.x55
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
             this.b = i;
         }
+    }
+
+    @Override // com.baidu.tieba.m55
+    public void B(l55 l55Var) {
+        Object obj;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, l55Var) != null) || l55Var == null) {
+            return;
+        }
+        int i = l55Var.a;
+        if (i != 3) {
+            if (i != 6) {
+                if (i != 9) {
+                    if (i != 17) {
+                        if (i != 24) {
+                            if (i == 44 && (obj = l55Var.c) != null && (obj instanceof String)) {
+                                f((String) obj);
+                                return;
+                            }
+                            return;
+                        }
+                        g(l55Var);
+                        return;
+                    }
+                    Object obj2 = l55Var.c;
+                    if (obj2 != null && (obj2 instanceof ArrayList)) {
+                        e((ArrayList) obj2);
+                        return;
+                    }
+                    return;
+                } else if (((Boolean) l55Var.c).booleanValue()) {
+                    setText((CharSequence) null);
+                    return;
+                } else {
+                    return;
+                }
+            }
+            Object obj3 = l55Var.c;
+            if (obj3 == null) {
+                setText((CharSequence) null);
+            } else if (obj3 instanceof String) {
+                if (TextUtils.isEmpty((String) obj3)) {
+                    setText((CharSequence) null);
+                } else {
+                    uc6.f(getContext(), (String) l55Var.c, new c(this));
+                }
+            }
+        } else if (getSelectionStart() > 0) {
+            String substring = getText().toString().substring(0, getSelectionStart());
+            Matcher matcher = tc6.b.matcher(substring);
+            if (matcher.find()) {
+                getText().delete(getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), getSelectionStart());
+            } else {
+                getText().delete(getSelectionStart() - 1, getSelectionStart());
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.x55
+    public void display() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            setVisibility(0);
+        }
+    }
+
+    @Override // com.baidu.tieba.x55
+    public int getToolId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.x55
+    public void hide() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            setVisibility(8);
+        }
+    }
+
+    public final void e(ArrayList arrayList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) && arrayList != null && arrayList.size() != 0) {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < arrayList.size(); i++) {
+                sb.append("@");
+                sb.append((String) arrayList.get(i));
+                sb.append(" ");
+            }
+            String sb2 = sb.toString();
+            getText().insert(getSelectionStart(), sb2);
+        }
+    }
+
+    public final void h(j15 j15Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, j15Var) == null) {
+            if (this.c && j15Var.getType() != EmotionGroupType.LOCAL) {
+                return;
+            }
+            String obj = getText().toString();
+            if (this.d && tc6.a(obj) >= 10 && getContext() != null) {
+                CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1470);
+            } else {
+                uc6.b(getContext(), j15Var, this);
+            }
+        }
+    }
+
+    public final void i(j15 j15Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, j15Var) == null) && j15Var != null && !TextUtils.isEmpty(j15Var.d()) && !TextUtils.isEmpty(j15Var.g())) {
+            String obj = getText().toString();
+            if (this.d && tc6.a(obj) >= 10 && getContext() != null) {
+                CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1470);
+            } else {
+                uc6.c(getContext(), j15Var, this);
+            }
+        }
+    }
+
+    public final void f(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || StringUtils.isNull(str)) {
+            return;
+        }
+        getText().insert(getSelectionStart(), HotSelectActivityConfig.HOT_TOPIC_SING + str);
     }
 }

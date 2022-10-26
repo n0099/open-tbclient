@@ -1,7 +1,5 @@
 package com.baidu.tbadk.module.pb;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.util.SimpleMessageListener;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,7 +16,7 @@ public class BarManageResultListener extends SimpleMessageListener {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public static final class OptType {
+    public final class OptType {
         public static final /* synthetic */ OptType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final OptType ADD_GOOD;
@@ -70,27 +68,31 @@ public class BarManageResultListener extends SimpleMessageListener {
         public static OptType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (OptType) Enum.valueOf(OptType.class, str) : (OptType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (OptType) Enum.valueOf(OptType.class, str);
+            }
+            return (OptType) invokeL.objValue;
         }
 
         public static OptType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (OptType[]) $VALUES.clone() : (OptType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (OptType[]) $VALUES.clone();
+            }
+            return (OptType[]) invokeV.objValue;
         }
     }
 
     /* loaded from: classes3.dex */
-    public static final class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @NonNull
         public OptType a;
         public boolean b;
-        @Nullable
         public String c;
 
-        public a(@NonNull OptType optType, boolean z, @Nullable String str) {
+        public a(OptType optType, boolean z, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -110,35 +112,45 @@ public class BarManageResultListener extends SimpleMessageListener {
             this.c = str;
         }
 
-        public static a a(@NonNull OptType optType, boolean z, @Nullable String str) {
+        public static a a(OptType optType, boolean z, String str) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{optType, Boolean.valueOf(z), str})) == null) ? new a(optType, z, str) : (a) invokeCommon.objValue;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{optType, Boolean.valueOf(z), str})) == null) {
+                return new a(optType, z, str);
+            }
+            return (a) invokeCommon.objValue;
         }
 
-        @Nullable
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.c;
+            }
+            return (String) invokeV.objValue;
         }
 
-        @NonNull
         public OptType c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (OptType) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a;
+            }
+            return (OptType) invokeV.objValue;
         }
 
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.b;
+            }
+            return invokeV.booleanValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BarManageResultListener(@NonNull SimpleMessageListener.b<a> bVar) {
+    public BarManageResultListener(SimpleMessageListener.b bVar) {
         super(2001458, false, bVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -158,7 +170,7 @@ public class BarManageResultListener extends SimpleMessageListener {
         }
     }
 
-    public static void k(@NonNull a aVar) {
+    public static void k(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, aVar) == null) {
             SimpleMessageListener.j(2001458, aVar);

@@ -10,19 +10,34 @@ import com.facebook.common.logging.FLog;
 import com.facebook.common.references.CloseableReference;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public class FinalizerCloseableReference<T> extends CloseableReference<T> {
+public class FinalizerCloseableReference extends CloseableReference {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FinalizerCloseableReference";
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.facebook.common.references.CloseableReference
+    public CloseableReference clone() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (CloseableReference) invokeV.objValue;
+    }
+
+    @Override // com.facebook.common.references.CloseableReference, java.io.Closeable, java.lang.AutoCloseable
+    public void close() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FinalizerCloseableReference(T t, ResourceReleaser<T> resourceReleaser, CloseableReference.LeakHandler leakHandler, @Nullable Throwable th) {
-        super(t, resourceReleaser, leakHandler, th);
+    public FinalizerCloseableReference(Object obj, ResourceReleaser resourceReleaser, CloseableReference.LeakHandler leakHandler, @Nullable Throwable th) {
+        super(obj, resourceReleaser, leakHandler, th);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t, resourceReleaser, leakHandler, th};
+            Object[] objArr = {obj, resourceReleaser, leakHandler, th};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,21 +48,6 @@ public class FinalizerCloseableReference<T> extends CloseableReference<T> {
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.facebook.common.references.CloseableReference
-    public CloseableReference<T> clone() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (CloseableReference) invokeV.objValue;
-    }
-
-    @Override // com.facebook.common.references.CloseableReference, java.io.Closeable, java.lang.AutoCloseable
-    public void close() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 

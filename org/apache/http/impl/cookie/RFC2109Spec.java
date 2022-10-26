@@ -18,6 +18,42 @@ public class RFC2109Spec extends CookieSpecBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public RFC2109Spec() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.cookie.CookieSpec
+    public int getVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // org.apache.http.cookie.CookieSpec
+    public Header getVersionHeader() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (Header) invokeV.objValue;
+    }
+
     public RFC2109Spec(String[] strArr, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -44,7 +80,7 @@ public class RFC2109Spec extends CookieSpecBase {
     }
 
     @Override // org.apache.http.cookie.CookieSpec
-    public List<Header> formatCookies(List<Cookie> list) {
+    public List formatCookies(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
@@ -61,27 +97,7 @@ public class RFC2109Spec extends CookieSpecBase {
     }
 
     @Override // org.apache.http.cookie.CookieSpec
-    public int getVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // org.apache.http.cookie.CookieSpec
-    public Header getVersionHeader() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (Header) invokeV.objValue;
-    }
-
-    @Override // org.apache.http.cookie.CookieSpec
-    public List<Cookie> parse(Header header, CookieOrigin cookieOrigin) throws MalformedCookieException {
+    public List parse(Header header, CookieOrigin cookieOrigin) throws MalformedCookieException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, header, cookieOrigin)) == null) {
@@ -96,21 +112,5 @@ public class RFC2109Spec extends CookieSpecBase {
         if (interceptable == null || interceptable.invokeLL(1048582, this, cookie, cookieOrigin) == null) {
             throw new RuntimeException("Stub!");
         }
-    }
-
-    public RFC2109Spec() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        throw new RuntimeException("Stub!");
     }
 }

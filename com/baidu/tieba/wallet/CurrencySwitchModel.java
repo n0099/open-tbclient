@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -30,6 +30,16 @@ public class CurrencySwitchModel extends BdBaseModel {
     /* loaded from: classes6.dex */
     public interface OnPostDataCallBack {
         void callback(boolean z, int i, String str);
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -93,6 +103,13 @@ public class CurrencySwitchModel extends BdBaseModel {
         MessageManager.getInstance().registerListener(this.mSwitchCurrencyListener);
     }
 
+    public void setOnPostDataCallBack(OnPostDataCallBack onPostDataCallBack) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onPostDataCallBack) == null) {
+            this.mCallBack = onPostDataCallBack;
+        }
+    }
+
     private void registerPostCurrencySwitchTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
@@ -100,6 +117,18 @@ public class CurrencySwitchModel extends BdBaseModel {
             tbHttpMessageTask.setIsNeedTbs(true);
             tbHttpMessageTask.setResponsedClass(CurrencySwitchResponseMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
+    }
+
+    public void sendSwitchRequest() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (this.isSending) {
+                fj.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f15d2);
+                return;
+            }
+            this.isSending = true;
+            MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_CURRENCY_SWITCH_REQUEST));
         }
     }
 
@@ -115,40 +144,11 @@ public class CurrencySwitchModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_CURRENCY_SWITCH_REQUEST);
             MessageManager.getInstance().unRegisterListener(this.mSwitchCurrencyListener);
-        }
-    }
-
-    public void sendSwitchRequest() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.isSending) {
-                ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f15b8);
-                return;
-            }
-            this.isSending = true;
-            MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_CURRENCY_SWITCH_REQUEST));
-        }
-    }
-
-    public void setOnPostDataCallBack(OnPostDataCallBack onPostDataCallBack) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onPostDataCallBack) == null) {
-            this.mCallBack = onPostDataCallBack;
         }
     }
 }

@@ -62,96 +62,6 @@ public class WbSdkProgressBar extends View {
         }
     }
 
-    private void calculateProgress(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j) == null) {
-            long j2 = this.stopGrowTime;
-            if (j2 >= this.stopGrowTimeMax) {
-                double d = this.growTime + j;
-                this.growTime = d;
-                double d2 = this.growTimeMax;
-                if (d >= d2) {
-                    this.growTime = d - d2;
-                    this.stopGrowTime = 0L;
-                    this.addStart = !this.addStart;
-                }
-                float cos = (((float) Math.cos(((this.growTime / this.growTimeMax) + 1.0d) * 3.141592653589793d)) / 2.0f) + 0.5f;
-                if (!this.addStart) {
-                    this.length = cos * 280;
-                    return;
-                }
-                float f = 280 * (1.0f - cos);
-                this.progress += this.length - f;
-                this.length = f;
-                return;
-            }
-            this.stopGrowTime = j2 + j;
-        }
-    }
-
-    private int dip2px(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65541, this, context, i)) == null) ? (int) (context.getResources().getDisplayMetrics().density * i) : invokeLI.intValue;
-    }
-
-    @Override // android.view.View
-    public synchronized void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            synchronized (this) {
-                long abs = Math.abs(SystemClock.uptimeMillis() - this.lastTime) % 360;
-                calculateProgress(abs);
-                this.lastTime = SystemClock.uptimeMillis();
-                float f = this.progress + ((this.speed * ((float) abs)) / 1000.0f);
-                this.progress = f;
-                if (f >= 360.0f) {
-                    this.progress = f - 360.0f;
-                }
-                canvas.drawArc(this.rect, this.progress - 90.0f, this.length + 20.0f, false, this.paint);
-                if (this.showView) {
-                    if (Build.VERSION.SDK_INT >= 21) {
-                        postInvalidate();
-                    } else {
-                        invalidate();
-                    }
-                }
-            }
-        }
-    }
-
-    @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            super.onMeasure(i, i2);
-            int i3 = this.miniSize;
-            setMeasuredDimension(i3, i3);
-        }
-    }
-
-    @Override // android.view.View
-    public void onVisibilityChanged(View view2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view2, i) == null) {
-            super.onVisibilityChanged(view2, i);
-            if (i == 8) {
-                this.handler.sendEmptyMessageDelayed(0, 1000L);
-            } else if (i == 0 && getVisibility() == 0) {
-                this.handler.removeMessages(0);
-                this.showView = true;
-                invalidate();
-            }
-        }
-    }
-
-    public void setProgressColor(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.paint.setColor(i);
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public WbSdkProgressBar(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
@@ -249,5 +159,98 @@ public class WbSdkProgressBar extends View {
         int i4 = this.padding;
         int i5 = this.miniSize;
         this.rect = new RectF(i4, i4, i5 - i4, i5 - i4);
+    }
+
+    private int dip2px(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, this, context, i)) == null) {
+            return (int) (context.getResources().getDisplayMetrics().density * i);
+        }
+        return invokeLI.intValue;
+    }
+
+    @Override // android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            int i3 = this.miniSize;
+            setMeasuredDimension(i3, i3);
+        }
+    }
+
+    private void calculateProgress(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j) == null) {
+            long j2 = this.stopGrowTime;
+            if (j2 >= this.stopGrowTimeMax) {
+                double d = this.growTime + j;
+                this.growTime = d;
+                double d2 = this.growTimeMax;
+                if (d >= d2) {
+                    this.growTime = d - d2;
+                    this.stopGrowTime = 0L;
+                    this.addStart = !this.addStart;
+                }
+                float cos = (((float) Math.cos(((this.growTime / this.growTimeMax) + 1.0d) * 3.141592653589793d)) / 2.0f) + 0.5f;
+                if (!this.addStart) {
+                    this.length = cos * 280;
+                    return;
+                }
+                float f = 280 * (1.0f - cos);
+                this.progress += this.length - f;
+                this.length = f;
+                return;
+            }
+            this.stopGrowTime = j2 + j;
+        }
+    }
+
+    @Override // android.view.View
+    public synchronized void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+            synchronized (this) {
+                long abs = Math.abs(SystemClock.uptimeMillis() - this.lastTime) % 360;
+                calculateProgress(abs);
+                this.lastTime = SystemClock.uptimeMillis();
+                float f = this.progress + ((this.speed * ((float) abs)) / 1000.0f);
+                this.progress = f;
+                if (f >= 360.0f) {
+                    this.progress = f - 360.0f;
+                }
+                canvas.drawArc(this.rect, this.progress - 90.0f, this.length + 20.0f, false, this.paint);
+                if (this.showView) {
+                    if (Build.VERSION.SDK_INT >= 21) {
+                        postInvalidate();
+                    } else {
+                        invalidate();
+                    }
+                }
+            }
+        }
+    }
+
+    @Override // android.view.View
+    public void onVisibilityChanged(View view2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view2, i) == null) {
+            super.onVisibilityChanged(view2, i);
+            if (i == 8) {
+                this.handler.sendEmptyMessageDelayed(0, 1000L);
+            } else if (i == 0 && getVisibility() == 0) {
+                this.handler.removeMessages(0);
+                this.showView = true;
+                invalidate();
+            }
+        }
+    }
+
+    public void setProgressColor(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.paint.setColor(i);
+        }
     }
 }

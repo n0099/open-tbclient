@@ -28,39 +28,36 @@ public class CloseHelper {
         }
     }
 
-    public static void close(Closeable closeable) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, closeable) == null) || closeable == null) {
-            return;
-        }
-        try {
-            closeable.close();
-        } catch (Throwable th) {
-            Log.e(TAG, th.getMessage());
-        }
-    }
-
     public static void close(Cursor cursor) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, cursor) == null) || cursor == null) {
-            return;
-        }
-        try {
-            cursor.close();
-        } catch (Exception e) {
-            Log.e(TAG, e.getMessage());
+        if ((interceptable == null || interceptable.invokeL(65537, null, cursor) == null) && cursor != null) {
+            try {
+                cursor.close();
+            } catch (Exception e) {
+                Log.e(TAG, e.getMessage());
+            }
         }
     }
 
     public static void close(MediaMetadataRetriever mediaMetadataRetriever) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, mediaMetadataRetriever) == null) || mediaMetadataRetriever == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(65538, null, mediaMetadataRetriever) == null) && mediaMetadataRetriever != null) {
+            try {
+                mediaMetadataRetriever.release();
+            } catch (Exception e) {
+                Log.e(TAG, e.getMessage());
+            }
         }
-        try {
-            mediaMetadataRetriever.release();
-        } catch (Exception e) {
-            Log.e(TAG, e.getMessage());
+    }
+
+    public static void close(Closeable closeable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, closeable) == null) && closeable != null) {
+            try {
+                closeable.close();
+            } catch (Throwable th) {
+                Log.e(TAG, th.getMessage());
+            }
         }
     }
 }

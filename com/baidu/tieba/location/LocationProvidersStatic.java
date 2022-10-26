@@ -16,12 +16,11 @@ import com.baidu.location.LocationClient;
 import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tieba.qi7;
-import com.baidu.tieba.ri7;
-import com.baidu.tieba.s55;
-import com.baidu.tieba.ti7;
-import com.baidu.tieba.ui7;
-import com.baidu.tieba.zf;
+import com.baidu.tieba.ag;
+import com.baidu.tieba.bj7;
+import com.baidu.tieba.cj7;
+import com.baidu.tieba.ej7;
+import com.baidu.tieba.fj7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +34,7 @@ public class LocationProvidersStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public static class a extends CustomMessageListener {
+    public final class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -61,15 +60,15 @@ public class LocationProvidersStatic {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 EditorTools editorTools = (EditorTools) customResponsedMessage.getData();
                 if (editorTools.getCollectTools().indexOf(8) != -1) {
                     if (editorTools.t()) {
-                        editorTools.d(new ti7(editorTools.getContext(), true));
+                        editorTools.d(new ej7(editorTools.getContext(), true));
                     } else {
-                        editorTools.d(new ti7(editorTools.getContext()));
+                        editorTools.d(new ej7(editorTools.getContext()));
                     }
                 }
             }
@@ -77,7 +76,7 @@ public class LocationProvidersStatic {
     }
 
     /* loaded from: classes4.dex */
-    public static class b implements CustomMessageTask.CustomRunnable<Context> {
+    public final class b implements CustomMessageTask.CustomRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -96,15 +95,18 @@ public class LocationProvidersStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<s55> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage run(CustomMessage customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2016556, new ui7(customMessage.getData(), 0)) : (CustomResponsedMessage) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+                return new CustomResponsedMessage(2016556, new fj7((Context) customMessage.getData(), 0));
+            }
+            return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class c implements CustomMessageTask.CustomRunnable<Bundle> {
+    public final class c implements CustomMessageTask.CustomRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -123,14 +125,14 @@ public class LocationProvidersStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<Bundle> customMessage) {
+        public CustomResponsedMessage run(CustomMessage customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    Bundle data = customMessage.getData();
-                    Address address = (Address) data.getParcelable("location");
-                    String string = data.getString("coorType");
+                    Bundle bundle = (Bundle) customMessage.getData();
+                    Address address = (Address) bundle.getParcelable("location");
+                    String string = bundle.getString("coorType");
                     if (address != null && !StringUtils.isNULL(string)) {
                         BDLocation bDLocation = new BDLocation();
                         bDLocation.setLatitude(address.getLatitude());
@@ -144,7 +146,7 @@ public class LocationProvidersStatic {
                         }
                         address.setLatitude(bDLocation.getLatitude());
                         address.setLongitude(bDLocation.getLongitude());
-                        return new CustomResponsedMessage<>(2921363, address);
+                        return new CustomResponsedMessage(2921363, address);
                     }
                 }
                 return null;
@@ -166,13 +168,13 @@ public class LocationProvidersStatic {
                 return;
             }
         }
-        zf.n().r(ri7.t());
+        ag.n().r(cj7.t());
         boolean loadBoolean = TbadkSettings.getInst().loadBoolean("bd_loc_switcher", true);
         if (Build.VERSION.SDK_INT <= 4) {
             loadBoolean = false;
         }
         if (loadBoolean) {
-            zf.n().r(qi7.j());
+            ag.n().r(bj7.j());
         }
         MessageManager.getInstance().registerListener(new a(2010044));
         CustomMessageTask customMessageTask = new CustomMessageTask(2016556, new b());

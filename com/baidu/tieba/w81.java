@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IThreadManager;
-import com.baidu.nps.interfa.IThreadManager_ThreadManager_Provider;
-import com.baidu.pyramid.annotation.Inject;
+import com.baidu.nps.interfa.IStatisticManager;
+import com.baidu.nps.interfa.IStatisticManager_StatisticManager_Provider;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,8 +15,16 @@ public class w81 {
     public static /* synthetic */ Interceptable $ic;
     public static w81 b;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject
-    public se1<IThreadManager> a;
+    public te1 a;
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            re1 b2 = re1.b();
+            this.a = b2;
+            b2.a(new IStatisticManager_StatisticManager_Provider());
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -54,21 +61,18 @@ public class w81 {
     public static w81 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (w81) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
+        }
+        return (w81) invokeV.objValue;
     }
 
-    public IThreadManager b() {
+    public IStatisticManager b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.get() : (IThreadManager) invokeV.objValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            qe1 b2 = qe1.b();
-            this.a = b2;
-            b2.a(new IThreadManager_ThreadManager_Provider());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return (IStatisticManager) this.a.get();
         }
+        return (IStatisticManager) invokeV.objValue;
     }
 }

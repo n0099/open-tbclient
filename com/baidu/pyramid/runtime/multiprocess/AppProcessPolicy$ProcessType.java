@@ -62,12 +62,18 @@ public final class AppProcessPolicy$ProcessType {
     public static AppProcessPolicy$ProcessType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (AppProcessPolicy$ProcessType) Enum.valueOf(AppProcessPolicy$ProcessType.class, str) : (AppProcessPolicy$ProcessType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (AppProcessPolicy$ProcessType) Enum.valueOf(AppProcessPolicy$ProcessType.class, str);
+        }
+        return (AppProcessPolicy$ProcessType) invokeL.objValue;
     }
 
     public static AppProcessPolicy$ProcessType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (AppProcessPolicy$ProcessType[]) $VALUES.clone() : (AppProcessPolicy$ProcessType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (AppProcessPolicy$ProcessType[]) $VALUES.clone();
+        }
+        return (AppProcessPolicy$ProcessType[]) invokeV.objValue;
     }
 }

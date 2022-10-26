@@ -4,9 +4,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.kf8;
-import com.baidu.tieba.sh5;
-import com.baidu.tieba.wg5;
+import com.baidu.tieba.ch5;
+import com.baidu.tieba.uf8;
+import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,118 +59,39 @@ public class FRSPageRequestMessage extends NetMessage {
         }
     }
 
-    public int getCategoryId() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.NetMessage
+    public Message encode(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.categoryId : invokeV.intValue;
-    }
-
-    public int getCid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.cid : invokeV.intValue;
-    }
-
-    public int getCtime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.ctime : invokeV.intValue;
-    }
-
-    public int getDataSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.dataSize : invokeV.intValue;
-    }
-
-    public int getIsGood() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.isGood : invokeV.intValue;
-    }
-
-    public String getKw() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.kw : (String) invokeV.objValue;
-    }
-
-    public String getLastId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.lastId : (String) invokeV.objValue;
-    }
-
-    public int getNetError() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.netError : invokeV.intValue;
-    }
-
-    public int getPn() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.pn : invokeV.intValue;
-    }
-
-    public int getRn() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.rn : invokeV.intValue;
-    }
-
-    public double getScrDip() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.scrDip : invokeV.doubleValue;
-    }
-
-    public int getScrH() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.scrH : invokeV.intValue;
-    }
-
-    public int getScrW() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.scrW : invokeV.intValue;
-    }
-
-    public int getStParam() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.stParam : invokeV.intValue;
-    }
-
-    public String getStType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.stType : (String) invokeV.objValue;
-    }
-
-    public int getUpdateType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.updateType : invokeV.intValue;
-    }
-
-    public int getWithGroup() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.withGroup : invokeV.intValue;
-    }
-
-    public int getqType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.qType : invokeV.intValue;
-    }
-
-    public boolean isNeedCache() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.needCache : invokeV.booleanValue;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            DataReq.Builder builder = new DataReq.Builder();
+            builder.kw = this.kw;
+            builder.pn = Integer.valueOf(this.pn);
+            builder.rn = Integer.valueOf(this.rn);
+            builder.with_group = Integer.valueOf(this.withGroup);
+            builder.is_good = Integer.valueOf(this.isGood);
+            builder.cid = Integer.valueOf(this.cid);
+            builder.scr_w = Integer.valueOf(this.scrW);
+            builder.scr_h = Integer.valueOf(this.scrH);
+            builder.scr_dip = Double.valueOf(this.scrDip);
+            builder.st_type = this.stType;
+            builder.q_type = Integer.valueOf(this.qType);
+            builder.st_param = Integer.valueOf(this.stParam);
+            builder.ctime = Integer.valueOf(this.ctime);
+            builder.data_size = Integer.valueOf(this.dataSize);
+            builder.net_error = Integer.valueOf(this.netError);
+            builder.lastids = this.lastId;
+            builder.category_id = Integer.valueOf(this.categoryId);
+            builder.call_from = Integer.valueOf(this.callFrom);
+            builder.app_pos = uf8.e().a();
+            builder.app_transmit_data = ch5.b();
+            yh5.c(builder, true, false, true);
+            FrsPageReqIdl.Builder builder2 = new FrsPageReqIdl.Builder();
+            builder2.data = builder.build(false);
+            return builder2.build(false);
+        }
+        return (Message) invokeZ.objValue;
     }
 
     public void setCallFrom(int i) {
@@ -313,38 +234,174 @@ public class FRSPageRequestMessage extends NetMessage {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.NetMessage
-    public Message encode(boolean z) {
-        InterceptResult invokeZ;
+    public int getCategoryId() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            DataReq.Builder builder = new DataReq.Builder();
-            builder.kw = this.kw;
-            builder.pn = Integer.valueOf(this.pn);
-            builder.rn = Integer.valueOf(this.rn);
-            builder.with_group = Integer.valueOf(this.withGroup);
-            builder.is_good = Integer.valueOf(this.isGood);
-            builder.cid = Integer.valueOf(this.cid);
-            builder.scr_w = Integer.valueOf(this.scrW);
-            builder.scr_h = Integer.valueOf(this.scrH);
-            builder.scr_dip = Double.valueOf(this.scrDip);
-            builder.st_type = this.stType;
-            builder.q_type = Integer.valueOf(this.qType);
-            builder.st_param = Integer.valueOf(this.stParam);
-            builder.ctime = Integer.valueOf(this.ctime);
-            builder.data_size = Integer.valueOf(this.dataSize);
-            builder.net_error = Integer.valueOf(this.netError);
-            builder.lastids = this.lastId;
-            builder.category_id = Integer.valueOf(this.categoryId);
-            builder.call_from = Integer.valueOf(this.callFrom);
-            builder.app_pos = kf8.e().a();
-            builder.app_transmit_data = wg5.b();
-            sh5.c(builder, true, false, true);
-            FrsPageReqIdl.Builder builder2 = new FrsPageReqIdl.Builder();
-            builder2.data = builder.build(false);
-            return builder2.build(false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.categoryId;
         }
-        return (Message) invokeZ.objValue;
+        return invokeV.intValue;
+    }
+
+    public int getCid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.cid;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getCtime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.ctime;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getDataSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.dataSize;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getIsGood() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.isGood;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getKw() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.kw;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getLastId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.lastId;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getNetError() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.netError;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getPn() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.pn;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getRn() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.rn;
+        }
+        return invokeV.intValue;
+    }
+
+    public double getScrDip() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.scrDip;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public int getScrH() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.scrH;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getScrW() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.scrW;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getStParam() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.stParam;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getStType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.stType;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getUpdateType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.updateType;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getWithGroup() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.withGroup;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getqType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.qType;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean isNeedCache() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.needCache;
+        }
+        return invokeV.booleanValue;
     }
 }

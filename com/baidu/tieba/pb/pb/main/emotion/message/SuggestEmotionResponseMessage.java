@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.data.SingleBarEmotionRecommendData;
-import com.baidu.tieba.m08;
+import com.baidu.tieba.x08;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import org.json.JSONObject;
 public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public m08 mData;
+    public x08 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SuggestEmotionResponseMessage(int i) {
@@ -44,7 +44,7 @@ public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    private List<String> parseHotWordsData(JSONArray jSONArray) {
+    private List parseHotWordsData(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, jSONArray)) == null) {
@@ -63,30 +63,30 @@ public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
         return (List) invokeL.objValue;
     }
 
-    private List<EmotionImageData> parseImageData(JSONArray jSONArray) {
+    private List parseImageData(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, jSONArray)) == null) {
-            if (jSONArray == null || jSONArray.length() == 0) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            int min = Math.min(jSONArray.length(), 10);
-            for (int i = 0; i < min; i++) {
-                try {
-                    JSONObject jSONObject = jSONArray.getJSONObject(i);
-                    EmotionImageData emotionImageData = new EmotionImageData();
-                    emotionImageData.setPicId(jSONObject.optString(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY));
-                    emotionImageData.setPicUrl(jSONObject.optString("pic_url"));
-                    emotionImageData.setThumbUrl(jSONObject.optString("thumbnail"));
-                    emotionImageData.setWidth(jSONObject.optInt("width"));
-                    emotionImageData.setHeight(jSONObject.optInt("height"));
-                    arrayList.add(emotionImageData);
-                } catch (JSONException e) {
-                    e.printStackTrace();
+            if (jSONArray != null && jSONArray.length() != 0) {
+                ArrayList arrayList = new ArrayList();
+                int min = Math.min(jSONArray.length(), 10);
+                for (int i = 0; i < min; i++) {
+                    try {
+                        JSONObject jSONObject = jSONArray.getJSONObject(i);
+                        EmotionImageData emotionImageData = new EmotionImageData();
+                        emotionImageData.setPicId(jSONObject.optString(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY));
+                        emotionImageData.setPicUrl(jSONObject.optString("pic_url"));
+                        emotionImageData.setThumbUrl(jSONObject.optString("thumbnail"));
+                        emotionImageData.setWidth(jSONObject.optInt("width"));
+                        emotionImageData.setHeight(jSONObject.optInt("height"));
+                        arrayList.add(emotionImageData);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
+                return arrayList;
             }
-            return arrayList;
+            return null;
         }
         return (List) invokeL.objValue;
     }
@@ -115,17 +115,20 @@ public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
             if (statusCode != 200 || error != 0 || jSONObject == null || jSONObject == null) {
                 return;
             }
-            m08 m08Var = new m08();
-            this.mData = m08Var;
-            m08Var.d(parseImageData(jSONObject.optJSONArray("memes")));
+            x08 x08Var = new x08();
+            this.mData = x08Var;
+            x08Var.d(parseImageData(jSONObject.optJSONArray("memes")));
             this.mData.e(parseHotWordsData(jSONObject.optJSONArray("topwords")));
             this.mData.f(parseSingleForumRecommend(jSONObject.optJSONObject("forum_pkg")));
         }
     }
 
-    public m08 getData() {
+    public x08 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (m08) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mData;
+        }
+        return (x08) invokeV.objValue;
     }
 }

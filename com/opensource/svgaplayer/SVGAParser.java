@@ -8,7 +8,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.model.response.TaskProcessData;
 import com.baidu.sapi2.views.SmsLoginView;
-import com.baidu.tieba.ls9;
+import com.baidu.tieba.dt9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -56,22 +56,29 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public final class SVGAParser {
     public static /* synthetic */ Interceptable $ic;
-    public static final LinkedBlockingQueue<Runnable> c;
+    public static final LinkedBlockingQueue c;
     public static ThreadPoolExecutor d;
     public static final a e;
     public transient /* synthetic */ FieldHolder $fh;
     public FileDownloader a;
     public final Context b;
 
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a(SVGAVideoEntity sVGAVideoEntity);
+
+        void onError();
+    }
+
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000<\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\t\b\u0016\u0018\u0000B\u0007¢\u0006\u0004\b\u0018\u0010\u0019Jg\u0010\u000f\u001a\b\u0012\u0004\u0012\u00020\b0\u000e2\u0006\u0010\u0002\u001a\u00020\u00012!\u0010\t\u001a\u001d\u0012\u0013\u0012\u00110\u0004¢\u0006\f\b\u0005\u0012\b\b\u0006\u0012\u0004\b\b(\u0007\u0012\u0004\u0012\u00020\b0\u00032%\u0010\r\u001a!\u0012\u0017\u0012\u00150\nj\u0002`\u000b¢\u0006\f\b\u0005\u0012\b\b\u0006\u0012\u0004\b\b(\f\u0012\u0004\u0012\u00020\b0\u0003H\u0016¢\u0006\u0004\b\u000f\u0010\u0010R\"\u0010\u0012\u001a\u00020\u00118\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0012\u0010\u0013\u001a\u0004\b\u0014\u0010\u0015\"\u0004\b\u0016\u0010\u0017¨\u0006\u001a"}, d2 = {"Lcom/opensource/svgaplayer/SVGAParser$FileDownloader;", "Ljava/net/URL;", "url", "Lkotlin/Function1;", "Ljava/io/InputStream;", "Lkotlin/ParameterName;", "name", "inputStream", "", TaskProcessData.keyComplete, "Ljava/lang/Exception;", "Lkotlin/Exception;", "e", SmsLoginView.f.l, "Lkotlin/Function0;", "resume", "(Ljava/net/URL;Lkotlin/Function1;Lkotlin/Function1;)Lkotlin/Function0;", "", "noCache", "Z", "getNoCache", "()Z", "setNoCache", "(Z)V", "<init>", "()V", "library_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes8.dex */
-    public static class FileDownloader {
+    public class FileDownloader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
 
         /* loaded from: classes8.dex */
-        public static final class a implements Runnable {
+        public final class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ FileDownloader a;
@@ -176,10 +183,13 @@ public final class SVGAParser {
         public final boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return invokeV.booleanValue;
         }
 
-        public Function0<Unit> b(URL url, Function1<? super InputStream, Unit> function1, Function1<? super Exception, Unit> function12) {
+        public Function0 b(URL url, Function1 function1, Function1 function12) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, url, function1, function12)) == null) {
@@ -194,7 +204,7 @@ public final class SVGAParser {
     }
 
     /* loaded from: classes8.dex */
-    public static final class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -215,7 +225,10 @@ public final class SVGAParser {
         public final ThreadPoolExecutor a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? SVGAParser.d : (ThreadPoolExecutor) invokeV.objValue;
+            if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
+                return (ThreadPoolExecutor) invokeV.objValue;
+            }
+            return SVGAParser.d;
         }
 
         public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
@@ -224,14 +237,7 @@ public final class SVGAParser {
     }
 
     /* loaded from: classes8.dex */
-    public interface b {
-        void a(SVGAVideoEntity sVGAVideoEntity);
-
-        void onError();
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class c implements Runnable {
+    public final class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SVGAParser a;
@@ -269,7 +275,7 @@ public final class SVGAParser {
     }
 
     /* loaded from: classes8.dex */
-    public static final class d implements Runnable {
+    public final class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
@@ -304,7 +310,7 @@ public final class SVGAParser {
     }
 
     /* loaded from: classes8.dex */
-    public static final class e implements Runnable {
+    public final class e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
@@ -350,7 +356,7 @@ public final class SVGAParser {
             }
         }
         e = new a(null);
-        c = new LinkedBlockingQueue<>();
+        c = new LinkedBlockingQueue();
         d = new ThreadPoolExecutor(3, 10, 60000L, TimeUnit.MILLISECONDS, c);
     }
 
@@ -373,13 +379,6 @@ public final class SVGAParser {
         this.a = new FileDownloader();
     }
 
-    public static /* synthetic */ void p(SVGAParser sVGAParser, InputStream inputStream, String str, b bVar, boolean z, int i, Object obj) {
-        if ((i & 8) != 0) {
-            z = false;
-        }
-        sVGAParser.o(inputStream, str, bVar, z);
-    }
-
     public final File j(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -394,6 +393,97 @@ public final class SVGAParser {
             return new File(sb.toString());
         }
         return (File) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, INVOKE, MOVE_EXCEPTION, THROW, THROW, INVOKE, MOVE_EXCEPTION] complete} */
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public final byte[] r(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bArr)) == null) {
+            Inflater inflater = new Inflater();
+            inflater.setInput(bArr, 0, bArr.length);
+            byte[] bArr2 = new byte[2048];
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            while (true) {
+                try {
+                    int inflate = inflater.inflate(bArr2, 0, 2048);
+                    if (inflate <= 0) {
+                        inflater.end();
+                        byte[] byteArray = byteArrayOutputStream.toByteArray();
+                        CloseableKt.closeFinally(byteArrayOutputStream, null);
+                        return byteArray;
+                    }
+                    byteArrayOutputStream.write(bArr2, 0, inflate);
+                } finally {
+                }
+            }
+        } else {
+            return (byte[]) invokeL.objValue;
+        }
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, INVOKE, MOVE_EXCEPTION, THROW, THROW, INVOKE, MOVE_EXCEPTION] complete} */
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public final byte[] x(InputStream inputStream) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, inputStream)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            try {
+                byte[] bArr = new byte[2048];
+                while (true) {
+                    int read = inputStream.read(bArr, 0, 2048);
+                    if (read <= 0) {
+                        byte[] byteArray = byteArrayOutputStream.toByteArray();
+                        CloseableKt.closeFinally(byteArrayOutputStream, null);
+                        return byteArray;
+                    }
+                    byteArrayOutputStream.write(bArr, 0, read);
+                }
+            } finally {
+            }
+        } else {
+            return (byte[]) invokeL.objValue;
+        }
+    }
+
+    public final void s(SVGAVideoEntity sVGAVideoEntity, b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sVGAVideoEntity, bVar) == null) {
+            new Handler(this.b.getMainLooper()).post(new d(bVar, sVGAVideoEntity));
+        }
+    }
+
+    public final void t(Exception exc, b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, exc, bVar) == null) {
+            exc.printStackTrace();
+            new Handler(this.b.getMainLooper()).post(new e(bVar));
+        }
+    }
+
+    @Deprecated(message = "This method has been deprecated from 2.4.0.", replaceWith = @ReplaceWith(expression = "this.decodeFromAssets(assetsName, callback)", imports = {}))
+    public final void v(String str, b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, str, bVar) == null) {
+            m(str, bVar);
+        }
+    }
+
+    @Deprecated(message = "This method has been deprecated from 2.4.0.", replaceWith = @ReplaceWith(expression = "this.decodeFromURL(url, callback)", imports = {}))
+    public final void w(URL url, b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, url, bVar) == null) {
+            q(url, bVar);
+        }
+    }
+
+    public static /* synthetic */ void p(SVGAParser sVGAParser, InputStream inputStream, String str, b bVar, boolean z, int i, Object obj) {
+        if ((i & 8) != 0) {
+            z = false;
+        }
+        sVGAParser.o(inputStream, str, bVar, z);
     }
 
     public final String k(String str) {
@@ -436,6 +526,15 @@ public final class SVGAParser {
         return (String) invokeL.objValue;
     }
 
+    public final boolean u(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            return j(str).exists();
+        }
+        return invokeL.booleanValue;
+    }
+
     public final void m(String str, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, bVar) == null) {
@@ -450,89 +549,7 @@ public final class SVGAParser {
         }
     }
 
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public final void n(String str, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(1048580, this, str, bVar) != null) {
-            return;
-        }
-        try {
-            StringBuilder sb = new StringBuilder();
-            File cacheDir = this.b.getCacheDir();
-            Intrinsics.checkExpressionValueIsNotNull(cacheDir, "context.cacheDir");
-            sb.append(cacheDir.getAbsolutePath());
-            sb.append("/");
-            sb.append(str);
-            sb.append("/");
-            File file = new File(sb.toString());
-            File file2 = new File(file, "movie.binary");
-            if (!file2.isFile()) {
-                file2 = null;
-            }
-            if (file2 != null) {
-                try {
-                    FileInputStream fileInputStream = new FileInputStream(file2);
-                    MovieEntity decode = MovieEntity.ADAPTER.decode(fileInputStream);
-                    Intrinsics.checkExpressionValueIsNotNull(decode, "MovieEntity.ADAPTER.decode(it)");
-                    s(new SVGAVideoEntity(decode, file), bVar);
-                    Unit unit = Unit.INSTANCE;
-                    CloseableKt.closeFinally(fileInputStream, null);
-                } catch (Exception e2) {
-                    file.delete();
-                    file2.delete();
-                    throw e2;
-                }
-            }
-            File file3 = new File(file, "movie.spec");
-            if (!file3.isFile()) {
-                file3 = null;
-            }
-            if (file3 == null) {
-                return;
-            }
-            try {
-                FileInputStream fileInputStream2 = new FileInputStream(file3);
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                try {
-                    byte[] bArr = new byte[2048];
-                    while (true) {
-                        int read = fileInputStream2.read(bArr, 0, 2048);
-                        if (read == -1) {
-                            s(new SVGAVideoEntity(new JSONObject(byteArrayOutputStream.toString()), file), bVar);
-                            Unit unit2 = Unit.INSTANCE;
-                            CloseableKt.closeFinally(byteArrayOutputStream, null);
-                            Unit unit3 = Unit.INSTANCE;
-                            CloseableKt.closeFinally(fileInputStream2, null);
-                            return;
-                        }
-                        byteArrayOutputStream.write(bArr, 0, read);
-                    }
-                } catch (Throwable th) {
-                    try {
-                        throw th;
-                    } catch (Throwable th2) {
-                        CloseableKt.closeFinally(byteArrayOutputStream, th);
-                        throw th2;
-                    }
-                }
-            } catch (Exception e3) {
-                file.delete();
-                file3.delete();
-                throw e3;
-            }
-        } catch (Exception e4) {
-            t(e4, bVar);
-        }
-    }
-
-    public final void o(InputStream inputStream, String str, b bVar, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{inputStream, str, bVar, Boolean.valueOf(z)}) == null) {
-            d.execute(new SVGAParser$decodeFromInputStream$1(this, inputStream, str, bVar, z));
-        }
-    }
-
-    public final Function0<Unit> q(URL url, b bVar) {
+    public final Function0 q(URL url, b bVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, url, bVar)) == null) {
@@ -545,91 +562,83 @@ public final class SVGAParser {
         return (Function0) invokeLL.objValue;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, INVOKE, MOVE_EXCEPTION, THROW, THROW, INVOKE, MOVE_EXCEPTION] complete} */
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public final byte[] r(byte[] bArr) {
-        InterceptResult invokeL;
+    public final void n(String str, b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048583, this, bArr)) != null) {
-            return (byte[]) invokeL.objValue;
-        }
-        Inflater inflater = new Inflater();
-        inflater.setInput(bArr, 0, bArr.length);
-        byte[] bArr2 = new byte[2048];
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        while (true) {
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, bVar) == null) {
             try {
-                int inflate = inflater.inflate(bArr2, 0, 2048);
-                if (inflate <= 0) {
-                    inflater.end();
-                    byte[] byteArray = byteArrayOutputStream.toByteArray();
-                    CloseableKt.closeFinally(byteArrayOutputStream, null);
-                    return byteArray;
+                StringBuilder sb = new StringBuilder();
+                File cacheDir = this.b.getCacheDir();
+                Intrinsics.checkExpressionValueIsNotNull(cacheDir, "context.cacheDir");
+                sb.append(cacheDir.getAbsolutePath());
+                sb.append("/");
+                sb.append(str);
+                sb.append("/");
+                File file = new File(sb.toString());
+                File file2 = new File(file, "movie.binary");
+                if (!file2.isFile()) {
+                    file2 = null;
                 }
-                byteArrayOutputStream.write(bArr2, 0, inflate);
-            } finally {
+                if (file2 != null) {
+                    try {
+                        FileInputStream fileInputStream = new FileInputStream(file2);
+                        Object decode = MovieEntity.ADAPTER.decode(fileInputStream);
+                        Intrinsics.checkExpressionValueIsNotNull(decode, "MovieEntity.ADAPTER.decode(it)");
+                        s(new SVGAVideoEntity((MovieEntity) decode, file), bVar);
+                        Unit unit = Unit.INSTANCE;
+                        CloseableKt.closeFinally(fileInputStream, null);
+                    } catch (Exception e2) {
+                        file.delete();
+                        file2.delete();
+                        throw e2;
+                    }
+                }
+                File file3 = new File(file, "movie.spec");
+                if (!file3.isFile()) {
+                    file3 = null;
+                }
+                if (file3 != null) {
+                    try {
+                        FileInputStream fileInputStream2 = new FileInputStream(file3);
+                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                        try {
+                            byte[] bArr = new byte[2048];
+                            while (true) {
+                                int read = fileInputStream2.read(bArr, 0, 2048);
+                                if (read == -1) {
+                                    s(new SVGAVideoEntity(new JSONObject(byteArrayOutputStream.toString()), file), bVar);
+                                    Unit unit2 = Unit.INSTANCE;
+                                    CloseableKt.closeFinally(byteArrayOutputStream, null);
+                                    Unit unit3 = Unit.INSTANCE;
+                                    CloseableKt.closeFinally(fileInputStream2, null);
+                                    return;
+                                }
+                                byteArrayOutputStream.write(bArr, 0, read);
+                            }
+                        } catch (Throwable th) {
+                            try {
+                                throw th;
+                            } catch (Throwable th2) {
+                                CloseableKt.closeFinally(byteArrayOutputStream, th);
+                                throw th2;
+                            }
+                        }
+                    } catch (Exception e3) {
+                        file.delete();
+                        file3.delete();
+                        throw e3;
+                    }
+                }
+            } catch (Exception e4) {
+                t(e4, bVar);
             }
         }
     }
 
-    public final void s(SVGAVideoEntity sVGAVideoEntity, b bVar) {
+    public final void o(InputStream inputStream, String str, b bVar, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sVGAVideoEntity, bVar) == null) {
-            new Handler(this.b.getMainLooper()).post(new d(bVar, sVGAVideoEntity));
-        }
-    }
-
-    public final void t(Exception exc, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, exc, bVar) == null) {
-            exc.printStackTrace();
-            new Handler(this.b.getMainLooper()).post(new e(bVar));
-        }
-    }
-
-    public final boolean u(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) ? j(str).exists() : invokeL.booleanValue;
-    }
-
-    @Deprecated(message = "This method has been deprecated from 2.4.0.", replaceWith = @ReplaceWith(expression = "this.decodeFromAssets(assetsName, callback)", imports = {}))
-    public final void v(String str, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, str, bVar) == null) {
-            m(str, bVar);
-        }
-    }
-
-    @Deprecated(message = "This method has been deprecated from 2.4.0.", replaceWith = @ReplaceWith(expression = "this.decodeFromURL(url, callback)", imports = {}))
-    public final void w(URL url, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, url, bVar) == null) {
-            q(url, bVar);
-        }
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, INVOKE, MOVE_EXCEPTION, THROW, THROW, INVOKE, MOVE_EXCEPTION] complete} */
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public final byte[] x(InputStream inputStream) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048589, this, inputStream)) != null) {
-            return (byte[]) invokeL.objValue;
-        }
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        try {
-            byte[] bArr = new byte[2048];
-            while (true) {
-                int read = inputStream.read(bArr, 0, 2048);
-                if (read <= 0) {
-                    byte[] byteArray = byteArrayOutputStream.toByteArray();
-                    CloseableKt.closeFinally(byteArrayOutputStream, null);
-                    return byteArray;
-                }
-                byteArrayOutputStream.write(bArr, 0, read);
-            }
-        } finally {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{inputStream, str, bVar, Boolean.valueOf(z)}) == null) {
+            d.execute(new SVGAParser$decodeFromInputStream$1(this, inputStream, str, bVar, z));
         }
     }
 
@@ -639,7 +648,7 @@ public final class SVGAParser {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048590, this, inputStream, str) == null) {
-            i = ls9.a;
+            i = dt9.a;
             synchronized (Integer.valueOf(i)) {
                 File j = j(str);
                 j.mkdirs();

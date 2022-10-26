@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.PraiseData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.rh5;
+import com.baidu.tieba.eh;
+import com.baidu.tieba.xh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -64,9 +64,15 @@ public class FrsPraiseView extends LinearLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
+            String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                rh5.b(new PraiseListActivityConfig(this.a.a, this.a.g, this.a.h, this.a.f != null ? this.a.f.getTitle() : "", this.a.i));
+                if (this.a.f != null) {
+                    str = this.a.f.getTitle();
+                } else {
+                    str = "";
+                }
+                xh5.b(new PraiseListActivityConfig(this.a.a, this.a.g, this.a.h, str, this.a.i));
             }
         }
     }
@@ -99,10 +105,10 @@ public class FrsPraiseView extends LinearLayout {
         public void onClick(View view2) {
             MetaData metaData;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (metaData = this.a.f.getUser().get(1)) == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || (metaData = this.a.f.getUser().get(1)) == null) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.a.a).createNormalConfig(dh.g(metaData.getUserId(), 0L), false, metaData.isBigV())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.a.a).createNormalConfig(eh.g(metaData.getUserId(), 0L), false, metaData.isBigV())));
         }
     }
 
@@ -134,10 +140,10 @@ public class FrsPraiseView extends LinearLayout {
         public void onClick(View view2) {
             MetaData metaData;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (metaData = this.a.f.getUser().get(0)) == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || (metaData = this.a.f.getUser().get(0)) == null) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.a.a).createNormalConfig(dh.g(metaData.getUserId(), 0L), false, metaData.isBigV())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.a.a).createNormalConfig(eh.g(metaData.getUserId(), 0L), false, metaData.isBigV())));
         }
     }
 
@@ -162,6 +168,58 @@ public class FrsPraiseView extends LinearLayout {
         }
         this.i = false;
         this.j = false;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public FrsPraiseView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.i = false;
+        this.j = false;
+        setOrientation(0);
+        this.a = context;
+        h();
+    }
+
+    public final String g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (!TextUtils.isEmpty(str) && str.length() > 14) {
+                return str.substring(0, 14);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void setIsFromPb(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.i = z;
+        }
+    }
+
+    public void setIsFromPbVideo(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.j = z;
+        }
     }
 
     public final void f(boolean z) {
@@ -191,32 +249,26 @@ public class FrsPraiseView extends LinearLayout {
                     }
                 }
                 if (num <= 2) {
-                    this.c.setText(this.a.getString(R.string.obfuscated_res_0x7f0f041d));
+                    this.c.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0424));
                 } else if (num <= 999999) {
                     TextView textView2 = this.c;
-                    textView2.setText(this.a.getString(R.string.obfuscated_res_0x7f0f05ca) + num + this.a.getString(R.string.obfuscated_res_0x7f0f041e));
+                    textView2.setText(this.a.getString(R.string.obfuscated_res_0x7f0f05d2) + num + this.a.getString(R.string.obfuscated_res_0x7f0f0425));
                 } else {
                     TextView textView3 = this.c;
-                    textView3.setText(this.a.getString(R.string.obfuscated_res_0x7f0f05ca) + "999999+" + this.a.getString(R.string.obfuscated_res_0x7f0f041e));
+                    textView3.setText(this.a.getString(R.string.obfuscated_res_0x7f0f05d2) + "999999+" + this.a.getString(R.string.obfuscated_res_0x7f0f0425));
                 }
             }
         }
     }
 
-    public final String g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? (TextUtils.isEmpty(str) || str.length() <= 14) ? str : str.substring(0, 14) : (String) invokeL.objValue;
-    }
-
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d032d, this);
+            View inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d032c, this);
             this.b = inflate;
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b37);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090bd2);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090bd3);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b41);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090bdc);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090bdd);
             setOnClickListener(new a(this));
             this.e.setOnClickListener(new b(this));
             this.d.setOnClickListener(new c(this));
@@ -249,52 +301,12 @@ public class FrsPraiseView extends LinearLayout {
 
     public void setData(PraiseData praiseData, String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{praiseData, str, str2, Boolean.valueOf(z)}) == null) || praiseData == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{praiseData, str, str2, Boolean.valueOf(z)}) != null) || praiseData == null) {
             return;
         }
         this.g = str;
         this.h = str2;
         this.f = praiseData;
         f(z);
-    }
-
-    public void setIsFromPb(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.i = z;
-        }
-    }
-
-    public void setIsFromPbVideo(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.j = z;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsPraiseView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.i = false;
-        this.j = false;
-        setOrientation(0);
-        this.a = context;
-        h();
     }
 }

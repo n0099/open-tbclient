@@ -1,36 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.nu4;
-import com.baidu.tieba.themeCenter.background.DressItemData;
+import android.app.Activity;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
+import com.baidu.tieba.e46;
+import com.baidu.tieba.fv4;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class os8 {
+public class os8 extends fv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final MainTabActivity c;
+    public final eq8 d;
+    public final String e;
+    public e46 f;
 
     /* loaded from: classes5.dex */
-    public static class a implements nu4.e {
+    public class a implements e46.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nu4 a;
+        public final /* synthetic */ os8 a;
 
-        public a(nu4 nu4Var) {
+        public a(os8 os8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {nu4Var};
+                Object[] objArr = {os8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -40,253 +40,104 @@ public class os8 {
                     return;
                 }
             }
-            this.a = nu4Var;
+            this.a = os8Var;
         }
 
-        @Override // com.baidu.tieba.nu4.e
-        public void onClick(nu4 nu4Var) {
+        @Override // com.baidu.tieba.e46.e
+        public void onDismiss() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, nu4Var) == null) {
-                this.a.dismiss();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.c();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class b implements nu4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nu4 a;
-
-        public b(nu4 nu4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nu4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public os8(MainTabActivity mainTabActivity, eq8 eq8Var) {
+        super(mainTabActivity);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, eq8Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            this.a = nu4Var;
         }
+        this.d = eq8Var;
+        this.c = mainTabActivity;
+        this.e = this.b.getString(R.string.obfuscated_res_0x7f0f1423);
+    }
 
-        @Override // com.baidu.tieba.nu4.e
-        public void onClick(nu4 nu4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, nu4Var) == null) {
-                this.a.dismiss();
-            }
+    @Override // com.baidu.tieba.fv4
+    public void b() {
+        e46 e46Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (e46Var = this.f) != null) {
+            e46Var.h();
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class c implements nu4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nu4 a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ TbPageContext c;
-        public final /* synthetic */ int d;
-        public final /* synthetic */ String e;
-        public final /* synthetic */ String f;
-
-        public c(nu4 nu4Var, int i, TbPageContext tbPageContext, int i2, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nu4Var, Integer.valueOf(i), tbPageContext, Integer.valueOf(i2), str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    @Override // com.baidu.tieba.fv4
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            e46 e46Var = this.f;
+            if (e46Var == null) {
+                c();
+                return;
             }
-            this.a = nu4Var;
-            this.b = i;
-            this.c = tbPageContext;
-            this.d = i2;
-            this.e = str;
-            this.f = str2;
+            e46Var.z(new a(this));
+            this.f.V(this.e, "SendHelpTipTask", true, false);
         }
+    }
 
-        @Override // com.baidu.tieba.nu4.e
-        public void onClick(nu4 nu4Var) {
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, nu4Var) == null) {
-                this.a.dismiss();
-                int i2 = this.b;
-                String str = null;
-                if (i2 == 1) {
-                    i = 10;
-                    TiebaStatic.log("c10271");
-                    str = "4011001001";
-                } else if (i2 == 2) {
-                    i = 13;
-                    TiebaStatic.log("c10282");
-                    str = "4012001001";
-                } else if (i2 == 3) {
-                    i = 11;
-                    TiebaStatic.log("c10276");
-                    str = "4011001002";
-                } else if (i2 == 4) {
-                    i = 14;
-                    TiebaStatic.log("c10285");
-                    str = "4012001002";
-                } else if (i2 != 5) {
-                    i = i2 != 7 ? 0 : 22;
+    @Override // com.baidu.tieba.fv4
+    public void d(fv4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            eq8 eq8Var = this.d;
+            if (eq8Var != null && eq8Var.B() != null) {
+                FragmentTabWidget fragmentTabWidget = this.d.B().getFragmentTabWidget();
+                if (fragmentTabWidget != null && fragmentTabWidget.getChildCount() > 2) {
+                    e46 e46Var = new e46(this.c.getPageContext(), fragmentTabWidget.getChildAt(2));
+                    this.f = e46Var;
+                    e46Var.s(false);
+                    this.f.t(true);
+                    this.f.L(R.drawable.obfuscated_res_0x7f0802f0);
+                    this.f.l(2);
+                    this.f.o(32);
+                    this.f.M(true);
+                    this.f.Q(-fj.f(this.b, R.dimen.tbds10));
+                    this.f.P(-fj.f(this.b, R.dimen.tbds3));
+                    this.f.C(R.color.CAM_X0101);
+                    this.f.J(R.dimen.T_X09);
+                    this.f.w(1);
+                    this.f.n(4000);
+                    this.f.q(R.dimen.tbds90);
+                    int f = fj.f(this.b, R.dimen.obfuscated_res_0x7f070279);
+                    this.f.E(f, 0, f, fj.f(this.b, R.dimen.obfuscated_res_0x7f0702f6));
+                    this.f.A("SendHelpTipTask");
+                }
+                e46 e46Var2 = this.f;
+                if (e46Var2 == null) {
+                    aVar.a(false);
+                    return;
+                } else if (!e46Var2.d()) {
+                    aVar.a(false);
+                    return;
                 } else {
-                    i = 18;
-                    TiebaStatic.log("c10767");
-                }
-                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(this.c.getPageActivity(), TbadkCoreApplication.getCurrentMemberType(), "", i);
-                if (!StringUtils.isNULL(str)) {
-                    memberPayActivityConfig.setSceneId(str);
-                }
-                memberPayActivityConfig.setFromScence(this.d);
-                memberPayActivityConfig.setReferPageClickZone(this.e, this.f);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class d implements nu4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nu4 a;
-
-        public d(nu4 nu4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nu4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                    this.f.c(this.e, "SendHelpTipTask", true, false, aVar);
                     return;
                 }
             }
-            this.a = nu4Var;
+            aVar.a(false);
         }
-
-        @Override // com.baidu.tieba.nu4.e
-        public void onClick(nu4 nu4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, nu4Var) == null) {
-                this.a.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class e implements nu4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nu4 a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ TbPageContext c;
-
-        public e(nu4 nu4Var, String str, TbPageContext tbPageContext) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nu4Var, str, tbPageContext};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nu4Var;
-            this.b = str;
-            this.c = tbPageContext;
-        }
-
-        @Override // com.baidu.tieba.nu4.e
-        public void onClick(nu4 nu4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, nu4Var) == null) {
-                this.a.dismiss();
-                if (this.b == null) {
-                    return;
-                }
-                TbadkCoreApplication.getInst().setThemeWebviewOpen(true);
-                yo4.n(this.c.getPageActivity(), this.b);
-            }
-        }
-    }
-
-    public static boolean a(DressItemData dressItemData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, dressItemData)) == null) {
-            int freeUserLevel = dressItemData.getFreeUserLevel();
-            if (dressItemData.isDefault() || freeUserLevel == 0) {
-                return true;
-            }
-            return freeUserLevel == 100 ? dressItemData.getActivityFinish() != 0 : freeUserLevel == 101 ? TbadkCoreApplication.getCurrentMemberType() == 3 : TbadkCoreApplication.getCurrentMemberType() >= 2 && TbadkCoreApplication.getCurrentVipLevel() >= freeUserLevel;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void b(TbPageContext<?> tbPageContext, int i, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(65537, null, tbPageContext, i, str) == null) || tbPageContext == null) {
-            return;
-        }
-        nu4 nu4Var = new nu4(tbPageContext.getPageActivity());
-        nu4Var.setMessageId(R.string.obfuscated_res_0x7f0f1428);
-        nu4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0375, new d(nu4Var));
-        nu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1427, new e(nu4Var, str, tbPageContext));
-        nu4Var.create(tbPageContext);
-        nu4Var.show();
-    }
-
-    public static void c(TbPageContext<?> tbPageContext, int i, String str, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{tbPageContext, Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) || tbPageContext == null) {
-            return;
-        }
-        nu4 nu4Var = new nu4(tbPageContext.getPageActivity());
-        nu4Var.setButtonTextColor(R.color.CAM_X0305);
-        nu4Var.setTitle(str);
-        a aVar = new a(nu4Var);
-        nu4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0375, aVar);
-        nu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f09b7, aVar);
-        nu4Var.create(tbPageContext);
-        nu4Var.show();
-    }
-
-    public static void d(TbPageContext<?> tbPageContext, int i, String str, int i2, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{tbPageContext, Integer.valueOf(i), str, Integer.valueOf(i2), str2, str3}) == null) || tbPageContext == null) {
-            return;
-        }
-        nu4 nu4Var = new nu4(tbPageContext.getPageActivity());
-        nu4Var.setButtonTextColor(R.color.CAM_X0305);
-        nu4Var.setMessage(str);
-        nu4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0375, new b(nu4Var));
-        nu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0d13, new c(nu4Var, i, tbPageContext, i2, str2, str3));
-        nu4Var.create(tbPageContext);
-        nu4Var.show();
     }
 }

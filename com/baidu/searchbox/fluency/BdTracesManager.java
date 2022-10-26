@@ -45,6 +45,18 @@ public final class BdTracesManager {
         isFpsCCSEnable = QuickPersistConfig.getInstance().getBoolean(FpsConfigCommandListener.SP_FLUENCY_FPS_SWITCHER, false);
     }
 
+    private final void provideDefaultTracer() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            BdTracesConfig.Builder newBuilder = new BdTracesConfig().newBuilder();
+            boolean z = true;
+            if (!AppConfig.isDebug() && (!isActiveUploadType || !isFpsCCSEnable)) {
+                z = false;
+            }
+            init(newBuilder.fpsEnable(z).debug(AppConfig.isDebug()).timeSliceMs(10000).build());
+        }
+    }
+
     public BdTracesManager() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -56,18 +68,6 @@ public final class BdTracesManager {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-    }
-
-    private final void provideDefaultTracer() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            BdTracesConfig.Builder newBuilder = new BdTracesConfig().newBuilder();
-            boolean z = true;
-            if (!AppConfig.isDebug() && (!isActiveUploadType || !isFpsCCSEnable)) {
-                z = false;
-            }
-            init(newBuilder.fpsEnable(z).debug(AppConfig.isDebug()).timeSliceMs(10000).build());
         }
     }
 
@@ -85,6 +85,27 @@ public final class BdTracesManager {
         return (FpsTracer) invokeV.objValue;
     }
 
+    public final boolean isActiveUploadType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return isActiveUploadType;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean isFpsEnable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (isActiveUploadType() && isFpsCCSEnable) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public final void init(BdTracesConfig config) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, config) == null) {
@@ -92,17 +113,5 @@ public final class BdTracesManager {
             tracesConfig = config;
             fpsTracer = new FpsTracer(config);
         }
-    }
-
-    public final boolean isActiveUploadType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? isActiveUploadType : invokeV.booleanValue;
-    }
-
-    public final boolean isFpsEnable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? isActiveUploadType() && isFpsCCSEnable : invokeV.booleanValue;
     }
 }

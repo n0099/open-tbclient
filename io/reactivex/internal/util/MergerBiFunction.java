@@ -12,12 +12,12 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes8.dex */
-public final class MergerBiFunction<T> implements BiFunction<List<T>, List<T>, List<T>> {
+public final class MergerBiFunction implements BiFunction {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Comparator<? super T> comparator;
+    public final Comparator comparator;
 
-    public MergerBiFunction(Comparator<? super T> comparator) {
+    public MergerBiFunction(Comparator comparator) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -35,22 +35,20 @@ public final class MergerBiFunction<T> implements BiFunction<List<T>, List<T>, L
         this.comparator = comparator;
     }
 
-    @Override // io.reactivex.functions.BiFunction
-    public /* bridge */ /* synthetic */ Object apply(Object obj, Object obj2) throws Exception {
-        return apply((List) ((List) obj), (List) ((List) obj2));
-    }
-
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Removed duplicated region for block: B:28:0x0067  */
     /* JADX WARN: Removed duplicated region for block: B:32:0x0078  */
     /* JADX WARN: Removed duplicated region for block: B:41:0x0057 A[SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:46:0x0047 A[SYNTHETIC] */
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:15:0x003a -> B:16:0x003b). Please submit an issue!!! */
+    @Override // io.reactivex.functions.BiFunction
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public List<T> apply(List<T> list, List<T> list2) throws Exception {
+    public List apply(List list, List list2) throws Exception {
         InterceptResult invokeLL;
-        T t;
+        Object obj;
+        Object obj2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, list2)) == null) {
             int size = list.size() + list2.size();
@@ -58,41 +56,49 @@ public final class MergerBiFunction<T> implements BiFunction<List<T>, List<T>, L
                 return new ArrayList();
             }
             ArrayList arrayList = new ArrayList(size);
-            Iterator<T> it = list.iterator();
-            Iterator<T> it2 = list2.iterator();
-            T next = it.hasNext() ? it.next() : null;
+            Iterator it = list.iterator();
+            Iterator it2 = list2.iterator();
+            if (it.hasNext()) {
+                obj = it.next();
+            } else {
+                obj = null;
+            }
             if (it2.hasNext()) {
-                t = it2.next();
-                while (next != null && t != null) {
-                    if (this.comparator.compare(next, t) >= 0) {
-                        arrayList.add(next);
-                        next = it.hasNext() ? it.next() : null;
+                obj2 = it2.next();
+                while (obj != null && obj2 != null) {
+                    if (this.comparator.compare(obj, obj2) >= 0) {
+                        arrayList.add(obj);
+                        if (it.hasNext()) {
+                            obj = it.next();
+                        } else {
+                            obj = null;
+                        }
                     } else {
-                        arrayList.add(t);
+                        arrayList.add(obj2);
                         if (it2.hasNext()) {
-                            t = it2.next();
+                            obj2 = it2.next();
                         }
                     }
                 }
-                if (next == null) {
-                    arrayList.add(next);
+                if (obj == null) {
+                    arrayList.add(obj);
                     while (it.hasNext()) {
                         arrayList.add(it.next());
                     }
                 } else {
-                    arrayList.add(t);
+                    arrayList.add(obj2);
                     while (it2.hasNext()) {
                         arrayList.add(it2.next());
                     }
                 }
                 return arrayList;
             }
-            t = null;
-            while (next != null) {
-                if (this.comparator.compare(next, t) >= 0) {
+            obj2 = null;
+            while (obj != null) {
+                if (this.comparator.compare(obj, obj2) >= 0) {
                 }
             }
-            if (next == null) {
+            if (obj == null) {
             }
             return arrayList;
         }

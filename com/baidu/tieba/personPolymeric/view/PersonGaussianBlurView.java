@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import android.util.AttributeSet;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ch5;
+import com.baidu.tieba.ih5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ public class PersonGaussianBlurView extends PersonExpandImageView {
     public a e;
 
     /* loaded from: classes5.dex */
-    public class a extends BdAsyncTask<Bitmap, String, Bitmap> {
+    public class a extends BdAsyncTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonGaussianBlurView a;
@@ -41,48 +41,16 @@ public class PersonGaussianBlurView extends PersonExpandImageView {
             this.a = personGaussianBlurView;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Bitmap doInBackground(Bitmap... bitmapArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bitmapArr)) == null) {
-                if (bitmapArr != null) {
-                    try {
-                        if (bitmapArr.length == 0) {
-                            return null;
-                        }
-                        Bitmap bitmap = bitmapArr[0];
-                        if (c(bitmap)) {
-                            if (bitmap.getWidth() >= 600 || bitmap.getHeight() >= 600) {
-                                int round = Math.round(bitmap.getWidth() * 0.5f);
-                                int round2 = Math.round(bitmap.getHeight() * 0.5f);
-                                if (round > 0 && round2 > 0) {
-                                    bitmap = Bitmap.createScaledBitmap(bitmap, round, round2, false);
-                                    if (!c(bitmap)) {
-                                        return null;
-                                    }
-                                }
-                                return null;
-                            }
-                            return ch5.a(Bitmap.createBitmap(bitmap, 0, (int) (bitmap.getHeight() * 0.2f), bitmap.getWidth(), (int) (bitmap.getHeight() * 0.6f)), 15, false);
-                        }
-                        return null;
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        return null;
-                    }
-                }
-                return null;
-            }
-            return (Bitmap) invokeL.objValue;
-        }
-
         public final boolean c(Bitmap bitmap) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap)) == null) ? (bitmap == null || bitmap.isRecycled() || bitmap.getWidth() == 0 || bitmap.getHeight() == 0) ? false : true : invokeL.booleanValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap)) == null) {
+                if (bitmap == null || bitmap.isRecycled() || bitmap.getWidth() == 0 || bitmap.getHeight() == 0) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeL.booleanValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -91,10 +59,49 @@ public class PersonGaussianBlurView extends PersonExpandImageView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, bitmap) == null) {
                 super.onPostExecute((a) bitmap);
-                if (c(bitmap)) {
-                    this.a.setImageBitmap(bitmap);
+                if (!c(bitmap)) {
+                    return;
+                }
+                this.a.setImageBitmap(bitmap);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Bitmap doInBackground(Bitmap... bitmapArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bitmapArr)) == null) {
+                if (bitmapArr == null) {
+                    return null;
+                }
+                try {
+                    if (bitmapArr.length == 0) {
+                        return null;
+                    }
+                    Bitmap bitmap = bitmapArr[0];
+                    if (!c(bitmap)) {
+                        return null;
+                    }
+                    if (bitmap.getWidth() >= 600 || bitmap.getHeight() >= 600) {
+                        int round = Math.round(bitmap.getWidth() * 0.5f);
+                        int round2 = Math.round(bitmap.getHeight() * 0.5f);
+                        if (round > 0 && round2 > 0) {
+                            bitmap = Bitmap.createScaledBitmap(bitmap, round, round2, false);
+                            if (!c(bitmap)) {
+                                return null;
+                            }
+                        }
+                        return null;
+                    }
+                    return ih5.a(Bitmap.createBitmap(bitmap, 0, (int) (bitmap.getHeight() * 0.2f), bitmap.getWidth(), (int) (bitmap.getHeight() * 0.6f)), 15, false);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return null;
                 }
             }
+            return (Bitmap) invokeL.objValue;
         }
     }
 
@@ -121,15 +128,14 @@ public class PersonGaussianBlurView extends PersonExpandImageView {
 
     public void setSrc(Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, bitmap) == null) || bitmap == null || bitmap.isRecycled()) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, bitmap) == null) && bitmap != null && !bitmap.isRecycled()) {
+            a aVar = this.e;
+            if (aVar != null) {
+                aVar.cancel();
+            }
+            a aVar2 = new a(this);
+            this.e = aVar2;
+            aVar2.execute(bitmap);
         }
-        a aVar = this.e;
-        if (aVar != null) {
-            aVar.cancel();
-        }
-        a aVar2 = new a(this);
-        this.e = aVar2;
-        aVar2.execute(bitmap);
     }
 }

@@ -18,7 +18,7 @@ public class SignOptions {
     public static final int DEFAULT_EXPIRATION_IN_SECONDS = 1800;
     public transient /* synthetic */ FieldHolder $fh;
     public int expirationInSeconds;
-    public Set<String> headersToSign;
+    public Set headersToSign;
     public Date timestamp;
 
     static {
@@ -58,19 +58,28 @@ public class SignOptions {
     public int getExpirationInSeconds() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.expirationInSeconds : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.expirationInSeconds;
+        }
+        return invokeV.intValue;
     }
 
-    public Set<String> getHeadersToSign() {
+    public Set getHeadersToSign() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.headersToSign : (Set) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.headersToSign;
+        }
+        return (Set) invokeV.objValue;
     }
 
     public Date getTimestamp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.timestamp : (Date) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.timestamp;
+        }
+        return (Date) invokeV.objValue;
     }
 
     public void setExpirationInSeconds(int i) {
@@ -80,7 +89,7 @@ public class SignOptions {
         }
     }
 
-    public void setHeadersToSign(Set<String> set) {
+    public void setHeadersToSign(Set set) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, set) == null) {
             this.headersToSign = set;

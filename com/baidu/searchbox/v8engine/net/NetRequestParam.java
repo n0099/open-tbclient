@@ -4,7 +4,6 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.searchbox.v8engine.NotProguard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +13,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Observer;
-@NotProguard
 /* loaded from: classes2.dex */
 public class NetRequestParam implements IHeaderMap {
     public static /* synthetic */ Interceptable $ic = null;
@@ -47,13 +45,25 @@ public class NetRequestParam implements IHeaderMap {
 
     /* renamed from: com.baidu.searchbox.v8engine.net.NetRequestParam$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
+    private native Object nativeGetData(long j);
+
+    private native void nativeSetData(long j, String str);
+
+    private native void nativeSetDataType(long j, byte b);
+
+    private native void nativeSetMethod(long j, byte b);
+
+    private native void nativeSetResponseType(long j, byte b);
+
+    private native void nativeSetUrl(long j, String str);
+
     /* loaded from: classes2.dex */
-    public static class Builder {
+    public class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetRequestParam mNetRequestParam;
@@ -77,76 +87,79 @@ public class NetRequestParam implements IHeaderMap {
         public NetRequestParam build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mNetRequestParam : (NetRequestParam) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.mNetRequestParam;
+            }
+            return (NetRequestParam) invokeV.objValue;
         }
 
         public Builder setData(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.mNetRequestParam.mData = str;
-                return this;
+            if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) != null) {
+                return (Builder) invokeL.objValue;
             }
-            return (Builder) invokeL.objValue;
+            this.mNetRequestParam.mData = str;
+            return this;
         }
 
         public Builder setDataType(byte b) {
             InterceptResult invokeB;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeB = interceptable.invokeB(Constants.METHOD_SEND_USER_MSG, this, b)) == null) {
-                this.mNetRequestParam.mDataType = b;
-                return this;
+            if (interceptable != null && (invokeB = interceptable.invokeB(Constants.METHOD_SEND_USER_MSG, this, b)) != null) {
+                return (Builder) invokeB.objValue;
             }
-            return (Builder) invokeB.objValue;
-        }
-
-        public Builder setHeaderMap(Map<String, String> map) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, map)) == null) {
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    this.mNetRequestParam.mHeaderMap.addHeader(entry.getKey(), entry.getValue());
-                }
-                return this;
-            }
-            return (Builder) invokeL.objValue;
+            this.mNetRequestParam.mDataType = b;
+            return this;
         }
 
         public Builder setMethod(byte b) {
             InterceptResult invokeB;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeB = interceptable.invokeB(1048580, this, b)) == null) {
-                this.mNetRequestParam.mMethod = b;
-                return this;
+            if (interceptable != null && (invokeB = interceptable.invokeB(1048580, this, b)) != null) {
+                return (Builder) invokeB.objValue;
             }
-            return (Builder) invokeB.objValue;
+            this.mNetRequestParam.mMethod = b;
+            return this;
         }
 
         public Builder setNetRequestCallback(NetRequestCallback netRequestCallback) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, netRequestCallback)) == null) {
-                this.mNetRequestParam.mNetRequestCallback = netRequestCallback;
-                return this;
+            if (interceptable != null && (invokeL = interceptable.invokeL(1048581, this, netRequestCallback)) != null) {
+                return (Builder) invokeL.objValue;
             }
-            return (Builder) invokeL.objValue;
+            this.mNetRequestParam.mNetRequestCallback = netRequestCallback;
+            return this;
         }
 
         public Builder setResponseType(byte b) {
             InterceptResult invokeB;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeB = interceptable.invokeB(1048582, this, b)) == null) {
-                this.mNetRequestParam.mResponseType = b;
-                return this;
+            if (interceptable != null && (invokeB = interceptable.invokeB(1048582, this, b)) != null) {
+                return (Builder) invokeB.objValue;
             }
-            return (Builder) invokeB.objValue;
+            this.mNetRequestParam.mResponseType = b;
+            return this;
         }
 
         public Builder setUrl(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-                this.mNetRequestParam.mUrl = str;
+            if (interceptable != null && (invokeL = interceptable.invokeL(1048583, this, str)) != null) {
+                return (Builder) invokeL.objValue;
+            }
+            this.mNetRequestParam.mUrl = str;
+            return this;
+        }
+
+        public Builder setHeaderMap(Map map) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, map)) == null) {
+                for (Map.Entry entry : map.entrySet()) {
+                    this.mNetRequestParam.mHeaderMap.addHeader((String) entry.getKey(), (String) entry.getValue());
+                }
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -154,11 +167,21 @@ public class NetRequestParam implements IHeaderMap {
     }
 
     /* loaded from: classes2.dex */
-    public static class HeaderMap implements IHeaderMap {
+    public class HeaderMap implements IHeaderMap {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Map<String, String> mMap;
+        public Map mMap;
         public long mNativePtr;
+
+        private native void nativeAddHeader(long j, String str, String str2);
+
+        private native String nativeGetHeaderValue(long j, String str);
+
+        private native String[] nativeGetTransformedHeaderMap(long j);
+
+        private native boolean nativeHasHeader(long j, String str);
+
+        private native void nativeRemoveHeader(long j, String str);
 
         public HeaderMap(long j) {
             Interceptable interceptable = $ic;
@@ -180,34 +203,12 @@ public class NetRequestParam implements IHeaderMap {
             this.mNativePtr = j;
         }
 
-        private native void nativeAddHeader(long j, String str, String str2);
-
-        private native String nativeGetHeaderValue(long j, String str);
-
-        private native String[] nativeGetTransformedHeaderMap(long j);
-
-        private native boolean nativeHasHeader(long j, String str);
-
-        private native void nativeRemoveHeader(long j, String str);
-
-        @Override // com.baidu.searchbox.v8engine.net.IHeaderMap
-        public void addHeader(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-                this.mMap.put(str, str2);
-                long j = this.mNativePtr;
-                if (j != 0) {
-                    nativeAddHeader(j, str, str2);
-                }
-            }
-        }
-
         @Override // com.baidu.searchbox.v8engine.net.IHeaderMap
         public String getHeaderValue(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                String str2 = this.mMap.get(str);
+                String str2 = (String) this.mMap.get(str);
                 if (str2 != null) {
                     return str2;
                 }
@@ -221,18 +222,11 @@ public class NetRequestParam implements IHeaderMap {
         }
 
         @Override // com.baidu.searchbox.v8engine.net.IHeaderMap
-        public Map<String, String> getTransformedHeaderMap() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? NetRequestParam.stringPairToMap(nativeGetTransformedHeaderMap(this.mNativePtr)) : (Map) invokeV.objValue;
-        }
-
-        @Override // com.baidu.searchbox.v8engine.net.IHeaderMap
         public boolean hasHeader(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                if (this.mMap.get(str) != null) {
+                if (((String) this.mMap.get(str)) != null) {
                     return true;
                 }
                 long j = this.mNativePtr;
@@ -255,6 +249,68 @@ public class NetRequestParam implements IHeaderMap {
                 }
             }
         }
+
+        @Override // com.baidu.searchbox.v8engine.net.IHeaderMap
+        public void addHeader(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+                this.mMap.put(str, str2);
+                long j = this.mNativePtr;
+                if (j != 0) {
+                    nativeAddHeader(j, str, str2);
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.v8engine.net.IHeaderMap
+        public Map getTransformedHeaderMap() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return NetRequestParam.stringPairToMap(nativeGetTransformedHeaderMap(this.mNativePtr));
+            }
+            return (Map) invokeV.objValue;
+        }
+    }
+
+    public NetRequestParam(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mNativePtr = j;
+        this.mHeaderMap = new HeaderMap(j);
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public NetRequestParam(long j, JsObject jsObject) {
+        this(j);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), jsObject};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this(((Long) newInitContext.callArgs[0]).longValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mJsObject = jsObject;
     }
 
     public /* synthetic */ NetRequestParam(long j, AnonymousClass1 anonymousClass1) {
@@ -264,69 +320,38 @@ public class NetRequestParam implements IHeaderMap {
     public static String buildUrlWithJsonStringQuery(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, str, str2)) == null) ? a.a(str, str2) : (String) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, str, str2)) == null) {
+            return a.a(str, str2);
+        }
+        return (String) invokeLL.objValue;
     }
 
     public static String buildUrlWithStringArrayQuery(String str, String[] strArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, str, strArr)) == null) ? a.a(str, strArr) : (String) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, str, strArr)) == null) {
+            return a.a(str, strArr);
+        }
+        return (String) invokeLL.objValue;
     }
 
-    private void clearDirty() {
+    @Override // com.baidu.searchbox.v8engine.net.IHeaderMap
+    public void addHeader(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
-            this.mDirty = false;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            this.mDirty = true;
+            this.mHeaderMap.addHeader(str, str2);
         }
     }
 
     public static String encodeQuery(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) ? a.d(str) : (String) invokeL.objValue;
-    }
-
-    private Map<String, String> getJavaHeaderMap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) ? this.mHeaderMap.mMap : (Map) invokeV.objValue;
-    }
-
-    private String[] getJavaHeaderMapStringPairs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65552, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (Map.Entry entry : this.mHeaderMap.mMap.entrySet()) {
-                String str = (String) entry.getKey();
-                String str2 = (String) entry.getValue();
-                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                    arrayList.add(str);
-                    arrayList.add(str2);
-                }
-            }
-            return (String[]) arrayList.toArray(new String[0]);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
+            return a.d(str);
         }
-        return (String[]) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
-
-    private boolean isDirty() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65553, this)) == null) ? this.mDirty : invokeV.booleanValue;
-    }
-
-    private native Object nativeGetData(long j);
-
-    private native void nativeSetData(long j, String str);
-
-    private native void nativeSetDataType(long j, byte b);
-
-    private native void nativeSetMethod(long j, byte b);
-
-    private native void nativeSetResponseType(long j, byte b);
-
-    private native void nativeSetUrl(long j, String str);
 
     private void setDirty(boolean z) {
         Interceptable interceptable = $ic;
@@ -335,7 +360,7 @@ public class NetRequestParam implements IHeaderMap {
         }
     }
 
-    public static Map<String, String> stringPairToMap(String[] strArr) {
+    public static Map stringPairToMap(String[] strArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, strArr)) == null) {
@@ -357,90 +382,30 @@ public class NetRequestParam implements IHeaderMap {
     public static String transformJSONStringToQueryString(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65562, null, str)) == null) ? a.c(str) : (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.v8engine.net.IHeaderMap
-    public void addHeader(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            this.mDirty = true;
-            this.mHeaderMap.addHeader(str, str2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, str)) == null) {
+            return a.c(str);
         }
-    }
-
-    public Object getData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Object obj = this.mData;
-            if (obj != null) {
-                return obj;
-            }
-            long j = this.mNativePtr;
-            if (j != 0) {
-                this.mData = nativeGetData(j);
-            }
-            return this.mData;
-        }
-        return invokeV.objValue;
-    }
-
-    public byte getDataType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mDataType : invokeV.byteValue;
+        return (String) invokeL.objValue;
     }
 
     @Override // com.baidu.searchbox.v8engine.net.IHeaderMap
     public String getHeaderValue(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.mHeaderMap.getHeaderValue(str) : (String) invokeL.objValue;
-    }
-
-    public JsObject getJsObject() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mJsObject : (JsObject) invokeV.objValue;
-    }
-
-    public byte getMethod() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mMethod : invokeV.byteValue;
-    }
-
-    public NetRequestCallback getNetRequestCallback() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mNetRequestCallback : (NetRequestCallback) invokeV.objValue;
-    }
-
-    public byte getResponseType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mResponseType : invokeV.byteValue;
-    }
-
-    @Override // com.baidu.searchbox.v8engine.net.IHeaderMap
-    public Map<String, String> getTransformedHeaderMap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mHeaderMap.getTransformedHeaderMap() : (Map) invokeV.objValue;
-    }
-
-    public String getUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mUrl : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return this.mHeaderMap.getHeaderValue(str);
+        }
+        return (String) invokeL.objValue;
     }
 
     @Override // com.baidu.searchbox.v8engine.net.IHeaderMap
     public boolean hasHeader(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) ? this.mHeaderMap.hasHeader(str) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            return this.mHeaderMap.hasHeader(str);
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // com.baidu.searchbox.v8engine.net.IHeaderMap
@@ -541,49 +506,136 @@ public class NetRequestParam implements IHeaderMap {
         return (NetRequestParam) invokeL.objValue;
     }
 
-    public NetRequestParam(long j) {
+    private void clearDirty() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
+            this.mDirty = false;
         }
-        this.mNativePtr = j;
-        this.mHeaderMap = new HeaderMap(j);
+    }
+
+    private Map getJavaHeaderMap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) {
+            return this.mHeaderMap.mMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    private boolean isDirty() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65553, this)) == null) {
+            return this.mDirty;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public Object getData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Object obj = this.mData;
+            if (obj != null) {
+                return obj;
+            }
+            long j = this.mNativePtr;
+            if (j != 0) {
+                this.mData = nativeGetData(j);
+            }
+            return this.mData;
+        }
+        return invokeV.objValue;
+    }
+
+    public byte getDataType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mDataType;
+        }
+        return invokeV.byteValue;
+    }
+
+    public JsObject getJsObject() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mJsObject;
+        }
+        return (JsObject) invokeV.objValue;
+    }
+
+    public byte getMethod() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mMethod;
+        }
+        return invokeV.byteValue;
+    }
+
+    public NetRequestCallback getNetRequestCallback() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mNetRequestCallback;
+        }
+        return (NetRequestCallback) invokeV.objValue;
+    }
+
+    public byte getResponseType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mResponseType;
+        }
+        return invokeV.byteValue;
+    }
+
+    @Override // com.baidu.searchbox.v8engine.net.IHeaderMap
+    public Map getTransformedHeaderMap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mHeaderMap.getTransformedHeaderMap();
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public String getUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mUrl;
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String encodeQuery(String[] strArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, strArr)) == null) ? a.a(strArr) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, strArr)) == null) {
+            return a.a(strArr);
+        }
+        return (String) invokeL.objValue;
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public NetRequestParam(long j, JsObject jsObject) {
-        this(j);
+    private String[] getJavaHeaderMapStringPairs() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), jsObject};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this(((Long) newInitContext.callArgs[0]).longValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65552, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (Map.Entry entry : this.mHeaderMap.mMap.entrySet()) {
+                String str = (String) entry.getKey();
+                String str2 = (String) entry.getValue();
+                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                    arrayList.add(str);
+                    arrayList.add(str2);
+                }
             }
+            return (String[]) arrayList.toArray(new String[0]);
         }
-        this.mJsObject = jsObject;
+        return (String[]) invokeV.objValue;
     }
 }

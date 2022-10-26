@@ -1,122 +1,191 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.android.imsdk.IMConstants;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
 /* loaded from: classes5.dex */
 public class pi {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
+    public final class a extends qc {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ vh c;
+        public final /* synthetic */ boolean d;
 
-    /* loaded from: classes5.dex */
-    public static class b extends BdAsyncTask<String, Integer, String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(String str, String str2, DiskFileOperate.Action action, vh vhVar, boolean z) {
+            super(str, str2, action);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2, action, vhVar, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], (String) objArr2[1], (DiskFileOperate.Action) objArr2[2]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.c = vhVar;
+            this.d = z;
         }
 
-        public final void b() {
-            ArrayList<xh> c;
+        @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
+        public void callback(boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (c = vh.c(true)) == null || c.size() == 0) {
-                return;
-            }
-            int i = 0;
-            Iterator<xh> it = c.iterator();
-            while (it.hasNext()) {
-                i = (int) (i + it.next().a);
-            }
-            int i2 = i - IMConstants.MAX_IMAGE_CACHE_DISC_SIZE;
-            ArrayList arrayList = new ArrayList();
-            if (i2 > 0) {
-                Collections.sort(c, new yh());
-                Iterator<xh> it2 = c.iterator();
-                while (it2.hasNext()) {
-                    xh next = it2.next();
-                    arrayList.add(next.b);
-                    i2 = (int) (i2 - next.a);
-                    if (i2 <= 0) {
-                        break;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                super.callback(z);
+                if (z) {
+                    this.c.F(getFileInfo().length());
+                    if (this.d || this.c.l() > 20480) {
+                        pi.b(this.c);
                     }
                 }
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            Iterator<xh> it3 = c.iterator();
-            while (it3.hasNext()) {
-                xh next2 = it3.next();
-                if (next2 != null) {
-                    long j = next2.c;
-                    if (j != 0 && j + 604800000 < currentTimeMillis && !arrayList.contains(next2.b)) {
-                        arrayList.add(next2.b);
-                    }
-                }
-            }
-            if (arrayList.size() > 0) {
-                vh.a(arrayList, true);
-            }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public String doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
-                b();
-                return null;
-            }
-            return (String) invokeL.objValue;
-        }
-    }
-
-    public pi() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public void a() {
+    /* loaded from: classes5.dex */
+    public final class b extends DiskFileOperate {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vh a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(String str, String str2, String str3, String str4, DiskFileOperate.Action action, vh vhVar) {
+            super(str, str2, str3, str4, action);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r3;
+                Object[] objArr = {str, str2, str3, str4, action, vhVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2], (String) objArr2[3], (DiskFileOperate.Action) objArr2[4]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vhVar;
+        }
+
+        @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
+        public void callback(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                super.callback(z);
+                if (z) {
+                    this.a.F(0L);
+                    fi.m().s(this.a);
+                    return;
+                }
+                BdLog.e("Track Log rename fail!");
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public final class c extends qc {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vh c;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(String str, String str2, DiskFileOperate.Action action, vh vhVar) {
+            super(str, str2, action);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2, action, vhVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], (String) objArr2[1], (DiskFileOperate.Action) objArr2[2]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = vhVar;
+        }
+
+        @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
+        public void callback(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                super.callback(z);
+                if (z) {
+                    this.c.F(getFileInfo().length());
+                }
+            }
+        }
+    }
+
+    public static long a(vh vhVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            new b(null).execute(new String[0]);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, vhVar)) == null) {
+            if (vhVar == null) {
+                return -1L;
+            }
+            if (vhVar.v() <= 0) {
+                c cVar = new c(BdStatisticsManager.getInstance().getTrackLogWriteDir(), vhVar.s(), DiskFileOperate.Action.INFO, vhVar);
+                cVar.setSdCard(vhVar.C());
+                cVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+                if (lc.f().a(cVar)) {
+                    return vhVar.v();
+                }
+            }
+            return vhVar.v();
+        }
+        return invokeL.longValue;
+    }
+
+    public static void b(vh vhVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65537, null, vhVar) != null) || vhVar == null) {
+            return;
+        }
+        b bVar = new b(BdStatisticsManager.getInstance().getTrackLogWriteDir(), vhVar.s(), BdStatisticsManager.getInstance().getTrackLogWriteDir(), vhVar.r(), DiskFileOperate.Action.RENAME, vhVar);
+        bVar.setSdCard(vhVar.C());
+        bVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+        lc.f().a(bVar);
+    }
+
+    public static void c(vh vhVar, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(65538, null, vhVar, z) == null) && vhVar != null && vhVar.l() != 0) {
+            a aVar = new a(BdStatisticsManager.getInstance().getTrackLogWriteDir(), vhVar.s(), DiskFileOperate.Action.APPEND, vhVar, z);
+            aVar.setSdCard(vhVar.C());
+            aVar.b(vhVar.z().toString());
+            vhVar.f();
+            if (!vhVar.A()) {
+                aVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
+                aVar.setTrySuccessWeight(3);
+            }
+            if (!lc.f().a(aVar)) {
+                BdLog.e("Track Log write to disk fail!");
+            }
         }
     }
 }

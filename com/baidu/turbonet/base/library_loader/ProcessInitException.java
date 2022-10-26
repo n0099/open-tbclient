@@ -30,12 +30,6 @@ public class ProcessInitException extends Exception {
         this.mErrorCode = i;
     }
 
-    public int getErrorCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mErrorCode : invokeV.intValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ProcessInitException(int i, Throwable th) {
         super(null, th);
@@ -57,5 +51,14 @@ public class ProcessInitException extends Exception {
         }
         this.mErrorCode = 0;
         this.mErrorCode = i;
+    }
+
+    public int getErrorCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mErrorCode;
+        }
+        return invokeV.intValue;
     }
 }

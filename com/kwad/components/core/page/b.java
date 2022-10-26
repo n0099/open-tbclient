@@ -10,8 +10,6 @@ import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -41,7 +39,7 @@ public final class b extends com.kwad.components.core.page.recycle.a {
     public TextView mWebTipBarTitle;
 
     /* loaded from: classes7.dex */
-    public static class a extends com.kwad.components.core.page.recycle.d {
+    public final class a extends com.kwad.components.core.page.recycle.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public e Fz;
@@ -74,7 +72,7 @@ public final class b extends com.kwad.components.core.page.recycle.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
                 if (i == 1) {
-                    View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0415, viewGroup, false);
+                    View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0412, viewGroup, false);
                     Presenter presenter = new Presenter();
                     presenter.a(new com.kwad.components.core.page.kwai.b());
                     return new com.kwad.components.core.page.recycle.c(inflate, presenter, this.Fz);
@@ -149,9 +147,9 @@ public final class b extends com.kwad.components.core.page.recycle.a {
     public void t(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, view2) == null) {
-            this.mWebTipBarLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091244);
-            this.mWebTipBarTitle = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091245);
-            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091246);
+            this.mWebTipBarLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091238);
+            this.mWebTipBarTitle = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091239);
+            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09123a);
             this.mWebTipBarCloseBtn = imageView;
             imageView.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.core.page.b.1
                 public static /* synthetic */ Interceptable $ic;
@@ -227,11 +225,11 @@ public final class b extends com.kwad.components.core.page.recycle.a {
     public final int nw() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d0416 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d0413 : invokeV.intValue;
     }
 
     @Override // com.kwad.components.core.page.recycle.a, com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public final void onCreate(@Nullable Bundle bundle) {
+    public final void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
@@ -263,7 +261,7 @@ public final class b extends com.kwad.components.core.page.recycle.a {
     }
 
     @Override // com.kwad.components.core.page.recycle.a, com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public final void onViewCreated(@NonNull View view2, @Nullable Bundle bundle) {
+    public final void onViewCreated(View view2, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, view2, bundle) == null) {
             super.onViewCreated(view2, bundle);
@@ -310,7 +308,7 @@ public final class b extends com.kwad.components.core.page.recycle.a {
                         }
                         if (this.Fy.getChildCount() > 1) {
                             View view4 = this.Fy.findViewHolderForAdapterPosition(1).itemView;
-                            this.Fx.Fv = (WebView) view4.findViewById(R.id.obfuscated_res_0x7f09123a);
+                            this.Fx.Fv = (WebView) view4.findViewById(R.id.obfuscated_res_0x7f09122e);
                             this.Fx.t(view4);
                         }
                         com.kwad.sdk.core.e.b.d("AdRecycleWebFragment", "onGlobalLayout");

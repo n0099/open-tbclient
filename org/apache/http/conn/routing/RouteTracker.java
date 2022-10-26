@@ -34,6 +34,24 @@ public final class RouteTracker implements RouteInfo {
         throw new RuntimeException("Stub!");
     }
 
+    public RouteTracker(HttpRoute httpRoute) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {httpRoute};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        throw new RuntimeException("Stub!");
+    }
+
     public Object clone() throws CloneNotSupportedException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -41,29 +59,6 @@ public final class RouteTracker implements RouteInfo {
             throw new RuntimeException("Stub!");
         }
         return invokeV.objValue;
-    }
-
-    public final void connectProxy(HttpHost httpHost, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpHost, z) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    public final void connectTarget(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
-    public final boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return invokeL.booleanValue;
     }
 
     @Override // org.apache.http.conn.routing.RouteInfo
@@ -74,16 +69,6 @@ public final class RouteTracker implements RouteInfo {
             throw new RuntimeException("Stub!");
         }
         return invokeV.intValue;
-    }
-
-    @Override // org.apache.http.conn.routing.RouteInfo
-    public final HttpHost getHopTarget(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (HttpHost) invokeI.objValue;
     }
 
     @Override // org.apache.http.conn.routing.RouteInfo
@@ -184,13 +169,6 @@ public final class RouteTracker implements RouteInfo {
         return invokeV.booleanValue;
     }
 
-    public final void layerProtocol(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
     public final HttpRoute toRoute() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -209,9 +187,49 @@ public final class RouteTracker implements RouteInfo {
         return (String) invokeV.objValue;
     }
 
+    public final void connectProxy(HttpHost httpHost, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpHost, z) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
     public final void tunnelProxy(HttpHost httpHost, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048595, this, httpHost, z) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    public final void connectTarget(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    public final boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // org.apache.http.conn.routing.RouteInfo
+    public final HttpHost getHopTarget(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (HttpHost) invokeI.objValue;
+    }
+
+    public final void layerProtocol(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -221,23 +239,5 @@ public final class RouteTracker implements RouteInfo {
         if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
             throw new RuntimeException("Stub!");
         }
-    }
-
-    public RouteTracker(HttpRoute httpRoute) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {httpRoute};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        throw new RuntimeException("Stub!");
     }
 }

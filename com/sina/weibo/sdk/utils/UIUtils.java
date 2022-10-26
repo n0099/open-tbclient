@@ -31,48 +31,46 @@ public class UIUtils {
     public static int dip2px(int i, Context context) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, context)) == null) ? (int) ((i * context.getResources().getDisplayMetrics().density) + 0.5f) : invokeIL.intValue;
-    }
-
-    public static void showAlert(Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65539, null, context, str, str2) == null) || context == null) {
-            return;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, context)) == null) {
+            return (int) ((i * context.getResources().getDisplayMetrics().density) + 0.5f);
         }
-        new AlertDialog.Builder(context).setTitle(str).setMessage(str2).create().show();
-    }
-
-    public static void showToast(Context context, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i, i2) == null) || context == null) {
-            return;
-        }
-        Toast.makeText(context, i, i2).show();
-    }
-
-    public static void showToastInCenter(Context context, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65542, null, context, i, i2) == null) || context == null) {
-            return;
-        }
-        Toast makeText = Toast.makeText(context, i, i2);
-        makeText.setGravity(17, 0, 0);
-        makeText.show();
-    }
-
-    public static void showToast(Context context, CharSequence charSequence, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65541, null, context, charSequence, i) == null) || context == null) {
-            return;
-        }
-        Toast.makeText(context, charSequence, i).show();
+        return invokeIL.intValue;
     }
 
     public static void showAlert(Context context, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65538, null, context, i, i2) == null) || context == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLII(65538, null, context, i, i2) == null) && context != null) {
+            showAlert(context, context.getString(i), context.getString(i2));
         }
-        showAlert(context, context.getString(i), context.getString(i2));
+    }
+
+    public static void showToast(Context context, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i, i2) == null) && context != null) {
+            Toast.makeText(context, i, i2).show();
+        }
+    }
+
+    public static void showToastInCenter(Context context, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLII(65542, null, context, i, i2) == null) && context != null) {
+            Toast makeText = Toast.makeText(context, i, i2);
+            makeText.setGravity(17, 0, 0);
+            makeText.show();
+        }
+    }
+
+    public static void showAlert(Context context, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65539, null, context, str, str2) == null) && context != null) {
+            new AlertDialog.Builder(context).setTitle(str).setMessage(str2).create().show();
+        }
+    }
+
+    public static void showToast(Context context, CharSequence charSequence, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLI(65541, null, context, charSequence, i) == null) && context != null) {
+            Toast.makeText(context, charSequence, i).show();
+        }
     }
 }

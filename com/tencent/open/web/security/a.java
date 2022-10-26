@@ -70,6 +70,19 @@ public class a extends InputConnectionWrapper {
     }
 
     @Override // android.view.inputmethod.InputConnectionWrapper, android.view.inputmethod.InputConnection
+    public boolean setComposingText(CharSequence charSequence, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, charSequence, i)) == null) {
+            c = true;
+            a = charSequence.toString();
+            SLog.v("openSDK_LOG.CaptureInputConnection", "-->setComposingText: " + charSequence.toString());
+            return super.setComposingText(charSequence, i);
+        }
+        return invokeLI.booleanValue;
+    }
+
+    @Override // android.view.inputmethod.InputConnectionWrapper, android.view.inputmethod.InputConnection
     public boolean sendKeyEvent(KeyEvent keyEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -84,18 +97,5 @@ public class a extends InputConnectionWrapper {
             return super.sendKeyEvent(keyEvent);
         }
         return invokeL.booleanValue;
-    }
-
-    @Override // android.view.inputmethod.InputConnectionWrapper, android.view.inputmethod.InputConnection
-    public boolean setComposingText(CharSequence charSequence, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, charSequence, i)) == null) {
-            c = true;
-            a = charSequence.toString();
-            SLog.v("openSDK_LOG.CaptureInputConnection", "-->setComposingText: " + charSequence.toString());
-            return super.setComposingText(charSequence, i);
-        }
-        return invokeLI.booleanValue;
     }
 }

@@ -41,13 +41,23 @@ public final class CheckInterestCommitResponseMessage extends JsonHttpResponsedM
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) {
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             int statusCode = getStatusCode();
             int error = getError();
             if (statusCode == 200 && error == 0) {
-                this.finishInterestStage = jSONObject == null ? -1 : jSONObject.getInt("finish_interest_stage");
-                this.personalizedSwitchStatus = jSONObject != null ? jSONObject.getInt("personalized_switch_status") : -1;
+                int i3 = -1;
+                if (jSONObject == null) {
+                    i2 = -1;
+                } else {
+                    i2 = jSONObject.getInt("finish_interest_stage");
+                }
+                this.finishInterestStage = i2;
+                if (jSONObject != null) {
+                    i3 = jSONObject.getInt("personalized_switch_status");
+                }
+                this.personalizedSwitchStatus = i3;
             }
         }
     }
@@ -55,13 +65,19 @@ public final class CheckInterestCommitResponseMessage extends JsonHttpResponsedM
     public final int getFinishInterestStage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.finishInterestStage : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.finishInterestStage;
+        }
+        return invokeV.intValue;
     }
 
     public final int getPersonalizedSwitchStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.personalizedSwitchStatus : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.personalizedSwitchStatus;
+        }
+        return invokeV.intValue;
     }
 
     public final void setFinishInterestStage(int i) {

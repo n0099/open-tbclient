@@ -3,11 +3,6 @@ package androidx.room;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteException;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
-import androidx.annotation.VisibleForTesting;
-import androidx.annotation.WorkerThread;
 import androidx.arch.core.internal.SafeIterableMap;
 import androidx.collection.ArrayMap;
 import androidx.collection.ArraySet;
@@ -35,10 +30,8 @@ import org.apache.http.client.methods.HttpDelete;
 /* loaded from: classes.dex */
 public class InvalidationTracker {
     public static /* synthetic */ Interceptable $ic = null;
-    @VisibleForTesting
     public static final String CLEANUP_SQL = "DELETE FROM room_table_modification_log WHERE version NOT IN( SELECT MAX(version) FROM room_table_modification_log GROUP BY table_id)";
     public static final String CREATE_VERSION_TABLE_SQL = "CREATE TEMP TABLE room_table_modification_log(version INTEGER PRIMARY KEY AUTOINCREMENT, table_id INTEGER)";
-    @VisibleForTesting
     public static final String SELECT_UPDATED_TABLES_SQL = "SELECT * FROM room_table_modification_log WHERE version  > ? ORDER BY version ASC;";
     public static final String TABLE_ID_COLUMN_NAME = "table_id";
     public static final String[] TRIGGERS;
@@ -50,18 +43,12 @@ public class InvalidationTracker {
     public volatile boolean mInitialized;
     public long mMaxVersion;
     public ObservedTableTracker mObservedTableTracker;
-    @VisibleForTesting
     public final SafeIterableMap<Observer, ObserverWrapper> mObserverMap;
     public AtomicBoolean mPendingRefresh;
     public Object[] mQueryArgs;
-    @VisibleForTesting
     public Runnable mRefreshRunnable;
-    @NonNull
-    @VisibleForTesting
     public ArrayMap<String, Integer> mTableIdLookup;
     public String[] mTableNames;
-    @NonNull
-    @VisibleForTesting
     public long[] mTableVersions;
 
     /* loaded from: classes.dex */
@@ -100,9 +87,9 @@ public class InvalidationTracker {
             Arrays.fill(this.mTriggerStates, false);
         }
 
-        @Nullable
         public int[] getTablesToSync() {
             InterceptResult invokeV;
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 synchronized (this) {
@@ -112,7 +99,11 @@ public class InvalidationTracker {
                         while (true) {
                             int i2 = 1;
                             if (i < length) {
-                                boolean z = this.mTableObservers[i] > 0;
+                                if (this.mTableObservers[i] > 0) {
+                                    z = true;
+                                } else {
+                                    z = false;
+                                }
                                 if (z != this.mTriggerStates[i]) {
                                     int[] iArr = this.mTriggerStateChanges;
                                     if (!z) {
@@ -186,6 +177,53 @@ public class InvalidationTracker {
                     this.mPendingSync = false;
                 }
             }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public static abstract class Observer {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String[] mTables;
+
+        public abstract void onInvalidated(Set<String> set);
+
+        public Observer(String str, String... strArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, strArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            String[] strArr2 = (String[]) Arrays.copyOf(strArr, strArr.length + 1);
+            this.mTables = strArr2;
+            strArr2[strArr.length] = str;
+        }
+
+        public Observer(String[] strArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {strArr};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.mTables = (String[]) Arrays.copyOf(strArr, strArr.length);
         }
     }
 
@@ -284,7 +322,7 @@ public class InvalidationTracker {
         }
 
         @Override // androidx.room.InvalidationTracker.Observer
-        public void onInvalidated(@NonNull Set<String> set) {
+        public void onInvalidated(Set<String> set) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, set) == null) {
                 Observer observer = this.mDelegateRef.get();
@@ -313,7 +351,29 @@ public class InvalidationTracker {
         TRIGGERS = new String[]{"UPDATE", HttpDelete.METHOD_NAME, "INSERT"};
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public void refreshVersionsAsync() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.mPendingRefresh.compareAndSet(false, true)) {
+            this.mDatabase.getQueryExecutor().execute(this.mRefreshRunnable);
+        }
+    }
+
+    public void refreshVersionsSync() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            syncTriggers();
+            this.mRefreshRunnable.run();
+        }
+    }
+
+    public void syncTriggers() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || !this.mDatabase.isOpen()) {
+            return;
+        }
+        syncTriggers(this.mDatabase.getOpenHelper().getWritableDatabase());
+    }
+
     public InvalidationTracker(RoomDatabase roomDatabase, String... strArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -394,34 +454,36 @@ public class InvalidationTracker {
                     } catch (SQLiteException | IllegalStateException e) {
                         Log.e(Room.LOG_TAG, "Cannot run invalidation tracker. Is the db closed?", e);
                     }
-                    if (this.this$0.ensureInitialization()) {
-                        if (this.this$0.mPendingRefresh.compareAndSet(true, false)) {
-                            if (this.this$0.mDatabase.inTransaction()) {
-                                return;
-                            }
-                            this.this$0.mCleanupStatement.executeUpdateDelete();
-                            this.this$0.mQueryArgs[0] = Long.valueOf(this.this$0.mMaxVersion);
-                            if (this.this$0.mDatabase.mWriteAheadLoggingEnabled) {
-                                SupportSQLiteDatabase writableDatabase = this.this$0.mDatabase.getOpenHelper().getWritableDatabase();
-                                try {
-                                    writableDatabase.beginTransaction();
-                                    z = checkUpdatedTable();
-                                    writableDatabase.setTransactionSuccessful();
-                                    writableDatabase.endTransaction();
-                                } catch (Throwable th) {
-                                    writableDatabase.endTransaction();
-                                    throw th;
-                                }
-                            } else {
-                                z = checkUpdatedTable();
-                            }
-                            if (z) {
-                                synchronized (this.this$0.mObserverMap) {
-                                    Iterator<Map.Entry<Observer, ObserverWrapper>> it = this.this$0.mObserverMap.iterator();
-                                    while (it.hasNext()) {
-                                        it.next().getValue().checkForInvalidation(this.this$0.mTableVersions);
-                                    }
-                                }
+                    if (!this.this$0.ensureInitialization()) {
+                        return;
+                    }
+                    if (!this.this$0.mPendingRefresh.compareAndSet(true, false)) {
+                        return;
+                    }
+                    if (this.this$0.mDatabase.inTransaction()) {
+                        return;
+                    }
+                    this.this$0.mCleanupStatement.executeUpdateDelete();
+                    this.this$0.mQueryArgs[0] = Long.valueOf(this.this$0.mMaxVersion);
+                    if (this.this$0.mDatabase.mWriteAheadLoggingEnabled) {
+                        SupportSQLiteDatabase writableDatabase = this.this$0.mDatabase.getOpenHelper().getWritableDatabase();
+                        try {
+                            writableDatabase.beginTransaction();
+                            z = checkUpdatedTable();
+                            writableDatabase.setTransactionSuccessful();
+                            writableDatabase.endTransaction();
+                        } catch (Throwable th) {
+                            writableDatabase.endTransaction();
+                            throw th;
+                        }
+                    } else {
+                        z = checkUpdatedTable();
+                    }
+                    if (z) {
+                        synchronized (this.this$0.mObserverMap) {
+                            Iterator<Map.Entry<Observer, ObserverWrapper>> it = this.this$0.mObserverMap.iterator();
+                            while (it.hasNext()) {
+                                it.next().getValue().checkForInvalidation(this.this$0.mTableVersions);
                             }
                         }
                     }
@@ -494,8 +556,7 @@ public class InvalidationTracker {
         }
     }
 
-    @WorkerThread
-    public void addObserver(@NonNull Observer observer) {
+    public void addObserver(Observer observer) {
         ObserverWrapper putIfAbsent;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
@@ -522,7 +583,43 @@ public class InvalidationTracker {
         }
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public void syncTriggers(SupportSQLiteDatabase supportSQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, supportSQLiteDatabase) == null) || supportSQLiteDatabase.inTransaction()) {
+            return;
+        }
+        while (true) {
+            try {
+                Lock closeLock = this.mDatabase.getCloseLock();
+                closeLock.lock();
+                int[] tablesToSync = this.mObservedTableTracker.getTablesToSync();
+                if (tablesToSync == null) {
+                    closeLock.unlock();
+                    return;
+                }
+                int length = tablesToSync.length;
+                supportSQLiteDatabase.beginTransaction();
+                for (int i = 0; i < length; i++) {
+                    int i2 = tablesToSync[i];
+                    if (i2 != 1) {
+                        if (i2 == 2) {
+                            stopTrackingTable(supportSQLiteDatabase, i);
+                        }
+                    } else {
+                        startTrackingTable(supportSQLiteDatabase, i);
+                    }
+                }
+                supportSQLiteDatabase.setTransactionSuccessful();
+                supportSQLiteDatabase.endTransaction();
+                this.mObservedTableTracker.onSyncCompleted();
+                closeLock.unlock();
+            } catch (SQLiteException | IllegalStateException e) {
+                Log.e(Room.LOG_TAG, "Cannot run invalidation tracker. Is the db closed?", e);
+                return;
+            }
+        }
+    }
+
     public void addWeakObserver(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, observer) == null) {
@@ -530,21 +627,34 @@ public class InvalidationTracker {
         }
     }
 
+    public void removeObserver(Observer observer) {
+        ObserverWrapper remove;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, observer) == null) {
+            synchronized (this.mObserverMap) {
+                remove = this.mObserverMap.remove(observer);
+            }
+            if (remove != null && this.mObservedTableTracker.onRemoved(remove.mTableIds)) {
+                syncTriggers();
+            }
+        }
+    }
+
     public boolean ensureInitialization() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.mDatabase.isOpen()) {
-                if (!this.mInitialized) {
-                    this.mDatabase.getOpenHelper().getWritableDatabase();
-                }
-                if (this.mInitialized) {
-                    return true;
-                }
+            if (!this.mDatabase.isOpen()) {
+                return false;
+            }
+            if (!this.mInitialized) {
+                this.mDatabase.getOpenHelper().getWritableDatabase();
+            }
+            if (!this.mInitialized) {
                 Log.e(Room.LOG_TAG, "database is not initialized even though it is open");
                 return false;
             }
-            return false;
+            return true;
         }
         return invokeV.booleanValue;
     }
@@ -567,127 +677,6 @@ public class InvalidationTracker {
                 this.mCleanupStatement = supportSQLiteDatabase.compileStatement(CLEANUP_SQL);
                 this.mInitialized = true;
             }
-        }
-    }
-
-    public void refreshVersionsAsync() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.mPendingRefresh.compareAndSet(false, true)) {
-            this.mDatabase.getQueryExecutor().execute(this.mRefreshRunnable);
-        }
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    @WorkerThread
-    public void refreshVersionsSync() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            syncTriggers();
-            this.mRefreshRunnable.run();
-        }
-    }
-
-    @WorkerThread
-    public void removeObserver(@NonNull Observer observer) {
-        ObserverWrapper remove;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, observer) == null) {
-            synchronized (this.mObserverMap) {
-                remove = this.mObserverMap.remove(observer);
-            }
-            if (remove == null || !this.mObservedTableTracker.onRemoved(remove.mTableIds)) {
-                return;
-            }
-            syncTriggers();
-        }
-    }
-
-    public void syncTriggers(SupportSQLiteDatabase supportSQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, supportSQLiteDatabase) == null) || supportSQLiteDatabase.inTransaction()) {
-            return;
-        }
-        while (true) {
-            try {
-                Lock closeLock = this.mDatabase.getCloseLock();
-                closeLock.lock();
-                int[] tablesToSync = this.mObservedTableTracker.getTablesToSync();
-                if (tablesToSync == null) {
-                    closeLock.unlock();
-                    return;
-                }
-                int length = tablesToSync.length;
-                supportSQLiteDatabase.beginTransaction();
-                for (int i = 0; i < length; i++) {
-                    int i2 = tablesToSync[i];
-                    if (i2 == 1) {
-                        startTrackingTable(supportSQLiteDatabase, i);
-                    } else if (i2 == 2) {
-                        stopTrackingTable(supportSQLiteDatabase, i);
-                    }
-                }
-                supportSQLiteDatabase.setTransactionSuccessful();
-                supportSQLiteDatabase.endTransaction();
-                this.mObservedTableTracker.onSyncCompleted();
-                closeLock.unlock();
-            } catch (SQLiteException | IllegalStateException e) {
-                Log.e(Room.LOG_TAG, "Cannot run invalidation tracker. Is the db closed?", e);
-                return;
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public static abstract class Observer {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String[] mTables;
-
-        public Observer(@NonNull String str, String... strArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, strArr};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            String[] strArr2 = (String[]) Arrays.copyOf(strArr, strArr.length + 1);
-            this.mTables = strArr2;
-            strArr2[strArr.length] = str;
-        }
-
-        public abstract void onInvalidated(@NonNull Set<String> set);
-
-        public Observer(@NonNull String[] strArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {strArr};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.mTables = (String[]) Arrays.copyOf(strArr, strArr.length);
-        }
-    }
-
-    public void syncTriggers() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.mDatabase.isOpen()) {
-            syncTriggers(this.mDatabase.getOpenHelper().getWritableDatabase());
         }
     }
 }

@@ -1,231 +1,217 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.util.LongSparseArray;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.PushMessage;
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.x87;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
+import com.baidu.tieba.im.chat.officialBar.OfficialBarFeedMsglistAdapter;
+import com.baidu.tieba.ya7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
 import java.util.LinkedList;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class c97 {
+public class c97 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public List b;
+    public LongSparseArray c;
+    public OfficialBarFeedMsglistAdapter.c d;
+    public BdTypeListView e;
+    public boolean f;
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i : invokeI.longValue;
+    }
 
     /* loaded from: classes3.dex */
-    public static class a implements x87.c {
+    public class a extends MsgCommonItemAdapter.MsgViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public a() {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(c97 c97Var, View view2, z87 z87Var) {
+            super(view2, z87Var);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c97Var, view2, z87Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((View) objArr2[0], objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
         }
-
-        @Override // com.baidu.tieba.x87.c
-        public boolean a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
     }
 
-    public static GroupNewsPojo a(ChatMessage chatMessage) {
-        InterceptResult invokeL;
+    public c97(TbPageContext tbPageContext, BdTypeListView bdTypeListView, OfficialBarFeedMsglistAdapter.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, chatMessage)) == null) {
-            String content = chatMessage.getContent();
-            if (TextUtils.isEmpty(content)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdTypeListView, cVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = null;
+        this.c = null;
+        this.a = tbPageContext;
+        this.d = cVar;
+        this.e = bdTypeListView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public za7 getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            List list = this.b;
+            if (list == null || list.size() == 0 || i < 0 || i >= getCount()) {
                 return null;
             }
-            try {
-                if (content.startsWith(PreferencesUtil.LEFT_MOUNT)) {
-                    return null;
-                }
-                String optString = new JSONObject(content).optString(TbEnum.SystemMessage.KEY_EVENT_ID);
-                if (TextUtils.isEmpty(optString)) {
-                    return null;
-                }
-                GroupNewsPojo groupNewsPojo = new GroupNewsPojo(chatMessage, optString);
-                groupNewsPojo.setOriginalPushMsg(chatMessage);
-                return groupNewsPojo;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
-            }
+            return (za7) this.b.get(i);
         }
-        return (GroupNewsPojo) invokeL.objValue;
+        return (za7) invokeI.objValue;
     }
 
-    public static LinkedList<GroupNewsPojo> b(LinkedList<ChatMessage> linkedList) {
-        InterceptResult invokeL;
+    public void c(List list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, linkedList)) == null) {
-            if (linkedList == null || linkedList.size() == 0) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            if (this.b == null) {
+                this.b = new LinkedList();
             }
-            LinkedList<GroupNewsPojo> linkedList2 = new LinkedList<>();
-            Iterator<ChatMessage> it = linkedList.iterator();
-            while (it.hasNext()) {
-                GroupNewsPojo a2 = a(it.next());
-                if (a2 != null) {
-                    linkedList2.add(a2);
-                }
-            }
-            return linkedList2;
-        }
-        return (LinkedList) invokeL.objValue;
-    }
-
-    public static String c(String str, String str2) {
-        InterceptResult invokeLL;
-        String optString;
-        String optString2;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return "";
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str2);
-                String optString3 = jSONObject.optString(TbEnum.SystemMessage.KEY_USER_MSG);
-                JSONObject optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM);
-                if (!str.equals("apply_join_group")) {
-                    return "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change".contains(str) ? optString3 : "";
-                }
-                if (true != jSONObject.isNull("notice_id")) {
-                    optString = jSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_ID);
-                    String optString4 = jSONObject.optString(TbEnum.SystemMessage.KEY_USER_NAME);
-                    optString2 = jSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_NAME);
-                    str3 = optString4;
-                } else if (optJSONObject != null) {
-                    optString = optJSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_ID);
-                    str3 = optJSONObject.optString(TbEnum.SystemMessage.KEY_USER_NAME);
-                    optString2 = optJSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_NAME);
-                } else {
-                    optString = "";
-                    optString2 = optString;
-                    str3 = optString2;
-                }
-                ImMessageCenterPojo i = ma7.o().i(optString, 1);
-                if (i != null) {
-                    optString2 = i.getGroup_name();
-                }
-                if (TextUtils.isEmpty(optString2) || TextUtils.isEmpty(str3)) {
-                    return "";
-                }
-                return str3 + TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f1519) + optString2;
-            } catch (Exception e) {
-                BdLog.detailException(e);
-                return "";
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? !TextUtils.isEmpty(str) && "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change".contains(str) : invokeL.booleanValue;
-    }
-
-    public static boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? !TextUtils.isEmpty(str) && str.equals("apply_join_group") : invokeL.booleanValue;
-    }
-
-    public static void f(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, x87.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, groupMsgData, imMessageCenterPojo, bVar) == null) {
-            x87.d(groupMsgData, imMessageCenterPojo, bVar, new a(), false);
+            this.b.clear();
+            this.b.addAll(list);
+            notifyDataSetChanged();
         }
     }
 
-    public static void g(GroupMsgData groupMsgData) {
-        LinkedList<GroupNewsPojo> b;
-        PushMessage newInstance;
+    public void d(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, null, groupMsgData) == null) || (b = b(groupMsgData.getListMessage())) == null || b.isEmpty()) {
-            return;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.f = z;
         }
-        LinkedList<GroupNewsPojo> linkedList = new LinkedList<>();
-        Iterator<GroupNewsPojo> it = b.iterator();
-        GroupNewsPojo groupNewsPojo = null;
-        GroupNewsPojo groupNewsPojo2 = null;
-        long j = 0;
-        while (it.hasNext()) {
-            GroupNewsPojo next = it.next();
-            if (!TextUtils.isEmpty(next.getNotice_id())) {
-                long parseLong = Long.parseLong(next.getNotice_id());
-                if (parseLong > j) {
-                    j = parseLong;
-                }
-                if (d(next.getCmd())) {
-                    linkedList.add(next);
-                    if (groupNewsPojo2 == null || parseLong > Long.parseLong(groupNewsPojo2.getNotice_id())) {
-                        groupNewsPojo2 = next;
-                    }
-                } else if (e(next.getCmd())) {
-                    linkedList.add(next);
-                    if (groupNewsPojo == null || parseLong > Long.parseLong(groupNewsPojo.getNotice_id())) {
-                        groupNewsPojo = next;
-                    }
-                }
+    }
+
+    public final View b(int i, View view2, ViewGroup viewGroup, za7 za7Var, MsgCommonItemAdapter.MsgViewHolder msgViewHolder) {
+        InterceptResult invokeCommon;
+        ma7 ma7Var;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, za7Var, msgViewHolder})) == null) {
+            z87 z87Var = (z87) msgViewHolder.a();
+            ya7.a d = za7Var.d();
+            d.m = za7Var.b();
+            LongSparseArray longSparseArray = this.c;
+            if (longSparseArray == null) {
+                ma7Var = null;
+            } else {
+                ma7Var = (ma7) longSparseArray.get(d.h);
             }
-        }
-        p97.c().i(linkedList);
-        ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
-        imMessageCenterPojo.setGid(String.valueOf(groupMsgData.getGroupInfo().getGroupId()));
-        imMessageCenterPojo.setIs_hidden(1);
-        imMessageCenterPojo.setCustomGroupType(-2);
-        imMessageCenterPojo.setPulled_msgId(j);
-        v97.f().k(imMessageCenterPojo);
-        if (groupNewsPojo != null) {
-            ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
-            imMessageCenterPojo2.setGid(TbEnum.CustomGroupId.GROUP_VALIDATION);
-            imMessageCenterPojo2.setCustomGroupType(-4);
-            imMessageCenterPojo2.setUnread_count(1);
-            imMessageCenterPojo2.setLast_rid(dh.g(groupNewsPojo.getNotice_id(), 0L));
-            imMessageCenterPojo2.setLast_content_time(groupNewsPojo.getTime());
-            imMessageCenterPojo2.setLast_content(groupNewsPojo.getContent());
-            imMessageCenterPojo2.setIs_hidden(0);
-            v97.f().l(imMessageCenterPojo2, 2);
-        }
-        Iterator<GroupNewsPojo> it2 = b.iterator();
-        while (it2.hasNext()) {
-            GroupNewsPojo next2 = it2.next();
-            if (next2 != null && (newInstance = PushMessage.newInstance(next2)) != null) {
-                MessageManager.getInstance().dispatchResponsedMessageToUI(newInstance);
+            z87Var.p(this.a.getPageActivity().getBaseContext(), d, za7Var.c(), ma7Var, za7Var.e(), za7Var.f(), i);
+            if (this.f) {
+                str = "c13865";
+            } else {
+                str = "c13863";
             }
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            String str2 = d.n;
+            if (str2 == null) {
+                str2 = "";
+            }
+            statisticItem.param("tid", str2);
+            statisticItem.param("fid", d.e);
+            TiebaStatic.log(statisticItem);
+            return view2;
         }
+        return (View) invokeCommon.objValue;
+    }
+
+    public void e(LongSparseArray longSparseArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, longSparseArray) == null) {
+            if (this.c == null) {
+                this.c = new LongSparseArray();
+            }
+            this.c.clear();
+            for (int i = 0; i < longSparseArray.size(); i++) {
+                this.c.put(longSparseArray.keyAt(i), longSparseArray.valueAt(i));
+            }
+            notifyDataSetChanged();
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            List list = this.b;
+            if (list == null) {
+                return 0;
+            }
+            return list.size();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        a aVar;
+        a aVar2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
+            if (view2 != null) {
+                aVar = (a) view2.getTag();
+            } else {
+                aVar = null;
+            }
+            if (aVar == null) {
+                z87 z87Var = new z87(this.a, this.f);
+                z87Var.q(this.d);
+                View k = z87Var.k();
+                a aVar3 = new a(this, z87Var.k(), z87Var);
+                k.setTag(aVar3);
+                view2 = k;
+                aVar2 = aVar3;
+            } else {
+                aVar2 = aVar;
+            }
+            b(i, view2, viewGroup, getItem(i), aVar2);
+            return view2;
+        }
+        return (View) invokeILL.objValue;
     }
 }

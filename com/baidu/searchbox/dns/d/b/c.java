@@ -30,18 +30,24 @@ public class c extends b {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.dns.d.b.b
     /* renamed from: L */
-    public Deque<a> G() {
+    public Deque G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new ArrayDeque() : (Deque) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return new ArrayDeque();
+        }
+        return (Deque) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.dns.d.b.b
     /* renamed from: M */
-    public Deque<a> H() {
+    public Deque H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new ArrayDeque() : (Deque) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return new ArrayDeque();
+        }
+        return (Deque) invokeV.objValue;
     }
 }

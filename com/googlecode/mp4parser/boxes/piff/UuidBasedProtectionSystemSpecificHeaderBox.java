@@ -1,6 +1,7 @@
 package com.googlecode.mp4parser.boxes.piff;
 
 import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -48,7 +49,7 @@ public class UuidBasedProtectionSystemSpecificHeaderBox extends AbstractFullBox 
             }
         }
         ajc$preClinit();
-        USER_TYPE = new byte[]{-48, -118, 79, 24, 16, -13, 74, -126, -74, -56, 50, -40, -85, -95, -125, -45};
+        USER_TYPE = new byte[]{-48, -118, 79, 24, 16, -13, 74, -126, -74, -56, 50, ExifInterface.MARKER_SOI, -85, -95, -125, -45};
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -94,6 +95,22 @@ public class UuidBasedProtectionSystemSpecificHeaderBox extends AbstractFullBox 
         }
     }
 
+    public void setProtectionSpecificHeader(ProtectionSpecificHeader protectionSpecificHeader) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, protectionSpecificHeader) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, protectionSpecificHeader));
+            this.protectionSpecificHeader = protectionSpecificHeader;
+        }
+    }
+
+    public void setSystemId(UUID uuid) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, uuid) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, uuid));
+            this.systemId = uuid;
+        }
+    }
+
     @Override // com.googlecode.mp4parser.AbstractBox
     public void getContent(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
@@ -112,7 +129,10 @@ public class UuidBasedProtectionSystemSpecificHeaderBox extends AbstractFullBox 
     public long getContentSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.protectionSpecificHeader.getData().limit() + 24 : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.protectionSpecificHeader.getData().limit() + 24;
+        }
+        return invokeV.longValue;
     }
 
     public ProtectionSpecificHeader getProtectionSpecificHeader() {
@@ -159,23 +179,10 @@ public class UuidBasedProtectionSystemSpecificHeaderBox extends AbstractFullBox 
     public byte[] getUserType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? USER_TYPE : (byte[]) invokeV.objValue;
-    }
-
-    public void setProtectionSpecificHeader(ProtectionSpecificHeader protectionSpecificHeader) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, protectionSpecificHeader) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, protectionSpecificHeader));
-            this.protectionSpecificHeader = protectionSpecificHeader;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return USER_TYPE;
         }
-    }
-
-    public void setSystemId(UUID uuid) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, uuid) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, uuid));
-            this.systemId = uuid;
-        }
+        return (byte[]) invokeV.objValue;
     }
 
     public String toString() {

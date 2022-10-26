@@ -1,23 +1,30 @@
 package com.baidu.tieba;
 
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.TreeMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class xy2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public md2 a;
+    public String a;
+    public String b;
+    public Object c;
+    public boolean d;
+    public String e;
 
-    public xy2(String str, String str2, String str3) {
+    public xy2(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,16 +34,59 @@ public class xy2 {
                 return;
             }
         }
-        TreeMap treeMap = new TreeMap();
-        treeMap.put("functionPagePath", str);
-        treeMap.put("paymentArgs", str2);
-        treeMap.put("slaveId", str3);
-        this.a = new md2("beforeRequestPayment", treeMap);
+        this.d = false;
+        this.b = str;
     }
 
-    public md2 a() {
+    public static String a(wy2 wy2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, wy2Var)) == null) {
+            if (wy2Var == null) {
+                return "";
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("componentId", wy2Var.f);
+                jSONObject.put("pluginProvider", wy2Var.b);
+                jSONObject.put("args", wy2Var.g);
+                jSONObject.put("slaveId", wy2Var.e);
+            } catch (JSONException e) {
+                ez2.b(Log.getStackTraceString(e));
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            sd2 sd2Var = new sd2();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", "functionPageFinished");
+                jSONObject.put("componentId", this.b);
+                jSONObject.put("isSuccess", this.d);
+                jSONObject.put("data", this.e);
+                if (this.c != null) {
+                    jSONObject.put("error", this.c.toString());
+                }
+            } catch (JSONException e) {
+                ez2.b(Log.getStackTraceString(e));
+            }
+            sd2Var.c = jSONObject;
+            zo2.U().m(this.a, sd2Var);
+            ez2.b("finish event, isSuccess = " + this.d);
+        }
+    }
+
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (md2) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "SwanPluginFunPageFinishEvent{eventType='functionPageFinished', componentId='" + this.b + "', error=" + this.c + ", isSuccess=" + this.d + ", resultData='" + this.e + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

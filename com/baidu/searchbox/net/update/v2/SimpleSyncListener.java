@@ -24,9 +24,29 @@ public abstract class SimpleSyncListener extends JSONObjectCommandListener {
     public static final String DEFAULT_VERSION_OFFLINE = "-1";
     public transient /* synthetic */ FieldHolder $fh;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1771537473, "Lcom/baidu/searchbox/net/update/v2/SimpleSyncListener;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1771537473, "Lcom/baidu/searchbox/net/update/v2/SimpleSyncListener;");
+                return;
+            }
+        }
+        Companion = new Companion(null);
+    }
+
+    public abstract boolean executeBusinessCommand(Context context, String str, String str2, ActionData actionData);
+
+    public abstract void setLocationVersion(String str, String str2, String str3);
+
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0006\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0005\u0010\u0006R\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003¨\u0006\u0007"}, d2 = {"Lcom/baidu/searchbox/net/update/v2/SimpleSyncListener$Companion;", "", "DEFAULT_VERSION", "Ljava/lang/String;", "DEFAULT_VERSION_OFFLINE", "<init>", "()V", "lib-update-api_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public static final class Companion {
+    public final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -49,22 +69,6 @@ public abstract class SimpleSyncListener extends JSONObjectCommandListener {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1771537473, "Lcom/baidu/searchbox/net/update/v2/SimpleSyncListener;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1771537473, "Lcom/baidu/searchbox/net/update/v2/SimpleSyncListener;");
-                return;
-            }
-        }
-        Companion = new Companion(null);
-    }
-
     public SimpleSyncListener() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -82,29 +86,33 @@ public abstract class SimpleSyncListener extends JSONObjectCommandListener {
     @Override // com.baidu.searchbox.net.update.v2.AbstractCommandListener
     public void addPostData(Context context, String str, String str2, CommandPostData commandPostData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, context, str, str2, commandPostData) == null) || commandPostData == null || commandPostData.getVersion() == null || str2 == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, context, str, str2, commandPostData) == null) && commandPostData != null && commandPostData.getVersion() != null && str2 != null) {
+            commandPostData.getVersion().put(str2, getLocalVersion(context, str, str2));
         }
-        commandPostData.getVersion().put(str2, getLocalVersion(context, str, str2));
     }
 
-    public abstract boolean executeBusinessCommand(Context context, String str, String str2, ActionData<JSONObject> actionData);
-
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.content.Context, java.lang.String, java.lang.String, com.baidu.searchbox.net.update.v2.ActionData] */
     @Override // com.baidu.searchbox.net.update.v2.AbstractCommandListener
     public boolean executeCommand(Context context, String str, String str2, ActionData<JSONObject> actionData) {
         InterceptResult invokeLLLL;
+        String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, str2, actionData)) == null) {
-            if (context == null || str == null || str2 == null) {
-                return false;
-            }
-            synchronized (this) {
-                if (executeBusinessCommand(context, str, str2, actionData)) {
-                    setLocationVersion(str, str2, actionData != null ? actionData.version : null);
+            if (context != null && str != null && str2 != null) {
+                synchronized (this) {
+                    if (executeBusinessCommand(context, str, str2, actionData)) {
+                        if (actionData != null) {
+                            str3 = actionData.version;
+                        } else {
+                            str3 = null;
+                        }
+                        setLocationVersion(str, str2, str3);
+                    }
+                    Unit unit = Unit.INSTANCE;
                 }
-                Unit unit = Unit.INSTANCE;
+                return true;
             }
-            return true;
+            return false;
         }
         return invokeLLLL.booleanValue;
     }
@@ -112,8 +120,9 @@ public abstract class SimpleSyncListener extends JSONObjectCommandListener {
     public final boolean isOffline(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? Intrinsics.areEqual("-1", str) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return Intrinsics.areEqual("-1", str);
+        }
+        return invokeL.booleanValue;
     }
-
-    public abstract void setLocationVersion(String str, String str2, String str3);
 }

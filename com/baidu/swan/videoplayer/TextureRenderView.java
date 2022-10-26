@@ -1,6 +1,5 @@
 package com.baidu.swan.videoplayer;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.SurfaceTexture;
 import android.media.MediaPlayer;
@@ -13,8 +12,8 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ik4;
 import com.baidu.tieba.jk4;
+import com.baidu.tieba.kk4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,18 +22,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-@TargetApi(14)
 /* loaded from: classes3.dex */
-public class TextureRenderView extends TextureView implements ik4 {
+public class TextureRenderView extends TextureView implements jk4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jk4 a;
+    public kk4 a;
     public int b;
     public SurfaceTexture c;
     public b d;
 
+    @Override // com.baidu.tieba.jk4
+    public View getView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this : (View) invokeV.objValue;
+    }
+
     /* loaded from: classes3.dex */
-    public static final class a implements ik4.b {
+    public final class a implements jk4.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TextureRenderView a;
@@ -57,38 +62,42 @@ public class TextureRenderView extends TextureView implements ik4 {
             this.a = textureRenderView;
         }
 
-        @Override // com.baidu.tieba.ik4.b
-        @TargetApi(16)
+        @Override // com.baidu.tieba.jk4.b
         public void a(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) || mediaPlayer == null || this.a.getSurfaceTexture() == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) && mediaPlayer != null && this.a.getSurfaceTexture() != null) {
+                if (mediaPlayer.hashCode() != this.a.getCurrentMediaPlayerCode()) {
+                    mediaPlayer.setSurface(c());
+                } else if (!this.a.getLastSurfaceTexture().equals(this.a.getSurfaceTexture())) {
+                    TextureRenderView textureRenderView = this.a;
+                    textureRenderView.setSurfaceTexture(textureRenderView.getLastSurfaceTexture());
+                }
+                this.a.setCurrentMediaPlayerCode(mediaPlayer.hashCode());
             }
-            if (mediaPlayer.hashCode() != this.a.getCurrentMediaPlayerCode()) {
-                mediaPlayer.setSurface(c());
-            } else if (!this.a.getLastSurfaceTexture().equals(this.a.getSurfaceTexture())) {
-                TextureRenderView textureRenderView = this.a;
-                textureRenderView.setSurfaceTexture(textureRenderView.getLastSurfaceTexture());
-            }
-            this.a.setCurrentMediaPlayerCode(mediaPlayer.hashCode());
         }
 
-        @Override // com.baidu.tieba.ik4.b
-        public ik4 b() {
+        @Override // com.baidu.tieba.jk4.b
+        public jk4 b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (ik4) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a;
+            }
+            return (jk4) invokeV.objValue;
         }
 
         public Surface c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new Surface(this.a.getSurfaceTexture()) : (Surface) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return new Surface(this.a.getSurfaceTexture());
+            }
+            return (Surface) invokeV.objValue;
         }
     }
 
     /* loaded from: classes3.dex */
-    public static final class b implements TextureView.SurfaceTextureListener {
+    public final class b implements TextureView.SurfaceTextureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public SurfaceTexture a;
@@ -96,8 +105,15 @@ public class TextureRenderView extends TextureView implements ik4 {
         public int c;
         public int d;
         public volatile boolean e;
-        public WeakReference<TextureRenderView> f;
-        public Map<ik4.a, Object> g;
+        public WeakReference f;
+        public Map g;
+
+        @Override // android.view.TextureView.SurfaceTextureListener
+        public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, surfaceTexture) == null) {
+            }
+        }
 
         public b(TextureRenderView textureRenderView) {
             Interceptable interceptable = $ic;
@@ -116,30 +132,48 @@ public class TextureRenderView extends TextureView implements ik4 {
             }
             this.e = false;
             this.g = new ConcurrentHashMap();
-            this.f = new WeakReference<>(textureRenderView);
+            this.f = new WeakReference(textureRenderView);
         }
 
-        public void a(ik4.a aVar) {
+        @Override // android.view.TextureView.SurfaceTextureListener
+        public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, surfaceTexture)) == null) {
+                this.a = surfaceTexture;
+                this.b = false;
+                this.c = 0;
+                this.d = 0;
+                a aVar = new a((TextureRenderView) this.f.get());
+                for (jk4.a aVar2 : this.g.keySet()) {
+                    aVar2.a(aVar);
+                }
+                return this.e;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public void a(jk4.a aVar) {
             a aVar2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 this.g.put(aVar, aVar);
                 if (this.a != null) {
-                    aVar2 = new a(this.f.get());
+                    aVar2 = new a((TextureRenderView) this.f.get());
                     aVar.b(aVar2, this.c, this.d);
                 } else {
                     aVar2 = null;
                 }
                 if (this.b) {
                     if (aVar2 == null) {
-                        aVar2 = new a(this.f.get());
+                        aVar2 = new a((TextureRenderView) this.f.get());
                     }
                     aVar.c(aVar2, 0, this.c, this.d);
                 }
             }
         }
 
-        public void b(ik4.a aVar) {
+        public void b(jk4.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
                 this.g.remove(aVar);
@@ -154,42 +188,23 @@ public class TextureRenderView extends TextureView implements ik4 {
         }
 
         @Override // android.view.TextureView.SurfaceTextureListener
-        @TargetApi(16)
         public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(1048579, this, surfaceTexture, i, i2) == null) {
                 this.a = surfaceTexture;
                 if (this.f.get() == null) {
                     Log.e("TextureRenderView", "!!!!!Too bad, textureview in callback is released. function will not work normally");
-                } else if (this.f.get().getLastSurfaceTexture() == null) {
-                    this.f.get().setLastSurfaceTexture(surfaceTexture);
+                } else if (((TextureRenderView) this.f.get()).getLastSurfaceTexture() == null) {
+                    ((TextureRenderView) this.f.get()).setLastSurfaceTexture(surfaceTexture);
                 }
                 this.b = false;
                 this.c = 0;
                 this.d = 0;
-                a aVar = new a(this.f.get());
-                for (ik4.a aVar2 : this.g.keySet()) {
+                a aVar = new a((TextureRenderView) this.f.get());
+                for (jk4.a aVar2 : this.g.keySet()) {
                     aVar2.b(aVar, 0, 0);
                 }
             }
-        }
-
-        @Override // android.view.TextureView.SurfaceTextureListener
-        public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, surfaceTexture)) == null) {
-                this.a = surfaceTexture;
-                this.b = false;
-                this.c = 0;
-                this.d = 0;
-                a aVar = new a(this.f.get());
-                for (ik4.a aVar2 : this.g.keySet()) {
-                    aVar2.a(aVar);
-                }
-                return this.e;
-            }
-            return invokeL.booleanValue;
         }
 
         @Override // android.view.TextureView.SurfaceTextureListener
@@ -200,17 +215,10 @@ public class TextureRenderView extends TextureView implements ik4 {
                 this.b = true;
                 this.c = i;
                 this.d = i2;
-                a aVar = new a(this.f.get());
-                for (ik4.a aVar2 : this.g.keySet()) {
+                a aVar = new a((TextureRenderView) this.f.get());
+                for (jk4.a aVar2 : this.g.keySet()) {
                     aVar2.c(aVar, 0, i, i2);
                 }
-            }
-        }
-
-        @Override // android.view.TextureView.SurfaceTextureListener
-        public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, surfaceTexture) == null) {
             }
         }
     }
@@ -235,158 +243,6 @@ public class TextureRenderView extends TextureView implements ik4 {
         }
         this.b = 0;
         c(context);
-    }
-
-    @Override // com.baidu.tieba.ik4
-    public void a(ik4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.d.b(aVar);
-        }
-    }
-
-    @Override // com.baidu.tieba.ik4
-    public void b(ik4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.d.a(aVar);
-        }
-    }
-
-    public final void c(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.a = new jk4(this);
-            b bVar = new b(this);
-            this.d = bVar;
-            setSurfaceTextureListener(bVar);
-        }
-    }
-
-    public int getCurrentMediaPlayerCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public SurfaceTexture getLastSurfaceTexture() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (SurfaceTexture) invokeV.objValue;
-    }
-
-    public ik4.b getSurfaceHolder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new a(this) : (ik4.b) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ik4
-    public View getView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this : (View) invokeV.objValue;
-    }
-
-    @Override // android.view.View
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.onDetachedFromWindow();
-            Log.d("TextureRenderView", "onDetachedFromWindow");
-        }
-    }
-
-    @Override // android.view.View
-    public void onInitializeAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, accessibilityEvent) == null) {
-            super.onInitializeAccessibilityEvent(accessibilityEvent);
-            accessibilityEvent.setClassName(TextureRenderView.class.getName());
-        }
-    }
-
-    @Override // android.view.View
-    public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo accessibilityNodeInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, accessibilityNodeInfo) == null) {
-            super.onInitializeAccessibilityNodeInfo(accessibilityNodeInfo);
-            accessibilityNodeInfo.setClassName(TextureRenderView.class.getName());
-        }
-    }
-
-    @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) {
-            this.a.a(i, i2);
-            setMeasuredDimension(this.a.c(), this.a.b());
-        }
-    }
-
-    @Override // com.baidu.tieba.ik4
-    @TargetApi(16)
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.c == null) {
-            return;
-        }
-        if (isAvailable()) {
-            this.d.c(true);
-            return;
-        }
-        this.c.release();
-        this.c = null;
-    }
-
-    @Override // com.baidu.tieba.ik4
-    public void setAspectRatio(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.a.d(i);
-            requestLayout();
-        }
-    }
-
-    public void setCurrentMediaPlayerCode(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public void setLastSurfaceTexture(SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, surfaceTexture) == null) {
-            this.c = surfaceTexture;
-        }
-    }
-
-    public void setVideoRotation(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.a.e(i);
-            setRotation(i);
-        }
-    }
-
-    public void setVideoSampleAspectRatio(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048592, this, i, i2) == null) || i <= 0 || i2 <= 0) {
-            return;
-        }
-        this.a.f(i, i2);
-        requestLayout();
-    }
-
-    @Override // com.baidu.tieba.ik4
-    public void setVideoSize(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048593, this, i, i2) == null) || i <= 0 || i2 <= 0) {
-            return;
-        }
-        this.a.g(i, i2);
-        requestLayout();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -433,5 +289,155 @@ public class TextureRenderView extends TextureView implements ik4 {
         }
         this.b = 0;
         c(context);
+    }
+
+    @Override // com.baidu.tieba.jk4
+    public void a(jk4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            this.d.b(aVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.jk4
+    public void b(jk4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.d.a(aVar);
+        }
+    }
+
+    public final void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            this.a = new kk4(this);
+            b bVar = new b(this);
+            this.d = bVar;
+            setSurfaceTextureListener(bVar);
+        }
+    }
+
+    @Override // android.view.View
+    public void onInitializeAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, accessibilityEvent) == null) {
+            super.onInitializeAccessibilityEvent(accessibilityEvent);
+            accessibilityEvent.setClassName(TextureRenderView.class.getName());
+        }
+    }
+
+    @Override // android.view.View
+    public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo accessibilityNodeInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, accessibilityNodeInfo) == null) {
+            super.onInitializeAccessibilityNodeInfo(accessibilityNodeInfo);
+            accessibilityNodeInfo.setClassName(TextureRenderView.class.getName());
+        }
+    }
+
+    @Override // com.baidu.tieba.jk4
+    public void setAspectRatio(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.a.d(i);
+            requestLayout();
+        }
+    }
+
+    public void setCurrentMediaPlayerCode(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public void setLastSurfaceTexture(SurfaceTexture surfaceTexture) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, surfaceTexture) == null) {
+            this.c = surfaceTexture;
+        }
+    }
+
+    public void setVideoRotation(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.a.e(i);
+            setRotation(i);
+        }
+    }
+
+    public int getCurrentMediaPlayerCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public SurfaceTexture getLastSurfaceTexture() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (SurfaceTexture) invokeV.objValue;
+    }
+
+    public jk4.b getSurfaceHolder() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return new a(this);
+        }
+        return (jk4.b) invokeV.objValue;
+    }
+
+    @Override // android.view.View
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.onDetachedFromWindow();
+            Log.d("TextureRenderView", "onDetachedFromWindow");
+        }
+    }
+
+    @Override // com.baidu.tieba.jk4
+    public void release() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.c != null) {
+            if (isAvailable()) {
+                this.d.c(true);
+                return;
+            }
+            this.c.release();
+            this.c = null;
+        }
+    }
+
+    @Override // android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) {
+            this.a.a(i, i2);
+            setMeasuredDimension(this.a.c(), this.a.b());
+        }
+    }
+
+    public void setVideoSampleAspectRatio(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeII(1048592, this, i, i2) == null) && i > 0 && i2 > 0) {
+            this.a.f(i, i2);
+            requestLayout();
+        }
+    }
+
+    @Override // com.baidu.tieba.jk4
+    public void setVideoSize(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeII(1048593, this, i, i2) == null) && i > 0 && i2 > 0) {
+            this.a.g(i, i2);
+            requestLayout();
+        }
     }
 }

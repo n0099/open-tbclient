@@ -13,7 +13,6 @@ import com.baidu.location.Address;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
 import com.baidu.location.LocationClientOption;
-import com.baidu.location.Poi;
 import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -36,7 +35,7 @@ public class a {
     public boolean a;
     public boolean b;
     public int e;
-    public ArrayList<C0099a> g;
+    public ArrayList g;
     public boolean h;
     public BDLocation i;
     public BDLocation j;
@@ -287,22 +286,22 @@ public class a {
         this.l = false;
         this.m = false;
         this.n = null;
-        this.g = new ArrayList<>();
+        this.g = new ArrayList();
     }
 
     private C0099a a(Messenger messenger) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, messenger)) == null) {
-            ArrayList<C0099a> arrayList = this.g;
+            ArrayList arrayList = this.g;
             if (arrayList == null) {
                 return null;
             }
-            Iterator<C0099a> it = arrayList.iterator();
+            Iterator it = arrayList.iterator();
             while (it.hasNext()) {
-                C0099a next = it.next();
-                if (next.b.equals(messenger)) {
-                    return next;
+                C0099a c0099a = (C0099a) it.next();
+                if (c0099a.b.equals(messenger)) {
+                    return c0099a;
                 }
             }
             return null;
@@ -360,15 +359,15 @@ public class a {
     private void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            Iterator<C0099a> it = this.g.iterator();
+            Iterator it = this.g.iterator();
             boolean z = false;
             boolean z2 = false;
             while (it.hasNext()) {
-                C0099a next = it.next();
-                if (next.c.openGps) {
+                C0099a c0099a = (C0099a) it.next();
+                if (c0099a.c.openGps) {
                     z2 = true;
                 }
-                if (next.c.location_change_notify) {
+                if (c0099a.c.location_change_notify) {
                     z = true;
                 }
             }
@@ -383,12 +382,12 @@ public class a {
     public void a(Bundle bundle, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, bundle, i) == null) {
-            Iterator<C0099a> it = this.g.iterator();
+            Iterator it = this.g.iterator();
             while (it.hasNext()) {
                 try {
-                    C0099a next = it.next();
-                    next.a(i, bundle);
-                    if (next.d > 4) {
+                    C0099a c0099a = (C0099a) it.next();
+                    c0099a.a(i, bundle);
+                    if (c0099a.d > 4) {
                         it.remove();
                     }
                 } catch (Exception unused) {
@@ -467,11 +466,11 @@ public class a {
         if (interceptable == null || interceptable.invokeL(1048583, this, bDLocation) == null) {
             try {
                 if (bDLocation == null || bDLocation.getLocType() != 161 || com.baidu.location.a.a.a().b()) {
-                    Iterator<C0099a> it = this.g.iterator();
+                    Iterator it = this.g.iterator();
                     while (it.hasNext()) {
-                        C0099a next = it.next();
-                        next.a(bDLocation);
-                        if (next.d > 4) {
+                        C0099a c0099a = (C0099a) it.next();
+                        c0099a.a(bDLocation);
+                        if (c0099a.d > 4) {
                             it.remove();
                         }
                     }
@@ -481,11 +480,11 @@ public class a {
                         this.j = bDLocation3;
                         bDLocation3.setLocType(505);
                     }
-                    Iterator<C0099a> it2 = this.g.iterator();
+                    Iterator it2 = this.g.iterator();
                     while (it2.hasNext()) {
-                        C0099a next2 = it2.next();
-                        next2.a(this.j);
-                        if (next2.d > 4) {
+                        C0099a c0099a2 = (C0099a) it2.next();
+                        c0099a2.a(this.j);
+                        if (c0099a2.d > 4) {
                             it2.remove();
                         }
                     }
@@ -524,7 +523,7 @@ public class a {
             if (this.g.isEmpty()) {
                 return "&prod=" + com.baidu.location.e.b.f + ":" + com.baidu.location.e.b.e;
             }
-            C0099a c0099a = this.g.get(0);
+            C0099a c0099a = (C0099a) this.g.get(0);
             String str = c0099a.c.prodName;
             if (str != null) {
                 stringBuffer.append(str);
@@ -548,7 +547,7 @@ public class a {
         if (interceptable == null || interceptable.invokeL(1048585, this, bDLocation) == null) {
             Address a = l.c().a(bDLocation);
             String f2 = l.c().f();
-            List<Poi> g = l.c().g();
+            List g = l.c().g();
             if (a != null) {
                 bDLocation.setAddr(a);
             }
@@ -637,9 +636,9 @@ public class a {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            Iterator<C0099a> it = this.g.iterator();
+            Iterator it = this.g.iterator();
             while (it.hasNext()) {
-                it.next().a();
+                ((C0099a) it.next()).a();
             }
         }
     }

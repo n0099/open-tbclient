@@ -24,13 +24,29 @@ public final class BuildParams {
     public static final String K_RTC_STREAM_TIMEOUT_MS = "rtc_stream_timeout_ms";
     public transient /* synthetic */ FieldHolder $fh;
     public String cacheKey;
-    public final HashMap<String, Object> options;
+    public final HashMap options;
     public int playerType;
     public String roomId;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-189037879, "Lcom/baidu/searchbox/live/interfaces/player/BuildParams;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-189037879, "Lcom/baidu/searchbox/live/interfaces/player/BuildParams;");
+                return;
+            }
+        }
+        Companion = new Companion(null);
+    }
+
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\b\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0007\u0010\bR\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0003R\u0016\u0010\u0006\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0006\u0010\u0003¨\u0006\t"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/player/BuildParams$Companion;", "", "K_CUID", "Ljava/lang/String;", "K_DEBUG_LEVEL", "K_RTC_ENCRYPT", "K_RTC_STREAM_TIMEOUT_MS", "<init>", "()V", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public static final class Companion {
+    public final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -53,22 +69,6 @@ public final class BuildParams {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-189037879, "Lcom/baidu/searchbox/live/interfaces/player/BuildParams;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-189037879, "Lcom/baidu/searchbox/live/interfaces/player/BuildParams;");
-                return;
-            }
-        }
-        Companion = new Companion(null);
-    }
-
     public BuildParams(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -85,55 +85,79 @@ public final class BuildParams {
             }
         }
         this.roomId = str;
-        this.options = new HashMap<>();
+        this.options = new HashMap();
     }
 
     public final String getCacheKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.cacheKey : (String) invokeV.objValue;
-    }
-
-    public final Object getOption(String str, Object obj) {
-        InterceptResult invokeLL;
-        Object obj2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj)) == null) {
-            HashMap<String, Object> hashMap = this.options;
-            return ((hashMap == null || hashMap.isEmpty()) || (obj2 = hashMap.get(str)) == null) ? obj : obj2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.cacheKey;
         }
-        return invokeLL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final HashMap<String, Object> getOptions() {
+    public final HashMap getOptions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.options : (HashMap) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.options;
+        }
+        return (HashMap) invokeV.objValue;
     }
 
     public final int getPlayerType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.playerType : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.playerType;
+        }
+        return invokeV.intValue;
     }
 
     public final String getRoomId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.roomId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.roomId;
+        }
+        return (String) invokeV.objValue;
     }
 
-    public final void setCacheKey(String str) {
+    public final Object getOption(String str, Object obj) {
+        InterceptResult invokeLL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.cacheKey = str;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj)) == null) {
+            HashMap hashMap = this.options;
+            if (hashMap != null && !hashMap.isEmpty()) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                return obj;
+            }
+            Object obj2 = hashMap.get(str);
+            if (obj2 != null) {
+                return obj2;
+            }
+            return obj;
         }
+        return invokeLL.objValue;
     }
 
     public final void setOption(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, str, obj) == null) {
             this.options.put(str, obj);
+        }
+    }
+
+    public final void setCacheKey(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.cacheKey = str;
         }
     }
 

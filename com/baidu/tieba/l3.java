@@ -20,6 +20,12 @@ public class l3 {
     public float c;
     public float d;
 
+    public static int b(float f, float f2, float f3, float f4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? (((int) (f * 255.0f)) << 24) | (((int) (f2 * 255.0f)) << 16) | (((int) (f3 * 255.0f)) << 8) | ((int) (f4 * 255.0f)) : invokeCommon.intValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -84,20 +90,71 @@ public class l3 {
         }
     }
 
-    public static int b(float f, float f2, float f3, float f4) {
-        InterceptResult invokeCommon;
+    public int g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? (((int) (f * 255.0f)) << 24) | (((int) (f2 * 255.0f)) << 16) | (((int) (f3 * 255.0f)) << 8) | ((int) (f4 * 255.0f)) : invokeCommon.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return (((int) (this.d * 255.0f)) << 24) | (((int) (this.c * 255.0f)) << 16) | (((int) (this.b * 255.0f)) << 8) | ((int) (this.a * 255.0f));
+        }
+        return invokeV.intValue;
     }
 
-    public static void c(l3 l3Var, int i) {
+    public l3(float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65542, null, l3Var, i) == null) {
-            l3Var.a = (((-16777216) & i) >>> 24) / 255.0f;
-            l3Var.b = ((16711680 & i) >>> 16) / 255.0f;
-            l3Var.c = ((65280 & i) >>> 8) / 255.0f;
-            l3Var.d = (i & 255) / 255.0f;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
+        this.a = f;
+        this.b = f2;
+        this.c = f3;
+        this.d = f4;
+        a();
+    }
+
+    public l3(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        c(this, i);
+    }
+
+    public l3(l3 l3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {l3Var};
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                return;
+            }
+        }
+        e(l3Var);
     }
 
     public static l3 h(String str) {
@@ -111,8 +168,47 @@ public class l3 {
         return (l3) invokeL.objValue;
     }
 
+    public l3 e(l3 l3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l3Var)) == null) {
+            this.a = l3Var.a;
+            this.b = l3Var.b;
+            this.c = l3Var.c;
+            this.d = l3Var.d;
+            return this;
+        }
+        return (l3) invokeL.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj != null && l3.class == obj.getClass() && g() == ((l3) obj).g()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void c(l3 l3Var, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65542, null, l3Var, i) == null) {
+            l3Var.a = (((-16777216) & i) >>> 24) / 255.0f;
+            l3Var.b = ((16711680 & i) >>> 16) / 255.0f;
+            l3Var.c = ((65280 & i) >>> 8) / 255.0f;
+            l3Var.d = (i & 255) / 255.0f;
+        }
+    }
+
     public static l3 i(String str, l3 l3Var) {
         InterceptResult invokeLL;
+        float parseInt;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, l3Var)) == null) {
             if (str.charAt(0) == '#') {
@@ -121,7 +217,12 @@ public class l3 {
             l3Var.a = Integer.parseInt(str.substring(0, 2), 16) / 255.0f;
             l3Var.b = Integer.parseInt(str.substring(2, 4), 16) / 255.0f;
             l3Var.c = Integer.parseInt(str.substring(4, 6), 16) / 255.0f;
-            l3Var.d = str.length() != 8 ? 1.0f : Integer.parseInt(str.substring(6, 8), 16) / 255.0f;
+            if (str.length() != 8) {
+                parseInt = 1.0f;
+            } else {
+                parseInt = Integer.parseInt(str.substring(6, 8), 16) / 255.0f;
+            }
+            l3Var.d = parseInt;
             return l3Var;
         }
         return (l3) invokeLL.objValue;
@@ -160,69 +261,40 @@ public class l3 {
         return (l3) invokeV.objValue;
     }
 
-    public l3 d(float f, float f2, float f3, float f4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
-            this.a = f;
-            this.b = f2;
-            this.c = f3;
-            this.d = f4;
-            a();
-            return this;
-        }
-        return (l3) invokeCommon.objValue;
-    }
-
-    public l3 e(l3 l3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l3Var)) == null) {
-            this.a = l3Var.a;
-            this.b = l3Var.b;
-            this.c = l3Var.c;
-            this.d = l3Var.d;
-            return this;
-        }
-        return (l3) invokeL.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            return obj != null && l3.class == obj.getClass() && g() == ((l3) obj).g();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public float f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? u7.c((((int) (this.d * 255.0f)) << 24) | (((int) (this.c * 255.0f)) << 16) | (((int) (this.b * 255.0f)) << 8) | ((int) (this.a * 255.0f))) : invokeV.floatValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (((int) (this.d * 255.0f)) << 24) | (((int) (this.c * 255.0f)) << 16) | (((int) (this.b * 255.0f)) << 8) | ((int) (this.a * 255.0f)) : invokeV.intValue;
-    }
-
     public int hashCode() {
         InterceptResult invokeV;
+        int i;
+        int i2;
+        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             float f = this.a;
-            int a = (f != 0.0f ? u7.a(f) : 0) * 31;
+            int i4 = 0;
+            if (f != 0.0f) {
+                i = u7.a(f);
+            } else {
+                i = 0;
+            }
+            int i5 = i * 31;
             float f2 = this.b;
-            int a2 = (a + (f2 != 0.0f ? u7.a(f2) : 0)) * 31;
+            if (f2 != 0.0f) {
+                i2 = u7.a(f2);
+            } else {
+                i2 = 0;
+            }
+            int i6 = (i5 + i2) * 31;
             float f3 = this.c;
-            int a3 = (a2 + (f3 != 0.0f ? u7.a(f3) : 0)) * 31;
+            if (f3 != 0.0f) {
+                i3 = u7.a(f3);
+            } else {
+                i3 = 0;
+            }
+            int i7 = (i6 + i3) * 31;
             float f4 = this.d;
-            return a3 + (f4 != 0.0f ? u7.a(f4) : 0);
+            if (f4 != 0.0f) {
+                i4 = u7.a(f4);
+            }
+            return i7 + i4;
         }
         return invokeV.intValue;
     }
@@ -240,61 +312,26 @@ public class l3 {
         return (String) invokeV.objValue;
     }
 
-    public l3(int i) {
+    public l3 d(float f, float f2, float f3, float f4) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+            this.a = f;
+            this.b = f2;
+            this.c = f3;
+            this.d = f4;
+            a();
+            return this;
         }
-        c(this, i);
+        return (l3) invokeCommon.objValue;
     }
 
-    public l3(float f, float f2, float f3, float f4) {
+    public float f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return u7.c((((int) (this.d * 255.0f)) << 24) | (((int) (this.c * 255.0f)) << 16) | (((int) (this.b * 255.0f)) << 8) | ((int) (this.a * 255.0f)));
         }
-        this.a = f;
-        this.b = f2;
-        this.c = f3;
-        this.d = f4;
-        a();
-    }
-
-    public l3(l3 l3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {l3Var};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
-            }
-        }
-        e(l3Var);
+        return invokeV.floatValue;
     }
 }

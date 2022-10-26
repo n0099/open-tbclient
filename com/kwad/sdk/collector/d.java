@@ -27,7 +27,7 @@ public final class d {
             return;
         }
         ISLOADED.set(true);
-        HashMap<String, String> hashMap = new HashMap<>();
+        HashMap hashMap = new HashMap();
         if (AbiUtil.isArm64(context)) {
             hashMap.put("libkwappstatus.so", "40eb0d1d346cab7ced4d02a3065b7a94");
             str = "https://static.yximgs.com/udata/pkg/KS-Android-KSAdSDk/ks_so-appStatusArm64v8aRelease-3.3.14.apk";
@@ -50,9 +50,9 @@ public final class d {
         com.kwai.sodler.kwai.a.a(context, bVar, new b.c() { // from class: com.kwad.sdk.collector.d.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
-            @Override // com.kwai.sodler.lib.ext.b.C0633b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0629b, com.kwai.sodler.lib.ext.b
             public void a(com.kwai.sodler.lib.b.c cVar) {
-                super.a((AnonymousClass1) cVar);
+                super.a((com.kwai.sodler.lib.a.f) cVar);
                 a aVar2 = a.this;
                 if (aVar2 != null) {
                     aVar2.bg("load canceled");
@@ -61,9 +61,9 @@ public final class d {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
-            @Override // com.kwai.sodler.lib.ext.b.C0633b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0629b, com.kwai.sodler.lib.ext.b
             public void a(com.kwai.sodler.lib.b.c cVar, PluginError pluginError) {
-                super.a((AnonymousClass1) cVar, pluginError);
+                super.a((com.kwai.sodler.lib.a.f) cVar, pluginError);
                 if (a.this != null) {
                     a.this.bg(pluginError == null ? "load error" : pluginError.toString());
                 }
@@ -71,9 +71,9 @@ public final class d {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
-            @Override // com.kwai.sodler.lib.ext.b.C0633b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0629b, com.kwai.sodler.lib.ext.b
             public void a(com.kwai.sodler.lib.b.c cVar, com.kwai.sodler.lib.h hVar) {
-                super.a((AnonymousClass1) cVar, (com.kwai.sodler.lib.b.c) hVar);
+                super.a((com.kwai.sodler.lib.a.f) cVar, (com.kwai.sodler.lib.a.a) hVar);
                 d.a(a.this);
             }
         });

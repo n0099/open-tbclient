@@ -25,7 +25,7 @@ public abstract class n {
         }
     }
 
-    public static void a(Map<String, String> map, String str, String str2) {
+    public static void a(Map map, String str, String str2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLL(65538, null, map, str, str2) == null) || map == null || str == null || str2 == null) {
             return;
@@ -34,7 +34,7 @@ public abstract class n {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m569a(Context context, String str, boolean z) {
+    public static boolean m568a(Context context, String str, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, context, str, z)) == null) {

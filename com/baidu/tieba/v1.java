@@ -6,13 +6,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class v1 extends p1<f2, a> {
+public class v1 extends p1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public f2 b;
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.o1
+    /* renamed from: f */
+    public b7 a(String str, k3 k3Var, a aVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, k3Var, aVar)) == null) {
+            return null;
+        }
+        return (b7) invokeLLL.objValue;
+    }
+
     /* loaded from: classes6.dex */
-    public static class a extends l1<f2> {
+    public class a extends l1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -49,18 +61,6 @@ public class v1 extends p1<f2, a> {
                 return;
             }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.o1
-    /* renamed from: f */
-    public b7<j1> a(String str, k3 k3Var, a aVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, k3Var, aVar)) == null) {
-            return null;
-        }
-        return (b7) invokeLLL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

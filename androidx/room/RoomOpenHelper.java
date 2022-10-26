@@ -1,9 +1,6 @@
 package androidx.room;
 
 import android.database.Cursor;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.room.migration.Migration;
 import androidx.sqlite.db.SimpleSQLiteQuery;
@@ -16,26 +13,30 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes.dex */
 public class RoomOpenHelper extends SupportSQLiteOpenHelper.Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public DatabaseConfiguration mConfiguration;
-    @NonNull
     public final Delegate mDelegate;
-    @NonNull
     public final String mIdentityHash;
-    @NonNull
     public final String mLegacyHash;
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes.dex */
     public static abstract class Delegate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int version;
+
+        public abstract void createAllTables(SupportSQLiteDatabase supportSQLiteDatabase);
+
+        public abstract void dropAllTables(SupportSQLiteDatabase supportSQLiteDatabase);
+
+        public abstract void onCreate(SupportSQLiteDatabase supportSQLiteDatabase);
+
+        public abstract void onOpen(SupportSQLiteDatabase supportSQLiteDatabase);
+
+        public abstract void validateMigration(SupportSQLiteDatabase supportSQLiteDatabase);
 
         public Delegate(int i) {
             Interceptable interceptable = $ic;
@@ -54,20 +55,31 @@ public class RoomOpenHelper extends SupportSQLiteOpenHelper.Callback {
             }
             this.version = i;
         }
+    }
 
-        public abstract void createAllTables(SupportSQLiteDatabase supportSQLiteDatabase);
-
-        public abstract void dropAllTables(SupportSQLiteDatabase supportSQLiteDatabase);
-
-        public abstract void onCreate(SupportSQLiteDatabase supportSQLiteDatabase);
-
-        public abstract void onOpen(SupportSQLiteDatabase supportSQLiteDatabase);
-
-        public abstract void validateMigration(SupportSQLiteDatabase supportSQLiteDatabase);
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public RoomOpenHelper(DatabaseConfiguration databaseConfiguration, Delegate delegate, String str) {
+        this(databaseConfiguration, delegate, "", str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {databaseConfiguration, delegate, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((DatabaseConfiguration) objArr2[0], (Delegate) objArr2[1], (String) objArr2[2], (String) objArr2[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RoomOpenHelper(@NonNull DatabaseConfiguration databaseConfiguration, @NonNull Delegate delegate, @NonNull String str, @NonNull String str2) {
+    public RoomOpenHelper(DatabaseConfiguration databaseConfiguration, Delegate delegate, String str, String str2) {
         super(delegate.version);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -93,15 +105,18 @@ public class RoomOpenHelper extends SupportSQLiteOpenHelper.Callback {
     private void checkIdentity(SupportSQLiteDatabase supportSQLiteDatabase) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, supportSQLiteDatabase) == null) {
+            String str = null;
             if (hasRoomMasterTable(supportSQLiteDatabase)) {
                 Cursor query = supportSQLiteDatabase.query(new SimpleSQLiteQuery(RoomMasterTable.READ_QUERY));
                 try {
-                    r1 = query.moveToFirst() ? query.getString(0) : null;
+                    if (query.moveToFirst()) {
+                        str = query.getString(0);
+                    }
                 } finally {
                     query.close();
                 }
             }
-            if (!this.mIdentityHash.equals(r1) && !this.mLegacyHash.equals(r1)) {
+            if (!this.mIdentityHash.equals(str) && !this.mLegacyHash.equals(str)) {
                 throw new IllegalStateException("Room cannot verify the data integrity. Looks like you've changed schema but forgot to update the version number. You can simply fix this by increasing the version number.");
             }
         }
@@ -161,14 +176,6 @@ public class RoomOpenHelper extends SupportSQLiteOpenHelper.Callback {
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteOpenHelper.Callback
-    public void onDowngrade(SupportSQLiteDatabase supportSQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, supportSQLiteDatabase, i, i2) == null) {
-            onUpgrade(supportSQLiteDatabase, i, i2);
-        }
-    }
-
-    @Override // androidx.sqlite.db.SupportSQLiteOpenHelper.Callback
     public void onOpen(SupportSQLiteDatabase supportSQLiteDatabase) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, supportSQLiteDatabase) == null) {
@@ -180,52 +187,38 @@ public class RoomOpenHelper extends SupportSQLiteOpenHelper.Callback {
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteOpenHelper.Callback
+    public void onDowngrade(SupportSQLiteDatabase supportSQLiteDatabase, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, supportSQLiteDatabase, i, i2) == null) {
+            onUpgrade(supportSQLiteDatabase, i, i2);
+        }
+    }
+
+    @Override // androidx.sqlite.db.SupportSQLiteOpenHelper.Callback
     public void onUpgrade(SupportSQLiteDatabase supportSQLiteDatabase, int i, int i2) {
         boolean z;
         List<Migration> findMigrationPath;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048580, this, supportSQLiteDatabase, i, i2) == null) {
             DatabaseConfiguration databaseConfiguration = this.mConfiguration;
-            if (databaseConfiguration == null || (findMigrationPath = databaseConfiguration.migrationContainer.findMigrationPath(i, i2)) == null) {
-                z = false;
-            } else {
+            if (databaseConfiguration != null && (findMigrationPath = databaseConfiguration.migrationContainer.findMigrationPath(i, i2)) != null) {
                 for (Migration migration : findMigrationPath) {
                     migration.migrate(supportSQLiteDatabase);
                 }
                 this.mDelegate.validateMigration(supportSQLiteDatabase);
                 updateIdentity(supportSQLiteDatabase);
                 z = true;
+            } else {
+                z = false;
             }
-            if (z) {
-                return;
-            }
-            DatabaseConfiguration databaseConfiguration2 = this.mConfiguration;
-            if (databaseConfiguration2 != null && !databaseConfiguration2.isMigrationRequiredFrom(i)) {
-                this.mDelegate.dropAllTables(supportSQLiteDatabase);
-                this.mDelegate.createAllTables(supportSQLiteDatabase);
-                return;
-            }
-            throw new IllegalStateException("A migration from " + i + " to " + i2 + " was required but not found. Please provide the necessary Migration path via RoomDatabase.Builder.addMigration(Migration ...) or allow for destructive migrations via one of the RoomDatabase.Builder.fallbackToDestructiveMigration* methods.");
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public RoomOpenHelper(@NonNull DatabaseConfiguration databaseConfiguration, @NonNull Delegate delegate, @NonNull String str) {
-        this(databaseConfiguration, delegate, "", str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {databaseConfiguration, delegate, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((DatabaseConfiguration) objArr2[0], (Delegate) objArr2[1], (String) objArr2[2], (String) objArr2[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            if (!z) {
+                DatabaseConfiguration databaseConfiguration2 = this.mConfiguration;
+                if (databaseConfiguration2 != null && !databaseConfiguration2.isMigrationRequiredFrom(i)) {
+                    this.mDelegate.dropAllTables(supportSQLiteDatabase);
+                    this.mDelegate.createAllTables(supportSQLiteDatabase);
+                    return;
+                }
+                throw new IllegalStateException("A migration from " + i + " to " + i2 + " was required but not found. Please provide the necessary Migration path via RoomDatabase.Builder.addMigration(Migration ...) or allow for destructive migrations via one of the RoomDatabase.Builder.fallbackToDestructiveMigration* methods.");
             }
         }
     }

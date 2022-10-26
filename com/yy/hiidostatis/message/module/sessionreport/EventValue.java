@@ -13,8 +13,8 @@ public class EventValue {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CalAction calAction;
-    public Map<String, String> dimens;
-    public Map<String, String> extra;
+    public Map dimens;
+    public Map extra;
     public String key;
     public Number value;
 
@@ -42,21 +42,21 @@ public class EventValue {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Map<String, String> map = this.dimens;
-            if (map == null || map.isEmpty()) {
-                return "";
+            Map map = this.dimens;
+            if (map != null && !map.isEmpty()) {
+                StringBuilder sb = new StringBuilder();
+                ArrayList<String> arrayList = new ArrayList(this.dimens.keySet());
+                Collections.sort(arrayList);
+                for (String str : arrayList) {
+                    sb.append(str);
+                    sb.append("=");
+                    sb.append((String) this.dimens.get(str));
+                    sb.append(",");
+                }
+                sb.setLength(sb.length() - 1);
+                return sb.toString();
             }
-            StringBuilder sb = new StringBuilder();
-            ArrayList<String> arrayList = new ArrayList(this.dimens.keySet());
-            Collections.sort(arrayList);
-            for (String str : arrayList) {
-                sb.append(str);
-                sb.append("=");
-                sb.append(this.dimens.get(str));
-                sb.append(",");
-            }
-            sb.setLength(sb.length() - 1);
-            return sb.toString();
+            return "";
         }
         return (String) invokeV.objValue;
     }

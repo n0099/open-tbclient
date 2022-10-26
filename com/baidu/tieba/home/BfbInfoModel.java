@@ -6,9 +6,9 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.pb;
+import com.baidu.tieba.qb;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.sm8;
+import com.baidu.tieba.zm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,14 +16,29 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.UserBfbInfo;
 /* loaded from: classes4.dex */
-public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
+public class BfbInfoModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
-    public pb b;
+    public qb b;
 
     /* loaded from: classes4.dex */
-    public class a extends pb {
+    public interface b {
+        void a(int i, String str, UserBfbInfo userBfbInfo);
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* loaded from: classes4.dex */
+    public class a extends qb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BfbInfoModel a;
@@ -50,37 +65,33 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
             this.a = bfbInfoModel;
         }
 
-        @Override // com.baidu.tieba.pb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        @Override // com.baidu.tieba.qb
+        public void onMessage(ResponsedMessage responsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
                 return;
             }
             boolean z = responsedMessage instanceof BfbInfoHttpResponseMessage;
-            if (z || (responsedMessage instanceof BfbInfoSocketResponseMessage)) {
-                UserBfbInfo userBfbInfo = null;
-                if (responsedMessage.getError() != 0) {
-                    if (this.a.a != null) {
-                        this.a.a.a(responsedMessage.getError(), responsedMessage.getErrorString(), null);
-                        return;
-                    }
+            if (!z && !(responsedMessage instanceof BfbInfoSocketResponseMessage)) {
+                return;
+            }
+            UserBfbInfo userBfbInfo = null;
+            if (responsedMessage.getError() != 0) {
+                if (this.a.a != null) {
+                    this.a.a.a(responsedMessage.getError(), responsedMessage.getErrorString(), null);
                     return;
                 }
-                if (z) {
-                    userBfbInfo = ((BfbInfoHttpResponseMessage) responsedMessage).getBfbInfo();
-                } else if (responsedMessage instanceof BfbInfoSocketResponseMessage) {
-                    userBfbInfo = ((BfbInfoSocketResponseMessage) responsedMessage).getBfbInfo();
-                }
-                if (this.a.a != null) {
-                    this.a.a.a(responsedMessage.getError(), responsedMessage.getErrorString(), userBfbInfo);
-                }
+                return;
+            }
+            if (z) {
+                userBfbInfo = ((BfbInfoHttpResponseMessage) responsedMessage).getBfbInfo();
+            } else if (responsedMessage instanceof BfbInfoSocketResponseMessage) {
+                userBfbInfo = ((BfbInfoSocketResponseMessage) responsedMessage).getBfbInfo();
+            }
+            if (this.a.a != null) {
+                this.a.a.a(responsedMessage.getError(), responsedMessage.getErrorString(), userBfbInfo);
             }
         }
-    }
-
-    /* loaded from: classes4.dex */
-    public interface b {
-        void a(int i, String str, UserBfbInfo userBfbInfo);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -106,6 +117,13 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
         B();
     }
 
+    public void D(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.a = bVar;
+        }
+    }
+
     public final void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -116,26 +134,9 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
     public final void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            sm8.h(309366, BfbInfoSocketResponseMessage.class, false, false);
-            sm8.c(309366, CmdConfigHttp.CMD_GET_BFB_INFO, TbConfig.GET_BFB_INFO, BfbInfoHttpResponseMessage.class, false, false, false, false);
+            zm8.h(309366, BfbInfoSocketResponseMessage.class, false, false);
+            zm8.c(309366, CmdConfigHttp.CMD_GET_BFB_INFO, TbConfig.GET_BFB_INFO, BfbInfoHttpResponseMessage.class, false, false, false, false);
         }
-    }
-
-    public void D(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.a = bVar;
-        }
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

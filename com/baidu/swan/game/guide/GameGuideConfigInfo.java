@@ -5,8 +5,8 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.airbnb.lottie.LottieComposition;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.tieba.du3;
-import com.baidu.tieba.vj1;
+import com.baidu.tieba.eu3;
+import com.baidu.tieba.wj1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -81,7 +81,7 @@ public class GameGuideConfigInfo implements Serializable {
     public ViewInfo viewInfo;
 
     /* loaded from: classes3.dex */
-    public static class CloseInfo implements Serializable {
+    public class CloseInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TARGET_TYPE_GAME = 1;
         public transient /* synthetic */ FieldHolder $fh;
@@ -93,7 +93,7 @@ public class GameGuideConfigInfo implements Serializable {
         public String downloadTextColor;
         public String exitBackgroundColor;
         public String exitTextColor;
-        public ArrayList<RecommendGameInfo> gameList;
+        public ArrayList gameList;
         public String gameRecommendTips;
         public String target;
         public int targetType;
@@ -129,40 +129,40 @@ public class GameGuideConfigInfo implements Serializable {
             int optInt;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                if (jSONObject != null && (optInt = jSONObject.optInt("type", -1)) >= 0) {
-                    CloseInfo closeInfo = new CloseInfo();
-                    closeInfo.type = optInt;
-                    closeInfo.gameRecommendTips = jSONObject.optString(GameGuideConfigInfo.KEY_GAME_RECOMMEND_TIPS);
-                    closeInfo.buttonText = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
-                    closeInfo.bannerImgUrl = jSONObject.optString(GameGuideConfigInfo.KEY_BANNER_IMG_URL);
-                    closeInfo.bannerTitle = jSONObject.optString(GameGuideConfigInfo.KEY_BANNER_TITLE);
-                    closeInfo.bannerSubTitle = jSONObject.optString(GameGuideConfigInfo.KEY_BANNER_SUBTITLE);
-                    closeInfo.targetType = jSONObject.optInt(GameGuideConfigInfo.KEY_TARGET_TYPE, 1);
-                    closeInfo.target = jSONObject.optString("target");
-                    closeInfo.downloadBackgroundColor = jSONObject.optString(GameGuideConfigInfo.KEY_DOWNLOAD_BACKGROUND_COLOR);
-                    closeInfo.downloadTextColor = jSONObject.optString(GameGuideConfigInfo.KEY_DOWNLOAD_TEXT_COLOR);
-                    closeInfo.exitBackgroundColor = jSONObject.optString(GameGuideConfigInfo.KEY_EXIT_BACKGROUND_COLOR);
-                    closeInfo.exitTextColor = jSONObject.optString(GameGuideConfigInfo.KEY_EXIT_TEXT_COLOR);
-                    JSONArray optJSONArray = jSONObject.optJSONArray(GameGuideConfigInfo.KEY_GAME_LIST);
-                    if (optJSONArray != null) {
-                        closeInfo.gameList = new ArrayList<>();
-                        for (int i = 0; i < optJSONArray.length(); i++) {
-                            RecommendGameInfo parse = RecommendGameInfo.parse(optJSONArray.optJSONObject(i));
-                            if (parse != null) {
-                                closeInfo.gameList.add(parse);
-                            }
+                if (jSONObject == null || (optInt = jSONObject.optInt("type", -1)) < 0) {
+                    return null;
+                }
+                CloseInfo closeInfo = new CloseInfo();
+                closeInfo.type = optInt;
+                closeInfo.gameRecommendTips = jSONObject.optString(GameGuideConfigInfo.KEY_GAME_RECOMMEND_TIPS);
+                closeInfo.buttonText = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
+                closeInfo.bannerImgUrl = jSONObject.optString(GameGuideConfigInfo.KEY_BANNER_IMG_URL);
+                closeInfo.bannerTitle = jSONObject.optString(GameGuideConfigInfo.KEY_BANNER_TITLE);
+                closeInfo.bannerSubTitle = jSONObject.optString(GameGuideConfigInfo.KEY_BANNER_SUBTITLE);
+                closeInfo.targetType = jSONObject.optInt(GameGuideConfigInfo.KEY_TARGET_TYPE, 1);
+                closeInfo.target = jSONObject.optString("target");
+                closeInfo.downloadBackgroundColor = jSONObject.optString(GameGuideConfigInfo.KEY_DOWNLOAD_BACKGROUND_COLOR);
+                closeInfo.downloadTextColor = jSONObject.optString(GameGuideConfigInfo.KEY_DOWNLOAD_TEXT_COLOR);
+                closeInfo.exitBackgroundColor = jSONObject.optString(GameGuideConfigInfo.KEY_EXIT_BACKGROUND_COLOR);
+                closeInfo.exitTextColor = jSONObject.optString(GameGuideConfigInfo.KEY_EXIT_TEXT_COLOR);
+                JSONArray optJSONArray = jSONObject.optJSONArray(GameGuideConfigInfo.KEY_GAME_LIST);
+                if (optJSONArray != null) {
+                    closeInfo.gameList = new ArrayList();
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        RecommendGameInfo parse = RecommendGameInfo.parse(optJSONArray.optJSONObject(i));
+                        if (parse != null) {
+                            closeInfo.gameList.add(parse);
                         }
                     }
-                    return closeInfo;
                 }
-                return null;
+                return closeInfo;
             }
             return (CloseInfo) invokeL.objValue;
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class DialogInfo implements Serializable {
+    public class DialogInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String buttonText;
@@ -223,7 +223,7 @@ public class GameGuideConfigInfo implements Serializable {
     }
 
     /* loaded from: classes3.dex */
-    public static class RecommendGameInfo implements Serializable {
+    public class RecommendGameInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String appKey;
@@ -262,7 +262,7 @@ public class GameGuideConfigInfo implements Serializable {
     }
 
     /* loaded from: classes3.dex */
-    public static class ViewInfo implements Serializable {
+    public class ViewInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public LottieComposition iconDoneLottie;
@@ -340,7 +340,7 @@ public class GameGuideConfigInfo implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
             if (jSONObject == null) {
-                if (vj1.a) {
+                if (wj1.a) {
                     Log.d(TAG, "data 为空");
                 }
                 return null;
@@ -348,7 +348,7 @@ public class GameGuideConfigInfo implements Serializable {
             GameGuideConfigInfo gameGuideConfigInfo = new GameGuideConfigInfo();
             int optInt = jSONObject.optInt("status", 0);
             gameGuideConfigInfo.status = optInt;
-            du3.p(Boolean.valueOf(jSONObject.optBoolean(KEY_OPEN_INSTALL_BOOT, false)).booleanValue());
+            eu3.p(Boolean.valueOf(jSONObject.optBoolean(KEY_OPEN_INSTALL_BOOT, false)).booleanValue());
             gameGuideConfigInfo.expirationTime = jSONObject.optLong(KEY_EXPIRATION_TIME, 0L);
             gameGuideConfigInfo.packageExpire = jSONObject.optLong(KEY_PACKAGE_EXPIRE, 0L);
             gameGuideConfigInfo.install_result = jSONObject.optBoolean(KEY_INSTALL_RESULT, true);
@@ -362,7 +362,7 @@ public class GameGuideConfigInfo implements Serializable {
             }
             gameGuideConfigInfo.popupSelection = jSONObject.optInt(KEY_POPUP_SELECTION, 0);
             if (optInt == 0) {
-                if (vj1.a) {
+                if (wj1.a) {
                     Log.d(TAG, "配置数据标明不展示");
                 }
                 return gameGuideConfigInfo;

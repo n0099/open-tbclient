@@ -26,21 +26,21 @@ import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
-public final class MassTransitRouteLine extends RouteLine<TransitStep> implements Parcelable {
+public final class MassTransitRouteLine extends RouteLine implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<MassTransitRouteLine> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String b;
     public double c;
-    public List<PriceInfo> d;
-    public List<List<TransitStep>> e;
+    public List d;
+    public List e;
 
     /* loaded from: classes2.dex */
-    public static class TransitStep extends RouteStep implements Parcelable {
+    public class TransitStep extends RouteStep implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator<TransitStep> CREATOR;
+        public static final Parcelable.Creator CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<TrafficCondition> d;
+        public List d;
         public LatLng e;
         public LatLng f;
         public TrainInfo g;
@@ -53,7 +53,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
         /* loaded from: classes2.dex */
-        public static final class StepVehicleInfoType {
+        public final class StepVehicleInfoType {
             public static final /* synthetic */ StepVehicleInfoType[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
             public static final StepVehicleInfoType ESTEP_BUS;
@@ -130,9 +130,9 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
         }
 
         /* loaded from: classes2.dex */
-        public static class TrafficCondition implements Parcelable {
+        public class TrafficCondition implements Parcelable {
             public static /* synthetic */ Interceptable $ic;
-            public static final Parcelable.Creator<TrafficCondition> CREATOR;
+            public static final Parcelable.Creator CREATOR;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
             public int b;
@@ -332,7 +332,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
             }
         }
 
-        private List<LatLng> a(String str) {
+        private List a(String str) {
             InterceptResult invokeL;
             String[] split;
             Interceptable interceptable = $ic;
@@ -401,7 +401,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
             return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : (LatLng) invokeV.objValue;
         }
 
-        public List<TrafficCondition> getTrafficConditions() {
+        public List getTrafficConditions() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : (List) invokeV.objValue;
@@ -420,7 +420,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
         }
 
         @Override // com.baidu.mapapi.search.core.RouteStep
-        public List<LatLng> getWayPoints() {
+        public List getWayPoints() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
@@ -481,7 +481,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
             }
         }
 
-        public void setTrafficConditions(List<TrafficCondition> list) {
+        public void setTrafficConditions(List list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048594, this, list) == null) {
                 this.d = list;
@@ -600,7 +600,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    public List<List<TransitStep>> getNewSteps() {
+    public List getNewSteps() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (List) invokeV.objValue;
@@ -612,7 +612,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.doubleValue;
     }
 
-    public List<PriceInfo> getPriceInfo() {
+    public List getPriceInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : (List) invokeV.objValue;
@@ -625,7 +625,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
         }
     }
 
-    public void setNewSteps(List<List<TransitStep>> list) {
+    public void setNewSteps(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             this.e = list;
@@ -639,7 +639,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
         }
     }
 
-    public void setPriceInfo(List<PriceInfo> list) {
+    public void setPriceInfo(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             this.d = list;
@@ -651,12 +651,12 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i) == null) {
             super.writeToParcel(parcel, i);
-            List<List<TransitStep>> list = this.e;
+            List list = this.e;
             parcel.writeInt(list == null ? 0 : list.size());
             parcel.writeString(this.b);
             parcel.writeDouble(this.c);
             parcel.writeTypedList(this.d);
-            for (List<TransitStep> list2 : this.e) {
+            for (List list2 : this.e) {
                 parcel.writeTypedList(list2);
             }
         }

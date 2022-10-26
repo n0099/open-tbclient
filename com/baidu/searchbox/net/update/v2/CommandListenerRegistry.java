@@ -24,7 +24,13 @@ public final class CommandListenerRegistry {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "CommandListenerRegistry";
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<Pair<String, String>, AbstractCommandListener> mListenerMap;
+    public final Map mListenerMap;
+
+    private void registerListeners() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+        }
+    }
 
     public CommandListenerRegistry() {
         Interceptable interceptable = $ic;
@@ -43,22 +49,47 @@ public final class CommandListenerRegistry {
         registerListeners();
     }
 
-    private Pair<String, String> pair(String str, String str2) {
-        InterceptResult invokeLL;
+    private void collectPostData(Context context, AbstractCommandListener abstractCommandListener, CommandPostData commandPostData, String str, String str2) throws JSONException {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, str, str2)) == null) ? new Pair<>(str, str2) : (Pair) invokeLL.objValue;
+        if ((interceptable == null || interceptable.invokeLLLLL(65537, this, context, abstractCommandListener, commandPostData, str, str2) == null) && context != null && abstractCommandListener != null && commandPostData != null) {
+            JSONObject version = commandPostData.getVersion();
+            JSONObject data = commandPostData.getData();
+            JSONObject optJSONObject = version.optJSONObject(str);
+            if (optJSONObject == null) {
+                optJSONObject = new JSONObject();
+                version.put(str, optJSONObject);
+            }
+            JSONObject optJSONObject2 = data.optJSONObject(str);
+            if (optJSONObject2 == null) {
+                optJSONObject2 = new JSONObject();
+                data.put(str, optJSONObject2);
+            }
+            abstractCommandListener.addPostData(context, str, str2, new CommandPostData(optJSONObject, optJSONObject2, commandPostData.getPubData()));
+        }
     }
 
-    private void registerListeners() {
+    private Pair pair(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, str, str2)) == null) {
+            return new Pair(str, str2);
         }
+        return (Pair) invokeLL.objValue;
+    }
+
+    public AbstractCommandListener getCommandListener(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            return (AbstractCommandListener) this.mListenerMap.get(pair(str, str2));
+        }
+        return (AbstractCommandListener) invokeLL.objValue;
     }
 
     public void collectPostData(Context context, CommandPostData commandPostData, IUpdatePostDataFilter iUpdatePostDataFilter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, context, commandPostData, iUpdatePostDataFilter) == null) {
-            for (Pair<String, String> pair : this.mListenerMap.keySet()) {
+            for (Pair pair : this.mListenerMap.keySet()) {
                 if (iUpdatePostDataFilter == null || !iUpdatePostDataFilter.isNeedFilter((String) pair.first, (String) pair.second)) {
                     try {
                         collectPostData(context, getCommandListener((String) pair.first, (String) pair.second), commandPostData, (String) pair.first, (String) pair.second);
@@ -74,30 +105,17 @@ public final class CommandListenerRegistry {
         }
     }
 
-    public AbstractCommandListener getCommandListener(String str, String str2) {
-        InterceptResult invokeLL;
+    public void collectPostData(Context context, CommandPostData commandPostData, ArrayList arrayList) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) ? this.mListenerMap.get(pair(str, str2)) : (AbstractCommandListener) invokeLL.objValue;
-    }
-
-    public void registerCommandListener(String str, String str2, AbstractCommandListener abstractCommandListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, abstractCommandListener) == null) {
-            this.mListenerMap.put(pair(str, str2), abstractCommandListener);
-        }
-    }
-
-    public void collectPostData(Context context, CommandPostData commandPostData, ArrayList<String> arrayList) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, commandPostData, arrayList) == null) || arrayList == null) {
+        if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, commandPostData, arrayList) != null) || arrayList == null) {
             return;
         }
-        Iterator<String> it = arrayList.iterator();
+        Iterator it = arrayList.iterator();
         while (it.hasNext()) {
-            String next = it.next();
-            if (next != null) {
+            String str = (String) it.next();
+            if (str != null) {
                 try {
-                    String[] split = next.split("/");
+                    String[] split = str.split("/");
                     if (split.length == 2 && !TextUtils.isEmpty(split[0]) && !TextUtils.isEmpty(split[1])) {
                         AbstractCommandListener commandListener = getCommandListener(split[0], split[1]);
                         if (commandListener == null) {
@@ -119,23 +137,10 @@ public final class CommandListenerRegistry {
         commandPostData.cleanEmptyData();
     }
 
-    private void collectPostData(Context context, AbstractCommandListener abstractCommandListener, CommandPostData commandPostData, String str, String str2) throws JSONException {
+    public void registerCommandListener(String str, String str2, AbstractCommandListener abstractCommandListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(65537, this, context, abstractCommandListener, commandPostData, str, str2) == null) || context == null || abstractCommandListener == null || commandPostData == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, abstractCommandListener) == null) {
+            this.mListenerMap.put(pair(str, str2), abstractCommandListener);
         }
-        JSONObject version = commandPostData.getVersion();
-        JSONObject data = commandPostData.getData();
-        JSONObject optJSONObject = version.optJSONObject(str);
-        if (optJSONObject == null) {
-            optJSONObject = new JSONObject();
-            version.put(str, optJSONObject);
-        }
-        JSONObject optJSONObject2 = data.optJSONObject(str);
-        if (optJSONObject2 == null) {
-            optJSONObject2 = new JSONObject();
-            data.put(str, optJSONObject2);
-        }
-        abstractCommandListener.addPostData(context, str, str2, new CommandPostData(optJSONObject, optJSONObject2, commandPostData.getPubData()));
     }
 }

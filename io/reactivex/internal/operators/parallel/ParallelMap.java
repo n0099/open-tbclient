@@ -17,22 +17,22 @@ import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class ParallelMap<T, R> extends ParallelFlowable<R> {
+public final class ParallelMap extends ParallelFlowable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function<? super T, ? extends R> mapper;
-    public final ParallelFlowable<T> source;
+    public final Function mapper;
+    public final ParallelFlowable source;
 
     /* loaded from: classes8.dex */
-    public static final class ParallelMapConditionalSubscriber<T, R> implements ConditionalSubscriber<T>, Subscription {
+    public final class ParallelMapConditionalSubscriber implements ConditionalSubscriber, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ConditionalSubscriber<? super R> actual;
+        public final ConditionalSubscriber actual;
         public boolean done;
-        public final Function<? super T, ? extends R> mapper;
+        public final Function mapper;
         public Subscription s;
 
-        public ParallelMapConditionalSubscriber(ConditionalSubscriber<? super R> conditionalSubscriber, Function<? super T, ? extends R> function) {
+        public ParallelMapConditionalSubscriber(ConditionalSubscriber conditionalSubscriber, Function function) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,7 +62,7 @@ public final class ParallelMap<T, R> extends ParallelFlowable<R> {
         @Override // org.reactivestreams.Subscriber
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.done) {
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.done) {
                 return;
             }
             this.done = true;
@@ -83,13 +83,13 @@ public final class ParallelMap<T, R> extends ParallelFlowable<R> {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048579, this, obj) != null) || this.done) {
                 return;
             }
             try {
-                this.actual.onNext(ObjectHelper.requireNonNull(this.mapper.apply(t), "The mapper returned a null value"));
+                this.actual.onNext(ObjectHelper.requireNonNull(this.mapper.apply(obj), "The mapper returned a null value"));
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
                 cancel();
@@ -115,15 +115,15 @@ public final class ParallelMap<T, R> extends ParallelFlowable<R> {
         }
 
         @Override // io.reactivex.internal.fuseable.ConditionalSubscriber
-        public boolean tryOnNext(T t) {
+        public boolean tryOnNext(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, t)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
                 if (this.done) {
                     return false;
                 }
                 try {
-                    return this.actual.tryOnNext(ObjectHelper.requireNonNull(this.mapper.apply(t), "The mapper returned a null value"));
+                    return this.actual.tryOnNext(ObjectHelper.requireNonNull(this.mapper.apply(obj), "The mapper returned a null value"));
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     cancel();
@@ -136,15 +136,15 @@ public final class ParallelMap<T, R> extends ParallelFlowable<R> {
     }
 
     /* loaded from: classes8.dex */
-    public static final class ParallelMapSubscriber<T, R> implements FlowableSubscriber<T>, Subscription {
+    public final class ParallelMapSubscriber implements FlowableSubscriber, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super R> actual;
+        public final Subscriber actual;
         public boolean done;
-        public final Function<? super T, ? extends R> mapper;
+        public final Function mapper;
         public Subscription s;
 
-        public ParallelMapSubscriber(Subscriber<? super R> subscriber, Function<? super T, ? extends R> function) {
+        public ParallelMapSubscriber(Subscriber subscriber, Function function) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -174,7 +174,7 @@ public final class ParallelMap<T, R> extends ParallelFlowable<R> {
         @Override // org.reactivestreams.Subscriber
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.done) {
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.done) {
                 return;
             }
             this.done = true;
@@ -195,13 +195,13 @@ public final class ParallelMap<T, R> extends ParallelFlowable<R> {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048579, this, obj) != null) || this.done) {
                 return;
             }
             try {
-                this.actual.onNext(ObjectHelper.requireNonNull(this.mapper.apply(t), "The mapper returned a null value"));
+                this.actual.onNext(ObjectHelper.requireNonNull(this.mapper.apply(obj), "The mapper returned a null value"));
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
                 cancel();
@@ -227,7 +227,7 @@ public final class ParallelMap<T, R> extends ParallelFlowable<R> {
         }
     }
 
-    public ParallelMap(ParallelFlowable<T> parallelFlowable, Function<? super T, ? extends R> function) {
+    public ParallelMap(ParallelFlowable parallelFlowable, Function function) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -250,24 +250,28 @@ public final class ParallelMap<T, R> extends ParallelFlowable<R> {
     public int parallelism() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.source.parallelism() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.source.parallelism();
+        }
+        return invokeV.intValue;
     }
 
     @Override // io.reactivex.parallel.ParallelFlowable
-    public void subscribe(Subscriber<? super R>[] subscriberArr) {
+    public void subscribe(Subscriber[] subscriberArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subscriberArr) == null) && validate(subscriberArr)) {
-            int length = subscriberArr.length;
-            Subscriber<? super T>[] subscriberArr2 = new Subscriber[length];
-            for (int i = 0; i < length; i++) {
-                Subscriber<? super R> subscriber = subscriberArr[i];
-                if (subscriber instanceof ConditionalSubscriber) {
-                    subscriberArr2[i] = new ParallelMapConditionalSubscriber((ConditionalSubscriber) subscriber, this.mapper);
-                } else {
-                    subscriberArr2[i] = new ParallelMapSubscriber(subscriber, this.mapper);
-                }
-            }
-            this.source.subscribe(subscriberArr2);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subscriberArr) != null) || !validate(subscriberArr)) {
+            return;
         }
+        int length = subscriberArr.length;
+        Subscriber[] subscriberArr2 = new Subscriber[length];
+        for (int i = 0; i < length; i++) {
+            Subscriber subscriber = subscriberArr[i];
+            if (subscriber instanceof ConditionalSubscriber) {
+                subscriberArr2[i] = new ParallelMapConditionalSubscriber((ConditionalSubscriber) subscriber, this.mapper);
+            } else {
+                subscriberArr2[i] = new ParallelMapSubscriber(subscriber, this.mapper);
+            }
+        }
+        this.source.subscribe(subscriberArr2);
     }
 }

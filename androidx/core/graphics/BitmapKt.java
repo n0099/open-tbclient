@@ -5,8 +5,6 @@ import android.graphics.Canvas;
 import android.graphics.ColorSpace;
 import android.graphics.Point;
 import android.graphics.PointF;
-import androidx.annotation.ColorInt;
-import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
 import com.baidu.searchbox.cloudcontrol.request.CloudControlRequest;
@@ -39,7 +37,28 @@ public final class BitmapKt {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bitmap, point)) == null) {
             int i2 = point.x;
-            return i2 >= 0 && i2 < bitmap.getWidth() && (i = point.y) >= 0 && i < bitmap.getHeight();
+            if (i2 >= 0 && i2 < bitmap.getWidth() && (i = point.y) >= 0 && i < bitmap.getHeight()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static final boolean contains(Bitmap bitmap, PointF pointF) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bitmap, pointF)) == null) {
+            float f = pointF.x;
+            float f2 = 0;
+            if (f < f2 || f >= bitmap.getWidth()) {
+                return false;
+            }
+            float f3 = pointF.y;
+            if (f3 < f2 || f3 >= bitmap.getHeight()) {
+                return false;
+            }
+            return true;
         }
         return invokeLL.booleanValue;
     }
@@ -55,6 +74,26 @@ public final class BitmapKt {
         return (Bitmap) invokeIIL.objValue;
     }
 
+    public static final int get(Bitmap bitmap, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65543, null, bitmap, i, i2)) == null) {
+            return bitmap.getPixel(i, i2);
+        }
+        return invokeLII.intValue;
+    }
+
+    public static final Bitmap createBitmap(int i, int i2, Bitmap.Config config, boolean z, ColorSpace colorSpace) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), config, Boolean.valueOf(z), colorSpace})) == null) {
+            Bitmap createBitmap = Bitmap.createBitmap(i, i2, config, z, colorSpace);
+            Intrinsics.checkExpressionValueIsNotNull(createBitmap, "Bitmap.createBitmap(widt…ig, hasAlpha, colorSpace)");
+            return createBitmap;
+        }
+        return (Bitmap) invokeCommon.objValue;
+    }
+
     public static /* synthetic */ Bitmap createBitmap$default(int i, int i2, Bitmap.Config config, int i3, Object obj) {
         if ((i3 & 4) != 0) {
             config = Bitmap.Config.ARGB_8888;
@@ -64,10 +103,20 @@ public final class BitmapKt {
         return createBitmap;
     }
 
-    public static final int get(Bitmap bitmap, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(65543, null, bitmap, i, i2)) == null) ? bitmap.getPixel(i, i2) : invokeLII.intValue;
+    public static /* synthetic */ Bitmap createBitmap$default(int i, int i2, Bitmap.Config config, boolean z, ColorSpace colorSpace, int i3, Object obj) {
+        if ((i3 & 4) != 0) {
+            config = Bitmap.Config.ARGB_8888;
+        }
+        if ((i3 & 8) != 0) {
+            z = true;
+        }
+        if ((i3 & 16) != 0) {
+            colorSpace = ColorSpace.get(ColorSpace.Named.SRGB);
+            Intrinsics.checkExpressionValueIsNotNull(colorSpace, "ColorSpace.get(ColorSpace.Named.SRGB)");
+        }
+        Bitmap createBitmap = Bitmap.createBitmap(i, i2, config, z, colorSpace);
+        Intrinsics.checkExpressionValueIsNotNull(createBitmap, "Bitmap.createBitmap(widt…ig, hasAlpha, colorSpace)");
+        return createBitmap;
     }
 
     public static final Bitmap scale(Bitmap bitmap, int i, int i2, boolean z) {
@@ -90,53 +139,10 @@ public final class BitmapKt {
         return createScaledBitmap;
     }
 
-    public static final void set(Bitmap bitmap, int i, int i2, @ColorInt int i3) {
+    public static final void set(Bitmap bitmap, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(65546, null, bitmap, i, i2, i3) == null) {
             bitmap.setPixel(i, i2, i3);
         }
-    }
-
-    public static final boolean contains(Bitmap bitmap, PointF pointF) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bitmap, pointF)) == null) {
-            float f = pointF.x;
-            float f2 = 0;
-            if (f < f2 || f >= bitmap.getWidth()) {
-                return false;
-            }
-            float f3 = pointF.y;
-            return f3 >= f2 && f3 < ((float) bitmap.getHeight());
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @RequiresApi(26)
-    public static final Bitmap createBitmap(int i, int i2, Bitmap.Config config, boolean z, ColorSpace colorSpace) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), config, Boolean.valueOf(z), colorSpace})) == null) {
-            Bitmap createBitmap = Bitmap.createBitmap(i, i2, config, z, colorSpace);
-            Intrinsics.checkExpressionValueIsNotNull(createBitmap, "Bitmap.createBitmap(widt…ig, hasAlpha, colorSpace)");
-            return createBitmap;
-        }
-        return (Bitmap) invokeCommon.objValue;
-    }
-
-    public static /* synthetic */ Bitmap createBitmap$default(int i, int i2, Bitmap.Config config, boolean z, ColorSpace colorSpace, int i3, Object obj) {
-        if ((i3 & 4) != 0) {
-            config = Bitmap.Config.ARGB_8888;
-        }
-        if ((i3 & 8) != 0) {
-            z = true;
-        }
-        if ((i3 & 16) != 0) {
-            colorSpace = ColorSpace.get(ColorSpace.Named.SRGB);
-            Intrinsics.checkExpressionValueIsNotNull(colorSpace, "ColorSpace.get(ColorSpace.Named.SRGB)");
-        }
-        Bitmap createBitmap = Bitmap.createBitmap(i, i2, config, z, colorSpace);
-        Intrinsics.checkExpressionValueIsNotNull(createBitmap, "Bitmap.createBitmap(widt…ig, hasAlpha, colorSpace)");
-        return createBitmap;
     }
 }

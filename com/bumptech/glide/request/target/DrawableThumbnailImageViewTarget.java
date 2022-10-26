@@ -8,9 +8,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class DrawableThumbnailImageViewTarget extends ThumbnailImageViewTarget<Drawable> {
+public class DrawableThumbnailImageViewTarget extends ThumbnailImageViewTarget {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.bumptech.glide.request.target.ThumbnailImageViewTarget
+    public Drawable getDrawable(Drawable drawable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, drawable)) == null) ? drawable : (Drawable) invokeL.objValue;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DrawableThumbnailImageViewTarget(ImageView imageView) {
@@ -30,14 +38,6 @@ public class DrawableThumbnailImageViewTarget extends ThumbnailImageViewTarget<D
                 return;
             }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.bumptech.glide.request.target.ThumbnailImageViewTarget
-    public Drawable getDrawable(Drawable drawable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, drawable)) == null) ? drawable : (Drawable) invokeL.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

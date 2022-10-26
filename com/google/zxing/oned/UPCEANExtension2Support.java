@@ -73,7 +73,7 @@ public final class UPCEANExtension2Support {
         return invokeLLL.intValue;
     }
 
-    public static Map<ResultMetadataType, Object> parseExtensionString(String str) {
+    public static Map parseExtensionString(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
@@ -95,7 +95,7 @@ public final class UPCEANExtension2Support {
             sb.setLength(0);
             int decodeMiddle = decodeMiddle(bitArray, iArr, sb);
             String sb2 = sb.toString();
-            Map<ResultMetadataType, Object> parseExtensionString = parseExtensionString(sb2);
+            Map parseExtensionString = parseExtensionString(sb2);
             float f = i;
             Result result = new Result(sb2, null, new ResultPoint[]{new ResultPoint((iArr[0] + iArr[1]) / 2.0f, f), new ResultPoint(decodeMiddle, f)}, BarcodeFormat.UPC_EAN_EXTENSION);
             if (parseExtensionString != null) {

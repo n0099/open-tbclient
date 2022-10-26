@@ -10,7 +10,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.kwad.sdk.api.core.fragment.FileProvider;
@@ -92,7 +91,7 @@ public final class ai {
         return context.getPackageManager().getPackageInfo(str, 0) != null;
     }
 
-    public static int V(@Nullable Context context, String str) {
+    public static int V(Context context, String str) {
         if (context == null || str == null || c.bQ(context) || ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.p0.h.i) != 0) {
             return -1;
         }
@@ -101,7 +100,7 @@ public final class ai {
         return (file.exists() && file.isDirectory()) ? 1 : 0;
     }
 
-    public static boolean W(@Nullable Context context, @Nullable String str) {
+    public static boolean W(Context context, String str) {
         if (context == null || TextUtils.isEmpty(str)) {
             return false;
         }
@@ -119,7 +118,7 @@ public final class ai {
         }
     }
 
-    public static boolean X(@Nullable Context context, @Nullable String str) {
+    public static boolean X(Context context, String str) {
         if (context != null && !TextUtils.isEmpty(str)) {
             try {
                 File file = new File(str);

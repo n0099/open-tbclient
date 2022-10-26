@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import com.kwad.sdk.service.ServiceProvider;
 import java.util.Map;
 import java.util.Set;
@@ -63,15 +62,15 @@ public class aw {
         }
     }
 
-    public static <T> void a(String str, Map<String, T> map) {
+    public static void a(String str, Map map) {
         Context context = ((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)).getContext();
         if (context == null) {
             return;
         }
         SharedPreferences.Editor edit = context.getSharedPreferences(str, 0).edit();
-        for (Map.Entry<String, T> entry : map.entrySet()) {
+        for (Map.Entry entry : map.entrySet()) {
             try {
-                a(edit, entry.getKey(), entry.getValue());
+                a(edit, (String) entry.getKey(), entry.getValue());
             } catch (Throwable th) {
                 com.kwad.sdk.core.e.b.e(TAG, Log.getStackTraceString(th));
             }
@@ -103,7 +102,7 @@ public class aw {
         return b(context, str, str2, 0);
     }
 
-    public static void c(Context context, @NonNull String str, @NonNull String str2, String str3) {
+    public static void c(Context context, String str, String str2, String str3) {
         if (context == null) {
             return;
         }

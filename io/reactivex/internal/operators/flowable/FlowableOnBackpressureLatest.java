@@ -16,24 +16,24 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableOnBackpressureLatest<T> extends AbstractFlowableWithUpstream<T, T> {
+public final class FlowableOnBackpressureLatest extends AbstractFlowableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static final class BackpressureLatestSubscriber<T> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
+    public final class BackpressureLatestSubscriber extends AtomicInteger implements FlowableSubscriber, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 163080509307634843L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super T> actual;
+        public final Subscriber actual;
         public volatile boolean cancelled;
-        public final AtomicReference<T> current;
+        public final AtomicReference current;
         public volatile boolean done;
         public Throwable error;
         public final AtomicLong requested;
         public Subscription s;
 
-        public BackpressureLatestSubscriber(Subscriber<? super T> subscriber) {
+        public BackpressureLatestSubscriber(Subscriber subscriber) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,24 +49,32 @@ public final class FlowableOnBackpressureLatest<T> extends AbstractFlowableWithU
                 }
             }
             this.requested = new AtomicLong();
-            this.current = new AtomicReference<>();
+            this.current = new AtomicReference();
             this.actual = subscriber;
         }
 
         @Override // org.reactivestreams.Subscription
         public void cancel() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.cancelled) {
-                return;
-            }
-            this.cancelled = true;
-            this.s.cancel();
-            if (getAndIncrement() == 0) {
-                this.current.lazySet(null);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.cancelled) {
+                this.cancelled = true;
+                this.s.cancel();
+                if (getAndIncrement() == 0) {
+                    this.current.lazySet(null);
+                }
             }
         }
 
-        public boolean checkTerminated(boolean z, boolean z2, Subscriber<?> subscriber, AtomicReference<T> atomicReference) {
+        @Override // org.reactivestreams.Subscriber
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.done = true;
+                drain();
+            }
+        }
+
+        public boolean checkTerminated(boolean z, boolean z2, Subscriber subscriber, AtomicReference atomicReference) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), subscriber, atomicReference})) == null) {
@@ -123,42 +131,39 @@ public final class FlowableOnBackpressureLatest<T> extends AbstractFlowableWithU
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void drain() {
+            boolean z;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && getAndIncrement() == 0) {
-                Subscriber<? super T> subscriber = this.actual;
-                AtomicLong atomicLong = this.requested;
-                AtomicReference<T> atomicReference = this.current;
-                int i = 1;
-                do {
-                    long j = 0;
-                    while (true) {
-                        boolean z = false;
-                        if (j == atomicLong.get()) {
-                            break;
-                        }
-                        boolean z2 = this.done;
-                        Object obj = (T) atomicReference.getAndSet(null);
-                        boolean z3 = obj == null;
-                        if (checkTerminated(z2, z3, subscriber, atomicReference)) {
-                            return;
-                        }
-                        if (z3) {
-                            break;
-                        }
-                        subscriber.onNext(obj);
-                        j++;
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || getAndIncrement() != 0) {
+                return;
+            }
+            Subscriber subscriber = this.actual;
+            AtomicLong atomicLong = this.requested;
+            AtomicReference atomicReference = this.current;
+            int i = 1;
+            do {
+                long j = 0;
+                while (true) {
+                    boolean z2 = false;
+                    if (j == atomicLong.get()) {
+                        break;
                     }
-                } while (i != 0);
-            }
-        }
-
-        @Override // org.reactivestreams.Subscriber
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.done = true;
-                drain();
-            }
+                    boolean z3 = this.done;
+                    Object andSet = atomicReference.getAndSet(null);
+                    if (andSet == null) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (checkTerminated(z3, z, subscriber, atomicReference)) {
+                        return;
+                    }
+                    if (z) {
+                        break;
+                    }
+                    subscriber.onNext(andSet);
+                    j++;
+                }
+            } while (i != 0);
         }
 
         @Override // org.reactivestreams.Subscriber
@@ -172,10 +177,10 @@ public final class FlowableOnBackpressureLatest<T> extends AbstractFlowableWithU
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
-                this.current.lazySet(t);
+            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
+                this.current.lazySet(obj);
                 drain();
             }
         }
@@ -201,7 +206,7 @@ public final class FlowableOnBackpressureLatest<T> extends AbstractFlowableWithU
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableOnBackpressureLatest(Flowable<T> flowable) {
+    public FlowableOnBackpressureLatest(Flowable flowable) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -221,7 +226,7 @@ public final class FlowableOnBackpressureLatest<T> extends AbstractFlowableWithU
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super T> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new BackpressureLatestSubscriber(subscriber));

@@ -16,18 +16,18 @@ import java.util.HashMap;
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, com.baidu.searchbox.dns.d.a> I;
+    public HashMap I;
     public final Object J;
 
     /* renamed from: com.baidu.searchbox.dns.d.b$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public static b K;
         public transient /* synthetic */ FieldHolder $fh;
@@ -49,49 +49,6 @@ public class b {
         }
     }
 
-    public /* synthetic */ b(AnonymousClass1 anonymousClass1) {
-        this();
-    }
-
-    public static b o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.K : (b) invokeV.objValue;
-    }
-
-    public com.baidu.searchbox.dns.d.a a(String str, boolean z, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            synchronized (this.J) {
-                if (this.I.get(str) == null) {
-                    if (DnsUtil.DEBUG) {
-                        Log.d(DnsUtil.TAG, " creat dns transmit task isBatch: " + z + " host: " + str);
-                    }
-                    return new com.baidu.searchbox.dns.d.a(z, str, i);
-                }
-                return null;
-            }
-        }
-        return (com.baidu.searchbox.dns.d.a) invokeCommon.objValue;
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        synchronized (this.J) {
-            this.I.remove(str);
-        }
-        if (DnsUtil.DEBUG) {
-            Log.d(DnsUtil.TAG, " remove dns transmit task: " + str);
-        }
-    }
-
     public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -106,19 +63,63 @@ public class b {
             }
         }
         this.J = new Object();
-        this.I = new HashMap<>(10);
+        this.I = new HashMap(10);
+    }
+
+    public static b o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a.K;
+        }
+        return (b) invokeV.objValue;
+    }
+
+    public /* synthetic */ b(AnonymousClass1 anonymousClass1) {
+        this();
+    }
+
+    public com.baidu.searchbox.dns.d.a a(String str, boolean z, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                synchronized (this.J) {
+                    if (((com.baidu.searchbox.dns.d.a) this.I.get(str)) == null) {
+                        if (DnsUtil.DEBUG) {
+                            Log.d(DnsUtil.TAG, " creat dns transmit task isBatch: " + z + " host: " + str);
+                        }
+                        return new com.baidu.searchbox.dns.d.a(z, str, i);
+                    }
+                    return null;
+                }
+            }
+            return null;
+        }
+        return (com.baidu.searchbox.dns.d.a) invokeCommon.objValue;
     }
 
     public void a(String str, com.baidu.searchbox.dns.d.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, aVar) == null) || TextUtils.isEmpty(str) || aVar == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, aVar) == null) && !TextUtils.isEmpty(str) && aVar != null) {
+            synchronized (this.J) {
+                this.I.put(str, aVar);
+            }
+            if (DnsUtil.DEBUG) {
+                Log.d(DnsUtil.TAG, " add dns transmit task: " + str);
+            }
         }
-        synchronized (this.J) {
-            this.I.put(str, aVar);
-        }
-        if (DnsUtil.DEBUG) {
-            Log.d(DnsUtil.TAG, " add dns transmit task: " + str);
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && !TextUtils.isEmpty(str)) {
+            synchronized (this.J) {
+                this.I.remove(str);
+            }
+            if (DnsUtil.DEBUG) {
+                Log.d(DnsUtil.TAG, " remove dns transmit task: " + str);
+            }
         }
     }
 }

@@ -54,7 +54,20 @@ public class e3 implements o2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             n2 n2Var = new n2(this.c, str, Files.FileType.Internal);
-            return this.d != null ? g(n2Var, str) : n2Var;
+            if (this.d != null) {
+                return g(n2Var, str);
+            }
+            return n2Var;
+        }
+        return (k3) invokeL.objValue;
+    }
+
+    @Override // com.badlogic.gdx.Files
+    public k3 f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            return new n2((AssetManager) null, str, Files.FileType.Classpath);
         }
         return (k3) invokeL.objValue;
     }
@@ -63,39 +76,50 @@ public class e3 implements o2 {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.o2
     public g3 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (g3) invokeV.objValue;
-    }
-
-    @Override // com.badlogic.gdx.Files
-    public k3 d(String str, Files.FileType fileType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, fileType)) == null) {
-            n2 n2Var = new n2(fileType == Files.FileType.Internal ? this.c : null, str, fileType);
-            return (this.d == null || fileType != Files.FileType.Internal) ? n2Var : g(n2Var, str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
         }
-        return (k3) invokeLL.objValue;
+        return (g3) invokeV.objValue;
     }
 
     @Override // com.badlogic.gdx.Files
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.badlogic.gdx.Files
-    public k3 f(String str) {
-        InterceptResult invokeL;
+    public k3 d(String str, Files.FileType fileType) {
+        InterceptResult invokeLL;
+        AssetManager assetManager;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? new n2((AssetManager) null, str, Files.FileType.Classpath) : (k3) invokeL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, fileType)) == null) {
+            if (fileType == Files.FileType.Internal) {
+                assetManager = this.c;
+            } else {
+                assetManager = null;
+            }
+            n2 n2Var = new n2(assetManager, str, fileType);
+            if (this.d != null && fileType == Files.FileType.Internal) {
+                return g(n2Var, str);
+            }
+            return n2Var;
+        }
+        return (k3) invokeLL.objValue;
     }
 
     public final k3 g(k3 k3Var, String str) {
@@ -107,7 +131,13 @@ public class e3 implements o2 {
                 return k3Var;
             } catch (Exception unused) {
                 c3 c3Var = new c3(str);
-                return (c3Var.x() && !c3Var.c()) ? k3Var : c3Var;
+                if (!c3Var.x()) {
+                    return c3Var;
+                }
+                if (c3Var.c()) {
+                    return c3Var;
+                }
+                return k3Var;
             }
         }
         return (k3) invokeLL.objValue;
@@ -118,14 +148,14 @@ public class e3 implements o2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, contextWrapper)) == null) {
             File externalFilesDir = contextWrapper.getExternalFilesDir(null);
-            if (externalFilesDir != null) {
-                String absolutePath = externalFilesDir.getAbsolutePath();
-                if (absolutePath.endsWith("/")) {
-                    return absolutePath;
-                }
+            if (externalFilesDir == null) {
+                return null;
+            }
+            String absolutePath = externalFilesDir.getAbsolutePath();
+            if (!absolutePath.endsWith("/")) {
                 return absolutePath + "/";
             }
-            return null;
+            return absolutePath;
         }
         return (String) invokeL.objValue;
     }

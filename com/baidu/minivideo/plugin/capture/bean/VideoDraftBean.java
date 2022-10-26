@@ -1,6 +1,5 @@
 package com.baidu.minivideo.plugin.capture.bean;
 
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +11,7 @@ import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class VideoDraftBean implements Jsonable, Comparable<VideoDraftBean>, Serializable, Cloneable {
+public class VideoDraftBean implements Jsonable, Comparable, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int mBackUpType;
@@ -39,6 +38,255 @@ public class VideoDraftBean implements Jsonable, Comparable<VideoDraftBean>, Ser
     public String mVideoTempData;
     public int mVisibility;
 
+    public VideoDraftBean() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mOriginMusicVolume = 1.0f;
+        this.mSelected = false;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: clone */
+    public VideoDraftBean m36clone() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                return (VideoDraftBean) super.clone();
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (VideoDraftBean) invokeV.objValue;
+    }
+
+    public int getBackupType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mBackUpType;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getCoverPath() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mCoverPath;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getDraftName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mDraftName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean getDraftSelectedStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mSelected;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String getEffectData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mEffectData;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getFilterValue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mFilterValue;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getFollowData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.mFollowData;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getLocalAlbumData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.mLocalAlbumData;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getLocalAlbumThemeData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.mLocalAlbumThemeData;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getLocation() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.mLocation;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getMainTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.mMainTitle;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getMusicData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.mMusicData;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public float getOriginMusicVolume() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.mOriginMusicVolume;
+        }
+        return invokeV.floatValue;
+    }
+
+    public String getPreProcessVideoPath() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.mPreProcessVideoPath;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getResumePage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.mResumePage;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getResumeRoute() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return this.mResumeRoute;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getSubTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return this.mSubTitle;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getTimeStamp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.mTimeStamp;
+        }
+        return invokeV.longValue;
+    }
+
+    public String getTopicData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return this.mTopicData;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getUserID() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return this.mUserID;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getVideoPath() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return this.mVideoPath;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getVideoTempData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            return this.mVideoTempData;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getVisibility() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            return this.mVisibility;
+        }
+        return invokeV.intValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            return this.mDraftName.hashCode() + (this.mMusicData.hashCode() * 31) + (this.mVideoTempData.hashCode() * 31);
+        }
+        return invokeV.intValue;
+    }
+
     public VideoDraftBean(String str, String str2, long j, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -62,235 +310,26 @@ public class VideoDraftBean implements Jsonable, Comparable<VideoDraftBean>, Ser
         this.mResumeRoute = i;
     }
 
-    public boolean equals(Object obj) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    public int compareTo(VideoDraftBean videoDraftBean) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-            if (obj == this) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, videoDraftBean)) == null) {
+            if (videoDraftBean == null) {
+                return -1;
             }
-            if (obj != null && VideoDraftBean.class == obj.getClass()) {
-                VideoDraftBean videoDraftBean = (VideoDraftBean) obj;
-                if (this.mDraftName.equals(videoDraftBean.getDraftName()) && ((this.mVideoTempData != null && videoDraftBean.getVideoTempData() != null && this.mVideoTempData.equals(videoDraftBean.getVideoTempData())) || this.mResumeRoute == 1)) {
-                    if (this.mMusicData != null && videoDraftBean.getMusicData() != null) {
-                        int indexOf = this.mMusicData.indexOf("sk");
-                        return this.mMusicData.substring(indexOf).equals(videoDraftBean.getMusicData().substring(indexOf));
-                    } else if (this.mMusicData == null && videoDraftBean.getMusicData() == null) {
-                        return true;
-                    }
-                }
+            long j = this.mTimeStamp;
+            long j2 = videoDraftBean.mTimeStamp;
+            if (j > j2) {
+                return 1;
             }
-            return false;
+            if (j < j2) {
+                return -1;
+            }
+            return 0;
         }
-        return invokeL.booleanValue;
-    }
-
-    public boolean equalsMusic(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (obj == this) {
-                return true;
-            }
-            if (obj != null && VideoDraftBean.class == obj.getClass()) {
-                VideoDraftBean videoDraftBean = (VideoDraftBean) obj;
-                if (this.mDraftName.equals(videoDraftBean.getDraftName())) {
-                    if (this.mMusicData != null && videoDraftBean.getMusicData() != null) {
-                        int indexOf = this.mMusicData.indexOf("sk");
-                        if (indexOf == -1 || indexOf >= videoDraftBean.getMusicData().length()) {
-                            return false;
-                        }
-                        String substring = this.mMusicData.substring(indexOf);
-                        if (indexOf >= videoDraftBean.getMusicData().length()) {
-                            return false;
-                        }
-                        return substring.equals(videoDraftBean.getMusicData().substring(indexOf));
-                    } else if (this.mMusicData == null && videoDraftBean.getMusicData() == null) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int getBackupType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mBackUpType : invokeV.intValue;
-    }
-
-    public String getCoverPath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mCoverPath : (String) invokeV.objValue;
-    }
-
-    public String getDraftName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mDraftName : (String) invokeV.objValue;
-    }
-
-    public boolean getDraftSelectedStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mSelected : invokeV.booleanValue;
-    }
-
-    public String getEffectData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mEffectData : (String) invokeV.objValue;
-    }
-
-    public String getFilterValue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mFilterValue : (String) invokeV.objValue;
-    }
-
-    public String getFollowData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mFollowData : (String) invokeV.objValue;
-    }
-
-    public String getLocalAlbumData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mLocalAlbumData : (String) invokeV.objValue;
-    }
-
-    public String getLocalAlbumThemeData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mLocalAlbumThemeData : (String) invokeV.objValue;
-    }
-
-    public String getLocation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mLocation : (String) invokeV.objValue;
-    }
-
-    public String getMainTitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.mMainTitle : (String) invokeV.objValue;
-    }
-
-    public String getMusicData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mMusicData : (String) invokeV.objValue;
-    }
-
-    public float getOriginMusicVolume() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.mOriginMusicVolume : invokeV.floatValue;
-    }
-
-    public String getPreProcessVideoPath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.mPreProcessVideoPath : (String) invokeV.objValue;
-    }
-
-    public int getResumePage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.mResumePage : invokeV.intValue;
-    }
-
-    public int getResumeRoute() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.mResumeRoute : invokeV.intValue;
-    }
-
-    public String getSubTitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.mSubTitle : (String) invokeV.objValue;
-    }
-
-    public long getTimeStamp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.mTimeStamp : invokeV.longValue;
-    }
-
-    public String getTopicData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.mTopicData : (String) invokeV.objValue;
-    }
-
-    public String getUserID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.mUserID : (String) invokeV.objValue;
-    }
-
-    public String getVideoPath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.mVideoPath : (String) invokeV.objValue;
-    }
-
-    public String getVideoTempData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.mVideoTempData : (String) invokeV.objValue;
-    }
-
-    public int getVisibility() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.mVisibility : invokeV.intValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.mDraftName.hashCode() + (this.mMusicData.hashCode() * 31) + (this.mVideoTempData.hashCode() * 31) : invokeV.intValue;
-    }
-
-    @Override // com.baidu.minivideo.plugin.capture.bean.Jsonable
-    public boolean parse(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, str)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                this.mDraftName = jSONObject.optString("mDraftName");
-                this.mUserID = jSONObject.optString("mUserID");
-                this.mVideoTempData = jSONObject.optString("mVideoTempData");
-                this.mVideoPath = jSONObject.optString("mVideoPath");
-                this.mMusicData = jSONObject.optString("mMusicData");
-                this.mMainTitle = jSONObject.optString("mMainTitle");
-                this.mSubTitle = jSONObject.optString("mSubTitle");
-                this.mTopicData = jSONObject.optString("mTopicData");
-                this.mVisibility = jSONObject.optInt("mVisibility");
-                this.mResumeRoute = jSONObject.optInt("mResumeRoute");
-                this.mTimeStamp = jSONObject.optLong("mTimeStamp");
-                this.mResumePage = jSONObject.optInt("mResumePage");
-                this.mBackUpType = jSONObject.optInt("mBackUpType");
-                this.mEffectData = jSONObject.optString("mEffectData");
-                this.mCoverPath = jSONObject.optString("mCoverPath");
-                this.mLocation = jSONObject.optString("mLocation");
-                this.mPreProcessVideoPath = jSONObject.optString("mPreProcessVideoPath");
-                this.mFollowData = jSONObject.optString("mFollowData");
-                this.mOriginMusicVolume = (float) jSONObject.optDouble("mOriginMusicVolume");
-                return true;
-            } catch (JSONException unused) {
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
+        return invokeL.intValue;
     }
 
     public void setBackUpType(int i) {
@@ -454,6 +493,93 @@ public class VideoDraftBean implements Jsonable, Comparable<VideoDraftBean>, Ser
         }
     }
 
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+            if (obj == this) {
+                return true;
+            }
+            if (obj != null && VideoDraftBean.class == obj.getClass()) {
+                VideoDraftBean videoDraftBean = (VideoDraftBean) obj;
+                if (this.mDraftName.equals(videoDraftBean.getDraftName()) && ((this.mVideoTempData != null && videoDraftBean.getVideoTempData() != null && this.mVideoTempData.equals(videoDraftBean.getVideoTempData())) || this.mResumeRoute == 1)) {
+                    if (this.mMusicData != null && videoDraftBean.getMusicData() != null) {
+                        int indexOf = this.mMusicData.indexOf("sk");
+                        return this.mMusicData.substring(indexOf).equals(videoDraftBean.getMusicData().substring(indexOf));
+                    } else if (this.mMusicData == null && videoDraftBean.getMusicData() == null) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean equalsMusic(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (obj == this) {
+                return true;
+            }
+            if (obj != null && VideoDraftBean.class == obj.getClass()) {
+                VideoDraftBean videoDraftBean = (VideoDraftBean) obj;
+                if (this.mDraftName.equals(videoDraftBean.getDraftName())) {
+                    if (this.mMusicData != null && videoDraftBean.getMusicData() != null) {
+                        int indexOf = this.mMusicData.indexOf("sk");
+                        if (indexOf == -1 || indexOf >= videoDraftBean.getMusicData().length()) {
+                            return false;
+                        }
+                        String substring = this.mMusicData.substring(indexOf);
+                        if (indexOf >= videoDraftBean.getMusicData().length()) {
+                            return false;
+                        }
+                        return substring.equals(videoDraftBean.getMusicData().substring(indexOf));
+                    } else if (this.mMusicData == null && videoDraftBean.getMusicData() == null) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.minivideo.plugin.capture.bean.Jsonable
+    public boolean parse(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, str)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                this.mDraftName = jSONObject.optString("mDraftName");
+                this.mUserID = jSONObject.optString("mUserID");
+                this.mVideoTempData = jSONObject.optString("mVideoTempData");
+                this.mVideoPath = jSONObject.optString("mVideoPath");
+                this.mMusicData = jSONObject.optString("mMusicData");
+                this.mMainTitle = jSONObject.optString("mMainTitle");
+                this.mSubTitle = jSONObject.optString("mSubTitle");
+                this.mTopicData = jSONObject.optString("mTopicData");
+                this.mVisibility = jSONObject.optInt("mVisibility");
+                this.mResumeRoute = jSONObject.optInt("mResumeRoute");
+                this.mTimeStamp = jSONObject.optLong("mTimeStamp");
+                this.mResumePage = jSONObject.optInt("mResumePage");
+                this.mBackUpType = jSONObject.optInt("mBackUpType");
+                this.mEffectData = jSONObject.optString("mEffectData");
+                this.mCoverPath = jSONObject.optString("mCoverPath");
+                this.mLocation = jSONObject.optString("mLocation");
+                this.mPreProcessVideoPath = jSONObject.optString("mPreProcessVideoPath");
+                this.mFollowData = jSONObject.optString("mFollowData");
+                this.mOriginMusicVolume = (float) jSONObject.optDouble("mOriginMusicVolume");
+                return true;
+            } catch (JSONException unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
     @Override // com.baidu.minivideo.plugin.capture.bean.Jsonable
     public JSONObject toJson() {
         InterceptResult invokeV;
@@ -486,57 +612,5 @@ public class VideoDraftBean implements Jsonable, Comparable<VideoDraftBean>, Ser
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: clone */
-    public VideoDraftBean m36clone() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                return (VideoDraftBean) super.clone();
-            } catch (CloneNotSupportedException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (VideoDraftBean) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    public int compareTo(@NonNull VideoDraftBean videoDraftBean) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, videoDraftBean)) == null) {
-            if (videoDraftBean == null) {
-                return -1;
-            }
-            long j = this.mTimeStamp;
-            long j2 = videoDraftBean.mTimeStamp;
-            if (j > j2) {
-                return 1;
-            }
-            return j < j2 ? -1 : 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public VideoDraftBean() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mOriginMusicVolume = 1.0f;
-        this.mSelected = false;
     }
 }

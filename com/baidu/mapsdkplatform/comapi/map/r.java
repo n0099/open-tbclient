@@ -110,7 +110,7 @@ public class r {
         }
     }
 
-    public ArrayList<q> a(String str) {
+    public ArrayList a(String str) {
         InterceptResult invokeL;
         com.baidu.mapsdkplatform.comjni.map.basemap.a aVar;
         JSONArray optJSONArray;
@@ -121,7 +121,7 @@ public class r {
                 if (a2 == null || a2.equals("")) {
                     return null;
                 }
-                ArrayList<q> arrayList = new ArrayList<>();
+                ArrayList arrayList = new ArrayList();
                 try {
                     JSONObject jSONObject = new JSONObject(a2);
                     if (jSONObject.length() == 0 || (optJSONArray = jSONObject.optJSONArray(ActionJsonData.TAG_DATASET)) == null) {
@@ -138,7 +138,7 @@ public class r {
                             qVar.d = jSONObject2.optInt("cty");
                             if (jSONObject2.has("child")) {
                                 JSONArray optJSONArray2 = jSONObject2.optJSONArray("child");
-                                ArrayList<q> arrayList2 = new ArrayList<>();
+                                ArrayList arrayList2 = new ArrayList();
                                 for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                                     q qVar2 = new q();
                                     JSONObject optJSONObject = optJSONArray2.optJSONObject(i2);
@@ -234,7 +234,7 @@ public class r {
         return invokeI.booleanValue;
     }
 
-    public ArrayList<q> c() {
+    public ArrayList c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -243,7 +243,7 @@ public class r {
                 return null;
             }
             String m = aVar.m();
-            ArrayList<q> arrayList = new ArrayList<>();
+            ArrayList arrayList = new ArrayList();
             try {
                 JSONArray optJSONArray = new JSONObject(m).optJSONArray(ActionJsonData.TAG_DATASET);
                 for (int i = 0; i < optJSONArray.length(); i++) {
@@ -255,7 +255,7 @@ public class r {
                     qVar.d = optJSONObject.optInt("cty");
                     if (optJSONObject.has("child")) {
                         JSONArray optJSONArray2 = optJSONObject.optJSONArray("child");
-                        ArrayList<q> arrayList2 = new ArrayList<>();
+                        ArrayList arrayList2 = new ArrayList();
                         for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                             q qVar2 = new q();
                             JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i2);
@@ -291,17 +291,17 @@ public class r {
         return invokeI.booleanValue;
     }
 
-    public ArrayList<q> d() {
+    public ArrayList d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.b;
-            ArrayList<q> arrayList = null;
+            ArrayList arrayList = null;
             if (aVar == null) {
                 return null;
             }
             String a2 = aVar.a("");
-            ArrayList<q> arrayList2 = new ArrayList<>();
+            ArrayList arrayList2 = new ArrayList();
             try {
                 JSONArray optJSONArray = new JSONObject(a2).optJSONArray(ActionJsonData.TAG_DATASET);
                 int i = 0;
@@ -316,7 +316,7 @@ public class r {
                         qVar.d = optJSONObject.optInt("cty");
                         if (optJSONObject.has("child")) {
                             JSONArray optJSONArray2 = optJSONObject.optJSONArray("child");
-                            ArrayList<q> arrayList3 = new ArrayList<>();
+                            ArrayList arrayList3 = new ArrayList();
                             for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                                 q qVar2 = new q();
                                 JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i2);
@@ -362,14 +362,14 @@ public class r {
         return invokeI.booleanValue;
     }
 
-    public ArrayList<u> e() {
+    public ArrayList e() {
         InterceptResult invokeV;
         String l;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.b;
             if (aVar != null && (l = aVar.l()) != null && !l.equals("")) {
-                ArrayList<u> arrayList = new ArrayList<>();
+                ArrayList arrayList = new ArrayList();
                 try {
                     JSONObject jSONObject = new JSONObject(l);
                     if (jSONObject.length() == 0) {

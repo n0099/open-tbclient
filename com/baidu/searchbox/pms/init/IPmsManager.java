@@ -1,7 +1,5 @@
 package com.baidu.searchbox.pms.init;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.pms.bean.PackageInfo;
 import com.baidu.searchbox.pms.callback.DownloadCallback;
@@ -21,33 +19,11 @@ public interface IPmsManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
         @Override // com.baidu.searchbox.pms.init.IPmsManager
         public void deletePackageInfo(String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
             }
-        }
-
-        @Override // com.baidu.searchbox.pms.init.IPmsManager
-        @NonNull
-        public IDownloadManager download(@NonNull PackageInfo packageInfo, @Nullable DownloadOptions downloadOptions, @Nullable DownloadCallback downloadCallback) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo, downloadOptions, downloadCallback)) == null) ? DownloadManager.getInstance() : (IDownloadManager) invokeLLL.objValue;
         }
 
         @Override // com.baidu.searchbox.pms.init.IPmsManager
@@ -58,7 +34,7 @@ public interface IPmsManager {
         }
 
         @Override // com.baidu.searchbox.pms.init.IPmsManager
-        public Map<String, PackageInfo> getPackageInfo(String str, String str2) {
+        public Map getPackageInfo(String str, String str2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
@@ -78,7 +54,7 @@ public interface IPmsManager {
         }
 
         @Override // com.baidu.searchbox.pms.init.IPmsManager
-        public int resetUpdateVersion(String str, List<String> list) {
+        public int resetUpdateVersion(String str, List list) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, list)) == null) {
@@ -87,28 +63,52 @@ public interface IPmsManager {
             return invokeLL.intValue;
         }
 
+        {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         @Override // com.baidu.searchbox.pms.init.IPmsManager
-        @NonNull
-        public IDownloadManager download(@NonNull List<PackageInfo> list, @Nullable DownloadOptions downloadOptions, @Nullable DownloadCallback downloadCallback) {
+        public IDownloadManager download(PackageInfo packageInfo, DownloadOptions downloadOptions, DownloadCallback downloadCallback) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, list, downloadOptions, downloadCallback)) == null) ? DownloadManager.getInstance() : (IDownloadManager) invokeLLL.objValue;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo, downloadOptions, downloadCallback)) == null) {
+                return DownloadManager.getInstance();
+            }
+            return (IDownloadManager) invokeLLL.objValue;
+        }
+
+        @Override // com.baidu.searchbox.pms.init.IPmsManager
+        public IDownloadManager download(List list, DownloadOptions downloadOptions, DownloadCallback downloadCallback) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, list, downloadOptions, downloadCallback)) == null) {
+                return DownloadManager.getInstance();
+            }
+            return (IDownloadManager) invokeLLL.objValue;
         }
     };
 
     void deletePackageInfo(String str, String str2);
 
-    @NonNull
-    IDownloadManager download(@NonNull PackageInfo packageInfo, @Nullable DownloadOptions downloadOptions, @Nullable DownloadCallback downloadCallback);
+    IDownloadManager download(PackageInfo packageInfo, DownloadOptions downloadOptions, DownloadCallback downloadCallback);
 
-    @NonNull
-    IDownloadManager download(@NonNull List<PackageInfo> list, @Nullable DownloadOptions downloadOptions, @Nullable DownloadCallback downloadCallback);
+    IDownloadManager download(List list, DownloadOptions downloadOptions, DownloadCallback downloadCallback);
 
     void execute(RequestParams requestParams);
 
-    Map<String, PackageInfo> getPackageInfo(String str, String str2);
+    Map getPackageInfo(String str, String str2);
 
     boolean isInDegradeList(String str, String str2);
 
-    int resetUpdateVersion(String str, List<String> list);
+    int resetUpdateVersion(String str, List list);
 }

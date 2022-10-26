@@ -13,17 +13,17 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.lr4;
-import com.baidu.tieba.mr4;
-import com.baidu.tieba.np4;
-import com.baidu.tieba.nv4;
-import com.baidu.tieba.ov4;
-import com.baidu.tieba.pv4;
-import com.baidu.tieba.rv4;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.nr4;
+import com.baidu.tieba.op4;
+import com.baidu.tieba.or4;
+import com.baidu.tieba.tv4;
+import com.baidu.tieba.uv4;
+import com.baidu.tieba.vv4;
 import com.baidu.tieba.w9;
-import com.baidu.tieba.wx;
+import com.baidu.tieba.xv4;
 import com.baidu.tieba.xx;
+import com.baidu.tieba.yx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,18 +31,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes.dex */
-public class AutoBannerLayout extends RelativeLayout implements xx, wx<mr4> {
+public class AutoBannerLayout extends RelativeLayout implements yx, xx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CoverFlowView<lr4> a;
-    public List<lr4> b;
-    public np4 c;
+    public CoverFlowView a;
+    public List b;
+    public op4 c;
     public String d;
-    public pv4<lr4> e;
-    public pv4<lr4> f;
+    public vv4 e;
+    public vv4 f;
 
     /* loaded from: classes.dex */
-    public class a extends nv4 {
+    public class a extends tv4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AutoBannerLayout a;
@@ -65,35 +65,35 @@ public class AutoBannerLayout extends RelativeLayout implements xx, wx<mr4> {
             this.a = autoBannerLayout;
         }
 
-        @Override // com.baidu.tieba.nv4, com.baidu.tieba.lv4
-        public ov4 a() {
+        @Override // com.baidu.tieba.tv4, com.baidu.tieba.rv4
+        public uv4 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ov4 ov4Var = new ov4();
-                ov4Var.c(R.drawable.obfuscated_res_0x7f0810f0);
-                ov4Var.g(R.drawable.obfuscated_res_0x7f0810f1);
-                ov4Var.d(81);
-                ov4Var.e(R.dimen.M_H_X003);
-                ov4Var.h(R.dimen.M_W_X003);
-                return ov4Var;
+                uv4 uv4Var = new uv4();
+                uv4Var.c(R.drawable.obfuscated_res_0x7f081101);
+                uv4Var.g(R.drawable.obfuscated_res_0x7f081102);
+                uv4Var.d(81);
+                uv4Var.e(R.dimen.M_H_X003);
+                uv4Var.h(R.dimen.M_W_X003);
+                return uv4Var;
             }
-            return (ov4) invokeV.objValue;
+            return (uv4) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.nv4, com.baidu.tieba.lv4
-        public rv4 c() {
+        @Override // com.baidu.tieba.tv4, com.baidu.tieba.rv4
+        public xv4 c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                rv4 rv4Var = new rv4();
-                rv4Var.a(ej.f(this.a.getContext(), R.dimen.tbds209));
-                return rv4Var;
+                xv4 xv4Var = new xv4();
+                xv4Var.a(fj.f(this.a.getContext(), R.dimen.tbds209));
+                return xv4Var;
             }
-            return (rv4) invokeV.objValue;
+            return (xv4) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.nv4, com.baidu.tieba.lv4
+        @Override // com.baidu.tieba.tv4, com.baidu.tieba.rv4
         public TbImageView d(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -104,7 +104,7 @@ public class AutoBannerLayout extends RelativeLayout implements xx, wx<mr4> {
                 tbImageView.setGifIconSupport(false);
                 tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
                 tbImageView.setDrawerType(1);
-                tbImageView.setRadius(ej.f(this.a.getContext(), R.dimen.tbds31));
+                tbImageView.setRadius(fj.f(this.a.getContext(), R.dimen.tbds31));
                 return tbImageView;
             }
             return (TbImageView) invokeL.objValue;
@@ -112,7 +112,7 @@ public class AutoBannerLayout extends RelativeLayout implements xx, wx<mr4> {
     }
 
     /* loaded from: classes.dex */
-    public class b implements pv4<lr4> {
+    public class b implements vv4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AutoBannerLayout a;
@@ -135,30 +135,28 @@ public class AutoBannerLayout extends RelativeLayout implements xx, wx<mr4> {
             this.a = autoBannerLayout;
         }
 
-        @Override // com.baidu.tieba.pv4
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.vv4
+        /* renamed from: c */
+        public void a(int i, nr4 nr4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, nr4Var) == null) {
+                int count = ListUtils.getCount(this.a.b);
+                if (i >= 0 && i <= count && this.a.e != null) {
+                    this.a.e.a(i, nr4Var);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.vv4
         public void b(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
                 this.a.e(str);
                 int count = ListUtils.getCount(this.a.b);
-                if (i < 0 || i > count || this.a.e == null) {
-                    return;
+                if (i >= 0 && i <= count && this.a.e != null) {
+                    this.a.e.b(i, str);
                 }
-                this.a.e.b(i, str);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.pv4
-        /* renamed from: c */
-        public void a(int i, lr4 lr4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, lr4Var) == null) {
-                int count = ListUtils.getCount(this.a.b);
-                if (i < 0 || i > count || this.a.e == null) {
-                    return;
-                }
-                this.a.e.a(i, lr4Var);
             }
         }
     }
@@ -182,161 +180,6 @@ public class AutoBannerLayout extends RelativeLayout implements xx, wx<mr4> {
                 return;
             }
         }
-    }
-
-    public void d() {
-        CoverFlowView<lr4> coverFlowView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (coverFlowView = this.a) == null) {
-            return;
-        }
-        coverFlowView.l();
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            try {
-                if (TextUtils.isEmpty(str)) {
-                    return;
-                }
-                TbPageContext<?> tbPageContext = (TbPageContext) w9.a(getContext());
-                if (!TextUtils.isEmpty(this.d)) {
-                    str = str + "&source=" + this.d;
-                }
-                UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a = new CoverFlowView<>(getContext());
-            a aVar = new a(this);
-            this.a.setPageMargin(ej.f(getContext(), R.dimen.tbds42));
-            this.a.setIndicatorNoOffet(false);
-            this.a.setDisableParentEvent(false);
-            this.a.setCoverFlowFactory(aVar);
-            this.a.setIndicatorVisible(0);
-            this.a.setIsAutoPlayDragging(false);
-            this.a.setCallback(this.f);
-            addView(this.a);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wx
-    /* renamed from: g */
-    public void a(mr4 mr4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, mr4Var) == null) {
-            if (mr4Var != null && !ListUtils.isEmpty(mr4Var.a)) {
-                h(mr4Var.a);
-            } else {
-                setVisibility(8);
-            }
-        }
-    }
-
-    public CoverFlowView getCoverFlowView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : (CoverFlowView) invokeV.objValue;
-    }
-
-    public void h(List<lr4> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            if (list != null && !ListUtils.isEmpty(list)) {
-                setVisibility(0);
-                this.b = list;
-                this.a.setData(list);
-                return;
-            }
-            setVisibility(8);
-        }
-    }
-
-    @Override // com.baidu.tieba.xx
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        CoverFlowView<lr4> coverFlowView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048583, this, tbPageContext, i) == null) || (coverFlowView = this.a) == null) {
-            return;
-        }
-        coverFlowView.s();
-    }
-
-    @Override // android.view.View
-    public void onWindowVisibilityChanged(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            super.onWindowVisibilityChanged(i);
-            if (this.c != null) {
-                this.c.a(this, i == 0, null);
-            }
-        }
-    }
-
-    public void setBannerHeight(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048585, this, i) == null) || this.a == null) {
-            return;
-        }
-        rv4 rv4Var = new rv4();
-        rv4Var.a(i);
-        this.a.x(rv4Var);
-    }
-
-    public void setFrom(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public void setIWindowChangedListener(np4 np4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, np4Var) == null) {
-            this.c = np4Var;
-        }
-    }
-
-    public void setIndicatorVisible(int i) {
-        CoverFlowView<lr4> coverFlowView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048588, this, i) == null) || (coverFlowView = this.a) == null) {
-            return;
-        }
-        coverFlowView.setIndicatorVisible(i);
-    }
-
-    public void setMarqueenTime(long j) {
-        CoverFlowView<lr4> coverFlowView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048589, this, j) == null) || (coverFlowView = this.a) == null) {
-            return;
-        }
-        coverFlowView.setMarqueenTime(j);
-    }
-
-    public void setOnCoverViewCallback(pv4<lr4> pv4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, pv4Var) == null) {
-            this.e = pv4Var;
-        }
-    }
-
-    public void setPageMargin(int i) {
-        CoverFlowView<lr4> coverFlowView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048591, this, i) == null) || (coverFlowView = this.a) == null) {
-            return;
-        }
-        coverFlowView.setPageMargin(i);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -384,5 +227,162 @@ public class AutoBannerLayout extends RelativeLayout implements xx, wx<mr4> {
         this.d = "";
         this.f = new b(this);
         f();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.xx
+    /* renamed from: g */
+    public void a(or4 or4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, or4Var) == null) {
+            if (or4Var != null && !ListUtils.isEmpty(or4Var.a)) {
+                h(or4Var.a);
+            } else {
+                setVisibility(8);
+            }
+        }
+    }
+
+    public void h(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
+            if (list != null && !ListUtils.isEmpty(list)) {
+                setVisibility(0);
+                this.b = list;
+                this.a.setData(list);
+                return;
+            }
+            setVisibility(8);
+        }
+    }
+
+    @Override // android.view.View
+    public void onWindowVisibilityChanged(int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            super.onWindowVisibilityChanged(i);
+            if (this.c != null) {
+                if (i == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                this.c.a(this, z, null);
+            }
+        }
+    }
+
+    public void setBannerHeight(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048585, this, i) == null) && this.a != null) {
+            xv4 xv4Var = new xv4();
+            xv4Var.a(i);
+            this.a.x(xv4Var);
+        }
+    }
+
+    public void setFrom(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.d = str;
+        }
+    }
+
+    public void setIWindowChangedListener(op4 op4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, op4Var) == null) {
+            this.c = op4Var;
+        }
+    }
+
+    public void setIndicatorVisible(int i) {
+        CoverFlowView coverFlowView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048588, this, i) == null) && (coverFlowView = this.a) != null) {
+            coverFlowView.setIndicatorVisible(i);
+        }
+    }
+
+    public void setMarqueenTime(long j) {
+        CoverFlowView coverFlowView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(1048589, this, j) == null) && (coverFlowView = this.a) != null) {
+            coverFlowView.setMarqueenTime(j);
+        }
+    }
+
+    public void setOnCoverViewCallback(vv4 vv4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, vv4Var) == null) {
+            this.e = vv4Var;
+        }
+    }
+
+    public void setPageMargin(int i) {
+        CoverFlowView coverFlowView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048591, this, i) == null) && (coverFlowView = this.a) != null) {
+            coverFlowView.setPageMargin(i);
+        }
+    }
+
+    public void d() {
+        CoverFlowView coverFlowView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (coverFlowView = this.a) != null) {
+            coverFlowView.l();
+        }
+    }
+
+    public CoverFlowView getCoverFlowView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return (CoverFlowView) invokeV.objValue;
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            try {
+                if (!TextUtils.isEmpty(str)) {
+                    TbPageContext tbPageContext = (TbPageContext) w9.a(getContext());
+                    if (!TextUtils.isEmpty(this.d)) {
+                        str = str + "&source=" + this.d;
+                    }
+                    UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a = new CoverFlowView(getContext());
+            a aVar = new a(this);
+            this.a.setPageMargin(fj.f(getContext(), R.dimen.tbds42));
+            this.a.setIndicatorNoOffet(false);
+            this.a.setDisableParentEvent(false);
+            this.a.setCoverFlowFactory(aVar);
+            this.a.setIndicatorVisible(0);
+            this.a.setIsAutoPlayDragging(false);
+            this.a.setCallback(this.f);
+            addView(this.a);
+        }
+    }
+
+    @Override // com.baidu.tieba.yx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        CoverFlowView coverFlowView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(1048583, this, tbPageContext, i) == null) && (coverFlowView = this.a) != null) {
+            coverFlowView.s();
+        }
     }
 }

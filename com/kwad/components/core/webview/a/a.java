@@ -3,7 +3,6 @@ package com.kwad.components.core.webview.a;
 import android.text.TextUtils;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
-import androidx.annotation.WorkerThread;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.ksad.json.annotation.KsJson;
 import com.kwad.components.core.c.a.a;
 import com.kwad.components.core.c.a.c;
 import com.kwad.sdk.api.KsAppDownloadListener;
@@ -33,16 +31,15 @@ public final class a {
     public AdTemplate mAdTemplate;
     public com.kwad.sdk.core.webview.b mJsBridgeContext;
 
-    @KsJson
     /* renamed from: com.kwad.components.core.webview.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static final class C0582a extends com.kwad.sdk.core.response.kwai.a {
+    public final class C0578a extends com.kwad.sdk.core.response.kwai.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String packageName;
         public String url;
 
-        public C0582a() {
+        public C0578a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,9 +54,8 @@ public final class a {
         }
     }
 
-    @KsJson
     /* loaded from: classes7.dex */
-    public static final class b extends com.kwad.sdk.core.response.kwai.a {
+    public final class b extends com.kwad.sdk.core.response.kwai.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int progress;
@@ -107,19 +103,19 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, str) == null) {
             try {
-                C0582a c0582a = new C0582a();
-                c0582a.parseJson(new JSONObject(str));
-                if (k(c0582a.url, c0582a.packageName)) {
+                C0578a c0578a = new C0578a();
+                c0578a.parseJson(new JSONObject(str));
+                if (k(c0578a.url, c0578a.packageName)) {
                     return;
                 }
                 if (this.DV == null) {
-                    j(c0582a.url, c0582a.packageName);
+                    j(c0578a.url, c0578a.packageName);
                 }
                 if (this.DV.mR()) {
                     return;
                 }
                 this.DV.d(this.KW);
-                this.DV.m(new a.C0570a(this.mJsBridgeContext.Fv.getContext()).aj(true).ak(false).L(this.mAdTemplate).am(false));
+                this.DV.m(new a.C0566a(this.mJsBridgeContext.Fv.getContext()).aj(true).ak(false).L(this.mAdTemplate).am(false));
             } catch (JSONException e) {
                 com.kwad.sdk.core.e.b.printStackTrace(e);
             }
@@ -294,7 +290,6 @@ public final class a {
     }
 
     @JavascriptInterface
-    @WorkerThread
     public final void handleAdClick(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {

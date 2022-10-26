@@ -30,13 +30,19 @@ public final class VelocityTrackerCompat {
     public static float getXVelocity(VelocityTracker velocityTracker, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, velocityTracker, i)) == null) ? velocityTracker.getXVelocity(i) : invokeLI.floatValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, velocityTracker, i)) == null) {
+            return velocityTracker.getXVelocity(i);
+        }
+        return invokeLI.floatValue;
     }
 
     @Deprecated
     public static float getYVelocity(VelocityTracker velocityTracker, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, velocityTracker, i)) == null) ? velocityTracker.getYVelocity(i) : invokeLI.floatValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, velocityTracker, i)) == null) {
+            return velocityTracker.getYVelocity(i);
+        }
+        return invokeLI.floatValue;
     }
 }

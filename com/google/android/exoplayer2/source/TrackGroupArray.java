@@ -34,6 +34,18 @@ public final class TrackGroupArray {
         EMPTY = new TrackGroupArray(new TrackGroup[0]);
     }
 
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.hashCode == 0) {
+                this.hashCode = Arrays.hashCode(this.trackGroups);
+            }
+            return this.hashCode;
+        }
+        return invokeV.intValue;
+    }
+
     public TrackGroupArray(TrackGroup... trackGroupArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -64,7 +76,10 @@ public final class TrackGroupArray {
                 return false;
             }
             TrackGroupArray trackGroupArray = (TrackGroupArray) obj;
-            return this.length == trackGroupArray.length && Arrays.equals(this.trackGroups, trackGroupArray.trackGroups);
+            if (this.length == trackGroupArray.length && Arrays.equals(this.trackGroups, trackGroupArray.trackGroups)) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
@@ -72,19 +87,10 @@ public final class TrackGroupArray {
     public TrackGroup get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.trackGroups[i] : (TrackGroup) invokeI.objValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.hashCode == 0) {
-                this.hashCode = Arrays.hashCode(this.trackGroups);
-            }
-            return this.hashCode;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return this.trackGroups[i];
         }
-        return invokeV.intValue;
+        return (TrackGroup) invokeI.objValue;
     }
 
     public int indexOf(TrackGroup trackGroup) {

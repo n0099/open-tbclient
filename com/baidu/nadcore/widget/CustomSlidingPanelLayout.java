@@ -8,8 +8,8 @@ import android.view.MotionEvent;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.MotionEventCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.o61;
-import com.baidu.tieba.q61;
+import com.baidu.tieba.p61;
+import com.baidu.tieba.r61;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,11 +24,17 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
     public boolean C;
     public double D;
     public SlideInterceptor E;
-    public WeakReference<Activity> F;
-    public o61 G;
+    public WeakReference F;
+    public p61 G;
+
+    public void setNightMode(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+        }
+    }
 
     /* loaded from: classes2.dex */
-    public class a implements o61 {
+    public class a implements p61 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CustomSlidingPanelLayout a;
@@ -51,7 +57,7 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
             this.a = customSlidingPanelLayout;
         }
 
-        @Override // com.baidu.tieba.o61
+        @Override // com.baidu.tieba.p61
         public void onTranslucent(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -64,7 +70,7 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
     }
 
     /* loaded from: classes2.dex */
-    public class b implements o61 {
+    public class b implements p61 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CustomSlidingPanelLayout a;
@@ -87,7 +93,7 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
             this.a = customSlidingPanelLayout;
         }
 
-        @Override // com.baidu.tieba.o61
+        @Override // com.baidu.tieba.p61
         public void onTranslucent(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -123,26 +129,16 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
         L();
     }
 
-    public void L() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            setCanSlideRegionFactor(this.D);
-            setActivityIsTranslucent(true);
-        }
-    }
-
     @Override // com.baidu.nadcore.widget.SlidingPaneLayout
     public void m(Activity activity) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) || Build.VERSION.SDK_INT < 21 || activity == null || activity.getWindow() == null || activity.getWindow().getDecorView() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) && Build.VERSION.SDK_INT >= 21 && activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
+            this.F = new WeakReference(activity);
+            activity.getWindow().getDecorView().setBackgroundColor(0);
+            if (!this.C) {
+                q();
+            }
         }
-        this.F = new WeakReference<>(activity);
-        activity.getWindow().getDecorView().setBackgroundColor(0);
-        if (this.C) {
-            return;
-        }
-        q();
     }
 
     @Override // com.baidu.nadcore.widget.SlidingPaneLayout, android.view.ViewGroup
@@ -170,73 +166,6 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
             return super.onInterceptTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.nadcore.widget.SlidingPaneLayout
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            WeakReference<Activity> weakReference = this.F;
-            if (weakReference != null && weakReference.get() != null) {
-                q61.c(this.F.get(), new b(this));
-                return;
-            }
-            o61 o61Var = this.G;
-            if (o61Var != null) {
-                o61Var.onTranslucent(true);
-            }
-        }
-    }
-
-    @Override // com.baidu.nadcore.widget.SlidingPaneLayout
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            WeakReference<Activity> weakReference = this.F;
-            if (weakReference != null && weakReference.get() != null) {
-                q61.d(this.F.get(), new a(this));
-                return;
-            }
-            o61 o61Var = this.G;
-            if (o61Var != null) {
-                o61Var.onTranslucent(false);
-            }
-        }
-    }
-
-    public void setCanSlidable(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.B = z;
-        }
-    }
-
-    public void setNightMode(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-        }
-    }
-
-    public void setOnTransparentListener(o61 o61Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, o61Var) == null) {
-            this.G = o61Var;
-        }
-    }
-
-    public void setSlideInterceptor(SlideInterceptor slideInterceptor) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, slideInterceptor) == null) {
-            this.E = slideInterceptor;
-        }
-    }
-
-    @Override // com.baidu.nadcore.widget.SlidingPaneLayout
-    public void w(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.C = z;
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -287,5 +216,74 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
         this.C = false;
         this.D = 1.0d;
         L();
+    }
+
+    public void setCanSlidable(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.B = z;
+        }
+    }
+
+    public void setOnTransparentListener(p61 p61Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, p61Var) == null) {
+            this.G = p61Var;
+        }
+    }
+
+    public void setSlideInterceptor(SlideInterceptor slideInterceptor) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, slideInterceptor) == null) {
+            this.E = slideInterceptor;
+        }
+    }
+
+    @Override // com.baidu.nadcore.widget.SlidingPaneLayout
+    public void w(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.C = z;
+        }
+    }
+
+    public void L() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            setCanSlideRegionFactor(this.D);
+            setActivityIsTranslucent(true);
+        }
+    }
+
+    @Override // com.baidu.nadcore.widget.SlidingPaneLayout
+    public void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            WeakReference weakReference = this.F;
+            if (weakReference != null && weakReference.get() != null) {
+                r61.c((Activity) this.F.get(), new b(this));
+                return;
+            }
+            p61 p61Var = this.G;
+            if (p61Var != null) {
+                p61Var.onTranslucent(true);
+            }
+        }
+    }
+
+    @Override // com.baidu.nadcore.widget.SlidingPaneLayout
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            WeakReference weakReference = this.F;
+            if (weakReference != null && weakReference.get() != null) {
+                r61.d((Activity) this.F.get(), new a(this));
+                return;
+            }
+            p61 p61Var = this.G;
+            if (p61Var != null) {
+                p61Var.onTranslucent(false);
+            }
+        }
     }
 }

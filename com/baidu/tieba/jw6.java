@@ -1,20 +1,21 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class jw6 extends l37 {
+public class jw6 extends hb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public oh7 c;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public jw6() {
+        super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -22,40 +23,33 @@ public class jw6 extends l37 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    private void update() {
-        oh7 oh7Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && (oh7Var = this.c) != null && oh7Var.a()) {
-            List<ICardInfo> d = this.c.d();
-            ArrayList arrayList = new ArrayList();
-            this.a = arrayList;
-            arrayList.addAll(d);
-            this.c.hasMore();
-            this.c.b();
-        }
+    @Override // com.baidu.tieba.lb
+    public /* bridge */ /* synthetic */ ResponsedMessage a(ResponsedMessage responsedMessage) {
+        HttpResponsedMessage httpResponsedMessage = (HttpResponsedMessage) responsedMessage;
+        c(httpResponsedMessage);
+        return httpResponsedMessage;
     }
 
-    public final void a() {
-        List<Object> list;
+    public HttpResponsedMessage c(HttpResponsedMessage httpResponsedMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (list = this.a) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpResponsedMessage)) == null) {
+            if (httpResponsedMessage == null) {
+                return httpResponsedMessage;
+            }
+            if (httpResponsedMessage.getError() == 1990055 && !iw6.c(httpResponsedMessage.getCmd())) {
+                iw6.d();
+            }
+            return httpResponsedMessage;
         }
-        jm8.e(list, 2);
-    }
-
-    public void b(oh7 oh7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oh7Var) == null) {
-            this.c = oh7Var;
-            update();
-            a();
-        }
+        return (HttpResponsedMessage) invokeL.objValue;
     }
 }

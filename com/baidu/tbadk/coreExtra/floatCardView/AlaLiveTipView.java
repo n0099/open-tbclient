@@ -40,13 +40,13 @@ import com.baidu.tbadk.data.LiveRemindRecommendData;
 import com.baidu.tbadk.mutiprocess.live.LiveStartClickDataEvent;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bx4;
-import com.baidu.tieba.cx4;
-import com.baidu.tieba.d25;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.gh;
-import com.baidu.tieba.hv4;
-import com.baidu.tieba.na5;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.hh;
+import com.baidu.tieba.hx4;
+import com.baidu.tieba.ix4;
+import com.baidu.tieba.j25;
+import com.baidu.tieba.nv4;
+import com.baidu.tieba.ra5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,7 +57,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CustomMessageListener A;
-    public TbPageContext<?> a;
+    public TbPageContext a;
     public Context b;
     public TbAlphaVideo c;
     public FrameLayout d;
@@ -273,10 +273,10 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921728 && !customResponsedMessage.hasError() && customResponsedMessage.getError() == 0) {
-                this.a.setData(bx4.a().b, bx4.a().c(this.a.m), false);
+                this.a.setData(hx4.a().b, hx4.a().c(this.a.m), false);
             }
         }
     }
@@ -310,10 +310,10 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921733 && this.a.m == 2) {
-                this.a.setData(bx4.a().b, bx4.a().c(this.a.m), false);
+                this.a.setData(hx4.a().b, hx4.a().c(this.a.m), false);
             }
         }
     }
@@ -347,7 +347,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304) {
                 this.a.D(TbadkCoreApplication.getInst().getSkinType());
@@ -382,9 +382,10 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.r = true;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
             }
+            this.a.r = true;
         }
     }
 
@@ -448,9 +449,10 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.a.t();
+            if (interceptable != null && interceptable.invokeL(1048576, this, animator) != null) {
+                return;
             }
+            this.a.t();
         }
     }
 
@@ -481,9 +483,10 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, animator) == null) && this.a.q == 2) {
-                this.a.q();
+            if ((interceptable != null && interceptable.invokeL(1048576, this, animator) != null) || this.a.q != 2) {
+                return;
             }
+            this.a.q();
         }
     }
 
@@ -598,6 +601,151 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         u(context);
     }
 
+    public final void O(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            if (z) {
+                if (this.s) {
+                    E(true);
+                    r(this.i, this.d);
+                    this.s = false;
+                }
+                if (!this.e.isAnimating()) {
+                    this.e.cancelAnimation();
+                    this.e.setSpeed(0.7f);
+                    this.e.setRepeatMode(1);
+                    this.e.setRepeatCount(-1);
+                    this.e.post(new i(this));
+                }
+                if (this.f.getVisibility() == 0) {
+                    ix4.b().f(LiveRemindConfig.Scene.LIVE_BUBBLE);
+                    M();
+                    return;
+                }
+                return;
+            }
+            E(false);
+            if (this.e.isAnimating()) {
+                this.e.cancelAnimation();
+            }
+            this.g.clearAnimation();
+            if (!this.s) {
+                r(this.d, this.i);
+                this.s = true;
+            }
+        }
+    }
+
+    public final void l(StatisticItem statisticItem) {
+        LiveRemindRecommendData liveRemindRecommendData;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048592, this, statisticItem) == null) && (liveRemindRecommendData = this.l) != null && liveRemindRecommendData.getYyExtData() != null) {
+            YyExtData yyExtData = this.l.getYyExtData();
+            statisticItem.param("liveid", this.l.getRoomId().longValue());
+            statisticItem.param("hdid", TbadkCoreApplication.getInst().getHdid());
+            statisticItem.param(TiebaStatic.YYParams.YYSID, yyExtData.mSid);
+            statisticItem.param(TiebaStatic.YYParams.YYSSID, yyExtData.mSsid);
+            statisticItem.param(TiebaStatic.YYParams.YYUID, yyExtData.mYyUid);
+            statisticItem.param("template_id", yyExtData.mTemplateId);
+            statisticItem.param(TiebaStatic.YYParams.YYLIVEID, 1);
+            statisticItem.param(TiebaStatic.Params.VID, this.l.getFeedId());
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public AlaLiveTipView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.o = true;
+        this.p = 0L;
+        this.r = false;
+        this.s = true;
+        this.t = null;
+        this.u = "";
+        this.v = "";
+        this.w = "";
+        this.x = false;
+        this.y = new e(this, 2921728);
+        this.z = new f(this, 2921733);
+        this.A = new g(this, 2001304);
+        u(context);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public AlaLiveTipView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.o = true;
+        this.p = 0L;
+        this.r = false;
+        this.s = true;
+        this.t = null;
+        this.u = "";
+        this.v = "";
+        this.w = "";
+        this.x = false;
+        this.y = new e(this, 2921728);
+        this.z = new f(this, 2921733);
+        this.A = new g(this, 2001304);
+        u(context);
+    }
+
+    public void setData(LiveRemindNormalConfigData liveRemindNormalConfigData, LiveRemindRecommendData liveRemindRecommendData, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048603, this, liveRemindNormalConfigData, liveRemindRecommendData, z) == null) {
+            this.k = liveRemindNormalConfigData;
+            this.l = liveRemindRecommendData;
+            this.x = z;
+            if (liveRemindNormalConfigData == null) {
+                G(true);
+            } else if (liveRemindRecommendData != null && !x(liveRemindRecommendData)) {
+                this.q = this.l.getDisappearType();
+                this.p = this.l.getDisappearSecond() * 1000;
+                this.h.setText(this.l.getDesc());
+                C(false);
+                if (ix4.b().j(LiveRemindConfig.Scene.LIVE_BUBBLE)) {
+                    O(true);
+                    H();
+                } else if (this.x) {
+                    K();
+                }
+                s();
+            } else {
+                G(false);
+            }
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void setBubbleClickable(boolean z) {
         ViewGroup viewGroup;
@@ -607,12 +755,117 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         }
     }
 
+    public final void C(boolean z) {
+        LiveRemindRecommendData liveRemindRecommendData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            F();
+            if (!z && (liveRemindRecommendData = this.l) != null) {
+                this.f.L(liveRemindRecommendData.getLiveIconSrc(), 10, false);
+            }
+        }
+    }
+
+    public final void G(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            C(z);
+            O(false);
+            if (this.x) {
+                K();
+            }
+        }
+    }
+
+    public void P(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
+            if (!v() && !z()) {
+                if (y()) {
+                    if (i2 == 0) {
+                        m(true);
+                        return;
+                    } else {
+                        m(false);
+                        return;
+                    }
+                }
+                return;
+            }
+            m(false);
+        }
+    }
+
+    public void m(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+            if (z) {
+                this.c.setAssetsAndPlay("home_live_entrance.mp4");
+            } else {
+                this.c.setAssetsAndPlay("home_live_entrance_lh.mp4");
+            }
+        }
+    }
+
+    public void setHasBubble(boolean z) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
+            this.o = z;
+            ViewGroup viewGroup = this.g;
+            if (z) {
+                i2 = 0;
+            } else {
+                i2 = 8;
+            }
+            viewGroup.setVisibility(i2);
+        }
+    }
+
+    public void setNormalBottomMarginParams(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
+            ViewGroup.LayoutParams layoutParams = this.c.getLayoutParams();
+            if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
+                marginLayoutParams.bottomMargin = i2;
+                this.c.setLayoutParams(marginLayoutParams);
+            }
+        }
+    }
+
+    public void setShowFrom(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
+            this.n = i2;
+        }
+    }
+
+    public void setViewLocate(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048608, this, i2) == null) {
+            this.m = i2;
+        }
+    }
+
+    public final boolean x(LiveRemindRecommendData liveRemindRecommendData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, liveRemindRecommendData)) == null) {
+            if (liveRemindRecommendData != null && !StringUtils.isNull(liveRemindRecommendData.getLiveIconSrc()) && !StringUtils.isNull(liveRemindRecommendData.getDesc())) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
     public void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LiveRemindNormalConfigData liveRemindNormalConfigData = this.k;
             if (liveRemindNormalConfigData != null && !StringUtils.isNull(liveRemindNormalConfigData.getNormalIconScheme())) {
-                p(d25.a(this.k.getNormalIconScheme(), this.m));
+                p(j25.a(this.k.getNormalIconScheme(), this.m));
             } else {
                 p("");
             }
@@ -627,7 +880,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
                 A();
                 return;
             }
-            String b2 = d25.b(liveRemindRecommendData);
+            String b2 = j25.b(liveRemindRecommendData);
             if (StringUtils.isNull(b2)) {
                 p("");
             } else {
@@ -636,16 +889,98 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         }
     }
 
-    public final void C(boolean z) {
-        LiveRemindRecommendData liveRemindRecommendData;
+    public final void F() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            F();
-            if (z || (liveRemindRecommendData = this.l) == null) {
-                return;
-            }
-            this.f.K(liveRemindRecommendData.getLiveIconSrc(), 10, false);
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            P(TbadkCoreApplication.getInst().getSkinType());
         }
+    }
+
+    public void N() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.g.setVisibility(8);
+            this.g.clearAnimation();
+            removeCallbacks(this.t);
+        }
+    }
+
+    public void getPageContext() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            Context context = this.b;
+            if (context instanceof BaseActivity) {
+                this.a = ((BaseActivity) context).getPageContext();
+            } else if (context instanceof BaseFragmentActivity) {
+                this.a = ((BaseFragmentActivity) context).getPageContext();
+            }
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            super.onAttachedToWindow();
+            setData(hx4.a().b, hx4.a().c(this.m), true);
+        }
+    }
+
+    public final void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+            ViewGroup viewGroup = this.g;
+            n(viewGroup, viewGroup.getWidth(), fj.f(this.b, R.dimen.tbds74), new l(this), 500L, this.p);
+        }
+    }
+
+    public final boolean v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+            if (this.m == 2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
+            ViewGroup viewGroup = this.g;
+            if (viewGroup != null && viewGroup.isClickable()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+            if (this.m == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+            if (this.m == 3) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public void D(int i2) {
@@ -653,8 +988,8 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             P(i2);
             this.f.setSkinType(i2);
-            SkinManager.setBackgroundShapeDrawable(this.g, ej.f(this.b, R.dimen.tbds74), R.color.CAM_X0310, R.color.CAM_X0310);
-            hv4 d2 = hv4.d(this.h);
+            SkinManager.setBackgroundShapeDrawable(this.g, fj.f(this.b, R.dimen.tbds74), R.color.CAM_X0310, R.color.CAM_X0310);
+            nv4 d2 = nv4.d(this.h);
             d2.A(R.string.F_X01);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0101);
@@ -675,21 +1010,22 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         }
     }
 
-    public final void F() {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            P(TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
-    public final void G(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            C(z);
-            O(false);
-            if (this.x) {
-                K();
+        if (interceptable == null || interceptable.invokeL(1048597, this, view2) == null) {
+            j25.e();
+            if (view2.getId() != R.id.obfuscated_res_0x7f0901c6 && view2.getId() != R.id.obfuscated_res_0x7f090201) {
+                A();
+                I();
+                return;
             }
+            if (this.q == 1) {
+                q();
+            }
+            B();
+            O(false);
+            L();
         }
     }
 
@@ -699,7 +1035,42 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
             if (this.o) {
                 this.g.setVisibility(0);
             }
-            n(this.g, ej.f(this.b, R.dimen.tbds74), ej.f(this.b, R.dimen.tbds74), new j(this), 100L, 0L);
+            n(this.g, fj.f(this.b, R.dimen.tbds74), fj.f(this.b, R.dimen.tbds74), new j(this), 100L, 0L);
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+            super.onDetachedFromWindow();
+            this.s = true;
+            N();
+            MessageManager.getInstance().unRegisterListener(this.y);
+            MessageManager.getInstance().unRegisterListener(this.z);
+            MessageManager.getInstance().unRegisterListener(this.A);
+        }
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
+            if (this.q == 2 && this.p >= 0) {
+                this.t = new h(this);
+                hh.a().postDelayed(this.t, this.p);
+                return;
+            }
+            this.r = false;
+            removeCallbacks(this.t);
+        }
+    }
+
+    public final void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
+            this.g.getLayoutParams().width = -2;
+            this.g.measure(0, 0);
+            o(this.g, fj.f(this.b, R.dimen.tbds74), this.g.getMeasuredWidth(), new k(this), 500L, 1500L);
         }
     }
 
@@ -843,110 +1214,6 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         }
     }
 
-    public void N() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.g.setVisibility(8);
-            this.g.clearAnimation();
-            removeCallbacks(this.t);
-        }
-    }
-
-    public final void O(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            if (z) {
-                if (this.s) {
-                    E(true);
-                    r(this.i, this.d);
-                    this.s = false;
-                }
-                if (!this.e.isAnimating()) {
-                    this.e.cancelAnimation();
-                    this.e.setSpeed(0.7f);
-                    this.e.setRepeatMode(1);
-                    this.e.setRepeatCount(-1);
-                    this.e.post(new i(this));
-                }
-                if (this.f.getVisibility() == 0) {
-                    cx4.b().f(LiveRemindConfig.Scene.LIVE_BUBBLE);
-                    M();
-                    return;
-                }
-                return;
-            }
-            E(false);
-            if (this.e.isAnimating()) {
-                this.e.cancelAnimation();
-            }
-            this.g.clearAnimation();
-            if (this.s) {
-                return;
-            }
-            r(this.d, this.i);
-            this.s = true;
-        }
-    }
-
-    public void P(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            if (!v() && !z()) {
-                if (y()) {
-                    if (i2 == 0) {
-                        m(true);
-                        return;
-                    } else {
-                        m(false);
-                        return;
-                    }
-                }
-                return;
-            }
-            m(false);
-        }
-    }
-
-    public void getPageContext() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            Context context = this.b;
-            if (context instanceof BaseActivity) {
-                this.a = ((BaseActivity) context).getPageContext();
-            } else if (context instanceof BaseFragmentActivity) {
-                this.a = ((BaseFragmentActivity) context).getPageContext();
-            }
-        }
-    }
-
-    public final void l(StatisticItem statisticItem) {
-        LiveRemindRecommendData liveRemindRecommendData;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, statisticItem) == null) || (liveRemindRecommendData = this.l) == null || liveRemindRecommendData.getYyExtData() == null) {
-            return;
-        }
-        YyExtData yyExtData = this.l.getYyExtData();
-        statisticItem.param("liveid", this.l.getRoomId().longValue());
-        statisticItem.param("hdid", TbadkCoreApplication.getInst().getHdid());
-        statisticItem.param(TiebaStatic.YYParams.YYSID, yyExtData.mSid);
-        statisticItem.param(TiebaStatic.YYParams.YYSSID, yyExtData.mSsid);
-        statisticItem.param(TiebaStatic.YYParams.YYUID, yyExtData.mYyUid);
-        statisticItem.param("template_id", yyExtData.mTemplateId);
-        statisticItem.param(TiebaStatic.YYParams.YYLIVEID, 1);
-        statisticItem.param(TiebaStatic.Params.VID, this.l.getFeedId());
-    }
-
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            if (z) {
-                this.c.setAssetsAndPlay("home_live_entrance.mp4");
-            } else {
-                this.c.setAssetsAndPlay("home_live_entrance_lh.mp4");
-            }
-        }
-    }
-
     public final void n(View view2, int i2, int i3, AnimatorListenerAdapter animatorListenerAdapter, long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{view2, Integer.valueOf(i2), Integer.valueOf(i3), animatorListenerAdapter, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
@@ -987,47 +1254,6 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         }
     }
 
-    @Override // android.view.ViewGroup, android.view.View
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            super.onAttachedToWindow();
-            setData(bx4.a().b, bx4.a().c(this.m), true);
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, view2) == null) {
-            d25.e();
-            if (view2.getId() != R.id.obfuscated_res_0x7f0901c6 && view2.getId() != R.id.obfuscated_res_0x7f090201) {
-                A();
-                I();
-                return;
-            }
-            if (this.q == 1) {
-                q();
-            }
-            B();
-            O(false);
-            L();
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            super.onDetachedFromWindow();
-            this.s = true;
-            N();
-            MessageManager.getInstance().unRegisterListener(this.y);
-            MessageManager.getInstance().unRegisterListener(this.z);
-            MessageManager.getInstance().unRegisterListener(this.A);
-        }
-    }
-
     public final void p(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
@@ -1042,15 +1268,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
             }
             LiveStartClickDataEvent liveStartClickDataEvent = new LiveStartClickDataEvent();
             liveStartClickDataEvent.viewTag = str;
-            na5.i(liveStartClickDataEvent);
-        }
-    }
-
-    public final void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            ViewGroup viewGroup = this.g;
-            n(viewGroup, viewGroup.getWidth(), ej.f(this.b, R.dimen.tbds74), new l(this), 500L, this.p);
+            ra5.i(liveStartClickDataEvent);
         }
     }
 
@@ -1064,45 +1282,6 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         }
     }
 
-    public void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            if (this.q == 2 && this.p >= 0) {
-                this.t = new h(this);
-                gh.a().postDelayed(this.t, this.p);
-                return;
-            }
-            this.r = false;
-            removeCallbacks(this.t);
-        }
-    }
-
-    public void setData(LiveRemindNormalConfigData liveRemindNormalConfigData, LiveRemindRecommendData liveRemindRecommendData, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048603, this, liveRemindNormalConfigData, liveRemindRecommendData, z) == null) {
-            this.k = liveRemindNormalConfigData;
-            this.l = liveRemindRecommendData;
-            this.x = z;
-            if (liveRemindNormalConfigData == null) {
-                G(true);
-            } else if (liveRemindRecommendData != null && !x(liveRemindRecommendData)) {
-                this.q = this.l.getDisappearType();
-                this.p = this.l.getDisappearSecond() * 1000;
-                this.h.setText(this.l.getDesc());
-                C(false);
-                if (cx4.b().j(LiveRemindConfig.Scene.LIVE_BUBBLE)) {
-                    O(true);
-                    H();
-                } else if (this.x) {
-                    K();
-                }
-                s();
-            } else {
-                G(false);
-            }
-        }
-    }
-
     public void setForumInfo(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048604, this, str, str2, str3) == null) {
@@ -1112,57 +1291,14 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         }
     }
 
-    public void setHasBubble(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
-            this.o = z;
-            this.g.setVisibility(z ? 0 : 8);
-        }
-    }
-
-    public void setNormalBottomMarginParams(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
-            ViewGroup.LayoutParams layoutParams = this.c.getLayoutParams();
-            if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                marginLayoutParams.bottomMargin = i2;
-                this.c.setLayoutParams(marginLayoutParams);
-            }
-        }
-    }
-
-    public void setShowFrom(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
-            this.n = i2;
-        }
-    }
-
-    public void setViewLocate(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048608, this, i2) == null) {
-            this.m = i2;
-        }
-    }
-
-    public final void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
-            this.g.getLayoutParams().width = -2;
-            this.g.measure(0, 0);
-            o(this.g, ej.f(this.b, R.dimen.tbds74), this.g.getMeasuredWidth(), new k(this), 500L, 1500L);
-        }
-    }
-
     public final void u(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048610, this, context) == null) {
             setOrientation(1);
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00ff, (ViewGroup) this, true);
             this.b = context;
-            this.i = findViewById(R.id.obfuscated_res_0x7f0916f1);
-            this.c = (TbAlphaVideo) findViewById(R.id.obfuscated_res_0x7f0916f2);
+            this.i = findViewById(R.id.obfuscated_res_0x7f0916e3);
+            this.c = (TbAlphaVideo) findViewById(R.id.obfuscated_res_0x7f0916e4);
             this.d = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09027c);
             this.g = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0901c6);
             this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0901c5);
@@ -1175,7 +1311,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
             headImageView.setIsRound(true);
             this.f.setDefaultResource(17170445);
             this.f.setPlaceHolder(1);
-            this.f.setRadius(ej.f(this.b, R.dimen.tbds37));
+            this.f.setRadius(fj.f(this.b, R.dimen.tbds37));
             this.f.setDrawBorder(true);
             this.f.setBorderWidth(R.dimen.L_X02);
             this.f.setBorderColor(SkinManager.getColor(R.color.CAM_X0622));
@@ -1189,107 +1325,5 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
             MessageManager.getInstance().registerListener(this.z);
             MessageManager.getInstance().registerListener(this.A);
         }
-    }
-
-    public final boolean v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.m == 2 : invokeV.booleanValue;
-    }
-
-    public final boolean w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
-            ViewGroup viewGroup = this.g;
-            return viewGroup != null && viewGroup.isClickable();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean x(LiveRemindRecommendData liveRemindRecommendData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, liveRemindRecommendData)) == null) ? liveRemindRecommendData == null || StringUtils.isNull(liveRemindRecommendData.getLiveIconSrc()) || StringUtils.isNull(liveRemindRecommendData.getDesc()) : invokeL.booleanValue;
-    }
-
-    public final boolean y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.m == 1 : invokeV.booleanValue;
-    }
-
-    public final boolean z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.m == 3 : invokeV.booleanValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlaLiveTipView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.o = true;
-        this.p = 0L;
-        this.r = false;
-        this.s = true;
-        this.t = null;
-        this.u = "";
-        this.v = "";
-        this.w = "";
-        this.x = false;
-        this.y = new e(this, 2921728);
-        this.z = new f(this, 2921733);
-        this.A = new g(this, 2001304);
-        u(context);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlaLiveTipView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.o = true;
-        this.p = 0L;
-        this.r = false;
-        this.s = true;
-        this.t = null;
-        this.u = "";
-        this.v = "";
-        this.w = "";
-        this.x = false;
-        this.y = new e(this, 2921728);
-        this.z = new f(this, 2921733);
-        this.A = new g(this, 2001304);
-        u(context);
     }
 }

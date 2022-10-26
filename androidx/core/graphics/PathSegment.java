@@ -1,7 +1,6 @@
 package androidx.core.graphics;
 
 import android.graphics.PointF;
-import androidx.annotation.NonNull;
 import androidx.core.util.Preconditions;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +17,7 @@ public final class PathSegment {
     public final PointF mStart;
     public final float mStartFraction;
 
-    public PathSegment(@NonNull PointF pointF, float f, @NonNull PointF pointF2, float f2) {
+    public PathSegment(PointF pointF, float f, PointF pointF2, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,50 +45,73 @@ public final class PathSegment {
             if (this == obj) {
                 return true;
             }
-            if (obj instanceof PathSegment) {
-                PathSegment pathSegment = (PathSegment) obj;
-                return Float.compare(this.mStartFraction, pathSegment.mStartFraction) == 0 && Float.compare(this.mEndFraction, pathSegment.mEndFraction) == 0 && this.mStart.equals(pathSegment.mStart) && this.mEnd.equals(pathSegment.mEnd);
+            if (!(obj instanceof PathSegment)) {
+                return false;
+            }
+            PathSegment pathSegment = (PathSegment) obj;
+            if (Float.compare(this.mStartFraction, pathSegment.mStartFraction) == 0 && Float.compare(this.mEndFraction, pathSegment.mEndFraction) == 0 && this.mStart.equals(pathSegment.mStart) && this.mEnd.equals(pathSegment.mEnd)) {
+                return true;
             }
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    @NonNull
     public PointF getEnd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mEnd : (PointF) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mEnd;
+        }
+        return (PointF) invokeV.objValue;
     }
 
     public float getEndFraction() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mEndFraction : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mEndFraction;
+        }
+        return invokeV.floatValue;
     }
 
-    @NonNull
     public PointF getStart() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mStart : (PointF) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mStart;
+        }
+        return (PointF) invokeV.objValue;
     }
 
     public float getStartFraction() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mStartFraction : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mStartFraction;
+        }
+        return invokeV.floatValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             int hashCode = this.mStart.hashCode() * 31;
             float f = this.mStartFraction;
-            int floatToIntBits = (((hashCode + (f != 0.0f ? Float.floatToIntBits(f) : 0)) * 31) + this.mEnd.hashCode()) * 31;
+            int i2 = 0;
+            if (f != 0.0f) {
+                i = Float.floatToIntBits(f);
+            } else {
+                i = 0;
+            }
+            int hashCode2 = (((hashCode + i) * 31) + this.mEnd.hashCode()) * 31;
             float f2 = this.mEndFraction;
-            return floatToIntBits + (f2 != 0.0f ? Float.floatToIntBits(f2) : 0);
+            if (f2 != 0.0f) {
+                i2 = Float.floatToIntBits(f2);
+            }
+            return hashCode2 + i2;
         }
         return invokeV.intValue;
     }

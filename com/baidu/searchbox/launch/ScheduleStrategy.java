@@ -40,7 +40,7 @@ public class ScheduleStrategy {
     public static final String LOW_DEVICE_STICKINESS_KEY = "low_device_stickiness";
     public static final String MID_DEVICE_STICKINESS_KEY = "mid_device_stickiness";
     public static final String TAG = "ScheduleStrategy";
-    public static Map<String, Double> businessPrivateThresholds;
+    public static Map businessPrivateThresholds;
     public static double commonStickinessThreshold;
     public static double deviceScore;
     public static double dynamicScore;
@@ -58,7 +58,7 @@ public class ScheduleStrategy {
 
     /* renamed from: com.baidu.searchbox.launch.ScheduleStrategy$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$launch$ScheduleStrategy$DeviceType;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -95,7 +95,7 @@ public class ScheduleStrategy {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class DeviceType {
+    public final class DeviceType {
         public static final /* synthetic */ DeviceType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final DeviceType HIGH;
@@ -145,13 +145,19 @@ public class ScheduleStrategy {
         public static DeviceType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (DeviceType) Enum.valueOf(DeviceType.class, str) : (DeviceType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (DeviceType) Enum.valueOf(DeviceType.class, str);
+            }
+            return (DeviceType) invokeL.objValue;
         }
 
         public static DeviceType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (DeviceType[]) $VALUES.clone() : (DeviceType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (DeviceType[]) $VALUES.clone();
+            }
+            return (DeviceType[]) invokeV.objValue;
         }
     }
 
@@ -184,91 +190,6 @@ public class ScheduleStrategy {
         lowDeviceStickinessThreshold = 0.1d;
     }
 
-    public ScheduleStrategy() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        sContext = AppRuntime.getAppContext();
-    }
-
-    public static double getDeviceScore() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            double d = deviceScore;
-            if (d >= 0.0d) {
-                return d;
-            }
-            IDeviceScore iDeviceScore = (IDeviceScore) ServiceManager.getService(IDeviceScore.SERVICE_REFERENCE);
-            if (iDeviceScore != null) {
-                deviceScore = iDeviceScore.getFinalScore(BdBaseApplication.getInst());
-            }
-            return deviceScore;
-        }
-        return invokeV.doubleValue;
-    }
-
-    public static double getDynamicScore() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            double d = dynamicScore;
-            return d >= 0.0d ? d : -1.0f;
-        }
-        return invokeV.doubleValue;
-    }
-
-    public static double getStaticScore() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            double d = staticScore;
-            if (d >= 0.0d) {
-                return d;
-            }
-            return -1.0d;
-        }
-        return invokeV.doubleValue;
-    }
-
-    public static double getStickinessThreshold(String str) {
-        InterceptResult invokeL;
-        Double d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (!isLoadPrivateStickiness) {
-                loadPrivateStickiness();
-                if (DEBUG) {
-                    Log.d(TAG, "loadPrivateStickiness finished");
-                }
-                isLoadPrivateStickiness = true;
-            }
-            if (businessPrivateThresholds.containsKey(str) && (d = businessPrivateThresholds.get(str)) != null && d.doubleValue() >= 0.0d) {
-                if (DEBUG) {
-                    Log.d(TAG, "stickiness(private) threshold for " + str + " is " + d);
-                }
-                return d.doubleValue();
-            } else if (commonStickinessThreshold >= 0.0d) {
-                if (DEBUG) {
-                    Log.d(TAG, "stickiness(common) threshold for " + str + " is " + commonStickinessThreshold);
-                }
-                return commonStickinessThreshold;
-            } else {
-                return 0.05d;
-            }
-        }
-        return invokeL.doubleValue;
-    }
-
     public static void loadPrivateStickiness() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
@@ -296,6 +217,94 @@ public class ScheduleStrategy {
         }
     }
 
+    public ScheduleStrategy() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        sContext = AppRuntime.getAppContext();
+    }
+
+    public static double getDynamicScore() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            double d = dynamicScore;
+            if (d >= 0.0d) {
+                return d;
+            }
+            return -1.0f;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public static double getStaticScore() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            double d = staticScore;
+            if (d >= 0.0d) {
+                return d;
+            }
+            return -1.0d;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public static double getDeviceScore() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            double d = deviceScore;
+            if (d >= 0.0d) {
+                return d;
+            }
+            IDeviceScore iDeviceScore = (IDeviceScore) ServiceManager.getService(IDeviceScore.SERVICE_REFERENCE);
+            if (iDeviceScore != null) {
+                deviceScore = iDeviceScore.getFinalScore(BdBaseApplication.getInst());
+            }
+            return deviceScore;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public static double getStickinessThreshold(String str) {
+        InterceptResult invokeL;
+        Double d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (!isLoadPrivateStickiness) {
+                loadPrivateStickiness();
+                if (DEBUG) {
+                    Log.d(TAG, "loadPrivateStickiness finished");
+                }
+                isLoadPrivateStickiness = true;
+            }
+            if (businessPrivateThresholds.containsKey(str) && (d = (Double) businessPrivateThresholds.get(str)) != null && d.doubleValue() >= 0.0d) {
+                if (DEBUG) {
+                    Log.d(TAG, "stickiness(private) threshold for " + str + " is " + d);
+                }
+                return d.doubleValue();
+            } else if (commonStickinessThreshold >= 0.0d) {
+                if (DEBUG) {
+                    Log.d(TAG, "stickiness(common) threshold for " + str + " is " + commonStickinessThreshold);
+                }
+                return commonStickinessThreshold;
+            } else {
+                return 0.05d;
+            }
+        }
+        return invokeL.doubleValue;
+    }
+
     public static void loadPrivateStickinessImpl(DeviceType deviceType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, deviceType) == null) {
@@ -309,12 +318,14 @@ public class ScheduleStrategy {
                         if (!TextUtils.isEmpty(optString)) {
                             JSONObject jSONObject2 = new JSONObject(optString);
                             int i = AnonymousClass1.$SwitchMap$com$baidu$searchbox$launch$ScheduleStrategy$DeviceType[deviceType.ordinal()];
-                            if (i == 1) {
-                                businessPrivateThresholds.put(next, Double.valueOf(jSONObject2.optDouble(HIGH_DEVICE_STICKINESS_KEY, -1.0d)));
-                            } else if (i != 2) {
-                                businessPrivateThresholds.put(next, Double.valueOf(jSONObject2.optDouble(LOW_DEVICE_STICKINESS_KEY, -1.0d)));
+                            if (i != 1) {
+                                if (i != 2) {
+                                    businessPrivateThresholds.put(next, Double.valueOf(jSONObject2.optDouble(LOW_DEVICE_STICKINESS_KEY, -1.0d)));
+                                } else {
+                                    businessPrivateThresholds.put(next, Double.valueOf(jSONObject2.optDouble(MID_DEVICE_STICKINESS_KEY, -1.0d)));
+                                }
                             } else {
-                                businessPrivateThresholds.put(next, Double.valueOf(jSONObject2.optDouble(MID_DEVICE_STICKINESS_KEY, -1.0d)));
+                                businessPrivateThresholds.put(next, Double.valueOf(jSONObject2.optDouble(HIGH_DEVICE_STICKINESS_KEY, -1.0d)));
                             }
                         }
                         if (DEBUG) {

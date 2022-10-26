@@ -1,7 +1,5 @@
 package androidx.webkit;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.RestrictTo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,6 +23,11 @@ public final class ProxyConfig {
     public transient /* synthetic */ FieldHolder $fh;
     public List<String> mBypassRules;
     public List<ProxyRule> mProxyRules;
+
+    @Retention(RetentionPolicy.SOURCE)
+    /* loaded from: classes.dex */
+    public @interface ProxyScheme {
+    }
 
     /* loaded from: classes.dex */
     public static final class Builder {
@@ -50,93 +53,61 @@ public final class ProxyConfig {
             this.mBypassRules = new ArrayList();
         }
 
-        @NonNull
         private List<String> bypassRules() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.mBypassRules : (List) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+                return this.mBypassRules;
+            }
+            return (List) invokeV.objValue;
         }
 
-        @NonNull
         private List<ProxyRule> proxyRules() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? this.mProxyRules : (List) invokeV.objValue;
-        }
-
-        @NonNull
-        public Builder addBypassRule(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                this.mBypassRules.add(str);
-                return this;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+                return this.mProxyRules;
             }
-            return (Builder) invokeL.objValue;
+            return (List) invokeV.objValue;
         }
 
-        @NonNull
-        public Builder addDirect(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.mProxyRules.add(new ProxyRule(str, ProxyConfig.DIRECT));
-                return this;
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        @NonNull
-        public Builder addProxyRule(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.mProxyRules.add(new ProxyRule(str));
-                return this;
-            }
-            return (Builder) invokeL.objValue;
-        }
-
-        @NonNull
-        public ProxyConfig build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new ProxyConfig(proxyRules(), bypassRules()) : (ProxyConfig) invokeV.objValue;
-        }
-
-        @NonNull
-        public Builder bypassSimpleHostnames() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? addBypassRule(ProxyConfig.BYPASS_RULE_SIMPLE_NAMES) : (Builder) invokeV.objValue;
-        }
-
-        @NonNull
-        public Builder removeImplicitRules() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? addBypassRule(ProxyConfig.BYPASS_RULE_REMOVE_IMPLICIT) : (Builder) invokeV.objValue;
-        }
-
-        @NonNull
         public Builder addDirect() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? addDirect("*") : (Builder) invokeV.objValue;
-        }
-
-        @NonNull
-        public Builder addProxyRule(@NonNull String str, @NonNull String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-                this.mProxyRules.add(new ProxyRule(str2, str));
-                return this;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return addDirect("*");
             }
-            return (Builder) invokeLL.objValue;
+            return (Builder) invokeV.objValue;
         }
 
-        public Builder(@NonNull ProxyConfig proxyConfig) {
+        public ProxyConfig build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return new ProxyConfig(proxyRules(), bypassRules());
+            }
+            return (ProxyConfig) invokeV.objValue;
+        }
+
+        public Builder bypassSimpleHostnames() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return addBypassRule(ProxyConfig.BYPASS_RULE_SIMPLE_NAMES);
+            }
+            return (Builder) invokeV.objValue;
+        }
+
+        public Builder removeImplicitRules() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return addBypassRule(ProxyConfig.BYPASS_RULE_REMOVE_IMPLICIT);
+            }
+            return (Builder) invokeV.objValue;
+        }
+
+        public Builder(ProxyConfig proxyConfig) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -154,15 +125,114 @@ public final class ProxyConfig {
             this.mProxyRules = proxyConfig.getProxyRules();
             this.mBypassRules = proxyConfig.getBypassRules();
         }
+
+        public Builder addBypassRule(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                this.mBypassRules.add(str);
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder addDirect(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                this.mProxyRules.add(new ProxyRule(str, ProxyConfig.DIRECT));
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder addProxyRule(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+                this.mProxyRules.add(new ProxyRule(str));
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder addProxyRule(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+                this.mProxyRules.add(new ProxyRule(str2, str));
+                return this;
+            }
+            return (Builder) invokeLL.objValue;
+        }
     }
 
-    @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
-    public @interface ProxyScheme {
+    public static final class ProxyRule {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String mSchemeFilter;
+        public String mUrl;
+
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+        public ProxyRule(String str) {
+            this("*", str);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    this((String) objArr2[0], (String) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        public ProxyRule(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.mSchemeFilter = str;
+            this.mUrl = str2;
+        }
+
+        public String getSchemeFilter() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.mSchemeFilter;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public String getUrl() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.mUrl;
+            }
+            return (String) invokeV.objValue;
+        }
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public ProxyConfig(List<ProxyRule> list, List<String> list2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -182,81 +252,21 @@ public final class ProxyConfig {
         this.mBypassRules = list2;
     }
 
-    @NonNull
     public List<String> getBypassRules() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Collections.unmodifiableList(this.mBypassRules) : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return Collections.unmodifiableList(this.mBypassRules);
+        }
+        return (List) invokeV.objValue;
     }
 
-    @NonNull
     public List<ProxyRule> getProxyRules() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Collections.unmodifiableList(this.mProxyRules) : (List) invokeV.objValue;
-    }
-
-    /* loaded from: classes.dex */
-    public static final class ProxyRule {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String mSchemeFilter;
-        public String mUrl;
-
-        @RestrictTo({RestrictTo.Scope.LIBRARY})
-        public ProxyRule(@NonNull String str, @NonNull String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.mSchemeFilter = str;
-            this.mUrl = str2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return Collections.unmodifiableList(this.mProxyRules);
         }
-
-        @NonNull
-        public String getSchemeFilter() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mSchemeFilter : (String) invokeV.objValue;
-        }
-
-        @NonNull
-        public String getUrl() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mUrl : (String) invokeV.objValue;
-        }
-
-        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        @RestrictTo({RestrictTo.Scope.LIBRARY})
-        public ProxyRule(@NonNull String str) {
-            this("*", str);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    this((String) objArr2[0], (String) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
+        return (List) invokeV.objValue;
     }
 }

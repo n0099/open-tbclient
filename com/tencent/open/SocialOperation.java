@@ -55,6 +55,21 @@ public class SocialOperation extends BaseApi {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, this, activity) == null) {
+            a(activity, "");
+        }
+    }
+
+    private void a(Activity activity, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, this, activity, str) == null) {
+            new TDialog(activity, "", a(str), null, this.c).show();
+        }
+    }
+
     public void bindQQGroup(Activity activity, String str, String str2, IUiListener iUiListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, activity, str, str2, iUiListener) == null) {
@@ -122,6 +137,13 @@ public class SocialOperation extends BaseApi {
                         public final /* synthetic */ Intent c;
                         public final /* synthetic */ SocialOperation d;
 
+                        @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
+                        public void onCancel() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            }
+                        }
+
                         {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 != null) {
@@ -144,13 +166,6 @@ public class SocialOperation extends BaseApi {
                         }
 
                         @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
-                        public void onCancel() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            }
-                        }
-
-                        @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
                         public void onComplete(Object obj) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
@@ -160,19 +175,19 @@ public class SocialOperation extends BaseApi {
                                     if (iUiListener2 != null) {
                                         iUiListener2.onError(new UiError(4001, "服务端错误，请稍后重试", "资格检查回包为null。"));
                                     }
-                                } else if (((JSONObject) obj).optInt("bind") != 1) {
+                                } else if (((JSONObject) obj).optInt("bind") == 1) {
+                                    IUiListener iUiListener3 = this.a;
+                                    if (iUiListener3 != null) {
+                                        iUiListener3.onError(new UiError(3002, "该群已绑定！", "绑定过的群不能再次绑定。"));
+                                    }
+                                    SLog.i("openSDK_LOG.GameAppOperation", "-->bindQQGroup() binded return.");
+                                } else {
                                     try {
                                         this.d.a(this.b, (int) Constants.REQUEST_BIND_GROUP, this.c, false);
                                     } catch (Exception e) {
                                         SLog.e("openSDK_LOG.GameAppOperation", "-->bind group, start activity exception.", e);
                                         this.d.a(this.b);
                                     }
-                                } else {
-                                    IUiListener iUiListener3 = this.a;
-                                    if (iUiListener3 != null) {
-                                        iUiListener3.onError(new UiError(3002, "该群已绑定！", "绑定过的群不能再次绑定。"));
-                                    }
-                                    SLog.i("openSDK_LOG.GameAppOperation", "-->bindQQGroup() binded return.");
                                 }
                             }
                         }
@@ -251,6 +266,13 @@ public class SocialOperation extends BaseApi {
                         public final /* synthetic */ Intent c;
                         public final /* synthetic */ SocialOperation d;
 
+                        @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
+                        public void onCancel() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            }
+                        }
+
                         {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 != null) {
@@ -273,13 +295,6 @@ public class SocialOperation extends BaseApi {
                         }
 
                         @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
-                        public void onCancel() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            }
-                        }
-
-                        @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
                         public void onComplete(Object obj) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
@@ -289,17 +304,17 @@ public class SocialOperation extends BaseApi {
                                     if (iUiListener2 != null) {
                                         iUiListener2.onError(new UiError(4001, "服务端错误，请稍后重试", "资格检查回包为null。"));
                                     }
-                                } else if (((JSONObject) obj).optInt("bind") == 1) {
+                                } else if (((JSONObject) obj).optInt("bind") != 1) {
+                                    IUiListener iUiListener3 = this.a;
+                                    if (iUiListener3 != null) {
+                                        iUiListener3.onError(new UiError(3003, "该组织未绑群，无法加入", "该组织未绑群，无法加入。"));
+                                    }
+                                } else {
                                     try {
                                         this.d.a(this.b, (int) Constants.REQUEST_JOIN_GROUP, this.c, false);
                                     } catch (Exception e) {
                                         SLog.e("openSDK_LOG.GameAppOperation", "-->join group, start activity exception.", e);
                                         this.d.a(this.b);
-                                    }
-                                } else {
-                                    IUiListener iUiListener3 = this.a;
-                                    if (iUiListener3 != null) {
-                                        iUiListener3.onError(new UiError(3003, "该组织未绑群，无法加入", "该组织未绑群，无法加入。"));
                                     }
                                 }
                             }
@@ -423,6 +438,13 @@ public class SocialOperation extends BaseApi {
                     public final /* synthetic */ IUiListener a;
                     public final /* synthetic */ SocialOperation b;
 
+                    @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
+                    public void onCancel() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        }
+                    }
+
                     {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null) {
@@ -440,13 +462,6 @@ public class SocialOperation extends BaseApi {
                         }
                         this.b = this;
                         this.a = iUiListener;
-                    }
-
-                    @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
-                    public void onCancel() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        }
                     }
 
                     @Override // com.tencent.tauth.DefaultUiListener, com.tencent.tauth.IUiListener
@@ -488,21 +503,6 @@ public class SocialOperation extends BaseApi {
                 HttpUtils.requestAsync(this.c, context, "https://openmobile.qq.com/cgi-bin/qunopensdk/unbind", a, "GET", new BaseApi.TempRequestListener(this, defaultUiListener));
                 SLog.i("openSDK_LOG.GameAppOperation", "-->unBindQQGroup() do.");
             }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, this, activity) == null) {
-            a(activity, "");
-        }
-    }
-
-    private void a(Activity activity, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, this, activity, str) == null) {
-            new TDialog(activity, "", a(str), null, this.c).show();
         }
     }
 }

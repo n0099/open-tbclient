@@ -26,6 +26,46 @@ public abstract class RTCVideoCapture implements VideoCapturer {
         void onFrameCaptured(RTCVideoFrame rTCVideoFrame);
     }
 
+    @Override // org.webrtc.VideoCapturer
+    public void changeCaptureFormat(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) {
+        }
+    }
+
+    @Override // org.webrtc.VideoCapturer
+    public void dispose() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    public abstract void initialize(RTCCapturerObserver rTCCapturerObserver);
+
+    @Override // org.webrtc.VideoCapturer
+    public boolean isScreencast() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // org.webrtc.VideoCapturer
+    public void startCapture(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(1048581, this, i, i2, i3) == null) {
+        }
+    }
+
+    @Override // org.webrtc.VideoCapturer
+    public void stopCapture() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
+
     public RTCVideoCapture() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -72,38 +112,22 @@ public abstract class RTCVideoCapture implements VideoCapturer {
             }
 
             @Override // com.baidu.rtc.RTCVideoCapture.RTCCapturerObserver
-            public void onCapturerStopped() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    this.this$0.innnerCapturerObserver.onCapturerStopped();
-                }
-            }
-
-            @Override // com.baidu.rtc.RTCVideoCapture.RTCCapturerObserver
             public void onFrameCaptured(RTCVideoFrame rTCVideoFrame) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, rTCVideoFrame) == null) {
                     this.this$0.innnerCapturerObserver.onFrameCaptured(rTCVideoFrame);
                 }
             }
+
+            @Override // com.baidu.rtc.RTCVideoCapture.RTCCapturerObserver
+            public void onCapturerStopped() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    this.this$0.innnerCapturerObserver.onCapturerStopped();
+                }
+            }
         };
     }
-
-    @Override // org.webrtc.VideoCapturer
-    public void changeCaptureFormat(int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) {
-        }
-    }
-
-    @Override // org.webrtc.VideoCapturer
-    public void dispose() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    public abstract void initialize(RTCCapturerObserver rTCCapturerObserver);
 
     @Override // org.webrtc.VideoCapturer
     public void initialize(SurfaceTextureHelper surfaceTextureHelper, Context context, CapturerObserver capturerObserver) {
@@ -111,30 +135,6 @@ public abstract class RTCVideoCapture implements VideoCapturer {
         if (interceptable == null || interceptable.invokeLLL(1048579, this, surfaceTextureHelper, context, capturerObserver) == null) {
             this.innnerCapturerObserver = capturerObserver;
             initialize(this.outterCapturerObserver);
-        }
-    }
-
-    @Override // org.webrtc.VideoCapturer
-    public boolean isScreencast() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // org.webrtc.VideoCapturer
-    public void startCapture(int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048581, this, i, i2, i3) == null) {
-        }
-    }
-
-    @Override // org.webrtc.VideoCapturer
-    public void stopCapture() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }
     }
 }

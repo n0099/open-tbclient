@@ -11,6 +11,13 @@ public class DefaultIPCProvider extends BaseIPCProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.helios.bridge.multiprocess.BaseIPCProvider
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ".helios.ipc.default" : (String) invokeV.objValue;
+    }
+
     public DefaultIPCProvider() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -23,12 +30,5 @@ public class DefaultIPCProvider extends BaseIPCProvider {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.helios.bridge.multiprocess.BaseIPCProvider
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ".helios.ipc.default" : (String) invokeV.objValue;
     }
 }

@@ -38,6 +38,9 @@ public class MessageDigestAlgorithms {
     public static String[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new String[]{MD2, "MD5", "SHA-1", SHA_224, "SHA-256", "SHA-384", "SHA-512", SHA3_224, SHA3_256, SHA3_384, SHA3_512} : (String[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new String[]{MD2, "MD5", "SHA-1", SHA_224, "SHA-256", "SHA-384", "SHA-512", SHA3_224, SHA3_256, SHA3_384, SHA3_512};
+        }
+        return (String[]) invokeV.objValue;
     }
 }

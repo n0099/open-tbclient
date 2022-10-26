@@ -40,28 +40,34 @@ public class H extends WebViewClient {
     @Override // android.webkit.WebViewClient
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
         InterceptResult invokeLL;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, str)) == null) {
             Context applicationContext = this.a.getApplicationContext();
             Uri parse = Uri.parse(str);
             String scheme = parse.getScheme();
-            if ((TextUtils.isEmpty(scheme) || scheme.equals("http") || scheme.equals("https")) ? false : true) {
-                try {
-                    e1.a(applicationContext).a(new f1(this.a.d), parse.toString(), 0).a();
-                    HashMap hashMap = new HashMap();
-                    hashMap.put("__SCHEME__", parse.toString());
-                    Info info = this.a.d;
-                    if (info != null) {
-                        M.g(M.a((String) info.getEvents().get(600, ""), "", info.isHo_c_sw(), hashMap));
-                    }
-                    e2.b(applicationContext, parse);
-                } catch (Exception e) {
-                    e1.a(applicationContext).a(new f1(this.a.d), e.getMessage(), 2).a();
-                    e.printStackTrace();
-                }
-                return true;
+            if (!TextUtils.isEmpty(scheme) && !scheme.equals("http") && !scheme.equals("https")) {
+                z = true;
+            } else {
+                z = false;
             }
-            return false;
+            if (!z) {
+                return false;
+            }
+            try {
+                e1.a(applicationContext).a(new f1(this.a.d), parse.toString(), 0).a();
+                HashMap hashMap = new HashMap();
+                hashMap.put("__SCHEME__", parse.toString());
+                Info info = this.a.d;
+                if (info != null) {
+                    M.g(M.a((String) info.getEvents().get(600, ""), "", info.isHo_c_sw(), hashMap));
+                }
+                e2.b(applicationContext, parse);
+            } catch (Exception e) {
+                e1.a(applicationContext).a(new f1(this.a.d), e.getMessage(), 2).a();
+                e.printStackTrace();
+            }
+            return true;
         }
         return invokeLL.booleanValue;
     }

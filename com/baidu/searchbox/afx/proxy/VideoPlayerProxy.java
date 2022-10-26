@@ -37,7 +37,7 @@ public class VideoPlayerProxy extends PlayerProxy {
 
     /* renamed from: com.baidu.searchbox.afx.proxy.VideoPlayerProxy$6  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass6 {
+    public /* synthetic */ class AnonymousClass6 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$afx$proxy$PlayerProxy$PlayerState;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -196,7 +196,10 @@ public class VideoPlayerProxy extends PlayerProxy {
                     VideoPlayerProxy videoPlayerProxy = this.this$0;
                     videoPlayerProxy.mPlayerState = PlayerProxy.PlayerState.STOPPED;
                     OnVideoErrorListener onVideoErrorListener = videoPlayerProxy.mOnVideoErrorListener;
-                    return onVideoErrorListener != null && onVideoErrorListener.onError(errorInfo);
+                    if (onVideoErrorListener != null && onVideoErrorListener.onError(errorInfo)) {
+                        return true;
+                    }
+                    return false;
                 }
                 return invokeL.booleanValue;
             }
@@ -224,22 +227,6 @@ public class VideoPlayerProxy extends PlayerProxy {
             }
 
             @Override // com.baidu.searchbox.afx.callback.OnReportListener
-            public void onError(ErrorInfo errorInfo) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, errorInfo) == null) {
-                    VideoPlayerProxy videoPlayerProxy = this.this$0;
-                    if (videoPlayerProxy.mOnReportListener == null || errorInfo == null) {
-                        return;
-                    }
-                    errorInfo.mFilePath = videoPlayerProxy.getSourcePath();
-                    if (this.this$0.mVideoPlayer != null) {
-                        errorInfo.mGlVersion = this.this$0.mVideoPlayer.getGlVersion();
-                    }
-                    this.this$0.mOnReportListener.onError(errorInfo);
-                }
-            }
-
-            @Override // com.baidu.searchbox.afx.callback.OnReportListener
             public void onSuccess(PlaySuccessInfo playSuccessInfo) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, playSuccessInfo) == null) {
@@ -252,22 +239,86 @@ public class VideoPlayerProxy extends PlayerProxy {
                     }
                 }
             }
+
+            @Override // com.baidu.searchbox.afx.callback.OnReportListener
+            public void onError(ErrorInfo errorInfo) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, errorInfo) == null) {
+                    VideoPlayerProxy videoPlayerProxy = this.this$0;
+                    if (videoPlayerProxy.mOnReportListener != null && errorInfo != null) {
+                        errorInfo.mFilePath = videoPlayerProxy.getSourcePath();
+                        if (this.this$0.mVideoPlayer != null) {
+                            errorInfo.mGlVersion = this.this$0.mVideoPlayer.getGlVersion();
+                        }
+                        this.this$0.mOnReportListener.onError(errorInfo);
+                    }
+                }
+            }
         });
+    }
+
+    @Override // com.baidu.searchbox.afx.proxy.IPlayer
+    public void setGLTextureView(GLTextureView gLTextureView) {
+        VideoPlayer videoPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, gLTextureView) == null) && (videoPlayer = this.mVideoPlayer) != null) {
+            videoPlayer.setGLTextureView(gLTextureView);
+        }
+    }
+
+    @Override // com.baidu.searchbox.afx.proxy.PlayerProxy, com.baidu.searchbox.afx.proxy.IPlayer
+    public void setLoopSection(int i) {
+        VideoPlayer videoPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048585, this, i) == null) && (videoPlayer = this.mVideoPlayer) != null) {
+            videoPlayer.setLoopSection(i);
+        }
+    }
+
+    @Override // com.baidu.searchbox.afx.proxy.IPlayer
+    public void setLooping(boolean z) {
+        VideoPlayer videoPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048589, this, z) == null) && (videoPlayer = this.mVideoPlayer) != null) {
+            videoPlayer.setLooping(z);
+        }
+    }
+
+    @Override // com.baidu.searchbox.afx.proxy.PlayerProxy
+    public void setSourceFD(FileDescriptor fileDescriptor) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, fileDescriptor) == null) {
+            try {
+                if (this.mVideoPlayer != null) {
+                    this.mVideoPlayer.setDataSource(fileDescriptor);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override // com.baidu.searchbox.afx.proxy.IPlayer
+    public void setSurface(Surface surface) {
+        VideoPlayer videoPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048592, this, surface) == null) && (videoPlayer = this.mVideoPlayer) != null) {
+            videoPlayer.setSurface(surface);
+        }
     }
 
     @Override // com.baidu.searchbox.afx.proxy.PlayerProxy, com.baidu.searchbox.afx.proxy.IPlayer
     public void destroy() {
         VideoPlayer videoPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (videoPlayer = this.mVideoPlayer) == null || this.mPlayTask == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (videoPlayer = this.mVideoPlayer) != null && this.mPlayTask != null) {
+            videoPlayer.release();
+            this.mPlayTask.release();
+            super.destroy();
+            this.mOnVideoStartedListener = null;
+            this.mOnVideoEndedListener = null;
+            this.mOnVideoErrorListener = null;
         }
-        videoPlayer.release();
-        this.mPlayTask.release();
-        super.destroy();
-        this.mOnVideoStartedListener = null;
-        this.mOnVideoEndedListener = null;
-        this.mOnVideoErrorListener = null;
     }
 
     @Override // com.baidu.searchbox.afx.proxy.IPlayer
@@ -322,17 +373,39 @@ public class VideoPlayerProxy extends PlayerProxy {
     }
 
     @Override // com.baidu.searchbox.afx.proxy.PlayerProxy, com.baidu.searchbox.afx.proxy.IPlayer
+    public void resume() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.mVideoPlayer != null && isPaused()) {
+            this.mVideoPlayer.requestResume();
+            super.resume();
+        }
+    }
+
+    @Override // com.baidu.searchbox.afx.proxy.PlayerProxy, com.baidu.searchbox.afx.proxy.IPlayer
+    public void stop() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && this.mVideoPlayer != null) {
+            if (isPlaying() || isPaused()) {
+                this.mVideoPlayer.requestStop();
+                this.mPlayerState = PlayerProxy.PlayerState.STOPPED;
+            }
+        }
+    }
+
+    @Override // com.baidu.searchbox.afx.proxy.PlayerProxy, com.baidu.searchbox.afx.proxy.IPlayer
     public void play() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             int i = AnonymousClass6.$SwitchMap$com$baidu$searchbox$afx$proxy$PlayerProxy$PlayerState[this.mPlayerState.ordinal()];
-            if (i == 1 || i == 2 || i == 3) {
+            if (i != 1 && i != 2 && i != 3) {
+                if (i == 4) {
+                    resume();
+                }
+            } else {
                 VideoPlayer.PlayTask playTask = this.mPlayTask;
                 if (playTask != null) {
                     playTask.execute();
                 }
-            } else if (i == 4) {
-                resume();
             }
             super.play();
         }
@@ -350,6 +423,13 @@ public class VideoPlayerProxy extends PlayerProxy {
                 public final /* synthetic */ VideoPlayerProxy this$0;
                 public final /* synthetic */ OnVideoPreparedListener val$onPreparedListener;
                 public final /* synthetic */ long val$startMs;
+
+                @Override // com.baidu.searchbox.afx.recode.Mp4Composer.Listener
+                public void onProgress(float f) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) {
+                    }
+                }
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -375,10 +455,9 @@ public class VideoPlayerProxy extends PlayerProxy {
                 public void onCompleted() {
                     OnVideoPreparedListener onVideoPreparedListener2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (onVideoPreparedListener2 = this.val$onPreparedListener) == null) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && (onVideoPreparedListener2 = this.val$onPreparedListener) != null) {
+                        onVideoPreparedListener2.onPrepared();
                     }
-                    onVideoPreparedListener2.onPrepared();
                 }
 
                 @Override // com.baidu.searchbox.afx.recode.Mp4Composer.Listener
@@ -388,89 +467,16 @@ public class VideoPlayerProxy extends PlayerProxy {
                         Log.e(VideoPlayerProxy.TAG, "onFailed, exception: ", exc);
                     }
                 }
-
-                @Override // com.baidu.searchbox.afx.recode.Mp4Composer.Listener
-                public void onProgress(float f) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) {
-                    }
-                }
             });
         }
     }
 
     @Override // com.baidu.searchbox.afx.proxy.PlayerProxy, com.baidu.searchbox.afx.proxy.IPlayer
-    public void resume() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.mVideoPlayer != null && isPaused()) {
-            this.mVideoPlayer.requestResume();
-            super.resume();
-        }
-    }
-
-    @Override // com.baidu.searchbox.afx.proxy.IPlayer
-    public void setGLTextureView(GLTextureView gLTextureView) {
+    public void setLoopSection(int i, int i2) {
         VideoPlayer videoPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, gLTextureView) == null) || (videoPlayer = this.mVideoPlayer) == null) {
-            return;
-        }
-        videoPlayer.setGLTextureView(gLTextureView);
-    }
-
-    @Override // com.baidu.searchbox.afx.proxy.PlayerProxy, com.baidu.searchbox.afx.proxy.IPlayer
-    public void setLoopSection(long j, long j2) {
-        VideoPlayer videoPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (videoPlayer = this.mVideoPlayer) == null) {
-            return;
-        }
-        videoPlayer.setLoopSection(j, j2);
-    }
-
-    @Override // com.baidu.searchbox.afx.proxy.IPlayer
-    public void setLooping(boolean z) {
-        VideoPlayer videoPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048589, this, z) == null) || (videoPlayer = this.mVideoPlayer) == null) {
-            return;
-        }
-        videoPlayer.setLooping(z);
-    }
-
-    @Override // com.baidu.searchbox.afx.proxy.PlayerProxy
-    public void setSourceFD(FileDescriptor fileDescriptor) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, fileDescriptor) == null) {
-            try {
-                if (this.mVideoPlayer != null) {
-                    this.mVideoPlayer.setDataSource(fileDescriptor);
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.afx.proxy.IPlayer
-    public void setSurface(Surface surface) {
-        VideoPlayer videoPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, surface) == null) || (videoPlayer = this.mVideoPlayer) == null) {
-            return;
-        }
-        videoPlayer.setSurface(surface);
-    }
-
-    @Override // com.baidu.searchbox.afx.proxy.PlayerProxy, com.baidu.searchbox.afx.proxy.IPlayer
-    public void stop() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || this.mVideoPlayer == null) {
-            return;
-        }
-        if (isPlaying() || isPaused()) {
-            this.mVideoPlayer.requestStop();
-            this.mPlayerState = PlayerProxy.PlayerState.STOPPED;
+        if ((interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) && (videoPlayer = this.mVideoPlayer) != null) {
+            videoPlayer.setLoopSection(i, i2);
         }
     }
 
@@ -478,10 +484,18 @@ public class VideoPlayerProxy extends PlayerProxy {
     public void setLoopSection(long j) {
         VideoPlayer videoPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048587, this, j) == null) || (videoPlayer = this.mVideoPlayer) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeJ(1048587, this, j) == null) && (videoPlayer = this.mVideoPlayer) != null) {
+            videoPlayer.setLoopSection(j);
         }
-        videoPlayer.setLoopSection(j);
+    }
+
+    @Override // com.baidu.searchbox.afx.proxy.PlayerProxy, com.baidu.searchbox.afx.proxy.IPlayer
+    public void setLoopSection(long j, long j2) {
+        VideoPlayer videoPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && (videoPlayer = this.mVideoPlayer) != null) {
+            videoPlayer.setLoopSection(j, j2);
+        }
     }
 
     @Override // com.baidu.searchbox.afx.proxy.PlayerProxy
@@ -496,25 +510,5 @@ public class VideoPlayerProxy extends PlayerProxy {
                 e.printStackTrace();
             }
         }
-    }
-
-    @Override // com.baidu.searchbox.afx.proxy.PlayerProxy, com.baidu.searchbox.afx.proxy.IPlayer
-    public void setLoopSection(int i, int i2) {
-        VideoPlayer videoPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) || (videoPlayer = this.mVideoPlayer) == null) {
-            return;
-        }
-        videoPlayer.setLoopSection(i, i2);
-    }
-
-    @Override // com.baidu.searchbox.afx.proxy.PlayerProxy, com.baidu.searchbox.afx.proxy.IPlayer
-    public void setLoopSection(int i) {
-        VideoPlayer videoPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048585, this, i) == null) || (videoPlayer = this.mVideoPlayer) == null) {
-            return;
-        }
-        videoPlayer.setLoopSection(i);
     }
 }

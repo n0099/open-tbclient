@@ -31,7 +31,7 @@ public class DevicePortraitManager implements IDevicePortraitManager {
 
     /* renamed from: com.baidu.searchbox.aideviceperformance.device.DevicePortraitManager$4  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass4 {
+    public /* synthetic */ class AnonymousClass4 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$aideviceperformance$device$IDevicePortraitManager$ThresholdType;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,7 +102,7 @@ public class DevicePortraitManager implements IDevicePortraitManager {
 
     private void postCheckStaticScoreStore(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, this, context) == null) || this.mResultHandler == null) {
+        if ((interceptable != null && interceptable.invokeL(65543, this, context) != null) || this.mResultHandler == null) {
             return;
         }
         ExecutorUtilsExt.delayPostOnElastic(new Runnable(this, context) { // from class: com.baidu.searchbox.aideviceperformance.device.DevicePortraitManager.3
@@ -141,20 +141,19 @@ public class DevicePortraitManager implements IDevicePortraitManager {
                     Long valueOf = Long.valueOf(DeviceInfoSharedPreferenceWrapper.getInstance().getLong(DevicePortraitManager.SP_KEY_MODEL_VERSION_GBDT, -1L));
                     Long valueOf2 = Long.valueOf(DeviceInfoSharedPreferenceWrapper.getInstance().getLong(DevicePortraitManager.SP_KEY_MODEL_VERSION_LR, -1L));
                     Long valueOf3 = Long.valueOf(DeviceInfoSharedPreferenceWrapper.getInstance().getLong(DevicePortraitManager.SP_KEY_MODEL_VERSION_MAPPER, -1L));
-                    if (gBDTVersion == valueOf.longValue() && lRVersion == valueOf2.longValue() && mapperVersion == valueOf3.longValue()) {
-                        return;
+                    if (gBDTVersion != valueOf.longValue() || lRVersion != valueOf2.longValue() || mapperVersion != valueOf3.longValue()) {
+                        if (DevicePortraitManager.DEBUG) {
+                            Log.d(DevicePortraitManager.TAG, "model version updated ## gbdtVersionModel:" + gBDTVersion + " ## gbdtVersionCache:" + valueOf + " ## lrVersionModel:" + lRVersion + " ## lrVersionCache:" + valueOf2 + " ## mapperVersionModel:" + mapperVersion + " ## mapperVersionCache:" + valueOf3);
+                        }
+                        DeviceInfoSharedPreferenceWrapper.getInstance().remove(DevicePortraitManager.SP_KEY_MODEL_VERSION_GBDT);
+                        DeviceInfoSharedPreferenceWrapper.getInstance().remove(DevicePortraitManager.SP_KEY_MODEL_VERSION_LR);
+                        DeviceInfoSharedPreferenceWrapper.getInstance().remove(DevicePortraitManager.SP_KEY_MODEL_VERSION_MAPPER);
+                        this.this$0.mResultHandler.removeStaticPredictScore();
+                        this.this$0.mResultHandler.removeStaticPredictScore();
+                        float unused = DevicePortraitManager.DEVICE_SCORE_CACHE = -1.0f;
+                        float unused2 = DevicePortraitManager.DEVICE_SCORE_PERCENTAGE_CACHE = -1.0f;
+                        this.this$0.getStaticDeviceScorePercentage(this.val$cx);
                     }
-                    if (DevicePortraitManager.DEBUG) {
-                        Log.d(DevicePortraitManager.TAG, "model version updated ## gbdtVersionModel:" + gBDTVersion + " ## gbdtVersionCache:" + valueOf + " ## lrVersionModel:" + lRVersion + " ## lrVersionCache:" + valueOf2 + " ## mapperVersionModel:" + mapperVersion + " ## mapperVersionCache:" + valueOf3);
-                    }
-                    DeviceInfoSharedPreferenceWrapper.getInstance().remove(DevicePortraitManager.SP_KEY_MODEL_VERSION_GBDT);
-                    DeviceInfoSharedPreferenceWrapper.getInstance().remove(DevicePortraitManager.SP_KEY_MODEL_VERSION_LR);
-                    DeviceInfoSharedPreferenceWrapper.getInstance().remove(DevicePortraitManager.SP_KEY_MODEL_VERSION_MAPPER);
-                    this.this$0.mResultHandler.removeStaticPredictScore();
-                    this.this$0.mResultHandler.removeStaticPredictScore();
-                    float unused = DevicePortraitManager.DEVICE_SCORE_CACHE = -1.0f;
-                    float unused2 = DevicePortraitManager.DEVICE_SCORE_PERCENTAGE_CACHE = -1.0f;
-                    this.this$0.getStaticDeviceScorePercentage(this.val$cx);
                 }
             }
         }, "postCheckStaticScoreStore", 3, 5000L);
@@ -162,7 +161,7 @@ public class DevicePortraitManager implements IDevicePortraitManager {
 
     private void postStaticScorePercentageStore(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(65544, this, f) == null) || this.mResultHandler == null) {
+        if ((interceptable != null && interceptable.invokeF(65544, this, f) != null) || this.mResultHandler == null) {
             return;
         }
         ExecutorUtilsExt.delayPostOnElastic(new Runnable(this, f) { // from class: com.baidu.searchbox.aideviceperformance.device.DevicePortraitManager.2
@@ -207,7 +206,7 @@ public class DevicePortraitManager implements IDevicePortraitManager {
 
     private void postStaticScoreStore(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(65545, this, f) == null) || this.mResultHandler == null) {
+        if ((interceptable != null && interceptable.invokeF(65545, this, f) != null) || this.mResultHandler == null) {
             return;
         }
         ExecutorUtilsExt.delayPostOnElastic(new Runnable(this, f) { // from class: com.baidu.searchbox.aideviceperformance.device.DevicePortraitManager.1
@@ -309,13 +308,13 @@ public class DevicePortraitManager implements IDevicePortraitManager {
                 return predictByModel;
             }
             float predictByLRInline = DeviceScoreModel.predictByLRInline();
-            if (predictByLRInline >= 0.0f) {
-                if (DEBUG) {
-                    Log.d(TAG, "get device score from LR inline : " + predictByLRInline);
-                }
-                return predictByLRInline;
+            if (predictByLRInline < 0.0f) {
+                return -1.0f;
             }
-            return -1.0f;
+            if (DEBUG) {
+                Log.d(TAG, "get device score from LR inline : " + predictByLRInline);
+            }
+            return predictByLRInline;
         }
         return invokeL.floatValue;
     }

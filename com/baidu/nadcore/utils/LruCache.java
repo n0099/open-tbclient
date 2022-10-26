@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes2.dex */
-public class LruCache<K, V> extends LinkedHashMap<K, V> {
+public class LruCache extends LinkedHashMap {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_CACHE_SIZE = 32;
     public static final float DEFAULT_LOAD_FACTOR = 0.75f;
@@ -35,13 +35,6 @@ public class LruCache<K, V> extends LinkedHashMap<K, V> {
         this.mMaxCacheSize = 32;
     }
 
-    @Override // java.util.LinkedHashMap
-    public boolean removeEldestEntry(Map.Entry<K, V> entry) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, entry)) == null) ? size() > this.mMaxCacheSize : invokeL.booleanValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LruCache(int i) {
         super((int) (Math.ceil(i / 0.75f) + 1.0d), 0.75f, true);
@@ -62,5 +55,18 @@ public class LruCache<K, V> extends LinkedHashMap<K, V> {
             }
         }
         this.mMaxCacheSize = i;
+    }
+
+    @Override // java.util.LinkedHashMap
+    public boolean removeEldestEntry(Map.Entry entry) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, entry)) == null) {
+            if (size() > this.mMaxCacheSize) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

@@ -14,7 +14,7 @@ public class BDFaceSDKCommon {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class AlignType {
+    public final class AlignType {
         public static final /* synthetic */ AlignType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final AlignType BDFACE_ALIGN_TYPE_NIR_ACCURATE;
@@ -76,7 +76,7 @@ public class BDFaceSDKCommon {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class BDFaceActionLiveType {
+    public final class BDFaceActionLiveType {
         public static final /* synthetic */ BDFaceActionLiveType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final BDFaceActionLiveType BDFACE_ACTION_LIVE_LOOK_UP;
@@ -146,7 +146,7 @@ public class BDFaceSDKCommon {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class BDFaceCoreRunMode {
+    public final class BDFaceCoreRunMode {
         public static final /* synthetic */ BDFaceCoreRunMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final BDFaceCoreRunMode BDFACE_LITE_POWER_FULL;
@@ -214,7 +214,7 @@ public class BDFaceSDKCommon {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class BDFaceEmotion {
+    public final class BDFaceEmotion {
         public static final /* synthetic */ BDFaceEmotion[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final BDFaceEmotion BDFACE_EMOTION_CALM;
@@ -276,7 +276,7 @@ public class BDFaceSDKCommon {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class BDFaceEmotionEnum {
+    public final class BDFaceEmotionEnum {
         public static final /* synthetic */ BDFaceEmotionEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final BDFaceEmotionEnum BDFACE_EMOTIONS_ANGRY;
@@ -346,7 +346,7 @@ public class BDFaceSDKCommon {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class BDFaceGazeDirection {
+    public final class BDFaceGazeDirection {
         public static final /* synthetic */ BDFaceGazeDirection[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final BDFaceGazeDirection BDFACE_GACE_DIRECTION_DOWN;
@@ -414,7 +414,7 @@ public class BDFaceSDKCommon {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class BDFaceGender {
+    public final class BDFaceGender {
         public static final /* synthetic */ BDFaceGender[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final BDFaceGender BDFACE_GENDER_FEMALE;
@@ -474,7 +474,7 @@ public class BDFaceSDKCommon {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class BDFaceGlasses {
+    public final class BDFaceGlasses {
         public static final /* synthetic */ BDFaceGlasses[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final BDFaceGlasses BDFACE_GLASSES;
@@ -536,7 +536,7 @@ public class BDFaceSDKCommon {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class BDFaceImageType {
+    public final class BDFaceImageType {
         public static final /* synthetic */ BDFaceImageType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final BDFaceImageType BDFACE_IMAGE_TYPE_BGR;
@@ -610,7 +610,7 @@ public class BDFaceSDKCommon {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class BDFaceLogInfo {
+    public final class BDFaceLogInfo {
         public static final /* synthetic */ BDFaceLogInfo[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final BDFaceLogInfo BDFACE_LOG_ERROR_MESSAGE;
@@ -676,7 +676,7 @@ public class BDFaceSDKCommon {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class BDFaceRace {
+    public final class BDFaceRace {
         public static final /* synthetic */ BDFaceRace[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final BDFaceRace BDFACE_RACE_BLACK;
@@ -740,7 +740,7 @@ public class BDFaceSDKCommon {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class DetectType {
+    public final class DetectType {
         public static final /* synthetic */ DetectType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final DetectType DETECT_NIR;
@@ -800,7 +800,7 @@ public class BDFaceSDKCommon {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class FaceQualityType {
+    public final class FaceQualityType {
         public static final /* synthetic */ FaceQualityType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final FaceQualityType BLUR;
@@ -862,7 +862,7 @@ public class BDFaceSDKCommon {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class FeatureType {
+    public final class FeatureType {
         public static final /* synthetic */ FeatureType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final FeatureType BDFACE_FEATURE_TYPE_ID_PHOTO;
@@ -926,7 +926,7 @@ public class BDFaceSDKCommon {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class LiveType {
+    public final class LiveType {
         public static final /* synthetic */ LiveType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final LiveType BDFACE_SILENT_LIVE_TYPE_DEPTH;

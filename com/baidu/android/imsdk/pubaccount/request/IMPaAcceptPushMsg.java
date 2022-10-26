@@ -84,7 +84,10 @@ public class IMPaAcceptPushMsg extends Message {
     public long getPaId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mPaId : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mPaId;
+        }
+        return invokeV.longValue;
     }
 
     @Override // com.baidu.android.imsdk.request.Message

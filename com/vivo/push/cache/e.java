@@ -15,9 +15,16 @@ import com.vivo.push.util.p;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
-public final class e extends c<com.vivo.push.model.a> {
+public final class e extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.vivo.push.cache.c
+    public final String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "com.vivo.pushservice.other" : (String) invokeV.objValue;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(Context context) {
@@ -40,14 +47,17 @@ public final class e extends c<com.vivo.push.model.a> {
     }
 
     @Override // com.vivo.push.cache.c
-    public final String a() {
-        InterceptResult invokeV;
+    public final String b(String str) throws Exception {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "com.vivo.pushservice.other" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return new String(f.a(f.a(e()), f.a(f()), Base64.decode(str, 2)), IMAudioTransRequest.CHARSET);
+        }
+        return (String) invokeL.objValue;
     }
 
     @Override // com.vivo.push.cache.c
-    public final List<com.vivo.push.model.a> a(String str) {
+    public final List a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
@@ -71,21 +81,14 @@ public final class e extends c<com.vivo.push.model.a> {
         return (List) invokeL.objValue;
     }
 
-    @Override // com.vivo.push.cache.c
-    public final String b(String str) throws Exception {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? new String(f.a(f.a(e()), f.a(f()), Base64.decode(str, 2)), IMAudioTransRequest.CHARSET) : (String) invokeL.objValue;
-    }
-
     public final String c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             synchronized (c.a) {
-                for (T t : this.b) {
-                    if (!TextUtils.isEmpty(t.a()) && t.a().equals(str)) {
-                        return t.b();
+                for (com.vivo.push.model.a aVar : this.b) {
+                    if (!TextUtils.isEmpty(aVar.a()) && aVar.a().equals(str)) {
+                        return aVar.b();
                     }
                 }
                 return null;

@@ -20,6 +20,23 @@ public class MovieAnimatedImage implements AnimatedImage {
     public final int mLoopCount;
     public final int mSizeInBytes;
 
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
+    public void dispose() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
+    public boolean doesRenderSupportScaling() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
     public MovieAnimatedImage(MovieFrame[] movieFrameArr, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -47,48 +64,83 @@ public class MovieAnimatedImage implements AnimatedImage {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
-    public void dispose() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
-    public boolean doesRenderSupportScaling() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
     public int getDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mDuration : invokeV.intValue;
-    }
-
-    @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
-    public AnimatedImageFrame getFrame(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? this.mFrames[i] : (AnimatedImageFrame) invokeI.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mDuration;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
     public int getFrameCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mFrames.length : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mFrames.length;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
     public int[] getFrameDurations() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mFrameDurations : (int[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mFrameDurations;
+        }
+        return (int[]) invokeV.objValue;
+    }
+
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
+    public int getHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mFrames[0].getHeight();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
+    public int getLoopCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mLoopCount;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
+    public int getSizeInBytes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mSizeInBytes;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
+    public int getWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mFrames[0].getWidth();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
+    public AnimatedImageFrame getFrame(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            return this.mFrames[i];
+        }
+        return (AnimatedImageFrame) invokeI.objValue;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
@@ -100,33 +152,5 @@ public class MovieAnimatedImage implements AnimatedImage {
             return new AnimatedDrawableFrameInfo(i, movieFrame.getXOffset(), movieFrame.getYOffset(), movieFrame.getWidth(), movieFrame.getHeight(), AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS, this.mFrames[i].getDisposalMode());
         }
         return (AnimatedDrawableFrameInfo) invokeI.objValue;
-    }
-
-    @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
-    public int getHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mFrames[0].getHeight() : invokeV.intValue;
-    }
-
-    @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
-    public int getLoopCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mLoopCount : invokeV.intValue;
-    }
-
-    @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
-    public int getSizeInBytes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mSizeInBytes : invokeV.intValue;
-    }
-
-    @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
-    public int getWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mFrames[0].getWidth() : invokeV.intValue;
     }
 }

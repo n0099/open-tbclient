@@ -16,23 +16,23 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.fuseable.FuseToObservable;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public final class ObservableElementAtMaybe<T> extends Maybe<T> implements FuseToObservable<T> {
+public final class ObservableElementAtMaybe extends Maybe implements FuseToObservable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long index;
-    public final ObservableSource<T> source;
+    public final ObservableSource source;
 
     /* loaded from: classes8.dex */
-    public static final class ElementAtObserver<T> implements Observer<T>, Disposable {
+    public final class ElementAtObserver implements Observer, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver<? super T> actual;
+        public final MaybeObserver actual;
         public long count;
         public boolean done;
         public final long index;
         public Disposable s;
 
-        public ElementAtObserver(MaybeObserver<? super T> maybeObserver, long j) {
+        public ElementAtObserver(MaybeObserver maybeObserver, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,17 +63,19 @@ public final class ObservableElementAtMaybe<T> extends Maybe<T> implements FuseT
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.s.isDisposed() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.s.isDisposed();
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.done) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !this.done) {
+                this.done = true;
+                this.actual.onComplete();
             }
-            this.done = true;
-            this.actual.onComplete();
         }
 
         @Override // io.reactivex.Observer
@@ -90,16 +92,16 @@ public final class ObservableElementAtMaybe<T> extends Maybe<T> implements FuseT
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, t) == null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048580, this, obj) != null) || this.done) {
                 return;
             }
             long j = this.count;
             if (j == this.index) {
                 this.done = true;
                 this.s.dispose();
-                this.actual.onSuccess(t);
+                this.actual.onSuccess(obj);
                 return;
             }
             this.count = j + 1;
@@ -115,7 +117,7 @@ public final class ObservableElementAtMaybe<T> extends Maybe<T> implements FuseT
         }
     }
 
-    public ObservableElementAtMaybe(ObservableSource<T> observableSource, long j) {
+    public ObservableElementAtMaybe(ObservableSource observableSource, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -135,14 +137,17 @@ public final class ObservableElementAtMaybe<T> extends Maybe<T> implements FuseT
     }
 
     @Override // io.reactivex.internal.fuseable.FuseToObservable
-    public Observable<T> fuseToObservable() {
+    public Observable fuseToObservable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? RxJavaPlugins.onAssembly(new ObservableElementAt(this.source, this.index, null, false)) : (Observable) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return RxJavaPlugins.onAssembly(new ObservableElementAt(this.source, this.index, null, false));
+        }
+        return (Observable) invokeV.objValue;
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
+    public void subscribeActual(MaybeObserver maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, maybeObserver) == null) {
             this.source.subscribe(new ElementAtObserver(maybeObserver, this.index));

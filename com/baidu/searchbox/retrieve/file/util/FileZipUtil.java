@@ -74,53 +74,85 @@ public class FileZipUtil {
         FileChannel fileChannel;
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65539, null, file, file2)) != null) {
-            return invokeLL.booleanValue;
-        }
-        try {
-            if (!file2.getParentFile().exists()) {
-                file2.getParentFile().mkdirs();
-            }
-            if (!file2.exists()) {
-                file2.createNewFile();
-            }
-            FileChannel fileChannel2 = null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, file, file2)) == null) {
             try {
-                FileChannel channel = new FileInputStream(file).getChannel();
-                try {
-                    fileChannel2 = new FileOutputStream(file2).getChannel();
-                    fileChannel2.transferFrom(channel, 0L, channel.size());
-                    if (channel != null) {
-                        channel.close();
-                    }
-                    if (fileChannel2 != null) {
-                        fileChannel2.close();
-                        return true;
-                    }
-                    return true;
-                } catch (Throwable th) {
-                    th = th;
-                    FileChannel fileChannel3 = fileChannel2;
-                    fileChannel2 = channel;
-                    fileChannel = fileChannel3;
-                    if (fileChannel2 != null) {
-                        fileChannel2.close();
-                    }
-                    if (fileChannel != null) {
-                        fileChannel.close();
-                    }
-                    throw th;
+                if (!file2.getParentFile().exists()) {
+                    file2.getParentFile().mkdirs();
                 }
-            } catch (Throwable th2) {
-                th = th2;
-                fileChannel = null;
-            }
-        } catch (IOException e) {
-            if (DEBUG) {
-                e.printStackTrace();
+                if (!file2.exists()) {
+                    file2.createNewFile();
+                }
+                FileChannel fileChannel2 = null;
+                try {
+                    FileChannel channel = new FileInputStream(file).getChannel();
+                    try {
+                        fileChannel2 = new FileOutputStream(file2).getChannel();
+                        fileChannel2.transferFrom(channel, 0L, channel.size());
+                        if (channel != null) {
+                            channel.close();
+                        }
+                        if (fileChannel2 != null) {
+                            fileChannel2.close();
+                            return true;
+                        }
+                        return true;
+                    } catch (Throwable th) {
+                        th = th;
+                        FileChannel fileChannel3 = fileChannel2;
+                        fileChannel2 = channel;
+                        fileChannel = fileChannel3;
+                        if (fileChannel2 != null) {
+                            fileChannel2.close();
+                        }
+                        if (fileChannel != null) {
+                            fileChannel.close();
+                        }
+                        throw th;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileChannel = null;
+                }
+            } catch (IOException e) {
+                if (DEBUG) {
+                    e.printStackTrace();
+                    return false;
+                }
                 return false;
             }
-            return false;
+        } else {
+            return invokeLL.booleanValue;
+        }
+    }
+
+    public static void zipSingleFile(File file, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65544, null, file, str) == null) {
+            try {
+                FileOutputStream fileOutputStream = new FileOutputStream(str);
+                ZipOutputStream zipOutputStream = new ZipOutputStream(fileOutputStream);
+                zipOutputStream.putNextEntry(new ZipEntry(file.getName()));
+                FileInputStream fileInputStream = new FileInputStream(file);
+                byte[] bArr = new byte[1024];
+                while (true) {
+                    int read = fileInputStream.read(bArr);
+                    if (read <= 0) {
+                        break;
+                    }
+                    zipOutputStream.write(bArr, 0, read);
+                }
+                zipOutputStream.closeEntry();
+                zipOutputStream.close();
+                fileInputStream.close();
+                fileOutputStream.close();
+                if (DEBUG) {
+                    Log.d(TAG, file.getCanonicalPath() + " is zipped to " + str);
+                }
+            } catch (IOException e) {
+                if (DEBUG) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 
@@ -193,17 +225,16 @@ public class FileZipUtil {
         return (String) invokeL.objValue;
     }
 
-    public static void populateFilesList(File file, List<String> list) throws IOException {
+    public static void populateFilesList(File file, List list) throws IOException {
         File[] listFiles;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65542, null, file, list) == null) || (listFiles = file.listFiles()) == null || listFiles.length == 0) {
-            return;
-        }
-        for (File file2 : listFiles) {
-            if (file2.isFile()) {
-                list.add(file2.getAbsolutePath());
-            } else {
-                populateFilesList(file2, list);
+        if ((interceptable == null || interceptable.invokeLL(65542, null, file, list) == null) && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
+            for (File file2 : listFiles) {
+                if (file2.isFile()) {
+                    list.add(file2.getAbsolutePath());
+                } else {
+                    populateFilesList(file2, list);
+                }
             }
         }
     }
@@ -247,36 +278,5 @@ public class FileZipUtil {
             }
         }
         return invokeLL.booleanValue;
-    }
-
-    public static void zipSingleFile(File file, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, file, str) == null) {
-            try {
-                FileOutputStream fileOutputStream = new FileOutputStream(str);
-                ZipOutputStream zipOutputStream = new ZipOutputStream(fileOutputStream);
-                zipOutputStream.putNextEntry(new ZipEntry(file.getName()));
-                FileInputStream fileInputStream = new FileInputStream(file);
-                byte[] bArr = new byte[1024];
-                while (true) {
-                    int read = fileInputStream.read(bArr);
-                    if (read <= 0) {
-                        break;
-                    }
-                    zipOutputStream.write(bArr, 0, read);
-                }
-                zipOutputStream.closeEntry();
-                zipOutputStream.close();
-                fileInputStream.close();
-                fileOutputStream.close();
-                if (DEBUG) {
-                    Log.d(TAG, file.getCanonicalPath() + " is zipped to " + str);
-                }
-            } catch (IOException e) {
-                if (DEBUG) {
-                    e.printStackTrace();
-                }
-            }
-        }
     }
 }

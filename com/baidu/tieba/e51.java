@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.content.Intent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,10 +12,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public interface e51 {
     public static final e51 a = new a();
 
+    boolean a(Intent intent);
+
     /* loaded from: classes3.dex */
-    public static class a implements e51 {
+    public final class a implements e51 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.e51
+        public boolean a(Intent intent) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
 
         public a() {
             Interceptable interceptable = $ic;
@@ -30,20 +42,10 @@ public interface e51 {
                 }
             }
         }
-
-        @Override // com.baidu.tieba.e51
-        public boolean a(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-                return false;
-            }
-            return invokeI.booleanValue;
-        }
     }
 
     /* loaded from: classes3.dex */
-    public static final class b {
+    public final class b {
         public static /* synthetic */ Interceptable $ic;
         public static e51 a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,10 +63,9 @@ public interface e51 {
                     return;
                 }
             }
-            a = c51.e();
+            a = d51.d();
         }
 
-        @NonNull
         public static e51 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -77,6 +78,4 @@ public interface e51 {
             return (e51) invokeV.objValue;
         }
     }
-
-    boolean a(int i);
 }

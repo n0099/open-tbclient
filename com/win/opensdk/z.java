@@ -39,10 +39,9 @@ public class z extends Handler {
         PBSplash pBSplash;
         PBSplashListener pBSplashListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || message.what != 0 || (pBSplashListener = (pBSplash = this.a).e) == null || pBSplash.i) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 0 && (pBSplashListener = (pBSplash = this.a).e) != null && !pBSplash.i) {
+            pBSplashListener.onFail(PBError.LOAD_TIME_OUT);
+            this.a.j = true;
         }
-        pBSplashListener.onFail(PBError.LOAD_TIME_OUT);
-        this.a.j = true;
     }
 }

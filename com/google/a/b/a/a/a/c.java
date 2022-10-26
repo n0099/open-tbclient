@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.Parcel;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jr9;
+import com.baidu.tieba.bs9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -37,27 +37,27 @@ public final class c extends com.google.a.a.a implements a {
     }
 
     @Override // com.google.a.b.a.a.a.a
-    public final void a(String str, List<Bundle> list, Bundle bundle, d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, list, bundle, dVar) == null) {
-            Parcel a = a();
-            a.writeString(str);
-            a.writeTypedList(list);
-            jr9.c(a, bundle);
-            jr9.b(a, dVar);
-            b(1, a);
-        }
-    }
-
-    @Override // com.google.a.b.a.a.a.a
     public final void a(String str, Bundle bundle, d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, bundle, dVar) == null) {
             Parcel a = a();
             a.writeString(str);
-            jr9.c(a, bundle);
-            jr9.b(a, dVar);
+            bs9.c(a, bundle);
+            bs9.b(a, dVar);
             b(2, a);
+        }
+    }
+
+    @Override // com.google.a.b.a.a.a.a
+    public final void a(String str, List list, Bundle bundle, d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, list, bundle, dVar) == null) {
+            Parcel a = a();
+            a.writeString(str);
+            a.writeTypedList(list);
+            bs9.c(a, bundle);
+            bs9.b(a, dVar);
+            b(1, a);
         }
     }
 }

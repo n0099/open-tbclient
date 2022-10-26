@@ -2,7 +2,6 @@ package com.baidu.behavior.record;
 
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.behavior.record.api.Behavior;
@@ -17,6 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
@@ -73,56 +73,57 @@ public class BehaviorApiManager implements IBehaviorApi {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                if (AppConfig.isDebug()) {
-                    throw new RuntimeException("addBehavior: infoName must not be null!");
+                if (!AppConfig.isDebug()) {
+                    return false;
                 }
-                return false;
+                throw new RuntimeException("addBehavior: infoName must not be null!");
             }
             return true;
         }
         return invokeL.booleanValue;
     }
 
-    private boolean isNull(@NonNull String str) {
+    private boolean isNull(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                if (AppConfig.isDebug()) {
-                    throw new RuntimeException("addBehavior: scene must not be null!");
+                if (!AppConfig.isDebug()) {
+                    return true;
                 }
-                return true;
+                throw new RuntimeException("addBehavior: scene must not be null!");
             }
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    private void upload(String str, List<Behavior> list) {
+    private void upload(String str, List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, list) == null) {
             try {
-                if (list.isEmpty()) {
-                    return;
+                if (!list.isEmpty()) {
+                    JSONArray jSONArray = new JSONArray();
+                    Iterator it = list.iterator();
+                    while (it.hasNext()) {
+                        Behavior behavior = (Behavior) it.next();
+                        JSONObject jSONObject = new JSONObject();
+                        jSONObject.put("i", behavior.getInfoName());
+                        jSONObject.put("c", behavior.getUseCount());
+                        jSONObject.put("t", behavior.getBehaviorType());
+                        jSONArray.put(jSONObject);
+                    }
+                    JSONObject jSONObject2 = new JSONObject();
+                    jSONObject2.put("p", jSONArray);
+                    JSONObject jSONObject3 = new JSONObject();
+                    jSONObject3.putOpt("source", str);
+                    jSONObject3.put("from", FROM_VALUE);
+                    jSONObject3.putOpt("ext", jSONObject2);
+                    if (AppConfig.isDebug()) {
+                        Log.d(TAG, jSONObject3.toString());
+                    }
+                    ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(UBC_ID, jSONObject3);
                 }
-                JSONArray jSONArray = new JSONArray();
-                for (Behavior behavior : list) {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("i", behavior.getInfoName());
-                    jSONObject.put("c", behavior.getUseCount());
-                    jSONObject.put("t", behavior.getBehaviorType());
-                    jSONArray.put(jSONObject);
-                }
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("p", jSONArray);
-                JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.putOpt("source", str);
-                jSONObject3.put("from", FROM_VALUE);
-                jSONObject3.putOpt("ext", jSONObject2);
-                if (AppConfig.isDebug()) {
-                    Log.d(TAG, jSONObject3.toString());
-                }
-                ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(UBC_ID, jSONObject3);
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -130,56 +131,58 @@ public class BehaviorApiManager implements IBehaviorApi {
     }
 
     @Override // com.baidu.behavior.record.api.IBehaviorApi
-    public void addBehavior(int i, @NonNull String str, @NonNull String str2, @NonNull String str3) {
+    public void addBehavior(int i, String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, str2, str3}) == null) && isInfoNameIdValid(str) && !isNull(str3)) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("i", str);
-                jSONObject.put("c", 1);
-                jSONObject.put("t", i);
-                JSONArray jSONArray = new JSONArray();
-                jSONArray.put(jSONObject);
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("p", jSONArray);
-                JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.put("source", str3);
-                jSONObject3.put("from", FROM_VALUE);
-                jSONObject3.putOpt("ext", jSONObject2);
-                if (AppConfig.isDebug()) {
-                    Log.d(TAG, jSONObject3.toString());
-                }
-                ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(UBC_ID, jSONObject3);
-            } catch (Throwable th) {
-                th.printStackTrace();
+        if ((interceptable != null && interceptable.invokeILL(1048576, this, i, str, str2) != null) || !isInfoNameIdValid(str) || isNull(str2)) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("i", str);
+            jSONObject.put("c", 1);
+            jSONObject.put("t", i);
+            JSONArray jSONArray = new JSONArray();
+            jSONArray.put(jSONObject);
+            JSONObject jSONObject2 = new JSONObject();
+            jSONObject2.put("p", jSONArray);
+            JSONObject jSONObject3 = new JSONObject();
+            jSONObject3.put("source", str2);
+            jSONObject3.put("from", FROM_VALUE);
+            jSONObject3.putOpt("ext", jSONObject2);
+            if (AppConfig.isDebug()) {
+                Log.d(TAG, jSONObject3.toString());
             }
+            ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(UBC_ID, jSONObject3);
+        } catch (Throwable th) {
+            th.printStackTrace();
         }
     }
 
     @Override // com.baidu.behavior.record.api.IBehaviorApi
-    public void addBehavior(int i, @NonNull String str, @NonNull String str2) {
+    public void addBehavior(int i, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeILL(1048576, this, i, str, str2) == null) && isInfoNameIdValid(str) && !isNull(str2)) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("i", str);
-                jSONObject.put("c", 1);
-                jSONObject.put("t", i);
-                JSONArray jSONArray = new JSONArray();
-                jSONArray.put(jSONObject);
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("p", jSONArray);
-                JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.put("source", str2);
-                jSONObject3.put("from", FROM_VALUE);
-                jSONObject3.putOpt("ext", jSONObject2);
-                if (AppConfig.isDebug()) {
-                    Log.d(TAG, jSONObject3.toString());
-                }
-                ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(UBC_ID, jSONObject3);
-            } catch (Throwable th) {
-                th.printStackTrace();
+        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, str2, str3}) != null) || !isInfoNameIdValid(str) || isNull(str3)) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("i", str);
+            jSONObject.put("c", 1);
+            jSONObject.put("t", i);
+            JSONArray jSONArray = new JSONArray();
+            jSONArray.put(jSONObject);
+            JSONObject jSONObject2 = new JSONObject();
+            jSONObject2.put("p", jSONArray);
+            JSONObject jSONObject3 = new JSONObject();
+            jSONObject3.put("source", str3);
+            jSONObject3.put("from", FROM_VALUE);
+            jSONObject3.putOpt("ext", jSONObject2);
+            if (AppConfig.isDebug()) {
+                Log.d(TAG, jSONObject3.toString());
             }
+            ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(UBC_ID, jSONObject3);
+        } catch (Throwable th) {
+            th.printStackTrace();
         }
     }
 
@@ -188,41 +191,44 @@ public class BehaviorApiManager implements IBehaviorApi {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void addBehavior(List<Behavior> list) {
+    public void addBehavior(List list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || list == null || list.isEmpty()) {
-            return;
-        }
-        for (Behavior behavior : list) {
-            if (!isInfoNameIdValid(behavior.getInfoName()) || isNull(behavior.getScene())) {
-                return;
-            }
-            while (r0.hasNext()) {
-            }
-        }
-        try {
-            HashMap hashMap = new HashMap();
-            ArrayList arrayList = new ArrayList();
-            for (Behavior behavior2 : list) {
-                if (TextUtils.isEmpty(behavior2.getScene())) {
-                    arrayList.add(behavior2);
-                } else {
-                    List list2 = (List) hashMap.get(behavior2.getScene());
-                    if (list2 == null) {
-                        ArrayList arrayList2 = new ArrayList();
-                        arrayList2.add(behavior2);
-                        hashMap.put(behavior2.getScene(), arrayList2);
-                    } else {
-                        list2.add(behavior2);
-                    }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && list != null && !list.isEmpty()) {
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                Behavior behavior = (Behavior) it.next();
+                if (!isInfoNameIdValid(behavior.getInfoName()) || isNull(behavior.getScene())) {
+                    return;
+                }
+                while (it.hasNext()) {
                 }
             }
-            upload("", arrayList);
-            for (Map.Entry entry : hashMap.entrySet()) {
-                upload((String) entry.getKey(), (List) entry.getValue());
+            try {
+                HashMap hashMap = new HashMap();
+                ArrayList arrayList = new ArrayList();
+                Iterator it2 = list.iterator();
+                while (it2.hasNext()) {
+                    Behavior behavior2 = (Behavior) it2.next();
+                    if (TextUtils.isEmpty(behavior2.getScene())) {
+                        arrayList.add(behavior2);
+                    } else {
+                        List list2 = (List) hashMap.get(behavior2.getScene());
+                        if (list2 == null) {
+                            ArrayList arrayList2 = new ArrayList();
+                            arrayList2.add(behavior2);
+                            hashMap.put(behavior2.getScene(), arrayList2);
+                        } else {
+                            list2.add(behavior2);
+                        }
+                    }
+                }
+                upload("", arrayList);
+                for (Map.Entry entry : hashMap.entrySet()) {
+                    upload((String) entry.getKey(), (List) entry.getValue());
+                }
+            } catch (Throwable th) {
+                th.printStackTrace();
             }
-        } catch (Throwable th) {
-            th.printStackTrace();
         }
     }
 }

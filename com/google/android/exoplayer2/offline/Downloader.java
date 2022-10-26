@@ -1,6 +1,5 @@
 package com.google.android.exoplayer2.offline;
 
-import androidx.annotation.Nullable;
 import java.io.IOException;
 /* loaded from: classes7.dex */
 public interface Downloader {
@@ -10,7 +9,7 @@ public interface Downloader {
         void onDownloadProgress(Downloader downloader, float f, long j);
     }
 
-    void download(@Nullable ProgressListener progressListener) throws InterruptedException, IOException;
+    void download(ProgressListener progressListener) throws InterruptedException, IOException;
 
     float getDownloadPercentage();
 

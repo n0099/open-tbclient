@@ -3,7 +3,6 @@ package androidx.core.os;
 import android.os.Build;
 import android.os.Environment;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,8 +31,7 @@ public final class EnvironmentCompat {
         }
     }
 
-    @NonNull
-    public static String getStorageState(@NonNull File file) {
+    public static String getStorageState(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
@@ -45,7 +43,10 @@ public final class EnvironmentCompat {
                 return Environment.getStorageState(file);
             }
             try {
-                return file.getCanonicalPath().startsWith(Environment.getExternalStorageDirectory().getCanonicalPath()) ? Environment.getExternalStorageState() : "unknown";
+                if (file.getCanonicalPath().startsWith(Environment.getExternalStorageDirectory().getCanonicalPath())) {
+                    return Environment.getExternalStorageState();
+                }
+                return "unknown";
             } catch (IOException e) {
                 Log.w(TAG, "Failed to resolve canonical path: " + e);
                 return "unknown";

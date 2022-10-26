@@ -1,10 +1,8 @@
 package com.kwad.components.core.video;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Message;
 import android.view.View;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +16,6 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.ae;
 import com.kwad.sdk.utils.bg;
 import java.util.concurrent.atomic.AtomicBoolean;
-@SuppressLint({"ViewConstructor"})
 /* loaded from: classes7.dex */
 public final class c extends a implements bg.a {
     public static /* synthetic */ Interceptable $ic;
@@ -31,7 +28,7 @@ public final class c extends a implements bg.a {
     public final KsAdVideoPlayConfig cN;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(Context context, AdTemplate adTemplate, @NonNull com.kwad.sdk.core.video.videoview.c cVar, KsAdVideoPlayConfig ksAdVideoPlayConfig) {
+    public c(Context context, AdTemplate adTemplate, com.kwad.sdk.core.video.videoview.c cVar, KsAdVideoPlayConfig ksAdVideoPlayConfig) {
         super(context, adTemplate, cVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

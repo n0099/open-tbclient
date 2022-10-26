@@ -7,15 +7,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public final class OpenHashSet<T> {
+public final class OpenHashSet {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INT_PHI = -1640531527;
     public transient /* synthetic */ FieldHolder $fh;
-    public T[] keys;
+    public Object[] keys;
     public final float loadFactor;
     public int mask;
     public int maxSize;
     public int size;
+
+    public static int mix(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            int i2 = i * (-1640531527);
+            return i2 ^ (i2 >>> 16);
+        }
+        return invokeI.intValue;
+    }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public OpenHashSet() {
@@ -34,154 +44,6 @@ public final class OpenHashSet<T> {
                 return;
             }
         }
-    }
-
-    public static int mix(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            int i2 = i * (-1640531527);
-            return i2 ^ (i2 >>> 16);
-        }
-        return invokeI.intValue;
-    }
-
-    public boolean add(T t) {
-        InterceptResult invokeL;
-        T t2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
-            T[] tArr = this.keys;
-            int i = this.mask;
-            int mix = mix(t.hashCode()) & i;
-            T t3 = tArr[mix];
-            if (t3 != null) {
-                if (t3.equals(t)) {
-                    return false;
-                }
-                do {
-                    mix = (mix + 1) & i;
-                    t2 = tArr[mix];
-                    if (t2 == null) {
-                    }
-                } while (!t2.equals(t));
-                return false;
-            }
-            tArr[mix] = t;
-            int i2 = this.size + 1;
-            this.size = i2;
-            if (i2 >= this.maxSize) {
-                rehash();
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public Object[] keys() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.keys : (Object[]) invokeV.objValue;
-    }
-
-    public void rehash() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) {
-            return;
-        }
-        T[] tArr = this.keys;
-        int length = tArr.length;
-        int i = length << 1;
-        int i2 = i - 1;
-        T[] tArr2 = (T[]) new Object[i];
-        int i3 = this.size;
-        while (true) {
-            int i4 = i3 - 1;
-            if (i3 != 0) {
-                do {
-                    length--;
-                } while (tArr[length] == null);
-                int mix = mix(tArr[length].hashCode()) & i2;
-                if (tArr2[mix] != null) {
-                    do {
-                        mix = (mix + 1) & i2;
-                    } while (tArr2[mix] != null);
-                }
-                tArr2[mix] = tArr[length];
-                i3 = i4;
-            } else {
-                this.mask = i2;
-                this.maxSize = (int) (i * this.loadFactor);
-                this.keys = tArr2;
-                return;
-            }
-        }
-    }
-
-    public boolean remove(T t) {
-        InterceptResult invokeL;
-        T t2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, t)) == null) {
-            T[] tArr = this.keys;
-            int i = this.mask;
-            int mix = mix(t.hashCode()) & i;
-            T t3 = tArr[mix];
-            if (t3 == null) {
-                return false;
-            }
-            if (t3.equals(t)) {
-                return removeEntry(mix, tArr, i);
-            }
-            do {
-                mix = (mix + 1) & i;
-                t2 = tArr[mix];
-                if (t2 == null) {
-                    return false;
-                }
-            } while (!t2.equals(t));
-            return removeEntry(mix, tArr, i);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean removeEntry(int i, T[] tArr, int i2) {
-        InterceptResult invokeCommon;
-        int i3;
-        T t;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), tArr, Integer.valueOf(i2)})) != null) {
-            return invokeCommon.booleanValue;
-        }
-        this.size--;
-        while (true) {
-            int i4 = i + 1;
-            while (true) {
-                i3 = i4 & i2;
-                t = tArr[i3];
-                if (t == null) {
-                    tArr[i] = null;
-                    return true;
-                }
-                int mix = mix(t.hashCode()) & i2;
-                if (i > i3) {
-                    if (i >= mix && mix > i3) {
-                        break;
-                    }
-                    i4 = i3 + 1;
-                } else if (i < mix && mix <= i3) {
-                    i4 = i3 + 1;
-                }
-            }
-            tArr[i] = t;
-            i = i3;
-        }
-    }
-
-    public int size() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.size : invokeV.intValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -205,6 +67,38 @@ public final class OpenHashSet<T> {
         }
     }
 
+    public boolean add(Object obj) {
+        InterceptResult invokeL;
+        Object obj2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            Object[] objArr = this.keys;
+            int i = this.mask;
+            int mix = mix(obj.hashCode()) & i;
+            Object obj3 = objArr[mix];
+            if (obj3 != null) {
+                if (obj3.equals(obj)) {
+                    return false;
+                }
+                do {
+                    mix = (mix + 1) & i;
+                    obj2 = objArr[mix];
+                    if (obj2 == null) {
+                    }
+                } while (!obj2.equals(obj));
+                return false;
+            }
+            objArr[mix] = obj;
+            int i2 = this.size + 1;
+            this.size = i2;
+            if (i2 >= this.maxSize) {
+                rehash();
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
     public OpenHashSet(int i, float f) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -224,6 +118,120 @@ public final class OpenHashSet<T> {
         int roundToPowerOfTwo = Pow2.roundToPowerOfTwo(i);
         this.mask = roundToPowerOfTwo - 1;
         this.maxSize = (int) (f * roundToPowerOfTwo);
-        this.keys = (T[]) new Object[roundToPowerOfTwo];
+        this.keys = new Object[roundToPowerOfTwo];
+    }
+
+    public Object[] keys() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.keys;
+        }
+        return (Object[]) invokeV.objValue;
+    }
+
+    public int size() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.size;
+        }
+        return invokeV.intValue;
+    }
+
+    public void rehash() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            Object[] objArr = this.keys;
+            int length = objArr.length;
+            int i = length << 1;
+            int i2 = i - 1;
+            Object[] objArr2 = new Object[i];
+            int i3 = this.size;
+            while (true) {
+                int i4 = i3 - 1;
+                if (i3 != 0) {
+                    do {
+                        length--;
+                    } while (objArr[length] == null);
+                    int mix = mix(objArr[length].hashCode()) & i2;
+                    if (objArr2[mix] != null) {
+                        do {
+                            mix = (mix + 1) & i2;
+                        } while (objArr2[mix] != null);
+                    }
+                    objArr2[mix] = objArr[length];
+                    i3 = i4;
+                } else {
+                    this.mask = i2;
+                    this.maxSize = (int) (i * this.loadFactor);
+                    this.keys = objArr2;
+                    return;
+                }
+            }
+        }
+    }
+
+    public boolean remove(Object obj) {
+        InterceptResult invokeL;
+        Object obj2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            Object[] objArr = this.keys;
+            int i = this.mask;
+            int mix = mix(obj.hashCode()) & i;
+            Object obj3 = objArr[mix];
+            if (obj3 == null) {
+                return false;
+            }
+            if (obj3.equals(obj)) {
+                return removeEntry(mix, objArr, i);
+            }
+            do {
+                mix = (mix + 1) & i;
+                obj2 = objArr[mix];
+                if (obj2 == null) {
+                    return false;
+                }
+            } while (!obj2.equals(obj));
+            return removeEntry(mix, objArr, i);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean removeEntry(int i, Object[] objArr, int i2) {
+        InterceptResult invokeCommon;
+        int i3;
+        Object obj;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), objArr, Integer.valueOf(i2)})) == null) {
+            this.size--;
+            while (true) {
+                int i4 = i + 1;
+                while (true) {
+                    i3 = i4 & i2;
+                    obj = objArr[i3];
+                    if (obj == null) {
+                        objArr[i] = null;
+                        return true;
+                    }
+                    int mix = mix(obj.hashCode()) & i2;
+                    if (i <= i3) {
+                        if (i < mix && mix <= i3) {
+                            i4 = i3 + 1;
+                        }
+                    } else {
+                        if (i >= mix && mix > i3) {
+                            break;
+                        }
+                        i4 = i3 + 1;
+                    }
+                }
+                objArr[i] = obj;
+                i = i3;
+            }
+        } else {
+            return invokeCommon.booleanValue;
+        }
     }
 }

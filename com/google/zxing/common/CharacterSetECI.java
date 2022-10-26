@@ -43,11 +43,11 @@ public final class CharacterSetECI {
     public static final CharacterSetECI ISO8859_7;
     public static final CharacterSetECI ISO8859_8;
     public static final CharacterSetECI ISO8859_9;
-    public static final Map<String, CharacterSetECI> NAME_TO_ECI;
+    public static final Map NAME_TO_ECI;
     public static final CharacterSetECI SJIS;
     public static final CharacterSetECI UTF8;
     public static final CharacterSetECI UnicodeBigUnmarked;
-    public static final Map<Integer, CharacterSetECI> VALUE_TO_ECI;
+    public static final Map VALUE_TO_ECI;
     public transient /* synthetic */ FieldHolder $fh;
     public final String[] otherEncodingNames;
     public final int[] values;
@@ -129,42 +129,6 @@ public final class CharacterSetECI {
         }
     }
 
-    public static CharacterSetECI getCharacterSetECIByName(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? NAME_TO_ECI.get(str) : (CharacterSetECI) invokeL.objValue;
-    }
-
-    public static CharacterSetECI getCharacterSetECIByValue(int i) throws FormatException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
-            if (i >= 0 && i < 900) {
-                return VALUE_TO_ECI.get(Integer.valueOf(i));
-            }
-            throw FormatException.getFormatInstance();
-        }
-        return (CharacterSetECI) invokeI.objValue;
-    }
-
-    public static CharacterSetECI valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? (CharacterSetECI) Enum.valueOf(CharacterSetECI.class, str) : (CharacterSetECI) invokeL.objValue;
-    }
-
-    public static CharacterSetECI[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? (CharacterSetECI[]) $VALUES.clone() : (CharacterSetECI[]) invokeV.objValue;
-    }
-
-    public int getValue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.values[0] : invokeV.intValue;
-    }
-
     public CharacterSetECI(String str, int i, int i2, String... strArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -207,5 +171,53 @@ public final class CharacterSetECI {
         }
         this.values = iArr;
         this.otherEncodingNames = strArr;
+    }
+
+    public static CharacterSetECI getCharacterSetECIByName(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return (CharacterSetECI) NAME_TO_ECI.get(str);
+        }
+        return (CharacterSetECI) invokeL.objValue;
+    }
+
+    public static CharacterSetECI getCharacterSetECIByValue(int i) throws FormatException {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            if (i >= 0 && i < 900) {
+                return (CharacterSetECI) VALUE_TO_ECI.get(Integer.valueOf(i));
+            }
+            throw FormatException.getFormatInstance();
+        }
+        return (CharacterSetECI) invokeI.objValue;
+    }
+
+    public static CharacterSetECI valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            return (CharacterSetECI) Enum.valueOf(CharacterSetECI.class, str);
+        }
+        return (CharacterSetECI) invokeL.objValue;
+    }
+
+    public static CharacterSetECI[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return (CharacterSetECI[]) $VALUES.clone();
+        }
+        return (CharacterSetECI[]) invokeV.objValue;
+    }
+
+    public int getValue() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.values[0];
+        }
+        return invokeV.intValue;
     }
 }

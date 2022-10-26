@@ -42,16 +42,18 @@ public class CommitVoteResMsg extends JsonHttpResponsedMessage {
             super.decodeLogicInBackGround(i, jSONObject);
             int statusCode = getStatusCode();
             int error = getError();
-            if (statusCode != 200 || error < 0 || jSONObject == null) {
-                return;
+            if (statusCode == 200 && error >= 0 && jSONObject != null) {
+                this.tokenData = AuthTokenData.parse(jSONObject);
             }
-            this.tokenData = AuthTokenData.parse(jSONObject);
         }
     }
 
     public AuthTokenData getTokenData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.tokenData : (AuthTokenData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.tokenData;
+        }
+        return (AuthTokenData) invokeV.objValue;
     }
 }

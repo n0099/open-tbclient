@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.or4;
+import com.baidu.tieba.qr4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,9 +14,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.open.SocialConstants;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class AlaBroadcastGiftToastData extends or4 implements Parcelable {
+public class AlaBroadcastGiftToastData extends qr4 implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<AlaBroadcastGiftToastData> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public long gift_id;
     public String gift_name;
@@ -27,8 +27,18 @@ public class AlaBroadcastGiftToastData extends or4 implements Parcelable {
     public String sender_portrait;
     public String thumbnail_url;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes3.dex */
-    public static class a implements Parcelable.Creator<AlaBroadcastGiftToastData> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -52,7 +62,10 @@ public class AlaBroadcastGiftToastData extends or4 implements Parcelable {
         public AlaBroadcastGiftToastData createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new AlaBroadcastGiftToastData(parcel) : (AlaBroadcastGiftToastData) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new AlaBroadcastGiftToastData(parcel);
+            }
+            return (AlaBroadcastGiftToastData) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -61,7 +74,10 @@ public class AlaBroadcastGiftToastData extends or4 implements Parcelable {
         public AlaBroadcastGiftToastData[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new AlaBroadcastGiftToastData[i] : (AlaBroadcastGiftToastData[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new AlaBroadcastGiftToastData[i];
+            }
+            return (AlaBroadcastGiftToastData[]) invokeI.objValue;
         }
     }
 
@@ -95,20 +111,35 @@ public class AlaBroadcastGiftToastData extends or4 implements Parcelable {
         }
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
+    public AlaBroadcastGiftToastData(Parcel parcel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
-        return invokeV.intValue;
+        this.live_id = parcel.readLong();
+        this.sender = parcel.readString();
+        this.receiver = parcel.readString();
+        this.gift_id = parcel.readLong();
+        this.gift_name = parcel.readString();
+        this.msg_id = parcel.readLong();
+        this.sender_portrait = parcel.readString();
+        this.thumbnail_url = parcel.readString();
     }
 
-    @Override // com.baidu.tieba.or4
+    @Override // com.baidu.tieba.qr4
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         this.live_id = jSONObject.optLong("live_id", 0L);
@@ -134,30 +165,5 @@ public class AlaBroadcastGiftToastData extends or4 implements Parcelable {
             parcel.writeString(this.sender_portrait);
             parcel.writeString(this.thumbnail_url);
         }
-    }
-
-    public AlaBroadcastGiftToastData(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.live_id = parcel.readLong();
-        this.sender = parcel.readString();
-        this.receiver = parcel.readString();
-        this.gift_id = parcel.readLong();
-        this.gift_name = parcel.readString();
-        this.msg_id = parcel.readLong();
-        this.sender_portrait = parcel.readString();
-        this.thumbnail_url = parcel.readString();
     }
 }

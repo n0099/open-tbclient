@@ -1,14 +1,14 @@
 package com.baidu.searchbox.network.outback;
 
-import com.baidu.tieba.hc5;
-import com.baidu.tieba.pe1;
+import com.baidu.tieba.mc5;
+import com.baidu.tieba.qe1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class IOutbackContext_OutbackComponentHolder_Provider implements pe1 {
+public class IOutbackContext_OutbackComponentHolder_Provider implements qe1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,10 +26,10 @@ public class IOutbackContext_OutbackComponentHolder_Provider implements pe1 {
         }
     }
 
-    @Override // com.baidu.tieba.pe1
+    @Override // com.baidu.tieba.qe1
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new hc5() : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new mc5() : invokeV.objValue;
     }
 }

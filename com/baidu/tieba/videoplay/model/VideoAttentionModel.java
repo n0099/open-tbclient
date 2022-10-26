@@ -17,8 +17,6 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.videoplay.data.VideoAttentionPersonListData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,6 +40,41 @@ public class VideoAttentionModel extends BdBaseModel {
     public HttpMessageListener g;
     public final CustomMessageListener h;
     public int mHasMore;
+
+    /* loaded from: classes6.dex */
+    public interface c {
+        void a(List list, boolean z);
+
+        void b(List list);
+
+        void c(List list, String str, boolean z);
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void setFrom(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+        }
+    }
 
     /* loaded from: classes6.dex */
     public class a extends HttpMessageListener {
@@ -80,33 +113,32 @@ public class VideoAttentionModel extends BdBaseModel {
                     this.a.e = false;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921576, Integer.valueOf(this.a.f)));
                 }
-                if (httpResponsedMessage == null || httpResponsedMessage.getError() != 0) {
-                    return;
-                }
-                List<VideoItemData> arrayList = new ArrayList<>();
-                List<VideoAttentionPersonListData> arrayList2 = new ArrayList<>();
-                if (httpResponsedMessage instanceof VideoAttentionHttpResponseMessage) {
-                    VideoAttentionHttpResponseMessage videoAttentionHttpResponseMessage = (VideoAttentionHttpResponseMessage) httpResponsedMessage;
-                    arrayList = videoAttentionHttpResponseMessage.getVideoItemDatas();
-                    arrayList2 = videoAttentionHttpResponseMessage.getVideoAttentionPersonListData();
-                    this.a.b = videoAttentionHttpResponseMessage.getFeedId();
-                    this.a.c = videoAttentionHttpResponseMessage.getShowWord();
-                    this.a.mHasMore = videoAttentionHttpResponseMessage.getHasMore();
-                }
-                TbSingleton.getInstance().clearVideoRecord();
-                if (this.a.a != null) {
-                    if (ListUtils.isEmpty(arrayList)) {
-                        this.a.a.c(arrayList2, this.a.c, this.a.e);
-                        return;
-                    } else if (this.a.d == 1) {
-                        if (arrayList != null) {
-                            this.a.a.a(arrayList, this.a.e);
-                        }
-                    } else if (arrayList != null) {
-                        this.a.a.b(arrayList);
+                if (httpResponsedMessage != null && httpResponsedMessage.getError() == 0) {
+                    List arrayList = new ArrayList();
+                    List arrayList2 = new ArrayList();
+                    if (httpResponsedMessage instanceof VideoAttentionHttpResponseMessage) {
+                        VideoAttentionHttpResponseMessage videoAttentionHttpResponseMessage = (VideoAttentionHttpResponseMessage) httpResponsedMessage;
+                        arrayList = videoAttentionHttpResponseMessage.getVideoItemDatas();
+                        arrayList2 = videoAttentionHttpResponseMessage.getVideoAttentionPersonListData();
+                        this.a.b = videoAttentionHttpResponseMessage.getFeedId();
+                        this.a.c = videoAttentionHttpResponseMessage.getShowWord();
+                        this.a.mHasMore = videoAttentionHttpResponseMessage.getHasMore();
                     }
+                    TbSingleton.getInstance().clearVideoRecord();
+                    if (this.a.a != null) {
+                        if (ListUtils.isEmpty(arrayList)) {
+                            this.a.a.c(arrayList2, this.a.c, this.a.e);
+                            return;
+                        } else if (this.a.d == 1) {
+                            if (arrayList != null) {
+                                this.a.a.a(arrayList, this.a.e);
+                            }
+                        } else if (arrayList != null) {
+                            this.a.a.b(arrayList);
+                        }
+                    }
+                    VideoAttentionModel.A(this.a);
                 }
-                VideoAttentionModel.A(this.a);
             }
         }
     }
@@ -141,28 +173,20 @@ public class VideoAttentionModel extends BdBaseModel {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if ((data instanceof Integer) && ((Integer) data).intValue() == this.a.f && TbadkCoreApplication.isLogin() && !this.a.e) {
-                this.a.e = true;
-                this.a.J();
-                TbSingleton.getInstance().setVideoChannelAttentionRedIcon(null);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921575, Integer.valueOf(this.a.f)));
+            if (!(data instanceof Integer) || ((Integer) data).intValue() != this.a.f || !TbadkCoreApplication.isLogin() || this.a.e) {
+                return;
             }
+            this.a.e = true;
+            this.a.J();
+            TbSingleton.getInstance().setVideoChannelAttentionRedIcon(null);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921575, Integer.valueOf(this.a.f)));
         }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface c {
-        void a(List<VideoItemData> list, boolean z);
-
-        void b(List<VideoItemData> list);
-
-        void c(List<VideoAttentionPersonListData> list, String str, boolean z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -200,6 +224,20 @@ public class VideoAttentionModel extends BdBaseModel {
         return i;
     }
 
+    public void K(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public void L(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
+            this.a = cVar;
+        }
+    }
+
     public final HttpMessage I(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -224,50 +262,10 @@ public class VideoAttentionModel extends BdBaseModel {
         }
     }
 
-    public void K(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public void L(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            this.a = cVar;
-        }
-    }
-
     public void b() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.mHasMore == 1) {
             sendMessage(I(1));
-        }
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void setFrom(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
         }
     }
 }

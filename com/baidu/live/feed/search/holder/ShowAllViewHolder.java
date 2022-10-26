@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.uc0;
+import com.baidu.tieba.vc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -43,9 +43,9 @@ public class ShowAllViewHolder extends RecyclerView.ViewHolder {
         this.a = view2;
         this.b = context;
         this.f = str;
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ec5);
-        this.d = view2.findViewById(R.id.obfuscated_res_0x7f0913d7);
-        this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ecc);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ec4);
+        this.d = view2.findViewById(R.id.obfuscated_res_0x7f0913c8);
+        this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ecb);
     }
 
     public void a(int i) {
@@ -57,11 +57,11 @@ public class ShowAllViewHolder extends RecyclerView.ViewHolder {
             } else {
                 this.e.setVisibility(0);
             }
-            String r = uc0.f().r();
+            String r = vc0.f().r();
             if ("day".equals(r)) {
-                this.e.setImageResource(R.drawable.obfuscated_res_0x7f080d2d);
+                this.e.setImageResource(R.drawable.obfuscated_res_0x7f080d3d);
             } else if ("night".equals(r)) {
-                this.e.setImageResource(R.drawable.obfuscated_res_0x7f080d2e);
+                this.e.setImageResource(R.drawable.obfuscated_res_0x7f080d3e);
             }
         }
     }

@@ -22,7 +22,7 @@ public class ImageModel extends BdBaseModel {
     public String b;
 
     /* loaded from: classes3.dex */
-    public class a extends BdAsyncTask<Object, Integer, Bitmap> {
+    public class a extends BdAsyncTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;

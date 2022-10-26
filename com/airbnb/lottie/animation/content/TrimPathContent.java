@@ -7,13 +7,17 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class TrimPathContent implements Content, BaseKeyframeAnimation.AnimationListener {
-    public final BaseKeyframeAnimation<?, Float> endAnimation;
+    public final BaseKeyframeAnimation endAnimation;
     public final boolean hidden;
-    public final List<BaseKeyframeAnimation.AnimationListener> listeners = new ArrayList();
+    public final List listeners = new ArrayList();
     public final String name;
-    public final BaseKeyframeAnimation<?, Float> offsetAnimation;
-    public final BaseKeyframeAnimation<?, Float> startAnimation;
+    public final BaseKeyframeAnimation offsetAnimation;
+    public final BaseKeyframeAnimation startAnimation;
     public final ShapeTrimPath.Type type;
+
+    @Override // com.airbnb.lottie.animation.content.Content
+    public void setContents(List list, List list2) {
+    }
 
     public TrimPathContent(BaseLayer baseLayer, ShapeTrimPath shapeTrimPath) {
         this.name = shapeTrimPath.getName();
@@ -34,7 +38,7 @@ public class TrimPathContent implements Content, BaseKeyframeAnimation.Animation
         this.listeners.add(animationListener);
     }
 
-    public BaseKeyframeAnimation<?, Float> getEnd() {
+    public BaseKeyframeAnimation getEnd() {
         return this.endAnimation;
     }
 
@@ -43,11 +47,11 @@ public class TrimPathContent implements Content, BaseKeyframeAnimation.Animation
         return this.name;
     }
 
-    public BaseKeyframeAnimation<?, Float> getOffset() {
+    public BaseKeyframeAnimation getOffset() {
         return this.offsetAnimation;
     }
 
-    public BaseKeyframeAnimation<?, Float> getStart() {
+    public BaseKeyframeAnimation getStart() {
         return this.startAnimation;
     }
 
@@ -62,11 +66,7 @@ public class TrimPathContent implements Content, BaseKeyframeAnimation.Animation
     @Override // com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation.AnimationListener
     public void onValueChanged() {
         for (int i = 0; i < this.listeners.size(); i++) {
-            this.listeners.get(i).onValueChanged();
+            ((BaseKeyframeAnimation.AnimationListener) this.listeners.get(i)).onValueChanged();
         }
-    }
-
-    @Override // com.airbnb.lottie.animation.content.Content
-    public void setContents(List<Content> list, List<Content> list2) {
     }
 }

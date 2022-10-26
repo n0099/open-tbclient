@@ -1,15 +1,15 @@
 package com.baidu.android.imrtc.request;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public interface BIMRtcTokenListener {
+    void onResult(int i, String str, BIMRTCGetTokeResult bIMRTCGetTokeResult);
 
     /* loaded from: classes.dex */
-    public static class BIMRTCGetTokeResult {
+    public class BIMRTCGetTokeResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String roomId;
@@ -36,6 +36,4 @@ public interface BIMRtcTokenListener {
             this.useId = -1L;
         }
     }
-
-    void onResult(int i, String str, @NonNull BIMRTCGetTokeResult bIMRTCGetTokeResult);
 }

@@ -21,14 +21,14 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b26;
-import com.baidu.tieba.bh7;
-import com.baidu.tieba.jh7;
-import com.baidu.tieba.jm8;
+import com.baidu.tieba.a26;
+import com.baidu.tieba.i26;
 import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
 import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.baidu.tieba.ng7;
-import com.baidu.tieba.t16;
+import com.baidu.tieba.mh7;
+import com.baidu.tieba.qm8;
+import com.baidu.tieba.uh7;
+import com.baidu.tieba.yg7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,7 +37,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends LinearLayout implements jh7<T> {
+public abstract class BaseLegoCardView extends LinearLayout implements uh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -50,8 +50,69 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     public ImageView h;
     public TbPageContext i;
     public int j;
-    public ng7 k;
+    public yg7 k;
     public boolean l;
+
+    @Override // com.baidu.tieba.uh7
+    public void c(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.uh7
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.uh7
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.uh7
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.uh7
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        }
+    }
+
+    public abstract View q();
+
+    @Override // com.baidu.tieba.uh7
+    public final void setFromCDN(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.uh7
+    public void setMulDel(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
+        }
+    }
+
+    public abstract void t(BaseLegoCardInfo baseLegoCardInfo, int i);
+
+    public abstract void u(BaseLegoCardInfo baseLegoCardInfo);
+
+    public void w() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BaseLegoCardView(TbPageContext tbPageContext) {
@@ -101,165 +162,103 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     public final void B(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            if (i == -1 || i == 0) {
-                this.h.setVisibility(8);
-            } else if (i == 1) {
+            if (i != -1 && i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            this.h.setVisibility(8);
+                            return;
+                        }
+                        this.h.setPadding(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8), 0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8), 0);
+                        this.h.setVisibility(0);
+                        return;
+                    }
+                    this.h.setPadding(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8), 0, 0, 0);
+                    this.h.setVisibility(0);
+                    return;
+                }
                 this.h.setPadding(0, 0, 0, 0);
                 this.h.setVisibility(0);
-            } else if (i == 2) {
-                this.h.setPadding(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8), 0, 0, 0);
-                this.h.setVisibility(0);
-            } else if (i != 3) {
-                this.h.setVisibility(8);
-            } else {
-                this.h.setPadding(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8), 0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8), 0);
-                this.h.setVisibility(0);
+                return;
             }
+            this.h.setVisibility(8);
         }
     }
 
-    @Override // com.baidu.tieba.jh7
-    public void c(BdUniqueId bdUniqueId) {
+    public final void i(BaseLegoCardInfo baseLegoCardInfo) {
+        int i;
+        int showLine;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, baseLegoCardInfo) == null) {
+            View view2 = this.e;
+            if (baseLegoCardInfo.isShowCover()) {
+                i = 0;
+            } else {
+                i = 8;
+            }
+            view2.setVisibility(i);
+            int showSpace = baseLegoCardInfo.getShowSpace();
+            if (showSpace != 0) {
+                showLine = -1;
+            } else {
+                showLine = baseLegoCardInfo.getShowLine();
+            }
+            B(showLine);
+            if (showSpace != 0) {
+                if (showSpace != 1) {
+                    if (showSpace != 2) {
+                        if (showSpace == 3) {
+                            this.f.setVisibility(0);
+                            this.g.setVisibility(0);
+                            return;
+                        }
+                        return;
+                    }
+                    this.f.setVisibility(0);
+                    this.g.setVisibility(8);
+                    return;
+                }
+                this.f.setVisibility(8);
+                this.g.setVisibility(0);
+                return;
+            }
+            this.f.setVisibility(8);
+            this.g.setVisibility(8);
         }
     }
 
-    @Override // com.baidu.tieba.jh7
-    public void e() {
+    public final void s(BaseLegoCardInfo baseLegoCardInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.jh7
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.jh7
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if ((interceptable == null || interceptable.invokeL(1048595, this, baseLegoCardInfo) == null) && baseLegoCardInfo != null && !TextUtils.isEmpty(baseLegoCardInfo.getShowKey()) && !TextUtils.isEmpty(baseLegoCardInfo.getShowExtra())) {
+            StatisticItem statisticItem = new StatisticItem(baseLegoCardInfo.getShowKey());
+            for (String str : baseLegoCardInfo.getShowExtra().split("&")) {
+                String[] split = str.split("=");
+                if (split.length == 2) {
+                    statisticItem.param(split[0], split[1]);
+                }
+            }
+            statisticItem.param("obj_locate", getStatPosition());
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, a26.e());
+            i26.b().a(statisticItem);
         }
     }
 
     public final int getBusinessType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
     }
 
     public final int getStatPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.c + 1 : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.jh7
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.c + 1;
         }
-    }
-
-    public final void i(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, t) == null) {
-            this.e.setVisibility(t.isShowCover() ? 0 : 8);
-            int showSpace = t.getShowSpace();
-            B(showSpace != 0 ? -1 : t.getShowLine());
-            if (showSpace == 0) {
-                this.f.setVisibility(8);
-                this.g.setVisibility(8);
-            } else if (showSpace == 1) {
-                this.f.setVisibility(8);
-                this.g.setVisibility(0);
-            } else if (showSpace == 2) {
-                this.f.setVisibility(0);
-                this.g.setVisibility(8);
-            } else if (showSpace != 3) {
-            } else {
-                this.f.setVisibility(0);
-                this.g.setVisibility(0);
-            }
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0201);
-            SkinManager.setImageResource(this.h, R.color.CAM_X0204);
-            int i = this.b;
-            if (i == 1) {
-                this.f.setBackgroundColor(getResources().getColor(17170445));
-                this.g.setBackgroundColor(getResources().getColor(17170445));
-            } else if (i != 2 && i != 3) {
-                this.f.setBackgroundColor(getResources().getColor(17170445));
-                this.g.setBackgroundColor(getResources().getColor(17170445));
-            } else {
-                SkinManager.setBackgroundColor(this.f, R.color.CAM_X0204);
-                SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
-            }
-        }
-    }
-
-    public final SpannableString k(String str, List<String> list, int i, int i2) {
-        InterceptResult invokeLLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048587, this, str, list, i, i2)) == null) {
-            if (TextUtils.isEmpty(str) || ListUtils.isEmpty(list)) {
-                return null;
-            }
-            int indexOf = str.indexOf("{%s}", 0);
-            if (indexOf >= 0) {
-                StringBuilder sb = new StringBuilder();
-                ArrayList arrayList = new ArrayList();
-                int i3 = 0;
-                int i4 = 0;
-                while (indexOf >= 0) {
-                    sb.append(str.substring(i3, indexOf));
-                    if (i4 < list.size()) {
-                        arrayList.add(Integer.valueOf(sb.length()));
-                        sb.append(list.get(i4));
-                        int i5 = indexOf + 4;
-                        i3 = i5;
-                        indexOf = str.indexOf("{%s}", i5);
-                        i4++;
-                    } else {
-                        indexOf = -1;
-                    }
-                }
-                if (i3 < str.length()) {
-                    sb.append(str.substring(i3));
-                }
-                SpannableString spannableString = new SpannableString(sb.toString());
-                for (int i6 = 0; i6 < arrayList.size(); i6++) {
-                    int intValue = ((Integer) arrayList.get(i6)).intValue();
-                    spannableString.setSpan(new ForegroundColorSpan(r() ? i2 : i), intValue, list.get(i6).length() + intValue, 33);
-                }
-                return spannableString;
-            }
-            return null;
-        }
-        return (SpannableString) invokeLLII.objValue;
-    }
-
-    public final <S> S l(View view2, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048588, this, view2, i)) == null) ? (S) view2.findViewById(i) : (S) invokeLI.objValue;
-    }
-
-    public final void m(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, t) == null) {
-            b26.b().d(true);
-            v(t);
-        }
+        return invokeV.intValue;
     }
 
     public final void n() {
@@ -274,7 +273,164 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     public final ViewGroup.LayoutParams o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? new ViewGroup.LayoutParams(-1, -2) : (ViewGroup.LayoutParams) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return new ViewGroup.LayoutParams(-1, -2);
+        }
+        return (ViewGroup.LayoutParams) invokeV.objValue;
+    }
+
+    public final boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            if (1 == TbadkCoreApplication.getInst().getSkinType()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
+            this.d.setVisibility(0);
+        }
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0201);
+            SkinManager.setImageResource(this.h, R.color.CAM_X0204);
+            int i = this.b;
+            if (i != 1) {
+                if (i != 2 && i != 3) {
+                    this.f.setBackgroundColor(getResources().getColor(17170445));
+                    this.g.setBackgroundColor(getResources().getColor(17170445));
+                    return;
+                }
+                SkinManager.setBackgroundColor(this.f, R.color.CAM_X0204);
+                SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
+                return;
+            }
+            this.f.setBackgroundColor(getResources().getColor(17170445));
+            this.g.setBackgroundColor(getResources().getColor(17170445));
+        }
+    }
+
+    public final SpannableString k(String str, List list, int i, int i2) {
+        InterceptResult invokeLLII;
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048587, this, str, list, i, i2)) == null) {
+            if (!TextUtils.isEmpty(str) && !ListUtils.isEmpty(list)) {
+                int indexOf = str.indexOf("{%s}", 0);
+                if (indexOf >= 0) {
+                    StringBuilder sb = new StringBuilder();
+                    ArrayList arrayList = new ArrayList();
+                    int i4 = 0;
+                    int i5 = 0;
+                    while (indexOf >= 0) {
+                        sb.append(str.substring(i4, indexOf));
+                        if (i5 < list.size()) {
+                            arrayList.add(Integer.valueOf(sb.length()));
+                            sb.append((String) list.get(i5));
+                            int i6 = indexOf + 4;
+                            i4 = i6;
+                            indexOf = str.indexOf("{%s}", i6);
+                            i5++;
+                        } else {
+                            indexOf = -1;
+                        }
+                    }
+                    if (i4 < str.length()) {
+                        sb.append(str.substring(i4));
+                    }
+                    SpannableString spannableString = new SpannableString(sb.toString());
+                    for (int i7 = 0; i7 < arrayList.size(); i7++) {
+                        int intValue = ((Integer) arrayList.get(i7)).intValue();
+                        int length = ((String) list.get(i7)).length() + intValue;
+                        if (r()) {
+                            i3 = i2;
+                        } else {
+                            i3 = i;
+                        }
+                        spannableString.setSpan(new ForegroundColorSpan(i3), intValue, length, 33);
+                    }
+                    return spannableString;
+                }
+                return null;
+            }
+            return null;
+        }
+        return (SpannableString) invokeLLII.objValue;
+    }
+
+    public final Object l(View view2, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048588, this, view2, i)) == null) {
+            return view2.findViewById(i);
+        }
+        return invokeLI.objValue;
+    }
+
+    public final void m(BaseLegoCardInfo baseLegoCardInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, baseLegoCardInfo) == null) {
+            i26.b().d(true);
+            v(baseLegoCardInfo);
+        }
+    }
+
+    @Override // com.baidu.tieba.uh7
+    public final void setAfterClickSchemeListener(yg7 yg7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, yg7Var) == null) {
+            this.k = yg7Var;
+        }
+    }
+
+    @Override // com.baidu.tieba.uh7
+    public final void setBusinessType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public final void setCardOnClickListener(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, onClickListener) == null) {
+            setOnClickListener(onClickListener);
+        }
+    }
+
+    public final void setCardOnLongLickListener(View.OnLongClickListener onLongClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, onLongClickListener) == null) {
+            setOnLongClickListener(onLongClickListener);
+        }
+    }
+
+    @Override // com.baidu.tieba.uh7
+    public final void setPosition(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public void v(BaseLegoCardInfo baseLegoCardInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, baseLegoCardInfo) == null) {
+            int c = qm8.c(this.i, baseLegoCardInfo.getScheme());
+            yg7 yg7Var = this.k;
+            if (yg7Var != null) {
+                yg7Var.a(c, null);
+            }
+        }
     }
 
     public final void p() {
@@ -300,38 +456,42 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
             SkinManager.setImageResource(this.h, R.color.CAM_X0204);
             this.f = new View(getContext());
             this.g = new View(getContext());
-            LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-1, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be));
+            ViewGroup.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-1, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be));
             int i = this.b;
             if (i != 1) {
-                if (i == 2) {
-                    SkinManager.setBackgroundColor(this.f, R.color.CAM_X0204);
-                    addView(this.f, layoutParams3);
-                    addView(this.h, layoutParams2);
-                    addView(frameLayout, layoutParams);
-                    SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
-                    addView(this.g, layoutParams3);
-                    return;
-                } else if (i == 3) {
-                    SkinManager.setBackgroundColor(this.f, R.color.CAM_X0204);
-                    addView(this.f, layoutParams3);
-                    addView(frameLayout, layoutParams);
-                    layoutParams2.bottomMargin = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070198);
-                    addView(this.h, layoutParams2);
-                    SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
-                    addView(this.g, layoutParams3);
-                    return;
-                } else if (i != 4) {
-                    if (i != 5) {
-                        this.f.setBackgroundColor(getResources().getColor(17170445));
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            if (i != 5) {
+                                this.f.setBackgroundColor(getResources().getColor(17170445));
+                                addView(this.f, layoutParams3);
+                                layoutParams2.bottomMargin = 0;
+                                addView(frameLayout, layoutParams);
+                                addView(this.h, layoutParams2);
+                                this.g.setBackgroundColor(getResources().getColor(17170445));
+                                addView(this.g, layoutParams3);
+                                return;
+                            }
+                            addView(frameLayout, layoutParams);
+                            return;
+                        }
+                    } else {
+                        SkinManager.setBackgroundColor(this.f, R.color.CAM_X0204);
                         addView(this.f, layoutParams3);
-                        layoutParams2.bottomMargin = 0;
                         addView(frameLayout, layoutParams);
+                        layoutParams2.bottomMargin = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070198);
                         addView(this.h, layoutParams2);
-                        this.g.setBackgroundColor(getResources().getColor(17170445));
+                        SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
                         addView(this.g, layoutParams3);
                         return;
                     }
+                } else {
+                    SkinManager.setBackgroundColor(this.f, R.color.CAM_X0204);
+                    addView(this.f, layoutParams3);
+                    addView(this.h, layoutParams2);
                     addView(frameLayout, layoutParams);
+                    SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
+                    addView(this.g, layoutParams3);
                     return;
                 }
             }
@@ -345,95 +505,12 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         }
     }
 
-    public abstract View q();
-
-    public final boolean r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? 1 == TbadkCoreApplication.getInst().getSkinType() : invokeV.booleanValue;
-    }
-
-    public final void s(T t) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048595, this, t) == null) || t == null || TextUtils.isEmpty(t.getShowKey()) || TextUtils.isEmpty(t.getShowExtra())) {
-            return;
-        }
-        StatisticItem statisticItem = new StatisticItem(t.getShowKey());
-        for (String str : t.getShowExtra().split("&")) {
-            String[] split = str.split("=");
-            if (split.length == 2) {
-                statisticItem.param(split[0], split[1]);
-            }
-        }
-        statisticItem.param("obj_locate", getStatPosition());
-        statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, t16.e());
-        b26.b().a(statisticItem);
-    }
-
-    @Override // com.baidu.tieba.jh7
-    public final void setAfterClickSchemeListener(ng7 ng7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, ng7Var) == null) {
-            this.k = ng7Var;
-        }
-    }
-
-    @Override // com.baidu.tieba.jh7
-    public final void setBusinessType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public final void setCardOnClickListener(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, onClickListener) == null) {
-            setOnClickListener(onClickListener);
-        }
-    }
-
-    public final void setCardOnLongLickListener(View.OnLongClickListener onLongClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, onLongClickListener) == null) {
-            setOnLongClickListener(onLongClickListener);
-        }
-    }
-
-    @Override // com.baidu.tieba.jh7
-    public final void setFromCDN(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.jh7
-    public void setMulDel(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.jh7
-    public final void setPosition(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public abstract void t(T t, int i);
-
-    public abstract void u(T t);
-
-    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.baidu.tieba.lego.card.view.BaseLegoCardView<T extends com.baidu.tieba.lego.card.model.BaseLegoCardInfo> */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.baidu.tieba.jh7
+    @Override // com.baidu.tieba.uh7
     public final void update(Object obj) {
         ICardInfo iCardInfo;
         ICardInfo updateCard;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048605, this, obj) == null) || (iCardInfo = (ICardInfo) obj) == null || (updateCard = iCardInfo.getUpdateCard()) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048605, this, obj) != null) || (iCardInfo = (ICardInfo) obj) == null || (updateCard = iCardInfo.getUpdateCard()) == null) {
             return;
         }
         BaseLegoCardInfo baseLegoCardInfo = (BaseLegoCardInfo) updateCard;
@@ -451,27 +528,10 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         i(baseLegoCardInfo);
     }
 
-    public void v(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, t) == null) {
-            int c = jm8.c(this.i, t.getScheme());
-            ng7 ng7Var = this.k;
-            if (ng7Var != null) {
-                ng7Var.a(c, null);
-            }
-        }
-    }
-
-    public void w() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
-        }
-    }
-
     public final void x(View view2, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(1048608, this, view2, i, i2, i3) == null) {
-            if (!bh7.a(i) && !bh7.a(i2)) {
+            if (!mh7.a(i) && !mh7.a(i2)) {
                 if (r()) {
                     i = i2;
                 }
@@ -485,7 +545,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     public final void y(TextView textView, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(1048609, this, textView, i, i2, i3) == null) {
-            if (!bh7.a(i) && !bh7.a(i2)) {
+            if (!mh7.a(i) && !mh7.a(i2)) {
                 if (r()) {
                     i = i2;
                 }
@@ -493,13 +553,6 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
                 return;
             }
             SkinManager.setViewTextColor(textView, i3);
-        }
-    }
-
-    public final void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
-            this.d.setVisibility(0);
         }
     }
 }

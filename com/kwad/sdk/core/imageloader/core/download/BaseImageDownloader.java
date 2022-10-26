@@ -1,6 +1,5 @@
 package com.kwad.sdk.core.imageloader.core.download;
 
-import android.annotation.TargetApi;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -9,7 +8,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.provider.MediaStore;
 import android.webkit.MimeTypeMap;
-import com.baidubce.http.Headers;
 import com.kwad.sdk.core.imageloader.core.assist.ContentLengthInputStream;
 import com.kwad.sdk.core.imageloader.core.download.ImageDownloader;
 import com.kwad.sdk.core.imageloader.utils.IoUtils;
@@ -38,7 +36,7 @@ public class BaseImageDownloader implements ImageDownloader {
 
     /* renamed from: com.kwad.sdk.core.imageloader.core.download.BaseImageDownloader$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$kwad$sdk$core$imageloader$core$download$ImageDownloader$Scheme;
 
         static {
@@ -85,7 +83,6 @@ public class BaseImageDownloader implements ImageDownloader {
         this.readTimeout = i2;
     }
 
-    @TargetApi(8)
     private InputStream getVideoThumbnailStream(String str) {
         Bitmap createVideoThumbnail;
         if (Build.VERSION.SDK_INT < 8 || (createVideoThumbnail = ThumbnailUtils.createVideoThumbnail(str, 2)) == null) {
@@ -160,7 +157,7 @@ public class BaseImageDownloader implements ImageDownloader {
     public InputStream getStreamFromNetwork(String str, Object obj) {
         HttpURLConnection createConnection = createConnection(str, obj);
         for (int i = 0; createConnection.getResponseCode() / 100 == 3 && i < 5; i++) {
-            createConnection = createConnection(createConnection.getHeaderField(Headers.LOCATION), obj);
+            createConnection = createConnection(createConnection.getHeaderField("Location"), obj);
         }
         try {
             InputStream inputStream = createConnection.getInputStream();

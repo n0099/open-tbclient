@@ -33,7 +33,10 @@ public class Degree {
     public int get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mDegree : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mDegree;
+        }
+        return invokeV.intValue;
     }
 
     public void set(int i) {

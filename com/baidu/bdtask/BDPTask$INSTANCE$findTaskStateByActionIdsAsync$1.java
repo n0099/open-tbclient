@@ -1,7 +1,7 @@
 package com.baidu.bdtask;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rp;
+import com.baidu.tieba.sp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,20 +14,20 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u0004\u0018\u00010\u0001H\n¢\u0006\u0004\b\u0002\u0010\u0003"}, d2 = {"<anonymous>", "", "invoke", "()Lkotlin/Unit;"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
 /* loaded from: classes.dex */
-public final class BDPTask$INSTANCE$findTaskStateByActionIdsAsync$1 extends Lambda implements Function0<Unit> {
+public final class BDPTask$INSTANCE$findTaskStateByActionIdsAsync$1 extends Lambda implements Function0 {
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ String[] $actionIds;
-    public final /* synthetic */ rp $callback;
+    public final /* synthetic */ sp $callback;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BDPTask$INSTANCE$findTaskStateByActionIdsAsync$1(rp rpVar, String[] strArr) {
+    public BDPTask$INSTANCE$findTaskStateByActionIdsAsync$1(sp spVar, String[] strArr) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {rpVar, strArr};
+            Object[] objArr = {spVar, strArr};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,7 +38,7 @@ public final class BDPTask$INSTANCE$findTaskStateByActionIdsAsync$1 extends Lamb
                 return;
             }
         }
-        this.$callback = rpVar;
+        this.$callback = spVar;
         this.$actionIds = strArr;
     }
 
@@ -50,9 +50,9 @@ public final class BDPTask$INSTANCE$findTaskStateByActionIdsAsync$1 extends Lamb
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             BDPTask u = BDPTask.m.u();
             if (u != null) {
-                rp rpVar = this.$callback;
+                sp spVar = this.$callback;
                 String[] strArr = this.$actionIds;
-                u.N(rpVar, (String[]) Arrays.copyOf(strArr, strArr.length));
+                u.N(spVar, (String[]) Arrays.copyOf(strArr, strArr.length));
                 return Unit.INSTANCE;
             }
             return null;

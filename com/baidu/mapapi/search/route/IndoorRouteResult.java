@@ -15,9 +15,9 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class IndoorRouteResult extends SearchResult {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<IndoorRouteResult> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<IndoorRouteLine> a;
+    public List a;
 
     static {
         InterceptResult invokeClinit;
@@ -80,13 +80,13 @@ public class IndoorRouteResult extends SearchResult {
         return invokeV.intValue;
     }
 
-    public List<IndoorRouteLine> getRouteLines() {
+    public List getRouteLines() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (List) invokeV.objValue;
     }
 
-    public void setRouteLines(List<IndoorRouteLine> list) {
+    public void setRouteLines(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             this.a = list;

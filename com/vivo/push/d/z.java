@@ -48,34 +48,6 @@ public abstract class z extends com.vivo.push.l {
         }
     }
 
-    public final int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                NotificationManager notificationManager = (NotificationManager) this.a.getSystemService(ActionJsonData.TAG_NOTIFICATION);
-                if (notificationManager == null || notificationManager.areNotificationsEnabled()) {
-                    if (Build.VERSION.SDK_INT < 26 || notificationManager == null) {
-                        return 0;
-                    }
-                    try {
-                        NotificationChannel notificationChannel = notificationManager.getNotificationChannel(NotifyAdapterUtil.PRIMARY_CHANNEL);
-                        if (notificationChannel != null) {
-                            return notificationChannel.getImportance() == 0 ? 2121 : 0;
-                        }
-                        return 0;
-                    } catch (Exception unused) {
-                        com.vivo.push.util.p.b("OnVerifyCallBackCommand", "判断通知通道出现系统错误");
-                        return 0;
-                    }
-                }
-                return 2104;
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
     public final boolean a(PublicKey publicKey, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -110,5 +82,36 @@ public abstract class z extends com.vivo.push.l {
             }
         }
         return invokeLLL.booleanValue;
+    }
+
+    public final int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                NotificationManager notificationManager = (NotificationManager) this.a.getSystemService(ActionJsonData.TAG_NOTIFICATION);
+                if (notificationManager != null && !notificationManager.areNotificationsEnabled()) {
+                    return 2104;
+                }
+                if (Build.VERSION.SDK_INT >= 26 && notificationManager != null) {
+                    try {
+                        NotificationChannel notificationChannel = notificationManager.getNotificationChannel(NotifyAdapterUtil.PRIMARY_CHANNEL);
+                        if (notificationChannel != null) {
+                            if (notificationChannel.getImportance() == 0) {
+                                return 2121;
+                            }
+                            return 0;
+                        }
+                        return 0;
+                    } catch (Exception unused) {
+                        com.vivo.push.util.p.b("OnVerifyCallBackCommand", "判断通知通道出现系统错误");
+                        return 0;
+                    }
+                }
+                return 0;
+            }
+            return 0;
+        }
+        return invokeV.intValue;
     }
 }

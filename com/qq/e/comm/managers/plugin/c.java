@@ -40,6 +40,48 @@ public class c {
     public f b;
     public Executor c;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(151737167, "Lcom/qq/e/comm/managers/plugin/c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(151737167, "Lcom/qq/e/comm/managers/plugin/c;");
+                return;
+            }
+        }
+        d = Pattern.compile(".*plugin\\.dex-(\\d+)\\.jar.*");
+    }
+
+    public c(Context context, Executor executor) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, executor};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = context.getApplicationContext();
+        this.c = executor;
+    }
+
+    public void a(f fVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
+            this.b = fVar;
+        }
+    }
+
     /* loaded from: classes8.dex */
     public class a implements NetworkCallBack {
         public static /* synthetic */ Interceptable $ic;
@@ -164,21 +206,20 @@ public class c {
             }
         }
 
-        private void a(String str) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(65538, this, str) == null) || this.c.b == null) {
-                return;
-            }
-            ((PM.b) this.c.b).a.a();
-            com.qq.e.comm.managers.plugin.a.a(new Exception(str), str);
-        }
-
         @Override // com.qq.e.comm.net.NetworkCallBack
         public void onException(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
                 GDTLogger.w("更新插件出现异常", exc);
                 a(exc.getMessage());
+            }
+        }
+
+        private void a(String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(65538, this, str) == null) && this.c.b != null) {
+                ((PM.b) this.c.b).a.a();
+                com.qq.e.comm.managers.plugin.a.a(new Exception(str), str);
             }
         }
 
@@ -190,120 +231,89 @@ public class c {
         public void onResponse(Request request, Response response) {
             StringBuilder sb;
             boolean z;
+            boolean z2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, response) == null) {
-                if (response.getStatusCode() != 200) {
-                    GDTLogger.d("DownLoad Plugin Jar Status error,response status code=" + response.getStatusCode());
-                    a("DownLoad Plugin Jar Status error,response status code=" + response.getStatusCode());
-                    return;
-                }
-                try {
-                    File g = h.g(this.c.a);
-                    File h = h.h(this.c.a);
-                    String a = a(response, g);
-                    boolean z2 = true;
-                    if (com.qq.e.comm.util.a.a().a(this.a, a)) {
-                        try {
-                            StringUtil.writeTo(this.b + "#####" + this.a, h);
-                            z = true;
-                        } catch (IOException unused) {
-                            GDTLogger.d("IOException While Update Plugin");
-                            z = false;
-                        }
-                        if (z) {
-                            if (FileUtil.renameTo(g, h.c(this.c.a)) && FileUtil.renameTo(h, h.d(this.c.a))) {
-                                GDTLogger.d("PluginUpdateSucc:" + z2);
-                                if (this.c.b != null) {
-                                    PM.d(((PM.b) this.c.b).a);
+                if (response.getStatusCode() == 200) {
+                    try {
+                        File g = h.g(this.c.a);
+                        File h = h.h(this.c.a);
+                        String a = a(response, g);
+                        boolean z3 = true;
+                        if (com.qq.e.comm.util.a.a().a(this.a, a)) {
+                            try {
+                                StringUtil.writeTo(this.b + "#####" + this.a, h);
+                                z = true;
+                            } catch (IOException unused) {
+                                GDTLogger.d("IOException While Update Plugin");
+                                z = false;
+                            }
+                            if (z) {
+                                if (FileUtil.renameTo(g, h.c(this.c.a)) && FileUtil.renameTo(h, h.d(this.c.a))) {
+                                    z2 = true;
+                                } else {
+                                    z2 = false;
+                                }
+                                if (z2) {
+                                    GDTLogger.d("PluginUpdateSucc:" + z3);
+                                    if (this.c.b != null) {
+                                        PM.d(((PM.b) this.c.b).a);
+                                    }
                                 }
                             }
+                            z3 = false;
+                            GDTLogger.d("PluginUpdateSucc:" + z3);
+                            if (this.c.b != null) {
+                            }
+                        } else {
+                            g.delete();
+                            GDTLogger.d(String.format("Fail to update plugin while verifying,sig=%s,md5=%s", this.a, a));
+                            a(String.format("Fail to update plugin while verifying,sig=%s,md5=%s", this.a, a));
                         }
-                        z2 = false;
-                        GDTLogger.d("PluginUpdateSucc:" + z2);
-                        if (this.c.b != null) {
-                        }
-                    } else {
-                        g.delete();
-                        GDTLogger.d(String.format("Fail to update plugin while verifying,sig=%s,md5=%s", this.a, a));
-                        a(String.format("Fail to update plugin while verifying,sig=%s,md5=%s", this.a, a));
-                    }
-                    sb = new StringBuilder();
-                } catch (Throwable th) {
-                    try {
-                        GDTLogger.d("UnknownException While Update Plugin");
-                        a(th.getMessage());
                         sb = new StringBuilder();
-                    } catch (Throwable th2) {
-                        GDTLogger.d("TIMESTAMP_AFTER_DOWNPLUGIN:" + System.nanoTime() + ";sig=" + this.a);
-                        throw th2;
+                    } catch (Throwable th) {
+                        try {
+                            GDTLogger.d("UnknownException While Update Plugin");
+                            a(th.getMessage());
+                            sb = new StringBuilder();
+                        } catch (Throwable th2) {
+                            GDTLogger.d("TIMESTAMP_AFTER_DOWNPLUGIN:" + System.nanoTime() + ";sig=" + this.a);
+                            throw th2;
+                        }
                     }
+                    sb.append("TIMESTAMP_AFTER_DOWNPLUGIN:");
+                    sb.append(System.nanoTime());
+                    sb.append(";sig=");
+                    sb.append(this.a);
+                    GDTLogger.d(sb.toString());
+                    return;
                 }
-                sb.append("TIMESTAMP_AFTER_DOWNPLUGIN:");
-                sb.append(System.nanoTime());
-                sb.append(";sig=");
-                sb.append(this.a);
-                GDTLogger.d(sb.toString());
+                GDTLogger.d("DownLoad Plugin Jar Status error,response status code=" + response.getStatusCode());
+                a("DownLoad Plugin Jar Status error,response status code=" + response.getStatusCode());
             }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(151737167, "Lcom/qq/e/comm/managers/plugin/c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(151737167, "Lcom/qq/e/comm/managers/plugin/c;");
-                return;
-            }
-        }
-        d = Pattern.compile(".*plugin\\.dex-(\\d+)\\.jar.*");
-    }
-
-    public c(Context context, Executor executor) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, executor};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = context.getApplicationContext();
-        this.c = executor;
-    }
-
-    public void a(f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-            this.b = fVar;
         }
     }
 
     public void a(String str, String str2) {
+        String str3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || StringUtil.isEmpty(str) || StringUtil.isEmpty(str2)) {
-            return;
-        }
-        Matcher matcher = d.matcher(str2);
-        boolean z = true;
-        int parseInteger = StringUtil.parseInteger(matcher.matches() ? matcher.group(1) : "0", 0);
-        if (parseInteger < 1292) {
-            GDTLogger.i("online plugin version is smaller than asset plugin version" + parseInteger + "," + Constants.PLUGIN.ASSET_PLUGIN_VERSION + ".download give up");
-            z = false;
-        }
-        if (z) {
-            GDTLogger.d("TIMESTAP_BEFORE_OWN_PLUGIN:" + System.nanoTime());
-            NetworkClientImpl.getInstance().submit(new PlainRequest(str2, Request.Method.GET, (byte[]) null), NetworkClient.Priority.High, new a(this, str, parseInteger), this.c);
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && !StringUtil.isEmpty(str) && !StringUtil.isEmpty(str2)) {
+            Matcher matcher = d.matcher(str2);
+            boolean z = true;
+            if (matcher.matches()) {
+                str3 = matcher.group(1);
+            } else {
+                str3 = "0";
+            }
+            int parseInteger = StringUtil.parseInteger(str3, 0);
+            if (parseInteger < 1292) {
+                GDTLogger.i("online plugin version is smaller than asset plugin version" + parseInteger + "," + Constants.PLUGIN.ASSET_PLUGIN_VERSION + ".download give up");
+                z = false;
+            }
+            if (z) {
+                GDTLogger.d("TIMESTAP_BEFORE_OWN_PLUGIN:" + System.nanoTime());
+                NetworkClientImpl.getInstance().submit(new PlainRequest(str2, Request.Method.GET, (byte[]) null), NetworkClient.Priority.High, new a(this, str, parseInteger), this.c);
+            }
         }
     }
 }

@@ -6,14 +6,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
 public final class s32 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<o32> a;
-    public boolean b;
+    public final q32 a;
 
     public s32() {
         Interceptable interceptable = $ic;
@@ -28,55 +25,41 @@ public final class s32 {
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = false;
+        this.a = new q32();
     }
 
-    public String a() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String g = zf3.g(System.currentTimeMillis(), "【HH:mm:ss】");
-            List<o32> list = this.a;
-            if (list != null && !list.isEmpty()) {
-                int i = 0;
-                int i2 = 0;
-                int i3 = 0;
-                for (o32 o32Var : this.a) {
-                    if (o32Var.c()) {
-                        i++;
-                        if (o32Var.b()) {
-                            i2++;
-                        } else {
-                            i3++;
-                        }
-                    }
-                }
-                return String.format("\n%s jserror：共%d个，影响渲染%d个（框架%d个，开发者%d个）；", g, Integer.valueOf(this.a.size()), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3));
-            }
-            return String.format("\n%s jserror：共0个；", g);
+            return this.a.c();
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public boolean b() {
+    public t32 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    public void c(List<o32> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || list == null || list.isEmpty()) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            t32 t32Var = new t32();
+            t32Var.c(this.a.d());
+            t32Var.d(this.a.c());
+            return t32Var;
         }
-        this.a = list;
+        return (t32) invokeV.objValue;
     }
 
-    public void d(boolean z) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.b = z;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.b();
+        }
+    }
+
+    public void b(p32 p32Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p32Var) == null) {
+            this.a.a(p32Var);
         }
     }
 }

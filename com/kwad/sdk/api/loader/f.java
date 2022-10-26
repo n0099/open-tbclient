@@ -8,7 +8,6 @@ import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidubce.http.Headers;
 import com.heytap.mcssdk.mode.CommandMessage;
 import com.kwad.components.offline.api.BuildConfig;
 import com.kwad.sdk.api.core.IKsAdSDK;
@@ -29,7 +28,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public final class f {
-    public Map<String, String> Sm = new HashMap();
+    public Map Sm = new HashMap();
     public IKsAdSDK Sn;
     public String a;
     public String b;
@@ -184,8 +183,8 @@ public final class f {
                 if (httpURLConnection != null) {
                     String a2 = a();
                     if (this.Sm != null) {
-                        for (Map.Entry<String, String> entry : this.Sm.entrySet()) {
-                            httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
+                        for (Map.Entry entry : this.Sm.entrySet()) {
+                            httpURLConnection.setRequestProperty((String) entry.getKey(), (String) entry.getValue());
                         }
                     }
                     httpURLConnection.connect();
@@ -203,22 +202,22 @@ public final class f {
                         }
                         bVar.a = jSONObject.optLong(TiebaStatic.LogFields.RESULT);
                         bVar.b = jSONObject.optString("errorMsg");
-                        a.C0597a c0597a = new a.C0597a();
-                        bVar.Sg = c0597a;
+                        a.C0593a c0593a = new a.C0593a();
+                        bVar.Sg = c0593a;
                         JSONObject optJSONObject = jSONObject.optJSONObject("data");
                         if (optJSONObject != null) {
-                            c0597a.a = optJSONObject.optInt("dynamicType");
-                            c0597a.b = optJSONObject.optString("dynamicUrl");
-                            c0597a.c = optJSONObject.optString(PackageTable.MD5);
-                            c0597a.Se = optJSONObject.optLong("interval");
-                            c0597a.e = optJSONObject.optString(CommandMessage.SDK_VERSION);
+                            c0593a.a = optJSONObject.optInt("dynamicType");
+                            c0593a.b = optJSONObject.optString("dynamicUrl");
+                            c0593a.c = optJSONObject.optString(PackageTable.MD5);
+                            c0593a.Se = optJSONObject.optLong("interval");
+                            c0593a.e = optJSONObject.optString(CommandMessage.SDK_VERSION);
                         }
                         aVar.a(bVar);
                     } else if (responseCode / 100 != 3) {
                         throw new RuntimeException("response code = ".concat(String.valueOf(responseCode)));
                     } else {
                         if (this.c < 21) {
-                            this.a = httpURLConnection.getHeaderField(Headers.LOCATION);
+                            this.a = httpURLConnection.getHeaderField("Location");
                             this.c++;
                             a(aVar);
                         }

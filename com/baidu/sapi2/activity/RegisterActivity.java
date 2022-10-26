@@ -17,6 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes2.dex */
 public class RegisterActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
@@ -76,7 +77,10 @@ public class RegisterActivity extends BaseActivity {
     public SapiWebDTO getWebDTO() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? CoreViewRouter.getInstance().getWebRegDTO() : (SapiWebDTO) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return CoreViewRouter.getInstance().getWebRegDTO();
+        }
+        return (SapiWebDTO) invokeV.objValue;
     }
 
     @Override // com.baidu.sapi2.activity.TitleActivity
@@ -92,6 +96,18 @@ public class RegisterActivity extends BaseActivity {
     public void onBottomBackBtnClick() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.sapiWebView.back();
+        }
+    }
+
+    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
+    public void onLeftBtnClick() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.onLeftBtnClick();
+            if (!this.executeSubClassMethod) {
+                return;
+            }
             this.sapiWebView.back();
         }
     }
@@ -118,7 +134,7 @@ public class RegisterActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d0508);
+                setContentView(R.layout.obfuscated_res_0x7f0d0505);
                 init();
                 setupViews();
             } catch (Throwable th) {
@@ -136,22 +152,12 @@ public class RegisterActivity extends BaseActivity {
     }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
-    public void onLeftBtnClick() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.onLeftBtnClick();
-            if (this.executeSubClassMethod) {
-                this.sapiWebView.back();
-            }
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
+        List list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.setupViews();
-            setTitleText(R.string.obfuscated_res_0x7f0f109f);
+            setTitleText(R.string.obfuscated_res_0x7f0f10b1);
             WebAuthListener webAuthListener = CoreViewRouter.getInstance().getWebAuthListener();
             this.sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback(this) { // from class: com.baidu.sapi2.activity.RegisterActivity.2
                 public static /* synthetic */ Interceptable $ic;
@@ -210,18 +216,6 @@ public class RegisterActivity extends BaseActivity {
                 }
 
                 @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
-                public void beforeSuccess(SapiAccount sapiAccount) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, sapiAccount) == null) {
-                        super.beforeSuccess(sapiAccount);
-                        WebAuthListener webAuthListener2 = this.a;
-                        if (webAuthListener2 != null) {
-                            webAuthListener2.beforeSuccess(sapiAccount);
-                        }
-                    }
-                }
-
-                @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
                 public void onFailed(int i, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -237,6 +231,18 @@ public class RegisterActivity extends BaseActivity {
                 }
 
                 @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
+                public void beforeSuccess(SapiAccount sapiAccount) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, sapiAccount) == null) {
+                        super.beforeSuccess(sapiAccount);
+                        WebAuthListener webAuthListener2 = this.a;
+                        if (webAuthListener2 != null) {
+                            webAuthListener2.beforeSuccess(sapiAccount);
+                        }
+                    }
+                }
+
+                @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
                 public void onSuccess(AccountType accountType) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountType) == null) {
@@ -248,17 +254,22 @@ public class RegisterActivity extends BaseActivity {
                             webAuthListener2.onSuccess(this.b.t);
                         }
                         WebRegDTO webRegDTO = CoreViewRouter.getInstance().getWebRegDTO();
-                        if (webRegDTO == null || !webRegDTO.finishActivityAfterSuc) {
-                            return;
+                        if (webRegDTO != null && webRegDTO.finishActivityAfterSuc) {
+                            this.b.finish();
+                            CoreViewRouter.getInstance().release();
                         }
-                        this.b.finish();
-                        CoreViewRouter.getInstance().release();
                     }
                 }
             });
             setNewLoginTitleAndSetStyleChangeCallBack();
             WebRegDTO webRegDTO = CoreViewRouter.getInstance().getWebRegDTO();
-            this.sapiWebView.loadRegist(webRegDTO != null ? webRegDTO.extraParams : null);
+            SapiWebView sapiWebView = this.sapiWebView;
+            if (webRegDTO != null) {
+                list = webRegDTO.extraParams;
+            } else {
+                list = null;
+            }
+            sapiWebView.loadRegist(list);
         }
     }
 }

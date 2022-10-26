@@ -14,8 +14,8 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class f implements k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<k> O;
-    public List<k> mK;
+    public List O;
+    public List mK;
     public d mL;
     public e mv;
 
@@ -227,9 +227,9 @@ public class f implements k {
     public void a(k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kVar) == null) {
-            List<k> list = this.mK;
+            List list = this.mK;
             if (list == null || !list.contains(kVar)) {
-                List<k> list2 = this.O;
+                List list2 = this.O;
                 if (list2 == null || !list2.contains(kVar)) {
                     return;
                 }
@@ -261,7 +261,7 @@ public class f implements k {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<k> list = this.O;
+            List list = this.O;
             if (list != null && list.size() > 0) {
                 for (k kVar : this.O) {
                     if (kVar == null || !(kVar instanceof j) || !((j) kVar).ap()) {
@@ -295,9 +295,9 @@ public class f implements k {
             if (kVar == null) {
                 return false;
             }
-            List<k> list = this.O;
+            List list = this.O;
             if (list == null || !list.contains(kVar)) {
-                List<k> list2 = this.mK;
+                List list2 = this.mK;
                 return list2 != null && list2.contains(kVar);
             }
             return true;
@@ -310,11 +310,11 @@ public class f implements k {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, kVar) == null) || kVar == null) {
             return;
         }
-        List<k> list = this.mK;
+        List list = this.mK;
         if (list != null) {
             list.remove(kVar);
         }
-        List<k> list2 = this.O;
+        List list2 = this.O;
         if (list2 != null) {
             list2.remove(kVar);
         }
@@ -333,10 +333,10 @@ public class f implements k {
 
     public boolean isEmpty() {
         InterceptResult invokeV;
-        List<k> list;
+        List list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            List<k> list2 = this.O;
+            List list2 = this.O;
             return (list2 == null || list2.size() <= 0) && ((list = this.mK) == null || list.size() <= 0);
         }
         return invokeV.booleanValue;

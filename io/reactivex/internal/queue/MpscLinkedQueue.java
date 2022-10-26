@@ -7,22 +7,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import io.reactivex.annotations.Nullable;
 import io.reactivex.internal.fuseable.SimplePlainQueue;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class MpscLinkedQueue<T> implements SimplePlainQueue<T> {
+public final class MpscLinkedQueue implements SimplePlainQueue {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference<LinkedQueueNode<T>> consumerNode;
-    public final AtomicReference<LinkedQueueNode<T>> producerNode;
+    public final AtomicReference consumerNode;
+    public final AtomicReference producerNode;
 
     /* loaded from: classes8.dex */
-    public static final class LinkedQueueNode<E> extends AtomicReference<LinkedQueueNode<E>> {
+    public final class LinkedQueueNode extends AtomicReference {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2404266111789071508L;
         public transient /* synthetic */ FieldHolder $fh;
-        public E value;
+        public Object value;
 
         public LinkedQueueNode() {
             Interceptable interceptable = $ic;
@@ -38,49 +37,41 @@ public final class MpscLinkedQueue<T> implements SimplePlainQueue<T> {
             }
         }
 
-        public E getAndNullValue() {
+        public Object getAndNullValue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                E lpValue = lpValue();
+                Object lpValue = lpValue();
                 spValue(null);
                 return lpValue;
             }
-            return (E) invokeV.objValue;
+            return invokeV.objValue;
         }
 
-        public E lpValue() {
+        public Object lpValue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.value : (E) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.value;
+            }
+            return invokeV.objValue;
         }
 
-        public LinkedQueueNode<E> lvNext() {
+        public LinkedQueueNode lvNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? get() : (LinkedQueueNode) invokeV.objValue;
-        }
-
-        public void soNext(LinkedQueueNode<E> linkedQueueNode) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, linkedQueueNode) == null) {
-                lazySet(linkedQueueNode);
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return (LinkedQueueNode) get();
             }
+            return (LinkedQueueNode) invokeV.objValue;
         }
 
-        public void spValue(E e) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, e) == null) {
-                this.value = e;
-            }
-        }
-
-        public LinkedQueueNode(E e) {
+        public LinkedQueueNode(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {e};
+                Object[] objArr = {obj};
                 interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -90,7 +81,21 @@ public final class MpscLinkedQueue<T> implements SimplePlainQueue<T> {
                     return;
                 }
             }
-            spValue(e);
+            spValue(obj);
+        }
+
+        public void soNext(LinkedQueueNode linkedQueueNode) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, linkedQueueNode) == null) {
+                lazySet(linkedQueueNode);
+            }
+        }
+
+        public void spValue(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+                this.value = obj;
+            }
         }
     }
 
@@ -107,11 +112,37 @@ public final class MpscLinkedQueue<T> implements SimplePlainQueue<T> {
                 return;
             }
         }
-        this.producerNode = new AtomicReference<>();
-        this.consumerNode = new AtomicReference<>();
-        LinkedQueueNode<T> linkedQueueNode = new LinkedQueueNode<>();
+        this.producerNode = new AtomicReference();
+        this.consumerNode = new AtomicReference();
+        LinkedQueueNode linkedQueueNode = new LinkedQueueNode();
         spConsumerNode(linkedQueueNode);
         xchgProducerNode(linkedQueueNode);
+    }
+
+    @Override // io.reactivex.internal.fuseable.SimplePlainQueue, io.reactivex.internal.fuseable.SimpleQueue
+    public Object poll() {
+        InterceptResult invokeV;
+        LinkedQueueNode lvNext;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            LinkedQueueNode lpConsumerNode = lpConsumerNode();
+            LinkedQueueNode lvNext2 = lpConsumerNode.lvNext();
+            if (lvNext2 != null) {
+                Object andNullValue = lvNext2.getAndNullValue();
+                spConsumerNode(lvNext2);
+                return andNullValue;
+            } else if (lpConsumerNode != lvProducerNode()) {
+                do {
+                    lvNext = lpConsumerNode.lvNext();
+                } while (lvNext == null);
+                Object andNullValue2 = lvNext.getAndNullValue();
+                spConsumerNode(lvNext);
+                return andNullValue2;
+            } else {
+                return null;
+            }
+        }
+        return invokeV.objValue;
     }
 
     @Override // io.reactivex.internal.fuseable.SimpleQueue
@@ -127,34 +158,49 @@ public final class MpscLinkedQueue<T> implements SimplePlainQueue<T> {
     public boolean isEmpty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? lvConsumerNode() == lvProducerNode() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (lvConsumerNode() == lvProducerNode()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
-    public LinkedQueueNode<T> lpConsumerNode() {
+    public LinkedQueueNode lpConsumerNode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.consumerNode.get() : (LinkedQueueNode) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return (LinkedQueueNode) this.consumerNode.get();
+        }
+        return (LinkedQueueNode) invokeV.objValue;
     }
 
-    public LinkedQueueNode<T> lvConsumerNode() {
+    public LinkedQueueNode lvConsumerNode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.consumerNode.get() : (LinkedQueueNode) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return (LinkedQueueNode) this.consumerNode.get();
+        }
+        return (LinkedQueueNode) invokeV.objValue;
     }
 
-    public LinkedQueueNode<T> lvProducerNode() {
+    public LinkedQueueNode lvProducerNode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.producerNode.get() : (LinkedQueueNode) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return (LinkedQueueNode) this.producerNode.get();
+        }
+        return (LinkedQueueNode) invokeV.objValue;
     }
 
     @Override // io.reactivex.internal.fuseable.SimpleQueue
-    public boolean offer(T t) {
+    public boolean offer(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, t)) == null) {
-            if (t != null) {
-                LinkedQueueNode<T> linkedQueueNode = new LinkedQueueNode<>(t);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (obj != null) {
+                LinkedQueueNode linkedQueueNode = new LinkedQueueNode(obj);
                 xchgProducerNode(linkedQueueNode).soNext(linkedQueueNode);
                 return true;
             }
@@ -163,53 +209,29 @@ public final class MpscLinkedQueue<T> implements SimplePlainQueue<T> {
         return invokeL.booleanValue;
     }
 
-    @Override // io.reactivex.internal.fuseable.SimplePlainQueue, io.reactivex.internal.fuseable.SimpleQueue
-    @Nullable
-    public T poll() {
-        InterceptResult invokeV;
-        LinkedQueueNode<T> lvNext;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            LinkedQueueNode<T> lpConsumerNode = lpConsumerNode();
-            LinkedQueueNode<T> lvNext2 = lpConsumerNode.lvNext();
-            if (lvNext2 != null) {
-                T andNullValue = lvNext2.getAndNullValue();
-                spConsumerNode(lvNext2);
-                return andNullValue;
-            } else if (lpConsumerNode != lvProducerNode()) {
-                do {
-                    lvNext = lpConsumerNode.lvNext();
-                } while (lvNext == null);
-                T andNullValue2 = lvNext.getAndNullValue();
-                spConsumerNode(lvNext);
-                return andNullValue2;
-            } else {
-                return null;
-            }
-        }
-        return (T) invokeV.objValue;
-    }
-
-    public void spConsumerNode(LinkedQueueNode<T> linkedQueueNode) {
+    public void spConsumerNode(LinkedQueueNode linkedQueueNode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, linkedQueueNode) == null) {
             this.consumerNode.lazySet(linkedQueueNode);
         }
     }
 
-    public LinkedQueueNode<T> xchgProducerNode(LinkedQueueNode<T> linkedQueueNode) {
+    public LinkedQueueNode xchgProducerNode(LinkedQueueNode linkedQueueNode) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, linkedQueueNode)) == null) ? this.producerNode.getAndSet(linkedQueueNode) : (LinkedQueueNode) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, linkedQueueNode)) == null) {
+            return (LinkedQueueNode) this.producerNode.getAndSet(linkedQueueNode);
+        }
+        return (LinkedQueueNode) invokeL.objValue;
     }
 
     @Override // io.reactivex.internal.fuseable.SimpleQueue
-    public boolean offer(T t, T t2) {
+    public boolean offer(Object obj, Object obj2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, t, t2)) == null) {
-            offer(t);
-            offer(t2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, obj, obj2)) == null) {
+            offer(obj);
+            offer(obj2);
             return true;
         }
         return invokeLL.booleanValue;

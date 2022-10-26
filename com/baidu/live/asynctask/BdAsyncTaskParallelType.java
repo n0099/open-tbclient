@@ -65,12 +65,18 @@ public final class BdAsyncTaskParallelType {
     public static BdAsyncTaskParallelType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (BdAsyncTaskParallelType) Enum.valueOf(BdAsyncTaskParallelType.class, str) : (BdAsyncTaskParallelType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (BdAsyncTaskParallelType) Enum.valueOf(BdAsyncTaskParallelType.class, str);
+        }
+        return (BdAsyncTaskParallelType) invokeL.objValue;
     }
 
     public static BdAsyncTaskParallelType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (BdAsyncTaskParallelType[]) $VALUES.clone() : (BdAsyncTaskParallelType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (BdAsyncTaskParallelType[]) $VALUES.clone();
+        }
+        return (BdAsyncTaskParallelType[]) invokeV.objValue;
     }
 }

@@ -1,15 +1,12 @@
 package com.google.android.gms.common.util;
 
 import android.util.Base64;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.annotation.KeepForSdk;
-@KeepForSdk
 /* loaded from: classes7.dex */
 public final class Base64Utils {
     public static /* synthetic */ Interceptable $ic;
@@ -29,9 +26,7 @@ public final class Base64Utils {
         }
     }
 
-    @NonNull
-    @KeepForSdk
-    public static byte[] decode(@NonNull String str) {
+    public static byte[] decode(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
@@ -43,9 +38,7 @@ public final class Base64Utils {
         return (byte[]) invokeL.objValue;
     }
 
-    @NonNull
-    @KeepForSdk
-    public static byte[] decodeUrlSafe(@NonNull String str) {
+    public static byte[] decodeUrlSafe(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
@@ -57,9 +50,7 @@ public final class Base64Utils {
         return (byte[]) invokeL.objValue;
     }
 
-    @NonNull
-    @KeepForSdk
-    public static byte[] decodeUrlSafeNoPadding(@NonNull String str) {
+    public static byte[] decodeUrlSafeNoPadding(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
@@ -71,9 +62,7 @@ public final class Base64Utils {
         return (byte[]) invokeL.objValue;
     }
 
-    @NonNull
-    @KeepForSdk
-    public static String encode(@NonNull byte[] bArr) {
+    public static String encode(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
@@ -85,9 +74,7 @@ public final class Base64Utils {
         return (String) invokeL.objValue;
     }
 
-    @NonNull
-    @KeepForSdk
-    public static String encodeUrlSafe(@NonNull byte[] bArr) {
+    public static String encodeUrlSafe(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
@@ -99,9 +86,7 @@ public final class Base64Utils {
         return (String) invokeL.objValue;
     }
 
-    @NonNull
-    @KeepForSdk
-    public static String encodeUrlSafeNoPadding(@NonNull byte[] bArr) {
+    public static String encodeUrlSafeNoPadding(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) {

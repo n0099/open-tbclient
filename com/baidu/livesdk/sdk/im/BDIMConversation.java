@@ -31,6 +31,13 @@ public class BDIMConversation implements IMConversation {
     public Context mContext;
     public BIMConversation mConversation;
 
+    @Override // com.baidu.livesdk.api.im.IMConversation
+    public void quitLiveShow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
     public BDIMConversation(Context context, BIMConversation bIMConversation) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -53,15 +60,96 @@ public class BDIMConversation implements IMConversation {
     /* JADX INFO: Access modifiers changed from: private */
     public void handleSendMessageResponse(int i, ChatMsg chatMsg, SendMessageListener sendMessageListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeILL(65538, this, i, chatMsg, sendMessageListener) == null) || sendMessageListener == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeILL(65538, this, i, chatMsg, sendMessageListener) == null) && sendMessageListener != null) {
+            ArrayList arrayList = null;
+            if (i != 22 && i != 1024 && i != 1001) {
+                arrayList = new ArrayList();
+                arrayList.add(LiveMessageParser.parseChatMsg(chatMsg));
+            }
+            sendMessageListener.onSendMessageResult(i, arrayList);
         }
-        ArrayList arrayList = null;
-        if (i != 22 && i != 1024 && i != 1001) {
-            arrayList = new ArrayList();
-            arrayList.add(LiveMessageParser.parseChatMsg(chatMsg));
+    }
+
+    @Override // com.baidu.livesdk.api.im.IMConversation
+    public void sendMessage(Object obj, SendMessageStatusListener sendMessageStatusListener, SendMessageListener sendMessageListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, obj, sendMessageStatusListener, sendMessageListener) == null) {
+            this.mConversation.sendMessage(LiveMessageParser.trans2ChatMsg(this.mContext, (LiveSendMessage) obj), new ISendMessageStatusListener(this, sendMessageStatusListener) { // from class: com.baidu.livesdk.sdk.im.BDIMConversation.4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ BDIMConversation this$0;
+                public final /* synthetic */ SendMessageStatusListener val$statusListener;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, sendMessageStatusListener};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$statusListener = sendMessageStatusListener;
+                }
+
+                @Override // com.baidu.android.imsdk.chatmessage.ISendMessageStatusListener
+                public void onSendProgress(int i, ChatMsg chatMsg) {
+                    SendMessageStatusListener sendMessageStatusListener2;
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeIL(1048576, this, i, chatMsg) == null) && (sendMessageStatusListener2 = this.val$statusListener) != null) {
+                        sendMessageStatusListener2.onSendProgress(i, chatMsg);
+                    }
+                }
+
+                @Override // com.baidu.android.imsdk.chatmessage.ISendMessageStatusListener
+                public void onSendStatus(int i, ChatMsg chatMsg) {
+                    SendMessageStatusListener sendMessageStatusListener2;
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, chatMsg) == null) && (sendMessageStatusListener2 = this.val$statusListener) != null) {
+                        sendMessageStatusListener2.onSendStatus(i, chatMsg);
+                    }
+                }
+            }, new ISendMessageListener(this, sendMessageListener) { // from class: com.baidu.livesdk.sdk.im.BDIMConversation.5
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ BDIMConversation this$0;
+                public final /* synthetic */ SendMessageListener val$sendListener;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, sendMessageListener};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$sendListener = sendMessageListener;
+                }
+
+                @Override // com.baidu.android.imsdk.chatmessage.ISendMessageListener
+                public void onSendMessageResult(int i, ChatMsg chatMsg) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, chatMsg) == null) {
+                        this.this$0.handleSendMessageResponse(i, chatMsg, this.val$sendListener);
+                    }
+                }
+            });
         }
-        sendMessageListener.onSendMessageResult(i, arrayList);
     }
 
     @Override // com.baidu.livesdk.api.im.IMConversation
@@ -97,10 +185,9 @@ public class BDIMConversation implements IMConversation {
                 public void onResult(int i, long j, long j2) {
                     IMCastSetListener iMCastSetListener2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) == null) || (iMCastSetListener2 = this.val$listener) == null) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) == null) && (iMCastSetListener2 = this.val$listener) != null) {
+                        iMCastSetListener2.onResult(i, j, j2);
                     }
-                    iMCastSetListener2.onResult(i, j, j2);
                 }
             });
         }
@@ -139,26 +226,41 @@ public class BDIMConversation implements IMConversation {
                 public void onResult(int i, long j, long j2) {
                     IMCastSetListener iMCastSetListener2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) == null) || (iMCastSetListener2 = this.val$listener) == null) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) == null) && (iMCastSetListener2 = this.val$listener) != null) {
+                        iMCastSetListener2.onResult(i, j, j2);
                     }
-                    iMCastSetListener2.onResult(i, j, j2);
                 }
             });
+        }
+    }
+
+    @Override // com.baidu.livesdk.api.im.IMConversation
+    public void setPullInterval(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.mConversation.setPullInterval(i);
+        }
+    }
+
+    @Override // com.baidu.livesdk.api.im.IMConversation
+    public void unregisterMsgReceiveListener(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            try {
+                this.mConversation.unregisterLiveMsgReceiveListener(Long.parseLong(str));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
     public BIMConversation getBaseConversation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mConversation : (BIMConversation) invokeV.objValue;
-    }
-
-    @Override // com.baidu.livesdk.api.im.IMConversation
-    public void quitLiveShow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mConversation;
         }
+        return (BIMConversation) invokeV.objValue;
     }
 
     @Override // com.baidu.livesdk.api.im.IMConversation
@@ -200,116 +302,11 @@ public class BDIMConversation implements IMConversation {
                 public void onReceiveMessage(int i, JSONArray jSONArray) {
                     MsgReceiveListener msgReceiveListener2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i, jSONArray) == null) || (msgReceiveListener2 = this.val$listener) == null) {
-                        return;
-                    }
-                    msgReceiveListener2.onReceiveMessage(i, LiveMessageParser.getMessageList(jSONArray));
-                }
-            });
-        }
-    }
-
-    @Override // com.baidu.livesdk.api.im.IMConversation
-    public void sendMessage(Object obj, SendMessageStatusListener sendMessageStatusListener, SendMessageListener sendMessageListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, obj, sendMessageStatusListener, sendMessageListener) == null) {
-            this.mConversation.sendMessage(LiveMessageParser.trans2ChatMsg(this.mContext, (LiveSendMessage) obj), new ISendMessageStatusListener(this, sendMessageStatusListener) { // from class: com.baidu.livesdk.sdk.im.BDIMConversation.4
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ BDIMConversation this$0;
-                public final /* synthetic */ SendMessageStatusListener val$statusListener;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, sendMessageStatusListener};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$statusListener = sendMessageStatusListener;
-                }
-
-                @Override // com.baidu.android.imsdk.chatmessage.ISendMessageStatusListener
-                public void onSendProgress(int i, ChatMsg chatMsg) {
-                    SendMessageStatusListener sendMessageStatusListener2;
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i, chatMsg) == null) || (sendMessageStatusListener2 = this.val$statusListener) == null) {
-                        return;
-                    }
-                    sendMessageStatusListener2.onSendProgress(i, chatMsg);
-                }
-
-                @Override // com.baidu.android.imsdk.chatmessage.ISendMessageStatusListener
-                public void onSendStatus(int i, ChatMsg chatMsg) {
-                    SendMessageStatusListener sendMessageStatusListener2;
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, chatMsg) == null) || (sendMessageStatusListener2 = this.val$statusListener) == null) {
-                        return;
-                    }
-                    sendMessageStatusListener2.onSendStatus(i, chatMsg);
-                }
-            }, new ISendMessageListener(this, sendMessageListener) { // from class: com.baidu.livesdk.sdk.im.BDIMConversation.5
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ BDIMConversation this$0;
-                public final /* synthetic */ SendMessageListener val$sendListener;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, sendMessageListener};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$sendListener = sendMessageListener;
-                }
-
-                @Override // com.baidu.android.imsdk.chatmessage.ISendMessageListener
-                public void onSendMessageResult(int i, ChatMsg chatMsg) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, chatMsg) == null) {
-                        this.this$0.handleSendMessageResponse(i, chatMsg, this.val$sendListener);
+                    if ((interceptable2 == null || interceptable2.invokeIL(1048576, this, i, jSONArray) == null) && (msgReceiveListener2 = this.val$listener) != null) {
+                        msgReceiveListener2.onReceiveMessage(i, LiveMessageParser.getMessageList(jSONArray));
                     }
                 }
             });
-        }
-    }
-
-    @Override // com.baidu.livesdk.api.im.IMConversation
-    public void setPullInterval(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.mConversation.setPullInterval(i);
-        }
-    }
-
-    @Override // com.baidu.livesdk.api.im.IMConversation
-    public void unregisterMsgReceiveListener(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            try {
-                this.mConversation.unregisterLiveMsgReceiveListener(Long.parseLong(str));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
     }
 }

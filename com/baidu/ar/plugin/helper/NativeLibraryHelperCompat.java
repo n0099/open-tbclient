@@ -1,6 +1,5 @@
 package com.baidu.ar.plugin.helper;
 
-import android.annotation.TargetApi;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.plugin.reflect.MethodUtils;
@@ -35,6 +34,35 @@ public class NativeLibraryHelperCompat {
         }
     }
 
+    public static final Class handleClass() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return Class.forName("com.android.internal.content.NativeLibraryHelper$Handle");
+        }
+        return (Class) invokeV.objValue;
+    }
+
+    public static boolean isVM64() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (Build.SUPPORTED_64_BIT_ABIS.length == 0) {
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static final Class nativeLibraryHelperClass() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return Class.forName("com.android.internal.content.NativeLibraryHelper");
+        }
+        return (Class) invokeV.objValue;
+    }
+
     public static final int copyNativeBinaries(File file, File file2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -47,7 +75,6 @@ public class NativeLibraryHelperCompat {
         return invokeLL.intValue;
     }
 
-    @TargetApi(21)
     public static int copyNativeBinariesAfterL(File file, File file2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -59,7 +86,7 @@ public class NativeLibraryHelperCompat {
                 }
                 String str = null;
                 if (isVM64() && Build.SUPPORTED_64_BIT_ABIS.length > 0) {
-                    Set<String> abisFromApk = getAbisFromApk(file.getAbsolutePath());
+                    Set abisFromApk = getAbisFromApk(file.getAbsolutePath());
                     if (abisFromApk != null && !abisFromApk.isEmpty()) {
                         int intValue = ((Integer) MethodUtils.invokeStaticMethod(nativeLibraryHelperClass(), "findSupportedAbi", invokeStaticMethod, Build.SUPPORTED_64_BIT_ABIS)).intValue();
                         if (intValue >= 0) {
@@ -69,7 +96,7 @@ public class NativeLibraryHelperCompat {
                     return 0;
                 }
                 if (str == null && Build.SUPPORTED_32_BIT_ABIS.length > 0) {
-                    Set<String> abisFromApk2 = getAbisFromApk(file.getAbsolutePath());
+                    Set abisFromApk2 = getAbisFromApk(file.getAbsolutePath());
                     if (abisFromApk2 != null && !abisFromApk2.isEmpty()) {
                         int intValue2 = ((Integer) MethodUtils.invokeStaticMethod(nativeLibraryHelperClass(), "findSupportedAbi", invokeStaticMethod, Build.SUPPORTED_32_BIT_ABIS)).intValue();
                         if (intValue2 >= 0) {
@@ -122,7 +149,7 @@ public class NativeLibraryHelperCompat {
         return invokeLL.intValue;
     }
 
-    public static Set<String> getAbisFromApk(String str) {
+    public static Set getAbisFromApk(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
@@ -142,29 +169,5 @@ public class NativeLibraryHelperCompat {
             }
         }
         return (Set) invokeL.objValue;
-    }
-
-    public static final Class handleClass() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? Class.forName("com.android.internal.content.NativeLibraryHelper$Handle") : (Class) invokeV.objValue;
-    }
-
-    @TargetApi(21)
-    public static boolean isVM64() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (Build.SUPPORTED_64_BIT_ABIS.length == 0) {
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static final Class nativeLibraryHelperClass() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? Class.forName("com.android.internal.content.NativeLibraryHelper") : (Class) invokeV.objValue;
     }
 }

@@ -1,6 +1,5 @@
 package com.google.android.material.floatingactionbutton;
 
-import android.annotation.TargetApi;
 import android.content.res.ColorStateList;
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
@@ -12,12 +11,6 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.drawable.Drawable;
-import androidx.annotation.ColorInt;
-import androidx.annotation.Dimension;
-import androidx.annotation.IntRange;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -28,25 +21,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.ShapeAppearancePathProvider;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class BorderDrawable extends Drawable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float DRAW_STROKE_WIDTH_MULTIPLE = 1.3333f;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public ColorStateList borderTint;
-    @Dimension
     public float borderWidth;
-    @ColorInt
     public int bottomInnerStrokeColor;
-    @ColorInt
     public int bottomOuterStrokeColor;
     public final RectF boundsRectF;
-    @ColorInt
     public int currentBorderTintColor;
     public boolean invalidateShader;
-    @NonNull
     public final Paint paint;
     public final ShapeAppearancePathProvider pathProvider;
     public final Rect rect;
@@ -54,14 +40,12 @@ public class BorderDrawable extends Drawable {
     public ShapeAppearanceModel shapeAppearanceModel;
     public final Path shapePath;
     public final BorderState state;
-    @ColorInt
     public int topInnerStrokeColor;
-    @ColorInt
     public int topOuterStrokeColor;
 
     /* renamed from: com.google.android.material.floatingactionbutton.BorderDrawable$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -71,6 +55,16 @@ public class BorderDrawable extends Drawable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BorderDrawable this$0;
+
+        @Override // android.graphics.drawable.Drawable.ConstantState
+        public int getChangingConfigurations() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
+        }
 
         public BorderState(BorderDrawable borderDrawable) {
             Interceptable interceptable = $ic;
@@ -90,26 +84,18 @@ public class BorderDrawable extends Drawable {
             this.this$0 = borderDrawable;
         }
 
-        @Override // android.graphics.drawable.Drawable.ConstantState
-        public int getChangingConfigurations() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 0;
-            }
-            return invokeV.intValue;
+        public /* synthetic */ BorderState(BorderDrawable borderDrawable, AnonymousClass1 anonymousClass1) {
+            this(borderDrawable);
         }
 
         @Override // android.graphics.drawable.Drawable.ConstantState
-        @NonNull
         public Drawable newDrawable() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.this$0 : (Drawable) invokeV.objValue;
-        }
-
-        public /* synthetic */ BorderState(BorderDrawable borderDrawable, AnonymousClass1 anonymousClass1) {
-            this(borderDrawable);
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.this$0;
+            }
+            return (Drawable) invokeV.objValue;
         }
     }
 
@@ -141,21 +127,8 @@ public class BorderDrawable extends Drawable {
         paint.setStyle(Paint.Style.STROKE);
     }
 
-    @NonNull
-    private Shader createGradientShader() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            Rect rect = this.rect;
-            copyBounds(rect);
-            float height = this.borderWidth / rect.height();
-            return new LinearGradient(0.0f, rect.top, 0.0f, rect.bottom, new int[]{ColorUtils.compositeColors(this.topOuterStrokeColor, this.currentBorderTintColor), ColorUtils.compositeColors(this.topInnerStrokeColor, this.currentBorderTintColor), ColorUtils.compositeColors(ColorUtils.setAlphaComponent(this.topInnerStrokeColor, 0), this.currentBorderTintColor), ColorUtils.compositeColors(ColorUtils.setAlphaComponent(this.bottomInnerStrokeColor, 0), this.currentBorderTintColor), ColorUtils.compositeColors(this.bottomInnerStrokeColor, this.currentBorderTintColor), ColorUtils.compositeColors(this.bottomOuterStrokeColor, this.currentBorderTintColor)}, new float[]{0.0f, height, 0.5f, 0.5f, 1.0f - height, 1.0f}, Shader.TileMode.CLAMP);
-        }
-        return (Shader) invokeV.objValue;
-    }
-
     @Override // android.graphics.drawable.Drawable
-    public void draw(@NonNull Canvas canvas) {
+    public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             if (this.invalidateShader) {
@@ -173,7 +146,18 @@ public class BorderDrawable extends Drawable {
         }
     }
 
-    @NonNull
+    private Shader createGradientShader() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            Rect rect = this.rect;
+            copyBounds(rect);
+            float height = this.borderWidth / rect.height();
+            return new LinearGradient(0.0f, rect.top, 0.0f, rect.bottom, new int[]{ColorUtils.compositeColors(this.topOuterStrokeColor, this.currentBorderTintColor), ColorUtils.compositeColors(this.topInnerStrokeColor, this.currentBorderTintColor), ColorUtils.compositeColors(ColorUtils.setAlphaComponent(this.topInnerStrokeColor, 0), this.currentBorderTintColor), ColorUtils.compositeColors(ColorUtils.setAlphaComponent(this.bottomInnerStrokeColor, 0), this.currentBorderTintColor), ColorUtils.compositeColors(this.bottomInnerStrokeColor, this.currentBorderTintColor), ColorUtils.compositeColors(this.bottomOuterStrokeColor, this.currentBorderTintColor)}, new float[]{0.0f, height, 0.5f, 0.5f, 1.0f - height, 1.0f}, Shader.TileMode.CLAMP);
+        }
+        return (Shader) invokeV.objValue;
+    }
+
     public RectF getBoundsAsRectF() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -185,23 +169,53 @@ public class BorderDrawable extends Drawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    @Nullable
     public Drawable.ConstantState getConstantState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.state : (Drawable.ConstantState) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.state;
+        }
+        return (Drawable.ConstantState) invokeV.objValue;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getOpacity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.borderWidth > 0.0f ? -3 : -2 : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.borderWidth > 0.0f) {
+                return -3;
+            }
+            return -2;
+        }
+        return invokeV.intValue;
+    }
+
+    public ShapeAppearanceModel getShapeAppearanceModel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.shapeAppearanceModel;
+        }
+        return (ShapeAppearanceModel) invokeV.objValue;
     }
 
     @Override // android.graphics.drawable.Drawable
-    @TargetApi(21)
-    public void getOutline(@NonNull Outline outline) {
+    public boolean isStateful() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            ColorStateList colorStateList = this.borderTint;
+            if ((colorStateList != null && colorStateList.isStateful()) || super.isStateful()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void getOutline(Outline outline) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, outline) == null) {
             if (this.shapeAppearanceModel.isRoundRect(getBoundsAsRectF())) {
@@ -218,7 +232,7 @@ public class BorderDrawable extends Drawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public boolean getPadding(@NonNull Rect rect) {
+    public boolean getPadding(Rect rect) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, rect)) == null) {
@@ -230,23 +244,6 @@ public class BorderDrawable extends Drawable {
             return true;
         }
         return invokeL.booleanValue;
-    }
-
-    public ShapeAppearanceModel getShapeAppearanceModel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.shapeAppearanceModel : (ShapeAppearanceModel) invokeV.objValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public boolean isStateful() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            ColorStateList colorStateList = this.borderTint;
-            return (colorStateList != null && colorStateList.isStateful()) || super.isStateful();
-        }
-        return invokeV.booleanValue;
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -277,7 +274,7 @@ public class BorderDrawable extends Drawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(@IntRange(from = 0, to = 255) int i) {
+    public void setAlpha(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
             this.paint.setAlpha(i);
@@ -285,7 +282,7 @@ public class BorderDrawable extends Drawable {
         }
     }
 
-    public void setBorderTint(@Nullable ColorStateList colorStateList) {
+    public void setBorderTint(ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, colorStateList) == null) {
             if (colorStateList != null) {
@@ -297,33 +294,22 @@ public class BorderDrawable extends Drawable {
         }
     }
 
-    public void setBorderWidth(@Dimension float f) {
+    public void setBorderWidth(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048588, this, f) == null) || this.borderWidth == f) {
-            return;
-        }
-        this.borderWidth = f;
-        this.paint.setStrokeWidth(f * 1.3333f);
-        this.invalidateShader = true;
-        invalidateSelf();
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setColorFilter(@Nullable ColorFilter colorFilter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, colorFilter) == null) {
-            this.paint.setColorFilter(colorFilter);
+        if ((interceptable == null || interceptable.invokeF(1048588, this, f) == null) && this.borderWidth != f) {
+            this.borderWidth = f;
+            this.paint.setStrokeWidth(f * 1.3333f);
+            this.invalidateShader = true;
             invalidateSelf();
         }
     }
 
-    public void setGradientColors(@ColorInt int i, @ColorInt int i2, @ColorInt int i3, @ColorInt int i4) {
+    @Override // android.graphics.drawable.Drawable
+    public void setColorFilter(ColorFilter colorFilter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048590, this, i, i2, i3, i4) == null) {
-            this.topOuterStrokeColor = i;
-            this.topInnerStrokeColor = i2;
-            this.bottomOuterStrokeColor = i3;
-            this.bottomInnerStrokeColor = i4;
+        if (interceptable == null || interceptable.invokeL(1048589, this, colorFilter) == null) {
+            this.paint.setColorFilter(colorFilter);
+            invalidateSelf();
         }
     }
 
@@ -332,6 +318,16 @@ public class BorderDrawable extends Drawable {
         if (interceptable == null || interceptable.invokeL(1048591, this, shapeAppearanceModel) == null) {
             this.shapeAppearanceModel = shapeAppearanceModel;
             invalidateSelf();
+        }
+    }
+
+    public void setGradientColors(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048590, this, i, i2, i3, i4) == null) {
+            this.topOuterStrokeColor = i;
+            this.topInnerStrokeColor = i2;
+            this.bottomOuterStrokeColor = i3;
+            this.bottomInnerStrokeColor = i4;
         }
     }
 }

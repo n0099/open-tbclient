@@ -39,6 +39,23 @@ public final class AsyncService {
         $VALUES = new AsyncService[]{asyncService};
     }
 
+    public static AsyncService[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (AsyncService[]) $VALUES.clone();
+        }
+        return (AsyncService[]) invokeV.objValue;
+    }
+
+    public void release() {
+        Looper looper;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (looper = this.mLooper) != null) {
+            looper.quit();
+        }
+    }
+
     public AsyncService(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -66,39 +83,25 @@ public final class AsyncService {
     public static AsyncService valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (AsyncService) Enum.valueOf(AsyncService.class, str) : (AsyncService) invokeL.objValue;
-    }
-
-    public static AsyncService[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (AsyncService[]) $VALUES.clone() : (AsyncService[]) invokeV.objValue;
-    }
-
-    public void release() {
-        Looper looper;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (looper = this.mLooper) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (AsyncService) Enum.valueOf(AsyncService.class, str);
         }
-        looper.quit();
+        return (AsyncService) invokeL.objValue;
     }
 
     public void removeRunnable(Runnable runnable) {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) || (handler = this.mHandler) == null || runnable == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) && (handler = this.mHandler) != null && runnable != null) {
+            handler.removeCallbacks(runnable);
         }
-        handler.removeCallbacks(runnable);
     }
 
     public void sendRunnable(Runnable runnable) {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) || (handler = this.mHandler) == null || runnable == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) && (handler = this.mHandler) != null && runnable != null) {
+            handler.post(runnable);
         }
-        handler.post(runnable);
     }
 }

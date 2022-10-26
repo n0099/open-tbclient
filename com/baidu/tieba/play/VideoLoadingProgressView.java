@@ -12,7 +12,7 @@ import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -41,6 +41,11 @@ public class VideoLoadingProgressView extends View {
     public ValueAnimator r;
     public ValueAnimator.AnimatorUpdateListener s;
     public AnimatorListenerAdapter t;
+
+    /* loaded from: classes5.dex */
+    public interface c {
+        void onAnimationEnd();
+    }
 
     /* loaded from: classes5.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
@@ -112,19 +117,16 @@ public class VideoLoadingProgressView extends View {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                if (this.a.n == 2) {
-                    this.a.k();
-                } else if (this.a.n != 3 || this.a.o == null) {
-                } else {
-                    this.a.o.onAnimationEnd();
+                if (this.a.n != 2) {
+                    if (this.a.n == 3 && this.a.o != null) {
+                        this.a.o.onAnimationEnd();
+                        return;
+                    }
+                    return;
                 }
+                this.a.k();
             }
         }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface c {
-        void onAnimationEnd();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -157,125 +159,6 @@ public class VideoLoadingProgressView extends View {
         this.s = new a(this);
         this.t = new b(this);
         i();
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ValueAnimator valueAnimator = this.p;
-            if (valueAnimator != null) {
-                valueAnimator.cancel();
-            }
-            ValueAnimator valueAnimator2 = this.q;
-            if (valueAnimator2 != null) {
-                valueAnimator2.cancel();
-            }
-            ValueAnimator valueAnimator3 = this.r;
-            if (valueAnimator3 != null) {
-                valueAnimator3.cancel();
-            }
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            g();
-            setVisibility(8);
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.g = new RectF();
-            this.h = new Paint(1);
-            this.i = getContext().getResources().getColor(R.color.CAM_X0101);
-            this.j = ej.f(getContext(), R.dimen.obfuscated_res_0x7f0701d4);
-            this.h.setColor(this.i);
-            this.h.setStrokeWidth(this.j);
-            this.h.setStyle(Paint.Style.STROKE);
-            this.h.setStrokeCap(Paint.Cap.ROUND);
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            g();
-            this.n = 2;
-            this.k = this.l;
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(-this.c);
-            this.q = ofFloat;
-            ofFloat.setDuration(this.d);
-            this.q.addListener(this.t);
-            this.q.addUpdateListener(this.s);
-            this.q.start();
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            g();
-            this.n = 3;
-            this.k = this.l;
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(this.e);
-            this.r = ofFloat;
-            ofFloat.setDuration(this.f);
-            this.r.addListener(this.t);
-            this.r.addUpdateListener(this.s);
-            this.r.start();
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            g();
-            this.n = 1;
-            this.l = -90.0f;
-            this.k = -90.0f;
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(this.a);
-            this.p = ofFloat;
-            ofFloat.setDuration(this.b);
-            this.p.addListener(this.t);
-            this.p.addUpdateListener(this.s);
-            this.p.start();
-            setVisibility(0);
-            invalidate();
-        }
-    }
-
-    @Override // android.view.View
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.onDetachedFromWindow();
-            g();
-        }
-    }
-
-    @Override // android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, canvas) == null) {
-            super.onDraw(canvas);
-            RectF rectF = this.g;
-            float f = 1;
-            rectF.left = f;
-            rectF.top = f;
-            rectF.right = getWidth() - 1;
-            this.g.bottom = getHeight() - 1;
-            canvas.drawArc(this.g, this.l, this.m, false, this.h);
-        }
-    }
-
-    public void setLoadingAnimationListener(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) {
-            this.o = cVar;
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -342,5 +225,124 @@ public class VideoLoadingProgressView extends View {
         this.s = new a(this);
         this.t = new b(this);
         i();
+    }
+
+    public void setLoadingAnimationListener(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) {
+            this.o = cVar;
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ValueAnimator valueAnimator = this.p;
+            if (valueAnimator != null) {
+                valueAnimator.cancel();
+            }
+            ValueAnimator valueAnimator2 = this.q;
+            if (valueAnimator2 != null) {
+                valueAnimator2.cancel();
+            }
+            ValueAnimator valueAnimator3 = this.r;
+            if (valueAnimator3 != null) {
+                valueAnimator3.cancel();
+            }
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            g();
+            setVisibility(8);
+        }
+    }
+
+    @Override // android.view.View
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.onDetachedFromWindow();
+            g();
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.g = new RectF();
+            this.h = new Paint(1);
+            this.i = getContext().getResources().getColor(R.color.CAM_X0101);
+            this.j = fj.f(getContext(), R.dimen.obfuscated_res_0x7f0701d4);
+            this.h.setColor(this.i);
+            this.h.setStrokeWidth(this.j);
+            this.h.setStyle(Paint.Style.STROKE);
+            this.h.setStrokeCap(Paint.Cap.ROUND);
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            g();
+            this.n = 1;
+            this.l = -90.0f;
+            this.k = -90.0f;
+            ValueAnimator ofFloat = ValueAnimator.ofFloat(this.a);
+            this.p = ofFloat;
+            ofFloat.setDuration(this.b);
+            this.p.addListener(this.t);
+            this.p.addUpdateListener(this.s);
+            this.p.start();
+            setVisibility(0);
+            invalidate();
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            g();
+            this.n = 2;
+            this.k = this.l;
+            ValueAnimator ofFloat = ValueAnimator.ofFloat(-this.c);
+            this.q = ofFloat;
+            ofFloat.setDuration(this.d);
+            this.q.addListener(this.t);
+            this.q.addUpdateListener(this.s);
+            this.q.start();
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            g();
+            this.n = 3;
+            this.k = this.l;
+            ValueAnimator ofFloat = ValueAnimator.ofFloat(this.e);
+            this.r = ofFloat;
+            ofFloat.setDuration(this.f);
+            this.r.addListener(this.t);
+            this.r.addUpdateListener(this.s);
+            this.r.start();
+        }
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, canvas) == null) {
+            super.onDraw(canvas);
+            RectF rectF = this.g;
+            float f = 1;
+            rectF.left = f;
+            rectF.top = f;
+            rectF.right = getWidth() - 1;
+            this.g.bottom = getHeight() - 1;
+            canvas.drawArc(this.g, this.l, this.m, false, this.h);
+        }
     }
 }

@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.settingcache.OfficialSettingItemData;
-import com.baidu.tieba.mb7;
-import com.baidu.tieba.o87;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.ub7;
+import com.baidu.tieba.w87;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,6 +25,36 @@ public class OfficialBarTipModel extends ImBaseMessageCenterModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MASK_TYPE = 12;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel, com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel
+    public int getCustomGroupType(ImMessageCenterShowItemData imMessageCenterShowItemData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, imMessageCenterShowItemData)) == null) {
+            return 4;
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel, com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public OfficialBarTipModel(TbPageContext tbPageContext) {
@@ -49,79 +79,70 @@ public class OfficialBarTipModel extends ImBaseMessageCenterModel {
     private boolean isNeed(ImMessageCenterPojo imMessageCenterPojo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, imMessageCenterPojo)) == null) ? imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 4 && (imMessageCenterPojo.getUserType() == 1 || imMessageCenterPojo.getUserType() == 3) && !TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) : invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel, com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, imMessageCenterPojo)) == null) {
+            if (imMessageCenterPojo == null || imMessageCenterPojo.getCustomGroupType() != 4 || ((imMessageCenterPojo.getUserType() != 1 && imMessageCenterPojo.getUserType() != 3) || TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()))) {
+                return false;
+            }
+            return true;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public void deleteSelectedDatas(o87 o87Var) {
-        LinkedList<ImMessageCenterShowItemData> linkedList;
+    public void deleteSelectedDatas(w87 w87Var) {
+        LinkedList linkedList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o87Var) == null) || (linkedList = this.mList) == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, w87Var) != null) || (linkedList = this.mList) == null) {
             return;
         }
-        ListIterator<ImMessageCenterShowItemData> listIterator = linkedList.listIterator();
+        ListIterator listIterator = linkedList.listIterator();
         ArrayList arrayList = new ArrayList();
         while (listIterator.hasNext()) {
-            ImMessageCenterShowItemData next = listIterator.next();
-            if (next != null && next.isSelected()) {
-                arrayList.add(next);
+            ImMessageCenterShowItemData imMessageCenterShowItemData = (ImMessageCenterShowItemData) listIterator.next();
+            if (imMessageCenterShowItemData != null && imMessageCenterShowItemData.isSelected()) {
+                arrayList.add(imMessageCenterShowItemData);
             }
         }
-        asyncDeleteMsgList(arrayList, 4, o87Var);
-    }
-
-    @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel
-    public int getCustomGroupType(ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, imMessageCenterShowItemData)) == null) {
-            return 4;
-        }
-        return invokeL.intValue;
+        asyncDeleteMsgList(arrayList, 4, w87Var);
     }
 
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel
     public boolean isAccept(ImMessageCenterPojo imMessageCenterPojo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, imMessageCenterPojo)) == null) ? isNeed(imMessageCenterPojo) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, imMessageCenterPojo)) == null) {
+            return isNeed(imMessageCenterPojo);
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel
     public boolean isToShow(ImMessageCenterPojo imMessageCenterPojo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, imMessageCenterPojo)) == null) ? isNeed(imMessageCenterPojo) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, imMessageCenterPojo)) == null) {
+            return isNeed(imMessageCenterPojo);
+        }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel, com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
+    public void updateEditStatus(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return false;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            for (int i = 0; i != this.mList.size(); i++) {
+                ((ImMessageCenterShowItemData) this.mList.get(i)).setSelected(z);
+            }
         }
-        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel
     public void processMsg(ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         ImMessageCenterShowItemData buildNormalItem;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, imMessageCenterPojo, imMessageCenterShowItemData) == null) || (buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData)) == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048582, this, imMessageCenterPojo, imMessageCenterShowItemData) != null) || (buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData)) == null) {
             return;
         }
         buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
-        OfficialSettingItemData a = mb7.j().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+        OfficialSettingItemData a = ub7.j().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
         if (a != null) {
             buildNormalItem.setGroupSetting(a);
         }
@@ -140,15 +161,6 @@ public class OfficialBarTipModel extends ImBaseMessageCenterModel {
             requestUpdateMaskInfoMessage.setMaskType(12);
             requestUpdateMaskInfoMessage.setList(str);
             sendMessage(requestUpdateMaskInfoMessage);
-        }
-    }
-
-    public void updateEditStatus(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            for (int i = 0; i != this.mList.size(); i++) {
-                this.mList.get(i).setSelected(z);
-            }
         }
     }
 }

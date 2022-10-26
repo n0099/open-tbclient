@@ -1,31 +1,26 @@
 package com.google.android.gms.dynamic;
 
 import android.os.IBinder;
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.Preconditions;
-import com.google.android.gms.common.util.RetainForClient;
 import com.google.android.gms.dynamic.IObjectWrapper;
 import java.lang.reflect.Field;
-@RetainForClient
-@KeepForSdk
 /* loaded from: classes7.dex */
-public final class ObjectWrapper<T> extends IObjectWrapper.Stub {
+public final class ObjectWrapper extends IObjectWrapper.Stub {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final T zza;
+    public final Object zza;
 
-    public ObjectWrapper(T t) {
+    public ObjectWrapper(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t};
+            Object[] objArr = {obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,12 +30,19 @@ public final class ObjectWrapper<T> extends IObjectWrapper.Stub {
                 return;
             }
         }
-        this.zza = t;
+        this.zza = obj;
     }
 
-    @NonNull
-    @KeepForSdk
-    public static <T> T unwrap(@NonNull IObjectWrapper iObjectWrapper) {
+    public static IObjectWrapper wrap(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, obj)) == null) {
+            return new ObjectWrapper(obj);
+        }
+        return (IObjectWrapper) invokeL.objValue;
+    }
+
+    public static Object unwrap(IObjectWrapper iObjectWrapper) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iObjectWrapper)) == null) {
@@ -62,7 +64,7 @@ public final class ObjectWrapper<T> extends IObjectWrapper.Stub {
                 if (!field.isAccessible()) {
                     field.setAccessible(true);
                     try {
-                        return (T) field.get(asBinder);
+                        return field.get(asBinder);
                     } catch (IllegalAccessException e) {
                         throw new IllegalArgumentException("Could not access the field in remoteBinder.", e);
                     } catch (NullPointerException e2) {
@@ -77,14 +79,6 @@ public final class ObjectWrapper<T> extends IObjectWrapper.Stub {
             sb.append(length);
             throw new IllegalArgumentException(sb.toString());
         }
-        return (T) invokeL.objValue;
-    }
-
-    @NonNull
-    @KeepForSdk
-    public static <T> IObjectWrapper wrap(@NonNull T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, t)) == null) ? new ObjectWrapper(t) : (IObjectWrapper) invokeL.objValue;
+        return invokeL.objValue;
     }
 }

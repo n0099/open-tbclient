@@ -11,7 +11,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.base.annotations.CalledByNative;
 /* loaded from: classes6.dex */
 public class ThreadUtils {
     public static /* synthetic */ Interceptable $ic;
@@ -48,6 +47,18 @@ public class ThreadUtils {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (a().getLooper() == Looper.myLooper()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public static Handler a() {
@@ -88,20 +99,18 @@ public class ThreadUtils {
         }
     }
 
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? a().getLooper() == Looper.myLooper() : invokeV.booleanValue;
-    }
-
-    @CalledByNative
     public static boolean isThreadPriorityAudio(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) ? Process.getThreadPriority(i) == -16 : invokeI.booleanValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
+            if (Process.getThreadPriority(i) == -16) {
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
     }
 
-    @CalledByNative
     public static void setThreadPriorityAudio(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {

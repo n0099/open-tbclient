@@ -16,7 +16,7 @@ import tbclient.GetOfficialSwitch.GetOfficialSwitchResIdl;
 public class OfficialAccountPushHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<OfficialAccountPushInfo> official_list;
+    public ArrayList official_list;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public OfficialAccountPushHttpResponseMessage(int i) {
@@ -38,19 +38,13 @@ public class OfficialAccountPushHttpResponseMessage extends TbHttpResponsedMessa
         }
     }
 
-    public ArrayList<OfficialAccountPushInfo> getList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.official_list : (ArrayList) invokeV.objValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         String str;
         Integer num;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || bArr == null) {
+        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) != null) || bArr == null) {
             return;
         }
         GetOfficialSwitchResIdl getOfficialSwitchResIdl = (GetOfficialSwitchResIdl) new Wire(new Class[0]).parseFrom(bArr, GetOfficialSwitchResIdl.class);
@@ -66,14 +60,22 @@ public class OfficialAccountPushHttpResponseMessage extends TbHttpResponsedMessa
             setErrorString(getOfficialSwitchResIdl.error.usermsg);
         }
         DataRes dataRes = getOfficialSwitchResIdl.data;
-        if (dataRes == null || dataRes.official_list == null) {
-            return;
+        if (dataRes != null && dataRes.official_list != null) {
+            this.official_list = new ArrayList();
+            for (int i2 = 0; i2 < getOfficialSwitchResIdl.data.official_list.size(); i2++) {
+                OfficialAccountPushInfo officialAccountPushInfo = new OfficialAccountPushInfo();
+                officialAccountPushInfo.parser(getOfficialSwitchResIdl.data.official_list.get(i2));
+                this.official_list.add(officialAccountPushInfo);
+            }
         }
-        this.official_list = new ArrayList<>();
-        for (int i2 = 0; i2 < getOfficialSwitchResIdl.data.official_list.size(); i2++) {
-            OfficialAccountPushInfo officialAccountPushInfo = new OfficialAccountPushInfo();
-            officialAccountPushInfo.parser(getOfficialSwitchResIdl.data.official_list.get(i2));
-            this.official_list.add(officialAccountPushInfo);
+    }
+
+    public ArrayList getList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.official_list;
         }
+        return (ArrayList) invokeV.objValue;
     }
 }

@@ -67,12 +67,18 @@ public final class EndCause {
     public static EndCause valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EndCause) Enum.valueOf(EndCause.class, str) : (EndCause) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (EndCause) Enum.valueOf(EndCause.class, str);
+        }
+        return (EndCause) invokeL.objValue;
     }
 
     public static EndCause[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EndCause[]) $VALUES.clone() : (EndCause[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (EndCause[]) $VALUES.clone();
+        }
+        return (EndCause[]) invokeV.objValue;
     }
 }

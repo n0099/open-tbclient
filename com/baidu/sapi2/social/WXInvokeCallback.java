@@ -11,6 +11,8 @@ public abstract class WXInvokeCallback implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract void onResult(int i, Intent intent);
+
     public WXInvokeCallback() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -24,6 +26,4 @@ public abstract class WXInvokeCallback implements NoProguard {
             }
         }
     }
-
-    public abstract void onResult(int i, Intent intent);
 }

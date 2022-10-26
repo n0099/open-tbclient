@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class VideoEventPool extends SynchronizedFixSizePool<VideoEvent> {
+public class VideoEventPool extends SynchronizedFixSizePool {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,6 +34,9 @@ public class VideoEventPool extends SynchronizedFixSizePool<VideoEvent> {
     public VideoEvent createItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new VideoEvent() : (VideoEvent) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new VideoEvent();
+        }
+        return (VideoEvent) invokeV.objValue;
     }
 }

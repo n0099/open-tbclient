@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.GetRemindLiveRooms.YyLiveInfoSimple;
 import tbclient.YyExt;
 /* loaded from: classes3.dex */
 public class LiveRemindFloatViewData implements Serializable {
@@ -19,7 +18,7 @@ public class LiveRemindFloatViewData implements Serializable {
     public String desc;
     public String mBtnText;
     public YyExt mExt;
-    public ArrayList<YyLiveInfoSimple> mLiveInfoList;
+    public ArrayList mLiveInfoList;
     public Long mRoomId;
     public String mUsername;
     public String portrait;
@@ -38,55 +37,79 @@ public class LiveRemindFloatViewData implements Serializable {
                 return;
             }
         }
-        this.mLiveInfoList = new ArrayList<>();
+        this.mLiveInfoList = new ArrayList();
     }
 
     public String getBtnText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mBtnText : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mBtnText;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getDesc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.desc : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.desc;
+        }
+        return (String) invokeV.objValue;
     }
 
     public YyExt getExt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mExt : (YyExt) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mExt;
+        }
+        return (YyExt) invokeV.objValue;
     }
 
-    public ArrayList<YyLiveInfoSimple> getLiveInfoList() {
+    public ArrayList getLiveInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mLiveInfoList : (ArrayList) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mLiveInfoList;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 
     public String getPortrait() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.portrait : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.portrait;
+        }
+        return (String) invokeV.objValue;
     }
 
     public Long getRoomId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mRoomId : (Long) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mRoomId;
+        }
+        return (Long) invokeV.objValue;
     }
 
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.title : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.title;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getUsername() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mUsername : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mUsername;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void setBtnText(String str) {
@@ -110,7 +133,7 @@ public class LiveRemindFloatViewData implements Serializable {
         }
     }
 
-    public void setLiveInfoList(List<YyLiveInfoSimple> list) {
+    public void setLiveInfoList(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
             this.mLiveInfoList.clear();

@@ -38,6 +38,19 @@ public class SharedPreferencesUtil implements com.baidu.pass.a {
         e = context.getApplicationContext();
     }
 
+    public static void putEncryptStr(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) {
+            String a2 = a();
+            try {
+                str2 = SecurityUtil.base64Encode(SecurityUtil.aesEncrypt(str2, new StringBuffer(a2).reverse().toString(), a2));
+            } catch (Exception e2) {
+                Log.e(e2);
+            }
+            put(str, str2);
+        }
+    }
+
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -54,32 +67,36 @@ public class SharedPreferencesUtil implements com.baidu.pass.a {
         return (String) invokeV.objValue;
     }
 
-    public static <T> T get(String str, T t) {
+    public static Object get(String str, Object obj) {
         InterceptResult invokeLL;
         char c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, t)) == null) {
-            String simpleName = t.getClass().getSimpleName();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, obj)) == null) {
+            String simpleName = obj.getClass().getSimpleName();
             try {
                 int hashCode = simpleName.hashCode();
-                if (hashCode == -672261858) {
+                if (hashCode != -672261858) {
+                    if (hashCode != 2374300) {
+                        if (hashCode != 67973692) {
+                            if (hashCode == 1729365000 && simpleName.equals("Boolean")) {
+                                c2 = 0;
+                            }
+                            c2 = 65535;
+                        } else {
+                            if (simpleName.equals("Float")) {
+                                c2 = 2;
+                            }
+                            c2 = 65535;
+                        }
+                    } else {
+                        if (simpleName.equals("Long")) {
+                            c2 = 1;
+                        }
+                        c2 = 65535;
+                    }
+                } else {
                     if (simpleName.equals("Integer")) {
                         c2 = 3;
-                    }
-                    c2 = 65535;
-                } else if (hashCode == 2374300) {
-                    if (simpleName.equals("Long")) {
-                        c2 = 1;
-                    }
-                    c2 = 65535;
-                } else if (hashCode != 67973692) {
-                    if (hashCode == 1729365000 && simpleName.equals("Boolean")) {
-                        c2 = 0;
-                    }
-                    c2 = 65535;
-                } else {
-                    if (simpleName.equals("Float")) {
-                        c2 = 2;
                     }
                     c2 = 65535;
                 }
@@ -87,21 +104,83 @@ public class SharedPreferencesUtil implements com.baidu.pass.a {
                     if (c2 != 1) {
                         if (c2 != 2) {
                             if (c2 != 3) {
-                                return (T) b.getString(str, (String) t);
+                                return b.getString(str, (String) obj);
                             }
-                            return (T) Integer.valueOf(b.getInt(str, ((Integer) t).intValue()));
+                            return Integer.valueOf(b.getInt(str, ((Integer) obj).intValue()));
                         }
-                        return (T) Float.valueOf(b.getFloat(str, ((Float) t).floatValue()));
+                        return Float.valueOf(b.getFloat(str, ((Float) obj).floatValue()));
                     }
-                    return (T) Long.valueOf(b.getLong(str, ((Long) t).longValue()));
+                    return Long.valueOf(b.getLong(str, ((Long) obj).longValue()));
                 }
-                return (T) Boolean.valueOf(b.getBoolean(str, ((Boolean) t).booleanValue()));
+                return Boolean.valueOf(b.getBoolean(str, ((Boolean) obj).booleanValue()));
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return null;
             }
         }
-        return (T) invokeLL.objValue;
+        return invokeLL.objValue;
+    }
+
+    public static boolean put(String str, Object obj) {
+        InterceptResult invokeLL;
+        char c2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, obj)) == null) {
+            SharedPreferences.Editor edit = b.edit();
+            String simpleName = obj.getClass().getSimpleName();
+            boolean z = false;
+            try {
+                int hashCode = simpleName.hashCode();
+                if (hashCode != -672261858) {
+                    if (hashCode != 2374300) {
+                        if (hashCode != 67973692) {
+                            if (hashCode == 1729365000 && simpleName.equals("Boolean")) {
+                                c2 = 0;
+                            }
+                            c2 = 65535;
+                        } else {
+                            if (simpleName.equals("Float")) {
+                                c2 = 2;
+                            }
+                            c2 = 65535;
+                        }
+                    } else {
+                        if (simpleName.equals("Long")) {
+                            c2 = 1;
+                        }
+                        c2 = 65535;
+                    }
+                } else {
+                    if (simpleName.equals("Integer")) {
+                        c2 = 3;
+                    }
+                    c2 = 65535;
+                }
+                if (c2 != 0) {
+                    if (c2 != 1) {
+                        if (c2 != 2) {
+                            if (c2 != 3) {
+                                edit.putString(str, (String) obj);
+                            } else {
+                                edit.putInt(str, ((Integer) obj).intValue());
+                            }
+                        } else {
+                            edit.putFloat(str, ((Float) obj).floatValue());
+                        }
+                    } else {
+                        edit.putLong(str, ((Long) obj).longValue());
+                    }
+                } else {
+                    edit.putBoolean(str, ((Boolean) obj).booleanValue());
+                }
+                z = true;
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+            edit.apply();
+            return z;
+        }
+        return invokeLL.booleanValue;
     }
 
     public static String getEncryptStr(String str, String str2) {
@@ -129,71 +208,6 @@ public class SharedPreferencesUtil implements com.baidu.pass.a {
                     a = new SharedPreferencesUtil(context, c);
                 }
             }
-        }
-    }
-
-    public static boolean put(String str, Object obj) {
-        InterceptResult invokeLL;
-        char c2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, obj)) == null) {
-            SharedPreferences.Editor edit = b.edit();
-            String simpleName = obj.getClass().getSimpleName();
-            boolean z = false;
-            try {
-                int hashCode = simpleName.hashCode();
-                if (hashCode == -672261858) {
-                    if (simpleName.equals("Integer")) {
-                        c2 = 3;
-                    }
-                    c2 = 65535;
-                } else if (hashCode == 2374300) {
-                    if (simpleName.equals("Long")) {
-                        c2 = 1;
-                    }
-                    c2 = 65535;
-                } else if (hashCode != 67973692) {
-                    if (hashCode == 1729365000 && simpleName.equals("Boolean")) {
-                        c2 = 0;
-                    }
-                    c2 = 65535;
-                } else {
-                    if (simpleName.equals("Float")) {
-                        c2 = 2;
-                    }
-                    c2 = 65535;
-                }
-                if (c2 == 0) {
-                    edit.putBoolean(str, ((Boolean) obj).booleanValue());
-                } else if (c2 == 1) {
-                    edit.putLong(str, ((Long) obj).longValue());
-                } else if (c2 == 2) {
-                    edit.putFloat(str, ((Float) obj).floatValue());
-                } else if (c2 != 3) {
-                    edit.putString(str, (String) obj);
-                } else {
-                    edit.putInt(str, ((Integer) obj).intValue());
-                }
-                z = true;
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-            edit.apply();
-            return z;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static void putEncryptStr(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) {
-            String a2 = a();
-            try {
-                str2 = SecurityUtil.base64Encode(SecurityUtil.aesEncrypt(str2, new StringBuffer(a2).reverse().toString(), a2));
-            } catch (Exception e2) {
-                Log.e(e2);
-            }
-            put(str, str2);
         }
     }
 

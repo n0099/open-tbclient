@@ -21,7 +21,6 @@ import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-@NotProguard
 /* loaded from: classes2.dex */
 public class WebGLImage {
     public static /* synthetic */ Interceptable $ic = null;
@@ -52,6 +51,62 @@ public class WebGLImage {
         }
         if ((invokeClinit.flags & 1) != 0) {
             classClinitInterceptable.invokePostClinit(554033768, "Lcom/baidu/searchbox/v8engine/WebGLImage;");
+        }
+    }
+
+    private native void nativeOnLoadFailed(long j, String str, int i);
+
+    private native void nativeOnLoadSuccess(long j, int i);
+
+    public static native boolean nativeReadPixels(long j, Bitmap bitmap, int i, int i2, int i3, int i4);
+
+    public native boolean nativeLoadAsset(long j, Bitmap bitmap);
+
+    /* loaded from: classes2.dex */
+    public class CanvasResult {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @V8JavascriptField
+        public String errMsg;
+        @V8JavascriptField
+        public String tempFilePath;
+
+        public CanvasResult() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.tempFilePath = null;
+            this.errMsg = null;
+        }
+
+        public CanvasResult(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.tempFilePath = null;
+            this.errMsg = null;
+            this.tempFilePath = str;
+            this.errMsg = str2;
         }
     }
 
@@ -101,7 +156,10 @@ public class WebGLImage {
     public static WebGLImage create(long j, long j2, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str})) == null) ? new WebGLImage(j, j2, str) : (WebGLImage) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str})) == null) {
+            return new WebGLImage(j, j2, str);
+        }
+        return (WebGLImage) invokeCommon.objValue;
     }
 
     public static String getValidFileType(String str) {
@@ -119,12 +177,6 @@ public class WebGLImage {
         }
         return (String) invokeL.objValue;
     }
-
-    private native void nativeOnLoadFailed(long j, String str, int i);
-
-    private native void nativeOnLoadSuccess(long j, int i);
-
-    public static native boolean nativeReadPixels(long j, Bitmap bitmap, int i, int i2, int i3, int i4);
 
     private void postImageJSCallback(V8Engine v8Engine, JSEvent jSEvent, int i) {
         Interceptable interceptable = $ic;
@@ -205,6 +257,48 @@ public class WebGLImage {
         }
     }
 
+    public static Bitmap.CompressFormat toCompressFormat(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
+            if (!"jpg".equalsIgnoreCase(str) && !"jpeg".equalsIgnoreCase(str)) {
+                return Bitmap.CompressFormat.PNG;
+            }
+            return Bitmap.CompressFormat.JPEG;
+        }
+        return (Bitmap.CompressFormat) invokeL.objValue;
+    }
+
+    public boolean setBitmapData(Bitmap bitmap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, bitmap)) == null) {
+            long j = this.mNativePtr;
+            if (j != 0 && nativeLoadAsset(j, bitmap)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setImageId(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.mImageId = i;
+        }
+    }
+
+    public void setSrc(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048589, this, str) != null) || str == null) {
+            return;
+        }
+        this.mBeforeSrc = this.mSrc;
+        this.mSrc = str.trim();
+        WebGLImageLoader.loadImage(this);
+    }
+
     public static void saveBitmapData(byte[] bArr, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65547, null, bArr, str) == null) {
@@ -281,18 +375,6 @@ public class WebGLImage {
         return (String) invokeCommon.objValue;
     }
 
-    public static Bitmap.CompressFormat toCompressFormat(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
-            if (!"jpg".equalsIgnoreCase(str) && !"jpeg".equalsIgnoreCase(str)) {
-                return Bitmap.CompressFormat.PNG;
-            }
-            return Bitmap.CompressFormat.JPEG;
-        }
-        return (Bitmap.CompressFormat) invokeL.objValue;
-    }
-
     public static String toDataURL(long j, int i, int i2, String str, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -316,6 +398,7 @@ public class WebGLImage {
 
     public static String toTempFilePathAsync(long j, long j2, int i, int i2, int i3, int i4, int i5, int i6, String str, float f, JsFunction jsFunction, JsFunction jsFunction2, JsFunction jsFunction3) {
         InterceptResult invokeCommon;
+        Bitmap bitmap;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), str, Float.valueOf(f), jsFunction, jsFunction2, jsFunction3})) == null) {
             Log.e("V8", "toTempFilePathAsync-- " + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i4 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i5 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i6 + StringUtil.ARRAY_ELEMENT_SEPARATOR + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + f + StringUtil.ARRAY_ELEMENT_SEPARATOR + jsFunction + StringUtil.ARRAY_ELEMENT_SEPARATOR + jsFunction2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + jsFunction3);
@@ -325,7 +408,12 @@ public class WebGLImage {
                 handlerThread.start();
                 sHandler = new Handler(sBackgroundThread.getLooper());
             }
-            sHandler.post(new Runnable((i < 0 || i2 < 0 || i3 <= 0 || i4 <= 0 || i5 <= 0 || i6 <= 0) ? null : readCanvas(j, i, i2, i3, i4), i5, i6, str, f, j2, jsFunction, jsFunction2, jsFunction3) { // from class: com.baidu.searchbox.v8engine.WebGLImage.2
+            if (i >= 0 && i2 >= 0 && i3 > 0 && i4 > 0 && i5 > 0 && i6 > 0) {
+                bitmap = readCanvas(j, i, i2, i3, i4);
+            } else {
+                bitmap = null;
+            }
+            sHandler.post(new Runnable(bitmap, i5, i6, str, f, j2, jsFunction, jsFunction2, jsFunction3) { // from class: com.baidu.searchbox.v8engine.WebGLImage.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Bitmap val$bitmap;
@@ -343,7 +431,7 @@ public class WebGLImage {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {r6, Integer.valueOf(i5), Integer.valueOf(i6), str, Float.valueOf(f), Long.valueOf(j2), jsFunction, jsFunction2, jsFunction3};
+                        Object[] objArr = {bitmap, Integer.valueOf(i5), Integer.valueOf(i6), str, Float.valueOf(f), Long.valueOf(j2), jsFunction, jsFunction2, jsFunction3};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i7 = newInitContext.flag;
                         if ((i7 & 1) != 0) {
@@ -353,7 +441,7 @@ public class WebGLImage {
                             return;
                         }
                     }
-                    this.val$bitmap = r6;
+                    this.val$bitmap = bitmap;
                     this.val$destWidth = i5;
                     this.val$destHeight = i6;
                     this.val$fileType = str;
@@ -417,10 +505,15 @@ public class WebGLImage {
 
     public static String toTempFilePathInternal(long j, long j2, int i, int i2, int i3, int i4, int i5, int i6, String str, float f, JsFunction jsFunction, JsFunction jsFunction2, JsFunction jsFunction3, boolean z) {
         InterceptResult invokeCommon;
+        float f2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), str, Float.valueOf(f), jsFunction, jsFunction2, jsFunction3, Boolean.valueOf(z)})) == null) {
             String validFileType = getValidFileType(str);
-            float f2 = (f <= 0.0f || f > 1.0f) ? 0.92f : f;
+            if (f > 0.0f && f <= 1.0f) {
+                f2 = f;
+            } else {
+                f2 = 0.92f;
+            }
             if (z) {
                 return toTempFilePathSync(j, j2, i, i2, i3, i4, i5, i6, validFileType, f2);
             }
@@ -432,38 +525,42 @@ public class WebGLImage {
     public static String toTempFilePathSync(long j, long j2, int i, int i2, int i3, int i4, int i5, int i6, String str, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65553, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), str, Float.valueOf(f)})) != null) {
-            return (String) invokeCommon.objValue;
-        }
-        Log.e("V8", "toTempFilePathSync-- " + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i4 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i5 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i6 + StringUtil.ARRAY_ELEMENT_SEPARATOR + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + f);
-        try {
-            if (i == -1 || i2 == -1) {
-                throw new Exception("The x or y must be legal");
-            }
-            if (i3 != -1 && i4 != -1 && i5 != -1 && i6 != -1) {
-                try {
-                    return saveTempFilePath(j2, compressCanvas(readCanvas(j, i, i2, i3, i4), i5, i6, str, f), str);
-                } catch (Throwable th) {
-                    th = th;
-                    Log.e("V8", th.getMessage(), th);
-                    V8Engine v8Engine = V8Engine.getInstance(j2);
-                    if (v8Engine != null) {
-                        v8Engine.throwJSException(JSExceptionType.Error, th.getMessage());
-                        return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65553, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), str, Float.valueOf(f)})) == null) {
+            Log.e("V8", "toTempFilePathSync-- " + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i4 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i5 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i6 + StringUtil.ARRAY_ELEMENT_SEPARATOR + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + f);
+            try {
+                if (i != -1 && i2 != -1) {
+                    if (i3 != -1 && i4 != -1 && i5 != -1 && i6 != -1) {
+                        try {
+                            return saveTempFilePath(j2, compressCanvas(readCanvas(j, i, i2, i3, i4), i5, i6, str, f), str);
+                        } catch (Throwable th) {
+                            th = th;
+                            Log.e("V8", th.getMessage(), th);
+                            V8Engine v8Engine = V8Engine.getInstance(j2);
+                            if (v8Engine != null) {
+                                v8Engine.throwJSException(JSExceptionType.Error, th.getMessage());
+                                return null;
+                            }
+                            return null;
+                        }
                     }
-                    return null;
+                    throw new Exception("The width or height must be legal");
                 }
+                throw new Exception("The x or y must be legal");
+            } catch (Throwable th2) {
+                th = th2;
             }
-            throw new Exception("The width or height must be legal");
-        } catch (Throwable th2) {
-            th = th2;
+        } else {
+            return (String) invokeCommon.objValue;
         }
     }
 
     public String basePath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mBasePath : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mBasePath;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void detach() {
@@ -476,51 +573,81 @@ public class WebGLImage {
     public long getEnginePtr() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mEnginePtr : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mEnginePtr;
+        }
+        return invokeV.longValue;
     }
 
     public int getImageId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mImageId : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mImageId;
+        }
+        return invokeV.intValue;
     }
 
     public int height() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mHeight : invokeV.intValue;
-    }
-
-    public void invokeCallback(JSEvent jSEvent, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048581, this, jSEvent, i) == null) || jSEvent == null || jSEvent.type == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mHeight;
         }
-        V8Engine v8Engine = V8Engine.getInstance(this.mEnginePtr);
-        if (v8Engine != null && v8Engine.isPaused()) {
-            postImageJSCallback(v8Engine, jSEvent, i);
-        } else if (this.mNativePtr == 0) {
-        } else {
-            if (jSEvent.type.equals("load")) {
-                nativeOnLoadSuccess(this.mNativePtr, i);
-            } else {
-                nativeOnLoadFailed(this.mNativePtr, this.mErrorMsg, i);
-            }
-        }
+        return invokeV.intValue;
     }
-
-    public native boolean nativeLoadAsset(long j, Bitmap bitmap);
 
     public long nativePtr() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mNativePtr : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mNativePtr;
+        }
+        return invokeV.longValue;
     }
 
     public String oldSrc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mBeforeSrc : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mBeforeSrc;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String src() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.mSrc;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int width() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.mWidth;
+        }
+        return invokeV.intValue;
+    }
+
+    public void invokeCallback(JSEvent jSEvent, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(1048581, this, jSEvent, i) == null) && jSEvent != null && jSEvent.type != null) {
+            V8Engine v8Engine = V8Engine.getInstance(this.mEnginePtr);
+            if (v8Engine != null && v8Engine.isPaused()) {
+                postImageJSCallback(v8Engine, jSEvent, i);
+            } else if (this.mNativePtr == 0) {
+            } else {
+                if (jSEvent.type.equals("load")) {
+                    nativeOnLoadSuccess(this.mNativePtr, i);
+                } else {
+                    nativeOnLoadFailed(this.mNativePtr, this.mErrorMsg, i);
+                }
+            }
+        }
     }
 
     public void onLoadFailed(int i, String str) {
@@ -559,93 +686,6 @@ public class WebGLImage {
                 return;
             }
             throw new Exception("can't get the v8engine instance.");
-        }
-    }
-
-    public boolean setBitmapData(Bitmap bitmap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, bitmap)) == null) {
-            long j = this.mNativePtr;
-            return j != 0 && nativeLoadAsset(j, bitmap);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void setImageId(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.mImageId = i;
-        }
-    }
-
-    public void setSrc(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, str) == null) || str == null) {
-            return;
-        }
-        this.mBeforeSrc = this.mSrc;
-        this.mSrc = str.trim();
-        WebGLImageLoader.loadImage(this);
-    }
-
-    public String src() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mSrc : (String) invokeV.objValue;
-    }
-
-    public int width() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mWidth : invokeV.intValue;
-    }
-
-    /* loaded from: classes2.dex */
-    public static class CanvasResult {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        @V8JavascriptField
-        public String errMsg;
-        @V8JavascriptField
-        public String tempFilePath;
-
-        public CanvasResult(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.tempFilePath = null;
-            this.errMsg = null;
-            this.tempFilePath = str;
-            this.errMsg = str2;
-        }
-
-        public CanvasResult() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.tempFilePath = null;
-            this.errMsg = null;
         }
     }
 }

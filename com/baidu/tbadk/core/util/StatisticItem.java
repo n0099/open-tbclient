@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dj;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,33 +34,6 @@ public class StatisticItem {
         this.params = new ArrayList();
     }
 
-    public static StatisticItem make(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? new StatisticItem(str) : (StatisticItem) invokeL.objValue;
-    }
-
-    private void setParams(List<Object> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, this, list) == null) {
-            this.params = list;
-        }
-    }
-
-    public StatisticItem addParam(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            int index = getIndex(str);
-            if (index > 0) {
-                this.params.set(index, str2);
-                return this;
-            }
-            return param(str, str2);
-        }
-        return (StatisticItem) invokeLL.objValue;
-    }
-
     public StatisticItem copy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -70,16 +43,6 @@ public class StatisticItem {
             return statisticItem;
         }
         return (StatisticItem) invokeV.objValue;
-    }
-
-    public void delete(String str) {
-        int indexOf;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || dj.isEmpty(str) || (indexOf = this.params.indexOf(str)) < 0 || this.params.size() <= indexOf + 1) {
-            return;
-        }
-        this.params.remove(indexOf);
-        this.params.remove(indexOf);
     }
 
     public void eventStat() {
@@ -92,81 +55,37 @@ public class StatisticItem {
     public int getContentHashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.params.hashCode() : invokeV.intValue;
-    }
-
-    public int getIndex(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (hasParam(str)) {
-                return this.params.indexOf(str) + 1;
-            }
-            return -1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.params.hashCode();
         }
-        return invokeL.intValue;
+        return invokeV.intValue;
     }
 
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.key : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.key;
+        }
+        return (String) invokeV.objValue;
     }
 
     public List<Object> getParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.params : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.params;
+        }
+        return (List) invokeV.objValue;
     }
 
     public int getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.position : invokeV.intValue;
-    }
-
-    public boolean hasParam(String str) {
-        InterceptResult invokeL;
-        int indexOf;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) ? !dj.isEmpty(str) && (indexOf = this.params.indexOf(str)) >= 0 && this.params.size() > indexOf + 1 : invokeL.booleanValue;
-    }
-
-    public StatisticItem key(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            this.key = str;
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.position;
         }
-        return (StatisticItem) invokeL.objValue;
-    }
-
-    public StatisticItem param(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, str, str2)) == null) {
-            this.params.add(str);
-            this.params.add(str2);
-            return this;
-        }
-        return (StatisticItem) invokeLL.objValue;
-    }
-
-    public void setPosition(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            this.position = i;
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return "StatisticItem{key='" + this.key + "', position=" + this.position + ", params=" + this.params + '}';
-        }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
     public StatisticItem(String str) {
@@ -188,15 +107,85 @@ public class StatisticItem {
         this.key = str;
     }
 
-    public StatisticItem param(String str, int i) {
-        InterceptResult invokeLI;
+    public void delete(String str) {
+        int indexOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048591, this, str, i)) == null) {
-            this.params.add(str);
-            this.params.add(Integer.valueOf(i));
+        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && !ej.isEmpty(str) && (indexOf = this.params.indexOf(str)) >= 0 && this.params.size() > indexOf + 1) {
+            this.params.remove(indexOf);
+            this.params.remove(indexOf);
+        }
+    }
+
+    public static StatisticItem make(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return new StatisticItem(str);
+        }
+        return (StatisticItem) invokeL.objValue;
+    }
+
+    private void setParams(List<Object> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, this, list) == null) {
+            this.params = list;
+        }
+    }
+
+    public int getIndex(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            if (!hasParam(str)) {
+                return -1;
+            }
+            return this.params.indexOf(str) + 1;
+        }
+        return invokeL.intValue;
+    }
+
+    public boolean hasParam(String str) {
+        InterceptResult invokeL;
+        int indexOf;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            if (ej.isEmpty(str) || (indexOf = this.params.indexOf(str)) < 0 || this.params.size() <= indexOf + 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public StatisticItem key(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            this.key = str;
             return this;
         }
-        return (StatisticItem) invokeLI.objValue;
+        return (StatisticItem) invokeL.objValue;
+    }
+
+    public void setPosition(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.position = i;
+        }
+    }
+
+    public StatisticItem addParam(String str, double d) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Double.valueOf(d)})) == null) {
+            int index = getIndex(str);
+            if (index > 0) {
+                this.params.set(index, Double.valueOf(d));
+                return this;
+            }
+            return param(str, d);
+        }
+        return (StatisticItem) invokeCommon.objValue;
     }
 
     public StatisticItem addParam(String str, int i) {
@@ -213,15 +202,15 @@ public class StatisticItem {
         return (StatisticItem) invokeLI.objValue;
     }
 
-    public StatisticItem param(String str, long j) {
-        InterceptResult invokeLJ;
+    public StatisticItem param(String str, double d) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048592, this, str, j)) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{str, Double.valueOf(d)})) == null) {
             this.params.add(str);
-            this.params.add(Long.valueOf(j));
+            this.params.add(Double.valueOf(d));
             return this;
         }
-        return (StatisticItem) invokeLJ.objValue;
+        return (StatisticItem) invokeCommon.objValue;
     }
 
     public StatisticItem addParam(String str, long j) {
@@ -238,28 +227,59 @@ public class StatisticItem {
         return (StatisticItem) invokeLJ.objValue;
     }
 
-    public StatisticItem param(String str, double d) {
-        InterceptResult invokeCommon;
+    public StatisticItem param(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{str, Double.valueOf(d)})) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048591, this, str, i)) == null) {
             this.params.add(str);
-            this.params.add(Double.valueOf(d));
+            this.params.add(Integer.valueOf(i));
             return this;
         }
-        return (StatisticItem) invokeCommon.objValue;
+        return (StatisticItem) invokeLI.objValue;
     }
 
-    public StatisticItem addParam(String str, double d) {
-        InterceptResult invokeCommon;
+    public StatisticItem addParam(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Double.valueOf(d)})) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
             int index = getIndex(str);
             if (index > 0) {
-                this.params.set(index, Double.valueOf(d));
+                this.params.set(index, str2);
                 return this;
             }
-            return param(str, d);
+            return param(str, str2);
         }
-        return (StatisticItem) invokeCommon.objValue;
+        return (StatisticItem) invokeLL.objValue;
+    }
+
+    public StatisticItem param(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048592, this, str, j)) == null) {
+            this.params.add(str);
+            this.params.add(Long.valueOf(j));
+            return this;
+        }
+        return (StatisticItem) invokeLJ.objValue;
+    }
+
+    public StatisticItem param(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, str, str2)) == null) {
+            this.params.add(str);
+            this.params.add(str2);
+            return this;
+        }
+        return (StatisticItem) invokeLL.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return "StatisticItem{key='" + this.key + "', position=" + this.position + ", params=" + this.params + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

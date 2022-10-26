@@ -13,10 +13,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.editortools.view.CommonTabHost;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.h55;
-import com.baidu.tieba.o55;
-import com.baidu.tieba.p55;
+import com.baidu.tieba.eh;
+import com.baidu.tieba.l55;
+import com.baidu.tieba.t55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,7 +25,7 @@ import java.util.LinkedList;
 public class MoreDeskView extends CommonTabHost {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<o55> m;
+    public LinkedList m;
     public SparseIntArray n;
     public CustomMessageListener o;
     public CustomMessageListener p;
@@ -60,9 +59,9 @@ public class MoreDeskView extends CommonTabHost {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof Boolean)) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof Boolean)) {
                 return;
             }
             this.a.r();
@@ -98,11 +97,12 @@ public class MoreDeskView extends CommonTabHost {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-                this.a.r();
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Boolean)) {
+                return;
             }
+            this.a.r();
         }
     }
 
@@ -131,138 +131,42 @@ public class MoreDeskView extends CommonTabHost {
         setToolId(2);
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tieba.i55
-    public void B(h55 h55Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, h55Var) == null) {
-            super.B(h55Var);
-            if (h55Var == null || h55Var.a != 2 || h55Var.b == 5) {
-                return;
-            }
-            q(h55Var);
-            o();
-        }
-    }
-
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tieba.t55
-    public void display() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.display();
-        }
-    }
-
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tieba.t55
-    public void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            setShowDelete(false);
-            p55 p55Var = new p55();
-            p55Var.C(this.m);
-            h(p55Var);
-            r();
-        }
-    }
-
-    public void n(LinkedList<o55> linkedList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, linkedList) == null) {
-            this.m = linkedList;
-        }
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            int i = 0;
-            for (int i2 = 0; i2 < this.n.size(); i2++) {
-                i += this.n.valueAt(i2);
-            }
-            if (i > 0) {
-                K(new h55(2, 2, " "));
-            } else {
-                K(new h55(2, 2, null));
-            }
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.onAttachedToWindow();
-            MessageManager.getInstance().registerListener(this.o);
-            MessageManager.getInstance().registerListener(this.p);
-            r();
-        }
-    }
-
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, android.view.ViewGroup, android.view.View
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.onDetachedFromWindow();
-            MessageManager.getInstance().unRegisterListener(this.o);
-            MessageManager.getInstance().unRegisterListener(this.p);
-        }
-    }
-
-    public final void p(boolean z) {
-        AccountData currentAccountObj;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) == null) {
-            return;
-        }
-        currentAccountObj.setIsSelectTail(z);
-    }
-
     /* JADX WARN: Removed duplicated region for block: B:22:0x0040  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void q(h55 h55Var) {
+    public final void q(l55 l55Var) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, h55Var) == null) {
-            Integer valueOf = Integer.valueOf(this.n.get(h55Var.b));
-            int intValue = valueOf != null ? valueOf.intValue() : 0;
-            Object obj = h55Var.c;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, l55Var) == null) {
+            Integer valueOf = Integer.valueOf(this.n.get(l55Var.b));
+            int i2 = 0;
+            if (valueOf != null) {
+                i = valueOf.intValue();
+            } else {
+                i = 0;
+            }
+            Object obj = l55Var.c;
             if (obj != null) {
                 if (obj instanceof String) {
                     String str = (String) obj;
                     if (!TextUtils.isEmpty(str)) {
-                        intValue = TextUtils.isEmpty(str.trim()) ? 1 : dh.e(str, 1);
+                        if (TextUtils.isEmpty(str.trim())) {
+                            i = 1;
+                        } else {
+                            i = eh.e(str, 1);
+                        }
                     }
                 }
-                this.n.put(h55Var.b, intValue >= 0 ? intValue : 0);
-            }
-            intValue = 0;
-            this.n.put(h55Var.b, intValue >= 0 ? intValue : 0);
-        }
-    }
-
-    public final void r() {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-            String defaultBubble = TbadkCoreApplication.getInst().getDefaultBubble();
-            if (currentAccountObj == null) {
-                return;
-            }
-            if (currentAccountObj.getIsSelectTail()) {
-                z = true;
-                K(new h55(2, 2, " "));
-                K(new h55(2, 16, " "));
-            } else {
-                if (!StringUtils.isNull(defaultBubble)) {
-                    K(new h55(2, 12, " "));
-                    K(new h55(2, 2, " "));
-                } else {
-                    K(new h55(2, 2, null));
+                if (i >= 0) {
+                    i2 = i;
                 }
-                z = false;
+                this.n.put(l55Var.b, i2);
             }
-            p(z);
+            i = 0;
+            if (i >= 0) {
+            }
+            this.n.put(l55Var.b, i2);
         }
     }
 
@@ -289,5 +193,114 @@ public class MoreDeskView extends CommonTabHost {
         this.p = new b(this, 2001353);
         setBackgroundColorId(R.color.CAM_X0206);
         setToolId(2);
+    }
+
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tieba.m55
+    public void B(l55 l55Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, l55Var) == null) {
+            super.B(l55Var);
+            if (l55Var != null && l55Var.a == 2 && l55Var.b != 5) {
+                q(l55Var);
+                o();
+            }
+        }
+    }
+
+    public void n(LinkedList linkedList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, linkedList) == null) {
+            this.m = linkedList;
+        }
+    }
+
+    public final void p(boolean z) {
+        AccountData currentAccountObj;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null) {
+            currentAccountObj.setIsSelectTail(z);
+        }
+    }
+
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tieba.x55
+    public void display() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.display();
+        }
+    }
+
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tieba.x55
+    public void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            setShowDelete(false);
+            t55 t55Var = new t55();
+            t55Var.C(this.m);
+            h(t55Var);
+            r();
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.onAttachedToWindow();
+            MessageManager.getInstance().registerListener(this.o);
+            MessageManager.getInstance().registerListener(this.p);
+            r();
+        }
+    }
+
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, android.view.ViewGroup, android.view.View
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.onDetachedFromWindow();
+            MessageManager.getInstance().unRegisterListener(this.o);
+            MessageManager.getInstance().unRegisterListener(this.p);
+        }
+    }
+
+    public final void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            int i = 0;
+            for (int i2 = 0; i2 < this.n.size(); i2++) {
+                i += this.n.valueAt(i2);
+            }
+            if (i > 0) {
+                K(new l55(2, 2, " "));
+            } else {
+                K(new l55(2, 2, null));
+            }
+        }
+    }
+
+    public final void r() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+            String defaultBubble = TbadkCoreApplication.getInst().getDefaultBubble();
+            if (currentAccountObj == null) {
+                return;
+            }
+            if (currentAccountObj.getIsSelectTail()) {
+                z = true;
+                K(new l55(2, 2, " "));
+                K(new l55(2, 16, " "));
+            } else {
+                if (!StringUtils.isNull(defaultBubble)) {
+                    K(new l55(2, 12, " "));
+                    K(new l55(2, 2, " "));
+                } else {
+                    K(new l55(2, 2, null));
+                }
+                z = false;
+            }
+            p(z);
+        }
     }
 }

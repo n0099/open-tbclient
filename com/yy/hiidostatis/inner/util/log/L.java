@@ -36,6 +36,12 @@ public class L {
     public static IBaseStatisLogWriter sLogWriter;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static String getTypeName(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65549, null, i)) == null) ? i != 1 ? i != 2 ? i != 3 ? i != 4 ? RomUtils.UNKNOWN : "ERROR" : "WARN" : "INFO" : "DEBUG" : (String) invokeI.objValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -69,49 +75,109 @@ public class L {
         }
     }
 
+    public static String getCallerFilename() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return Thread.currentThread().getStackTrace()[5].getFileName();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static int getCallerLineNumber() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return Thread.currentThread().getStackTrace()[5].getLineNumber();
+        }
+        return invokeV.intValue;
+    }
+
+    public static String getPreFix() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return mPrefix;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String getTag() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            return mTag;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean isLogOn() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
+            return HiidoSDK.instance().getOptions().isLogOn;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean outputDebug() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
+            if (!HiidoSDK.instance().getOptions().outputDebugLog && !mIsDebugSdConfig) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
     public static void brief(String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, str, objArr) == null) && isLogOn()) {
-            try {
-                if (outputDebug()) {
-                    String format = String.format("%s %s", getPreFix(), getLogText(null, str, objArr));
-                    Log.i(getTag(), format);
-                    writeLog(format, 1);
-                }
-            } catch (Throwable th) {
-                String tag = getTag();
-                Log.e(tag, "Log.brief exception=" + th);
+        if ((interceptable != null && interceptable.invokeLL(65538, null, str, objArr) != null) || !isLogOn()) {
+            return;
+        }
+        try {
+            if (outputDebug()) {
+                String format = String.format("%s %s", getPreFix(), getLogText(null, str, objArr));
+                Log.i(getTag(), format);
+                writeLog(format, 1);
             }
+        } catch (Throwable th) {
+            String tag = getTag();
+            Log.e(tag, "Log.brief exception=" + th);
         }
     }
 
     public static void debug(Object obj, String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65539, null, obj, str, objArr) == null) && isLogOn()) {
-            try {
-                if (outputDebug()) {
-                    String format = String.format("%s %s", getPreFix(), getLogText(obj, str, objArr));
-                    Log.i(getTag(), format);
-                    writeLog(format, 1);
-                }
-            } catch (Throwable th) {
-                String tag = getTag();
-                Log.e(tag, "Log.debug exception=" + th);
+        if ((interceptable != null && interceptable.invokeLLL(65539, null, obj, str, objArr) != null) || !isLogOn()) {
+            return;
+        }
+        try {
+            if (outputDebug()) {
+                String format = String.format("%s %s", getPreFix(), getLogText(obj, str, objArr));
+                Log.i(getTag(), format);
+                writeLog(format, 1);
             }
+        } catch (Throwable th) {
+            String tag = getTag();
+            Log.e(tag, "Log.debug exception=" + th);
         }
     }
 
     public static void error(Object obj, String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, str, objArr) == null) && isLogOn()) {
-            try {
-                String formatErrorMsg = formatErrorMsg(String.format("%s %s", getPreFix(), getLogText(obj, str, objArr)), objArr);
-                Log.e(getTag(), formatErrorMsg);
-                writeLog(formatErrorMsg, 4);
-            } catch (Throwable th) {
-                String tag = getTag();
-                Log.e(tag, "Log.error exception=" + th);
-            }
+        if ((interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, str, objArr) != null) || !isLogOn()) {
+            return;
+        }
+        try {
+            String formatErrorMsg = formatErrorMsg(String.format("%s %s", getPreFix(), getLogText(obj, str, objArr)), objArr);
+            Log.e(getTag(), formatErrorMsg);
+            writeLog(formatErrorMsg, 4);
+        } catch (Throwable th) {
+            String tag = getTag();
+            Log.e(tag, "Log.error exception=" + th);
         }
     }
 
@@ -129,83 +195,18 @@ public class L {
         }
     }
 
-    public static String formatErrorMsg(String str, Object... objArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, objArr)) == null) ? (objArr.length <= 0 || !(objArr[objArr.length + (-1)] instanceof Throwable)) ? str : logToFile(str, (Throwable) objArr[objArr.length - 1]) : (String) invokeLL.objValue;
-    }
-
-    public static String formatLog(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(65543, null, i, str)) == null) ? String.format("%s\t%8s\t%s\t%s", getTag(), getTypeName(i), Util.formatDate("yyyy-MM-dd HH:mm:ss", System.currentTimeMillis()), str) : (String) invokeIL.objValue;
-    }
-
-    public static String getCallerFilename() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? Thread.currentThread().getStackTrace()[5].getFileName() : (String) invokeV.objValue;
-    }
-
-    public static int getCallerLineNumber() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? Thread.currentThread().getStackTrace()[5].getLineNumber() : invokeV.intValue;
-    }
-
-    public static String getLogText(Object obj, String str, Object... objArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, obj, str, objArr)) == null) {
-            return PreferencesUtil.LEFT_MOUNT + objClassName(obj) + "] " + Util.formatStr(str, objArr);
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    public static String getPreFix() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? mPrefix : (String) invokeV.objValue;
-    }
-
-    public static String getTag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? mTag : (String) invokeV.objValue;
-    }
-
-    public static String getTypeName(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65549, null, i)) == null) ? i != 1 ? i != 2 ? i != 3 ? i != 4 ? RomUtils.UNKNOWN : "ERROR" : "WARN" : "INFO" : "DEBUG" : (String) invokeI.objValue;
-    }
-
     public static void info(Object obj, String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65550, null, obj, str, objArr) == null) && isLogOn()) {
-            try {
-                String format = String.format("%s %s", getPreFix(), getLogText(obj, str, objArr));
-                Log.i(getTag(), format);
-                writeLog(format, 2);
-            } catch (Throwable th) {
-                String tag = getTag();
-                Log.e(tag, "Log.info exception=" + th);
-            }
+        if ((interceptable != null && interceptable.invokeLLL(65550, null, obj, str, objArr) != null) || !isLogOn()) {
+            return;
         }
-    }
-
-    public static void infoLimitTime(Object obj, String str, Object... objArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65551, null, obj, str, objArr) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - lastLogTime > 60000) {
-                lastLogTimeCount = 0;
-            }
-            if (lastLogTimeCount < 20) {
-                info(obj, str, objArr);
-                lastLogTimeCount++;
-                lastLogTime = currentTimeMillis;
-            }
+        try {
+            String format = String.format("%s %s", getPreFix(), getLogText(obj, str, objArr));
+            Log.i(getTag(), format);
+            writeLog(format, 2);
+        } catch (Throwable th) {
+            String tag = getTag();
+            Log.e(tag, "Log.info exception=" + th);
         }
     }
 
@@ -219,6 +220,131 @@ public class L {
             } catch (Throwable th) {
                 String tag = getTag();
                 Log.e(tag, "Log.info exception=" + th);
+            }
+        }
+    }
+
+    public static void verbose(Object obj, String str, Object... objArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(65561, null, obj, str, objArr) != null) || !isLogOn()) {
+            return;
+        }
+        try {
+            if (outputDebug()) {
+                String format = String.format("%s %s", getPreFix(), getLogText(obj, str, objArr));
+                Log.i(getTag(), format);
+                writeLog(format, 1);
+            }
+        } catch (Throwable th) {
+            String tag = getTag();
+            Log.e(tag, "Log.verbose exception=" + th);
+        }
+    }
+
+    public static void warn(Object obj, String str, Object... objArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(65562, null, obj, str, objArr) != null) || !isLogOn()) {
+            return;
+        }
+        try {
+            String format = String.format("%s %s", getPreFix(), getLogText(obj, str, objArr));
+            Log.w(getTag(), format);
+            writeLog(format, 3);
+        } catch (Throwable th) {
+            String tag = getTag();
+            Log.e(tag, "Log.warn exception=" + th);
+        }
+    }
+
+    public static void warnOn(Object obj, String str, Object... objArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65563, null, obj, str, objArr) == null) {
+            try {
+                String format = String.format("%s %s", getPreFix(), getLogText(obj, str, objArr));
+                Log.w(getTag(), format);
+                writeLog(format, 3);
+            } catch (Throwable th) {
+                String tag = getTag();
+                Log.e(tag, "Log.warn exception=" + th);
+            }
+        }
+    }
+
+    public static String formatErrorMsg(String str, Object... objArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, objArr)) == null) {
+            if (objArr.length > 0 && (objArr[objArr.length - 1] instanceof Throwable)) {
+                return logToFile(str, (Throwable) objArr[objArr.length - 1]);
+            }
+            return str;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void writeLog(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65564, null, str, i) == null) {
+            try {
+                if (sLogWriter != null) {
+                    sLogWriter.write(i, formatLog(i, str));
+                }
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
+        }
+    }
+
+    public static String formatLog(int i, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65543, null, i, str)) == null) {
+            return String.format("%s\t%8s\t%s\t%s", getTag(), getTypeName(i), Util.formatDate("yyyy-MM-dd HH:mm:ss", System.currentTimeMillis()), str);
+        }
+        return (String) invokeIL.objValue;
+    }
+
+    public static String logToFile(String str, Throwable th) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65555, null, str, th)) == null) {
+            StringWriter stringWriter = new StringWriter();
+            stringWriter.write(str);
+            stringWriter.write("\n");
+            PrintWriter printWriter = new PrintWriter(stringWriter);
+            th.printStackTrace(printWriter);
+            String stringWriter2 = stringWriter.toString();
+            try {
+                printWriter.close();
+                stringWriter.close();
+            } catch (IOException e) {
+                Log.e("L", "", e);
+            }
+            return stringWriter2;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String getLogText(Object obj, String str, Object... objArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, obj, str, objArr)) == null) {
+            return PreferencesUtil.LEFT_MOUNT + objClassName(obj) + "] " + Util.formatStr(str, objArr);
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static void infoLimitTime(Object obj, String str, Object... objArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65551, null, obj, str, objArr) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (currentTimeMillis - lastLogTime > 60000) {
+                lastLogTimeCount = 0;
+            }
+            if (lastLogTimeCount < 20) {
+                info(obj, str, objArr);
+                lastLogTimeCount++;
+                lastLogTime = currentTimeMillis;
             }
         }
     }
@@ -280,33 +406,6 @@ public class L {
         }
     }
 
-    public static boolean isLogOn() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? HiidoSDK.instance().getOptions().isLogOn : invokeV.booleanValue;
-    }
-
-    public static String logToFile(String str, Throwable th) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65555, null, str, th)) == null) {
-            StringWriter stringWriter = new StringWriter();
-            stringWriter.write(str);
-            stringWriter.write("\n");
-            PrintWriter printWriter = new PrintWriter(stringWriter);
-            th.printStackTrace(printWriter);
-            String stringWriter2 = stringWriter.toString();
-            try {
-                printWriter.close();
-                stringWriter.close();
-            } catch (IOException e) {
-                Log.e("L", "", e);
-            }
-            return stringWriter2;
-        }
-        return (String) invokeLL.objValue;
-    }
-
     public static String msgForTextLog(Object obj, String str, int i, String str2) {
         InterceptResult invokeLLIL;
         Interceptable interceptable = $ic;
@@ -354,12 +453,6 @@ public class L {
         return (String) invokeL.objValue;
     }
 
-    public static boolean outputDebug() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) ? HiidoSDK.instance().getOptions().outputDebugLog || mIsDebugSdConfig : invokeV.booleanValue;
-    }
-
     public static void setLogSetting(IBaseStatisLogWriter iBaseStatisLogWriter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65559, null, iBaseStatisLogWriter) == null) {
@@ -369,67 +462,9 @@ public class L {
 
     public static void setLogTag(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65560, null, str) == null) || str == null) {
-            return;
-        }
-        mTag = str;
-        mPrefix = String.format(PREFIX_FORMAT, str);
-    }
-
-    public static void verbose(Object obj, String str, Object... objArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65561, null, obj, str, objArr) == null) && isLogOn()) {
-            try {
-                if (outputDebug()) {
-                    String format = String.format("%s %s", getPreFix(), getLogText(obj, str, objArr));
-                    Log.i(getTag(), format);
-                    writeLog(format, 1);
-                }
-            } catch (Throwable th) {
-                String tag = getTag();
-                Log.e(tag, "Log.verbose exception=" + th);
-            }
-        }
-    }
-
-    public static void warn(Object obj, String str, Object... objArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65562, null, obj, str, objArr) == null) && isLogOn()) {
-            try {
-                String format = String.format("%s %s", getPreFix(), getLogText(obj, str, objArr));
-                Log.w(getTag(), format);
-                writeLog(format, 3);
-            } catch (Throwable th) {
-                String tag = getTag();
-                Log.e(tag, "Log.warn exception=" + th);
-            }
-        }
-    }
-
-    public static void warnOn(Object obj, String str, Object... objArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65563, null, obj, str, objArr) == null) {
-            try {
-                String format = String.format("%s %s", getPreFix(), getLogText(obj, str, objArr));
-                Log.w(getTag(), format);
-                writeLog(format, 3);
-            } catch (Throwable th) {
-                String tag = getTag();
-                Log.e(tag, "Log.warn exception=" + th);
-            }
-        }
-    }
-
-    public static void writeLog(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65564, null, str, i) == null) {
-            try {
-                if (sLogWriter != null) {
-                    sLogWriter.write(i, formatLog(i, str));
-                }
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
+        if ((interceptable == null || interceptable.invokeL(65560, null, str) == null) && str != null) {
+            mTag = str;
+            mPrefix = String.format(PREFIX_FORMAT, str);
         }
     }
 }

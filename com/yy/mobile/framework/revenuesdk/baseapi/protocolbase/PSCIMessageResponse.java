@@ -62,18 +62,6 @@ public class PSCIMessageResponse extends ResponsePacket {
         }
     }
 
-    public String targetJson(ProtocolType protocolType) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, protocolType)) == null) {
-            if (protocolType == ProtocolType.HTTP) {
-                return this.jsonMsg;
-            }
-            return protocolType == ProtocolType.SERVICE ? this.responseJson : "";
-        }
-        return (String) invokeL.objValue;
-    }
-
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -81,5 +69,20 @@ public class PSCIMessageResponse extends ResponsePacket {
             return "PSCIMessageResponse{result=" + this.result + ", cmd=" + this.cmd + ", appId=" + this.appId + ", version=" + this.version + ", seq=" + this.seq + ",responseJson=" + this.responseJson + '}';
         }
         return (String) invokeV.objValue;
+    }
+
+    public String targetJson(ProtocolType protocolType) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, protocolType)) == null) {
+            if (protocolType == ProtocolType.HTTP) {
+                return this.jsonMsg;
+            }
+            if (protocolType == ProtocolType.SERVICE) {
+                return this.responseJson;
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
     }
 }

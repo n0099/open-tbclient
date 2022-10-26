@@ -33,6 +33,13 @@ public class QRCodeReader implements Reader {
     public transient /* synthetic */ FieldHolder $fh;
     public final Decoder decoder;
 
+    @Override // com.google.zxing.Reader
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -65,6 +72,15 @@ public class QRCodeReader implements Reader {
         this.decoder = new Decoder();
     }
 
+    public final Decoder getDecoder() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.decoder;
+        }
+        return (Decoder) invokeV.objValue;
+    }
+
     public static BitMatrix extractPureBits(BitMatrix bitMatrix) throws NotFoundException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -84,37 +100,39 @@ public class QRCodeReader implements Reader {
                     }
                     int round = Math.round(((i4 - i3) + 1) / moduleSize);
                     int round2 = Math.round((i5 + 1) / moduleSize);
-                    if (round <= 0 || round2 <= 0) {
-                        throw NotFoundException.getNotFoundInstance();
-                    }
-                    if (round2 == round) {
-                        int i6 = (int) (moduleSize / 2.0f);
-                        int i7 = i + i6;
-                        int i8 = i3 + i6;
-                        int i9 = (((int) ((round - 1) * moduleSize)) + i8) - i4;
-                        if (i9 > 0) {
-                            if (i9 > i6) {
-                                throw NotFoundException.getNotFoundInstance();
-                            }
-                            i8 -= i9;
-                        }
-                        int i10 = (((int) ((round2 - 1) * moduleSize)) + i7) - i2;
-                        if (i10 > 0) {
-                            if (i10 > i6) {
-                                throw NotFoundException.getNotFoundInstance();
-                            }
-                            i7 -= i10;
-                        }
-                        BitMatrix bitMatrix2 = new BitMatrix(round, round2);
-                        for (int i11 = 0; i11 < round2; i11++) {
-                            int i12 = ((int) (i11 * moduleSize)) + i7;
-                            for (int i13 = 0; i13 < round; i13++) {
-                                if (bitMatrix.get(((int) (i13 * moduleSize)) + i8, i12)) {
-                                    bitMatrix2.set(i13, i11);
+                    if (round > 0 && round2 > 0) {
+                        if (round2 == round) {
+                            int i6 = (int) (moduleSize / 2.0f);
+                            int i7 = i + i6;
+                            int i8 = i3 + i6;
+                            int i9 = (((int) ((round - 1) * moduleSize)) + i8) - i4;
+                            if (i9 > 0) {
+                                if (i9 <= i6) {
+                                    i8 -= i9;
+                                } else {
+                                    throw NotFoundException.getNotFoundInstance();
                                 }
                             }
+                            int i10 = (((int) ((round2 - 1) * moduleSize)) + i7) - i2;
+                            if (i10 > 0) {
+                                if (i10 <= i6) {
+                                    i7 -= i10;
+                                } else {
+                                    throw NotFoundException.getNotFoundInstance();
+                                }
+                            }
+                            BitMatrix bitMatrix2 = new BitMatrix(round, round2);
+                            for (int i11 = 0; i11 < round2; i11++) {
+                                int i12 = ((int) (i11 * moduleSize)) + i7;
+                                for (int i13 = 0; i13 < round; i13++) {
+                                    if (bitMatrix.get(((int) (i13 * moduleSize)) + i8, i12)) {
+                                        bitMatrix2.set(i13, i11);
+                                    }
+                                }
+                            }
+                            return bitMatrix2;
                         }
-                        return bitMatrix2;
+                        throw NotFoundException.getNotFoundInstance();
                     }
                     throw NotFoundException.getNotFoundInstance();
                 }
@@ -158,24 +176,14 @@ public class QRCodeReader implements Reader {
     public Result decode(BinaryBitmap binaryBitmap) throws NotFoundException, ChecksumException, FormatException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, binaryBitmap)) == null) ? decode(binaryBitmap, null) : (Result) invokeL.objValue;
-    }
-
-    public final Decoder getDecoder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.decoder : (Decoder) invokeV.objValue;
-    }
-
-    @Override // com.google.zxing.Reader
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, binaryBitmap)) == null) {
+            return decode(binaryBitmap, null);
         }
+        return (Result) invokeL.objValue;
     }
 
     @Override // com.google.zxing.Reader
-    public final Result decode(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map) throws NotFoundException, ChecksumException, FormatException {
+    public final Result decode(BinaryBitmap binaryBitmap, Map map) throws NotFoundException, ChecksumException, FormatException {
         InterceptResult invokeLL;
         ResultPoint[] points;
         DecoderResult decoderResult;
@@ -194,7 +202,7 @@ public class QRCodeReader implements Reader {
                 ((QRCodeDecoderMetaData) decoderResult.getOther()).applyMirroredCorrection(points);
             }
             Result result = new Result(decoderResult.getText(), decoderResult.getRawBytes(), points, BarcodeFormat.QR_CODE);
-            List<byte[]> byteSegments = decoderResult.getByteSegments();
+            List byteSegments = decoderResult.getByteSegments();
             if (byteSegments != null) {
                 result.putMetadata(ResultMetadataType.BYTE_SEGMENTS, byteSegments);
             }

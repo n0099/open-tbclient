@@ -22,14 +22,6 @@ import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
-import androidx.annotation.DrawableRes;
-import androidx.annotation.IntRange;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.Px;
-import androidx.annotation.RequiresApi;
-import androidx.annotation.RestrictTo;
-import androidx.annotation.StyleRes;
 import androidx.core.text.PrecomputedTextCompat;
 import androidx.core.util.Preconditions;
 import androidx.core.view.InputDeviceCompat;
@@ -64,12 +56,10 @@ public final class TextViewCompat {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface AutoSizeTextType {
     }
 
-    @RequiresApi(26)
     /* loaded from: classes.dex */
     public static class OreoCallback implements ActionMode.Callback {
         public static /* synthetic */ Interceptable $ic = null;
@@ -102,10 +92,51 @@ public final class TextViewCompat {
             this.mInitializedMenuBuilderReferences = false;
         }
 
+        private List<ResolveInfo> getSupportedActivities(Context context, PackageManager packageManager) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, context, packageManager)) == null) {
+                ArrayList arrayList = new ArrayList();
+                if (!(context instanceof Activity)) {
+                    return arrayList;
+                }
+                for (ResolveInfo resolveInfo : packageManager.queryIntentActivities(createProcessTextIntent(), 0)) {
+                    if (isSupportedActivity(resolveInfo, context)) {
+                        arrayList.add(resolveInfo);
+                    }
+                }
+                return arrayList;
+            }
+            return (List) invokeLL.objValue;
+        }
+
+        private boolean isSupportedActivity(ResolveInfo resolveInfo, Context context) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, resolveInfo, context)) == null) {
+                if (context.getPackageName().equals(resolveInfo.activityInfo.packageName)) {
+                    return true;
+                }
+                ActivityInfo activityInfo = resolveInfo.activityInfo;
+                if (!activityInfo.exported) {
+                    return false;
+                }
+                String str = activityInfo.permission;
+                if (str == null || context.checkSelfPermission(str) == 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
+
         private Intent createProcessTextIntent() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? new Intent().setAction("android.intent.action.PROCESS_TEXT").setType("text/plain") : (Intent) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+                return new Intent().setAction("android.intent.action.PROCESS_TEXT").setType("text/plain");
+            }
+            return (Intent) invokeV.objValue;
         }
 
         private Intent createProcessTextIntentForResolveInfo(ResolveInfo resolveInfo, TextView textView) {
@@ -119,45 +150,55 @@ public final class TextViewCompat {
             return (Intent) invokeLL.objValue;
         }
 
-        private List<ResolveInfo> getSupportedActivities(Context context, PackageManager packageManager) {
+        @Override // android.view.ActionMode.Callback
+        public boolean onActionItemClicked(ActionMode actionMode, MenuItem menuItem) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, context, packageManager)) == null) {
-                ArrayList arrayList = new ArrayList();
-                if (context instanceof Activity) {
-                    for (ResolveInfo resolveInfo : packageManager.queryIntentActivities(createProcessTextIntent(), 0)) {
-                        if (isSupportedActivity(resolveInfo, context)) {
-                            arrayList.add(resolveInfo);
-                        }
-                    }
-                    return arrayList;
-                }
-                return arrayList;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, actionMode, menuItem)) == null) {
+                return this.mCallback.onActionItemClicked(actionMode, menuItem);
             }
-            return (List) invokeLL.objValue;
+            return invokeLL.booleanValue;
+        }
+
+        @Override // android.view.ActionMode.Callback
+        public boolean onCreateActionMode(ActionMode actionMode, Menu menu) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, actionMode, menu)) == null) {
+                return this.mCallback.onCreateActionMode(actionMode, menu);
+            }
+            return invokeLL.booleanValue;
+        }
+
+        @Override // android.view.ActionMode.Callback
+        public boolean onPrepareActionMode(ActionMode actionMode, Menu menu) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, actionMode, menu)) == null) {
+                recomputeProcessTextMenuItems(menu);
+                return this.mCallback.onPrepareActionMode(actionMode, menu);
+            }
+            return invokeLL.booleanValue;
         }
 
         private boolean isEditable(TextView textView) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, textView)) == null) ? (textView instanceof Editable) && textView.onCheckIsTextEditor() && textView.isEnabled() : invokeL.booleanValue;
-        }
-
-        private boolean isSupportedActivity(ResolveInfo resolveInfo, Context context) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, resolveInfo, context)) == null) {
-                if (context.getPackageName().equals(resolveInfo.activityInfo.packageName)) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, textView)) == null) {
+                if ((textView instanceof Editable) && textView.onCheckIsTextEditor() && textView.isEnabled()) {
                     return true;
-                }
-                ActivityInfo activityInfo = resolveInfo.activityInfo;
-                if (activityInfo.exported) {
-                    String str = activityInfo.permission;
-                    return str == null || context.checkSelfPermission(str) == 0;
                 }
                 return false;
             }
-            return invokeLL.booleanValue;
+            return invokeL.booleanValue;
+        }
+
+        @Override // android.view.ActionMode.Callback
+        public void onDestroyActionMode(ActionMode actionMode) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, actionMode) == null) {
+                this.mCallback.onDestroyActionMode(actionMode);
+            }
         }
 
         private void recomputeProcessTextMenuItems(Menu menu) {
@@ -200,39 +241,6 @@ public final class TextViewCompat {
                 }
             }
         }
-
-        @Override // android.view.ActionMode.Callback
-        public boolean onActionItemClicked(ActionMode actionMode, MenuItem menuItem) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, actionMode, menuItem)) == null) ? this.mCallback.onActionItemClicked(actionMode, menuItem) : invokeLL.booleanValue;
-        }
-
-        @Override // android.view.ActionMode.Callback
-        public boolean onCreateActionMode(ActionMode actionMode, Menu menu) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, actionMode, menu)) == null) ? this.mCallback.onCreateActionMode(actionMode, menu) : invokeLL.booleanValue;
-        }
-
-        @Override // android.view.ActionMode.Callback
-        public void onDestroyActionMode(ActionMode actionMode) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, actionMode) == null) {
-                this.mCallback.onDestroyActionMode(actionMode);
-            }
-        }
-
-        @Override // android.view.ActionMode.Callback
-        public boolean onPrepareActionMode(ActionMode actionMode, Menu menu) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, actionMode, menu)) == null) {
-                recomputeProcessTextMenuItems(menu);
-                return this.mCallback.onPrepareActionMode(actionMode, menu);
-            }
-            return invokeLL.booleanValue;
-        }
     }
 
     public TextViewCompat() {
@@ -249,7 +257,7 @@ public final class TextViewCompat {
         }
     }
 
-    public static int getAutoSizeMaxTextSize(@NonNull TextView textView) {
+    public static int getAutoSizeMaxTextSize(TextView textView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, textView)) == null) {
@@ -264,7 +272,7 @@ public final class TextViewCompat {
         return invokeL.intValue;
     }
 
-    public static int getAutoSizeMinTextSize(@NonNull TextView textView) {
+    public static int getAutoSizeMinTextSize(TextView textView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, textView)) == null) {
@@ -279,7 +287,7 @@ public final class TextViewCompat {
         return invokeL.intValue;
     }
 
-    public static int getAutoSizeStepGranularity(@NonNull TextView textView) {
+    public static int getAutoSizeStepGranularity(TextView textView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, textView)) == null) {
@@ -294,20 +302,22 @@ public final class TextViewCompat {
         return invokeL.intValue;
     }
 
-    @NonNull
-    public static int[] getAutoSizeTextAvailableSizes(@NonNull TextView textView) {
+    public static int[] getAutoSizeTextAvailableSizes(TextView textView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, textView)) == null) {
             if (Build.VERSION.SDK_INT >= 27) {
                 return textView.getAutoSizeTextAvailableSizes();
             }
-            return textView instanceof AutoSizeableTextView ? ((AutoSizeableTextView) textView).getAutoSizeTextAvailableSizes() : new int[0];
+            if (textView instanceof AutoSizeableTextView) {
+                return ((AutoSizeableTextView) textView).getAutoSizeTextAvailableSizes();
+            }
+            return new int[0];
         }
         return (int[]) invokeL.objValue;
     }
 
-    public static int getAutoSizeTextType(@NonNull TextView textView) {
+    public static int getAutoSizeTextType(TextView textView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, textView)) == null) {
@@ -322,8 +332,7 @@ public final class TextViewCompat {
         return invokeL.intValue;
     }
 
-    @Nullable
-    public static ColorStateList getCompoundDrawableTintList(@NonNull TextView textView) {
+    public static ColorStateList getCompoundDrawableTintList(TextView textView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, textView)) == null) {
@@ -339,8 +348,7 @@ public final class TextViewCompat {
         return (ColorStateList) invokeL.objValue;
     }
 
-    @Nullable
-    public static PorterDuff.Mode getCompoundDrawableTintMode(@NonNull TextView textView) {
+    public static PorterDuff.Mode getCompoundDrawableTintMode(TextView textView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, textView)) == null) {
@@ -356,8 +364,25 @@ public final class TextViewCompat {
         return (PorterDuff.Mode) invokeL.objValue;
     }
 
-    @NonNull
-    public static Drawable[] getCompoundDrawablesRelative(@NonNull TextView textView) {
+    public static int getFirstBaselineToTopHeight(TextView textView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, textView)) == null) {
+            return textView.getPaddingTop() - textView.getPaint().getFontMetricsInt().top;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int getLastBaselineToBottomHeight(TextView textView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, textView)) == null) {
+            return textView.getPaddingBottom() + textView.getPaint().getFontMetricsInt().bottom;
+        }
+        return invokeL.intValue;
+    }
+
+    public static Drawable[] getCompoundDrawablesRelative(TextView textView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, textView)) == null) {
@@ -366,7 +391,10 @@ public final class TextViewCompat {
                 return textView.getCompoundDrawablesRelative();
             }
             if (i >= 17) {
-                boolean z = textView.getLayoutDirection() == 1;
+                boolean z = true;
+                if (textView.getLayoutDirection() != 1) {
+                    z = false;
+                }
                 Drawable[] compoundDrawables = textView.getCompoundDrawables();
                 if (z) {
                     Drawable drawable = compoundDrawables[2];
@@ -381,76 +409,7 @@ public final class TextViewCompat {
         return (Drawable[]) invokeL.objValue;
     }
 
-    public static int getFirstBaselineToTopHeight(@NonNull TextView textView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, textView)) == null) ? textView.getPaddingTop() - textView.getPaint().getFontMetricsInt().top : invokeL.intValue;
-    }
-
-    public static int getLastBaselineToBottomHeight(@NonNull TextView textView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, textView)) == null) ? textView.getPaddingBottom() + textView.getPaint().getFontMetricsInt().bottom : invokeL.intValue;
-    }
-
-    public static int getMaxLines(@NonNull TextView textView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, textView)) == null) {
-            if (Build.VERSION.SDK_INT >= 16) {
-                return textView.getMaxLines();
-            }
-            if (!sMaxModeFieldFetched) {
-                sMaxModeField = retrieveField("mMaxMode");
-                sMaxModeFieldFetched = true;
-            }
-            Field field = sMaxModeField;
-            if (field == null || retrieveIntFromField(field, textView) != 1) {
-                return -1;
-            }
-            if (!sMaximumFieldFetched) {
-                sMaximumField = retrieveField("mMaximum");
-                sMaximumFieldFetched = true;
-            }
-            Field field2 = sMaximumField;
-            if (field2 != null) {
-                return retrieveIntFromField(field2, textView);
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int getMinLines(@NonNull TextView textView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, textView)) == null) {
-            if (Build.VERSION.SDK_INT >= 16) {
-                return textView.getMinLines();
-            }
-            if (!sMinModeFieldFetched) {
-                sMinModeField = retrieveField("mMinMode");
-                sMinModeFieldFetched = true;
-            }
-            Field field = sMinModeField;
-            if (field == null || retrieveIntFromField(field, textView) != 1) {
-                return -1;
-            }
-            if (!sMinimumFieldFetched) {
-                sMinimumField = retrieveField("mMinimum");
-                sMinimumFieldFetched = true;
-            }
-            Field field2 = sMinimumField;
-            if (field2 != null) {
-                return retrieveIntFromField(field2, textView);
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    @RequiresApi(18)
-    public static int getTextDirection(@NonNull TextDirectionHeuristic textDirectionHeuristic) {
+    public static int getTextDirection(TextDirectionHeuristic textDirectionHeuristic) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, textDirectionHeuristic)) == null) {
@@ -472,19 +431,115 @@ public final class TextViewCompat {
             if (textDirectionHeuristic == TextDirectionHeuristics.FIRSTSTRONG_LTR) {
                 return 6;
             }
-            return textDirectionHeuristic == TextDirectionHeuristics.FIRSTSTRONG_RTL ? 7 : 1;
+            if (textDirectionHeuristic != TextDirectionHeuristics.FIRSTSTRONG_RTL) {
+                return 1;
+            }
+            return 7;
         }
         return invokeL.intValue;
     }
 
-    @RequiresApi(18)
-    public static TextDirectionHeuristic getTextDirectionHeuristic(@NonNull TextView textView) {
+    public static Field retrieveField(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
+            Field field = null;
+            try {
+                field = TextView.class.getDeclaredField(str);
+                field.setAccessible(true);
+                return field;
+            } catch (NoSuchFieldException unused) {
+                Log.e(LOG_TAG, "Could not retrieve " + str + " field.");
+                return field;
+            }
+        }
+        return (Field) invokeL.objValue;
+    }
+
+    public static int getMaxLines(TextView textView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, textView)) == null) {
+            if (Build.VERSION.SDK_INT >= 16) {
+                return textView.getMaxLines();
+            }
+            if (!sMaxModeFieldFetched) {
+                sMaxModeField = retrieveField("mMaxMode");
+                sMaxModeFieldFetched = true;
+            }
+            Field field = sMaxModeField;
+            if (field != null && retrieveIntFromField(field, textView) == 1) {
+                if (!sMaximumFieldFetched) {
+                    sMaximumField = retrieveField("mMaximum");
+                    sMaximumFieldFetched = true;
+                }
+                Field field2 = sMaximumField;
+                if (field2 != null) {
+                    return retrieveIntFromField(field2, textView);
+                }
+                return -1;
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int getMinLines(TextView textView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, textView)) == null) {
+            if (Build.VERSION.SDK_INT >= 16) {
+                return textView.getMinLines();
+            }
+            if (!sMinModeFieldFetched) {
+                sMinModeField = retrieveField("mMinMode");
+                sMinModeFieldFetched = true;
+            }
+            Field field = sMinModeField;
+            if (field != null && retrieveIntFromField(field, textView) == 1) {
+                if (!sMinimumFieldFetched) {
+                    sMinimumField = retrieveField("mMinimum");
+                    sMinimumFieldFetched = true;
+                }
+                Field field2 = sMinimumField;
+                if (field2 != null) {
+                    return retrieveIntFromField(field2, textView);
+                }
+                return -1;
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public static PrecomputedTextCompat.Params getTextMetricsParams(TextView textView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, textView)) == null) {
+            if (Build.VERSION.SDK_INT >= 28) {
+                return new PrecomputedTextCompat.Params(textView.getTextMetricsParams());
+            }
+            PrecomputedTextCompat.Params.Builder builder = new PrecomputedTextCompat.Params.Builder(new TextPaint(textView.getPaint()));
+            if (Build.VERSION.SDK_INT >= 23) {
+                builder.setBreakStrategy(textView.getBreakStrategy());
+                builder.setHyphenationFrequency(textView.getHyphenationFrequency());
+            }
+            if (Build.VERSION.SDK_INT >= 18) {
+                builder.setTextDirection(getTextDirectionHeuristic(textView));
+            }
+            return builder.build();
+        }
+        return (PrecomputedTextCompat.Params) invokeL.objValue;
+    }
+
+    public static TextDirectionHeuristic getTextDirectionHeuristic(TextView textView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, textView)) == null) {
             if (textView.getTransformationMethod() instanceof PasswordTransformationMethod) {
                 return TextDirectionHeuristics.LTR;
             }
+            boolean z = false;
             if (Build.VERSION.SDK_INT >= 28 && (textView.getInputType() & 15) == 3) {
                 byte directionality = Character.getDirectionality(DecimalFormatSymbols.getInstance(textView.getTextLocale()).getDigitStrings()[0].codePointAt(0));
                 if (directionality != 1 && directionality != 2) {
@@ -492,7 +547,9 @@ public final class TextViewCompat {
                 }
                 return TextDirectionHeuristics.RTL;
             }
-            boolean z = textView.getLayoutDirection() == 1;
+            if (textView.getLayoutDirection() == 1) {
+                z = true;
+            }
             switch (textView.getTextDirection()) {
                 case 2:
                     return TextDirectionHeuristics.ANYRTL_LTR;
@@ -516,44 +573,6 @@ public final class TextViewCompat {
         return (TextDirectionHeuristic) invokeL.objValue;
     }
 
-    @NonNull
-    public static PrecomputedTextCompat.Params getTextMetricsParams(@NonNull TextView textView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, textView)) == null) {
-            if (Build.VERSION.SDK_INT >= 28) {
-                return new PrecomputedTextCompat.Params(textView.getTextMetricsParams());
-            }
-            PrecomputedTextCompat.Params.Builder builder = new PrecomputedTextCompat.Params.Builder(new TextPaint(textView.getPaint()));
-            if (Build.VERSION.SDK_INT >= 23) {
-                builder.setBreakStrategy(textView.getBreakStrategy());
-                builder.setHyphenationFrequency(textView.getHyphenationFrequency());
-            }
-            if (Build.VERSION.SDK_INT >= 18) {
-                builder.setTextDirection(getTextDirectionHeuristic(textView));
-            }
-            return builder.build();
-        }
-        return (PrecomputedTextCompat.Params) invokeL.objValue;
-    }
-
-    public static Field retrieveField(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
-            Field field = null;
-            try {
-                field = TextView.class.getDeclaredField(str);
-                field.setAccessible(true);
-                return field;
-            } catch (NoSuchFieldException unused) {
-                Log.e(LOG_TAG, "Could not retrieve " + str + " field.");
-                return field;
-            }
-        }
-        return (Field) invokeL.objValue;
-    }
-
     public static int retrieveIntFromField(Field field, TextView textView) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -568,7 +587,37 @@ public final class TextViewCompat {
         return invokeLL.intValue;
     }
 
-    public static void setAutoSizeTextTypeUniformWithConfiguration(@NonNull TextView textView, int i, int i2, int i3, int i4) throws IllegalArgumentException {
+    public static void setLastBaselineToBottomHeight(TextView textView, int i) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65564, null, textView, i) == null) {
+            Preconditions.checkArgumentNonnegative(i);
+            Paint.FontMetricsInt fontMetricsInt = textView.getPaint().getFontMetricsInt();
+            if (Build.VERSION.SDK_INT >= 16 && !textView.getIncludeFontPadding()) {
+                i2 = fontMetricsInt.descent;
+            } else {
+                i2 = fontMetricsInt.bottom;
+            }
+            if (i > Math.abs(i2)) {
+                textView.setPadding(textView.getPaddingLeft(), textView.getPaddingTop(), textView.getPaddingRight(), i - i2);
+            }
+        }
+    }
+
+    public static void setPrecomputedText(TextView textView, PrecomputedTextCompat precomputedTextCompat) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65566, null, textView, precomputedTextCompat) == null) {
+            if (Build.VERSION.SDK_INT >= 29) {
+                textView.setText(precomputedTextCompat.getPrecomputedText());
+            } else if (getTextMetricsParams(textView).equalsWithoutTextDirection(precomputedTextCompat.getParams())) {
+                textView.setText(precomputedTextCompat);
+            } else {
+                throw new IllegalArgumentException("Given text can not be applied to TextView.");
+            }
+        }
+    }
+
+    public static void setAutoSizeTextTypeUniformWithConfiguration(TextView textView, int i, int i2, int i3, int i4) throws IllegalArgumentException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65554, null, new Object[]{textView, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             if (Build.VERSION.SDK_INT >= 27) {
@@ -579,7 +628,34 @@ public final class TextViewCompat {
         }
     }
 
-    public static void setAutoSizeTextTypeUniformWithPresetSizes(@NonNull TextView textView, @NonNull int[] iArr, int i) throws IllegalArgumentException {
+    public static void setCompoundDrawablesRelativeWithIntrinsicBounds(TextView textView, int i, int i2, int i3, int i4) {
+        int i5;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65560, null, new Object[]{textView, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            int i6 = Build.VERSION.SDK_INT;
+            if (i6 >= 18) {
+                textView.setCompoundDrawablesRelativeWithIntrinsicBounds(i, i2, i3, i4);
+            } else if (i6 >= 17) {
+                boolean z = true;
+                if (textView.getLayoutDirection() != 1) {
+                    z = false;
+                }
+                if (z) {
+                    i5 = i3;
+                } else {
+                    i5 = i;
+                }
+                if (!z) {
+                    i = i3;
+                }
+                textView.setCompoundDrawablesWithIntrinsicBounds(i5, i2, i, i4);
+            } else {
+                textView.setCompoundDrawablesWithIntrinsicBounds(i, i2, i3, i4);
+            }
+        }
+    }
+
+    public static void setAutoSizeTextTypeUniformWithPresetSizes(TextView textView, int[] iArr, int i) throws IllegalArgumentException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65555, null, textView, iArr, i) == null) {
             if (Build.VERSION.SDK_INT >= 27) {
@@ -590,7 +666,7 @@ public final class TextViewCompat {
         }
     }
 
-    public static void setAutoSizeTextTypeWithDefaults(@NonNull TextView textView, int i) {
+    public static void setAutoSizeTextTypeWithDefaults(TextView textView, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65556, null, textView, i) == null) {
             if (Build.VERSION.SDK_INT >= 27) {
@@ -601,7 +677,7 @@ public final class TextViewCompat {
         }
     }
 
-    public static void setCompoundDrawableTintList(@NonNull TextView textView, @Nullable ColorStateList colorStateList) {
+    public static void setCompoundDrawableTintList(TextView textView, ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65557, null, textView, colorStateList) == null) {
             Preconditions.checkNotNull(textView);
@@ -613,7 +689,7 @@ public final class TextViewCompat {
         }
     }
 
-    public static void setCompoundDrawableTintMode(@NonNull TextView textView, @Nullable PorterDuff.Mode mode) {
+    public static void setCompoundDrawableTintMode(TextView textView, PorterDuff.Mode mode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65558, null, textView, mode) == null) {
             Preconditions.checkNotNull(textView);
@@ -625,15 +701,65 @@ public final class TextViewCompat {
         }
     }
 
-    public static void setCompoundDrawablesRelative(@NonNull TextView textView, @Nullable Drawable drawable, @Nullable Drawable drawable2, @Nullable Drawable drawable3, @Nullable Drawable drawable4) {
+    public static void setCustomSelectionActionModeCallback(TextView textView, ActionMode.Callback callback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65562, null, textView, callback) == null) {
+            textView.setCustomSelectionActionModeCallback(wrapCustomSelectionActionModeCallback(textView, callback));
+        }
+    }
+
+    public static void setLineHeight(TextView textView, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65565, null, textView, i) == null) {
+            Preconditions.checkArgumentNonnegative(i);
+            int fontMetricsInt = textView.getPaint().getFontMetricsInt(null);
+            if (i != fontMetricsInt) {
+                textView.setLineSpacing(i - fontMetricsInt, 1.0f);
+            }
+        }
+    }
+
+    public static void setTextAppearance(TextView textView, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65567, null, textView, i) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                textView.setTextAppearance(i);
+            } else {
+                textView.setTextAppearance(textView.getContext(), i);
+            }
+        }
+    }
+
+    public static ActionMode.Callback wrapCustomSelectionActionModeCallback(TextView textView, ActionMode.Callback callback) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65569, null, textView, callback)) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 26 && i <= 27 && !(callback instanceof OreoCallback)) {
+                return new OreoCallback(callback, textView);
+            }
+            return callback;
+        }
+        return (ActionMode.Callback) invokeLL.objValue;
+    }
+
+    public static void setCompoundDrawablesRelative(TextView textView, Drawable drawable, Drawable drawable2, Drawable drawable3, Drawable drawable4) {
+        Drawable drawable5;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65559, null, textView, drawable, drawable2, drawable3, drawable4) == null) {
             int i = Build.VERSION.SDK_INT;
             if (i >= 18) {
                 textView.setCompoundDrawablesRelative(drawable, drawable2, drawable3, drawable4);
             } else if (i >= 17) {
-                boolean z = textView.getLayoutDirection() == 1;
-                Drawable drawable5 = z ? drawable3 : drawable;
+                boolean z = true;
+                if (textView.getLayoutDirection() != 1) {
+                    z = false;
+                }
+                if (z) {
+                    drawable5 = drawable3;
+                } else {
+                    drawable5 = drawable;
+                }
                 if (!z) {
                     drawable = drawable3;
                 }
@@ -644,15 +770,23 @@ public final class TextViewCompat {
         }
     }
 
-    public static void setCompoundDrawablesRelativeWithIntrinsicBounds(@NonNull TextView textView, @Nullable Drawable drawable, @Nullable Drawable drawable2, @Nullable Drawable drawable3, @Nullable Drawable drawable4) {
+    public static void setCompoundDrawablesRelativeWithIntrinsicBounds(TextView textView, Drawable drawable, Drawable drawable2, Drawable drawable3, Drawable drawable4) {
+        Drawable drawable5;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65561, null, textView, drawable, drawable2, drawable3, drawable4) == null) {
             int i = Build.VERSION.SDK_INT;
             if (i >= 18) {
                 textView.setCompoundDrawablesRelativeWithIntrinsicBounds(drawable, drawable2, drawable3, drawable4);
             } else if (i >= 17) {
-                boolean z = textView.getLayoutDirection() == 1;
-                Drawable drawable5 = z ? drawable3 : drawable;
+                boolean z = true;
+                if (textView.getLayoutDirection() != 1) {
+                    z = false;
+                }
+                if (z) {
+                    drawable5 = drawable3;
+                } else {
+                    drawable5 = drawable;
+                }
                 if (!z) {
                     drawable = drawable3;
                 }
@@ -663,14 +797,7 @@ public final class TextViewCompat {
         }
     }
 
-    public static void setCustomSelectionActionModeCallback(@NonNull TextView textView, @NonNull ActionMode.Callback callback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65562, null, textView, callback) == null) {
-            textView.setCustomSelectionActionModeCallback(wrapCustomSelectionActionModeCallback(textView, callback));
-        }
-    }
-
-    public static void setFirstBaselineToTopHeight(@NonNull TextView textView, @IntRange(from = 0) @Px int i) {
+    public static void setFirstBaselineToTopHeight(TextView textView, int i) {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65563, null, textView, i) == null) {
@@ -691,59 +818,7 @@ public final class TextViewCompat {
         }
     }
 
-    public static void setLastBaselineToBottomHeight(@NonNull TextView textView, @IntRange(from = 0) @Px int i) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65564, null, textView, i) == null) {
-            Preconditions.checkArgumentNonnegative(i);
-            Paint.FontMetricsInt fontMetricsInt = textView.getPaint().getFontMetricsInt();
-            if (Build.VERSION.SDK_INT >= 16 && !textView.getIncludeFontPadding()) {
-                i2 = fontMetricsInt.descent;
-            } else {
-                i2 = fontMetricsInt.bottom;
-            }
-            if (i > Math.abs(i2)) {
-                textView.setPadding(textView.getPaddingLeft(), textView.getPaddingTop(), textView.getPaddingRight(), i - i2);
-            }
-        }
-    }
-
-    public static void setLineHeight(@NonNull TextView textView, @IntRange(from = 0) @Px int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65565, null, textView, i) == null) {
-            Preconditions.checkArgumentNonnegative(i);
-            int fontMetricsInt = textView.getPaint().getFontMetricsInt(null);
-            if (i != fontMetricsInt) {
-                textView.setLineSpacing(i - fontMetricsInt, 1.0f);
-            }
-        }
-    }
-
-    public static void setPrecomputedText(@NonNull TextView textView, @NonNull PrecomputedTextCompat precomputedTextCompat) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65566, null, textView, precomputedTextCompat) == null) {
-            if (Build.VERSION.SDK_INT >= 29) {
-                textView.setText(precomputedTextCompat.getPrecomputedText());
-            } else if (getTextMetricsParams(textView).equalsWithoutTextDirection(precomputedTextCompat.getParams())) {
-                textView.setText(precomputedTextCompat);
-            } else {
-                throw new IllegalArgumentException("Given text can not be applied to TextView.");
-            }
-        }
-    }
-
-    public static void setTextAppearance(@NonNull TextView textView, @StyleRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65567, null, textView, i) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                textView.setTextAppearance(i);
-            } else {
-                textView.setTextAppearance(textView.getContext(), i);
-            }
-        }
-    }
-
-    public static void setTextMetricsParams(@NonNull TextView textView, @NonNull PrecomputedTextCompat.Params params) {
+    public static void setTextMetricsParams(TextView textView, PrecomputedTextCompat.Params params) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65568, null, textView, params) == null) {
             if (Build.VERSION.SDK_INT >= 18) {
@@ -761,37 +836,6 @@ public final class TextViewCompat {
             textView.getPaint().set(params.getTextPaint());
             textView.setBreakStrategy(params.getBreakStrategy());
             textView.setHyphenationFrequency(params.getHyphenationFrequency());
-        }
-    }
-
-    @NonNull
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public static ActionMode.Callback wrapCustomSelectionActionModeCallback(@NonNull TextView textView, @NonNull ActionMode.Callback callback) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65569, null, textView, callback)) == null) {
-            int i = Build.VERSION.SDK_INT;
-            return (i < 26 || i > 27 || (callback instanceof OreoCallback)) ? callback : new OreoCallback(callback, textView);
-        }
-        return (ActionMode.Callback) invokeLL.objValue;
-    }
-
-    public static void setCompoundDrawablesRelativeWithIntrinsicBounds(@NonNull TextView textView, @DrawableRes int i, @DrawableRes int i2, @DrawableRes int i3, @DrawableRes int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65560, null, new Object[]{textView, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            int i5 = Build.VERSION.SDK_INT;
-            if (i5 >= 18) {
-                textView.setCompoundDrawablesRelativeWithIntrinsicBounds(i, i2, i3, i4);
-            } else if (i5 >= 17) {
-                boolean z = textView.getLayoutDirection() == 1;
-                int i6 = z ? i3 : i;
-                if (!z) {
-                    i = i3;
-                }
-                textView.setCompoundDrawablesWithIntrinsicBounds(i6, i2, i, i4);
-            } else {
-                textView.setCompoundDrawablesWithIntrinsicBounds(i, i2, i3, i4);
-            }
         }
     }
 }

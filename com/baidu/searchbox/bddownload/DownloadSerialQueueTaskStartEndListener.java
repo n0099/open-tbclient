@@ -1,7 +1,5 @@
 package com.baidu.searchbox.bddownload;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.core.Util;
@@ -29,13 +27,12 @@ public class DownloadSerialQueueTaskStartEndListener extends DownloadTaskStartEn
     public static final Executor SERIAL_EXECUTOR;
     public static final String TAG = "DownloadSerialQueueTaskStartEndListener";
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
     public DownloadListenerBunch listenerBunch;
     public volatile boolean looping;
     public volatile boolean paused;
     public volatile DownloadTask runningTask;
     public volatile boolean shutedDown;
-    public final ArrayList<DownloadTask> taskList;
+    public final ArrayList taskList;
 
     static {
         InterceptResult invokeClinit;
@@ -51,6 +48,44 @@ public class DownloadSerialQueueTaskStartEndListener extends DownloadTaskStartEn
             }
         }
         SERIAL_EXECUTOR = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 30L, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("BdDownload DynamicSerial", false));
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        DownloadTask downloadTask;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            while (!this.shutedDown) {
+                synchronized (this) {
+                    if (!this.taskList.isEmpty() && !this.paused) {
+                        downloadTask = (DownloadTask) this.taskList.remove(0);
+                    }
+                    this.runningTask = null;
+                    this.looping = false;
+                    return;
+                }
+                downloadTask.execute(this.listenerBunch);
+            }
+        }
+    }
+
+    public synchronized DownloadTask[] shutdown() {
+        InterceptResult invokeV;
+        DownloadTask[] downloadTaskArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            synchronized (this) {
+                this.shutedDown = true;
+                if (this.runningTask != null) {
+                    this.runningTask.cancel();
+                }
+                downloadTaskArr = new DownloadTask[this.taskList.size()];
+                this.taskList.toArray(downloadTaskArr);
+                this.taskList.clear();
+            }
+            return downloadTaskArr;
+        }
+        return (DownloadTask[]) invokeV.objValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -71,6 +106,77 @@ public class DownloadSerialQueueTaskStartEndListener extends DownloadTaskStartEn
         }
     }
 
+    public int getWaitingTaskCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.taskList.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public int getWorkingTaskId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.runningTask != null) {
+                return this.runningTask.getId();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public void startNewLooper() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            SERIAL_EXECUTOR.execute(this);
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public DownloadSerialQueueTaskStartEndListener(DownloadListener downloadListener) {
+        this(downloadListener, new ArrayList());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {downloadListener};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((DownloadListener) objArr2[0], (ArrayList) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public DownloadSerialQueueTaskStartEndListener(DownloadListener downloadListener, ArrayList arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {downloadListener, arrayList};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.shutedDown = false;
+        this.looping = false;
+        this.paused = false;
+        this.listenerBunch = new DownloadListenerBunch.Builder().append(this).append(downloadListener).build();
+        this.taskList = arrayList;
+    }
+
     public synchronized void enqueue(DownloadTask downloadTask) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, downloadTask) == null) {
@@ -85,22 +191,19 @@ public class DownloadSerialQueueTaskStartEndListener extends DownloadTaskStartEn
         }
     }
 
-    public int getWaitingTaskCount() {
-        InterceptResult invokeV;
+    public void setListener(DownloadListener downloadListener) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.taskList.size() : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeL(1048582, this, downloadListener) == null) {
+            this.listenerBunch = new DownloadListenerBunch.Builder().append(this).append(downloadListener).build();
+        }
     }
 
-    public int getWorkingTaskId() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
+    public void taskStart(DownloadTask downloadTask) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.runningTask != null) {
-                return this.runningTask.getId();
-            }
-            return 0;
+        if (interceptable == null || interceptable.invokeL(1048586, this, downloadTask) == null) {
+            this.runningTask = downloadTask;
         }
-        return invokeV.intValue;
     }
 
     public synchronized void pause() {
@@ -138,117 +241,14 @@ public class DownloadSerialQueueTaskStartEndListener extends DownloadTaskStartEn
         }
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        DownloadTask remove;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            while (!this.shutedDown) {
-                synchronized (this) {
-                    if (!this.taskList.isEmpty() && !this.paused) {
-                        remove = this.taskList.remove(0);
-                    }
-                    this.runningTask = null;
-                    this.looping = false;
-                    return;
-                }
-                remove.execute(this.listenerBunch);
-            }
-        }
-    }
-
-    public void setListener(DownloadListener downloadListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, downloadListener) == null) {
-            this.listenerBunch = new DownloadListenerBunch.Builder().append(this).append(downloadListener).build();
-        }
-    }
-
-    public synchronized DownloadTask[] shutdown() {
-        InterceptResult invokeV;
-        DownloadTask[] downloadTaskArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            synchronized (this) {
-                this.shutedDown = true;
-                if (this.runningTask != null) {
-                    this.runningTask.cancel();
-                }
-                downloadTaskArr = new DownloadTask[this.taskList.size()];
-                this.taskList.toArray(downloadTaskArr);
-                this.taskList.clear();
-            }
-            return downloadTaskArr;
-        }
-        return (DownloadTask[]) invokeV.objValue;
-    }
-
-    public void startNewLooper() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            SERIAL_EXECUTOR.execute(this);
-        }
-    }
-
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public synchronized void taskEnd(@NonNull DownloadTask downloadTask, @NonNull EndCause endCause, @Nullable Exception exc) {
+    public synchronized void taskEnd(DownloadTask downloadTask, EndCause endCause, Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048585, this, downloadTask, endCause, exc) == null) {
             synchronized (this) {
                 if (endCause != EndCause.CANCELED && downloadTask == this.runningTask) {
                     this.runningTask = null;
                 }
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public void taskStart(@NonNull DownloadTask downloadTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, downloadTask) == null) {
-            this.runningTask = downloadTask;
-        }
-    }
-
-    public DownloadSerialQueueTaskStartEndListener(DownloadListener downloadListener, ArrayList<DownloadTask> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {downloadListener, arrayList};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.shutedDown = false;
-        this.looping = false;
-        this.paused = false;
-        this.listenerBunch = new DownloadListenerBunch.Builder().append(this).append(downloadListener).build();
-        this.taskList = arrayList;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DownloadSerialQueueTaskStartEndListener(DownloadListener downloadListener) {
-        this(downloadListener, new ArrayList());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {downloadListener};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((DownloadListener) objArr2[0], (ArrayList) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
             }
         }
     }

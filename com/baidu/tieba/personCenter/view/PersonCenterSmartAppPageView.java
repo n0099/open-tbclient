@@ -4,11 +4,10 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.o58;
+import com.baidu.tieba.y58;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,8 +19,8 @@ import java.util.List;
 public class PersonCenterSmartAppPageView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<o58> a;
-    public List<PersonCenterSmartAppItemView> b;
+    public List a;
+    public List b;
     public int c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -45,36 +44,18 @@ public class PersonCenterSmartAppPageView extends LinearLayout {
         }
     }
 
-    public void a(o58 o58Var) {
+    public void a(y58 y58Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, o58Var) == null) || o58Var == null || this.a.size() == this.c) {
-            return;
-        }
-        this.a.add(o58Var);
-        PersonCenterSmartAppItemView personCenterSmartAppItemView = (PersonCenterSmartAppItemView) ListUtils.getItem(this.b, this.a.size() - 1);
-        personCenterSmartAppItemView.a(o58Var);
-        personCenterSmartAppItemView.setVisibility(0);
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.size() < this.c : invokeV.booleanValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            for (PersonCenterSmartAppItemView personCenterSmartAppItemView : this.b) {
-                if (personCenterSmartAppItemView != null) {
-                    personCenterSmartAppItemView.c();
-                }
-            }
+        if ((interceptable == null || interceptable.invokeL(1048576, this, y58Var) == null) && y58Var != null && this.a.size() != this.c) {
+            this.a.add(y58Var);
+            PersonCenterSmartAppItemView personCenterSmartAppItemView = (PersonCenterSmartAppItemView) ListUtils.getItem(this.b, this.a.size() - 1);
+            personCenterSmartAppItemView.a(y58Var);
+            personCenterSmartAppItemView.setVisibility(0);
         }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public PersonCenterSmartAppPageView(Context context, @Nullable AttributeSet attributeSet) {
+    public PersonCenterSmartAppPageView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -95,7 +76,7 @@ public class PersonCenterSmartAppPageView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonCenterSmartAppPageView(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public PersonCenterSmartAppPageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -128,5 +109,28 @@ public class PersonCenterSmartAppPageView extends LinearLayout {
             this.b.add(personCenterSmartAppItemView);
         }
         c();
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a.size() < this.c) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            for (PersonCenterSmartAppItemView personCenterSmartAppItemView : this.b) {
+                if (personCenterSmartAppItemView != null) {
+                    personCenterSmartAppItemView.c();
+                }
+            }
+        }
     }
 }

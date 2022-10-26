@@ -49,30 +49,6 @@ public class BasicTaskItemView extends LinearLayout {
         a();
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03e2, this);
-            this.b = inflate;
-            this.h = inflate.findViewById(R.id.obfuscated_res_0x7f091473);
-            this.c = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0920ce);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092442);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09243a);
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092441);
-            this.f = textView;
-            textView.setOnClickListener(this.i);
-            this.h.setOnClickListener(this.i);
-            this.g = this.b.findViewById(R.id.divider_line);
-        }
-    }
-
-    public void setOnCommenClickListener(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            this.i = onClickListener;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BasicTaskItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -117,5 +93,29 @@ public class BasicTaskItemView extends LinearLayout {
         }
         this.a = context;
         a();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03df, this);
+            this.b = inflate;
+            this.h = inflate.findViewById(R.id.obfuscated_res_0x7f091465);
+            this.c = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0920cd);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09242c);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092424);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09242b);
+            this.f = textView;
+            textView.setOnClickListener(this.i);
+            this.h.setOnClickListener(this.i);
+            this.g = this.b.findViewById(R.id.divider_line);
+        }
+    }
+
+    public void setOnCommenClickListener(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
+            this.i = onClickListener;
+        }
     }
 }

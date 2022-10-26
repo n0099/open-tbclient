@@ -1,6 +1,5 @@
 package com.bumptech.glide.load.engine;
 
-import androidx.annotation.VisibleForTesting;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,8 +14,8 @@ import java.util.Map;
 public final class Jobs {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<Key, EngineJob<?>> jobs;
-    public final Map<Key, EngineJob<?>> onlyCacheJobs;
+    public final Map jobs;
+    public final Map onlyCacheJobs;
 
     public Jobs() {
         Interceptable interceptable = $ic;
@@ -35,36 +34,47 @@ public final class Jobs {
         this.onlyCacheJobs = new HashMap();
     }
 
-    private Map<Key, EngineJob<?>> getJobMap(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(65537, this, z)) == null) ? z ? this.onlyCacheJobs : this.jobs : (Map) invokeZ.objValue;
-    }
-
-    public EngineJob<?> get(Key key, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, key, z)) == null) ? getJobMap(z).get(key) : (EngineJob) invokeLZ.objValue;
-    }
-
-    @VisibleForTesting
-    public Map<Key, EngineJob<?>> getAll() {
+    public Map getAll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Collections.unmodifiableMap(this.jobs) : (Map) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return Collections.unmodifiableMap(this.jobs);
+        }
+        return (Map) invokeV.objValue;
     }
 
-    public void put(Key key, EngineJob<?> engineJob) {
+    private Map getJobMap(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65537, this, z)) == null) {
+            if (z) {
+                return this.onlyCacheJobs;
+            }
+            return this.jobs;
+        }
+        return (Map) invokeZ.objValue;
+    }
+
+    public EngineJob get(Key key, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, key, z)) == null) {
+            return (EngineJob) getJobMap(z).get(key);
+        }
+        return (EngineJob) invokeLZ.objValue;
+    }
+
+    public void put(Key key, EngineJob engineJob) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, key, engineJob) == null) {
             getJobMap(engineJob.onlyRetrieveFromCache()).put(key, engineJob);
         }
     }
 
-    public void removeIfCurrent(Key key, EngineJob<?> engineJob) {
+    public void removeIfCurrent(Key key, EngineJob engineJob) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, key, engineJob) == null) {
-            Map<Key, EngineJob<?>> jobMap = getJobMap(engineJob.onlyRetrieveFromCache());
+            Map jobMap = getJobMap(engineJob.onlyRetrieveFromCache());
             if (engineJob.equals(jobMap.get(key))) {
                 jobMap.remove(key);
             }

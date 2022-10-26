@@ -4,8 +4,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +22,7 @@ public class DrawDownloadProgressBar extends FrameLayout {
     public Context mContext;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DrawDownloadProgressBar(@NonNull Context context) {
+    public DrawDownloadProgressBar(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -45,7 +43,7 @@ public class DrawDownloadProgressBar extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DrawDownloadProgressBar(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public DrawDownloadProgressBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -67,7 +65,7 @@ public class DrawDownloadProgressBar extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DrawDownloadProgressBar(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public DrawDownloadProgressBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -92,9 +90,9 @@ public class DrawDownloadProgressBar extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
             this.mContext = context;
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d041c, this);
-            this.bZ = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f0910a2);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0910a3);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0419, this);
+            this.bZ = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091096);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091097);
             this.ca = findViewById;
             findViewById.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.ad.draw.view.DrawDownloadProgressBar.1
                 public static /* synthetic */ Interceptable $ic;

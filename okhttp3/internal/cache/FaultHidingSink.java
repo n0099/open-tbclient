@@ -15,6 +15,12 @@ public class FaultHidingSink extends ForwardingSink {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasErrors;
 
+    public void onException(IOException iOException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iOException) == null) {
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FaultHidingSink(Sink sink) {
         super(sink);
@@ -38,7 +44,7 @@ public class FaultHidingSink extends ForwardingSink {
     @Override // okio.ForwardingSink, okio.Sink, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.hasErrors) {
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.hasErrors) {
             return;
         }
         try {
@@ -52,7 +58,7 @@ public class FaultHidingSink extends ForwardingSink {
     @Override // okio.ForwardingSink, okio.Sink, java.io.Flushable
     public void flush() throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.hasErrors) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.hasErrors) {
             return;
         }
         try {
@@ -60,12 +66,6 @@ public class FaultHidingSink extends ForwardingSink {
         } catch (IOException e) {
             this.hasErrors = true;
             onException(e);
-        }
-    }
-
-    public void onException(IOException iOException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iOException) == null) {
         }
     }
 

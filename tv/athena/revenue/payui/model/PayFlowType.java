@@ -63,24 +63,36 @@ public final class PayFlowType {
     public static PayFlowType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (PayFlowType) Enum.valueOf(PayFlowType.class, str) : (PayFlowType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (PayFlowType) Enum.valueOf(PayFlowType.class, str);
+        }
+        return (PayFlowType) invokeL.objValue;
     }
 
     public static PayFlowType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PayFlowType[]) $VALUES.clone() : (PayFlowType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (PayFlowType[]) $VALUES.clone();
+        }
+        return (PayFlowType[]) invokeV.objValue;
     }
 
     public int getTypeId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.typeId : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.typeId;
+        }
+        return invokeV.intValue;
     }
 
     public String getTypeName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.typeName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.typeName;
+        }
+        return (String) invokeV.objValue;
     }
 }

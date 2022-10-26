@@ -1,7 +1,5 @@
 package com.google.android.exoplayer2.upstream.cache;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,10 +9,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.C;
 import java.io.File;
 /* loaded from: classes7.dex */
-public class CacheSpan implements Comparable<CacheSpan> {
+public class CacheSpan implements Comparable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public final File file;
     public final boolean isCached;
     public final String key;
@@ -43,19 +40,8 @@ public class CacheSpan implements Comparable<CacheSpan> {
         }
     }
 
-    public boolean isHoleSpan() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? !this.isCached : invokeV.booleanValue;
-    }
-
-    public boolean isOpenEnded() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.length == -1 : invokeV.booleanValue;
-    }
-
-    public CacheSpan(String str, long j, long j2, long j3, @Nullable File file) {
+    public CacheSpan(String str, long j, long j2, long j3, File file) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,14 +59,19 @@ public class CacheSpan implements Comparable<CacheSpan> {
         this.key = str;
         this.position = j;
         this.length = j2;
-        this.isCached = file != null;
+        if (file != null) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.isCached = z;
         this.file = file;
         this.lastAccessTimestamp = j3;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
-    public int compareTo(@NonNull CacheSpan cacheSpan) {
+    public int compareTo(CacheSpan cacheSpan) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cacheSpan)) == null) {
@@ -91,8 +82,32 @@ public class CacheSpan implements Comparable<CacheSpan> {
             if (i == 0) {
                 return 0;
             }
-            return i < 0 ? -1 : 1;
+            if (i < 0) {
+                return -1;
+            }
+            return 1;
         }
         return invokeL.intValue;
+    }
+
+    public boolean isHoleSpan() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return !this.isCached;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isOpenEnded() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.length == -1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

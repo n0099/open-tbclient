@@ -7,16 +7,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class z1 extends p1<m6, a> {
+public class z1 extends p1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.p1
+    /* renamed from: g */
+    public void c(n1 n1Var, String str, k3 k3Var, a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048580, this, n1Var, str, k3Var, aVar) == null) {
+        }
+    }
+
     /* loaded from: classes6.dex */
-    public static class a extends l1<m6> {
+    public class a extends l1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String b;
-        public final x7<String, Object> c;
+        public final x7 c;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public a() {
@@ -37,7 +46,7 @@ public class z1 extends p1<m6, a> {
             }
         }
 
-        public a(String str, x7<String, Object> x7Var) {
+        public a(String str, x7 x7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -80,29 +89,22 @@ public class z1 extends p1<m6, a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.o1
     /* renamed from: f */
-    public b7<j1> a(String str, k3 k3Var, a aVar) {
+    public b7 a(String str, k3 k3Var, a aVar) {
         InterceptResult invokeLLL;
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, k3Var, aVar)) == null) {
-            b7<j1> b7Var = new b7<>();
-            if (aVar == null || (str2 = aVar.b) == null) {
+            b7 b7Var = new b7();
+            if (aVar != null && (str2 = aVar.b) != null) {
+                if (str2 != null) {
+                    b7Var.a(new j1(str2, c4.class));
+                }
+            } else {
                 b7Var.a(new j1(k3Var.k() + ".atlas", c4.class));
-            } else if (str2 != null) {
-                b7Var.a(new j1(str2, c4.class));
             }
             return b7Var;
         }
         return (b7) invokeLLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.p1
-    /* renamed from: g */
-    public void c(n1 n1Var, String str, k3 k3Var, a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, n1Var, str, k3Var, aVar) == null) {
-        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -113,24 +115,24 @@ public class z1 extends p1<m6, a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, n1Var, str, k3Var, aVar)) == null) {
             String str2 = k3Var.k() + ".atlas";
-            x7<String, Object> x7Var = null;
+            x7 x7Var = null;
             if (aVar != null) {
                 String str3 = aVar.b;
                 if (str3 != null) {
                     str2 = str3;
                 }
-                x7<String, Object> x7Var2 = aVar.c;
+                x7 x7Var2 = aVar.c;
                 if (x7Var2 != null) {
                     x7Var = x7Var2;
                 }
             }
             m6 i = i((c4) n1Var.j(str2, c4.class));
             if (x7Var != null) {
-                x7.a<String, Object> b = x7Var.b();
+                x7.a b = x7Var.b();
                 b.c();
                 while (b.hasNext()) {
-                    x7.b next = b.next();
-                    i.a((String) next.a, next.b);
+                    x7.b bVar = (x7.b) b.next();
+                    i.a((String) bVar.a, bVar.b);
                 }
             }
             i.o(k3Var);
@@ -142,6 +144,9 @@ public class z1 extends p1<m6, a> {
     public m6 i(c4 c4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, c4Var)) == null) ? new m6(c4Var) : (m6) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, c4Var)) == null) {
+            return new m6(c4Var);
+        }
+        return (m6) invokeL.objValue;
     }
 }

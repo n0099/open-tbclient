@@ -18,6 +18,7 @@ import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.Internal;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import com.google.protobuf.MessageLiteOrBuilder;
 import com.google.protobuf.Parser;
 import java.io.IOException;
@@ -32,16 +33,16 @@ public final class a {
 
     /* renamed from: com.baidu.android.pushservice.h.a.a.a$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.baidu.android.pushservice.h.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0022a extends GeneratedMessageLite implements b {
+    public final class C0022a extends GeneratedMessageLite implements b {
         public static /* synthetic */ Interceptable $ic;
-        public static Parser<C0022a> a;
+        public static Parser a;
         public static final C0022a b;
         public transient /* synthetic */ FieldHolder $fh;
         public int c;
@@ -55,7 +56,7 @@ public final class a {
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class C0023a extends GeneratedMessageLite.Builder<C0022a, C0023a> implements b {
+        public final class C0023a extends GeneratedMessageLite.Builder implements b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -181,18 +182,18 @@ public final class a {
                     C0022a c0022a = null;
                     try {
                         try {
-                            C0022a parsePartialFrom = C0022a.a.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                            if (parsePartialFrom != null) {
-                                mergeFrom(parsePartialFrom);
+                            C0022a c0022a2 = (C0022a) C0022a.a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            if (c0022a2 != null) {
+                                mergeFrom(c0022a2);
                             }
                             return this;
                         } catch (InvalidProtocolBufferException e) {
-                            C0022a c0022a2 = (C0022a) e.getUnfinishedMessage();
+                            C0022a c0022a3 = (C0022a) e.getUnfinishedMessage();
                             try {
                                 throw e;
                             } catch (Throwable th) {
                                 th = th;
-                                c0022a = c0022a2;
+                                c0022a = c0022a3;
                                 if (c0022a != null) {
                                 }
                                 throw th;
@@ -352,7 +353,7 @@ public final class a {
                     return;
                 }
             }
-            a = new AbstractParser<C0022a>() { // from class: com.baidu.android.pushservice.h.a.a.a.a.1
+            a = new AbstractParser() { // from class: com.baidu.android.pushservice.h.a.a.a.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -572,7 +573,7 @@ public final class a {
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<C0022a> getParserForType() {
+        public Parser getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? a : (Parser) invokeV.objValue;
@@ -710,9 +711,9 @@ public final class a {
     }
 
     /* loaded from: classes.dex */
-    public static final class aa extends GeneratedMessageLite implements ab {
+    public final class aa extends GeneratedMessageLite implements ab {
         public static /* synthetic */ Interceptable $ic;
-        public static Parser<aa> a;
+        public static Parser a;
         public static final aa b;
         public transient /* synthetic */ FieldHolder $fh;
         public int c;
@@ -728,7 +729,7 @@ public final class a {
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$aa$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class C0024a extends GeneratedMessageLite.Builder<aa, C0024a> implements ab {
+        public final class C0024a extends GeneratedMessageLite.Builder implements ab {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -868,18 +869,18 @@ public final class a {
                     aa aaVar = null;
                     try {
                         try {
-                            aa parsePartialFrom = aa.a.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                            if (parsePartialFrom != null) {
-                                mergeFrom(parsePartialFrom);
+                            aa aaVar2 = (aa) aa.a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            if (aaVar2 != null) {
+                                mergeFrom(aaVar2);
                             }
                             return this;
                         } catch (InvalidProtocolBufferException e) {
-                            aa aaVar2 = (aa) e.getUnfinishedMessage();
+                            aa aaVar3 = (aa) e.getUnfinishedMessage();
                             try {
                                 throw e;
                             } catch (Throwable th) {
                                 th = th;
-                                aaVar = aaVar2;
+                                aaVar = aaVar3;
                                 if (aaVar != null) {
                                 }
                                 throw th;
@@ -1070,7 +1071,7 @@ public final class a {
                     return;
                 }
             }
-            a = new AbstractParser<aa>() { // from class: com.baidu.android.pushservice.h.a.a.a.aa.1
+            a = new AbstractParser() { // from class: com.baidu.android.pushservice.h.a.a.a.aa.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -1300,7 +1301,7 @@ public final class a {
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<aa> getParserForType() {
+        public Parser getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? a : (Parser) invokeV.objValue;
@@ -1478,9 +1479,9 @@ public final class a {
     }
 
     /* loaded from: classes.dex */
-    public static final class ac extends GeneratedMessageLite implements ad {
+    public final class ac extends GeneratedMessageLite implements ad {
         public static /* synthetic */ Interceptable $ic;
-        public static Parser<ac> a;
+        public static Parser a;
         public static final ac b;
         public transient /* synthetic */ FieldHolder $fh;
         public int c;
@@ -1496,7 +1497,7 @@ public final class a {
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$ac$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class C0025a extends GeneratedMessageLite.Builder<ac, C0025a> implements ad {
+        public final class C0025a extends GeneratedMessageLite.Builder implements ad {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -1651,18 +1652,18 @@ public final class a {
                     ac acVar = null;
                     try {
                         try {
-                            ac parsePartialFrom = ac.a.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                            if (parsePartialFrom != null) {
-                                mergeFrom(parsePartialFrom);
+                            ac acVar2 = (ac) ac.a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            if (acVar2 != null) {
+                                mergeFrom(acVar2);
                             }
                             return this;
                         } catch (InvalidProtocolBufferException e) {
-                            ac acVar2 = (ac) e.getUnfinishedMessage();
+                            ac acVar3 = (ac) e.getUnfinishedMessage();
                             try {
                                 throw e;
                             } catch (Throwable th) {
                                 th = th;
-                                acVar = acVar2;
+                                acVar = acVar3;
                                 if (acVar != null) {
                                 }
                                 throw th;
@@ -1800,7 +1801,7 @@ public final class a {
                     return;
                 }
             }
-            a = new AbstractParser<ac>() { // from class: com.baidu.android.pushservice.h.a.a.a.ac.1
+            a = new AbstractParser() { // from class: com.baidu.android.pushservice.h.a.a.a.ac.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -2022,7 +2023,7 @@ public final class a {
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<ac> getParserForType() {
+        public Parser getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? a : (Parser) invokeV.objValue;
@@ -2209,9 +2210,9 @@ public final class a {
     }
 
     /* loaded from: classes.dex */
-    public static final class ae extends GeneratedMessageLite implements af {
+    public final class ae extends GeneratedMessageLite implements af {
         public static /* synthetic */ Interceptable $ic;
-        public static Parser<ae> a;
+        public static Parser a;
         public static final ae b;
         public transient /* synthetic */ FieldHolder $fh;
         public int c;
@@ -2227,7 +2228,7 @@ public final class a {
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$ae$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class C0026a extends GeneratedMessageLite.Builder<ae, C0026a> implements af {
+        public final class C0026a extends GeneratedMessageLite.Builder implements af {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -2367,18 +2368,18 @@ public final class a {
                     ae aeVar = null;
                     try {
                         try {
-                            ae parsePartialFrom = ae.a.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                            if (parsePartialFrom != null) {
-                                mergeFrom(parsePartialFrom);
+                            ae aeVar2 = (ae) ae.a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            if (aeVar2 != null) {
+                                mergeFrom(aeVar2);
                             }
                             return this;
                         } catch (InvalidProtocolBufferException e) {
-                            ae aeVar2 = (ae) e.getUnfinishedMessage();
+                            ae aeVar3 = (ae) e.getUnfinishedMessage();
                             try {
                                 throw e;
                             } catch (Throwable th) {
                                 th = th;
-                                aeVar = aeVar2;
+                                aeVar = aeVar3;
                                 if (aeVar != null) {
                                 }
                                 throw th;
@@ -2527,7 +2528,7 @@ public final class a {
                     return;
                 }
             }
-            a = new AbstractParser<ae>() { // from class: com.baidu.android.pushservice.h.a.a.a.ae.1
+            a = new AbstractParser() { // from class: com.baidu.android.pushservice.h.a.a.a.ae.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -2757,7 +2758,7 @@ public final class a {
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<ae> getParserForType() {
+        public Parser getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? a : (Parser) invokeV.objValue;
@@ -2939,9 +2940,9 @@ public final class a {
     }
 
     /* loaded from: classes.dex */
-    public static final class c extends GeneratedMessageLite implements d {
+    public final class c extends GeneratedMessageLite implements d {
         public static /* synthetic */ Interceptable $ic;
-        public static Parser<c> a;
+        public static Parser a;
         public static final c b;
         public transient /* synthetic */ FieldHolder $fh;
         public int c;
@@ -2958,7 +2959,7 @@ public final class a {
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class C0027a extends GeneratedMessageLite.Builder<c, C0027a> implements d {
+        public final class C0027a extends GeneratedMessageLite.Builder implements d {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -3201,18 +3202,18 @@ public final class a {
                     c cVar = null;
                     try {
                         try {
-                            c parsePartialFrom = c.a.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                            if (parsePartialFrom != null) {
-                                mergeFrom(parsePartialFrom);
+                            c cVar2 = (c) c.a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            if (cVar2 != null) {
+                                mergeFrom(cVar2);
                             }
                             return this;
                         } catch (InvalidProtocolBufferException e) {
-                            c cVar2 = (c) e.getUnfinishedMessage();
+                            c cVar3 = (c) e.getUnfinishedMessage();
                             try {
                                 throw e;
                             } catch (Throwable th) {
                                 th = th;
-                                cVar = cVar2;
+                                cVar = cVar3;
                                 if (cVar != null) {
                                 }
                                 throw th;
@@ -3402,7 +3403,7 @@ public final class a {
                     return;
                 }
             }
-            a = new AbstractParser<c>() { // from class: com.baidu.android.pushservice.h.a.a.a.c.1
+            a = new AbstractParser() { // from class: com.baidu.android.pushservice.h.a.a.a.c.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -3674,7 +3675,7 @@ public final class a {
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<c> getParserForType() {
+        public Parser getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? a : (Parser) invokeV.objValue;
@@ -3862,7 +3863,7 @@ public final class a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class e implements Internal.EnumLite {
+    public final class e implements Internal.EnumLite {
         public static /* synthetic */ Interceptable $ic;
         public static final e a;
         public static final e b;
@@ -3965,9 +3966,9 @@ public final class a {
     }
 
     /* loaded from: classes.dex */
-    public static final class f extends GeneratedMessageLite implements g {
+    public final class f extends GeneratedMessageLite implements g {
         public static /* synthetic */ Interceptable $ic;
-        public static Parser<f> a;
+        public static Parser a;
         public static final f b;
         public transient /* synthetic */ FieldHolder $fh;
         public int c;
@@ -3979,7 +3980,7 @@ public final class a {
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$f$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class C0028a extends GeneratedMessageLite.Builder<f, C0028a> implements g {
+        public final class C0028a extends GeneratedMessageLite.Builder implements g {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -4080,18 +4081,18 @@ public final class a {
                     f fVar = null;
                     try {
                         try {
-                            f parsePartialFrom = f.a.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                            if (parsePartialFrom != null) {
-                                mergeFrom(parsePartialFrom);
+                            f fVar2 = (f) f.a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            if (fVar2 != null) {
+                                mergeFrom(fVar2);
                             }
                             return this;
                         } catch (InvalidProtocolBufferException e) {
-                            f fVar2 = (f) e.getUnfinishedMessage();
+                            f fVar3 = (f) e.getUnfinishedMessage();
                             try {
                                 throw e;
                             } catch (Throwable th) {
                                 th = th;
-                                fVar = fVar2;
+                                fVar = fVar3;
                                 if (fVar != null) {
                                 }
                                 throw th;
@@ -4233,7 +4234,7 @@ public final class a {
                     return;
                 }
             }
-            a = new AbstractParser<f>() { // from class: com.baidu.android.pushservice.h.a.a.a.f.1
+            a = new AbstractParser() { // from class: com.baidu.android.pushservice.h.a.a.a.f.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -4445,7 +4446,7 @@ public final class a {
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<f> getParserForType() {
+        public Parser getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? a : (Parser) invokeV.objValue;
@@ -4551,9 +4552,9 @@ public final class a {
     }
 
     /* loaded from: classes.dex */
-    public static final class h extends GeneratedMessageLite implements i {
+    public final class h extends GeneratedMessageLite implements i {
         public static /* synthetic */ Interceptable $ic;
-        public static Parser<h> a;
+        public static Parser a;
         public static final h b;
         public transient /* synthetic */ FieldHolder $fh;
         public int c;
@@ -4570,7 +4571,7 @@ public final class a {
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$h$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class C0029a extends GeneratedMessageLite.Builder<h, C0029a> implements i {
+        public final class C0029a extends GeneratedMessageLite.Builder implements i {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -4771,18 +4772,18 @@ public final class a {
                     h hVar = null;
                     try {
                         try {
-                            h parsePartialFrom = h.a.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                            if (parsePartialFrom != null) {
-                                mergeFrom(parsePartialFrom);
+                            h hVar2 = (h) h.a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            if (hVar2 != null) {
+                                mergeFrom(hVar2);
                             }
                             return this;
                         } catch (InvalidProtocolBufferException e) {
-                            h hVar2 = (h) e.getUnfinishedMessage();
+                            h hVar3 = (h) e.getUnfinishedMessage();
                             try {
                                 throw e;
                             } catch (Throwable th) {
                                 th = th;
-                                hVar = hVar2;
+                                hVar = hVar3;
                                 if (hVar != null) {
                                 }
                                 throw th;
@@ -4993,7 +4994,7 @@ public final class a {
                     return;
                 }
             }
-            a = new AbstractParser<h>() { // from class: com.baidu.android.pushservice.h.a.a.a.h.1
+            a = new AbstractParser() { // from class: com.baidu.android.pushservice.h.a.a.a.h.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -5260,7 +5261,7 @@ public final class a {
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<h> getParserForType() {
+        public Parser getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? a : (Parser) invokeV.objValue;
@@ -5454,9 +5455,9 @@ public final class a {
     }
 
     /* loaded from: classes.dex */
-    public static final class j extends GeneratedMessageLite implements k {
+    public final class j extends GeneratedMessageLite implements k {
         public static /* synthetic */ Interceptable $ic;
-        public static Parser<j> a;
+        public static Parser a;
         public static final j b;
         public transient /* synthetic */ FieldHolder $fh;
         public int c;
@@ -5472,7 +5473,7 @@ public final class a {
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$j$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class C0030a extends GeneratedMessageLite.Builder<j, C0030a> implements k {
+        public final class C0030a extends GeneratedMessageLite.Builder implements k {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -5610,18 +5611,18 @@ public final class a {
                     j jVar = null;
                     try {
                         try {
-                            j parsePartialFrom = j.a.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                            if (parsePartialFrom != null) {
-                                mergeFrom(parsePartialFrom);
+                            j jVar2 = (j) j.a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            if (jVar2 != null) {
+                                mergeFrom(jVar2);
                             }
                             return this;
                         } catch (InvalidProtocolBufferException e) {
-                            j jVar2 = (j) e.getUnfinishedMessage();
+                            j jVar3 = (j) e.getUnfinishedMessage();
                             try {
                                 throw e;
                             } catch (Throwable th) {
                                 th = th;
-                                jVar = jVar2;
+                                jVar = jVar3;
                                 if (jVar != null) {
                                 }
                                 throw th;
@@ -5809,7 +5810,7 @@ public final class a {
                     return;
                 }
             }
-            a = new AbstractParser<j>() { // from class: com.baidu.android.pushservice.h.a.a.a.j.1
+            a = new AbstractParser() { // from class: com.baidu.android.pushservice.h.a.a.a.j.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -6019,7 +6020,7 @@ public final class a {
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<j> getParserForType() {
+        public Parser getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? a : (Parser) invokeV.objValue;
@@ -6206,9 +6207,9 @@ public final class a {
     }
 
     /* loaded from: classes.dex */
-    public static final class l extends GeneratedMessageLite implements m {
+    public final class l extends GeneratedMessageLite implements m {
         public static /* synthetic */ Interceptable $ic;
-        public static Parser<l> a;
+        public static Parser a;
         public static final l b;
         public transient /* synthetic */ FieldHolder $fh;
         public int c;
@@ -6221,7 +6222,7 @@ public final class a {
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$l$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class C0031a extends GeneratedMessageLite.Builder<l, C0031a> implements m {
+        public final class C0031a extends GeneratedMessageLite.Builder implements m {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -6338,18 +6339,18 @@ public final class a {
                     l lVar = null;
                     try {
                         try {
-                            l parsePartialFrom = l.a.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                            if (parsePartialFrom != null) {
-                                mergeFrom(parsePartialFrom);
+                            l lVar2 = (l) l.a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            if (lVar2 != null) {
+                                mergeFrom(lVar2);
                             }
                             return this;
                         } catch (InvalidProtocolBufferException e) {
-                            l lVar2 = (l) e.getUnfinishedMessage();
+                            l lVar3 = (l) e.getUnfinishedMessage();
                             try {
                                 throw e;
                             } catch (Throwable th) {
                                 th = th;
-                                lVar = lVar2;
+                                lVar = lVar3;
                                 if (lVar != null) {
                                 }
                                 throw th;
@@ -6492,7 +6493,7 @@ public final class a {
                     return;
                 }
             }
-            a = new AbstractParser<l>() { // from class: com.baidu.android.pushservice.h.a.a.a.l.1
+            a = new AbstractParser() { // from class: com.baidu.android.pushservice.h.a.a.a.l.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -6699,7 +6700,7 @@ public final class a {
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<l> getParserForType() {
+        public Parser getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? a : (Parser) invokeV.objValue;
@@ -6823,9 +6824,9 @@ public final class a {
     }
 
     /* loaded from: classes.dex */
-    public static final class n extends GeneratedMessageLite implements o {
+    public final class n extends GeneratedMessageLite implements o {
         public static /* synthetic */ Interceptable $ic;
-        public static Parser<n> a;
+        public static Parser a;
         public static final n b;
         public transient /* synthetic */ FieldHolder $fh;
         public int c;
@@ -6843,7 +6844,7 @@ public final class a {
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$n$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class C0032a extends GeneratedMessageLite.Builder<n, C0032a> implements o {
+        public final class C0032a extends GeneratedMessageLite.Builder implements o {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -7001,18 +7002,18 @@ public final class a {
                     n nVar = null;
                     try {
                         try {
-                            n parsePartialFrom = n.a.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                            if (parsePartialFrom != null) {
-                                mergeFrom(parsePartialFrom);
+                            n nVar2 = (n) n.a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            if (nVar2 != null) {
+                                mergeFrom(nVar2);
                             }
                             return this;
                         } catch (InvalidProtocolBufferException e) {
-                            n nVar2 = (n) e.getUnfinishedMessage();
+                            n nVar3 = (n) e.getUnfinishedMessage();
                             try {
                                 throw e;
                             } catch (Throwable th) {
                                 th = th;
-                                nVar = nVar2;
+                                nVar = nVar3;
                                 if (nVar != null) {
                                 }
                                 throw th;
@@ -7239,7 +7240,7 @@ public final class a {
                     return;
                 }
             }
-            a = new AbstractParser<n>() { // from class: com.baidu.android.pushservice.h.a.a.a.n.1
+            a = new AbstractParser() { // from class: com.baidu.android.pushservice.h.a.a.a.n.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -7477,7 +7478,7 @@ public final class a {
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<n> getParserForType() {
+        public Parser getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? a : (Parser) invokeV.objValue;
@@ -7709,9 +7710,9 @@ public final class a {
     }
 
     /* loaded from: classes.dex */
-    public static final class p extends GeneratedMessageLite implements q {
+    public final class p extends GeneratedMessageLite implements q {
         public static /* synthetic */ Interceptable $ic;
-        public static Parser<p> a;
+        public static Parser a;
         public static final p b;
         public transient /* synthetic */ FieldHolder $fh;
         public int c;
@@ -7721,7 +7722,7 @@ public final class a {
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$p$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class C0033a extends GeneratedMessageLite.Builder<p, C0033a> implements q {
+        public final class C0033a extends GeneratedMessageLite.Builder implements q {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -7801,18 +7802,18 @@ public final class a {
                     p pVar = null;
                     try {
                         try {
-                            p parsePartialFrom = p.a.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                            if (parsePartialFrom != null) {
-                                mergeFrom(parsePartialFrom);
+                            p pVar2 = (p) p.a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            if (pVar2 != null) {
+                                mergeFrom(pVar2);
                             }
                             return this;
                         } catch (InvalidProtocolBufferException e) {
-                            p pVar2 = (p) e.getUnfinishedMessage();
+                            p pVar3 = (p) e.getUnfinishedMessage();
                             try {
                                 throw e;
                             } catch (Throwable th) {
                                 th = th;
-                                pVar = pVar2;
+                                pVar = pVar3;
                                 if (pVar != null) {
                                 }
                                 throw th;
@@ -7920,7 +7921,7 @@ public final class a {
                     return;
                 }
             }
-            a = new AbstractParser<p>() { // from class: com.baidu.android.pushservice.h.a.a.a.p.1
+            a = new AbstractParser() { // from class: com.baidu.android.pushservice.h.a.a.a.p.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -8117,7 +8118,7 @@ public final class a {
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<p> getParserForType() {
+        public Parser getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? a : (Parser) invokeV.objValue;
@@ -8182,9 +8183,9 @@ public final class a {
     }
 
     /* loaded from: classes.dex */
-    public static final class r extends GeneratedMessageLite implements s {
+    public final class r extends GeneratedMessageLite implements s {
         public static /* synthetic */ Interceptable $ic;
-        public static Parser<r> a;
+        public static Parser a;
         public static final r b;
         public transient /* synthetic */ FieldHolder $fh;
         public int c;
@@ -8196,7 +8197,7 @@ public final class a {
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$r$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class C0034a extends GeneratedMessageLite.Builder<r, C0034a> implements s {
+        public final class C0034a extends GeneratedMessageLite.Builder implements s {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -8307,18 +8308,18 @@ public final class a {
                     r rVar = null;
                     try {
                         try {
-                            r parsePartialFrom = r.a.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                            if (parsePartialFrom != null) {
-                                mergeFrom(parsePartialFrom);
+                            r rVar2 = (r) r.a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            if (rVar2 != null) {
+                                mergeFrom(rVar2);
                             }
                             return this;
                         } catch (InvalidProtocolBufferException e) {
-                            r rVar2 = (r) e.getUnfinishedMessage();
+                            r rVar3 = (r) e.getUnfinishedMessage();
                             try {
                                 throw e;
                             } catch (Throwable th) {
                                 th = th;
-                                rVar = rVar2;
+                                rVar = rVar3;
                                 if (rVar != null) {
                                 }
                                 throw th;
@@ -8418,7 +8419,7 @@ public final class a {
                     return;
                 }
             }
-            a = new AbstractParser<r>() { // from class: com.baidu.android.pushservice.h.a.a.a.r.1
+            a = new AbstractParser() { // from class: com.baidu.android.pushservice.h.a.a.a.r.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -8621,7 +8622,7 @@ public final class a {
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<r> getParserForType() {
+        public Parser getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? a : (Parser) invokeV.objValue;
@@ -8727,9 +8728,9 @@ public final class a {
     }
 
     /* loaded from: classes.dex */
-    public static final class t extends GeneratedMessageLite implements u {
+    public final class t extends GeneratedMessageLite implements u {
         public static /* synthetic */ Interceptable $ic;
-        public static Parser<t> a;
+        public static Parser a;
         public static final t b;
         public transient /* synthetic */ FieldHolder $fh;
         public int c;
@@ -8745,7 +8746,7 @@ public final class a {
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$t$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class C0035a extends GeneratedMessageLite.Builder<t, C0035a> implements u {
+        public final class C0035a extends GeneratedMessageLite.Builder implements u {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -8883,18 +8884,18 @@ public final class a {
                     t tVar = null;
                     try {
                         try {
-                            t parsePartialFrom = t.a.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                            if (parsePartialFrom != null) {
-                                mergeFrom(parsePartialFrom);
+                            t tVar2 = (t) t.a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            if (tVar2 != null) {
+                                mergeFrom(tVar2);
                             }
                             return this;
                         } catch (InvalidProtocolBufferException e) {
-                            t tVar2 = (t) e.getUnfinishedMessage();
+                            t tVar3 = (t) e.getUnfinishedMessage();
                             try {
                                 throw e;
                             } catch (Throwable th) {
                                 th = th;
-                                tVar = tVar2;
+                                tVar = tVar3;
                                 if (tVar != null) {
                                 }
                                 throw th;
@@ -9054,7 +9055,7 @@ public final class a {
                     return;
                 }
             }
-            a = new AbstractParser<t>() { // from class: com.baidu.android.pushservice.h.a.a.a.t.1
+            a = new AbstractParser() { // from class: com.baidu.android.pushservice.h.a.a.a.t.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -9273,7 +9274,7 @@ public final class a {
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<t> getParserForType() {
+        public Parser getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? a : (Parser) invokeV.objValue;
@@ -9451,9 +9452,9 @@ public final class a {
     }
 
     /* loaded from: classes.dex */
-    public static final class v extends GeneratedMessageLite implements w {
+    public final class v extends GeneratedMessageLite implements w {
         public static /* synthetic */ Interceptable $ic;
-        public static Parser<v> a;
+        public static Parser a;
         public static final v b;
         public transient /* synthetic */ FieldHolder $fh;
         public int c;
@@ -9464,7 +9465,7 @@ public final class a {
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$v$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class C0036a extends GeneratedMessageLite.Builder<v, C0036a> implements w {
+        public final class C0036a extends GeneratedMessageLite.Builder implements w {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -9556,18 +9557,18 @@ public final class a {
                     v vVar = null;
                     try {
                         try {
-                            v parsePartialFrom = v.a.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                            if (parsePartialFrom != null) {
-                                mergeFrom(parsePartialFrom);
+                            v vVar2 = (v) v.a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            if (vVar2 != null) {
+                                mergeFrom(vVar2);
                             }
                             return this;
                         } catch (InvalidProtocolBufferException e) {
-                            v vVar2 = (v) e.getUnfinishedMessage();
+                            v vVar3 = (v) e.getUnfinishedMessage();
                             try {
                                 throw e;
                             } catch (Throwable th) {
                                 th = th;
-                                vVar = vVar2;
+                                vVar = vVar3;
                                 if (vVar != null) {
                                 }
                                 throw th;
@@ -9691,7 +9692,7 @@ public final class a {
                     return;
                 }
             }
-            a = new AbstractParser<v>() { // from class: com.baidu.android.pushservice.h.a.a.a.v.1
+            a = new AbstractParser() { // from class: com.baidu.android.pushservice.h.a.a.a.v.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -9895,7 +9896,7 @@ public final class a {
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<v> getParserForType() {
+        public Parser getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? a : (Parser) invokeV.objValue;
@@ -9981,7 +9982,7 @@ public final class a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class x implements Internal.EnumLite {
+    public final class x implements Internal.EnumLite {
         public static /* synthetic */ Interceptable $ic;
         public static final x a;
         public static final x b;
@@ -10063,9 +10064,9 @@ public final class a {
     }
 
     /* loaded from: classes.dex */
-    public static final class y extends GeneratedMessageLite implements z {
+    public final class y extends GeneratedMessageLite implements z {
         public static /* synthetic */ Interceptable $ic;
-        public static Parser<y> a;
+        public static Parser a;
         public static final y b;
         public transient /* synthetic */ FieldHolder $fh;
         public int c;
@@ -10073,13 +10074,13 @@ public final class a {
         public h e;
         public Object f;
         public long g;
-        public List<c> h;
+        public List h;
         public byte i;
         public int j;
 
         /* renamed from: com.baidu.android.pushservice.h.a.a.a$y$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class C0037a extends GeneratedMessageLite.Builder<y, C0037a> implements z {
+        public final class C0037a extends GeneratedMessageLite.Builder implements z {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -10087,7 +10088,7 @@ public final class a {
             public h c;
             public Object d;
             public long e;
-            public List<c> f;
+            public List f;
 
             public C0037a() {
                 Interceptable interceptable = $ic;
@@ -10245,18 +10246,18 @@ public final class a {
                     y yVar = null;
                     try {
                         try {
-                            y parsePartialFrom = y.a.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                            if (parsePartialFrom != null) {
-                                mergeFrom(parsePartialFrom);
+                            y yVar2 = (y) y.a.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            if (yVar2 != null) {
+                                mergeFrom(yVar2);
                             }
                             return this;
                         } catch (InvalidProtocolBufferException e) {
-                            y yVar2 = (y) e.getUnfinishedMessage();
+                            y yVar3 = (y) e.getUnfinishedMessage();
                             try {
                                 throw e;
                             } catch (Throwable th) {
                                 th = th;
-                                yVar = yVar2;
+                                yVar = yVar3;
                                 if (yVar != null) {
                                 }
                                 throw th;
@@ -10273,7 +10274,7 @@ public final class a {
                 return (C0037a) invokeLL.objValue;
             }
 
-            public C0037a a(Iterable<? extends c> iterable) {
+            public C0037a a(Iterable iterable) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, iterable)) == null) {
@@ -10419,7 +10420,7 @@ public final class a {
                     return;
                 }
             }
-            a = new AbstractParser<y>() { // from class: com.baidu.android.pushservice.h.a.a.a.y.1
+            a = new AbstractParser() { // from class: com.baidu.android.pushservice.h.a.a.a.y.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -10468,8 +10469,6 @@ public final class a {
             this.j = -1;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r3v15, resolved type: java.util.List<com.baidu.android.pushservice.h.a.a.a$c> */
-        /* JADX WARN: Multi-variable type inference failed */
         public y(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
             int i;
             Interceptable interceptable = $ic;
@@ -10651,7 +10650,7 @@ public final class a {
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<y> getParserForType() {
+        public Parser getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? a : (Parser) invokeV.objValue;
@@ -10677,7 +10676,7 @@ public final class a {
                     computeMessageSize += CodedOutputStream.computeInt64Size(131, this.g);
                 }
                 for (int i2 = 0; i2 < this.h.size(); i2++) {
-                    computeMessageSize += CodedOutputStream.computeMessageSize(132, this.h.get(i2));
+                    computeMessageSize += CodedOutputStream.computeMessageSize(132, (MessageLite) this.h.get(i2));
                 }
                 this.j = computeMessageSize;
                 return computeMessageSize;
@@ -10777,7 +10776,7 @@ public final class a {
                     codedOutputStream.writeInt64(131, this.g);
                 }
                 for (int i = 0; i < this.h.size(); i++) {
-                    codedOutputStream.writeMessage(132, this.h.get(i));
+                    codedOutputStream.writeMessage(132, (MessageLite) this.h.get(i));
                 }
             }
         }

@@ -73,6 +73,13 @@ public class IdentityManager {
         return (IdentityManager) invokeL.objValue;
     }
 
+    public void init(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            this.mContext = context.getApplicationContext();
+        }
+    }
+
     public String getEncodedUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -112,13 +119,6 @@ public class IdentityManager {
             return string;
         }
         return (String) invokeV.objValue;
-    }
-
-    public void init(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.mContext = context.getApplicationContext();
-        }
     }
 
     public String processCommonParams(String str) {

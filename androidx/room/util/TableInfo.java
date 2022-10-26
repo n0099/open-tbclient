@@ -2,11 +2,7 @@ package androidx.room.util;
 
 import android.database.Cursor;
 import android.os.Build;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
-import androidx.room.ColumnInfo;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,14 +20,12 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes.dex */
 public class TableInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<String, Column> columns;
     public final Set<ForeignKey> foreignKeys;
-    @Nullable
     public final Set<Index> indices;
     public final String name;
 
@@ -39,7 +33,6 @@ public class TableInfo {
     public static class Column {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @ColumnInfo.SQLiteTypeAffinity
         public final int affinity;
         public final String name;
         public final boolean notNull;
@@ -68,8 +61,7 @@ public class TableInfo {
             this.affinity = findAffinity(str2);
         }
 
-        @ColumnInfo.SQLiteTypeAffinity
-        public static int findAffinity(@Nullable String str) {
+        public static int findAffinity(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
@@ -80,13 +72,16 @@ public class TableInfo {
                 if (upperCase.contains("INT")) {
                     return 3;
                 }
-                if (upperCase.contains("CHAR") || upperCase.contains("CLOB") || upperCase.contains("TEXT")) {
-                    return 2;
+                if (!upperCase.contains("CHAR") && !upperCase.contains("CLOB") && !upperCase.contains("TEXT")) {
+                    if (upperCase.contains("BLOB")) {
+                        return 5;
+                    }
+                    if (!upperCase.contains("REAL") && !upperCase.contains("FLOA") && !upperCase.contains("DOUB")) {
+                        return 1;
+                    }
+                    return 4;
                 }
-                if (upperCase.contains("BLOB")) {
-                    return 5;
-                }
-                return (upperCase.contains("REAL") || upperCase.contains("FLOA") || upperCase.contains("DOUB")) ? 4 : 1;
+                return 2;
             }
             return invokeL.intValue;
         }
@@ -109,16 +104,26 @@ public class TableInfo {
                 } else if (isPrimaryKey() != column.isPrimaryKey()) {
                     return false;
                 }
-                return this.name.equals(column.name) && this.notNull == column.notNull && this.affinity == column.affinity;
+                if (this.name.equals(column.name) && this.notNull == column.notNull && this.affinity == column.affinity) {
+                    return true;
+                }
+                return false;
             }
             return invokeL.booleanValue;
         }
 
         public int hashCode() {
             InterceptResult invokeV;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return (((((this.name.hashCode() * 31) + this.affinity) * 31) + (this.notNull ? 1231 : 1237)) * 31) + this.primaryKeyPosition;
+                int hashCode = ((this.name.hashCode() * 31) + this.affinity) * 31;
+                if (this.notNull) {
+                    i = 1231;
+                } else {
+                    i = 1237;
+                }
+                return ((hashCode + i) * 31) + this.primaryKeyPosition;
             }
             return invokeV.intValue;
         }
@@ -126,7 +131,13 @@ public class TableInfo {
         public boolean isPrimaryKey() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.primaryKeyPosition > 0 : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                if (this.primaryKeyPosition > 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         public String toString() {
@@ -139,23 +150,17 @@ public class TableInfo {
         }
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes.dex */
     public static class ForeignKey {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @NonNull
         public final List<String> columnNames;
-        @NonNull
         public final String onDelete;
-        @NonNull
         public final String onUpdate;
-        @NonNull
         public final List<String> referenceColumnNames;
-        @NonNull
         public final String referenceTable;
 
-        public ForeignKey(@NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull List<String> list, @NonNull List<String> list2) {
+        public ForeignKey(String str, String str2, String str3, List<String> list, List<String> list2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -188,10 +193,10 @@ public class TableInfo {
                     return false;
                 }
                 ForeignKey foreignKey = (ForeignKey) obj;
-                if (this.referenceTable.equals(foreignKey.referenceTable) && this.onDelete.equals(foreignKey.onDelete) && this.onUpdate.equals(foreignKey.onUpdate) && this.columnNames.equals(foreignKey.columnNames)) {
-                    return this.referenceColumnNames.equals(foreignKey.referenceColumnNames);
+                if (!this.referenceTable.equals(foreignKey.referenceTable) || !this.onDelete.equals(foreignKey.onDelete) || !this.onUpdate.equals(foreignKey.onUpdate) || !this.columnNames.equals(foreignKey.columnNames)) {
+                    return false;
                 }
-                return false;
+                return this.referenceColumnNames.equals(foreignKey.referenceColumnNames);
             }
             return invokeL.booleanValue;
         }
@@ -199,7 +204,10 @@ public class TableInfo {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (((((((this.referenceTable.hashCode() * 31) + this.onDelete.hashCode()) * 31) + this.onUpdate.hashCode()) * 31) + this.columnNames.hashCode()) * 31) + this.referenceColumnNames.hashCode() : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return (((((((this.referenceTable.hashCode() * 31) + this.onDelete.hashCode()) * 31) + this.onUpdate.hashCode()) * 31) + this.columnNames.hashCode()) * 31) + this.referenceColumnNames.hashCode();
+            }
+            return invokeV.intValue;
         }
 
         public String toString() {
@@ -212,7 +220,6 @@ public class TableInfo {
         }
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes.dex */
     public static class ForeignKeyWithSequence implements Comparable<ForeignKeyWithSequence> {
         public static /* synthetic */ Interceptable $ic;
@@ -245,18 +252,20 @@ public class TableInfo {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.lang.Comparable
-        public int compareTo(@NonNull ForeignKeyWithSequence foreignKeyWithSequence) {
+        public int compareTo(ForeignKeyWithSequence foreignKeyWithSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, foreignKeyWithSequence)) == null) {
                 int i = this.mId - foreignKeyWithSequence.mId;
-                return i == 0 ? this.mSequence - foreignKeyWithSequence.mSequence : i;
+                if (i == 0) {
+                    return this.mSequence - foreignKeyWithSequence.mSequence;
+                }
+                return i;
             }
             return invokeL.intValue;
         }
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes.dex */
     public static class Index {
         public static /* synthetic */ Interceptable $ic = null;
@@ -297,22 +306,28 @@ public class TableInfo {
                     return false;
                 }
                 Index index = (Index) obj;
-                if (this.unique == index.unique && this.columns.equals(index.columns)) {
-                    if (this.name.startsWith(DEFAULT_PREFIX)) {
-                        return index.name.startsWith(DEFAULT_PREFIX);
-                    }
-                    return this.name.equals(index.name);
+                if (this.unique != index.unique || !this.columns.equals(index.columns)) {
+                    return false;
                 }
-                return false;
+                if (this.name.startsWith(DEFAULT_PREFIX)) {
+                    return index.name.startsWith(DEFAULT_PREFIX);
+                }
+                return this.name.equals(index.name);
             }
             return invokeL.booleanValue;
         }
 
         public int hashCode() {
             InterceptResult invokeV;
+            int hashCode;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return ((((this.name.startsWith(DEFAULT_PREFIX) ? -1184239155 : this.name.hashCode()) * 31) + (this.unique ? 1 : 0)) * 31) + this.columns.hashCode();
+                if (this.name.startsWith(DEFAULT_PREFIX)) {
+                    hashCode = -1184239155;
+                } else {
+                    hashCode = this.name.hashCode();
+                }
+                return (((hashCode * 31) + (this.unique ? 1 : 0)) * 31) + this.columns.hashCode();
             }
             return invokeV.intValue;
         }
@@ -327,7 +342,29 @@ public class TableInfo {
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public TableInfo(String str, Map<String, Column> map, Set<ForeignKey> set) {
+        this(str, map, set, Collections.emptySet());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, map, set};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], (Map) objArr2[1], (Set) objArr2[2], (Set) objArr2[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
     public TableInfo(String str, Map<String, Column> map, Set<ForeignKey> set, Set<Index> set2) {
+        Set<Index> unmodifiableSet;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -345,17 +382,26 @@ public class TableInfo {
         this.name = str;
         this.columns = Collections.unmodifiableMap(map);
         this.foreignKeys = Collections.unmodifiableSet(set);
-        this.indices = set2 == null ? null : Collections.unmodifiableSet(set2);
+        if (set2 == null) {
+            unmodifiableSet = null;
+        } else {
+            unmodifiableSet = Collections.unmodifiableSet(set2);
+        }
+        this.indices = unmodifiableSet;
     }
 
     public static TableInfo read(SupportSQLiteDatabase supportSQLiteDatabase, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, supportSQLiteDatabase, str)) == null) ? new TableInfo(str, readColumns(supportSQLiteDatabase, str), readForeignKeys(supportSQLiteDatabase, str), readIndices(supportSQLiteDatabase, str)) : (TableInfo) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, supportSQLiteDatabase, str)) == null) {
+            return new TableInfo(str, readColumns(supportSQLiteDatabase, str), readForeignKeys(supportSQLiteDatabase, str), readIndices(supportSQLiteDatabase, str));
+        }
+        return (TableInfo) invokeLL.objValue;
     }
 
     public static Map<String, Column> readColumns(SupportSQLiteDatabase supportSQLiteDatabase, String str) {
         InterceptResult invokeLL;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, supportSQLiteDatabase, str)) == null) {
             Cursor query = supportSQLiteDatabase.query("PRAGMA table_info(`" + str + "`)");
@@ -368,7 +414,13 @@ public class TableInfo {
                     int columnIndex4 = query.getColumnIndex(PushConstants.URI_PACKAGE_NAME);
                     while (query.moveToNext()) {
                         String string = query.getString(columnIndex);
-                        hashMap.put(string, new Column(string, query.getString(columnIndex2), query.getInt(columnIndex3) != 0, query.getInt(columnIndex4)));
+                        String string2 = query.getString(columnIndex2);
+                        if (query.getInt(columnIndex3) != 0) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        hashMap.put(string, new Column(string, string2, z, query.getInt(columnIndex4)));
                     }
                 }
                 return hashMap;
@@ -377,6 +429,41 @@ public class TableInfo {
             }
         }
         return (Map) invokeLL.objValue;
+    }
+
+    public static Set<Index> readIndices(SupportSQLiteDatabase supportSQLiteDatabase, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, supportSQLiteDatabase, str)) == null) {
+            Cursor query = supportSQLiteDatabase.query("PRAGMA index_list(`" + str + "`)");
+            try {
+                int columnIndex = query.getColumnIndex("name");
+                int columnIndex2 = query.getColumnIndex("origin");
+                int columnIndex3 = query.getColumnIndex("unique");
+                if (columnIndex != -1 && columnIndex2 != -1 && columnIndex3 != -1) {
+                    HashSet hashSet = new HashSet();
+                    while (query.moveToNext()) {
+                        if ("c".equals(query.getString(columnIndex2))) {
+                            String string = query.getString(columnIndex);
+                            boolean z = true;
+                            if (query.getInt(columnIndex3) != 1) {
+                                z = false;
+                            }
+                            Index readIndex = readIndex(supportSQLiteDatabase, string, z);
+                            if (readIndex == null) {
+                                return null;
+                            }
+                            hashSet.add(readIndex);
+                        }
+                    }
+                    return hashSet;
+                }
+                return null;
+            } finally {
+                query.close();
+            }
+        }
+        return (Set) invokeLL.objValue;
     }
 
     public static List<ForeignKeyWithSequence> readForeignKeyFieldMappings(Cursor cursor) {
@@ -436,7 +523,6 @@ public class TableInfo {
         return (Set) invokeLL.objValue;
     }
 
-    @Nullable
     public static Index readIndex(SupportSQLiteDatabase supportSQLiteDatabase, String str, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
@@ -465,42 +551,6 @@ public class TableInfo {
         return (Index) invokeLLZ.objValue;
     }
 
-    @Nullable
-    public static Set<Index> readIndices(SupportSQLiteDatabase supportSQLiteDatabase, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, supportSQLiteDatabase, str)) == null) {
-            Cursor query = supportSQLiteDatabase.query("PRAGMA index_list(`" + str + "`)");
-            try {
-                int columnIndex = query.getColumnIndex("name");
-                int columnIndex2 = query.getColumnIndex("origin");
-                int columnIndex3 = query.getColumnIndex("unique");
-                if (columnIndex != -1 && columnIndex2 != -1 && columnIndex3 != -1) {
-                    HashSet hashSet = new HashSet();
-                    while (query.moveToNext()) {
-                        if ("c".equals(query.getString(columnIndex2))) {
-                            String string = query.getString(columnIndex);
-                            boolean z = true;
-                            if (query.getInt(columnIndex3) != 1) {
-                                z = false;
-                            }
-                            Index readIndex = readIndex(supportSQLiteDatabase, string, z);
-                            if (readIndex == null) {
-                                return null;
-                            }
-                            hashSet.add(readIndex);
-                        }
-                    }
-                    return hashSet;
-                }
-                return null;
-            } finally {
-                query.close();
-            }
-        }
-        return (Set) invokeLL.objValue;
-    }
-
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Set<Index> set;
@@ -514,36 +564,52 @@ public class TableInfo {
             }
             TableInfo tableInfo = (TableInfo) obj;
             String str = this.name;
-            if (str == null ? tableInfo.name == null : str.equals(tableInfo.name)) {
-                Map<String, Column> map = this.columns;
-                if (map == null ? tableInfo.columns == null : map.equals(tableInfo.columns)) {
-                    Set<ForeignKey> set2 = this.foreignKeys;
-                    if (set2 == null ? tableInfo.foreignKeys == null : set2.equals(tableInfo.foreignKeys)) {
-                        Set<Index> set3 = this.indices;
-                        if (set3 == null || (set = tableInfo.indices) == null) {
-                            return true;
-                        }
-                        return set3.equals(set);
-                    }
-                    return false;
-                }
+            if (str == null ? tableInfo.name != null : !str.equals(tableInfo.name)) {
                 return false;
             }
-            return false;
+            Map<String, Column> map = this.columns;
+            if (map == null ? tableInfo.columns != null : !map.equals(tableInfo.columns)) {
+                return false;
+            }
+            Set<ForeignKey> set2 = this.foreignKeys;
+            if (set2 == null ? tableInfo.foreignKeys != null : !set2.equals(tableInfo.foreignKeys)) {
+                return false;
+            }
+            Set<Index> set3 = this.indices;
+            if (set3 == null || (set = tableInfo.indices) == null) {
+                return true;
+            }
+            return set3.equals(set);
         }
         return invokeL.booleanValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
+        int i;
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             String str = this.name;
-            int hashCode = (str != null ? str.hashCode() : 0) * 31;
+            int i3 = 0;
+            if (str != null) {
+                i = str.hashCode();
+            } else {
+                i = 0;
+            }
+            int i4 = i * 31;
             Map<String, Column> map = this.columns;
-            int hashCode2 = (hashCode + (map != null ? map.hashCode() : 0)) * 31;
+            if (map != null) {
+                i2 = map.hashCode();
+            } else {
+                i2 = 0;
+            }
+            int i5 = (i4 + i2) * 31;
             Set<ForeignKey> set = this.foreignKeys;
-            return hashCode2 + (set != null ? set.hashCode() : 0);
+            if (set != null) {
+                i3 = set.hashCode();
+            }
+            return i5 + i3;
         }
         return invokeV.intValue;
     }
@@ -555,26 +621,5 @@ public class TableInfo {
             return "TableInfo{name='" + this.name + "', columns=" + this.columns + ", foreignKeys=" + this.foreignKeys + ", indices=" + this.indices + '}';
         }
         return (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public TableInfo(String str, Map<String, Column> map, Set<ForeignKey> set) {
-        this(str, map, set, Collections.emptySet());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, map, set};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], (Map) objArr2[1], (Set) objArr2[2], (Set) objArr2[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
     }
 }

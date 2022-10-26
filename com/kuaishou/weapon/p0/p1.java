@@ -20,7 +20,7 @@ public class p1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a implements FileFilter {
+    public final class a implements FileFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -71,7 +71,7 @@ public class p1 {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static List<File> a(File file, String str, int i) {
+    public static List a(File file, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, file, str, i)) == null) {

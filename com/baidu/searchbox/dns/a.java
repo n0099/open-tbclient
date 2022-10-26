@@ -25,25 +25,40 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean d;
     public ConnectivityManager e;
-    public C0142a f;
+    public C0143a f;
     public boolean g;
     public Context mContext;
 
     /* renamed from: com.baidu.searchbox.dns.a$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(727494170, "Lcom/baidu/searchbox/dns/a;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(727494170, "Lcom/baidu/searchbox/dns/a;");
+        }
+    }
+
     /* renamed from: com.baidu.searchbox.dns.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0142a extends BroadcastReceiver {
+    public class C0143a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a h;
 
-        public C0142a(a aVar) {
+        public C0143a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,6 +76,10 @@ public class a {
             this.h = aVar;
         }
 
+        public /* synthetic */ C0143a(a aVar, AnonymousClass1 anonymousClass1) {
+            this(aVar);
+        }
+
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
@@ -71,34 +90,14 @@ public class a {
                     Log.d(DnsUtil.TAG, " action: " + intent.getAction() + " isConnected: " + this.h.d + " isSticky: " + isInitialStickyBroadcast());
                 }
                 DnsUtil.initNetworkStackType();
-                if (!this.h.d || isInitialStickyBroadcast()) {
-                    return;
+                if (this.h.d && !isInitialStickyBroadcast()) {
+                    if (DnsUtil.DEBUG) {
+                        Log.d(DnsUtil.TAG, "clear dns cache and force update domain");
+                    }
+                    com.baidu.searchbox.dns.a.a.e().clear();
+                    b.d();
                 }
-                if (DnsUtil.DEBUG) {
-                    Log.d(DnsUtil.TAG, "clear dns cache and force update domain");
-                }
-                com.baidu.searchbox.dns.a.a.e().clear();
-                b.d();
             }
-        }
-
-        public /* synthetic */ C0142a(a aVar, AnonymousClass1 anonymousClass1) {
-            this(aVar);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(727494170, "Lcom/baidu/searchbox/dns/a;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(727494170, "Lcom/baidu/searchbox/dns/a;");
         }
     }
 
@@ -121,35 +120,6 @@ public class a {
         this.g = false;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            NetworkInfo activeNetworkInfo = this.e.getActiveNetworkInfo();
-            return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public synchronized void exit() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                if (this.g) {
-                    this.mContext.unregisterReceiver(this.f);
-                    this.g = false;
-                }
-            }
-        }
-    }
-
-    public static a b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? b : (a) invokeV.objValue;
-    }
-
     public static a a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -166,6 +136,41 @@ public class a {
         return (a) invokeL.objValue;
     }
 
+    public static a b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return b;
+        }
+        return (a) invokeV.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
+            NetworkInfo activeNetworkInfo = this.e.getActiveNetworkInfo();
+            if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public synchronized void exit() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                if (this.g) {
+                    this.mContext.unregisterReceiver(this.f);
+                    this.g = false;
+                }
+            }
+        }
+    }
+
     public synchronized void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -174,9 +179,9 @@ public class a {
                     this.e = (ConnectivityManager) this.mContext.getSystemService("connectivity");
                     IntentFilter intentFilter = new IntentFilter();
                     intentFilter.addAction(c);
-                    C0142a c0142a = new C0142a(this, null);
-                    this.f = c0142a;
-                    this.mContext.registerReceiver(c0142a, intentFilter);
+                    C0143a c0143a = new C0143a(this, null);
+                    this.f = c0143a;
+                    this.mContext.registerReceiver(c0143a, intentFilter);
                     this.g = true;
                 }
             }

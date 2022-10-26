@@ -40,41 +40,12 @@ public class PatchManager {
     public final Context mContext;
 
     /* loaded from: classes6.dex */
-    public static class PatchCleanWrapper extends RemoteServiceWrapper {
-        public static final int MSG_WHAT_UNBIND = 1;
-        public Handler mUiHandler;
-
-        public PatchCleanWrapper(Context context) {
-            super(context, "action_clean_patch");
-            this.mUiHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.titan.sdk.pm.PatchManager.PatchCleanWrapper.1
-                @Override // android.os.Handler
-                public void handleMessage(Message message) {
-                    if (message.what != 1) {
-                        return;
-                    }
-                    PatchCleanWrapper.this.unbind();
-                }
-            };
-        }
-
-        @Override // com.baidu.titan.sdk.pm.PatchManager.RemoteServiceWrapper
-        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            try {
-                IPatchManager.Stub.asInterface(iBinder).requestCleanPatches();
-            } catch (RemoteException e) {
-                e.printStackTrace();
-                this.mUiHandler.obtainMessage(1, -100, 0, null).sendToTarget();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
     public interface PatchInstallObserver {
         void onPatchInstalled(int i, Bundle bundle);
     }
 
     /* loaded from: classes6.dex */
-    public static class PatchInstallWrapper extends RemoteServiceWrapper {
+    public class PatchInstallWrapper extends RemoteServiceWrapper {
         public static final int MSG_WHAT_PATCH_INSTALL = 1;
         public Bundle mExtra;
         public PatchInstallObserver mLocalObserver;
@@ -103,10 +74,9 @@ public class PatchManager {
             this.mUiHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.titan.sdk.pm.PatchManager.PatchInstallWrapper.1
                 @Override // android.os.Handler
                 public void handleMessage(Message message) {
-                    if (message.what != 1) {
-                        return;
+                    if (message.what == 1) {
+                        PatchInstallWrapper.this.mLocalObserver.onPatchInstalled(message.arg1, (Bundle) message.obj);
                     }
-                    PatchInstallWrapper.this.mLocalObserver.onPatchInstalled(message.arg1, (Bundle) message.obj);
                 }
             };
             this.mUri = uri;
@@ -119,31 +89,33 @@ public class PatchManager {
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
                 IPatchManager.Stub.asInterface(iBinder).install(this.mUri, 0, this.mExtra, this.mRemoteObserver);
-            } catch (RemoteException e) {
-                e.printStackTrace();
+            } catch (Throwable th) {
+                th.printStackTrace();
                 this.mUiHandler.obtainMessage(1, -100, 0, null).sendToTarget();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static abstract class RemoteServiceWrapper {
+    public abstract class RemoteServiceWrapper {
         public String mAction;
         public Context mContext;
         public ServiceConnectionImpl mServiceConnection = new ServiceConnectionImpl();
 
+        public abstract void onServiceConnected(ComponentName componentName, IBinder iBinder);
+
         /* loaded from: classes6.dex */
         public class ServiceConnectionImpl implements ServiceConnection {
+            @Override // android.content.ServiceConnection
+            public void onServiceDisconnected(ComponentName componentName) {
+            }
+
             public ServiceConnectionImpl() {
             }
 
             @Override // android.content.ServiceConnection
             public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
                 RemoteServiceWrapper.this.onServiceConnected(componentName, iBinder);
-            }
-
-            @Override // android.content.ServiceConnection
-            public void onServiceDisconnected(ComponentName componentName) {
             }
         }
 
@@ -156,10 +128,36 @@ public class PatchManager {
             this.mContext.bindService(new Intent(this.mContext, WorkerService.class).setAction(this.mAction).putExtra(WorkerService.REQUEST_WORKER_SERVICE_BINDER, true), this.mServiceConnection, 1);
         }
 
-        public abstract void onServiceConnected(ComponentName componentName, IBinder iBinder);
-
         public void unbind() {
             this.mContext.unbindService(this.mServiceConnection);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class PatchCleanWrapper extends RemoteServiceWrapper {
+        public static final int MSG_WHAT_UNBIND = 1;
+        public Handler mUiHandler;
+
+        public PatchCleanWrapper(Context context) {
+            super(context, "action_clean_patch");
+            this.mUiHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.titan.sdk.pm.PatchManager.PatchCleanWrapper.1
+                @Override // android.os.Handler
+                public void handleMessage(Message message) {
+                    if (message.what == 1) {
+                        PatchCleanWrapper.this.unbind();
+                    }
+                }
+            };
+        }
+
+        @Override // com.baidu.titan.sdk.pm.PatchManager.RemoteServiceWrapper
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            try {
+                IPatchManager.Stub.asInterface(iBinder).requestCleanPatches();
+            } catch (Throwable th) {
+                th.printStackTrace();
+                this.mUiHandler.obtainMessage(1, -100, 0, null).sendToTarget();
+            }
         }
     }
 
@@ -182,15 +180,15 @@ public class PatchManager {
         return new File(TitanPaths.getBaseDir(), PENDING_CLEAN_FILE);
     }
 
-    public void installPatch(Uri uri, Bundle bundle, PatchInstallObserver patchInstallObserver) {
-        new PatchInstallWrapper(this.mContext, uri, bundle, patchInstallObserver).bind();
-    }
-
     public boolean needClean() {
         return getPendingCleanFile().exists();
     }
 
     public void requestCleanPatchs() {
         new PatchCleanWrapper(this.mContext).bind();
+    }
+
+    public void installPatch(Uri uri, Bundle bundle, PatchInstallObserver patchInstallObserver) {
+        new PatchInstallWrapper(this.mContext, uri, bundle, patchInstallObserver).bind();
     }
 }

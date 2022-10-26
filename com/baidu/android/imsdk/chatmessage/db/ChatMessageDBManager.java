@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.SparseArray;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.ChatObject;
@@ -64,14 +63,20 @@ public class ChatMessageDBManager extends DBBase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long CAST_RELIABLE_MSG_EXPIRED_TIME = 172800;
     public static final String TAG = "ChatMessageDBManager";
-    public static final List<Integer> UNUPDATE_SESSION_MSG_TYPES;
+    public static final List UNUPDATE_SESSION_MSG_TYPES;
     public static ChatMessageDBManager mInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ChatMessageDbOberser> mObservers;
+    public List mObservers;
 
     /* loaded from: classes.dex */
     public interface ChatMessageDbOberser {
         void notifyDbChange(int i, ChatSession chatSession);
+    }
+
+    private boolean getCursorMoveDirection(boolean z, long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65557, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j), Long.valueOf(j2)})) == null) ? (j <= 0 || j2 <= 0) ? !z : z : invokeCommon.booleanValue;
     }
 
     static {
@@ -88,6 +93,69 @@ public class ChatMessageDBManager extends DBBase {
             }
         }
         UNUPDATE_SESSION_MSG_TYPES = Arrays.asList(Integer.valueOf((int) IMConstants.IM_MSG_TYPE_SHIELD_ME), 2014, 2001, 36);
+    }
+
+    public long deleteExpiredDupMsgs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                SQLiteDatabase openDatabase = openDatabase();
+                if (openDatabase == null) {
+                    LogUtils.e(TAG, "deleteExpiredDupMsgs db is null!");
+                    return -1L;
+                }
+                try {
+                    return openDatabase.delete(TableDefine.DB_TABLE_NO_DUPLICATE_MESSAGE, "input_time < ?", new String[]{String.valueOf(System.currentTimeMillis() - 259200)});
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "deleteExpiredDupMsgs :", e);
+                    return -1L;
+                }
+            }
+        }
+        return invokeV.longValue;
+    }
+
+    public long deleteExpiredReliableMsgs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                SQLiteDatabase openDatabase = openDatabase();
+                if (openDatabase == null) {
+                    LogUtils.e(TAG, "deleteExpiredReliableMsgs db is null!");
+                    return -1L;
+                }
+                try {
+                    return openDatabase.delete(TableDefine.DB_TABLE_RELIABLE_MESSAGE, "create_time < ?", new String[]{String.valueOf((System.currentTimeMillis() / 1000) - CAST_RELIABLE_MSG_EXPIRED_TIME)});
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "deleteExpiredReliableMsgs :", e);
+                    return -1L;
+                }
+            }
+        }
+        return invokeV.longValue;
+    }
+
+    public long deleteStudioUsePaMsgs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                SQLiteDatabase openDatabase = openDatabase();
+                if (openDatabase == null) {
+                    LogUtils.e(TAG, "deleteStudioUsePaMsgs db is null!");
+                    return -1L;
+                }
+                try {
+                    return openDatabase.delete(TableDefine.DB_TABLE_STUDIO_USE_PA_MESSAGE, "input_time < ?", new String[]{String.valueOf(System.currentTimeMillis() - 172800000)});
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "deleteStudioUsePaMsgs :", e);
+                    return -1L;
+                }
+            }
+        }
+        return invokeV.longValue;
     }
 
     public ChatMessageDBManager(Context context) {
@@ -109,13 +177,201 @@ public class ChatMessageDBManager extends DBBase {
         setContext(context);
     }
 
+    private int setMsgRead(long j) {
+        InterceptResult invokeJ;
+        int update;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65571, this, j)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("is_read", (Integer) 1);
+            synchronized (DBBase.mSyncLock) {
+                update = update("message", "msgid = ?", new String[]{String.valueOf(j)}, contentValues);
+            }
+            return update;
+        }
+        return invokeJ.intValue;
+    }
+
+    public int deleteChatMsg(ChatMsg chatMsg) {
+        InterceptResult invokeL;
+        int deleteChatMsg;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, chatMsg)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                if (1 == chatMsg.getCategory()) {
+                    deleteChatMsg = GroupMessageDAOImpl.deleteChatMsg(this.mContext, chatMsg);
+                } else {
+                    deleteChatMsg = deleteChatMsg(chatMsg.getRowId());
+                }
+                if (deleteChatMsg < 0) {
+                    return deleteChatMsg;
+                }
+                updateChatSession(chatMsg);
+                return deleteChatMsg;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public int deleteChatSession(long j) {
+        InterceptResult invokeJ;
+        String[] strArr;
+        int delete;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048589, this, j)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                String str = null;
+                if (j != -1) {
+                    str = "paid = ?";
+                    strArr = new String[]{String.valueOf(j)};
+                } else {
+                    strArr = null;
+                }
+                delete = delete(TableDefine.DB_TABLE_CHAT_SESSION, str, strArr);
+            }
+            return delete;
+        }
+        return invokeJ.intValue;
+    }
+
+    public int setStudioMsgRead(long j) {
+        InterceptResult invokeJ;
+        int update;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048641, this, j)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("is_read", (Integer) 1);
+            synchronized (DBBase.mSyncLock) {
+                update = update(TableDefine.DB_TABLE_STUDIO_USE_PA_MESSAGE, "msgid = ?", new String[]{String.valueOf(j)}, contentValues);
+            }
+            return update;
+        }
+        return invokeJ.intValue;
+    }
+
+    private long addMsg(ChatMsg chatMsg) {
+        InterceptResult invokeL;
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, chatMsg)) == null) {
+            if (chatMsg == null) {
+                return -1L;
+            }
+            int i3 = 1;
+            if (chatMsg.getCategory() != 0 && 1 != chatMsg.getCategory() && 2 != chatMsg.getCategory()) {
+                return -1L;
+            }
+            SQLiteDatabase openDatabase = openDatabase();
+            try {
+                if (openDatabase == null) {
+                    LogUtils.d(TAG, "getWritableDb fail!");
+                    return -1L;
+                }
+                int status = chatMsg.getStatus();
+                if (status == 1 && chatMsg.getRowId() != -1) {
+                    LogUtils.d(TAG, "tiaoshi not insert for: status=sending rowid != -1");
+                    return -1L;
+                } else if (status != 1 && status != 3 && isMsgExist(openDatabase, chatMsg) > 0) {
+                    LogUtils.d(TAG, "tiaoshi not exception path!");
+                    return -2L;
+                } else {
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put("msgid", Long.valueOf(chatMsg.getMsgId()));
+                    contentValues.put("content", chatMsg.getMsgContent());
+                    contentValues.put("type", Integer.valueOf(chatMsg.getRealMsgType()));
+                    contentValues.put("from_user", Long.valueOf(chatMsg.getFromUser()));
+                    contentValues.put("buid", chatMsg.getSenderUid());
+                    contentValues.put("time", Long.valueOf(chatMsg.getMsgTime()));
+                    contentValues.put("status", Integer.valueOf(chatMsg.getStatus()));
+                    contentValues.put("category", Integer.valueOf(chatMsg.getCategory()));
+                    contentValues.put("contacter", Long.valueOf(chatMsg.getContacter()));
+                    if (chatMsg.isMsgRead()) {
+                        i = 1;
+                    } else {
+                        i = 0;
+                    }
+                    contentValues.put("is_read", Integer.valueOf(i));
+                    contentValues.put("cmd", Integer.valueOf(chatMsg.getNotifyCmd()));
+                    if (chatMsg instanceof HtmlMsg) {
+                        contentValues.put("local_url", chatMsg.getRecommendDescription());
+                    } else {
+                        contentValues.put("local_url", chatMsg.getLocalUrl());
+                    }
+                    if (chatMsg.isZhida()) {
+                        i2 = 1;
+                    } else {
+                        i2 = 0;
+                    }
+                    contentValues.put(TableDefine.MessageColumns.COLUMN_ISZHIDA, Integer.valueOf(i2));
+                    if (!chatMsg.isClicked()) {
+                        i3 = 0;
+                    }
+                    contentValues.put("isclicked", Integer.valueOf(i3));
+                    contentValues.put("paid", Long.valueOf(chatMsg.getPaid()));
+                    contentValues.put("device_flag", Integer.valueOf(chatMsg.getDeviceFlag()));
+                    contentValues.put("msg_key", chatMsg.getMsgKey());
+                    contentValues.put("sendid", chatMsg.getSendMsgId());
+                    contentValues.put("expires_time", Long.valueOf(chatMsg.getExpiresTime()));
+                    contentValues.put(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, chatMsg.getServiceType());
+                    contentValues.put(TableDefine.MessageColumns.COLUME_TIPS_CODE, Integer.valueOf(chatMsg.getTipsCode()));
+                    contentValues.put("tips", chatMsg.getTips());
+                    contentValues.put(TableDefine.MessageColumns.COLUME_TEMPLATE, Integer.valueOf(chatMsg.getTemplateType()));
+                    return openDatabase.insert("message", null, contentValues);
+                }
+            } catch (Exception e) {
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                LogUtils.e(TAG, "addMsg:", e);
+                return -1L;
+            }
+        }
+        return invokeL.longValue;
+    }
+
     private String addPaidCondition(String str, String str2, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{str, str2, Long.valueOf(j)})) == null) ? IMConfigInternal.getInstance().getIMConfig(this.mContext).getPaidCondition(str, str2, j) : (String) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{str, str2, Long.valueOf(j)})) == null) {
+            return IMConfigInternal.getInstance().getIMConfig(this.mContext).getPaidCondition(str, str2, j);
+        }
+        return (String) invokeCommon.objValue;
     }
 
-    private long addReliableMsg(@NonNull TextMsg textMsg) {
+    public ArrayList getChatRecords(long j, long j2, long j3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048612, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            LogUtils.enter();
+            return getChatRecords(j, j2, j3, null);
+        }
+        return (ArrayList) invokeCommon.objValue;
+    }
+
+    public ArrayList getMaxMsgidByChatTypes(List list, long j, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048620, this, new Object[]{list, Long.valueOf(j), Integer.valueOf(i)})) == null) {
+            synchronized (DBBase.mSyncLock) {
+                SQLiteDatabase openDatabase = openDatabase();
+                if (openDatabase == null) {
+                    return null;
+                }
+                return fetchMsgByContacterIdOrderByMsgid(getContacterByChatTypes(openDatabase, list), j, i);
+            }
+        }
+        return (ArrayList) invokeCommon.objValue;
+    }
+
+    public ArrayList getNotificationMsgDataList(SparseArray sparseArray, long j, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048627, this, new Object[]{sparseArray, Long.valueOf(j), Integer.valueOf(i)})) == null) {
+            return fetchPaMsgByPaids(new ArrayList(PaInfoDBManager.getInstance(this.mContext).getPaidListByPainfos(sparseArray)), j, i);
+        }
+        return (ArrayList) invokeCommon.objValue;
+    }
+
+    private long addReliableMsg(TextMsg textMsg) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, textMsg)) == null) {
@@ -151,6 +407,312 @@ public class ChatMessageDBManager extends DBBase {
         return invokeL.longValue;
     }
 
+    private int delMsgs(long[] jArr) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, jArr)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                SQLiteDatabase openDatabase = openDatabase();
+                int i2 = -1;
+                if (openDatabase == null) {
+                    LogUtils.d(TAG, "getWritableDb fail!");
+                    return -1;
+                }
+                if (jArr != null) {
+                    try {
+                    } catch (Exception e) {
+                        e = e;
+                    }
+                    if (jArr.length > 0) {
+                        try {
+                            String[] strArr = new String[2];
+                            strArr[1] = String.valueOf(0);
+                            i = 0;
+                            for (long j : jArr) {
+                                try {
+                                    strArr[0] = String.valueOf(j);
+                                    i = (int) (i + openDatabase.delete("message", "msgid = ? AND status=?", strArr));
+                                } catch (Exception e2) {
+                                    e = e2;
+                                    i2 = i;
+                                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                                    LogUtils.e(TAG, "delMsg:", e);
+                                    i = i2;
+                                    return i;
+                                }
+                            }
+                            for (long j2 : jArr) {
+                                long j3 = j2 + 1;
+                                openDatabase.execSQL("delete from message where msgid=? and type in (?, ?, ?)", new Object[]{Long.valueOf(j3), Integer.valueOf((int) IMConstants.IM_MSG_TYPE_SHIELD_ME), 2001, 2014});
+                                LogUtils.e(TAG, "delete notSendButShowTipMsg :delete from message where msgid=? and type in (?, ?, ?), msgId :" + j3);
+                            }
+                        } catch (Exception e3) {
+                            e = e3;
+                            i2 = 0;
+                        }
+                        return i;
+                    }
+                }
+                return -1;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    private long studioMsgAddHandler(ChatMsg chatMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65573, this, chatMsg)) == null) {
+            if (chatMsg == null) {
+                return -1L;
+            }
+            if (chatMsg.getChatType() != 20 && chatMsg.getMsgType() == 80) {
+                return -1L;
+            }
+            SQLiteDatabase openDatabase = openDatabase();
+            try {
+                if (openDatabase == null) {
+                    LogUtils.d(TAG, "studioMsgAddHandler getWritableDb fail!");
+                    return -1L;
+                } else if (existStudioMsg(openDatabase, chatMsg) > 0) {
+                    LogUtils.d(TAG, "studioMsgAddHandler isDuplicateMsg = true");
+                    return -2L;
+                } else {
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put("msgid", Long.valueOf(chatMsg.getMsgId()));
+                    contentValues.put("type", Integer.valueOf(chatMsg.getMsgType()));
+                    contentValues.put("from_user", Long.valueOf(chatMsg.getFromUser()));
+                    contentValues.put("input_time", Long.valueOf(System.currentTimeMillis()));
+                    contentValues.put("category", Integer.valueOf(chatMsg.getCategory()));
+                    contentValues.put("contacter", Long.valueOf(chatMsg.getContacter()));
+                    contentValues.put("msg_key", chatMsg.getMsgKey());
+                    contentValues.put("content", chatMsg.getMsgContent());
+                    contentValues.put("is_read", Boolean.valueOf(chatMsg.isMsgRead()));
+                    return openDatabase.insert(TableDefine.DB_TABLE_STUDIO_USE_PA_MESSAGE, null, contentValues);
+                }
+            } catch (Exception e) {
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                LogUtils.e(TAG, "studioMsgAddHandler :", e);
+                return -1L;
+            }
+        }
+        return invokeL.longValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:44:0x00dd A[Catch: all -> 0x00e1, TryCatch #0 {, blocks: (B:6:0x0007, B:8:0x0027, B:9:0x002e, B:11:0x0030, B:44:0x00dd, B:45:0x00e0, B:39:0x00d5, B:40:0x00d8, B:30:0x00c2, B:31:0x00c5), top: B:53:0x0007 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public long delChatRecordForChatType(int i) {
+        InterceptResult invokeI;
+        Cursor cursor;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                LogUtils.d(TAG, "delChatRecordForChatType chatType = " + i);
+                SQLiteDatabase openDatabase = openDatabase();
+                if (openDatabase == null) {
+                    LogUtils.d(TAG, "getWritableDb fail!");
+                    return -1L;
+                }
+                ArrayList arrayList = new ArrayList();
+                try {
+                    String[] strArr = {String.valueOf(i)};
+                    Cursor query = openDatabase.query(TableDefine.DB_TABLE_CHAT_SESSION, new String[]{"contacter"}, "chat_type = ?", strArr, null, null, null);
+                    if (query != null) {
+                        while (query.moveToNext()) {
+                            try {
+                                arrayList.add(Long.valueOf(query.getLong(query.getColumnIndex("contacter"))));
+                            } catch (Exception e) {
+                                e = e;
+                                cursor = query;
+                                try {
+                                    LogUtils.e(TAG, "delChatRecordForChatType:", e);
+                                    if (cursor != null) {
+                                        cursor.close();
+                                    }
+                                    return -1L;
+                                } catch (Throwable th) {
+                                    th = th;
+                                    if (cursor != null) {
+                                        cursor.close();
+                                    }
+                                    throw th;
+                                }
+                            } catch (Throwable th2) {
+                                th = th2;
+                                cursor = query;
+                                if (cursor != null) {
+                                }
+                                throw th;
+                            }
+                        }
+                    }
+                    if (arrayList.size() > 0) {
+                        j = openDatabase.delete(TableDefine.DB_TABLE_CHAT_SESSION, "chat_type = ?", strArr);
+                        openDatabase.delete(TableDefine.DB_TABLE_PA_SUBSCRIBE, "pasubtype = ?", strArr);
+                        for (int i2 = 0; i2 < arrayList.size(); i2++) {
+                            openDatabase.delete("message", "from_user = ?", new String[]{String.valueOf(arrayList.get(i2))});
+                        }
+                    } else {
+                        j = -1;
+                    }
+                    LogUtils.d(TAG, "delChatRecordForChatType num = " + j);
+                    if (query != null) {
+                        query.close();
+                    }
+                    return j;
+                } catch (Exception e2) {
+                    e = e2;
+                    cursor = null;
+                } catch (Throwable th3) {
+                    th = th3;
+                    cursor = null;
+                }
+            }
+        } else {
+            return invokeI.longValue;
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x00ab, code lost:
+        if (r4 != null) goto L33;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x00ad, code lost:
+        r4.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x00cd, code lost:
+        if (r4 == null) goto L31;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:44:0x00d1, code lost:
+        return r2;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public int getNewMsgCount(List list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048624, this, list)) == null) {
+            if (list == null || list.size() <= 0) {
+                return 0;
+            }
+            synchronized (DBBase.mSyncLock) {
+                int i = -1;
+                SQLiteDatabase openDatabase = openDatabase();
+                if (openDatabase == null) {
+                    return -1;
+                }
+                Cursor cursor = null;
+                String str = "";
+                if (list != null) {
+                    try {
+                        if (list.size() > 0) {
+                            String str2 = " ( " + list.get(0);
+                            for (int i2 = 1; i2 < list.size(); i2++) {
+                                str2 = str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + list.get(i2);
+                            }
+                            str = "chat_type in " + (str2 + " ) ");
+                        }
+                    } catch (Exception e) {
+                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                        LogUtils.e(TAG, " getNewMsgCount:", e);
+                    }
+                }
+                String str3 = "select sum(new_msg_sum) from chatrecord";
+                if (!TextUtils.isEmpty(str)) {
+                    str3 = "select sum(new_msg_sum) from chatrecord where " + str;
+                }
+                cursor = openDatabase.rawQuery(str3, null);
+                if (cursor != null && cursor.moveToNext()) {
+                    i = cursor.getInt(0);
+                }
+            }
+        } else {
+            return invokeL.intValue;
+        }
+    }
+
+    public int getUnReadMsgCount(ChatObject chatObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048630, this, chatObject)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                SQLiteDatabase openDatabase = openDatabase();
+                Cursor cursor = null;
+                if (openDatabase == null) {
+                    return -1;
+                }
+                try {
+                    String str = "category=? AND contacter=? AND is_read=?";
+                    String[] strArr = {String.valueOf(chatObject.getCategory()), String.valueOf(chatObject.getContacter()), String.valueOf(0)};
+                    if (1 == chatObject.getCategory()) {
+                        str = "category=? AND contacter=? AND is_read=? AND type != 101";
+                    }
+                    cursor = openDatabase.query("message", new String[]{"_id"}, addPaidCondition(str, "paid", chatObject.getPaid()), strArr, null, null, null);
+                    LogUtils.d(TAG, "getUnReadMsgCount> COLUMN_CATEGORY=" + chatObject.getCategory() + ", COLUMN_CONTACTER=" + chatObject.getContacter() + ", count = " + cursor.getCount());
+                    int count = cursor.getCount();
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    return count;
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(TAG, " getUnReadMsgCount:", e);
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    return -1;
+                }
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public void recordLastMsg(HashMap hashMap) {
+        int i;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048635, this, hashMap) == null) {
+            LogUtils.d(TAG, "recordReceiveLastMsg");
+            for (Map.Entry entry : hashMap.entrySet()) {
+                ChatObject chatObject = (ChatObject) entry.getKey();
+                int intValue = ((Integer) entry.getValue()).intValue();
+                ArrayList fetchMsgExcludeTypes = fetchMsgExcludeTypes((ChatObject) entry.getKey(), 0L, 1L, UNUPDATE_SESSION_MSG_TYPES);
+                if (fetchMsgExcludeTypes.size() > 0) {
+                    ChatMsg chatMsg = (ChatMsg) fetchMsgExcludeTypes.get(0);
+                    String recommendDescription = chatMsg.getRecommendDescription();
+                    if (chatMsg instanceof HtmlMsg) {
+                        recommendDescription = chatMsg.getLocalUrl();
+                    }
+                    String str2 = recommendDescription;
+                    long newMsgNum = getNewMsgNum(chatObject);
+                    if (newMsgNum >= 0) {
+                        i = (int) (intValue + newMsgNum);
+                    } else {
+                        i = intValue;
+                    }
+                    int clickState = Utility.getClickState(chatMsg);
+                    if (chatObject.getCategory() == 0 && (chatObject.getContacter() & Constants.PAFLAG) != 0) {
+                        if (!chatMsg.isSelf(this.mContext)) {
+                            str = chatMsg.getExtLog();
+                        } else {
+                            ArrayList fetchMsg = fetchMsg(chatObject, 0L, 1L, -1L, false, "from_user != " + Utility.getUK(this.mContext));
+                            if (fetchMsg != null && fetchMsg.size() > 0) {
+                                str = ((ChatMsg) fetchMsg.get(0)).getExtLog();
+                            }
+                        }
+                        recordLastMsg(chatObject, str2, chatMsg.getMsgTime(), i, chatMsg.getStatus(), clickState, chatMsg.isStarMessage(), str, chatMsg.getSenderUid());
+                    }
+                    str = "";
+                    recordLastMsg(chatObject, str2, chatMsg.getMsgTime(), i, chatMsg.getStatus(), clickState, chatMsg.isStarMessage(), str, chatMsg.getSenderUid());
+                }
+            }
+        }
+    }
+
     /* JADX WARN: Removed duplicated region for block: B:72:0x02c5 A[RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:74:0x02c7  */
     /*
@@ -158,6 +720,8 @@ public class ChatMessageDBManager extends DBBase {
     */
     private ChatMsg construChatMsg(Cursor cursor) {
         InterceptResult invokeL;
+        boolean z;
+        boolean z2;
         int i;
         long j;
         String str;
@@ -182,8 +746,18 @@ public class ChatMessageDBManager extends DBBase {
             long j5 = cursor.getLong(cursor.getColumnIndex("contacter"));
             int i9 = cursor.getInt(cursor.getColumnIndex("cmd"));
             String string2 = cursor.getString(cursor.getColumnIndex("local_url"));
-            boolean z = cursor.getInt(cursor.getColumnIndex(TableDefine.MessageColumns.COLUMN_ISZHIDA)) == 1;
-            boolean z2 = cursor.getInt(cursor.getColumnIndex("isclicked")) == 1;
+            if (cursor.getInt(cursor.getColumnIndex(TableDefine.MessageColumns.COLUMN_ISZHIDA)) == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            boolean z3 = z;
+            if (cursor.getInt(cursor.getColumnIndex("isclicked")) == 1) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            boolean z4 = z2;
             long j6 = cursor.getLong(cursor.getColumnIndex("paid"));
             int i10 = cursor.getInt(cursor.getColumnIndex("device_flag"));
             String string3 = cursor.getString(cursor.getColumnIndex("sendid"));
@@ -363,8 +937,8 @@ public class ChatMessageDBManager extends DBBase {
             newChatMsg.setContacter(j5);
             newChatMsg.setNotifyCmd(i9);
             newChatMsg.setLocalUrl(string2);
-            newChatMsg.setIsZhida(z);
-            newChatMsg.setIsClicked(z2);
+            newChatMsg.setIsZhida(z3);
+            newChatMsg.setIsClicked(z4);
             newChatMsg.setPaid(j6);
             newChatMsg.setMsgType(i5);
             newChatMsg.setDeviceFlag(i10);
@@ -442,31 +1016,7 @@ public class ChatMessageDBManager extends DBBase {
             String string11 = cursor.getString(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_LAST_MSG_NICKNAME));
             if (i9 == 0 && i13 == 0) {
                 long buidByUK = IMUserManager.getInstance(this.mContext).getBuidByUK(j8);
-                if (buidByUK >= 0 || TextUtils.isEmpty(string2)) {
-                    str = string11;
-                    i = i11;
-                    j = j11;
-                    j2 = j15;
-                    i2 = i12;
-                    str2 = string3;
-                    i3 = i14;
-                    i4 = i15;
-                    j3 = j10;
-                    i5 = i16;
-                    i6 = i17;
-                    str3 = string4;
-                    str4 = string5;
-                    i7 = i18;
-                    j4 = j12;
-                    str5 = string6;
-                    str6 = string7;
-                    str7 = string8;
-                    str8 = string9;
-                    str9 = string10;
-                    i8 = i19;
-                    j5 = j13;
-                    j6 = j14;
-                } else {
+                if (buidByUK < 0 && !TextUtils.isEmpty(string2)) {
                     str = string11;
                     i2 = i12;
                     str2 = string3;
@@ -490,16 +1040,16 @@ public class ChatMessageDBManager extends DBBase {
                     j4 = j12;
                     j5 = j13;
                     j6 = j14;
-                    ArrayList<ChatMsg> fetchMessageSync = ChatMsgManagerImpl.getInstance(this.mContext).fetchMessageSync(0, j8, 1, (ChatMsg) null);
+                    ArrayList fetchMessageSync = ChatMsgManagerImpl.getInstance(this.mContext).fetchMessageSync(0, j8, 1, (ChatMsg) null);
                     if (fetchMessageSync != null && fetchMessageSync.size() > 0) {
-                        Iterator<ChatMsg> it = fetchMessageSync.iterator();
+                        Iterator it = fetchMessageSync.iterator();
                         while (it.hasNext()) {
-                            ChatMsg next = it.next();
-                            if (next != null) {
-                                if (AccountManager.getUid(this.mContext).equals(next.getSenderUid())) {
-                                    senderUid = next.getToBduid();
+                            ChatMsg chatMsg = (ChatMsg) it.next();
+                            if (chatMsg != null) {
+                                if (AccountManager.getUid(this.mContext).equals(chatMsg.getSenderUid())) {
+                                    senderUid = chatMsg.getToBduid();
                                 } else {
-                                    senderUid = next.getSenderUid();
+                                    senderUid = chatMsg.getSenderUid();
                                 }
                                 try {
                                     j7 = Long.valueOf(senderUid).longValue();
@@ -510,6 +1060,30 @@ public class ChatMessageDBManager extends DBBase {
                             }
                         }
                     }
+                } else {
+                    str = string11;
+                    i = i11;
+                    j = j11;
+                    j2 = j15;
+                    i2 = i12;
+                    str2 = string3;
+                    i3 = i14;
+                    i4 = i15;
+                    j3 = j10;
+                    i5 = i16;
+                    i6 = i17;
+                    str3 = string4;
+                    str4 = string5;
+                    i7 = i18;
+                    j4 = j12;
+                    str5 = string6;
+                    str6 = string7;
+                    str7 = string8;
+                    str8 = string9;
+                    str9 = string10;
+                    i8 = i19;
+                    j5 = j13;
+                    j6 = j14;
                 }
                 j7 = buidByUK;
             } else {
@@ -539,38 +1113,38 @@ public class ChatMessageDBManager extends DBBase {
                 j7 = j8;
             }
             if (0 != j8) {
-                if (!TextUtils.isEmpty(string2) || i13 == 27 || i13 == 17) {
-                    ChatSession chatSession = new ChatSession(i9, j8, j7, string);
-                    chatSession.setLastMsg(string2);
-                    chatSession.setLastMsgTime(j9);
-                    chatSession.setLastOpenTime(j3);
-                    chatSession.setNewMsgSum(j);
-                    chatSession.setWeight(i10);
-                    chatSession.setShow(i);
-                    chatSession.setCollectionType(i2);
-                    chatSession.setChatType(i13);
-                    chatSession.setIconUrl(str2);
-                    chatSession.setState(i3);
-                    chatSession.setIsClicked(i4);
-                    chatSession.setPaid(j4);
-                    chatSession.setClassType(i5);
-                    chatSession.setClassTitle(str3);
-                    chatSession.setClassAvatar(str4);
-                    chatSession.setClassShow(i6);
-                    chatSession.setMarkTop(i7);
-                    chatSession.setMarkTopTime(j5);
-                    chatSession.setNickName(str5);
-                    chatSession.setExt(str6);
-                    chatSession.setVPortrait(str7);
-                    chatSession.setCertification(str8);
-                    chatSession.setVipId(str9);
-                    chatSession.setShield(i8);
-                    chatSession.setShieldTime(j6);
-                    chatSession.setLastMsgUid(j2);
-                    chatSession.setLastMsgName(str);
-                    return chatSession;
+                if (TextUtils.isEmpty(string2) && i13 != 27 && i13 != 17) {
+                    return null;
                 }
-                return null;
+                ChatSession chatSession = new ChatSession(i9, j8, j7, string);
+                chatSession.setLastMsg(string2);
+                chatSession.setLastMsgTime(j9);
+                chatSession.setLastOpenTime(j3);
+                chatSession.setNewMsgSum(j);
+                chatSession.setWeight(i10);
+                chatSession.setShow(i);
+                chatSession.setCollectionType(i2);
+                chatSession.setChatType(i13);
+                chatSession.setIconUrl(str2);
+                chatSession.setState(i3);
+                chatSession.setIsClicked(i4);
+                chatSession.setPaid(j4);
+                chatSession.setClassType(i5);
+                chatSession.setClassTitle(str3);
+                chatSession.setClassAvatar(str4);
+                chatSession.setClassShow(i6);
+                chatSession.setMarkTop(i7);
+                chatSession.setMarkTopTime(j5);
+                chatSession.setNickName(str5);
+                chatSession.setExt(str6);
+                chatSession.setVPortrait(str7);
+                chatSession.setCertification(str8);
+                chatSession.setVipId(str9);
+                chatSession.setShield(i8);
+                chatSession.setShieldTime(j6);
+                chatSession.setLastMsgUid(j2);
+                chatSession.setLastMsgName(str);
+                return chatSession;
             }
             return new ChatSession(i9, j8, j7, string);
         }
@@ -634,66 +1208,14 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    private int delMsgs(long[] jArr) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, jArr)) == null) {
-            synchronized (DBBase.mSyncLock) {
-                SQLiteDatabase openDatabase = openDatabase();
-                int i2 = -1;
-                if (openDatabase == null) {
-                    LogUtils.d(TAG, "getWritableDb fail!");
-                    return -1;
-                }
-                if (jArr != null) {
-                    try {
-                    } catch (Exception e) {
-                        e = e;
-                    }
-                    if (jArr.length > 0) {
-                        try {
-                            String[] strArr = new String[2];
-                            strArr[1] = String.valueOf(0);
-                            i = 0;
-                            for (long j : jArr) {
-                                try {
-                                    strArr[0] = String.valueOf(j);
-                                    i = (int) (i + openDatabase.delete("message", "msgid = ? AND status=?", strArr));
-                                } catch (Exception e2) {
-                                    e = e2;
-                                    i2 = i;
-                                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                                    LogUtils.e(TAG, "delMsg:", e);
-                                    i = i2;
-                                    return i;
-                                }
-                            }
-                            for (long j2 : jArr) {
-                                long j3 = j2 + 1;
-                                openDatabase.execSQL("delete from message where msgid=? and type in (?, ?, ?)", new Object[]{Long.valueOf(j3), Integer.valueOf((int) IMConstants.IM_MSG_TYPE_SHIELD_ME), 2001, 2014});
-                                LogUtils.e(TAG, "delete notSendButShowTipMsg :delete from message where msgid=? and type in (?, ?, ?), msgId :" + j3);
-                            }
-                        } catch (Exception e3) {
-                            e = e3;
-                            i2 = 0;
-                        }
-                        return i;
-                    }
-                }
-                return -1;
-            }
-        }
-        return invokeL.intValue;
-    }
-
     private int delMsgsOfCertainContacterForSingle(ChatObject chatObject, long j) {
         InterceptResult invokeLJ;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65545, this, chatObject, j)) == null) {
             synchronized (DBBase.mSyncLock) {
                 SQLiteDatabase openDatabase = openDatabase();
-                int i = -1;
+                int i2 = -1;
                 if (openDatabase == null) {
                     LogUtils.d(TAG, "getWritableDb fail!");
                     return -1;
@@ -702,27 +1224,31 @@ public class ChatMessageDBManager extends DBBase {
                     openDatabase.beginTransaction();
                     String str = "contacter = ?  AND category = ?";
                     boolean z = false;
-                    int i2 = 1;
+                    int i3 = 1;
                     String[] strArr = {String.valueOf(chatObject.getContacter()), String.valueOf(chatObject.getCategory())};
-                    int i3 = (j > (-1L) ? 1 : (j == (-1L) ? 0 : -1));
-                    if (i3 != 0) {
+                    int i4 = (j > (-1L) ? 1 : (j == (-1L) ? 0 : -1));
+                    if (i4 != 0) {
                         str = "contacter = ?  AND category = ? AND msgid <= " + j;
                     }
                     String addPaidCondition = addPaidCondition(str, "paid", chatObject.getPaid());
-                    int delete = addPaidCondition != null ? openDatabase.delete("message", addPaidCondition, strArr) : -1;
+                    if (addPaidCondition != null) {
+                        i = openDatabase.delete("message", addPaidCondition, strArr);
+                    } else {
+                        i = -1;
+                    }
                     long maxMsgid = getMaxMsgid(chatObject);
                     ChatSession chatSession = null;
-                    if (i3 == 0 || maxMsgid <= j) {
+                    if (i4 == 0 || maxMsgid <= j) {
                         String[] strArr2 = {String.valueOf(chatObject.getCategory()), String.valueOf(chatObject.getContacter())};
                         String addPaidCondition2 = addPaidCondition("category = ? AND contacter = ?", "paid", chatObject.getPaid());
                         chatSession = getChatRecordInternal(openDatabase, chatObject);
-                        int delete2 = delete(openDatabase, TableDefine.DB_TABLE_CHAT_SESSION, addPaidCondition2, strArr2);
-                        i2 = delete2;
-                        if (delete2 > 0) {
+                        int delete = delete(openDatabase, TableDefine.DB_TABLE_CHAT_SESSION, addPaidCondition2, strArr2);
+                        i3 = delete;
+                        if (delete > 0) {
                             z = true;
                         }
                     }
-                    if (i2 < 0) {
+                    if (i3 < 0) {
                         try {
                             openDatabase.endTransaction();
                         } catch (Exception e) {
@@ -731,12 +1257,12 @@ public class ChatMessageDBManager extends DBBase {
                         }
                         return -1;
                     }
-                    if (i2 >= 0) {
+                    if (i3 >= 0) {
                         openDatabase.setTransactionSuccessful();
                         if (z && chatSession != null) {
                             notifyDbChange(2, chatSession);
                         }
-                        i = delete;
+                        i2 = i;
                     }
                     try {
                         openDatabase.endTransaction();
@@ -744,7 +1270,7 @@ public class ChatMessageDBManager extends DBBase {
                         new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
                         LogUtils.e(TAG, "delMsgsOfCertainContacterForSingle finally:", e2);
                     }
-                    return i;
+                    return i2;
                 } catch (Exception e3) {
                     new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e3)).build();
                     LogUtils.e(TAG, "delMsg:", e3);
@@ -761,2915 +1287,7 @@ public class ChatMessageDBManager extends DBBase {
         return invokeLJ.intValue;
     }
 
-    private int delMsgsOfPaByPaId(long j) {
-        InterceptResult invokeJ;
-        int i;
-        int i2;
-        int i3;
-        int i4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65546, this, j)) == null) {
-            synchronized (DBBase.mSyncLock) {
-                SQLiteDatabase openDatabase = openDatabase();
-                int i5 = -1;
-                if (openDatabase == null) {
-                    LogUtils.d(TAG, "getWritableDb fail!");
-                    return -1;
-                }
-                try {
-                    openDatabase.beginTransaction();
-                    String[] strArr = {String.valueOf(j)};
-                    if (TextUtils.isEmpty("from_user = ? ")) {
-                        i = -1;
-                    } else {
-                        i = openDatabase.delete("message", "from_user = ? ", strArr);
-                        String str = TAG;
-                        LogUtils.d(str, "--delMsgsOfPaByPaId--delMsgs = " + i);
-                    }
-                    if (TextUtils.isEmpty("contacter = ? ")) {
-                        i2 = -1;
-                    } else {
-                        i2 = delete(openDatabase, TableDefine.DB_TABLE_CHAT_SESSION, "contacter = ? ", strArr);
-                        String str2 = TAG;
-                        LogUtils.d(str2, "--delMsgsOfPaByPaId--delChatRecord = " + i2);
-                    }
-                    if (TextUtils.isEmpty("paid = ? ")) {
-                        i3 = -1;
-                    } else {
-                        i3 = delete(openDatabase, TableDefine.DB_TABLE_PA_SUBSCRIBE, "paid = ? ", strArr);
-                        String str3 = TAG;
-                        LogUtils.d(str3, "--delMsgsOfPaByPaId--delPaInfoRecord = " + i3);
-                    }
-                    if (TextUtils.isEmpty("paid = ? ")) {
-                        i4 = -1;
-                    } else {
-                        i4 = delete(openDatabase, TableDefine.DB_TABLE_ZHIDAINFO, "paid = ? ", strArr);
-                        String str4 = TAG;
-                        LogUtils.d(str4, "--delMsgsOfPaByPaId--delZhiDaPaInfoRecord = " + i4);
-                    }
-                    if (i >= 0 || i2 >= 0 || i3 >= 0 || i4 >= 0) {
-                        openDatabase.setTransactionSuccessful();
-                        i5 = i;
-                    }
-                    try {
-                        openDatabase.endTransaction();
-                    } catch (Exception e) {
-                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                        LogUtils.e(TAG, "delMsgsOfPaByPaId finally:", e);
-                    }
-                    return i5;
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(TAG, "delMsgsOfPaByPaId:", e2);
-                    try {
-                        openDatabase.endTransaction();
-                    } catch (Exception e3) {
-                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e3)).build();
-                        LogUtils.e(TAG, "delMsgsOfPaByPaId finally:", e3);
-                    }
-                    return -1;
-                }
-            }
-        }
-        return invokeJ.intValue;
-    }
-
-    private int deleteDraftMsgForSingle(ChatObject chatObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, chatObject)) == null) {
-            synchronized (DBBase.mSyncLock) {
-                int delete = delete("message", addPaidCondition("category=? AND contacter=? AND status=?", "paid", chatObject.getPaid()), new String[]{String.valueOf(chatObject.getCategory()), String.valueOf(chatObject.getContacter()), String.valueOf(3)});
-                if (delete <= 0) {
-                    return delete;
-                }
-                ArrayList<ChatMsg> fetchMsg = getInstance(this.mContext).fetchMsg(chatObject, 0L, 2L);
-                ChatMsg chatMsg = null;
-                if (fetchMsg != null && fetchMsg.size() > 0) {
-                    chatMsg = fetchMsg.get(0);
-                } else if (fetchMsg != null) {
-                    fetchMsg.size();
-                }
-                updateSession(true, getChatSession(chatObject), chatMsg);
-                return delete;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    private long dupMsgAddHandler(ChatMsg chatMsg) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, chatMsg)) == null) {
-            if (chatMsg == null) {
-                return -1L;
-            }
-            if (chatMsg.getChatType() == 24 || chatMsg.getMsgType() != 20) {
-                SQLiteDatabase openDatabase = openDatabase();
-                try {
-                    if (openDatabase == null) {
-                        LogUtils.d(TAG, "dupMsgAddHandler getWritableDb fail!");
-                        return -1L;
-                    } else if (isDuplicateMsg(openDatabase, chatMsg) > 0) {
-                        LogUtils.d(TAG, "dupMsgAddHandler isDuplicateMsg = true");
-                        return -2L;
-                    } else {
-                        ContentValues contentValues = new ContentValues();
-                        contentValues.put("msgid", Long.valueOf(chatMsg.getMsgId()));
-                        contentValues.put("type", Integer.valueOf(chatMsg.getMsgType()));
-                        contentValues.put("from_user", Long.valueOf(chatMsg.getFromUser()));
-                        contentValues.put("input_time", Long.valueOf(System.currentTimeMillis()));
-                        contentValues.put("category", Integer.valueOf(chatMsg.getCategory()));
-                        contentValues.put("contacter", Long.valueOf(chatMsg.getContacter()));
-                        contentValues.put("msg_key", chatMsg.getMsgKey());
-                        return openDatabase.insert(TableDefine.DB_TABLE_NO_DUPLICATE_MESSAGE, null, contentValues);
-                    }
-                } catch (Exception e) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                    LogUtils.e(TAG, "dupMsgAddHandler:", e);
-                    return -1L;
-                }
-            }
-            return -1L;
-        }
-        return invokeL.longValue;
-    }
-
-    private long existStudioMsg(SQLiteDatabase sQLiteDatabase, ChatMsg chatMsg) {
-        InterceptResult invokeLL;
-        String[] strArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, this, sQLiteDatabase, chatMsg)) == null) {
-            synchronized (DBBase.mSyncLock) {
-                long msgId = chatMsg.getMsgId();
-                StringBuilder sb = new StringBuilder();
-                sb.append("(");
-                sb.append("msgid");
-                sb.append(" = ?)");
-                if (TextUtils.isEmpty(chatMsg.getMsgKey())) {
-                    strArr = new String[]{String.valueOf(msgId), String.valueOf(chatMsg.getContacter())};
-                } else {
-                    sb.append(" OR ");
-                    sb.append("msg_key");
-                    sb.append(" = ?");
-                    strArr = new String[]{String.valueOf(msgId), String.valueOf(chatMsg.getMsgKey()), String.valueOf(chatMsg.getContacter())};
-                }
-                StringBuilder insert = sb.insert(0, "((");
-                insert.append(") AND ");
-                insert.append("contacter");
-                insert.append(" = ?)");
-                String str = TAG;
-                LogUtils.d(str, "existStudioMsg query sql = " + sb.toString());
-                Cursor query = sQLiteDatabase.query(TableDefine.DB_TABLE_STUDIO_USE_PA_MESSAGE, null, sb.toString(), strArr, null, null, null, String.valueOf(1));
-                if (query == null || !query.moveToNext()) {
-                    if (query != null) {
-                        query.close();
-                    }
-                    return -1L;
-                }
-                long j = query.getLong(query.getColumnIndex("_id"));
-                if (query != null) {
-                    query.close();
-                }
-                return j;
-            }
-        }
-        return invokeLL.longValue;
-    }
-
-    private ChatMsg generateStudioUsePaMsg(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, this, cursor)) == null) {
-            long j = cursor.getLong(cursor.getColumnIndex("msgid"));
-            int i = cursor.getInt(cursor.getColumnIndex("type"));
-            long j2 = cursor.getLong(cursor.getColumnIndex("from_user"));
-            long j3 = cursor.getLong(cursor.getColumnIndex("input_time"));
-            int i2 = cursor.getInt(cursor.getColumnIndex("category"));
-            long j4 = cursor.getLong(cursor.getColumnIndex("contacter"));
-            String string = cursor.getString(cursor.getColumnIndex("msg_key"));
-            String string2 = cursor.getString(cursor.getColumnIndex("content"));
-            int i3 = cursor.getInt(cursor.getColumnIndex("is_read"));
-            ChatMsg newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.mContext, i2, i, -1);
-            if (newChatMsg == null) {
-                return null;
-            }
-            newChatMsg.setCategory(i2);
-            newChatMsg.setContacter(j4);
-            newChatMsg.setFromUser(j2);
-            newChatMsg.setMsgContent(string2);
-            newChatMsg.setMsgId(j);
-            newChatMsg.setMsgKey(string);
-            newChatMsg.setMsgTime(j3);
-            newChatMsg.setMsgReaded(i3);
-            return newChatMsg;
-        }
-        return (ChatMsg) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x0053 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v2 */
-    /* JADX WARN: Type inference failed for: r0v3 */
-    /* JADX WARN: Type inference failed for: r0v4, types: [android.database.Cursor] */
-    private ChatSession getChatRecordInternal(SQLiteDatabase sQLiteDatabase, ChatObject chatObject) {
-        InterceptResult invokeLL;
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65553, this, sQLiteDatabase, chatObject)) != null) {
-            return (ChatSession) invokeLL.objValue;
-        }
-        ?? r0 = 0;
-        try {
-            if (sQLiteDatabase == null) {
-                return null;
-            }
-            try {
-                cursor = sQLiteDatabase.query(TableDefine.DB_TABLE_CHAT_SESSION, null, addPaidCondition("category = ? AND contacter=?", "paid", chatObject.getPaid()), new String[]{String.valueOf(chatObject.getCategory()), String.valueOf(chatObject.getContacter())}, null, null, null, null);
-                if (cursor != null) {
-                    try {
-                        if (cursor.moveToNext()) {
-                            ChatSession constructChatRecord = constructChatRecord(sQLiteDatabase, cursor);
-                            if (cursor != null) {
-                                cursor.close();
-                            }
-                            return constructChatRecord;
-                        }
-                    } catch (Exception e) {
-                        e = e;
-                        LogUtils.e(TAG, "getChatRecord:", e);
-                        if (cursor != null) {
-                            cursor.close();
-                        }
-                        return null;
-                    }
-                }
-                if (cursor != null) {
-                    cursor.close();
-                }
-                return null;
-            } catch (Exception e2) {
-                e = e2;
-                cursor = null;
-            } catch (Throwable th) {
-                th = th;
-                if (r0 != 0) {
-                    r0.close();
-                }
-                throw th;
-            }
-        } catch (Throwable th2) {
-            th = th2;
-            r0 = chatObject;
-        }
-    }
-
-    private ChatSession getChatSession(ChatObject chatObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65554, this, chatObject)) == null) ? getInstance(this.mContext).getChatRecord(chatObject) : (ChatSession) invokeL.objValue;
-    }
-
-    private long getContacter(ChatMsg chatMsg) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65555, this, chatMsg)) == null) {
-            if (chatMsg == null) {
-                return -1L;
-            }
-            return chatMsg.getContacter();
-        }
-        return invokeL.longValue;
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
-    private List<Long> getContacterByChatTypes(SQLiteDatabase sQLiteDatabase, List<Integer> list) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, this, sQLiteDatabase, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (list == null || list.size() <= 0) {
-                return arrayList;
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append(list.get(0));
-            for (int i = 1; i < list.size(); i++) {
-                sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                sb.append(list.get(i));
-            }
-            String str = "chat_type in (" + sb.toString() + ") ";
-            if (sQLiteDatabase == null) {
-                return arrayList;
-            }
-            Cursor cursor = null;
-            try {
-                try {
-                    cursor = sQLiteDatabase.rawQuery("select contacter from chatrecord where " + str, null);
-                    if (cursor != null) {
-                        while (cursor.moveToNext()) {
-                            arrayList.add(Long.valueOf(cursor.getLong(cursor.getColumnIndex("contacter"))));
-                        }
-                    }
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    return arrayList;
-                } catch (Exception e) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                    LogUtils.e(TAG, "getContacterByChatTypes:", e);
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    return arrayList;
-                }
-            } catch (Throwable th) {
-                if (cursor != null) {
-                    cursor.close();
-                }
-                throw th;
-            }
-        }
-        return (List) invokeLL.objValue;
-    }
-
-    private boolean getCursorMoveDirection(boolean z, long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65557, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j), Long.valueOf(j2)})) == null) ? (j <= 0 || j2 <= 0) ? !z : z : invokeCommon.booleanValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r12v0, resolved type: int */
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x004c, code lost:
-        if (r12 != null) goto L17;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x004e, code lost:
-        r12.close();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x006f, code lost:
-        if (r12 == null) goto L18;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x0073, code lost:
-        return r10;
-     */
-    /* JADX WARN: Multi-variable type inference failed */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private ChatMsg getDraftMsgForSingle(int i, long j) {
-        InterceptResult invokeCommon;
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65558, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) != null) {
-            return (ChatMsg) invokeCommon.objValue;
-        }
-        synchronized (DBBase.mSyncLock) {
-            SQLiteDatabase openDatabase = openDatabase();
-            Cursor cursor2 = null;
-            r10 = null;
-            r10 = null;
-            r10 = null;
-            ChatMsg chatMsg = null;
-            try {
-                if (openDatabase == null) {
-                    LogUtils.e(TAG, "getReadableDb fail!");
-                    return null;
-                }
-                try {
-                    cursor = openDatabase.query("message", null, "category=? AND contacter=? AND status=?", new String[]{String.valueOf(i), String.valueOf(j), String.valueOf(3)}, null, null, null, null);
-                    if (cursor != null) {
-                        try {
-                            if (cursor.moveToNext()) {
-                                chatMsg = construChatMsg(cursor);
-                            }
-                        } catch (Exception e) {
-                            e = e;
-                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                            LogUtils.e(TAG, "getDraftMsg:", e);
-                        }
-                    }
-                } catch (Exception e2) {
-                    e = e2;
-                    cursor = null;
-                } catch (Throwable th) {
-                    th = th;
-                    if (cursor2 != null) {
-                        cursor2.close();
-                    }
-                    throw th;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                cursor2 = i;
-            }
-        }
-    }
-
-    public static ChatMessageDBManager getInstance(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, context)) == null) {
-            if (mInstance == null) {
-                synchronized (ChatMessageDBManager.class) {
-                    if (mInstance == null) {
-                        mInstance = new ChatMessageDBManager(context);
-                    }
-                }
-            }
-            return mInstance;
-        }
-        return (ChatMessageDBManager) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
-    private List<Long> getUnreadContacterByChatTypes(SQLiteDatabase sQLiteDatabase, List<Integer> list) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65561, this, sQLiteDatabase, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (list == null || list.size() <= 0) {
-                return arrayList;
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append(list.get(0));
-            for (int i = 1; i < list.size(); i++) {
-                sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                sb.append(list.get(i));
-            }
-            String str = "chat_type in (" + sb.toString() + ")  AND " + TableDefine.SessionColumns.COLUMN_NEW_MSG_SUM + ">0";
-            if (sQLiteDatabase == null) {
-                return arrayList;
-            }
-            Cursor cursor = null;
-            try {
-                try {
-                    cursor = sQLiteDatabase.rawQuery("select contacter from chatrecord where " + str, null);
-                    if (cursor != null) {
-                        while (cursor.moveToNext()) {
-                            arrayList.add(Long.valueOf(cursor.getLong(cursor.getColumnIndex("contacter"))));
-                        }
-                    }
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    return arrayList;
-                } catch (Exception e) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                    LogUtils.e(TAG, "getUnreadSessionByChatTypes:", e);
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    return arrayList;
-                }
-            } catch (Throwable th) {
-                if (cursor != null) {
-                    cursor.close();
-                }
-                throw th;
-            }
-        }
-        return (List) invokeLL.objValue;
-    }
-
-    private boolean isDraftMsg(ChatMsg chatMsg) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65562, this, chatMsg)) == null) ? chatMsg != null && (chatMsg instanceof TextMsg) && chatMsg.getStatus() == 3 : invokeL.booleanValue;
-    }
-
-    private long isDuplicateMsg(SQLiteDatabase sQLiteDatabase, ChatMsg chatMsg) {
-        InterceptResult invokeLL;
-        String[] strArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65563, this, sQLiteDatabase, chatMsg)) == null) {
-            synchronized (DBBase.mSyncLock) {
-                long msgId = chatMsg.getMsgId();
-                StringBuilder sb = new StringBuilder();
-                sb.append("(");
-                sb.append("msgid");
-                sb.append(" = ?)");
-                if (TextUtils.isEmpty(chatMsg.getMsgKey())) {
-                    strArr = new String[]{String.valueOf(msgId), String.valueOf(chatMsg.getContacter())};
-                } else {
-                    sb.append(" OR ");
-                    sb.append("msg_key");
-                    sb.append(" = ?");
-                    strArr = new String[]{String.valueOf(msgId), String.valueOf(chatMsg.getMsgKey()), String.valueOf(chatMsg.getContacter())};
-                }
-                StringBuilder insert = sb.insert(0, "((");
-                insert.append(") AND ");
-                insert.append("contacter");
-                insert.append(" = ?)");
-                String str = TAG;
-                LogUtils.d(str, "isDuplicateMsg query sql = " + sb.toString());
-                Cursor query = sQLiteDatabase.query(TableDefine.DB_TABLE_NO_DUPLICATE_MESSAGE, null, sb.toString(), strArr, null, null, null, String.valueOf(1));
-                if (query == null || !query.moveToNext()) {
-                    if (query != null) {
-                        query.close();
-                    }
-                    return -1L;
-                }
-                long j = query.getLong(query.getColumnIndex("_id"));
-                if (query != null) {
-                    query.close();
-                }
-                return j;
-            }
-        }
-        return invokeLL.longValue;
-    }
-
-    private long isMsgExist(SQLiteDatabase sQLiteDatabase, ChatMsg chatMsg) {
-        InterceptResult invokeLL;
-        String[] strArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65564, this, sQLiteDatabase, chatMsg)) == null) {
-            synchronized (DBBase.mSyncLock) {
-                long msgId = chatMsg.getMsgId();
-                StringBuilder sb = new StringBuilder();
-                sb.append("(");
-                sb.append("msgid");
-                sb.append(" = ? AND ");
-                sb.append("status");
-                sb.append(" = ?)");
-                if (TextUtils.isEmpty(chatMsg.getMsgKey())) {
-                    strArr = new String[]{String.valueOf(msgId), String.valueOf(0), String.valueOf(chatMsg.getContacter())};
-                } else {
-                    sb.append(" OR ");
-                    sb.append("msg_key");
-                    sb.append(" = ?");
-                    strArr = new String[]{String.valueOf(msgId), String.valueOf(0), String.valueOf(chatMsg.getMsgKey()), String.valueOf(chatMsg.getContacter())};
-                }
-                StringBuilder insert = sb.insert(0, "((");
-                insert.append(") AND ");
-                insert.append("contacter");
-                insert.append(" = ?)");
-                Cursor query = sQLiteDatabase.query("message", null, sb.toString(), strArr, null, null, null, String.valueOf(1));
-                if (query == null || !query.moveToNext()) {
-                    if (query != null) {
-                        query.close();
-                    }
-                    return -1L;
-                }
-                long j = query.getLong(query.getColumnIndex("_id"));
-                if (query != null) {
-                    query.close();
-                }
-                return j;
-            }
-        }
-        return invokeLL.longValue;
-    }
-
-    private boolean isNeedInsertToDB(ChatMsg chatMsg) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65565, this, chatMsg)) == null) {
-            if (2 == chatMsg.getCategory()) {
-                int notifyCmd = chatMsg.getNotifyCmd();
-                if (notifyCmd == 0) {
-                    delSysMsg(chatMsg.getCategory(), chatMsg.getFromUser(), 0);
-                } else if (notifyCmd != 1) {
-                    if (notifyCmd != 60 && notifyCmd != 62) {
-                        switch (notifyCmd) {
-                        }
-                    }
-                    return false;
-                } else {
-                    delSysMsg(chatMsg.getCategory(), chatMsg.getFromUser(), 1);
-                }
-            }
-            return chatMsg.getMsgType() != 27;
-        }
-        return invokeL.booleanValue;
-    }
-
-    private boolean isReliableMsgExist(SQLiteDatabase sQLiteDatabase, ChatMsg chatMsg) {
-        InterceptResult invokeLL;
-        boolean z;
-        String[] strArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65566, this, sQLiteDatabase, chatMsg)) == null) {
-            synchronized (DBBase.mSyncLock) {
-                z = false;
-                Cursor cursor = null;
-                try {
-                    long msgId = chatMsg.getMsgId();
-                    String msgKey = chatMsg.getMsgKey();
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("msgid");
-                    sb.append(" = ?");
-                    if (TextUtils.isEmpty(msgKey)) {
-                        strArr = new String[]{String.valueOf(msgId)};
-                    } else {
-                        sb.append(" OR ");
-                        sb.append("msg_key");
-                        sb.append(" = ?");
-                        strArr = new String[]{String.valueOf(msgId), String.valueOf(msgKey)};
-                    }
-                    cursor = sQLiteDatabase.query(TableDefine.DB_TABLE_RELIABLE_MESSAGE, null, sb.toString(), strArr, null, null, null, String.valueOf(1));
-                    if (cursor != null) {
-                        if (cursor.moveToNext()) {
-                            z = true;
-                        }
-                    }
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                } catch (Exception e) {
-                    String str = TAG;
-                    LogUtils.e(str, "isReliableMsgExist e :" + e);
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    return false;
-                }
-            }
-            return z;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    private int markChatMsgClicked(ChatMsg chatMsg) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65567, this, chatMsg)) == null) {
-            synchronized (DBBase.mSyncLock) {
-                if (chatMsg.getRowId() == -1) {
-                    chatMsg.setRowId(addMsg(chatMsg));
-                }
-                if (chatMsg.getRowId() == -1) {
-                    return -1;
-                }
-                ContentValues contentValues = new ContentValues();
-                contentValues.put("isclicked", (Integer) 1);
-                int update = update("message", "_id=?", new String[]{"" + chatMsg.getRowId()}, contentValues);
-                if (update < 0) {
-                    return update;
-                }
-                ArrayList<ChatMsg> fetchMsg = fetchMsg(new ChatObject(this.mContext, chatMsg.getCategory(), chatMsg.getContacter(), chatMsg.getPaid(), -1), 0L, 1L, -1L);
-                if (fetchMsg != null && fetchMsg.size() != 0) {
-                    if (chatMsg.getRowId() == fetchMsg.get(0).getRowId()) {
-                        updateChatSession(chatMsg);
-                    }
-                    return update;
-                }
-                return 1009;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    private boolean notSendButShowTipMsg(ChatMsg chatMsg) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65568, this, chatMsg)) == null) ? chatMsg.getMsgType() == 2012 || chatMsg.getMsgType() == 2014 || chatMsg.getMsgType() == 2001 : invokeL.booleanValue;
-    }
-
-    private int setAllMsgRead(ChatObject chatObject, long j) {
-        InterceptResult invokeLJ;
-        int update;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65569, this, chatObject, j)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("is_read", (Integer) 1);
-            String str = "is_read=? AND category = ? AND (contacter = ? OR from_user = ?)";
-            if (j > 0) {
-                str = "is_read=? AND category = ? AND (contacter = ? OR from_user = ?) AND msgid<=" + j;
-            }
-            String addPaidCondition = addPaidCondition(str, "paid", chatObject.getPaid());
-            String[] strArr = {String.valueOf(0), String.valueOf(chatObject.getCategory()), String.valueOf(chatObject.getContacter()), String.valueOf(chatObject.getContacter())};
-            synchronized (DBBase.mSyncLock) {
-                update = update("message", addPaidCondition, strArr, contentValues);
-            }
-            return update;
-        }
-        return invokeLJ.intValue;
-    }
-
-    private void setChatSessionLastName(ChatSession chatSession, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65570, this, chatSession, str) == null) {
-            long longByString = Utility.getLongByString(str, 0L);
-            if (chatSession.getChatType() != 57 || chatSession.getLastMsgUid() == longByString) {
-                return;
-            }
-            chatSession.setLastMsgUid(longByString);
-            if (longByString != 0) {
-                ArrayList arrayList = new ArrayList();
-                arrayList.add(str);
-                ArrayList<GroupMember> groupMember = GroupInfoDAOImpl.getGroupMember(this.mContext, String.valueOf(chatSession.getContacter()), arrayList, 1);
-                if (groupMember != null && groupMember.size() > 0) {
-                    chatSession.setLastMsgName(groupMember.get(0).getShowName());
-                    return;
-                } else {
-                    chatSession.setLastMsgName("");
-                    return;
-                }
-            }
-            chatSession.setLastMsgName("");
-        }
-    }
-
-    private int setMsgReadByContacterIds(SQLiteDatabase sQLiteDatabase, List<Long> list, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65572, this, new Object[]{sQLiteDatabase, list, Long.valueOf(j)})) == null) {
-            if (list == null || list.size() <= 0) {
-                return DBResponseCode.ERROR_PARAMETER;
-            }
-            if (sQLiteDatabase == null) {
-                return DlnaManager.DLNA_ERROR_GET_POSITION_INFO_ACTION_NOT_FOUND;
-            }
-            try {
-                StringBuilder sb = new StringBuilder();
-                sb.append(list.get(0));
-                for (int i = 1; i < list.size(); i++) {
-                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                    sb.append(list.get(i));
-                }
-                ContentValues contentValues = new ContentValues();
-                contentValues.put("is_read", (Integer) 1);
-                String str = "is_read=? AND category = ? AND contacter in (" + sb.toString() + ") ";
-                if (j > 0) {
-                    str = str + " AND msgid<=" + j;
-                }
-                return sQLiteDatabase.update("message", contentValues, str, new String[]{String.valueOf(0), "0"});
-            } catch (Exception e) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                LogUtils.e(TAG, "setMsgReadByContacterIds:", e);
-                return DlnaManager.DLNA_ERROR_GET_POSITION_INFO_ACTION_NOT_FOUND;
-            }
-        }
-        return invokeCommon.intValue;
-    }
-
-    private long studioMsgAddHandler(ChatMsg chatMsg) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65573, this, chatMsg)) == null) {
-            if (chatMsg == null) {
-                return -1L;
-            }
-            if (chatMsg.getChatType() == 20 || chatMsg.getMsgType() != 80) {
-                SQLiteDatabase openDatabase = openDatabase();
-                try {
-                    if (openDatabase == null) {
-                        LogUtils.d(TAG, "studioMsgAddHandler getWritableDb fail!");
-                        return -1L;
-                    } else if (existStudioMsg(openDatabase, chatMsg) > 0) {
-                        LogUtils.d(TAG, "studioMsgAddHandler isDuplicateMsg = true");
-                        return -2L;
-                    } else {
-                        ContentValues contentValues = new ContentValues();
-                        contentValues.put("msgid", Long.valueOf(chatMsg.getMsgId()));
-                        contentValues.put("type", Integer.valueOf(chatMsg.getMsgType()));
-                        contentValues.put("from_user", Long.valueOf(chatMsg.getFromUser()));
-                        contentValues.put("input_time", Long.valueOf(System.currentTimeMillis()));
-                        contentValues.put("category", Integer.valueOf(chatMsg.getCategory()));
-                        contentValues.put("contacter", Long.valueOf(chatMsg.getContacter()));
-                        contentValues.put("msg_key", chatMsg.getMsgKey());
-                        contentValues.put("content", chatMsg.getMsgContent());
-                        contentValues.put("is_read", Boolean.valueOf(chatMsg.isMsgRead()));
-                        return openDatabase.insert(TableDefine.DB_TABLE_STUDIO_USE_PA_MESSAGE, null, contentValues);
-                    }
-                } catch (Exception e) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                    LogUtils.e(TAG, "studioMsgAddHandler :", e);
-                    return -1L;
-                }
-            }
-            return -1L;
-        }
-        return invokeL.longValue;
-    }
-
-    private int updateMsgStatusForSingle(ChatMsg chatMsg) {
-        InterceptResult invokeL;
-        int update;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65574, this, chatMsg)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("msgid", Long.valueOf(chatMsg.getMsgId()));
-            contentValues.put("status", Integer.valueOf(chatMsg.getStatus()));
-            contentValues.put("content", chatMsg.getJsonContent());
-            contentValues.put("time", Long.valueOf(chatMsg.getMsgTime()));
-            contentValues.put(TableDefine.MessageColumns.COLUME_TIPS_CODE, Integer.valueOf(chatMsg.getTipsCode()));
-            contentValues.put("tips", chatMsg.getTips());
-            synchronized (DBBase.mSyncLock) {
-                update = update("message", "_id = ?", new String[]{String.valueOf(chatMsg.getRowId())}, contentValues);
-                if (update >= 0) {
-                    updateChatSession(chatMsg);
-                }
-            }
-            return update;
-        }
-        return invokeL.intValue;
-    }
-
-    public ArrayList<ChatMsg> addCastReliableMsgs(@NonNull List<TextMsg> list, List<Long> list2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, list, list2)) == null) {
-            ArrayList<ChatMsg> arrayList = new ArrayList<>();
-            synchronized (DBBase.mSyncLock) {
-                for (TextMsg textMsg : list) {
-                    if (addReliableMsg(textMsg) > 0) {
-                        arrayList.add(textMsg);
-                        list2.add(Long.valueOf(textMsg.getMsgId()));
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeLL.objValue;
-    }
-
-    public long addMsg(ChatMsg chatMsg, boolean z) {
-        InterceptResult invokeLZ;
-        long addMsg;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chatMsg, z)) == null) {
-            synchronized (DBBase.mSyncLock) {
-                if (1 == chatMsg.getCategory()) {
-                    addMsg = GroupMessageDAOImpl.addSingleChatMsg(this.mContext, chatMsg);
-                } else {
-                    addMsg = addMsg(chatMsg);
-                }
-                if (addMsg < 0) {
-                    return addMsg;
-                }
-                chatMsg.setRowId(addMsg);
-                if (z) {
-                    updateChatSession(chatMsg);
-                    return addMsg;
-                }
-                return addMsg;
-            }
-        }
-        return invokeLZ.longValue;
-    }
-
-    public ArrayList<ChatMsg> addMsgs(Context context, ArrayList<ChatMsg> arrayList, boolean z, long j) {
-        InterceptResult invokeCommon;
-        ArrayList<ChatMsg> arrayList2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, arrayList, Boolean.valueOf(z), Long.valueOf(j)})) == null) {
-            ArrayList<ChatMsg> arrayList3 = arrayList;
-            if (arrayList3 != null) {
-                synchronized (DBBase.mSyncLock) {
-                    AccountManagerImpl.getInstance(this.mContext).getUid();
-                    arrayList2 = new ArrayList<>();
-                    ArrayList<ChatMsg> arrayList4 = new ArrayList<>();
-                    ArrayList<ChatMsg> arrayList5 = new ArrayList<>();
-                    ArrayList<ChatMsg> arrayList6 = new ArrayList<>();
-                    HashMap<ChatObject, Integer> hashMap = new HashMap<>();
-                    int i = 0;
-                    while (i < arrayList.size()) {
-                        ChatMsg chatMsg = arrayList3.get(i);
-                        chatMsg.setTriggerReasonn(j);
-                        try {
-                            JSONObject jSONObject = new JSONObject(chatMsg.getMsgContent());
-                            jSONObject.put(Constants.EXTRA_TRIGGER_REASON, j);
-                            chatMsg.setMsgContent(jSONObject.toString());
-                        } catch (Exception e) {
-                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                            e.printStackTrace();
-                        }
-                        if (!isNeedInsertToDB(chatMsg)) {
-                            arrayList2.add(chatMsg);
-                        } else if (chatMsg.getChatType() == 24 && chatMsg.getMsgType() == 20) {
-                            LogUtils.d(TAG, "msg will handle by dupMsgAddHandler");
-                            if (dupMsgAddHandler(chatMsg) > 0) {
-                                if (RetrieveUtil.isRetrievePaUid(context, chatMsg.getFromUser())) {
-                                    arrayList6.add(chatMsg);
-                                } else {
-                                    arrayList4.add(chatMsg);
-                                }
-                            }
-                        } else if (chatMsg.getChatType() == 20 && chatMsg.getMsgType() == 80) {
-                            LogUtils.d(TAG, "msg will handle by stduioMsgAddHandler");
-                            if (studioMsgAddHandler(chatMsg) > 0) {
-                                arrayList5.add(chatMsg);
-                            }
-                        } else {
-                            String str = TAG;
-                            LogUtils.d(str, "will add msg to db, msg = " + chatMsg.toString());
-                            long addMsg = addMsg(chatMsg);
-                            String str2 = TAG;
-                            LogUtils.e(str2, "addMsg result : " + addMsg);
-                            if (-1 != addMsg && -2 != addMsg) {
-                                chatMsg.setRowId(addMsg);
-                                long contacter = getContacter(chatMsg);
-                                if (contacter != -1) {
-                                    ChatObject chatObject = new ChatObject(this.mContext, chatMsg.getCategory(), contacter, chatMsg.getPaid(), -1);
-                                    ChatSession chatSession = getChatSession(chatObject);
-                                    String str3 = TAG;
-                                    LogUtils.e(str3, " addMsgs session : " + chatSession);
-                                    if (chatSession != null) {
-                                        chatMsg.setChatType(chatSession.getChatType());
-                                        arrayList2.add(chatMsg);
-                                    }
-                                    if (hashMap.containsKey(chatObject)) {
-                                        if (z && !chatMsg.isMsgRead() && chatMsg.getMsgType() != 101) {
-                                            hashMap.put(chatObject, Integer.valueOf(hashMap.get(chatObject).intValue() + 1));
-                                        }
-                                    } else if (z && !chatMsg.isMsgRead() && chatMsg.getMsgType() != 101) {
-                                        hashMap.put(chatObject, 1);
-                                    } else {
-                                        hashMap.put(chatObject, 0);
-                                        i++;
-                                        arrayList3 = arrayList;
-                                    }
-                                }
-                            }
-                        }
-                        i++;
-                        arrayList3 = arrayList;
-                    }
-                    recordLastMsg(hashMap);
-                    if (!arrayList4.isEmpty()) {
-                        ChatMsgManagerImpl.getInstance(this.mContext).deliverFetchedConfigMessage(arrayList4);
-                    }
-                    if (!arrayList6.isEmpty()) {
-                        String str4 = TAG;
-                        LogUtils.d(str4, "retrieve-->delverFetchedRetrieveMessage retrieveMsgs:" + arrayList6.toString());
-                        ChatMsgManagerImpl.getInstance(this.mContext).delverFetchedRetrieveMessage(arrayList6);
-                    }
-                    if (!arrayList5.isEmpty()) {
-                        String str5 = TAG;
-                        LogUtils.d(str5, "deliverStudioUsePaMessage studioMsgs ：" + arrayList5.size());
-                        ChatMsgManagerImpl.getInstance(this.mContext).deliverStudioUsePaMessage(arrayList5);
-                    }
-                }
-                return arrayList2;
-            }
-            return null;
-        }
-        return (ArrayList) invokeCommon.objValue;
-    }
-
-    public long createChatSession(ChatObject chatObject, String str, int i, String str2, int i2, String str3, String str4, int i3, int i4, long j, int i5, long j2, String str5, String str6, String str7) {
-        InterceptResult invokeCommon;
-        ChatMsg chatMsg;
-        int i6;
-        int unReadMsgCount;
-        String str8;
-        ArrayList<ChatMsg> fetchMsgExcludeTypes;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{chatObject, str, Integer.valueOf(i), str2, Integer.valueOf(i2), str3, str4, Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j), Integer.valueOf(i5), Long.valueOf(j2), str5, str6, str7})) == null) {
-            if (getChatSession(chatObject) != null) {
-                return 0L;
-            }
-            int category = chatObject.getCategory();
-            long contacter = chatObject.getContacter();
-            synchronized (DBBase.mSyncLock) {
-                if (category == 0 && i == 0) {
-                    contacter = IMUserManager.getInstance(this.mContext).getBuidByUK(contacter);
-                }
-                ChatSession chatSession = new ChatSession(category, chatObject.getContacter(), contacter, str);
-                ChatMsg draftMsg = getDraftMsg(chatObject.getCategory(), chatObject.getContacter());
-                if (draftMsg == null) {
-                    if (1 != chatObject.getCategory()) {
-                        fetchMsgExcludeTypes = getInstance(this.mContext).fetchMsgExcludeTypes(chatObject, 0L, 1L, UNUPDATE_SESSION_MSG_TYPES);
-                    } else if (i == 4) {
-                        fetchMsgExcludeTypes = GroupMessageDAOImpl.fetchLastChatMsg(this.mContext, String.valueOf(chatObject.getContacter()), null, 1L, true);
-                    } else {
-                        fetchMsgExcludeTypes = GroupMessageDAOImpl.fetchAllChatMsg(this.mContext, String.valueOf(chatObject.getContacter()), null, 1L, true);
-                    }
-                    if (fetchMsgExcludeTypes == null) {
-                        LogUtils.e(TAG, "updateChatRecordName fetchmsg error! ");
-                        return -1L;
-                    } else if (fetchMsgExcludeTypes.size() == 0) {
-                        LogUtils.e(TAG, "updateChatRecordName  msgs.size() = 0! ");
-                        return 0L;
-                    } else {
-                        draftMsg = fetchMsgExcludeTypes.get(0);
-                    }
-                }
-                ChatMsg chatMsg2 = draftMsg;
-                String str9 = "";
-                if (chatObject.getCategory() != 0 || (chatObject.getContacter() & Constants.PAFLAG) == 0) {
-                    chatMsg = chatMsg2;
-                    i6 = 1;
-                } else {
-                    if (!chatMsg2.isSelf(this.mContext)) {
-                        chatMsg = chatMsg2;
-                        str8 = chatMsg2.getExtLog();
-                        i6 = 1;
-                    } else {
-                        chatMsg = chatMsg2;
-                        i6 = 1;
-                        ArrayList<ChatMsg> fetchMsg = fetchMsg(chatObject, 0L, 1L, -1L, false, "from_user != " + Utility.getUK(this.mContext));
-                        if (fetchMsg != null && fetchMsg.size() > 0) {
-                            str9 = fetchMsg.get(0).getExtLog();
-                        }
-                        str8 = str9;
-                    }
-                    chatSession.addExt("ext_log", str8);
-                }
-                if (i6 == chatObject.getCategory()) {
-                    unReadMsgCount = GroupMessageDAOImpl.getUnReadCount(this.mContext, String.valueOf(chatObject.getContacter()));
-                } else {
-                    unReadMsgCount = getUnReadMsgCount(chatObject);
-                }
-                chatSession.setChatType(i);
-                if (unReadMsgCount >= 0) {
-                    chatSession.setNewMsgSum(unReadMsgCount);
-                }
-                String recommendDescription = chatMsg.getRecommendDescription();
-                ChatMsg chatMsg3 = chatMsg;
-                if (chatMsg3 instanceof HtmlMsg) {
-                    recommendDescription = chatMsg3.getLocalUrl();
-                }
-                chatSession.setLastOpenTime(chatMsg3.getMsgTime());
-                chatSession.setLastMsgTime(chatMsg3.getMsgTime());
-                chatSession.setLastMsg(recommendDescription);
-                chatSession.setState(chatMsg3.getStatus());
-                chatSession.setIconUrl(str2);
-                chatSession.setIsClicked(Utility.getClickState(chatMsg3));
-                chatSession.setPaid(chatObject.getPaid());
-                chatSession.setClassType(i2);
-                chatSession.setClassTitle(str3);
-                chatSession.setClassAvatar(str4);
-                chatSession.setClassShow(i3);
-                chatSession.setMarkTop(i4);
-                chatSession.setMarkTopTime(j);
-                chatSession.setVipId(str5);
-                chatSession.setVPortrait(str6);
-                chatSession.setCertification(str7);
-                chatSession.setShield(i5);
-                chatSession.setShieldTime(j2);
-                setChatSessionLastName(chatSession, chatMsg3.getSenderUid());
-                if (chatMsg3.isStarMessage()) {
-                    chatSession.setChatType(4);
-                }
-                return getInstance(this.mContext).updateChatSession(i6, chatSession);
-            }
-        }
-        return invokeCommon.longValue;
-    }
-
-    public long delChatRecord(ChatObject chatObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, chatObject)) == null) {
-            synchronized (DBBase.mSyncLock) {
-                SQLiteDatabase openDatabase = openDatabase();
-                if (openDatabase == null) {
-                    LogUtils.d(TAG, "getWritableDb fail!");
-                    return -1L;
-                }
-                try {
-                    String[] strArr = {String.valueOf(chatObject.getCategory()), String.valueOf(chatObject.getContacter())};
-                    String addPaidCondition = addPaidCondition("category = ? AND contacter = ?", "paid", chatObject.getPaid());
-                    ChatSession chatRecordInternal = getChatRecordInternal(openDatabase, chatObject);
-                    long delete = openDatabase.delete(TableDefine.DB_TABLE_CHAT_SESSION, addPaidCondition, strArr);
-                    if (delete > 0 && chatRecordInternal != null) {
-                        notifyDbChange(2, chatRecordInternal);
-                    }
-                    return delete;
-                } catch (Exception e) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                    LogUtils.e(TAG, "delChatRecord:", e);
-                    return -1L;
-                }
-            }
-        }
-        return invokeL.longValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:44:0x00dd A[Catch: all -> 0x00e1, TryCatch #0 {, blocks: (B:6:0x0007, B:8:0x0027, B:9:0x002e, B:11:0x0030, B:44:0x00dd, B:45:0x00e0, B:39:0x00d5, B:40:0x00d8, B:30:0x00c2, B:31:0x00c5), top: B:53:0x0007 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public long delChatRecordForChatType(int i) {
-        InterceptResult invokeI;
-        Cursor cursor;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeI = interceptable.invokeI(1048581, this, i)) != null) {
-            return invokeI.longValue;
-        }
-        synchronized (DBBase.mSyncLock) {
-            LogUtils.d(TAG, "delChatRecordForChatType chatType = " + i);
-            SQLiteDatabase openDatabase = openDatabase();
-            if (openDatabase == null) {
-                LogUtils.d(TAG, "getWritableDb fail!");
-                return -1L;
-            }
-            ArrayList arrayList = new ArrayList();
-            try {
-                String[] strArr = {String.valueOf(i)};
-                Cursor query = openDatabase.query(TableDefine.DB_TABLE_CHAT_SESSION, new String[]{"contacter"}, "chat_type = ?", strArr, null, null, null);
-                if (query != null) {
-                    while (query.moveToNext()) {
-                        try {
-                            arrayList.add(Long.valueOf(query.getLong(query.getColumnIndex("contacter"))));
-                        } catch (Exception e) {
-                            e = e;
-                            cursor = query;
-                            try {
-                                LogUtils.e(TAG, "delChatRecordForChatType:", e);
-                                if (cursor != null) {
-                                    cursor.close();
-                                }
-                                return -1L;
-                            } catch (Throwable th) {
-                                th = th;
-                                if (cursor != null) {
-                                    cursor.close();
-                                }
-                                throw th;
-                            }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            cursor = query;
-                            if (cursor != null) {
-                            }
-                            throw th;
-                        }
-                    }
-                }
-                if (arrayList.size() > 0) {
-                    j = openDatabase.delete(TableDefine.DB_TABLE_CHAT_SESSION, "chat_type = ?", strArr);
-                    openDatabase.delete(TableDefine.DB_TABLE_PA_SUBSCRIBE, "pasubtype = ?", strArr);
-                    for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                        openDatabase.delete("message", "from_user = ?", new String[]{String.valueOf(arrayList.get(i2))});
-                    }
-                } else {
-                    j = -1;
-                }
-                LogUtils.d(TAG, "delChatRecordForChatType num = " + j);
-                if (query != null) {
-                    query.close();
-                }
-                return j;
-            } catch (Exception e2) {
-                e = e2;
-                cursor = null;
-            } catch (Throwable th3) {
-                th = th3;
-                cursor = null;
-            }
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:50:0x00e9 A[Catch: all -> 0x00f2, TryCatch #2 {all -> 0x00f2, blocks: (B:50:0x00e9, B:51:0x00ec, B:42:0x00de, B:43:0x00e1, B:54:0x00f0), top: B:62:0x0007 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public long delChatRecordForClassTypeOne() {
-        InterceptResult invokeV;
-        Cursor cursor;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(1048582, this)) != null) {
-            return invokeV.longValue;
-        }
-        synchronized (DBBase.mSyncLock) {
-            try {
-                try {
-                    LogUtils.d(TAG, "HBBH im in delChatRecordForClassTypeOne!!!");
-                    SQLiteDatabase openDatabase = openDatabase();
-                    if (openDatabase == null) {
-                        LogUtils.d(TAG, "getWritableDb fail!");
-                        return -1L;
-                    }
-                    ArrayList arrayList = new ArrayList();
-                    try {
-                        String[] strArr = {String.valueOf(1), String.valueOf(5)};
-                        Cursor query = openDatabase.query(TableDefine.DB_TABLE_CHAT_SESSION, new String[]{"contacter"}, "classtype = ? AND chat_type = ?", strArr, null, null, null);
-                        if (query != null) {
-                            while (query.moveToNext()) {
-                                try {
-                                    arrayList.add(Long.valueOf(query.getLong(query.getColumnIndex("contacter"))));
-                                } catch (Exception e) {
-                                    e = e;
-                                    cursor = query;
-                                    try {
-                                        try {
-                                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                                            LogUtils.e(TAG, "HBBH delChatRecordForClassTypeOne:", e);
-                                            if (cursor != null) {
-                                                cursor.close();
-                                            }
-                                            return -1L;
-                                        } catch (Throwable th) {
-                                            th = th;
-                                            if (cursor != null) {
-                                                cursor.close();
-                                            }
-                                            throw th;
-                                        }
-                                    } catch (Throwable th2) {
-                                        th = th2;
-                                        if (cursor != null) {
-                                        }
-                                        throw th;
-                                    }
-                                } catch (Throwable th3) {
-                                    th = th3;
-                                    cursor = query;
-                                    if (cursor != null) {
-                                    }
-                                    throw th;
-                                }
-                            }
-                        }
-                        if (arrayList.size() > 0) {
-                            j = openDatabase.delete(TableDefine.DB_TABLE_CHAT_SESSION, "classtype = ? AND chat_type = ?", strArr);
-                            for (int i = 0; i < arrayList.size(); i++) {
-                                openDatabase.delete("message", "from_user = ?", new String[]{String.valueOf(arrayList.get(i))});
-                            }
-                        } else {
-                            j = -1;
-                        }
-                        LogUtils.d(TAG, "HBBH delChatRecordForClassTypeOne num = " + j);
-                        if (query != null) {
-                            query.close();
-                        }
-                        return j;
-                    } catch (Exception e2) {
-                        e = e2;
-                        cursor = null;
-                    } catch (Throwable th4) {
-                        th = th4;
-                        cursor = null;
-                        if (cursor != null) {
-                        }
-                        throw th;
-                    }
-                } catch (Throwable th5) {
-                    th = th5;
-                    throw th;
-                }
-            } catch (Throwable th6) {
-                th = th6;
-                throw th;
-            }
-        }
-    }
-
-    public int delMsgsOfCertainContacter(ChatObject chatObject, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048583, this, chatObject, j)) == null) {
-            int i = 1;
-            if (1 == chatObject.getCategory()) {
-                int delMsgsOfCertainContacter = GroupMessageDAOImpl.delMsgsOfCertainContacter(this.mContext, String.valueOf(chatObject.getContacter()), j);
-                synchronized (DBBase.mSyncLock) {
-                    SQLiteDatabase openDatabase = openDatabase();
-                    if (openDatabase == null) {
-                        LogUtils.d(TAG, "getWritableDb fail!");
-                        return -1;
-                    }
-                    try {
-                        long maxMsgid = GroupMessageDAOImpl.getMaxMsgid(this.mContext, String.valueOf(chatObject.getContacter()));
-                        if (j == -1 || maxMsgid <= j) {
-                            String[] strArr = {String.valueOf(chatObject.getCategory()), String.valueOf(chatObject.getContacter())};
-                            String addPaidCondition = addPaidCondition("category = ? AND contacter = ?", "paid", chatObject.getPaid());
-                            ChatSession chatRecordInternal = getChatRecordInternal(openDatabase, chatObject);
-                            i = delete(openDatabase, TableDefine.DB_TABLE_CHAT_SESSION, addPaidCondition, strArr);
-                            if (i > 0 && chatRecordInternal != null) {
-                                notifyDbChange(2, chatRecordInternal);
-                            }
-                        }
-                        if (i < 0) {
-                            return -1;
-                        }
-                        if (i < 0) {
-                            delMsgsOfCertainContacter = -1;
-                        }
-                        return delMsgsOfCertainContacter;
-                    } catch (Exception e) {
-                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                        LogUtils.e(TAG, "delMsg:", e);
-                        return -1;
-                    }
-                }
-            }
-            return delMsgsOfCertainContacterForSingle(chatObject, j);
-        }
-        return invokeLJ.intValue;
-    }
-
-    public void delPaLocalInfosByPaType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            ArrayList<Long> queryPaIdByPaType = PaInfoDBManager.getInstance(this.mContext).queryPaIdByPaType(i);
-            if (queryPaIdByPaType != null && !queryPaIdByPaType.isEmpty()) {
-                String str = TAG;
-                LogUtils.d(str, "---delPaLocalInfosByPaType---paids.size = " + queryPaIdByPaType.size());
-                Iterator<Long> it = queryPaIdByPaType.iterator();
-                while (it.hasNext()) {
-                    delMsgsOfPaByPaId(it.next().longValue());
-                }
-                return;
-            }
-            LogUtils.d(TAG, "---delPaLocalInfosByPaType---paids is null ---- ");
-        }
-    }
-
-    public long delSysMsg(int i, long j, int i2) {
-        InterceptResult invokeCommon;
-        long delete;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2)})) == null) {
-            synchronized (DBBase.mSyncLock) {
-                delete = delete("message", "category = ?  AND (contacter = ? OR from_user = ? ) AND cmd = ? ", new String[]{String.valueOf(i), String.valueOf(j), String.valueOf(j), String.valueOf(i2)});
-            }
-            return delete;
-        }
-        return invokeCommon.longValue;
-    }
-
-    public long deleteAllMsg(ChatObject chatObject) {
-        InterceptResult invokeL;
-        long maxMsgid;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, chatObject)) == null) {
-            synchronized (this.mContext) {
-                if (1 == chatObject.getCategory()) {
-                    maxMsgid = GroupMessageDAOImpl.getMaxMsgid(this.mContext, String.valueOf(chatObject.getContacter()));
-                } else {
-                    maxMsgid = getInstance(this.mContext).getMaxMsgid(chatObject);
-                }
-                if (maxMsgid < 0) {
-                    return -1009L;
-                }
-                if (deleteAllMsgWithMsgid(chatObject, maxMsgid) < 0) {
-                    return -1009L;
-                }
-                return maxMsgid;
-            }
-        }
-        return invokeL.longValue;
-    }
-
-    public int deleteAllMsgWithMsgid(ChatObject chatObject, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048587, this, chatObject, j)) == null) {
-            synchronized (this.mContext) {
-                int delMsgsOfCertainContacter = getInstance(this.mContext).delMsgsOfCertainContacter(chatObject, j);
-                if (delMsgsOfCertainContacter < 0) {
-                    return DlnaManager.DLNA_ERROR_GET_POSITION_INFO_ACTION_NOT_FOUND;
-                }
-                ArrayList<ChatMsg> fetchMsg = fetchMsg(chatObject, Long.MAX_VALUE, 2L, -1L);
-                if (fetchMsg == null || fetchMsg.size() <= 0) {
-                    return delMsgsOfCertainContacter;
-                }
-                return 0;
-            }
-        }
-        return invokeLJ.intValue;
-    }
-
-    public int deleteChatMsg(ChatMsg chatMsg) {
-        InterceptResult invokeL;
-        int deleteChatMsg;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, chatMsg)) == null) {
-            synchronized (DBBase.mSyncLock) {
-                if (1 == chatMsg.getCategory()) {
-                    deleteChatMsg = GroupMessageDAOImpl.deleteChatMsg(this.mContext, chatMsg);
-                } else {
-                    deleteChatMsg = deleteChatMsg(chatMsg.getRowId());
-                }
-                if (deleteChatMsg < 0) {
-                    return deleteChatMsg;
-                }
-                updateChatSession(chatMsg);
-                return deleteChatMsg;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    public int deleteChatSession(long j) {
-        InterceptResult invokeJ;
-        String[] strArr;
-        int delete;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048589, this, j)) == null) {
-            synchronized (DBBase.mSyncLock) {
-                String str = null;
-                if (j != -1) {
-                    str = "paid = ?";
-                    strArr = new String[]{String.valueOf(j)};
-                } else {
-                    strArr = null;
-                }
-                delete = delete(TableDefine.DB_TABLE_CHAT_SESSION, str, strArr);
-            }
-            return delete;
-        }
-        return invokeJ.intValue;
-    }
-
-    public int deleteDraftMsg(ChatObject chatObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, chatObject)) == null) {
-            if (1 == chatObject.getCategory()) {
-                int deleteDraftMsg = GroupMessageDAOImpl.deleteDraftMsg(this.mContext, String.valueOf(chatObject.getContacter()));
-                if (deleteDraftMsg > 0) {
-                    ChatSession chatSession = getChatSession(chatObject);
-                    ArrayList<ChatMsg> fetchAllChatMsg = GroupMessageDAOImpl.fetchAllChatMsg(this.mContext, String.valueOf(chatObject.getContacter()), null, 1L, true);
-                    if (fetchAllChatMsg != null && fetchAllChatMsg.size() > 0) {
-                        updateSession(true, chatSession, fetchAllChatMsg.get(0));
-                    }
-                }
-                return deleteDraftMsg;
-            }
-            return deleteDraftMsgForSingle(chatObject);
-        }
-        return invokeL.intValue;
-    }
-
-    public long deleteExpiredDupMsgs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            synchronized (DBBase.mSyncLock) {
-                SQLiteDatabase openDatabase = openDatabase();
-                if (openDatabase == null) {
-                    LogUtils.e(TAG, "deleteExpiredDupMsgs db is null!");
-                    return -1L;
-                }
-                try {
-                    return openDatabase.delete(TableDefine.DB_TABLE_NO_DUPLICATE_MESSAGE, "input_time < ?", new String[]{String.valueOf(System.currentTimeMillis() - 259200)});
-                } catch (Exception e) {
-                    LogUtils.e(TAG, "deleteExpiredDupMsgs :", e);
-                    return -1L;
-                }
-            }
-        }
-        return invokeV.longValue;
-    }
-
-    public long deleteExpiredReliableMsgs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            synchronized (DBBase.mSyncLock) {
-                SQLiteDatabase openDatabase = openDatabase();
-                if (openDatabase == null) {
-                    LogUtils.e(TAG, "deleteExpiredReliableMsgs db is null!");
-                    return -1L;
-                }
-                try {
-                    return openDatabase.delete(TableDefine.DB_TABLE_RELIABLE_MESSAGE, "create_time < ?", new String[]{String.valueOf((System.currentTimeMillis() / 1000) - CAST_RELIABLE_MSG_EXPIRED_TIME)});
-                } catch (Exception e) {
-                    LogUtils.e(TAG, "deleteExpiredReliableMsgs :", e);
-                    return -1L;
-                }
-            }
-        }
-        return invokeV.longValue;
-    }
-
-    public int deleteMsgBatch(ChatObject chatObject, long[] jArr) {
-        InterceptResult invokeLL;
-        int delMsgs;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, chatObject, jArr)) == null) {
-            synchronized (DBBase.mSyncLock) {
-                if (1 == chatObject.getCategory()) {
-                    delMsgs = GroupMessageDAOImpl.deleteMsgs(this.mContext, String.valueOf(chatObject.getContacter()), jArr);
-                } else {
-                    delMsgs = getInstance(this.mContext).delMsgs(jArr);
-                }
-                return delMsgs < 0 ? DlnaManager.DLNA_ERROR_GET_POSITION_INFO_ACTION_NOT_FOUND : updateSession(delMsgs, chatObject);
-            }
-        }
-        return invokeLL.intValue;
-    }
-
-    public long deleteStudioUsePaMsgs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            synchronized (DBBase.mSyncLock) {
-                SQLiteDatabase openDatabase = openDatabase();
-                if (openDatabase == null) {
-                    LogUtils.e(TAG, "deleteStudioUsePaMsgs db is null!");
-                    return -1L;
-                }
-                try {
-                    return openDatabase.delete(TableDefine.DB_TABLE_STUDIO_USE_PA_MESSAGE, "input_time < ?", new String[]{String.valueOf(System.currentTimeMillis() - 172800000)});
-                } catch (Exception e) {
-                    LogUtils.e(TAG, "deleteStudioUsePaMsgs :", e);
-                    return -1L;
-                }
-            }
-        }
-        return invokeV.longValue;
-    }
-
-    public ArrayList<ChatMsg> fetchMsg(ChatObject chatObject, long j, long j2) {
-        InterceptResult invokeCommon;
-        ArrayList<ChatMsg> fetchMsg;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{chatObject, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            synchronized (DBBase.mSyncLock) {
-                fetchMsg = fetchMsg(chatObject, j, j2, j == 0 ? -1L : Long.MAX_VALUE, false);
-            }
-            return fetchMsg;
-        }
-        return (ArrayList) invokeCommon.objValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x00ba, code lost:
-        if (r8 != null) goto L39;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x00bc, code lost:
-        r8.close();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x00dc, code lost:
-        if (r8 == null) goto L40;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x00e0, code lost:
-        return r0;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public ArrayList<ChatMsg> fetchMsgByContacterIdOrderByMsgid(List<Long> list, long j, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{list, Long.valueOf(j), Integer.valueOf(i)})) != null) {
-            return (ArrayList) invokeCommon.objValue;
-        }
-        ArrayList<ChatMsg> arrayList = new ArrayList<>();
-        if (list == null || list.size() <= 0) {
-            return arrayList;
-        }
-        StringBuilder sb = new StringBuilder();
-        sb.append(list.get(0));
-        for (int i2 = 1; i2 < list.size(); i2++) {
-            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            sb.append(list.get(i2));
-        }
-        String str = "contacter in (" + sb.toString() + SmallTailInfo.EMOTION_SUFFIX;
-        if (j > 0) {
-            str = str + " AND msgid < " + j;
-        }
-        String str2 = "select * from message where " + str + " ORDER BY msgid desc limit " + Math.abs(i);
-        synchronized (DBBase.mSyncLock) {
-            SQLiteDatabase openDatabase = openDatabase();
-            Cursor cursor = null;
-            if (openDatabase == null) {
-                LogUtils.d(TAG, "getReadableDb fail!");
-                return null;
-            }
-            try {
-                cursor = openDatabase.rawQuery(str2, null);
-                if (cursor != null) {
-                    while (cursor.moveToNext()) {
-                        ChatMsg construChatMsg = construChatMsg(cursor);
-                        if (construChatMsg != null) {
-                            arrayList.add(construChatMsg);
-                        }
-                    }
-                }
-            } catch (Exception e) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                LogUtils.e(TAG, "fetchPaMsgByChatType:", e);
-            }
-        }
-    }
-
-    public ArrayList<ChatMsg> fetchMsgExcludeTypes(ChatObject chatObject, long j, long j2, List<Integer> list) {
-        InterceptResult invokeCommon;
-        ArrayList<ChatMsg> fetchMsg;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{chatObject, Long.valueOf(j), Long.valueOf(j2), list})) == null) {
-            synchronized (DBBase.mSyncLock) {
-                String str = null;
-                if (list != null) {
-                    try {
-                        if (list.size() > 0) {
-                            StringBuilder sb = new StringBuilder("type NOT IN (");
-                            for (Integer num : list) {
-                                sb.append(num.intValue());
-                                sb.append(",");
-                            }
-                            str = sb.substring(0, sb.length() - 1) + SmallTailInfo.EMOTION_SUFFIX;
-                        }
-                    } catch (Throwable th) {
-                        throw th;
-                    }
-                }
-                fetchMsg = fetchMsg(chatObject, j, j2, j == 0 ? -1L : Long.MAX_VALUE, false, str);
-            }
-            return fetchMsg;
-        }
-        return (ArrayList) invokeCommon.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:19:0x005d  */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x0060  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public ArrayList<ChatMsg> fetchMsgsByMsgTypes(ChatObject chatObject, long j, long j2, List<Integer> list) {
-        InterceptResult invokeCommon;
-        String str;
-        ArrayList<ChatMsg> fetchMsg;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048602, this, new Object[]{chatObject, Long.valueOf(j), Long.valueOf(j2), list})) == null) {
-            synchronized (DBBase.mSyncLock) {
-                if (list != null) {
-                    try {
-                        if (list.size() > 0) {
-                            StringBuilder sb = new StringBuilder();
-                            for (Integer num : list) {
-                                sb.append(num.intValue());
-                                sb.append(",");
-                            }
-                            str = "type IN (" + sb.substring(0, sb.length() - 1) + ") ";
-                            fetchMsg = fetchMsg(chatObject, j, j2, j != 0 ? -1L : Long.MAX_VALUE, false, str);
-                        }
-                    } catch (Throwable th) {
-                        throw th;
-                    }
-                }
-                str = null;
-                fetchMsg = fetchMsg(chatObject, j, j2, j != 0 ? -1L : Long.MAX_VALUE, false, str);
-            }
-            return fetchMsg;
-        }
-        return (ArrayList) invokeCommon.objValue;
-    }
-
-    public ArrayList<ChatMsg> fetchMsgsExceptGroupSystemMsgSync(ChatObject chatObject, long j, long j2, long j3, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048603, this, new Object[]{chatObject, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)})) == null) ? fetchMsg(chatObject, j, j2, j3, z, "type != 101") : (ArrayList) invokeCommon.objValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x00c7, code lost:
-        if (r1 != null) goto L36;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x00c9, code lost:
-        r1.close();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x00e9, code lost:
-        if (r1 == null) goto L37;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x00ed, code lost:
-        return r0;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public List<ChatMsg> fetchPaMsgByChatType(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeII = interceptable.invokeII(1048604, this, i, i2)) != null) {
-            return (List) invokeII.objValue;
-        }
-        ArrayList arrayList = new ArrayList();
-        List<PaInfo> queryPaInfoByChatType = PaInfoDBManager.getInstance(this.mContext).queryPaInfoByChatType(i);
-        Cursor cursor = null;
-        if (queryPaInfoByChatType == null || queryPaInfoByChatType.size() <= 0) {
-            return null;
-        }
-        String str = "" + queryPaInfoByChatType.get(0).getPaId();
-        for (int i3 = 1; i3 < queryPaInfoByChatType.size(); i3++) {
-            str = str + StringUtil.ARRAY_ELEMENT_SEPARATOR + queryPaInfoByChatType.get(i3).getPaId();
-        }
-        String str2 = "select * from message where " + ("paid in (" + str + ") ") + " ORDER BY time desc limit " + Math.abs(i2);
-        synchronized (DBBase.mSyncLock) {
-            SQLiteDatabase openDatabase = openDatabase();
-            if (openDatabase == null) {
-                LogUtils.d(TAG, "getReadableDb fail!");
-                return null;
-            }
-            try {
-                cursor = openDatabase.rawQuery(str2, null);
-                if (cursor != null) {
-                    while (cursor.moveToNext()) {
-                        ChatMsg construChatMsg = construChatMsg(cursor);
-                        if (construChatMsg != null) {
-                            arrayList.add(construChatMsg);
-                        }
-                    }
-                }
-            } catch (Exception e) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                LogUtils.e(TAG, "fetchPaMsgByChatType:", e);
-            }
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x00ba, code lost:
-        if (r8 != null) goto L39;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x00bc, code lost:
-        r8.close();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x00dc, code lost:
-        if (r8 == null) goto L40;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x00e0, code lost:
-        return r0;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public ArrayList<ChatMsg> fetchPaMsgByPaids(List<Long> list, long j, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048605, this, new Object[]{list, Long.valueOf(j), Integer.valueOf(i)})) != null) {
-            return (ArrayList) invokeCommon.objValue;
-        }
-        ArrayList<ChatMsg> arrayList = new ArrayList<>();
-        if (list == null || list.size() <= 0) {
-            return arrayList;
-        }
-        StringBuilder sb = new StringBuilder();
-        sb.append(list.get(0));
-        for (int i2 = 1; i2 < list.size(); i2++) {
-            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            sb.append(list.get(i2));
-        }
-        String str = "contacter in (" + sb.toString() + SmallTailInfo.EMOTION_SUFFIX;
-        if (j > 0) {
-            str = str + " AND msgid < " + j;
-        }
-        String str2 = "select * from message where " + str + " ORDER BY msgid desc limit " + Math.abs(i);
-        synchronized (DBBase.mSyncLock) {
-            SQLiteDatabase openDatabase = openDatabase();
-            Cursor cursor = null;
-            if (openDatabase == null) {
-                LogUtils.d(TAG, "getReadableDb fail!");
-                return null;
-            }
-            try {
-                cursor = openDatabase.rawQuery(str2, null);
-                if (cursor != null) {
-                    while (cursor.moveToNext()) {
-                        ChatMsg construChatMsg = construChatMsg(cursor);
-                        if (construChatMsg != null) {
-                            arrayList.add(construChatMsg);
-                        }
-                    }
-                }
-            } catch (Exception e) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                LogUtils.e(TAG, "fetchPaMsgByChatType:", e);
-            }
-        }
-    }
-
-    public ArrayList<ChatMsg> fetchSpecifyMsgsSync(ChatObject chatObject, int i, long j, long j2, long j3, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048606, this, new Object[]{chatObject, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)})) == null) {
-            return fetchMsg(chatObject, j, j2, j3, z, "type = " + i);
-        }
-        return (ArrayList) invokeCommon.objValue;
-    }
-
-    public ArrayList<SessionClass> getAllClassType() {
-        InterceptResult invokeV;
-        Cursor query;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
-            synchronized (DBBase.mSyncLock) {
-                SQLiteDatabase openDatabase = openDatabase();
-                ArrayList<SessionClass> arrayList = new ArrayList<>();
-                Cursor cursor = null;
-                if (openDatabase == null) {
-                    return null;
-                }
-                try {
-                    try {
-                        query = openDatabase.query(TableDefine.DB_TABLE_CHAT_SESSION, new String[]{"classtype", "classtitle", "classshow", "classavatar"}, "classtype > 1 ", null, "classtype", null, null, null);
-                    } catch (Exception e) {
-                        e = e;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                }
-                try {
-                    String str = TAG;
-                    LogUtils.e(str, "cursor " + query);
-                    if (query == null) {
-                        if (query != null) {
-                            query.close();
-                        }
-                        return null;
-                    }
-                    String str2 = TAG;
-                    LogUtils.e(str2, "cursor count " + query.getCount());
-                    while (query.moveToNext()) {
-                        int i = query.getInt(query.getColumnIndex("classtype"));
-                        int i2 = query.getInt(query.getColumnIndex("classshow"));
-                        String string = query.getString(query.getColumnIndex("classtitle"));
-                        String string2 = query.getString(query.getColumnIndex("classavatar"));
-                        SessionClass sessionClass = new SessionClass();
-                        sessionClass.setType(i);
-                        sessionClass.setTitle(string);
-                        sessionClass.setAvatarurl(string2);
-                        sessionClass.setShow(i2);
-                        arrayList.add(sessionClass);
-                    }
-                    if (query != null) {
-                        query.close();
-                    }
-                    return arrayList;
-                } catch (Exception e2) {
-                    e = e2;
-                    cursor = query;
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                    LogUtils.e(TAG, "getChatRecords:", e);
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    return arrayList;
-                } catch (Throwable th2) {
-                    th = th2;
-                    cursor = query;
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    throw th;
-                }
-            }
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r12v0, resolved type: long */
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x0044, code lost:
-        if (r12 != null) goto L17;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x0046, code lost:
-        r12.close();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x0067, code lost:
-        if (r12 == null) goto L18;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x006b, code lost:
-        return r10;
-     */
-    /* JADX WARN: Multi-variable type inference failed */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public ChatMsg getChatMsgByMsgId(long j) {
-        InterceptResult invokeJ;
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeJ = interceptable.invokeJ(1048608, this, j)) != null) {
-            return (ChatMsg) invokeJ.objValue;
-        }
-        synchronized (DBBase.mSyncLock) {
-            SQLiteDatabase openDatabase = openDatabase();
-            Cursor cursor2 = null;
-            r10 = null;
-            r10 = null;
-            r10 = null;
-            ChatMsg chatMsg = null;
-            try {
-                if (openDatabase == null) {
-                    LogUtils.e(TAG, "getReadableDb fail!");
-                    return null;
-                }
-                try {
-                    cursor = openDatabase.query("message", null, "msgid=? AND status=?", new String[]{String.valueOf(j), String.valueOf(0)}, null, null, null, null);
-                    if (cursor != null) {
-                        try {
-                            if (cursor.moveToNext()) {
-                                chatMsg = construChatMsg(cursor);
-                            }
-                        } catch (Exception e) {
-                            e = e;
-                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                            LogUtils.e(TAG, "fetchMsg:", e);
-                        }
-                    }
-                } catch (Exception e2) {
-                    e = e2;
-                    cursor = null;
-                } catch (Throwable th) {
-                    th = th;
-                    if (cursor2 != null) {
-                        cursor2.close();
-                    }
-                    throw th;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                cursor2 = j;
-            }
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:37:0x0073 A[Catch: all -> 0x0077, TryCatch #1 {, blocks: (B:6:0x0007, B:8:0x000e, B:16:0x004f, B:17:0x0052, B:22:0x0058, B:23:0x005b, B:31:0x006a, B:32:0x006d, B:37:0x0073, B:38:0x0076), top: B:46:0x0007 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public ChatSession getChatRecord(ChatObject chatObject) {
-        InterceptResult invokeL;
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048610, this, chatObject)) != null) {
-            return (ChatSession) invokeL.objValue;
-        }
-        synchronized (DBBase.mSyncLock) {
-            SQLiteDatabase openDatabase = openDatabase();
-            Cursor cursor2 = null;
-            if (openDatabase == null) {
-                return null;
-            }
-            try {
-                cursor = openDatabase.query(TableDefine.DB_TABLE_CHAT_SESSION, null, addPaidCondition("category = ? AND contacter=?", "paid", chatObject.getPaid()), new String[]{String.valueOf(chatObject.getCategory()), String.valueOf(chatObject.getContacter())}, null, null, null, null);
-                if (cursor != null) {
-                    try {
-                        try {
-                            if (cursor.moveToNext()) {
-                                ChatSession constructChatRecord = constructChatRecord(openDatabase, cursor);
-                                if (cursor != null) {
-                                    cursor.close();
-                                }
-                                return constructChatRecord;
-                            }
-                        } catch (Exception e) {
-                            e = e;
-                            LogUtils.e(TAG, "getChatRecord:", e);
-                            if (cursor != null) {
-                                cursor.close();
-                            }
-                            return null;
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        cursor2 = cursor;
-                        if (cursor2 != null) {
-                            cursor2.close();
-                        }
-                        throw th;
-                    }
-                }
-                if (cursor != null) {
-                    cursor.close();
-                }
-                return null;
-            } catch (Exception e2) {
-                e = e2;
-                cursor = null;
-            } catch (Throwable th2) {
-                th = th2;
-                if (cursor2 != null) {
-                }
-                throw th;
-            }
-        }
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x0053 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r11v1 */
-    /* JADX WARN: Type inference failed for: r11v2 */
-    /* JADX WARN: Type inference failed for: r11v3, types: [android.database.Cursor] */
-    public ChatSession getChatRecordByContacter(ChatObject chatObject) {
-        InterceptResult invokeL;
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048611, this, chatObject)) != null) {
-            return (ChatSession) invokeL.objValue;
-        }
-        synchronized (DBBase.mSyncLock) {
-            SQLiteDatabase openDatabase = openDatabase();
-            ?? r11 = 0;
-            try {
-                if (openDatabase == null) {
-                    return null;
-                }
-                try {
-                    cursor = openDatabase.query(TableDefine.DB_TABLE_CHAT_SESSION, null, "category = ? AND contacter=?", new String[]{String.valueOf(chatObject.getCategory()), String.valueOf(chatObject.getContacter())}, null, null, null, null);
-                    if (cursor != null) {
-                        try {
-                            if (cursor.moveToNext()) {
-                                ChatSession constructChatRecord = constructChatRecord(openDatabase, cursor);
-                                if (cursor != null) {
-                                    cursor.close();
-                                }
-                                return constructChatRecord;
-                            }
-                        } catch (Exception e) {
-                            e = e;
-                            LogUtils.e(TAG, "getChatRecord:", e);
-                            if (cursor != null) {
-                                cursor.close();
-                            }
-                            return null;
-                        }
-                    }
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    return null;
-                } catch (Exception e2) {
-                    e = e2;
-                    cursor = null;
-                } catch (Throwable th) {
-                    th = th;
-                    if (r11 != 0) {
-                        r11.close();
-                    }
-                    throw th;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                r11 = chatObject;
-            }
-        }
-    }
-
-    public ArrayList<ChatSession> getChatRecords(long j, long j2, long j3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048612, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            LogUtils.enter();
-            return getChatRecords(j, j2, j3, null);
-        }
-        return (ArrayList) invokeCommon.objValue;
-    }
-
-    public ArrayList<ChatSession> getChatRecordsByClass(long j, long j2, long j3, List<Integer> list) {
-        InterceptResult invokeCommon;
-        String str;
-        Cursor query;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048614, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), list})) == null) {
-            synchronized (DBBase.mSyncLock) {
-                SQLiteDatabase openDatabase = openDatabase();
-                ArrayList<ChatSession> arrayList = new ArrayList<>();
-                Cursor cursor = null;
-                if (openDatabase == null) {
-                    return null;
-                }
-                long j4 = j + j2;
-                try {
-                    try {
-                        String addPaidCondition = addPaidCondition("show= ?", "paid", j3);
-                        LogUtils.e(TAG, addPaidCondition);
-                        if (list == null || list.size() <= 0) {
-                            str = addPaidCondition;
-                        } else {
-                            String str2 = "" + list.get(0);
-                            for (int i = 1; i < list.size(); i++) {
-                                str2 = str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + list.get(i);
-                            }
-                            str = addPaidCondition + " AND classtype in (" + str2 + ") ";
-                        }
-                        query = openDatabase.query(TableDefine.DB_TABLE_CHAT_SESSION, null, str, new String[]{String.valueOf(1)}, null, null, "last_msg_time desc ", j4 > 0 ? String.valueOf(j4) : null);
-                    } catch (Exception e) {
-                        e = e;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                }
-                try {
-                    LogUtils.e(TAG, Constants.EXTRA_CONFIG_CURSOR + query);
-                    if (query == null) {
-                        if (query != null) {
-                            query.close();
-                        }
-                        return null;
-                    }
-                    LogUtils.e(TAG, "cursor count" + query.getCount());
-                    query.moveToPosition(((int) j) - 1);
-                    while (query.moveToNext()) {
-                        ChatSession constructChatRecord = constructChatRecord(openDatabase, query);
-                        LogUtils.e(TAG, "record : " + constructChatRecord);
-                        if (constructChatRecord != null) {
-                            arrayList.add(constructChatRecord);
-                        }
-                    }
-                    if (query != null) {
-                        query.close();
-                    }
-                    return arrayList;
-                } catch (Exception e2) {
-                    e = e2;
-                    cursor = query;
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                    LogUtils.e(TAG, "getChatRecords:", e);
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    return arrayList;
-                } catch (Throwable th2) {
-                    th = th2;
-                    cursor = query;
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    throw th;
-                }
-            }
-        }
-        return (ArrayList) invokeCommon.objValue;
-    }
-
-    public ChatMsg getDraftMsg(int i, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048615, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
-            if (1 == i) {
-                return GroupMessageDAOImpl.getDraftMsg(this.mContext, String.valueOf(j));
-            }
-            return getDraftMsgForSingle(i, j);
-        }
-        return (ChatMsg) invokeCommon.objValue;
-    }
-
-    public List<ChatSession> getGroupSession() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(1048616, this)) != null) {
-            return (List) invokeV.objValue;
-        }
-        synchronized (DBBase.mSyncLock) {
-            SQLiteDatabase openDatabase = openDatabase();
-            ArrayList arrayList = new ArrayList();
-            Cursor cursor = null;
-            if (openDatabase == null) {
-                return null;
-            }
-            try {
-                try {
-                    Cursor query = openDatabase.query(TableDefine.DB_TABLE_CHAT_SESSION, null, "category =? AND show= ?", new String[]{String.valueOf(1), String.valueOf(1)}, null, null, "last_msg_time desc ", null);
-                    if (query == null) {
-                        if (query != null) {
-                            query.close();
-                        }
-                        return null;
-                    }
-                    while (query.moveToNext()) {
-                        try {
-                            ChatSession constructChatRecord = constructChatRecord(openDatabase, query);
-                            if (constructChatRecord != null) {
-                                arrayList.add(constructChatRecord);
-                            }
-                        } catch (Exception e) {
-                            e = e;
-                            cursor = query;
-                            LogUtils.e(TAG, "getGroupSession:", e);
-                            if (cursor != null) {
-                                cursor.close();
-                            }
-                            return arrayList;
-                        } catch (Throwable th) {
-                            th = th;
-                            cursor = query;
-                            if (cursor != null) {
-                                cursor.close();
-                            }
-                            throw th;
-                        }
-                    }
-                    if (query != null) {
-                        query.close();
-                    }
-                    return arrayList;
-                } catch (Exception e2) {
-                    e = e2;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-            }
-        }
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r12v0, resolved type: int */
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x0049, code lost:
-        if (r12 != null) goto L17;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x004b, code lost:
-        r12.close();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x006c, code lost:
-        if (r12 == null) goto L18;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x0070, code lost:
-        return r10;
-     */
-    /* JADX WARN: Multi-variable type inference failed */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public ChatMsg getLatestMsg(int i, long j) {
-        InterceptResult invokeCommon;
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048617, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) != null) {
-            return (ChatMsg) invokeCommon.objValue;
-        }
-        synchronized (DBBase.mSyncLock) {
-            SQLiteDatabase openDatabase = openDatabase();
-            Cursor cursor2 = null;
-            r10 = null;
-            r10 = null;
-            r10 = null;
-            ChatMsg chatMsg = null;
-            try {
-                if (openDatabase == null) {
-                    LogUtils.e(TAG, "getReadableDb fail!");
-                    return null;
-                }
-                try {
-                    cursor = openDatabase.query("message", null, "category=? AND contacter=? ", new String[]{String.valueOf(i), String.valueOf(j)}, null, null, "msgid desc ", String.valueOf(1));
-                    if (cursor != null) {
-                        try {
-                            if (cursor.moveToNext()) {
-                                chatMsg = construChatMsg(cursor);
-                            }
-                        } catch (Exception e) {
-                            e = e;
-                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                            LogUtils.e(TAG, "getLatestMsg:", e);
-                        }
-                    }
-                } catch (Exception e2) {
-                    e = e2;
-                    cursor = null;
-                } catch (Throwable th) {
-                    th = th;
-                    if (cursor2 != null) {
-                        cursor2.close();
-                    }
-                    throw th;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                cursor2 = i;
-            }
-        }
-    }
-
-    public long getMaxMsgid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
-            synchronized (DBBase.mSyncLock) {
-                SQLiteDatabase openDatabase = openDatabase();
-                if (openDatabase == null) {
-                    return -1L;
-                }
-                Cursor cursor = null;
-                try {
-                    cursor = openDatabase.query("message", new String[]{"msgid"}, null, null, null, null, "msgid desc ", String.valueOf(1));
-                    if (cursor == null || !cursor.moveToNext()) {
-                        if (cursor != null) {
-                            cursor.close();
-                        }
-                        return 0L;
-                    }
-                    long j = cursor.getLong(cursor.getColumnIndex("msgid"));
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    return j;
-                } catch (Exception e) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                    LogUtils.e(TAG, "getMaxMsgid:", e);
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    return -1L;
-                }
-            }
-        }
-        return invokeV.longValue;
-    }
-
-    public ArrayList<ChatMsg> getMaxMsgidByChatTypes(List<Integer> list, long j, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048620, this, new Object[]{list, Long.valueOf(j), Integer.valueOf(i)})) == null) {
-            synchronized (DBBase.mSyncLock) {
-                SQLiteDatabase openDatabase = openDatabase();
-                if (openDatabase == null) {
-                    return null;
-                }
-                return fetchMsgByContacterIdOrderByMsgid(getContacterByChatTypes(openDatabase, list), j, i);
-            }
-        }
-        return (ArrayList) invokeCommon.objValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x0063, code lost:
-        if (r2 != null) goto L25;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x0065, code lost:
-        r2.close();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x0073, code lost:
-        if (r2 == null) goto L26;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x0079, code lost:
-        return 0;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public long getMaxReliableMsgId(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeJ = interceptable.invokeJ(1048621, this, j)) != null) {
-            return invokeJ.longValue;
-        }
-        String str = "select max(msgid) as max_msg_id from " + TableDefine.DB_TABLE_RELIABLE_MESSAGE + " where mcast_id = " + j;
-        synchronized (DBBase.mSyncLock) {
-            SQLiteDatabase openDatabase = openDatabase();
-            if (openDatabase == null) {
-                LogUtils.e(TAG, "getMaxReliableMsgId db is null!");
-                return -1L;
-            }
-            Cursor cursor = null;
-            try {
-                cursor = openDatabase.rawQuery(str, null);
-                if (cursor != null && cursor.moveToNext()) {
-                    long j2 = cursor.getLong(cursor.getColumnIndex("max_msg_id"));
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    return j2;
-                }
-            } catch (Exception e) {
-                LogUtils.e(TAG, "getMaxReliableMsgId:", e);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x0051 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x005d */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: android.database.sqlite.SQLiteDatabase */
-    /* JADX DEBUG: Multi-variable search result rejected for r7v0, resolved type: long */
-    /* JADX DEBUG: Multi-variable search result rejected for r7v1, resolved type: java.lang.String */
-    /* JADX DEBUG: Multi-variable search result rejected for r7v2, resolved type: android.database.Cursor */
-    /* JADX DEBUG: Multi-variable search result rejected for r7v3, resolved type: android.database.Cursor */
-    /* JADX DEBUG: Multi-variable search result rejected for r7v8, resolved type: android.database.Cursor */
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x0051, code lost:
-        if (r7 != null) goto L22;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x0053, code lost:
-        r7.close();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x007c, code lost:
-        if (r7 == 0) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x007f, code lost:
-        return r1;
-     */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r7v6, types: [java.lang.String] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public ChatMsg getMsgByMsgId(long j) {
-        InterceptResult invokeJ;
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeJ = interceptable.invokeJ(1048622, this, j)) != null) {
-            return (ChatMsg) invokeJ.objValue;
-        }
-        SQLiteDatabase openDatabase = openDatabase();
-        Cursor cursor2 = null;
-        r1 = null;
-        r1 = null;
-        r1 = null;
-        ChatMsg chatMsg = null;
-        try {
-            if (openDatabase == null) {
-                LogUtils.e(TAG, "getMsgByMsgId db is null!");
-                return null;
-            }
-            try {
-                String[] strArr = {String.valueOf(j)};
-                cursor = "select * from message where msgid = ? limit " + Math.abs(1);
-                try {
-                    try {
-                        synchronized (DBBase.mSyncLock) {
-                            try {
-                                cursor = openDatabase.rawQuery(cursor, strArr);
-                                if (cursor != null && cursor.moveToNext()) {
-                                    chatMsg = construChatMsg(cursor);
-                                }
-                            } catch (Throwable th) {
-                                th = th;
-                                throw th;
-                            }
-                        }
-                    } catch (Exception e) {
-                        e = e;
-                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                        LogUtils.e(TAG, "getMsgByMsgId:", e);
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                }
-            } catch (Exception e2) {
-                e = e2;
-                cursor = 0;
-            } catch (Throwable th3) {
-                th = th3;
-                if (cursor2 != null) {
-                    cursor2.close();
-                }
-                throw th;
-            }
-        } catch (Throwable th4) {
-            th = th4;
-            cursor2 = j;
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x00ab, code lost:
-        if (r4 != null) goto L33;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x00ad, code lost:
-        r4.close();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x00cd, code lost:
-        if (r4 == null) goto L31;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:44:0x00d1, code lost:
-        return r2;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public int getNewMsgCount(List<Integer> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048624, this, list)) != null) {
-            return invokeL.intValue;
-        }
-        if (list == null || list.size() <= 0) {
-            return 0;
-        }
-        synchronized (DBBase.mSyncLock) {
-            int i = -1;
-            SQLiteDatabase openDatabase = openDatabase();
-            if (openDatabase == null) {
-                return -1;
-            }
-            Cursor cursor = null;
-            String str = "";
-            if (list != null) {
-                try {
-                    if (list.size() > 0) {
-                        String str2 = " ( " + list.get(0);
-                        for (int i2 = 1; i2 < list.size(); i2++) {
-                            str2 = str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + list.get(i2);
-                        }
-                        str = "chat_type in " + (str2 + " ) ");
-                    }
-                } catch (Exception e) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                    LogUtils.e(TAG, " getNewMsgCount:", e);
-                }
-            }
-            cursor = openDatabase.rawQuery(TextUtils.isEmpty(str) ? "select sum(new_msg_sum) from chatrecord" : "select sum(new_msg_sum) from chatrecord where " + str, null);
-            if (cursor != null && cursor.moveToNext()) {
-                i = cursor.getInt(0);
-            }
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x004f, code lost:
-        if (r3 != null) goto L24;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x0051, code lost:
-        r3.close();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x0071, code lost:
-        if (r3 == null) goto L25;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x0075, code lost:
-        return r1;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public int getNewMsgCountOfClass(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeI = interceptable.invokeI(1048625, this, i)) != null) {
-            return invokeI.intValue;
-        }
-        synchronized (DBBase.mSyncLock) {
-            int i2 = -1;
-            SQLiteDatabase openDatabase = openDatabase();
-            if (openDatabase == null) {
-                return -1;
-            }
-            Cursor cursor = null;
-            try {
-                String str = "classtype = " + i;
-                String str2 = "select sum(new_msg_sum) from chatrecord";
-                if (!TextUtils.isEmpty(str)) {
-                    str2 = "select sum(new_msg_sum) from chatrecord where " + str;
-                }
-                cursor = openDatabase.rawQuery(str2, null);
-                if (cursor != null && cursor.moveToNext()) {
-                    i2 = cursor.getInt(0);
-                }
-            } catch (Exception e) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                LogUtils.e(TAG, " getNewMsgCount:", e);
-            }
-        }
-    }
-
-    public int getNewMsgNum(ChatObject chatObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048626, this, chatObject)) == null) {
-            if (1 == chatObject.getCategory()) {
-                return GroupMessageDAOImpl.getUnReadCount(this.mContext, String.valueOf(chatObject.getContacter()));
-            }
-            synchronized (DBBase.mSyncLock) {
-                SQLiteDatabase openDatabase = openDatabase();
-                if (openDatabase == null) {
-                    return -1;
-                }
-                try {
-                    int newMsgNum = getNewMsgNum(openDatabase, chatObject);
-                    String str = TAG;
-                    LogUtils.d(str, "getNewMsgNum: " + newMsgNum);
-                    return newMsgNum;
-                } catch (Exception e) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                    LogUtils.e(TAG, "getNewMsgNum:", e);
-                    return 0;
-                }
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    public ArrayList<ChatMsg> getNotificationMsgDataList(SparseArray<List<Integer>> sparseArray, long j, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048627, this, new Object[]{sparseArray, Long.valueOf(j), Integer.valueOf(i)})) == null) ? fetchPaMsgByPaids(new ArrayList(PaInfoDBManager.getInstance(this.mContext).getPaidListByPainfos(sparseArray)), j, i) : (ArrayList) invokeCommon.objValue;
-    }
-
-    public ArrayList<ChatMsg> getPaMsgByChatTypeAndPaidList(List<Integer> list, List<Long> list2, long j, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048628, this, new Object[]{list, list2, Long.valueOf(j), Integer.valueOf(i)})) == null) {
-            synchronized (DBBase.mSyncLock) {
-                SQLiteDatabase openDatabase = openDatabase();
-                if (openDatabase == null) {
-                    return null;
-                }
-                List<Long> contacterByChatTypes = getContacterByChatTypes(openDatabase, list);
-                HashSet hashSet = new HashSet();
-                if (list2 != null) {
-                    hashSet.addAll(list2);
-                }
-                if (contacterByChatTypes != null) {
-                    hashSet.addAll(contacterByChatTypes);
-                }
-                return fetchPaMsgByPaids(new ArrayList(hashSet), j, i);
-            }
-        }
-        return (ArrayList) invokeCommon.objValue;
-    }
-
-    public ArrayList<ChatMsg> getStudioUsePaUnReadMsg() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(1048629, this)) != null) {
-            return (ArrayList) invokeV.objValue;
-        }
-        ArrayList<ChatMsg> arrayList = new ArrayList<>();
-        synchronized (DBBase.mSyncLock) {
-            SQLiteDatabase openDatabase = openDatabase();
-            Cursor cursor = null;
-            try {
-                if (openDatabase == null) {
-                    return null;
-                }
-                try {
-                    Cursor query = openDatabase.query(TableDefine.DB_TABLE_STUDIO_USE_PA_MESSAGE, null, "is_read =?", new String[]{String.valueOf(0)}, null, null, null, null);
-                    if (query == null) {
-                        if (query != null) {
-                            query.close();
-                        }
-                        return null;
-                    }
-                    while (query.moveToNext()) {
-                        try {
-                            ChatMsg generateStudioUsePaMsg = generateStudioUsePaMsg(query);
-                            if (generateStudioUsePaMsg != null) {
-                                arrayList.add(generateStudioUsePaMsg);
-                            }
-                        } catch (Exception e) {
-                            e = e;
-                            cursor = query;
-                            LogUtils.e(TAG, "getStudioUsePaUnReadMsg :", e);
-                            if (cursor != null) {
-                                cursor.close();
-                            }
-                            return arrayList;
-                        } catch (Throwable th) {
-                            th = th;
-                            cursor = query;
-                            if (cursor != null) {
-                                cursor.close();
-                            }
-                            throw th;
-                        }
-                    }
-                    if (query != null) {
-                        query.close();
-                    }
-                    return arrayList;
-                } catch (Exception e2) {
-                    e = e2;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-            }
-        }
-    }
-
-    public int getUnReadMsgCount(ChatObject chatObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048630, this, chatObject)) == null) {
-            synchronized (DBBase.mSyncLock) {
-                SQLiteDatabase openDatabase = openDatabase();
-                Cursor cursor = null;
-                if (openDatabase == null) {
-                    return -1;
-                }
-                try {
-                    String str = "category=? AND contacter=? AND is_read=?";
-                    String[] strArr = {String.valueOf(chatObject.getCategory()), String.valueOf(chatObject.getContacter()), String.valueOf(0)};
-                    if (1 == chatObject.getCategory()) {
-                        str = "category=? AND contacter=? AND is_read=? AND type != 101";
-                    }
-                    cursor = openDatabase.query("message", new String[]{"_id"}, addPaidCondition(str, "paid", chatObject.getPaid()), strArr, null, null, null);
-                    LogUtils.d(TAG, "getUnReadMsgCount> COLUMN_CATEGORY=" + chatObject.getCategory() + ", COLUMN_CONTACTER=" + chatObject.getContacter() + ", count = " + cursor.getCount());
-                    int count = cursor.getCount();
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    return count;
-                } catch (Exception e) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                    LogUtils.e(TAG, " getUnReadMsgCount:", e);
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    return -1;
-                }
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x007d, code lost:
-        if (r1 != null) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x007f, code lost:
-        r1.close();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x009f, code lost:
-        if (0 == 0) goto L24;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x00a3, code lost:
-        return false;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean isRecordExist(SQLiteDatabase sQLiteDatabase, ChatObject chatObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(1048631, this, sQLiteDatabase, chatObject)) != null) {
-            return invokeLL.booleanValue;
-        }
-        synchronized (DBBase.mSyncLock) {
-            Cursor cursor = null;
-            if (sQLiteDatabase == null) {
-                return false;
-            }
-            try {
-                cursor = sQLiteDatabase.query(TableDefine.DB_TABLE_CHAT_SESSION, new String[]{"contacter"}, "category = ? AND contacter = ?", new String[]{String.valueOf(chatObject.getCategory()), String.valueOf(chatObject.getContacter())}, null, null, null);
-                if (cursor != null && cursor.moveToNext()) {
-                    String str = TAG;
-                    LogUtils.d(str, "chat record exist! " + chatObject.toString());
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    return true;
-                }
-                String str2 = TAG;
-                LogUtils.d(str2, "chat record not found! category: " + chatObject.toString());
-            } catch (Exception e) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                LogUtils.e(TAG, "isRecordExist:", e);
-            }
-        }
-    }
-
-    public int markMsgClicked(ChatMsg chatMsg) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048632, this, chatMsg)) == null) {
-            if (1 == chatMsg.getCategory()) {
-                return GroupMessageDAOImpl.markMsgClicked(this.mContext, chatMsg);
-            }
-            return markChatMsgClicked(chatMsg);
-        }
-        return invokeL.intValue;
-    }
-
-    public synchronized void notifyDbChange(int i, ChatSession chatSession) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048633, this, i, chatSession) == null) {
-            synchronized (this) {
-                if (this.mObservers != null && this.mObservers.size() != 0 && chatSession != null) {
-                    for (ChatMessageDbOberser chatMessageDbOberser : this.mObservers) {
-                        if (chatMessageDbOberser != null) {
-                            chatMessageDbOberser.notifyDbChange(i, chatSession);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public void recordLastMsg(HashMap<ChatObject, Integer> hashMap) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048635, this, hashMap) == null) {
-            LogUtils.d(TAG, "recordReceiveLastMsg");
-            for (Map.Entry<ChatObject, Integer> entry : hashMap.entrySet()) {
-                ChatObject key = entry.getKey();
-                int intValue = entry.getValue().intValue();
-                ArrayList<ChatMsg> fetchMsgExcludeTypes = fetchMsgExcludeTypes(entry.getKey(), 0L, 1L, UNUPDATE_SESSION_MSG_TYPES);
-                if (fetchMsgExcludeTypes.size() > 0) {
-                    ChatMsg chatMsg = fetchMsgExcludeTypes.get(0);
-                    String recommendDescription = chatMsg.getRecommendDescription();
-                    if (chatMsg instanceof HtmlMsg) {
-                        recommendDescription = chatMsg.getLocalUrl();
-                    }
-                    String str2 = recommendDescription;
-                    long newMsgNum = getNewMsgNum(key);
-                    int i = newMsgNum >= 0 ? (int) (intValue + newMsgNum) : intValue;
-                    int clickState = Utility.getClickState(chatMsg);
-                    if (key.getCategory() == 0 && (key.getContacter() & Constants.PAFLAG) != 0) {
-                        if (!chatMsg.isSelf(this.mContext)) {
-                            str = chatMsg.getExtLog();
-                        } else {
-                            ArrayList<ChatMsg> fetchMsg = fetchMsg(key, 0L, 1L, -1L, false, "from_user != " + Utility.getUK(this.mContext));
-                            if (fetchMsg != null && fetchMsg.size() > 0) {
-                                str = fetchMsg.get(0).getExtLog();
-                            }
-                        }
-                        recordLastMsg(key, str2, chatMsg.getMsgTime(), i, chatMsg.getStatus(), clickState, chatMsg.isStarMessage(), str, chatMsg.getSenderUid());
-                    }
-                    str = "";
-                    recordLastMsg(key, str2, chatMsg.getMsgTime(), i, chatMsg.getStatus(), clickState, chatMsg.isStarMessage(), str, chatMsg.getSenderUid());
-                }
-            }
-        }
-    }
-
-    public synchronized void registerObserver(ChatMessageDbOberser chatMessageDbOberser) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048636, this, chatMessageDbOberser) == null) {
-            synchronized (this) {
-                if (chatMessageDbOberser == null) {
-                    return;
-                }
-                if (this.mObservers == null) {
-                    this.mObservers = new LinkedList();
-                }
-                this.mObservers.add(chatMessageDbOberser);
-            }
-        }
-    }
-
-    public boolean setAllMsgReadWithMsgid(ChatObject chatObject, long j) {
-        InterceptResult invokeLJ;
-        int allMsgRead;
-        int unReadMsgCount;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048637, this, chatObject, j)) == null) {
-            if (j == -1) {
-                j = getInstance(this.mContext).getMaxMsgid(chatObject);
-            }
-            synchronized (DBBase.mSyncLock) {
-                if (j < 0) {
-                    return false;
-                }
-                if (chatObject.getCategory() == 1) {
-                    allMsgRead = GroupMessageDAOImpl.setAllMsgRead(this.mContext, String.valueOf(chatObject.getContacter()), j);
-                } else {
-                    allMsgRead = getInstance(this.mContext).setAllMsgRead(chatObject, j);
-                }
-                if (allMsgRead < 0) {
-                    return false;
-                }
-                ChatSession chatRecord = getInstance(this.mContext).getChatRecord(chatObject);
-                String str = TAG;
-                LogUtils.d(str, "delta:" + allMsgRead);
-                if (chatRecord != null) {
-                    if (1 == chatObject.getCategory()) {
-                        unReadMsgCount = GroupMessageDAOImpl.getUnReadCount(this.mContext, String.valueOf(chatObject.getContacter()));
-                        if (57 == chatRecord.getChatType()) {
-                            if (unReadMsgCount > 0) {
-                                ArrayList<ChatMsg> fansGroupAtUnread = GroupMessageDAOImpl.getFansGroupAtUnread(this.mContext, Long.toString(chatRecord.getContacterId()), AccountManager.getUid(this.mContext));
-                                if (fansGroupAtUnread != null) {
-                                    chatRecord.setNewFansAtMsgSum(fansGroupAtUnread.size());
-                                } else {
-                                    chatRecord.setNewFansAtMsgSum(0);
-                                }
-                            } else {
-                                chatRecord.setNewFansAtMsgSum(0);
-                            }
-                        }
-                    } else {
-                        unReadMsgCount = getUnReadMsgCount(chatObject);
-                    }
-                    if (unReadMsgCount >= 0) {
-                        chatRecord.setNewMsgSum(unReadMsgCount);
-                    } else {
-                        chatRecord.setNewMsgSum(0L);
-                    }
-                    getInstance(this.mContext).updateChatSession(1, chatRecord);
-                }
-                return true;
-            }
-        }
-        return invokeLJ.booleanValue;
-    }
-
-    public int setMsgRead(ChatObject chatObject, long j) {
-        InterceptResult invokeLJ;
-        int msgRead;
-        ChatSession chatSession;
-        int unReadMsgCount;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048638, this, chatObject, j)) == null) {
-            if (chatObject == null) {
-                return DBResponseCode.ERROR_PARAMETER;
-            }
-            synchronized (DBBase.mSyncLock) {
-                if (1 == chatObject.getCategory()) {
-                    msgRead = GroupMessageDAOImpl.setMsgReaded(this.mContext, String.valueOf(chatObject.getContacter()), j);
-                } else {
-                    msgRead = getInstance(this.mContext).setMsgRead(j);
-                }
-                if (msgRead < 0) {
-                    return DlnaManager.DLNA_ERROR_GET_POSITION_INFO_ACTION_NOT_FOUND;
-                }
-                if (msgRead != 0 && (chatSession = getChatSession(chatObject)) != null) {
-                    if (1 == chatObject.getCategory()) {
-                        unReadMsgCount = GroupMessageDAOImpl.getUnReadCount(this.mContext, String.valueOf(chatObject.getContacter()));
-                        if (57 == chatSession.getChatType()) {
-                            if (unReadMsgCount > 0) {
-                                ArrayList<ChatMsg> fansGroupAtUnread = GroupMessageDAOImpl.getFansGroupAtUnread(this.mContext, String.valueOf(chatObject.getContacter()), AccountManager.getUid(this.mContext));
-                                if (fansGroupAtUnread != null) {
-                                    chatSession.setNewFansAtMsgSum(fansGroupAtUnread.size());
-                                } else {
-                                    chatSession.setNewFansAtMsgSum(0);
-                                }
-                            } else {
-                                chatSession.setNewFansAtMsgSum(0);
-                            }
-                        }
-                    } else {
-                        unReadMsgCount = getUnReadMsgCount(chatObject);
-                    }
-                    if (unReadMsgCount >= 0) {
-                        chatSession.setNewMsgSum(unReadMsgCount);
-                    } else {
-                        chatSession.setNewMsgSum(0L);
-                    }
-                    getInstance(this.mContext).updateChatSession(1, chatSession);
-                }
-                return msgRead;
-            }
-        }
-        return invokeLJ.intValue;
-    }
-
-    public List<Long> setMsgReadByChatTypes(List<Integer> list, long j) {
+    public List setMsgReadByChatTypes(List list, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048639, this, list, j)) == null) {
@@ -3728,7 +1346,7 @@ public class ChatMessageDBManager extends DBBase {
         return (List) invokeLJ.objValue;
     }
 
-    public List<Long> setPaMsgReadByChatTypeAndSubType(SparseArray<List<Integer>> sparseArray, long j) {
+    public List setPaMsgReadByChatTypeAndSubType(SparseArray sparseArray, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048640, this, sparseArray, j)) == null) {
@@ -3788,31 +1406,753 @@ public class ChatMessageDBManager extends DBBase {
         return (List) invokeLJ.objValue;
     }
 
-    public int setStudioMsgRead(long j) {
+    private int delMsgsOfPaByPaId(long j) {
         InterceptResult invokeJ;
-        int update;
+        int i;
+        int i2;
+        int i3;
+        int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048641, this, j)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("is_read", (Integer) 1);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65546, this, j)) == null) {
             synchronized (DBBase.mSyncLock) {
-                update = update(TableDefine.DB_TABLE_STUDIO_USE_PA_MESSAGE, "msgid = ?", new String[]{String.valueOf(j)}, contentValues);
+                SQLiteDatabase openDatabase = openDatabase();
+                int i5 = -1;
+                if (openDatabase == null) {
+                    LogUtils.d(TAG, "getWritableDb fail!");
+                    return -1;
+                }
+                try {
+                    openDatabase.beginTransaction();
+                    String[] strArr = {String.valueOf(j)};
+                    if (!TextUtils.isEmpty("from_user = ? ")) {
+                        i = openDatabase.delete("message", "from_user = ? ", strArr);
+                        String str = TAG;
+                        LogUtils.d(str, "--delMsgsOfPaByPaId--delMsgs = " + i);
+                    } else {
+                        i = -1;
+                    }
+                    if (!TextUtils.isEmpty("contacter = ? ")) {
+                        i2 = delete(openDatabase, TableDefine.DB_TABLE_CHAT_SESSION, "contacter = ? ", strArr);
+                        String str2 = TAG;
+                        LogUtils.d(str2, "--delMsgsOfPaByPaId--delChatRecord = " + i2);
+                    } else {
+                        i2 = -1;
+                    }
+                    if (!TextUtils.isEmpty("paid = ? ")) {
+                        i3 = delete(openDatabase, TableDefine.DB_TABLE_PA_SUBSCRIBE, "paid = ? ", strArr);
+                        String str3 = TAG;
+                        LogUtils.d(str3, "--delMsgsOfPaByPaId--delPaInfoRecord = " + i3);
+                    } else {
+                        i3 = -1;
+                    }
+                    if (!TextUtils.isEmpty("paid = ? ")) {
+                        i4 = delete(openDatabase, TableDefine.DB_TABLE_ZHIDAINFO, "paid = ? ", strArr);
+                        String str4 = TAG;
+                        LogUtils.d(str4, "--delMsgsOfPaByPaId--delZhiDaPaInfoRecord = " + i4);
+                    } else {
+                        i4 = -1;
+                    }
+                    if (i >= 0 || i2 >= 0 || i3 >= 0 || i4 >= 0) {
+                        openDatabase.setTransactionSuccessful();
+                        i5 = i;
+                    }
+                    try {
+                        openDatabase.endTransaction();
+                    } catch (Exception e) {
+                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                        LogUtils.e(TAG, "delMsgsOfPaByPaId finally:", e);
+                    }
+                    return i5;
+                } catch (Exception e2) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+                    LogUtils.e(TAG, "delMsgsOfPaByPaId:", e2);
+                    try {
+                        openDatabase.endTransaction();
+                    } catch (Exception e3) {
+                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e3)).build();
+                        LogUtils.e(TAG, "delMsgsOfPaByPaId finally:", e3);
+                    }
+                    return -1;
+                }
             }
-            return update;
         }
         return invokeJ.intValue;
     }
 
-    public synchronized void unRegisterObserver(ChatMessageDbOberser chatMessageDbOberser) {
+    private int deleteChatMsg(long j) {
+        InterceptResult invokeJ;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048642, this, chatMessageDbOberser) == null) {
-            synchronized (this) {
-                if (this.mObservers == null) {
-                    return;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65547, this, j)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                SQLiteDatabase openDatabase = openDatabase();
+                if (openDatabase == null) {
+                    LogUtils.d(TAG, "getWritableDb fail!");
+                    return -1;
                 }
-                this.mObservers.remove(chatMessageDbOberser);
+                int i2 = 0;
+                try {
+                    i = openDatabase.delete("message", "_id = ? ", new String[]{String.valueOf(j)});
+                } catch (Exception e) {
+                    e = e;
+                }
+                try {
+                    long j2 = j + 1;
+                    openDatabase.execSQL("delete from message where _id=? and type in (?, ?, ?)", new Object[]{Long.valueOf(j2), Integer.valueOf((int) IMConstants.IM_MSG_TYPE_SHIELD_ME), 2001, 2014});
+                    String str = TAG;
+                    LogUtils.e(str, "deleteChatMsg notSendButShowTipMsg :delete from message where _id=? and type in (?, ?, ?), rowId :" + j2);
+                } catch (Exception e2) {
+                    e = e2;
+                    i2 = i;
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(TAG, "deleteChatMsg:", e);
+                    i = i2;
+                    return i;
+                }
+                return i;
             }
         }
+        return invokeJ.intValue;
+    }
+
+    private long dupMsgAddHandler(ChatMsg chatMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, chatMsg)) == null) {
+            if (chatMsg == null) {
+                return -1L;
+            }
+            if (chatMsg.getChatType() != 24 && chatMsg.getMsgType() == 20) {
+                return -1L;
+            }
+            SQLiteDatabase openDatabase = openDatabase();
+            try {
+                if (openDatabase == null) {
+                    LogUtils.d(TAG, "dupMsgAddHandler getWritableDb fail!");
+                    return -1L;
+                } else if (isDuplicateMsg(openDatabase, chatMsg) > 0) {
+                    LogUtils.d(TAG, "dupMsgAddHandler isDuplicateMsg = true");
+                    return -2L;
+                } else {
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put("msgid", Long.valueOf(chatMsg.getMsgId()));
+                    contentValues.put("type", Integer.valueOf(chatMsg.getMsgType()));
+                    contentValues.put("from_user", Long.valueOf(chatMsg.getFromUser()));
+                    contentValues.put("input_time", Long.valueOf(System.currentTimeMillis()));
+                    contentValues.put("category", Integer.valueOf(chatMsg.getCategory()));
+                    contentValues.put("contacter", Long.valueOf(chatMsg.getContacter()));
+                    contentValues.put("msg_key", chatMsg.getMsgKey());
+                    return openDatabase.insert(TableDefine.DB_TABLE_NO_DUPLICATE_MESSAGE, null, contentValues);
+                }
+            } catch (Exception e) {
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                LogUtils.e(TAG, "dupMsgAddHandler:", e);
+                return -1L;
+            }
+        }
+        return invokeL.longValue;
+    }
+
+    private ChatMsg generateStudioUsePaMsg(Cursor cursor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, this, cursor)) == null) {
+            long j = cursor.getLong(cursor.getColumnIndex("msgid"));
+            int i = cursor.getInt(cursor.getColumnIndex("type"));
+            long j2 = cursor.getLong(cursor.getColumnIndex("from_user"));
+            long j3 = cursor.getLong(cursor.getColumnIndex("input_time"));
+            int i2 = cursor.getInt(cursor.getColumnIndex("category"));
+            long j4 = cursor.getLong(cursor.getColumnIndex("contacter"));
+            String string = cursor.getString(cursor.getColumnIndex("msg_key"));
+            String string2 = cursor.getString(cursor.getColumnIndex("content"));
+            int i3 = cursor.getInt(cursor.getColumnIndex("is_read"));
+            ChatMsg newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.mContext, i2, i, -1);
+            if (newChatMsg == null) {
+                return null;
+            }
+            newChatMsg.setCategory(i2);
+            newChatMsg.setContacter(j4);
+            newChatMsg.setFromUser(j2);
+            newChatMsg.setMsgContent(string2);
+            newChatMsg.setMsgId(j);
+            newChatMsg.setMsgKey(string);
+            newChatMsg.setMsgTime(j3);
+            newChatMsg.setMsgReaded(i3);
+            return newChatMsg;
+        }
+        return (ChatMsg) invokeL.objValue;
+    }
+
+    private int markChatMsgClicked(ChatMsg chatMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65567, this, chatMsg)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                if (chatMsg.getRowId() == -1) {
+                    chatMsg.setRowId(addMsg(chatMsg));
+                }
+                if (chatMsg.getRowId() == -1) {
+                    return -1;
+                }
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("isclicked", (Integer) 1);
+                int update = update("message", "_id=?", new String[]{"" + chatMsg.getRowId()}, contentValues);
+                if (update < 0) {
+                    return update;
+                }
+                ArrayList fetchMsg = fetchMsg(new ChatObject(this.mContext, chatMsg.getCategory(), chatMsg.getContacter(), chatMsg.getPaid(), -1), 0L, 1L, -1L);
+                if (fetchMsg != null && fetchMsg.size() != 0) {
+                    if (chatMsg.getRowId() == ((ChatMsg) fetchMsg.get(0)).getRowId()) {
+                        updateChatSession(chatMsg);
+                    }
+                    return update;
+                }
+                return 1009;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x0051 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x005d */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: android.database.sqlite.SQLiteDatabase */
+    /* JADX DEBUG: Multi-variable search result rejected for r7v0, resolved type: long */
+    /* JADX DEBUG: Multi-variable search result rejected for r7v1, resolved type: java.lang.String */
+    /* JADX DEBUG: Multi-variable search result rejected for r7v2, resolved type: android.database.Cursor */
+    /* JADX DEBUG: Multi-variable search result rejected for r7v3, resolved type: android.database.Cursor */
+    /* JADX DEBUG: Multi-variable search result rejected for r7v8, resolved type: android.database.Cursor */
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x0051, code lost:
+        if (r7 != null) goto L22;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x0053, code lost:
+        r7.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x007c, code lost:
+        if (r7 == 0) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x007f, code lost:
+        return r1;
+     */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r7v6, types: [java.lang.String] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public ChatMsg getMsgByMsgId(long j) {
+        InterceptResult invokeJ;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048622, this, j)) == null) {
+            SQLiteDatabase openDatabase = openDatabase();
+            Cursor cursor2 = null;
+            r1 = null;
+            r1 = null;
+            r1 = null;
+            ChatMsg chatMsg = null;
+            try {
+                if (openDatabase == null) {
+                    LogUtils.e(TAG, "getMsgByMsgId db is null!");
+                    return null;
+                }
+                try {
+                    String[] strArr = {String.valueOf(j)};
+                    cursor = "select * from message where msgid = ? limit " + Math.abs(1);
+                    try {
+                        try {
+                            synchronized (DBBase.mSyncLock) {
+                                try {
+                                    cursor = openDatabase.rawQuery(cursor, strArr);
+                                    if (cursor != null && cursor.moveToNext()) {
+                                        chatMsg = construChatMsg(cursor);
+                                    }
+                                } catch (Throwable th) {
+                                    th = th;
+                                    throw th;
+                                }
+                            }
+                        } catch (Exception e) {
+                            e = e;
+                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                            LogUtils.e(TAG, "getMsgByMsgId:", e);
+                        }
+                    } catch (Throwable th2) {
+                        th = th2;
+                    }
+                } catch (Exception e2) {
+                    e = e2;
+                    cursor = 0;
+                } catch (Throwable th3) {
+                    th = th3;
+                    if (cursor2 != null) {
+                        cursor2.close();
+                    }
+                    throw th;
+                }
+            } catch (Throwable th4) {
+                th = th4;
+                cursor2 = j;
+            }
+        } else {
+            return (ChatMsg) invokeJ.objValue;
+        }
+    }
+
+    public void updateSessionClass(PaInfo paInfo) {
+        ChatSession chatRecord;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048652, this, paInfo) == null) && (chatRecord = getChatRecord(new ChatObject(this.mContext, 0, paInfo.getPaId(), -1L, -1))) != null) {
+            String str = TAG;
+            LogUtils.d(str, "syncpa session " + paInfo.toString());
+            chatRecord.setName(paInfo.getNickName());
+            chatRecord.setNickName(paInfo.getNickName());
+            chatRecord.setIconUrl(paInfo.getAvatar());
+            chatRecord.setClassType(paInfo.getClassType());
+            chatRecord.setClassTitle(paInfo.getClassTitle());
+            chatRecord.setClassAvatar(paInfo.getClassavatar());
+            chatRecord.setClassShow(paInfo.getClassshow());
+            chatRecord.setMarkTop(paInfo.getMarkTop());
+            chatRecord.setMarkTopTime(paInfo.getMarkTopTime());
+            chatRecord.setVipId(paInfo.getVipId());
+            chatRecord.setVPortrait(paInfo.getVPortrait());
+            chatRecord.setCertification(paInfo.getIdentity());
+            chatRecord.setShield(paInfo.getShield());
+            chatRecord.setShieldTime(paInfo.getShieldTime());
+            chatRecord.setChatType(paInfo.getSubtype());
+            updateChatSession(1, chatRecord);
+        }
+    }
+
+    private int deleteDraftMsgForSingle(ChatObject chatObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, chatObject)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                int delete = delete("message", addPaidCondition("category=? AND contacter=? AND status=?", "paid", chatObject.getPaid()), new String[]{String.valueOf(chatObject.getCategory()), String.valueOf(chatObject.getContacter()), String.valueOf(3)});
+                if (delete <= 0) {
+                    return delete;
+                }
+                ArrayList fetchMsg = getInstance(this.mContext).fetchMsg(chatObject, 0L, 2L);
+                ChatMsg chatMsg = null;
+                if (fetchMsg != null && fetchMsg.size() > 0) {
+                    chatMsg = (ChatMsg) fetchMsg.get(0);
+                } else if (fetchMsg != null) {
+                    fetchMsg.size();
+                }
+                updateSession(true, getChatSession(chatObject), chatMsg);
+                return delete;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    private int updateMsgStatusForSingle(ChatMsg chatMsg) {
+        InterceptResult invokeL;
+        int update;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65574, this, chatMsg)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("msgid", Long.valueOf(chatMsg.getMsgId()));
+            contentValues.put("status", Integer.valueOf(chatMsg.getStatus()));
+            contentValues.put("content", chatMsg.getJsonContent());
+            contentValues.put("time", Long.valueOf(chatMsg.getMsgTime()));
+            contentValues.put(TableDefine.MessageColumns.COLUME_TIPS_CODE, Integer.valueOf(chatMsg.getTipsCode()));
+            contentValues.put("tips", chatMsg.getTips());
+            synchronized (DBBase.mSyncLock) {
+                update = update("message", "_id = ?", new String[]{String.valueOf(chatMsg.getRowId())}, contentValues);
+                if (update >= 0) {
+                    updateChatSession(chatMsg);
+                }
+            }
+            return update;
+        }
+        return invokeL.intValue;
+    }
+
+    public long delChatRecord(ChatObject chatObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, chatObject)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                SQLiteDatabase openDatabase = openDatabase();
+                if (openDatabase == null) {
+                    LogUtils.d(TAG, "getWritableDb fail!");
+                    return -1L;
+                }
+                try {
+                    String[] strArr = {String.valueOf(chatObject.getCategory()), String.valueOf(chatObject.getContacter())};
+                    String addPaidCondition = addPaidCondition("category = ? AND contacter = ?", "paid", chatObject.getPaid());
+                    ChatSession chatRecordInternal = getChatRecordInternal(openDatabase, chatObject);
+                    long delete = openDatabase.delete(TableDefine.DB_TABLE_CHAT_SESSION, addPaidCondition, strArr);
+                    if (delete > 0 && chatRecordInternal != null) {
+                        notifyDbChange(2, chatRecordInternal);
+                    }
+                    return delete;
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(TAG, "delChatRecord:", e);
+                    return -1L;
+                }
+            }
+        }
+        return invokeL.longValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r12v0, resolved type: long */
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x0044, code lost:
+        if (r12 != null) goto L17;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x0046, code lost:
+        r12.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x0067, code lost:
+        if (r12 == null) goto L18;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x006b, code lost:
+        return r10;
+     */
+    /* JADX WARN: Multi-variable type inference failed */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public ChatMsg getChatMsgByMsgId(long j) {
+        InterceptResult invokeJ;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048608, this, j)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                SQLiteDatabase openDatabase = openDatabase();
+                Cursor cursor2 = null;
+                r10 = null;
+                r10 = null;
+                r10 = null;
+                ChatMsg chatMsg = null;
+                try {
+                    if (openDatabase == null) {
+                        LogUtils.e(TAG, "getReadableDb fail!");
+                        return null;
+                    }
+                    try {
+                        cursor = openDatabase.query("message", null, "msgid=? AND status=?", new String[]{String.valueOf(j), String.valueOf(0)}, null, null, null, null);
+                        if (cursor != null) {
+                            try {
+                                if (cursor.moveToNext()) {
+                                    chatMsg = construChatMsg(cursor);
+                                }
+                            } catch (Exception e) {
+                                e = e;
+                                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                                LogUtils.e(TAG, "fetchMsg:", e);
+                            }
+                        }
+                    } catch (Exception e2) {
+                        e = e2;
+                        cursor = null;
+                    } catch (Throwable th) {
+                        th = th;
+                        if (cursor2 != null) {
+                            cursor2.close();
+                        }
+                        throw th;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    cursor2 = j;
+                }
+            }
+        } else {
+            return (ChatMsg) invokeJ.objValue;
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:37:0x0073 A[Catch: all -> 0x0077, TryCatch #1 {, blocks: (B:6:0x0007, B:8:0x000e, B:16:0x004f, B:17:0x0052, B:22:0x0058, B:23:0x005b, B:31:0x006a, B:32:0x006d, B:37:0x0073, B:38:0x0076), top: B:46:0x0007 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public ChatSession getChatRecord(ChatObject chatObject) {
+        InterceptResult invokeL;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, chatObject)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                SQLiteDatabase openDatabase = openDatabase();
+                Cursor cursor2 = null;
+                if (openDatabase == null) {
+                    return null;
+                }
+                try {
+                    cursor = openDatabase.query(TableDefine.DB_TABLE_CHAT_SESSION, null, addPaidCondition("category = ? AND contacter=?", "paid", chatObject.getPaid()), new String[]{String.valueOf(chatObject.getCategory()), String.valueOf(chatObject.getContacter())}, null, null, null, null);
+                    if (cursor != null) {
+                        try {
+                            try {
+                                if (cursor.moveToNext()) {
+                                    ChatSession constructChatRecord = constructChatRecord(openDatabase, cursor);
+                                    if (cursor != null) {
+                                        cursor.close();
+                                    }
+                                    return constructChatRecord;
+                                }
+                            } catch (Exception e) {
+                                e = e;
+                                LogUtils.e(TAG, "getChatRecord:", e);
+                                if (cursor != null) {
+                                    cursor.close();
+                                }
+                                return null;
+                            }
+                        } catch (Throwable th) {
+                            th = th;
+                            cursor2 = cursor;
+                            if (cursor2 != null) {
+                                cursor2.close();
+                            }
+                            throw th;
+                        }
+                    }
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    return null;
+                } catch (Exception e2) {
+                    e = e2;
+                    cursor = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    if (cursor2 != null) {
+                    }
+                    throw th;
+                }
+            }
+        } else {
+            return (ChatSession) invokeL.objValue;
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x0053 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r11v1 */
+    /* JADX WARN: Type inference failed for: r11v2 */
+    /* JADX WARN: Type inference failed for: r11v3, types: [android.database.Cursor] */
+    public ChatSession getChatRecordByContacter(ChatObject chatObject) {
+        InterceptResult invokeL;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, chatObject)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                SQLiteDatabase openDatabase = openDatabase();
+                ?? r11 = 0;
+                try {
+                    if (openDatabase == null) {
+                        return null;
+                    }
+                    try {
+                        cursor = openDatabase.query(TableDefine.DB_TABLE_CHAT_SESSION, null, "category = ? AND contacter=?", new String[]{String.valueOf(chatObject.getCategory()), String.valueOf(chatObject.getContacter())}, null, null, null, null);
+                        if (cursor != null) {
+                            try {
+                                if (cursor.moveToNext()) {
+                                    ChatSession constructChatRecord = constructChatRecord(openDatabase, cursor);
+                                    if (cursor != null) {
+                                        cursor.close();
+                                    }
+                                    return constructChatRecord;
+                                }
+                            } catch (Exception e) {
+                                e = e;
+                                LogUtils.e(TAG, "getChatRecord:", e);
+                                if (cursor != null) {
+                                    cursor.close();
+                                }
+                                return null;
+                            }
+                        }
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                        return null;
+                    } catch (Exception e2) {
+                        e = e2;
+                        cursor = null;
+                    } catch (Throwable th) {
+                        th = th;
+                        if (r11 != 0) {
+                            r11.close();
+                        }
+                        throw th;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    r11 = chatObject;
+                }
+            }
+        } else {
+            return (ChatSession) invokeL.objValue;
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x0063, code lost:
+        if (r2 != null) goto L25;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0065, code lost:
+        r2.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x0073, code lost:
+        if (r2 == null) goto L26;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x0079, code lost:
+        return 0;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public long getMaxReliableMsgId(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048621, this, j)) == null) {
+            String str = "select max(msgid) as max_msg_id from " + TableDefine.DB_TABLE_RELIABLE_MESSAGE + " where mcast_id = " + j;
+            synchronized (DBBase.mSyncLock) {
+                SQLiteDatabase openDatabase = openDatabase();
+                if (openDatabase == null) {
+                    LogUtils.e(TAG, "getMaxReliableMsgId db is null!");
+                    return -1L;
+                }
+                Cursor cursor = null;
+                try {
+                    cursor = openDatabase.rawQuery(str, null);
+                    if (cursor != null && cursor.moveToNext()) {
+                        long j2 = cursor.getLong(cursor.getColumnIndex("max_msg_id"));
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                        return j2;
+                    }
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "getMaxReliableMsgId:", e);
+                }
+            }
+        } else {
+            return invokeJ.longValue;
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0057, code lost:
+        if (r3 != null) goto L29;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0059, code lost:
+        r3.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x0079, code lost:
+        if (r3 == null) goto L27;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x007d, code lost:
+        return r1;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public int getNewMsgCount(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048623, this, j)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                int i = -1;
+                SQLiteDatabase openDatabase = openDatabase();
+                if (openDatabase == null) {
+                    return -1;
+                }
+                Cursor cursor = null;
+                String str = "";
+                if (j != -1) {
+                    try {
+                        str = "paid=" + j;
+                    } catch (Exception e) {
+                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                        LogUtils.e(TAG, " getNewMsgCount:", e);
+                    }
+                }
+                String str2 = "select sum(new_msg_sum) from chatrecord";
+                if (!TextUtils.isEmpty(str)) {
+                    str2 = "select sum(new_msg_sum) from chatrecord where " + str;
+                }
+                cursor = openDatabase.rawQuery(str2, null);
+                if (cursor != null && cursor.moveToNext()) {
+                    i = cursor.getInt(0);
+                }
+            }
+        } else {
+            return invokeJ.intValue;
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x004f, code lost:
+        if (r3 != null) goto L24;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x0051, code lost:
+        r3.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x0071, code lost:
+        if (r3 == null) goto L25;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x0075, code lost:
+        return r1;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public int getNewMsgCountOfClass(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048625, this, i)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                int i2 = -1;
+                SQLiteDatabase openDatabase = openDatabase();
+                if (openDatabase == null) {
+                    return -1;
+                }
+                Cursor cursor = null;
+                try {
+                    String str = "classtype = " + i;
+                    String str2 = "select sum(new_msg_sum) from chatrecord";
+                    if (!TextUtils.isEmpty(str)) {
+                        str2 = "select sum(new_msg_sum) from chatrecord where " + str;
+                    }
+                    cursor = openDatabase.rawQuery(str2, null);
+                    if (cursor != null && cursor.moveToNext()) {
+                        i2 = cursor.getInt(0);
+                    }
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(TAG, " getNewMsgCount:", e);
+                }
+            }
+        } else {
+            return invokeI.intValue;
+        }
+    }
+
+    public int getNewMsgNum(ChatObject chatObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048626, this, chatObject)) == null) {
+            if (1 == chatObject.getCategory()) {
+                return GroupMessageDAOImpl.getUnReadCount(this.mContext, String.valueOf(chatObject.getContacter()));
+            }
+            synchronized (DBBase.mSyncLock) {
+                SQLiteDatabase openDatabase = openDatabase();
+                if (openDatabase == null) {
+                    return -1;
+                }
+                try {
+                    int newMsgNum = getNewMsgNum(openDatabase, chatObject);
+                    String str = TAG;
+                    LogUtils.d(str, "getNewMsgNum: " + newMsgNum);
+                    return newMsgNum;
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(TAG, "getNewMsgNum:", e);
+                    return 0;
+                }
+            }
+        }
+        return invokeL.intValue;
     }
 
     public int updateChatMsgContent(ChatMsg chatMsg) {
@@ -3839,10 +2179,31 @@ public class ChatMessageDBManager extends DBBase {
         return invokeL.intValue;
     }
 
-    public void updateChatSession(String str, String[] strArr, ContentValues contentValues) {
+    public void updateChatSession(ChatMsg chatMsg) {
+        ArrayList fetchMsgExcludeTypes;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048646, this, str, strArr, contentValues) == null) {
-            update(TableDefine.DB_TABLE_CHAT_SESSION, str, strArr, contentValues);
+        if (interceptable == null || interceptable.invokeL(1048645, this, chatMsg) == null) {
+            ChatObject chatObject = new ChatObject(this.mContext, chatMsg.getCategory(), chatMsg.getContacter(), chatMsg.getPaid(), chatMsg.getChatType());
+            ChatSession chatSession = getChatSession(chatObject);
+            boolean z = false;
+            if (!isDraftMsg(chatMsg)) {
+                if (chatSession == null || chatSession.getState() != 3) {
+                    if (1 == chatMsg.getCategory()) {
+                        fetchMsgExcludeTypes = GroupMessageDAOImpl.fetchAllChatMsg(this.mContext, String.valueOf(chatMsg.getContacter()), null, 1L, true);
+                    } else {
+                        fetchMsgExcludeTypes = getInstance(this.mContext).fetchMsgExcludeTypes(chatObject, 0L, 1L, UNUPDATE_SESSION_MSG_TYPES);
+                    }
+                    if (fetchMsgExcludeTypes != null && fetchMsgExcludeTypes.size() > 0) {
+                        int chatType = chatMsg.getChatType();
+                        ChatMsg chatMsg2 = (ChatMsg) fetchMsgExcludeTypes.get(0);
+                        chatMsg2.setChatType(chatType);
+                        chatMsg = chatMsg2;
+                    }
+                }
+                updateSession(z, chatSession, chatMsg);
+            }
+            z = true;
+            updateSession(z, chatSession, chatMsg);
         }
     }
 
@@ -3876,78 +2237,443 @@ public class ChatMessageDBManager extends DBBase {
         return invokeL.intValue;
     }
 
-    public int updateMsgStatus(ChatMsg chatMsg) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048649, this, chatMsg)) == null) {
-            if (chatMsg != null) {
-                if (1 == chatMsg.getCategory()) {
-                    int updateMsgStatus = GroupMessageDAOImpl.updateMsgStatus(this.mContext, chatMsg);
-                    if (updateMsgStatus >= 0) {
-                        updateChatSession(chatMsg);
-                        return updateMsgStatus;
-                    }
-                    return updateMsgStatus;
-                }
-                return updateMsgStatusForSingle(chatMsg);
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public int updateSession(int i, ChatObject chatObject) {
-        InterceptResult invokeIL;
-        ArrayList<ChatMsg> fetchMsgExcludeTypes;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048650, this, i, chatObject)) == null) {
-            synchronized (DBBase.mSyncLock) {
-                ChatMsg chatMsg = null;
-                ChatSession chatSession = getChatSession(chatObject);
-                if (chatSession != null && chatSession.getState() != 3) {
-                    if (i != 0) {
-                        if (1 == chatObject.getCategory()) {
-                            fetchMsgExcludeTypes = GroupMessageDAOImpl.fetchChatMsgExceptGroupSystem(this.mContext, String.valueOf(chatObject.getContacter()), null, 1L, true);
-                        } else {
-                            fetchMsgExcludeTypes = fetchMsgExcludeTypes(chatObject, 0L, 1L, UNUPDATE_SESSION_MSG_TYPES);
-                        }
-                        if (fetchMsgExcludeTypes != null && fetchMsgExcludeTypes.size() > 0) {
-                            chatMsg = fetchMsgExcludeTypes.get(0);
-                        }
-                        updateSession(true, chatSession, chatMsg);
-                    }
-                    return i;
-                }
-                return i;
-            }
-        }
-        return invokeIL.intValue;
-    }
-
-    public void updateSessionClass(PaInfo paInfo) {
+    public void updateSessionClass(ChatUser chatUser) {
         ChatSession chatRecord;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048652, this, paInfo) == null) || (chatRecord = getChatRecord(new ChatObject(this.mContext, 0, paInfo.getPaId(), -1L, -1))) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048651, this, chatUser) == null) && (chatRecord = getChatRecord(new ChatObject(this.mContext, 0, chatUser.getUk(), -1L, -1))) != null) {
+            String str = TAG;
+            LogUtils.d(str, "sync user session " + chatUser.toString());
+            chatRecord.setNickName(chatUser.getUserName());
+            chatRecord.setName(chatUser.getUserName());
+            chatRecord.setIconUrl(chatUser.getIconUrl());
+            chatRecord.setMarkTop(chatUser.getMarkTop());
+            chatRecord.setMarkTopTime(chatUser.getMarkTopTime());
+            chatRecord.setVipId(chatUser.getVipId());
+            chatRecord.setVPortrait(chatUser.getVPortrait());
+            chatRecord.setCertification(chatUser.getIdentity());
+            chatRecord.setShield(chatUser.getShield());
+            chatRecord.setShieldTime(chatUser.getShieldTime());
+            updateChatSession(1, chatRecord);
         }
-        String str = TAG;
-        LogUtils.d(str, "syncpa session " + paInfo.toString());
-        chatRecord.setName(paInfo.getNickName());
-        chatRecord.setNickName(paInfo.getNickName());
-        chatRecord.setIconUrl(paInfo.getAvatar());
-        chatRecord.setClassType(paInfo.getClassType());
-        chatRecord.setClassTitle(paInfo.getClassTitle());
-        chatRecord.setClassAvatar(paInfo.getClassavatar());
-        chatRecord.setClassShow(paInfo.getClassshow());
-        chatRecord.setMarkTop(paInfo.getMarkTop());
-        chatRecord.setMarkTopTime(paInfo.getMarkTopTime());
-        chatRecord.setVipId(paInfo.getVipId());
-        chatRecord.setVPortrait(paInfo.getVPortrait());
-        chatRecord.setCertification(paInfo.getIdentity());
-        chatRecord.setShield(paInfo.getShield());
-        chatRecord.setShieldTime(paInfo.getShieldTime());
-        chatRecord.setChatType(paInfo.getSubtype());
-        updateChatSession(1, chatRecord);
+    }
+
+    private long existStudioMsg(SQLiteDatabase sQLiteDatabase, ChatMsg chatMsg) {
+        InterceptResult invokeLL;
+        String[] strArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, this, sQLiteDatabase, chatMsg)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                long msgId = chatMsg.getMsgId();
+                StringBuilder sb = new StringBuilder();
+                sb.append("(");
+                sb.append("msgid");
+                sb.append(" = ?)");
+                if (TextUtils.isEmpty(chatMsg.getMsgKey())) {
+                    strArr = new String[]{String.valueOf(msgId), String.valueOf(chatMsg.getContacter())};
+                } else {
+                    sb.append(" OR ");
+                    sb.append("msg_key");
+                    sb.append(" = ?");
+                    strArr = new String[]{String.valueOf(msgId), String.valueOf(chatMsg.getMsgKey()), String.valueOf(chatMsg.getContacter())};
+                }
+                StringBuilder insert = sb.insert(0, "((");
+                insert.append(") AND ");
+                insert.append("contacter");
+                insert.append(" = ?)");
+                String str = TAG;
+                LogUtils.d(str, "existStudioMsg query sql = " + sb.toString());
+                Cursor query = sQLiteDatabase.query(TableDefine.DB_TABLE_STUDIO_USE_PA_MESSAGE, null, sb.toString(), strArr, null, null, null, String.valueOf(1));
+                if (query != null && query.moveToNext()) {
+                    long j = query.getLong(query.getColumnIndex("_id"));
+                    if (query != null) {
+                        query.close();
+                    }
+                    return j;
+                }
+                if (query != null) {
+                    query.close();
+                }
+                return -1L;
+            }
+        }
+        return invokeLL.longValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x009e, code lost:
+        if (r1 != null) goto L25;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x00a0, code lost:
+        r1.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x00c0, code lost:
+        if (0 == 0) goto L26;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x00c4, code lost:
+        return 0;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private int getNewMsgNum(SQLiteDatabase sQLiteDatabase, ChatObject chatObject) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, this, sQLiteDatabase, chatObject)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                Cursor cursor = null;
+                if (sQLiteDatabase == null) {
+                    return -1;
+                }
+                try {
+                    cursor = sQLiteDatabase.query(TableDefine.DB_TABLE_CHAT_SESSION, new String[]{TableDefine.SessionColumns.COLUMN_NEW_MSG_SUM}, addPaidCondition("category =? AND contacter =?", "paid", chatObject.getPaid()), new String[]{String.valueOf(chatObject.getCategory()), String.valueOf(chatObject.getContacter())}, null, null, null);
+                    if (cursor != null && cursor.moveToNext()) {
+                        String str = TAG;
+                        LogUtils.d(str, "get new msg num for category : " + chatObject.getCategory() + " contacter:" + chatObject.getContacter());
+                        int i = cursor.getInt(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_NEW_MSG_SUM));
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                        return i;
+                    }
+                    String str2 = TAG;
+                    LogUtils.d(str2, "getNewMsgNum record not found! " + chatObject.toString());
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(TAG, "getNewMsgNum:", e);
+                }
+            }
+        } else {
+            return invokeLL.intValue;
+        }
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
+    private List getUnreadContacterByChatTypes(SQLiteDatabase sQLiteDatabase, List list) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65561, this, sQLiteDatabase, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (list != null && list.size() > 0) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(list.get(0));
+                for (int i = 1; i < list.size(); i++) {
+                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                    sb.append(list.get(i));
+                }
+                String str = "chat_type in (" + sb.toString() + ")  AND " + TableDefine.SessionColumns.COLUMN_NEW_MSG_SUM + ">0";
+                if (sQLiteDatabase == null) {
+                    return arrayList;
+                }
+                Cursor cursor = null;
+                try {
+                    try {
+                        cursor = sQLiteDatabase.rawQuery("select contacter from chatrecord where " + str, null);
+                        if (cursor != null) {
+                            while (cursor.moveToNext()) {
+                                arrayList.add(Long.valueOf(cursor.getLong(cursor.getColumnIndex("contacter"))));
+                            }
+                        }
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                        return arrayList;
+                    } catch (Exception e) {
+                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                        LogUtils.e(TAG, "getUnreadSessionByChatTypes:", e);
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                        return arrayList;
+                    }
+                } catch (Throwable th) {
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    throw th;
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    private long isDuplicateMsg(SQLiteDatabase sQLiteDatabase, ChatMsg chatMsg) {
+        InterceptResult invokeLL;
+        String[] strArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65563, this, sQLiteDatabase, chatMsg)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                long msgId = chatMsg.getMsgId();
+                StringBuilder sb = new StringBuilder();
+                sb.append("(");
+                sb.append("msgid");
+                sb.append(" = ?)");
+                if (TextUtils.isEmpty(chatMsg.getMsgKey())) {
+                    strArr = new String[]{String.valueOf(msgId), String.valueOf(chatMsg.getContacter())};
+                } else {
+                    sb.append(" OR ");
+                    sb.append("msg_key");
+                    sb.append(" = ?");
+                    strArr = new String[]{String.valueOf(msgId), String.valueOf(chatMsg.getMsgKey()), String.valueOf(chatMsg.getContacter())};
+                }
+                StringBuilder insert = sb.insert(0, "((");
+                insert.append(") AND ");
+                insert.append("contacter");
+                insert.append(" = ?)");
+                String str = TAG;
+                LogUtils.d(str, "isDuplicateMsg query sql = " + sb.toString());
+                Cursor query = sQLiteDatabase.query(TableDefine.DB_TABLE_NO_DUPLICATE_MESSAGE, null, sb.toString(), strArr, null, null, null, String.valueOf(1));
+                if (query != null && query.moveToNext()) {
+                    long j = query.getLong(query.getColumnIndex("_id"));
+                    if (query != null) {
+                        query.close();
+                    }
+                    return j;
+                }
+                if (query != null) {
+                    query.close();
+                }
+                return -1L;
+            }
+        }
+        return invokeLL.longValue;
+    }
+
+    private long isMsgExist(SQLiteDatabase sQLiteDatabase, ChatMsg chatMsg) {
+        InterceptResult invokeLL;
+        String[] strArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65564, this, sQLiteDatabase, chatMsg)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                long msgId = chatMsg.getMsgId();
+                StringBuilder sb = new StringBuilder();
+                sb.append("(");
+                sb.append("msgid");
+                sb.append(" = ? AND ");
+                sb.append("status");
+                sb.append(" = ?)");
+                if (TextUtils.isEmpty(chatMsg.getMsgKey())) {
+                    strArr = new String[]{String.valueOf(msgId), String.valueOf(0), String.valueOf(chatMsg.getContacter())};
+                } else {
+                    sb.append(" OR ");
+                    sb.append("msg_key");
+                    sb.append(" = ?");
+                    strArr = new String[]{String.valueOf(msgId), String.valueOf(0), String.valueOf(chatMsg.getMsgKey()), String.valueOf(chatMsg.getContacter())};
+                }
+                StringBuilder insert = sb.insert(0, "((");
+                insert.append(") AND ");
+                insert.append("contacter");
+                insert.append(" = ?)");
+                Cursor query = sQLiteDatabase.query("message", null, sb.toString(), strArr, null, null, null, String.valueOf(1));
+                if (query != null && query.moveToNext()) {
+                    long j = query.getLong(query.getColumnIndex("_id"));
+                    if (query != null) {
+                        query.close();
+                    }
+                    return j;
+                }
+                if (query != null) {
+                    query.close();
+                }
+                return -1L;
+            }
+        }
+        return invokeLL.longValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x00ac */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x00ae */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r2v0 */
+    /* JADX WARN: Type inference failed for: r2v1 */
+    /* JADX WARN: Type inference failed for: r2v2, types: [android.database.Cursor] */
+    /* JADX WARN: Type inference failed for: r8v1 */
+    /* JADX WARN: Type inference failed for: r8v2, types: [android.database.Cursor] */
+    /* JADX WARN: Type inference failed for: r8v6, types: [java.lang.String] */
+    public ArrayList fetchMsg(String str, String str2) {
+        InterceptResult invokeLL;
+        ?? r8;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048599, this, str, str2)) == null) {
+            ArrayList arrayList = new ArrayList();
+            SQLiteDatabase openDatabase = openDatabase();
+            ?? r2 = 0;
+            try {
+                if (openDatabase == null) {
+                    LogUtils.d(TAG, "getReadableDb fail!");
+                    return null;
+                }
+                try {
+                    String[] strArr = {str2, str};
+                    r8 = "select * from message where " + ("contacter = ? AND _id = ?  AND status = 2");
+                    try {
+                        try {
+                            synchronized (DBBase.mSyncLock) {
+                                try {
+                                    Cursor rawQuery = openDatabase.rawQuery(r8, strArr);
+                                    if (rawQuery != null && rawQuery.getCount() != 0) {
+                                        rawQuery.moveToFirst();
+                                        ChatMsg construChatMsg = construChatMsg(rawQuery);
+                                        if (construChatMsg != null) {
+                                            LogUtils.d(TAG, "msgid : " + construChatMsg.getMsgId());
+                                            arrayList.add(construChatMsg);
+                                        } else {
+                                            LogUtils.d(TAG, "construChatMsg msg is null ");
+                                        }
+                                        if (rawQuery != null) {
+                                            rawQuery.close();
+                                        }
+                                        return arrayList;
+                                    }
+                                    LogUtils.d(TAG, "resend fetchmsg cursor is null " + str);
+                                    if (rawQuery != null) {
+                                        rawQuery.close();
+                                    }
+                                    return null;
+                                } catch (Throwable th) {
+                                    th = th;
+                                    throw th;
+                                }
+                            }
+                        } catch (Exception e) {
+                            e = e;
+                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                            LogUtils.e(TAG, "fetchMsg:", e);
+                            if (r8 != 0) {
+                                r8.close();
+                            }
+                            return null;
+                        }
+                    } catch (Throwable th2) {
+                        th = th2;
+                    }
+                } catch (Exception e2) {
+                    e = e2;
+                    r8 = 0;
+                } catch (Throwable th3) {
+                    th = th3;
+                    if (r2 != 0) {
+                        r2.close();
+                    }
+                    throw th;
+                }
+            } catch (Throwable th4) {
+                th = th4;
+                r2 = str2;
+            }
+        } else {
+            return (ArrayList) invokeLL.objValue;
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x00c7, code lost:
+        if (r1 != null) goto L36;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x00c9, code lost:
+        r1.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x00e9, code lost:
+        if (r1 == null) goto L37;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x00ed, code lost:
+        return r0;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public List fetchPaMsgByChatType(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048604, this, i, i2)) == null) {
+            ArrayList arrayList = new ArrayList();
+            List queryPaInfoByChatType = PaInfoDBManager.getInstance(this.mContext).queryPaInfoByChatType(i);
+            Cursor cursor = null;
+            if (queryPaInfoByChatType == null || queryPaInfoByChatType.size() <= 0) {
+                return null;
+            }
+            String str = "" + ((PaInfo) queryPaInfoByChatType.get(0)).getPaId();
+            for (int i3 = 1; i3 < queryPaInfoByChatType.size(); i3++) {
+                str = str + StringUtil.ARRAY_ELEMENT_SEPARATOR + ((PaInfo) queryPaInfoByChatType.get(i3)).getPaId();
+            }
+            String str2 = "select * from message where " + ("paid in (" + str + ") ") + " ORDER BY time desc limit " + Math.abs(i2);
+            synchronized (DBBase.mSyncLock) {
+                SQLiteDatabase openDatabase = openDatabase();
+                if (openDatabase == null) {
+                    LogUtils.d(TAG, "getReadableDb fail!");
+                    return null;
+                }
+                try {
+                    cursor = openDatabase.rawQuery(str2, null);
+                    if (cursor != null) {
+                        while (cursor.moveToNext()) {
+                            ChatMsg construChatMsg = construChatMsg(cursor);
+                            if (construChatMsg != null) {
+                                arrayList.add(construChatMsg);
+                            }
+                        }
+                    }
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(TAG, "fetchPaMsgByChatType:", e);
+                }
+            }
+        } else {
+            return (List) invokeII.objValue;
+        }
+    }
+
+    public boolean setAllMsgReadWithMsgid(ChatObject chatObject, long j) {
+        InterceptResult invokeLJ;
+        int allMsgRead;
+        int unReadMsgCount;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048637, this, chatObject, j)) == null) {
+            if (j == -1) {
+                j = getInstance(this.mContext).getMaxMsgid(chatObject);
+            }
+            synchronized (DBBase.mSyncLock) {
+                if (j < 0) {
+                    return false;
+                }
+                if (chatObject.getCategory() == 1) {
+                    allMsgRead = GroupMessageDAOImpl.setAllMsgRead(this.mContext, String.valueOf(chatObject.getContacter()), j);
+                } else {
+                    allMsgRead = getInstance(this.mContext).setAllMsgRead(chatObject, j);
+                }
+                if (allMsgRead < 0) {
+                    return false;
+                }
+                ChatSession chatRecord = getInstance(this.mContext).getChatRecord(chatObject);
+                String str = TAG;
+                LogUtils.d(str, "delta:" + allMsgRead);
+                if (chatRecord != null) {
+                    if (1 == chatObject.getCategory()) {
+                        unReadMsgCount = GroupMessageDAOImpl.getUnReadCount(this.mContext, String.valueOf(chatObject.getContacter()));
+                        if (57 == chatRecord.getChatType()) {
+                            if (unReadMsgCount > 0) {
+                                ArrayList fansGroupAtUnread = GroupMessageDAOImpl.getFansGroupAtUnread(this.mContext, Long.toString(chatRecord.getContacterId()), AccountManager.getUid(this.mContext));
+                                if (fansGroupAtUnread != null) {
+                                    chatRecord.setNewFansAtMsgSum(fansGroupAtUnread.size());
+                                } else {
+                                    chatRecord.setNewFansAtMsgSum(0);
+                                }
+                            } else {
+                                chatRecord.setNewFansAtMsgSum(0);
+                            }
+                        }
+                    } else {
+                        unReadMsgCount = getUnReadMsgCount(chatObject);
+                    }
+                    if (unReadMsgCount >= 0) {
+                        chatRecord.setNewMsgSum(unReadMsgCount);
+                    } else {
+                        chatRecord.setNewMsgSum(0L);
+                    }
+                    getInstance(this.mContext).updateChatSession(1, chatRecord);
+                }
+                return true;
+            }
+        }
+        return invokeLJ.booleanValue;
     }
 
     public long updateChatSession(int i, ChatSession chatSession) {
@@ -3991,91 +2717,983 @@ public class ChatMessageDBManager extends DBBase {
         return invokeIL.longValue;
     }
 
-    public ArrayList<ChatSession> getChatRecords(long j, long j2, long j3, List<Integer> list) {
+    /* JADX WARN: Removed duplicated region for block: B:114:0x0253  */
+    /* JADX WARN: Removed duplicated region for block: B:127:0x01ac A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:140:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x0110 A[Catch: all -> 0x0233, Exception -> 0x0236, TryCatch #6 {Exception -> 0x0236, all -> 0x0233, blocks: (B:42:0x007d, B:44:0x008e, B:47:0x0099, B:50:0x0110, B:52:0x0121, B:53:0x0135, B:55:0x014e, B:57:0x0156, B:66:0x0172, B:67:0x01ab, B:48:0x00d6), top: B:129:0x007d }] */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x0121 A[Catch: all -> 0x0233, Exception -> 0x0236, TryCatch #6 {Exception -> 0x0236, all -> 0x0233, blocks: (B:42:0x007d, B:44:0x008e, B:47:0x0099, B:50:0x0110, B:52:0x0121, B:53:0x0135, B:55:0x014e, B:57:0x0156, B:66:0x0172, B:67:0x01ab, B:48:0x00d6), top: B:129:0x007d }] */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x014e A[Catch: all -> 0x0233, Exception -> 0x0236, TryCatch #6 {Exception -> 0x0236, all -> 0x0233, blocks: (B:42:0x007d, B:44:0x008e, B:47:0x0099, B:50:0x0110, B:52:0x0121, B:53:0x0135, B:55:0x014e, B:57:0x0156, B:66:0x0172, B:67:0x01ab, B:48:0x00d6), top: B:129:0x007d }] */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x0164  */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x016b A[ADDED_TO_REGION] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private ArrayList fetchMsg(ChatObject chatObject, long j, long j2, long j3, boolean z, String str) {
         InterceptResult invokeCommon;
-        String str;
+        String str2;
+        String str3;
+        String str4;
+        String[] strArr;
+        String str5;
+        long j4;
+        String str6;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048613, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), list})) != null) {
-            return (ArrayList) invokeCommon.objValue;
-        }
-        synchronized (DBBase.mSyncLock) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, this, new Object[]{chatObject, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z), str})) == null) {
+            long j5 = j2;
+            ArrayList arrayList = new ArrayList();
             SQLiteDatabase openDatabase = openDatabase();
-            ArrayList<ChatSession> arrayList = new ArrayList<>();
             Cursor cursor = null;
             if (openDatabase == null) {
+                LogUtils.d(TAG, "getReadableDb fail!");
                 return null;
             }
-            long j4 = j + j2;
+            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (i <= 0 && j5 >= 0) {
+                j5 = -j5;
+            }
+            try {
+            } catch (Throwable th) {
+                th = th;
+            }
             try {
                 try {
-                    String addPaidCondition = addPaidCondition("show= ?", "paid", j3);
-                    LogUtils.e(TAG, addPaidCondition);
-                    if (list == null || list.size() <= 0) {
-                        str = addPaidCondition;
+                    if (0 == j && j3 == -1) {
+                        str2 = " >= ";
                     } else {
-                        String str2 = "" + list.get(0);
-                        for (int i = 1; i < list.size(); i++) {
-                            str2 = str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + list.get(i);
+                        long j6 = Long.MAX_VALUE;
+                        int i2 = (j5 > 0L ? 1 : (j5 == 0L ? 0 : -1));
+                        if (i2 == 0) {
+                            str2 = " = ";
+                            j6 = -2;
+                        } else if (i2 > 0) {
+                            str2 = " > ";
+                            if (j3 == Long.MAX_VALUE) {
+                                j6 = 0;
+                            } else {
+                                j6 = j3;
+                            }
+                        } else {
+                            if (j3 != -1) {
+                                j6 = j3;
+                            }
+                            str2 = " < ";
                         }
-                        str = addPaidCondition + " AND chat_type in (" + str2 + ") ";
-                    }
-                    Cursor query = openDatabase.query(TableDefine.DB_TABLE_CHAT_SESSION, null, str, new String[]{String.valueOf(1)}, null, null, "last_msg_time desc ", j4 > 0 ? String.valueOf(j4) : null);
-                    if (query == null) {
-                        if (query != null) {
-                            query.close();
-                        }
-                        return null;
-                    }
-                    try {
-                        LogUtils.e(TAG, "cursor count" + query.getCount());
-                        query.moveToPosition(((int) j) - 1);
-                        while (query.moveToNext()) {
-                            ChatSession constructChatRecord = constructChatRecord(openDatabase, query);
-                            LogUtils.e(TAG, "record : " + constructChatRecord);
-                            if (constructChatRecord != null) {
-                                arrayList.add(constructChatRecord);
+                        if (j6 != -2) {
+                            try {
+                                str3 = " AND _id" + str2 + j6;
+                                if (chatObject.getContacter() != 17 && chatObject.getContacter() != 26) {
+                                    str4 = "contacter = ? AND msgid" + str2 + "? AND category = ? ";
+                                    strArr = new String[]{String.valueOf(chatObject.getContacter()), String.valueOf(j), String.valueOf(chatObject.getCategory())};
+                                    if (str3 != null) {
+                                        str4 = str4 + str3;
+                                    }
+                                    if (str != null) {
+                                        str4 = str4 + " AND " + str;
+                                    }
+                                    str5 = str4 + " AND status != 3";
+                                    if (chatObject.getCategory() != 17 && chatObject.getCategory() != 26) {
+                                        str5 = addPaidCondition(str5, "paid", chatObject.getPaid());
+                                    }
+                                    if (j5 == 0) {
+                                        j5 = 1;
+                                    }
+                                    j4 = j5;
+                                    if (j4 <= 0 && i > 0) {
+                                        str6 = " asc ";
+                                    } else {
+                                        str6 = " desc ";
+                                    }
+                                    String str7 = "select * from message where " + str5 + " ORDER BY msgid" + str6 + ",_id" + str6 + " limit " + Math.abs(j4);
+                                    synchronized (DBBase.mSyncLock) {
+                                        try {
+                                            Cursor rawQuery = openDatabase.rawQuery(str7, strArr);
+                                            if (rawQuery == null) {
+                                                if (rawQuery != null) {
+                                                    rawQuery.close();
+                                                    return null;
+                                                }
+                                                return null;
+                                            }
+                                            boolean cursorMoveDirection = getCursorMoveDirection(z, j, j4);
+                                            if (!cursorMoveDirection) {
+                                                if (!rawQuery.moveToLast()) {
+                                                    if (rawQuery != null) {
+                                                        rawQuery.close();
+                                                    }
+                                                    return arrayList;
+                                                }
+                                            } else if (!rawQuery.moveToFirst()) {
+                                                if (rawQuery != null) {
+                                                    rawQuery.close();
+                                                }
+                                                return arrayList;
+                                            }
+                                            while (true) {
+                                                ChatMsg construChatMsg = construChatMsg(rawQuery);
+                                                if (construChatMsg != null) {
+                                                    LogUtils.d(TAG, "msgid : " + construChatMsg.getMsgId());
+                                                    arrayList.add(construChatMsg);
+                                                } else {
+                                                    LogUtils.d(TAG, "construChatMsg msg is null ");
+                                                }
+                                                if (cursorMoveDirection) {
+                                                    if (!rawQuery.moveToNext()) {
+                                                        LogUtils.d(TAG, "cursor is moveToNext failed!");
+                                                        break;
+                                                    }
+                                                } else if (!rawQuery.moveToPrevious()) {
+                                                    LogUtils.d(TAG, "cursor is moveToPrevious failed!");
+                                                    break;
+                                                }
+                                            }
+                                            if (rawQuery != null) {
+                                                rawQuery.close();
+                                            }
+                                            return arrayList;
+                                        } catch (Throwable th2) {
+                                            th = th2;
+                                            throw th;
+                                        }
+                                    }
+                                }
+                                str4 = "type = ? AND msgid" + str2 + "? AND category = ? ";
+                                strArr = new String[]{String.valueOf(chatObject.getContacter()), String.valueOf(j), String.valueOf(0)};
+                                if (str3 != null) {
+                                }
+                                if (str != null) {
+                                }
+                                str5 = str4 + " AND status != 3";
+                                if (chatObject.getCategory() != 17) {
+                                    str5 = addPaidCondition(str5, "paid", chatObject.getPaid());
+                                }
+                                if (j5 == 0) {
+                                }
+                                j4 = j5;
+                                if (j4 <= 0) {
+                                }
+                                str6 = " desc ";
+                                String str72 = "select * from message where " + str5 + " ORDER BY msgid" + str6 + ",_id" + str6 + " limit " + Math.abs(j4);
+                                synchronized (DBBase.mSyncLock) {
+                                }
+                            } catch (Exception e) {
+                                e = e;
+                                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                                LogUtils.e(TAG, "fetchMsg:", e);
+                                if (cursor == null) {
+                                    cursor.close();
+                                    return null;
+                                }
+                                return null;
                             }
                         }
-                        if (query != null) {
-                            query.close();
+                    }
+                    if (chatObject.getContacter() != 17) {
+                        str4 = "contacter = ? AND msgid" + str2 + "? AND category = ? ";
+                        strArr = new String[]{String.valueOf(chatObject.getContacter()), String.valueOf(j), String.valueOf(chatObject.getCategory())};
+                        if (str3 != null) {
+                        }
+                        if (str != null) {
+                        }
+                        str5 = str4 + " AND status != 3";
+                        if (chatObject.getCategory() != 17) {
+                        }
+                        if (j5 == 0) {
+                        }
+                        j4 = j5;
+                        if (j4 <= 0) {
+                        }
+                        str6 = " desc ";
+                        String str722 = "select * from message where " + str5 + " ORDER BY msgid" + str6 + ",_id" + str6 + " limit " + Math.abs(j4);
+                        synchronized (DBBase.mSyncLock) {
+                        }
+                    }
+                    synchronized (DBBase.mSyncLock) {
+                    }
+                } catch (Throwable th3) {
+                    th = th3;
+                }
+                str4 = "type = ? AND msgid" + str2 + "? AND category = ? ";
+                strArr = new String[]{String.valueOf(chatObject.getContacter()), String.valueOf(j), String.valueOf(0)};
+                if (str3 != null) {
+                }
+                if (str != null) {
+                }
+                str5 = str4 + " AND status != 3";
+                if (chatObject.getCategory() != 17) {
+                }
+                if (j5 == 0) {
+                }
+                j4 = j5;
+                if (j4 <= 0) {
+                }
+                str6 = " desc ";
+                String str7222 = "select * from message where " + str5 + " ORDER BY msgid" + str6 + ",_id" + str6 + " limit " + Math.abs(j4);
+            } catch (Exception e2) {
+                e = e2;
+                cursor = null;
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                LogUtils.e(TAG, "fetchMsg:", e);
+                if (cursor == null) {
+                }
+            } catch (Throwable th4) {
+                th = th4;
+                cursor = null;
+                if (cursor != null) {
+                    cursor.close();
+                }
+                throw th;
+            }
+            str3 = null;
+        } else {
+            return (ArrayList) invokeCommon.objValue;
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x0053 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v2 */
+    /* JADX WARN: Type inference failed for: r0v3 */
+    /* JADX WARN: Type inference failed for: r0v4, types: [android.database.Cursor] */
+    private ChatSession getChatRecordInternal(SQLiteDatabase sQLiteDatabase, ChatObject chatObject) {
+        InterceptResult invokeLL;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, this, sQLiteDatabase, chatObject)) == null) {
+            ?? r0 = 0;
+            try {
+                if (sQLiteDatabase == null) {
+                    return null;
+                }
+                try {
+                    cursor = sQLiteDatabase.query(TableDefine.DB_TABLE_CHAT_SESSION, null, addPaidCondition("category = ? AND contacter=?", "paid", chatObject.getPaid()), new String[]{String.valueOf(chatObject.getCategory()), String.valueOf(chatObject.getContacter())}, null, null, null, null);
+                    if (cursor != null) {
+                        try {
+                            if (cursor.moveToNext()) {
+                                ChatSession constructChatRecord = constructChatRecord(sQLiteDatabase, cursor);
+                                if (cursor != null) {
+                                    cursor.close();
+                                }
+                                return constructChatRecord;
+                            }
+                        } catch (Exception e) {
+                            e = e;
+                            LogUtils.e(TAG, "getChatRecord:", e);
+                            if (cursor != null) {
+                                cursor.close();
+                            }
+                            return null;
+                        }
+                    }
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    return null;
+                } catch (Exception e2) {
+                    e = e2;
+                    cursor = null;
+                } catch (Throwable th) {
+                    th = th;
+                    if (r0 != 0) {
+                        r0.close();
+                    }
+                    throw th;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                r0 = chatObject;
+            }
+        } else {
+            return (ChatSession) invokeLL.objValue;
+        }
+    }
+
+    private int setAllMsgRead(ChatObject chatObject, long j) {
+        InterceptResult invokeLJ;
+        int update;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65569, this, chatObject, j)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("is_read", (Integer) 1);
+            String str = "is_read=? AND category = ? AND (contacter = ? OR from_user = ?)";
+            if (j > 0) {
+                str = "is_read=? AND category = ? AND (contacter = ? OR from_user = ?) AND msgid<=" + j;
+            }
+            String addPaidCondition = addPaidCondition(str, "paid", chatObject.getPaid());
+            String[] strArr = {String.valueOf(0), String.valueOf(chatObject.getCategory()), String.valueOf(chatObject.getContacter()), String.valueOf(chatObject.getContacter())};
+            synchronized (DBBase.mSyncLock) {
+                update = update("message", addPaidCondition, strArr, contentValues);
+            }
+            return update;
+        }
+        return invokeLJ.intValue;
+    }
+
+    public int updateSession(int i, ChatObject chatObject) {
+        InterceptResult invokeIL;
+        ArrayList fetchMsgExcludeTypes;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048650, this, i, chatObject)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                ChatMsg chatMsg = null;
+                ChatSession chatSession = getChatSession(chatObject);
+                if (chatSession != null && chatSession.getState() != 3) {
+                    if (i != 0) {
+                        if (1 == chatObject.getCategory()) {
+                            fetchMsgExcludeTypes = GroupMessageDAOImpl.fetchChatMsgExceptGroupSystem(this.mContext, String.valueOf(chatObject.getContacter()), null, 1L, true);
+                        } else {
+                            fetchMsgExcludeTypes = fetchMsgExcludeTypes(chatObject, 0L, 1L, UNUPDATE_SESSION_MSG_TYPES);
+                        }
+                        if (fetchMsgExcludeTypes != null && fetchMsgExcludeTypes.size() > 0) {
+                            chatMsg = (ChatMsg) fetchMsgExcludeTypes.get(0);
+                        }
+                        updateSession(true, chatSession, chatMsg);
+                    }
+                    return i;
+                }
+                return i;
+            }
+        }
+        return invokeIL.intValue;
+    }
+
+    private ChatSession getChatSession(ChatObject chatObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65554, this, chatObject)) == null) {
+            return getInstance(this.mContext).getChatRecord(chatObject);
+        }
+        return (ChatSession) invokeL.objValue;
+    }
+
+    private long getContacter(ChatMsg chatMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65555, this, chatMsg)) == null) {
+            if (chatMsg == null) {
+                return -1L;
+            }
+            return chatMsg.getContacter();
+        }
+        return invokeL.longValue;
+    }
+
+    public static ChatMessageDBManager getInstance(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, context)) == null) {
+            if (mInstance == null) {
+                synchronized (ChatMessageDBManager.class) {
+                    if (mInstance == null) {
+                        mInstance = new ChatMessageDBManager(context);
+                    }
+                }
+            }
+            return mInstance;
+        }
+        return (ChatMessageDBManager) invokeL.objValue;
+    }
+
+    private boolean isDraftMsg(ChatMsg chatMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65562, this, chatMsg)) == null) {
+            if (chatMsg != null && (chatMsg instanceof TextMsg) && chatMsg.getStatus() == 3) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    private boolean notSendButShowTipMsg(ChatMsg chatMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65568, this, chatMsg)) == null) {
+            if (chatMsg.getMsgType() != 2012 && chatMsg.getMsgType() != 2014 && chatMsg.getMsgType() != 2001) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int markMsgClicked(ChatMsg chatMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048632, this, chatMsg)) == null) {
+            if (1 == chatMsg.getCategory()) {
+                return GroupMessageDAOImpl.markMsgClicked(this.mContext, chatMsg);
+            }
+            return markChatMsgClicked(chatMsg);
+        }
+        return invokeL.intValue;
+    }
+
+    public synchronized void registerObserver(ChatMessageDbOberser chatMessageDbOberser) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048636, this, chatMessageDbOberser) == null) {
+            synchronized (this) {
+                if (chatMessageDbOberser == null) {
+                    return;
+                }
+                if (this.mObservers == null) {
+                    this.mObservers = new LinkedList();
+                }
+                this.mObservers.add(chatMessageDbOberser);
+            }
+        }
+    }
+
+    public synchronized void unRegisterObserver(ChatMessageDbOberser chatMessageDbOberser) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048642, this, chatMessageDbOberser) == null) {
+            synchronized (this) {
+                if (this.mObservers == null) {
+                    return;
+                }
+                this.mObservers.remove(chatMessageDbOberser);
+            }
+        }
+    }
+
+    public int updateMsgStatus(ChatMsg chatMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048649, this, chatMsg)) == null) {
+            if (chatMsg != null) {
+                if (1 == chatMsg.getCategory()) {
+                    int updateMsgStatus = GroupMessageDAOImpl.updateMsgStatus(this.mContext, chatMsg);
+                    if (updateMsgStatus >= 0) {
+                        updateChatSession(chatMsg);
+                        return updateMsgStatus;
+                    }
+                    return updateMsgStatus;
+                }
+                return updateMsgStatusForSingle(chatMsg);
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
+    private List getContacterByChatTypes(SQLiteDatabase sQLiteDatabase, List list) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, this, sQLiteDatabase, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (list != null && list.size() > 0) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(list.get(0));
+                for (int i = 1; i < list.size(); i++) {
+                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                    sb.append(list.get(i));
+                }
+                String str = "chat_type in (" + sb.toString() + ") ";
+                if (sQLiteDatabase == null) {
+                    return arrayList;
+                }
+                Cursor cursor = null;
+                try {
+                    try {
+                        cursor = sQLiteDatabase.rawQuery("select contacter from chatrecord where " + str, null);
+                        if (cursor != null) {
+                            while (cursor.moveToNext()) {
+                                arrayList.add(Long.valueOf(cursor.getLong(cursor.getColumnIndex("contacter"))));
+                            }
+                        }
+                        if (cursor != null) {
+                            cursor.close();
                         }
                         return arrayList;
                     } catch (Exception e) {
-                        e = e;
-                        cursor = query;
-                        LogUtils.e(TAG, "getChatRecords:", e);
+                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                        LogUtils.e(TAG, "getContacterByChatTypes:", e);
                         if (cursor != null) {
                             cursor.close();
                         }
                         return arrayList;
+                    }
+                } catch (Throwable th) {
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    throw th;
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r12v0, resolved type: int */
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x004c, code lost:
+        if (r12 != null) goto L17;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x004e, code lost:
+        r12.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x006f, code lost:
+        if (r12 == null) goto L18;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x0073, code lost:
+        return r10;
+     */
+    /* JADX WARN: Multi-variable type inference failed */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private ChatMsg getDraftMsgForSingle(int i, long j) {
+        InterceptResult invokeCommon;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65558, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            synchronized (DBBase.mSyncLock) {
+                SQLiteDatabase openDatabase = openDatabase();
+                Cursor cursor2 = null;
+                r10 = null;
+                r10 = null;
+                r10 = null;
+                ChatMsg chatMsg = null;
+                try {
+                    if (openDatabase == null) {
+                        LogUtils.e(TAG, "getReadableDb fail!");
+                        return null;
+                    }
+                    try {
+                        cursor = openDatabase.query("message", null, "category=? AND contacter=? AND status=?", new String[]{String.valueOf(i), String.valueOf(j), String.valueOf(3)}, null, null, null, null);
+                        if (cursor != null) {
+                            try {
+                                if (cursor.moveToNext()) {
+                                    chatMsg = construChatMsg(cursor);
+                                }
+                            } catch (Exception e) {
+                                e = e;
+                                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                                LogUtils.e(TAG, "getDraftMsg:", e);
+                            }
+                        }
+                    } catch (Exception e2) {
+                        e = e2;
+                        cursor = null;
                     } catch (Throwable th) {
                         th = th;
-                        cursor = query;
-                        if (cursor != null) {
-                            cursor.close();
+                        if (cursor2 != null) {
+                            cursor2.close();
                         }
                         throw th;
                     }
                 } catch (Throwable th2) {
                     th = th2;
+                    cursor2 = i;
                 }
-            } catch (Exception e2) {
-                e = e2;
+            }
+        } else {
+            return (ChatMsg) invokeCommon.objValue;
+        }
+    }
+
+    private boolean isReliableMsgExist(SQLiteDatabase sQLiteDatabase, ChatMsg chatMsg) {
+        InterceptResult invokeLL;
+        boolean z;
+        String[] strArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65566, this, sQLiteDatabase, chatMsg)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                z = false;
+                Cursor cursor = null;
+                try {
+                    long msgId = chatMsg.getMsgId();
+                    String msgKey = chatMsg.getMsgKey();
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("msgid");
+                    sb.append(" = ?");
+                    if (TextUtils.isEmpty(msgKey)) {
+                        strArr = new String[]{String.valueOf(msgId)};
+                    } else {
+                        sb.append(" OR ");
+                        sb.append("msg_key");
+                        sb.append(" = ?");
+                        strArr = new String[]{String.valueOf(msgId), String.valueOf(msgKey)};
+                    }
+                    cursor = sQLiteDatabase.query(TableDefine.DB_TABLE_RELIABLE_MESSAGE, null, sb.toString(), strArr, null, null, null, String.valueOf(1));
+                    if (cursor != null) {
+                        if (cursor.moveToNext()) {
+                            z = true;
+                        }
+                    }
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                } catch (Exception e) {
+                    String str = TAG;
+                    LogUtils.e(str, "isReliableMsgExist e :" + e);
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    return false;
+                }
+            }
+            return z;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public int delMsgsOfCertainContacter(ChatObject chatObject, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048583, this, chatObject, j)) == null) {
+            int i = 1;
+            if (1 == chatObject.getCategory()) {
+                int delMsgsOfCertainContacter = GroupMessageDAOImpl.delMsgsOfCertainContacter(this.mContext, String.valueOf(chatObject.getContacter()), j);
+                synchronized (DBBase.mSyncLock) {
+                    SQLiteDatabase openDatabase = openDatabase();
+                    if (openDatabase == null) {
+                        LogUtils.d(TAG, "getWritableDb fail!");
+                        return -1;
+                    }
+                    try {
+                        long maxMsgid = GroupMessageDAOImpl.getMaxMsgid(this.mContext, String.valueOf(chatObject.getContacter()));
+                        if (j == -1 || maxMsgid <= j) {
+                            String[] strArr = {String.valueOf(chatObject.getCategory()), String.valueOf(chatObject.getContacter())};
+                            String addPaidCondition = addPaidCondition("category = ? AND contacter = ?", "paid", chatObject.getPaid());
+                            ChatSession chatRecordInternal = getChatRecordInternal(openDatabase, chatObject);
+                            i = delete(openDatabase, TableDefine.DB_TABLE_CHAT_SESSION, addPaidCondition, strArr);
+                            if (i > 0 && chatRecordInternal != null) {
+                                notifyDbChange(2, chatRecordInternal);
+                            }
+                        }
+                        if (i < 0) {
+                            return -1;
+                        }
+                        if (i < 0) {
+                            delMsgsOfCertainContacter = -1;
+                        }
+                        return delMsgsOfCertainContacter;
+                    } catch (Exception e) {
+                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                        LogUtils.e(TAG, "delMsg:", e);
+                        return -1;
+                    }
+                }
+            }
+            return delMsgsOfCertainContacterForSingle(chatObject, j);
+        }
+        return invokeLJ.intValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r12v0, resolved type: int */
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x0049, code lost:
+        if (r12 != null) goto L17;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x004b, code lost:
+        r12.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x006c, code lost:
+        if (r12 == null) goto L18;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x0070, code lost:
+        return r10;
+     */
+    /* JADX WARN: Multi-variable type inference failed */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public ChatMsg getLatestMsg(int i, long j) {
+        InterceptResult invokeCommon;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048617, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            synchronized (DBBase.mSyncLock) {
+                SQLiteDatabase openDatabase = openDatabase();
+                Cursor cursor2 = null;
+                r10 = null;
+                r10 = null;
+                r10 = null;
+                ChatMsg chatMsg = null;
+                try {
+                    if (openDatabase == null) {
+                        LogUtils.e(TAG, "getReadableDb fail!");
+                        return null;
+                    }
+                    try {
+                        cursor = openDatabase.query("message", null, "category=? AND contacter=? ", new String[]{String.valueOf(i), String.valueOf(j)}, null, null, "msgid desc ", String.valueOf(1));
+                        if (cursor != null) {
+                            try {
+                                if (cursor.moveToNext()) {
+                                    chatMsg = construChatMsg(cursor);
+                                }
+                            } catch (Exception e) {
+                                e = e;
+                                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                                LogUtils.e(TAG, "getLatestMsg:", e);
+                            }
+                        }
+                    } catch (Exception e2) {
+                        e = e2;
+                        cursor = null;
+                    } catch (Throwable th) {
+                        th = th;
+                        if (cursor2 != null) {
+                            cursor2.close();
+                        }
+                        throw th;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    cursor2 = i;
+                }
+            }
+        } else {
+            return (ChatMsg) invokeCommon.objValue;
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x007d, code lost:
+        if (r1 != null) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x007f, code lost:
+        r1.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x009f, code lost:
+        if (0 == 0) goto L24;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x00a3, code lost:
+        return false;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean isRecordExist(SQLiteDatabase sQLiteDatabase, ChatObject chatObject) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048631, this, sQLiteDatabase, chatObject)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                Cursor cursor = null;
+                if (sQLiteDatabase == null) {
+                    return false;
+                }
+                try {
+                    cursor = sQLiteDatabase.query(TableDefine.DB_TABLE_CHAT_SESSION, new String[]{"contacter"}, "category = ? AND contacter = ?", new String[]{String.valueOf(chatObject.getCategory()), String.valueOf(chatObject.getContacter())}, null, null, null);
+                    if (cursor != null && cursor.moveToNext()) {
+                        String str = TAG;
+                        LogUtils.d(str, "chat record exist! " + chatObject.toString());
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                        return true;
+                    }
+                    String str2 = TAG;
+                    LogUtils.d(str2, "chat record not found! category: " + chatObject.toString());
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(TAG, "isRecordExist:", e);
+                }
+            }
+        } else {
+            return invokeLL.booleanValue;
+        }
+    }
+
+    public int setMsgRead(ChatObject chatObject, long j) {
+        InterceptResult invokeLJ;
+        int msgRead;
+        ChatSession chatSession;
+        int unReadMsgCount;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048638, this, chatObject, j)) == null) {
+            if (chatObject == null) {
+                return DBResponseCode.ERROR_PARAMETER;
+            }
+            synchronized (DBBase.mSyncLock) {
+                if (1 == chatObject.getCategory()) {
+                    msgRead = GroupMessageDAOImpl.setMsgReaded(this.mContext, String.valueOf(chatObject.getContacter()), j);
+                } else {
+                    msgRead = getInstance(this.mContext).setMsgRead(j);
+                }
+                if (msgRead < 0) {
+                    return DlnaManager.DLNA_ERROR_GET_POSITION_INFO_ACTION_NOT_FOUND;
+                }
+                if (msgRead != 0 && (chatSession = getChatSession(chatObject)) != null) {
+                    if (1 == chatObject.getCategory()) {
+                        unReadMsgCount = GroupMessageDAOImpl.getUnReadCount(this.mContext, String.valueOf(chatObject.getContacter()));
+                        if (57 == chatSession.getChatType()) {
+                            if (unReadMsgCount > 0) {
+                                ArrayList fansGroupAtUnread = GroupMessageDAOImpl.getFansGroupAtUnread(this.mContext, String.valueOf(chatObject.getContacter()), AccountManager.getUid(this.mContext));
+                                if (fansGroupAtUnread != null) {
+                                    chatSession.setNewFansAtMsgSum(fansGroupAtUnread.size());
+                                } else {
+                                    chatSession.setNewFansAtMsgSum(0);
+                                }
+                            } else {
+                                chatSession.setNewFansAtMsgSum(0);
+                            }
+                        }
+                    } else {
+                        unReadMsgCount = getUnReadMsgCount(chatObject);
+                    }
+                    if (unReadMsgCount >= 0) {
+                        chatSession.setNewMsgSum(unReadMsgCount);
+                    } else {
+                        chatSession.setNewMsgSum(0L);
+                    }
+                    getInstance(this.mContext).updateChatSession(1, chatSession);
+                }
+                return msgRead;
+            }
+        }
+        return invokeLJ.intValue;
+    }
+
+    private boolean isNeedInsertToDB(ChatMsg chatMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65565, this, chatMsg)) == null) {
+            if (2 == chatMsg.getCategory()) {
+                int notifyCmd = chatMsg.getNotifyCmd();
+                if (notifyCmd != 0) {
+                    if (notifyCmd != 1) {
+                        if (notifyCmd != 60 && notifyCmd != 62) {
+                            switch (notifyCmd) {
+                            }
+                        }
+                        return false;
+                    }
+                    delSysMsg(chatMsg.getCategory(), chatMsg.getFromUser(), 1);
+                } else {
+                    delSysMsg(chatMsg.getCategory(), chatMsg.getFromUser(), 0);
+                }
+            }
+            if (chatMsg.getMsgType() == 27) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void delPaLocalInfosByPaType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            ArrayList queryPaIdByPaType = PaInfoDBManager.getInstance(this.mContext).queryPaIdByPaType(i);
+            if (queryPaIdByPaType != null && !queryPaIdByPaType.isEmpty()) {
+                String str = TAG;
+                LogUtils.d(str, "---delPaLocalInfosByPaType---paids.size = " + queryPaIdByPaType.size());
+                Iterator it = queryPaIdByPaType.iterator();
+                while (it.hasNext()) {
+                    delMsgsOfPaByPaId(((Long) it.next()).longValue());
+                }
+                return;
+            }
+            LogUtils.d(TAG, "---delPaLocalInfosByPaType---paids is null ---- ");
+        }
+    }
+
+    public long deleteAllMsg(ChatObject chatObject) {
+        InterceptResult invokeL;
+        long maxMsgid;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, chatObject)) == null) {
+            synchronized (this.mContext) {
+                if (1 == chatObject.getCategory()) {
+                    maxMsgid = GroupMessageDAOImpl.getMaxMsgid(this.mContext, String.valueOf(chatObject.getContacter()));
+                } else {
+                    maxMsgid = getInstance(this.mContext).getMaxMsgid(chatObject);
+                }
+                if (maxMsgid < 0) {
+                    return -1009L;
+                }
+                if (deleteAllMsgWithMsgid(chatObject, maxMsgid) < 0) {
+                    return -1009L;
+                }
+                return maxMsgid;
+            }
+        }
+        return invokeL.longValue;
+    }
+
+    public int deleteDraftMsg(ChatObject chatObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, chatObject)) == null) {
+            if (1 == chatObject.getCategory()) {
+                int deleteDraftMsg = GroupMessageDAOImpl.deleteDraftMsg(this.mContext, String.valueOf(chatObject.getContacter()));
+                if (deleteDraftMsg > 0) {
+                    ChatSession chatSession = getChatSession(chatObject);
+                    ArrayList fetchAllChatMsg = GroupMessageDAOImpl.fetchAllChatMsg(this.mContext, String.valueOf(chatObject.getContacter()), null, 1L, true);
+                    if (fetchAllChatMsg != null && fetchAllChatMsg.size() > 0) {
+                        updateSession(true, chatSession, (ChatMsg) fetchAllChatMsg.get(0));
+                    }
+                }
+                return deleteDraftMsg;
+            }
+            return deleteDraftMsgForSingle(chatObject);
+        }
+        return invokeL.intValue;
+    }
+
+    public long getMaxMsgid(ChatObject chatObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048619, this, chatObject)) == null) {
+            if (1 == chatObject.getCategory()) {
+                return GroupMessageDAOImpl.getMaxMsgid(this.mContext, String.valueOf(chatObject.getContacter()));
+            }
+            synchronized (DBBase.mSyncLock) {
+                ArrayList fetchMsg = fetchMsg(chatObject, 0L, 1L);
+                if (fetchMsg != null && fetchMsg.size() > 0) {
+                    return ((ChatMsg) fetchMsg.get(0)).getMsgId();
+                }
+                if (fetchMsg == null) {
+                    return -1L;
+                }
+                return 0L;
+            }
+        }
+        return invokeL.longValue;
+    }
+
+    private void setChatSessionLastName(ChatSession chatSession, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65570, this, chatSession, str) == null) {
+            long longByString = Utility.getLongByString(str, 0L);
+            if (chatSession.getChatType() == 57 && chatSession.getLastMsgUid() != longByString) {
+                chatSession.setLastMsgUid(longByString);
+                if (longByString != 0) {
+                    ArrayList arrayList = new ArrayList();
+                    arrayList.add(str);
+                    ArrayList groupMember = GroupInfoDAOImpl.getGroupMember(this.mContext, String.valueOf(chatSession.getContacter()), arrayList, 1);
+                    if (groupMember != null && groupMember.size() > 0) {
+                        chatSession.setLastMsgName(((GroupMember) groupMember.get(0)).getShowName());
+                        return;
+                    } else {
+                        chatSession.setLastMsgName("");
+                        return;
+                    }
+                }
+                chatSession.setLastMsgName("");
             }
         }
     }
 
-    public ArrayList<ChatMsg> fetchMsg(ChatObject chatObject, long j, long j2, long j3) {
-        InterceptResult invokeCommon;
-        ArrayList<ChatMsg> fetchMsg;
+    public ArrayList addCastReliableMsgs(List list, List list2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048596, this, new Object[]{chatObject, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, list, list2)) == null) {
+            ArrayList arrayList = new ArrayList();
             synchronized (DBBase.mSyncLock) {
-                fetchMsg = fetchMsg(chatObject, j, j2, j3, false);
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    TextMsg textMsg = (TextMsg) it.next();
+                    if (addReliableMsg(textMsg) > 0) {
+                        arrayList.add(textMsg);
+                        list2.add(Long.valueOf(textMsg.getMsgId()));
+                    }
+                }
             }
-            return fetchMsg;
+            return arrayList;
         }
-        return (ArrayList) invokeCommon.objValue;
+        return (ArrayList) invokeLL.objValue;
     }
 
     public int updateMsgStatus(long j, int i) {
@@ -4093,267 +3711,192 @@ public class ChatMessageDBManager extends DBBase {
         return invokeCommon.intValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x00ac */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x00ae */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r2v0 */
-    /* JADX WARN: Type inference failed for: r2v1 */
-    /* JADX WARN: Type inference failed for: r2v2, types: [android.database.Cursor] */
-    /* JADX WARN: Type inference failed for: r8v1 */
-    /* JADX WARN: Type inference failed for: r8v2, types: [android.database.Cursor] */
-    /* JADX WARN: Type inference failed for: r8v6, types: [java.lang.String] */
-    public ArrayList<ChatMsg> fetchMsg(String str, String str2) {
-        InterceptResult invokeLL;
-        ?? r8;
+    private int setMsgReadByContacterIds(SQLiteDatabase sQLiteDatabase, List list, long j) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(1048599, this, str, str2)) != null) {
-            return (ArrayList) invokeLL.objValue;
-        }
-        ArrayList<ChatMsg> arrayList = new ArrayList<>();
-        SQLiteDatabase openDatabase = openDatabase();
-        ?? r2 = 0;
-        try {
-            if (openDatabase == null) {
-                LogUtils.d(TAG, "getReadableDb fail!");
-                return null;
-            }
-            try {
-                String[] strArr = {str2, str};
-                r8 = "select * from message where " + ("contacter = ? AND _id = ?  AND status = 2");
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65572, this, new Object[]{sQLiteDatabase, list, Long.valueOf(j)})) == null) {
+            if (list != null && list.size() > 0) {
+                if (sQLiteDatabase == null) {
+                    return DlnaManager.DLNA_ERROR_GET_POSITION_INFO_ACTION_NOT_FOUND;
+                }
                 try {
-                    try {
-                        synchronized (DBBase.mSyncLock) {
-                            try {
-                                Cursor rawQuery = openDatabase.rawQuery(r8, strArr);
-                                if (rawQuery != null && rawQuery.getCount() != 0) {
-                                    rawQuery.moveToFirst();
-                                    ChatMsg construChatMsg = construChatMsg(rawQuery);
-                                    if (construChatMsg != null) {
-                                        LogUtils.d(TAG, "msgid : " + construChatMsg.getMsgId());
-                                        arrayList.add(construChatMsg);
-                                    } else {
-                                        LogUtils.d(TAG, "construChatMsg msg is null ");
-                                    }
-                                    if (rawQuery != null) {
-                                        rawQuery.close();
-                                    }
-                                    return arrayList;
-                                }
-                                LogUtils.d(TAG, "resend fetchmsg cursor is null " + str);
-                                if (rawQuery != null) {
-                                    rawQuery.close();
-                                }
-                                return null;
-                            } catch (Throwable th) {
-                                th = th;
-                                throw th;
-                            }
-                        }
-                    } catch (Exception e) {
-                        e = e;
-                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                        LogUtils.e(TAG, "fetchMsg:", e);
-                        if (r8 != 0) {
-                            r8.close();
-                        }
-                        return null;
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(list.get(0));
+                    for (int i = 1; i < list.size(); i++) {
+                        sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                        sb.append(list.get(i));
                     }
-                } catch (Throwable th2) {
-                    th = th2;
-                }
-            } catch (Exception e2) {
-                e = e2;
-                r8 = 0;
-            } catch (Throwable th3) {
-                th = th3;
-                if (r2 != 0) {
-                    r2.close();
-                }
-                throw th;
-            }
-        } catch (Throwable th4) {
-            th = th4;
-            r2 = str2;
-        }
-    }
-
-    private int deleteChatMsg(long j) {
-        InterceptResult invokeJ;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65547, this, j)) == null) {
-            synchronized (DBBase.mSyncLock) {
-                SQLiteDatabase openDatabase = openDatabase();
-                if (openDatabase == null) {
-                    LogUtils.d(TAG, "getWritableDb fail!");
-                    return -1;
-                }
-                int i2 = 0;
-                try {
-                    i = openDatabase.delete("message", "_id = ? ", new String[]{String.valueOf(j)});
-                } catch (Exception e) {
-                    e = e;
-                }
-                try {
-                    long j2 = j + 1;
-                    openDatabase.execSQL("delete from message where _id=? and type in (?, ?, ?)", new Object[]{Long.valueOf(j2), Integer.valueOf((int) IMConstants.IM_MSG_TYPE_SHIELD_ME), 2001, 2014});
-                    String str = TAG;
-                    LogUtils.e(str, "deleteChatMsg notSendButShowTipMsg :delete from message where _id=? and type in (?, ?, ?), rowId :" + j2);
-                } catch (Exception e2) {
-                    e = e2;
-                    i2 = i;
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                    LogUtils.e(TAG, "deleteChatMsg:", e);
-                    i = i2;
-                    return i;
-                }
-                return i;
-            }
-        }
-        return invokeJ.intValue;
-    }
-
-    private long addMsg(ChatMsg chatMsg) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, chatMsg)) == null) {
-            if (chatMsg == null) {
-                return -1L;
-            }
-            int i = 1;
-            if (chatMsg.getCategory() == 0 || 1 == chatMsg.getCategory() || 2 == chatMsg.getCategory()) {
-                SQLiteDatabase openDatabase = openDatabase();
-                try {
-                    if (openDatabase == null) {
-                        LogUtils.d(TAG, "getWritableDb fail!");
-                        return -1L;
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put("is_read", (Integer) 1);
+                    String str = "is_read=? AND category = ? AND contacter in (" + sb.toString() + ") ";
+                    if (j > 0) {
+                        str = str + " AND msgid<=" + j;
                     }
-                    int status = chatMsg.getStatus();
-                    if (status == 1 && chatMsg.getRowId() != -1) {
-                        LogUtils.d(TAG, "tiaoshi not insert for: status=sending rowid != -1");
-                        return -1L;
-                    } else if (status != 1 && status != 3 && isMsgExist(openDatabase, chatMsg) > 0) {
-                        LogUtils.d(TAG, "tiaoshi not exception path!");
-                        return -2L;
-                    } else {
-                        ContentValues contentValues = new ContentValues();
-                        contentValues.put("msgid", Long.valueOf(chatMsg.getMsgId()));
-                        contentValues.put("content", chatMsg.getMsgContent());
-                        contentValues.put("type", Integer.valueOf(chatMsg.getRealMsgType()));
-                        contentValues.put("from_user", Long.valueOf(chatMsg.getFromUser()));
-                        contentValues.put("buid", chatMsg.getSenderUid());
-                        contentValues.put("time", Long.valueOf(chatMsg.getMsgTime()));
-                        contentValues.put("status", Integer.valueOf(chatMsg.getStatus()));
-                        contentValues.put("category", Integer.valueOf(chatMsg.getCategory()));
-                        contentValues.put("contacter", Long.valueOf(chatMsg.getContacter()));
-                        contentValues.put("is_read", Integer.valueOf(chatMsg.isMsgRead() ? 1 : 0));
-                        contentValues.put("cmd", Integer.valueOf(chatMsg.getNotifyCmd()));
-                        if (chatMsg instanceof HtmlMsg) {
-                            contentValues.put("local_url", chatMsg.getRecommendDescription());
-                        } else {
-                            contentValues.put("local_url", chatMsg.getLocalUrl());
-                        }
-                        contentValues.put(TableDefine.MessageColumns.COLUMN_ISZHIDA, Integer.valueOf(chatMsg.isZhida() ? 1 : 0));
-                        if (!chatMsg.isClicked()) {
-                            i = 0;
-                        }
-                        contentValues.put("isclicked", Integer.valueOf(i));
-                        contentValues.put("paid", Long.valueOf(chatMsg.getPaid()));
-                        contentValues.put("device_flag", Integer.valueOf(chatMsg.getDeviceFlag()));
-                        contentValues.put("msg_key", chatMsg.getMsgKey());
-                        contentValues.put("sendid", chatMsg.getSendMsgId());
-                        contentValues.put("expires_time", Long.valueOf(chatMsg.getExpiresTime()));
-                        contentValues.put(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, chatMsg.getServiceType());
-                        contentValues.put(TableDefine.MessageColumns.COLUME_TIPS_CODE, Integer.valueOf(chatMsg.getTipsCode()));
-                        contentValues.put("tips", chatMsg.getTips());
-                        contentValues.put(TableDefine.MessageColumns.COLUME_TEMPLATE, Integer.valueOf(chatMsg.getTemplateType()));
-                        return openDatabase.insert("message", null, contentValues);
-                    }
+                    return sQLiteDatabase.update("message", contentValues, str, new String[]{String.valueOf(0), "0"});
                 } catch (Exception e) {
                     new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                    LogUtils.e(TAG, "addMsg:", e);
-                    return -1L;
+                    LogUtils.e(TAG, "setMsgReadByContacterIds:", e);
+                    return DlnaManager.DLNA_ERROR_GET_POSITION_INFO_ACTION_NOT_FOUND;
                 }
             }
-            return -1L;
+            return DBResponseCode.ERROR_PARAMETER;
         }
-        return invokeL.longValue;
+        return invokeCommon.intValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x009e, code lost:
-        if (r1 != null) goto L25;
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x00ba, code lost:
+        if (r8 != null) goto L39;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x00a0, code lost:
-        r1.close();
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x00bc, code lost:
+        r8.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x00c0, code lost:
-        if (0 == 0) goto L26;
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x00dc, code lost:
+        if (r8 == null) goto L40;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x00c4, code lost:
-        return 0;
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x00e0, code lost:
+        return r0;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private int getNewMsgNum(SQLiteDatabase sQLiteDatabase, ChatObject chatObject) {
-        InterceptResult invokeLL;
+    public ArrayList fetchMsgByContacterIdOrderByMsgid(List list, long j, int i) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65560, this, sQLiteDatabase, chatObject)) != null) {
-            return invokeLL.intValue;
-        }
-        synchronized (DBBase.mSyncLock) {
-            Cursor cursor = null;
-            if (sQLiteDatabase == null) {
-                return -1;
-            }
-            try {
-                cursor = sQLiteDatabase.query(TableDefine.DB_TABLE_CHAT_SESSION, new String[]{TableDefine.SessionColumns.COLUMN_NEW_MSG_SUM}, addPaidCondition("category =? AND contacter =?", "paid", chatObject.getPaid()), new String[]{String.valueOf(chatObject.getCategory()), String.valueOf(chatObject.getContacter())}, null, null, null);
-                if (cursor != null && cursor.moveToNext()) {
-                    String str = TAG;
-                    LogUtils.d(str, "get new msg num for category : " + chatObject.getCategory() + " contacter:" + chatObject.getContacter());
-                    int i = cursor.getInt(cursor.getColumnIndex(TableDefine.SessionColumns.COLUMN_NEW_MSG_SUM));
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    return i;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{list, Long.valueOf(j), Integer.valueOf(i)})) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (list != null && list.size() > 0) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(list.get(0));
+                for (int i2 = 1; i2 < list.size(); i2++) {
+                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                    sb.append(list.get(i2));
                 }
-                String str2 = TAG;
-                LogUtils.d(str2, "getNewMsgNum record not found! " + chatObject.toString());
-            } catch (Exception e) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                LogUtils.e(TAG, "getNewMsgNum:", e);
+                String str = "contacter in (" + sb.toString() + SmallTailInfo.EMOTION_SUFFIX;
+                if (j > 0) {
+                    str = str + " AND msgid < " + j;
+                }
+                String str2 = "select * from message where " + str + " ORDER BY msgid desc limit " + Math.abs(i);
+                synchronized (DBBase.mSyncLock) {
+                    SQLiteDatabase openDatabase = openDatabase();
+                    Cursor cursor = null;
+                    if (openDatabase == null) {
+                        LogUtils.d(TAG, "getReadableDb fail!");
+                        return null;
+                    }
+                    try {
+                        cursor = openDatabase.rawQuery(str2, null);
+                        if (cursor != null) {
+                            while (cursor.moveToNext()) {
+                                ChatMsg construChatMsg = construChatMsg(cursor);
+                                if (construChatMsg != null) {
+                                    arrayList.add(construChatMsg);
+                                }
+                            }
+                        }
+                    } catch (Exception e) {
+                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                        LogUtils.e(TAG, "fetchPaMsgByChatType:", e);
+                    }
+                }
+            } else {
+                return arrayList;
             }
+        } else {
+            return (ArrayList) invokeCommon.objValue;
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x00ba, code lost:
+        if (r8 != null) goto L39;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x00bc, code lost:
+        r8.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x00dc, code lost:
+        if (r8 == null) goto L40;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x00e0, code lost:
+        return r0;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public ArrayList fetchPaMsgByPaids(List list, long j, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048605, this, new Object[]{list, Long.valueOf(j), Integer.valueOf(i)})) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (list != null && list.size() > 0) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(list.get(0));
+                for (int i2 = 1; i2 < list.size(); i2++) {
+                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                    sb.append(list.get(i2));
+                }
+                String str = "contacter in (" + sb.toString() + SmallTailInfo.EMOTION_SUFFIX;
+                if (j > 0) {
+                    str = str + " AND msgid < " + j;
+                }
+                String str2 = "select * from message where " + str + " ORDER BY msgid desc limit " + Math.abs(i);
+                synchronized (DBBase.mSyncLock) {
+                    SQLiteDatabase openDatabase = openDatabase();
+                    Cursor cursor = null;
+                    if (openDatabase == null) {
+                        LogUtils.d(TAG, "getReadableDb fail!");
+                        return null;
+                    }
+                    try {
+                        cursor = openDatabase.rawQuery(str2, null);
+                        if (cursor != null) {
+                            while (cursor.moveToNext()) {
+                                ChatMsg construChatMsg = construChatMsg(cursor);
+                                if (construChatMsg != null) {
+                                    arrayList.add(construChatMsg);
+                                }
+                            }
+                        }
+                    } catch (Exception e) {
+                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                        LogUtils.e(TAG, "fetchPaMsgByChatType:", e);
+                    }
+                }
+            } else {
+                return arrayList;
+            }
+        } else {
+            return (ArrayList) invokeCommon.objValue;
         }
     }
 
     private void updateSession(boolean z, ChatSession chatSession, ChatMsg chatMsg) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65575, this, new Object[]{Boolean.valueOf(z), chatSession, chatMsg}) == null) && z) {
-            if (chatSession == null) {
-                long contacter = getContacter(chatMsg);
-                if (contacter != -1) {
-                    GetChatObjectInfoForRecordManager.getChatObjectForSession(this.mContext, new ChatObject(this.mContext, chatMsg.getCategory(), contacter, chatMsg.getPaid(), chatMsg.getChatType()));
-                }
-            } else if (chatMsg == null) {
-                if (getInstance(this.mContext).delChatRecord(new ChatObject(this.mContext, chatSession.getCategory(), chatSession.getContacter(), chatSession.getPaid(), -1)) >= 0) {
-                    chatSession.setNewMsgSum(0L);
-                    chatSession.setNewFansAtMsgSum(0);
-                }
-            } else {
-                String recommendDescription = chatMsg.getRecommendDescription();
-                if (chatMsg instanceof HtmlMsg) {
-                    recommendDescription = chatMsg.getLocalUrl();
-                }
-                chatSession.setState(chatMsg.getStatus());
-                chatSession.setLastMsg(recommendDescription);
-                chatSession.setLastMsgTime(chatMsg.getMsgTime());
-                chatSession.setIsClicked(Utility.getClickState(chatMsg));
-                if (chatMsg.isStarMessage()) {
-                    chatSession.setChatType(4);
-                }
-                setChatSessionLastName(chatSession, chatMsg.getSenderUid());
-                getInstance(this.mContext).updateChatSession(1, chatSession);
+        if ((interceptable != null && interceptable.invokeCommon(65575, this, new Object[]{Boolean.valueOf(z), chatSession, chatMsg}) != null) || !z) {
+            return;
+        }
+        if (chatSession == null) {
+            long contacter = getContacter(chatMsg);
+            if (contacter != -1) {
+                GetChatObjectInfoForRecordManager.getChatObjectForSession(this.mContext, new ChatObject(this.mContext, chatMsg.getCategory(), contacter, chatMsg.getPaid(), chatMsg.getChatType()));
             }
+        } else if (chatMsg == null) {
+            if (getInstance(this.mContext).delChatRecord(new ChatObject(this.mContext, chatSession.getCategory(), chatSession.getContacter(), chatSession.getPaid(), -1)) >= 0) {
+                chatSession.setNewMsgSum(0L);
+                chatSession.setNewFansAtMsgSum(0);
+            }
+        } else {
+            String recommendDescription = chatMsg.getRecommendDescription();
+            if (chatMsg instanceof HtmlMsg) {
+                recommendDescription = chatMsg.getLocalUrl();
+            }
+            chatSession.setState(chatMsg.getStatus());
+            chatSession.setLastMsg(recommendDescription);
+            chatSession.setLastMsgTime(chatMsg.getMsgTime());
+            chatSession.setIsClicked(Utility.getClickState(chatMsg));
+            if (chatMsg.isStarMessage()) {
+                chatSession.setChatType(4);
+            }
+            setChatSessionLastName(chatSession, chatMsg.getSenderUid());
+            getInstance(this.mContext).updateChatSession(1, chatSession);
         }
     }
 
@@ -4365,160 +3908,1041 @@ public class ChatMessageDBManager extends DBBase {
         InterceptResult invokeCommon;
         Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048609, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)})) != null) {
-            return (ChatSession) invokeCommon.objValue;
-        }
-        synchronized (DBBase.mSyncLock) {
-            SQLiteDatabase openDatabase = openDatabase();
-            Cursor cursor2 = null;
-            if (openDatabase == null) {
-                return null;
-            }
-            try {
-                cursor = openDatabase.query(TableDefine.DB_TABLE_CHAT_SESSION, null, addPaidCondition("category = ? AND contacter=?", "paid", j2), new String[]{String.valueOf(i), String.valueOf(j)}, null, null, null, null);
-                if (cursor != null) {
-                    try {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048609, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            synchronized (DBBase.mSyncLock) {
+                SQLiteDatabase openDatabase = openDatabase();
+                Cursor cursor2 = null;
+                if (openDatabase == null) {
+                    return null;
+                }
+                try {
+                    cursor = openDatabase.query(TableDefine.DB_TABLE_CHAT_SESSION, null, addPaidCondition("category = ? AND contacter=?", "paid", j2), new String[]{String.valueOf(i), String.valueOf(j)}, null, null, null, null);
+                    if (cursor != null) {
                         try {
-                            if (cursor.moveToNext()) {
-                                ChatSession constructChatRecord = constructChatRecord(openDatabase, cursor);
+                            try {
+                                if (cursor.moveToNext()) {
+                                    ChatSession constructChatRecord = constructChatRecord(openDatabase, cursor);
+                                    if (cursor != null) {
+                                        cursor.close();
+                                    }
+                                    return constructChatRecord;
+                                }
+                            } catch (Exception e) {
+                                e = e;
+                                LogUtils.e(TAG, "getChatRecord:", e);
                                 if (cursor != null) {
                                     cursor.close();
                                 }
-                                return constructChatRecord;
+                                return null;
                             }
-                        } catch (Exception e) {
-                            e = e;
-                            LogUtils.e(TAG, "getChatRecord:", e);
-                            if (cursor != null) {
-                                cursor.close();
+                        } catch (Throwable th) {
+                            th = th;
+                            cursor2 = cursor;
+                            if (cursor2 != null) {
+                                cursor2.close();
                             }
-                            return null;
+                            throw th;
                         }
-                    } catch (Throwable th) {
-                        th = th;
-                        cursor2 = cursor;
-                        if (cursor2 != null) {
-                            cursor2.close();
+                    }
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    return null;
+                } catch (Exception e2) {
+                    e = e2;
+                    cursor = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    if (cursor2 != null) {
+                    }
+                    throw th;
+                }
+            }
+        } else {
+            return (ChatSession) invokeCommon.objValue;
+        }
+    }
+
+    public long addMsg(ChatMsg chatMsg, boolean z) {
+        InterceptResult invokeLZ;
+        long addMsg;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chatMsg, z)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                if (1 == chatMsg.getCategory()) {
+                    addMsg = GroupMessageDAOImpl.addSingleChatMsg(this.mContext, chatMsg);
+                } else {
+                    addMsg = addMsg(chatMsg);
+                }
+                if (addMsg < 0) {
+                    return addMsg;
+                }
+                chatMsg.setRowId(addMsg);
+                if (!z) {
+                    return addMsg;
+                }
+                updateChatSession(chatMsg);
+                return addMsg;
+            }
+        }
+        return invokeLZ.longValue;
+    }
+
+    public int deleteAllMsgWithMsgid(ChatObject chatObject, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048587, this, chatObject, j)) == null) {
+            synchronized (this.mContext) {
+                int delMsgsOfCertainContacter = getInstance(this.mContext).delMsgsOfCertainContacter(chatObject, j);
+                if (delMsgsOfCertainContacter < 0) {
+                    return DlnaManager.DLNA_ERROR_GET_POSITION_INFO_ACTION_NOT_FOUND;
+                }
+                ArrayList fetchMsg = fetchMsg(chatObject, Long.MAX_VALUE, 2L, -1L);
+                if (fetchMsg != null && fetchMsg.size() > 0) {
+                    return 0;
+                }
+                return delMsgsOfCertainContacter;
+            }
+        }
+        return invokeLJ.intValue;
+    }
+
+    public int deleteMsgBatch(ChatObject chatObject, long[] jArr) {
+        InterceptResult invokeLL;
+        int delMsgs;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, chatObject, jArr)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                if (1 == chatObject.getCategory()) {
+                    delMsgs = GroupMessageDAOImpl.deleteMsgs(this.mContext, String.valueOf(chatObject.getContacter()), jArr);
+                } else {
+                    delMsgs = getInstance(this.mContext).delMsgs(jArr);
+                }
+                if (delMsgs < 0) {
+                    return DlnaManager.DLNA_ERROR_GET_POSITION_INFO_ACTION_NOT_FOUND;
+                }
+                return updateSession(delMsgs, chatObject);
+            }
+        }
+        return invokeLL.intValue;
+    }
+
+    public ChatMsg getDraftMsg(int i, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048615, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            if (1 == i) {
+                return GroupMessageDAOImpl.getDraftMsg(this.mContext, String.valueOf(j));
+            }
+            return getDraftMsgForSingle(i, j);
+        }
+        return (ChatMsg) invokeCommon.objValue;
+    }
+
+    public synchronized void notifyDbChange(int i, ChatSession chatSession) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048633, this, i, chatSession) == null) {
+            synchronized (this) {
+                if (this.mObservers != null && this.mObservers.size() != 0 && chatSession != null) {
+                    for (ChatMessageDbOberser chatMessageDbOberser : this.mObservers) {
+                        if (chatMessageDbOberser != null) {
+                            chatMessageDbOberser.notifyDbChange(i, chatSession);
                         }
-                        throw th;
                     }
                 }
-                if (cursor != null) {
-                    cursor.close();
-                }
-                return null;
-            } catch (Exception e2) {
-                e = e2;
-                cursor = null;
-            } catch (Throwable th2) {
-                th = th2;
-                if (cursor2 != null) {
-                }
-                throw th;
             }
         }
     }
 
-    public long getMaxMsgid(ChatObject chatObject) {
-        InterceptResult invokeL;
+    public ArrayList addMsgs(Context context, ArrayList arrayList, boolean z, long j) {
+        InterceptResult invokeCommon;
+        ArrayList arrayList2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048619, this, chatObject)) == null) {
-            if (1 == chatObject.getCategory()) {
-                return GroupMessageDAOImpl.getMaxMsgid(this.mContext, String.valueOf(chatObject.getContacter()));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, arrayList, Boolean.valueOf(z), Long.valueOf(j)})) == null) {
+            ArrayList arrayList3 = arrayList;
+            if (arrayList3 != null) {
+                synchronized (DBBase.mSyncLock) {
+                    AccountManagerImpl.getInstance(this.mContext).getUid();
+                    arrayList2 = new ArrayList();
+                    ArrayList arrayList4 = new ArrayList();
+                    ArrayList arrayList5 = new ArrayList();
+                    ArrayList arrayList6 = new ArrayList();
+                    HashMap hashMap = new HashMap();
+                    int i = 0;
+                    while (i < arrayList.size()) {
+                        ChatMsg chatMsg = (ChatMsg) arrayList3.get(i);
+                        chatMsg.setTriggerReasonn(j);
+                        try {
+                            JSONObject jSONObject = new JSONObject(chatMsg.getMsgContent());
+                            jSONObject.put(Constants.EXTRA_TRIGGER_REASON, j);
+                            chatMsg.setMsgContent(jSONObject.toString());
+                        } catch (Exception e) {
+                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                            e.printStackTrace();
+                        }
+                        if (!isNeedInsertToDB(chatMsg)) {
+                            arrayList2.add(chatMsg);
+                        } else if (chatMsg.getChatType() == 24 && chatMsg.getMsgType() == 20) {
+                            LogUtils.d(TAG, "msg will handle by dupMsgAddHandler");
+                            if (dupMsgAddHandler(chatMsg) > 0) {
+                                if (RetrieveUtil.isRetrievePaUid(context, chatMsg.getFromUser())) {
+                                    arrayList6.add(chatMsg);
+                                } else {
+                                    arrayList4.add(chatMsg);
+                                }
+                            }
+                        } else if (chatMsg.getChatType() == 20 && chatMsg.getMsgType() == 80) {
+                            LogUtils.d(TAG, "msg will handle by stduioMsgAddHandler");
+                            if (studioMsgAddHandler(chatMsg) > 0) {
+                                arrayList5.add(chatMsg);
+                            }
+                        } else {
+                            String str = TAG;
+                            LogUtils.d(str, "will add msg to db, msg = " + chatMsg.toString());
+                            long addMsg = addMsg(chatMsg);
+                            String str2 = TAG;
+                            LogUtils.e(str2, "addMsg result : " + addMsg);
+                            if (-1 != addMsg && -2 != addMsg) {
+                                chatMsg.setRowId(addMsg);
+                                long contacter = getContacter(chatMsg);
+                                if (contacter != -1) {
+                                    ChatObject chatObject = new ChatObject(this.mContext, chatMsg.getCategory(), contacter, chatMsg.getPaid(), -1);
+                                    ChatSession chatSession = getChatSession(chatObject);
+                                    String str3 = TAG;
+                                    LogUtils.e(str3, " addMsgs session : " + chatSession);
+                                    if (chatSession != null) {
+                                        chatMsg.setChatType(chatSession.getChatType());
+                                        arrayList2.add(chatMsg);
+                                    }
+                                    if (hashMap.containsKey(chatObject)) {
+                                        if (z && !chatMsg.isMsgRead() && chatMsg.getMsgType() != 101) {
+                                            hashMap.put(chatObject, Integer.valueOf(((Integer) hashMap.get(chatObject)).intValue() + 1));
+                                        }
+                                    } else if (z && !chatMsg.isMsgRead() && chatMsg.getMsgType() != 101) {
+                                        hashMap.put(chatObject, 1);
+                                    } else {
+                                        hashMap.put(chatObject, 0);
+                                        i++;
+                                        arrayList3 = arrayList;
+                                    }
+                                }
+                            }
+                        }
+                        i++;
+                        arrayList3 = arrayList;
+                    }
+                    recordLastMsg(hashMap);
+                    if (!arrayList4.isEmpty()) {
+                        ChatMsgManagerImpl.getInstance(this.mContext).deliverFetchedConfigMessage(arrayList4);
+                    }
+                    if (!arrayList6.isEmpty()) {
+                        String str4 = TAG;
+                        LogUtils.d(str4, "retrieve-->delverFetchedRetrieveMessage retrieveMsgs:" + arrayList6.toString());
+                        ChatMsgManagerImpl.getInstance(this.mContext).delverFetchedRetrieveMessage(arrayList6);
+                    }
+                    if (!arrayList5.isEmpty()) {
+                        String str5 = TAG;
+                        LogUtils.d(str5, "deliverStudioUsePaMessage studioMsgs ：" + arrayList5.size());
+                        ChatMsgManagerImpl.getInstance(this.mContext).deliverStudioUsePaMessage(arrayList5);
+                    }
+                }
+                return arrayList2;
             }
+            return null;
+        }
+        return (ArrayList) invokeCommon.objValue;
+    }
+
+    public long createChatSession(ChatObject chatObject, String str, int i, String str2, int i2, String str3, String str4, int i3, int i4, long j, int i5, long j2, String str5, String str6, String str7) {
+        InterceptResult invokeCommon;
+        ChatMsg chatMsg;
+        int i6;
+        int unReadMsgCount;
+        String str8;
+        ArrayList fetchMsgExcludeTypes;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{chatObject, str, Integer.valueOf(i), str2, Integer.valueOf(i2), str3, str4, Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j), Integer.valueOf(i5), Long.valueOf(j2), str5, str6, str7})) == null) {
+            if (getChatSession(chatObject) != null) {
+                return 0L;
+            }
+            int category = chatObject.getCategory();
+            long contacter = chatObject.getContacter();
             synchronized (DBBase.mSyncLock) {
-                ArrayList<ChatMsg> fetchMsg = fetchMsg(chatObject, 0L, 1L);
-                if (fetchMsg == null || fetchMsg.size() <= 0) {
-                    return fetchMsg == null ? -1L : 0L;
+                if (category == 0 && i == 0) {
+                    contacter = IMUserManager.getInstance(this.mContext).getBuidByUK(contacter);
                 }
-                return fetchMsg.get(0).getMsgId();
+                ChatSession chatSession = new ChatSession(category, chatObject.getContacter(), contacter, str);
+                ChatMsg draftMsg = getDraftMsg(chatObject.getCategory(), chatObject.getContacter());
+                if (draftMsg == null) {
+                    if (1 == chatObject.getCategory()) {
+                        if (i == 4) {
+                            fetchMsgExcludeTypes = GroupMessageDAOImpl.fetchLastChatMsg(this.mContext, String.valueOf(chatObject.getContacter()), null, 1L, true);
+                        } else {
+                            fetchMsgExcludeTypes = GroupMessageDAOImpl.fetchAllChatMsg(this.mContext, String.valueOf(chatObject.getContacter()), null, 1L, true);
+                        }
+                    } else {
+                        fetchMsgExcludeTypes = getInstance(this.mContext).fetchMsgExcludeTypes(chatObject, 0L, 1L, UNUPDATE_SESSION_MSG_TYPES);
+                    }
+                    if (fetchMsgExcludeTypes == null) {
+                        LogUtils.e(TAG, "updateChatRecordName fetchmsg error! ");
+                        return -1L;
+                    } else if (fetchMsgExcludeTypes.size() == 0) {
+                        LogUtils.e(TAG, "updateChatRecordName  msgs.size() = 0! ");
+                        return 0L;
+                    } else {
+                        draftMsg = (ChatMsg) fetchMsgExcludeTypes.get(0);
+                    }
+                }
+                ChatMsg chatMsg2 = draftMsg;
+                String str9 = "";
+                if (chatObject.getCategory() == 0 && (chatObject.getContacter() & Constants.PAFLAG) != 0) {
+                    if (!chatMsg2.isSelf(this.mContext)) {
+                        chatMsg = chatMsg2;
+                        str8 = chatMsg2.getExtLog();
+                        i6 = 1;
+                    } else {
+                        chatMsg = chatMsg2;
+                        i6 = 1;
+                        ArrayList fetchMsg = fetchMsg(chatObject, 0L, 1L, -1L, false, "from_user != " + Utility.getUK(this.mContext));
+                        if (fetchMsg != null && fetchMsg.size() > 0) {
+                            str9 = ((ChatMsg) fetchMsg.get(0)).getExtLog();
+                        }
+                        str8 = str9;
+                    }
+                    chatSession.addExt("ext_log", str8);
+                } else {
+                    chatMsg = chatMsg2;
+                    i6 = 1;
+                }
+                if (i6 == chatObject.getCategory()) {
+                    unReadMsgCount = GroupMessageDAOImpl.getUnReadCount(this.mContext, String.valueOf(chatObject.getContacter()));
+                } else {
+                    unReadMsgCount = getUnReadMsgCount(chatObject);
+                }
+                chatSession.setChatType(i);
+                if (unReadMsgCount >= 0) {
+                    chatSession.setNewMsgSum(unReadMsgCount);
+                }
+                String recommendDescription = chatMsg.getRecommendDescription();
+                ChatMsg chatMsg3 = chatMsg;
+                if (chatMsg3 instanceof HtmlMsg) {
+                    recommendDescription = chatMsg3.getLocalUrl();
+                }
+                chatSession.setLastOpenTime(chatMsg3.getMsgTime());
+                chatSession.setLastMsgTime(chatMsg3.getMsgTime());
+                chatSession.setLastMsg(recommendDescription);
+                chatSession.setState(chatMsg3.getStatus());
+                chatSession.setIconUrl(str2);
+                chatSession.setIsClicked(Utility.getClickState(chatMsg3));
+                chatSession.setPaid(chatObject.getPaid());
+                chatSession.setClassType(i2);
+                chatSession.setClassTitle(str3);
+                chatSession.setClassAvatar(str4);
+                chatSession.setClassShow(i3);
+                chatSession.setMarkTop(i4);
+                chatSession.setMarkTopTime(j);
+                chatSession.setVipId(str5);
+                chatSession.setVPortrait(str6);
+                chatSession.setCertification(str7);
+                chatSession.setShield(i5);
+                chatSession.setShieldTime(j2);
+                setChatSessionLastName(chatSession, chatMsg3.getSenderUid());
+                if (chatMsg3.isStarMessage()) {
+                    chatSession.setChatType(4);
+                }
+                return getInstance(this.mContext).updateChatSession(i6, chatSession);
             }
         }
-        return invokeL.longValue;
+        return invokeCommon.longValue;
     }
 
-    public void updateSessionClass(ChatUser chatUser) {
-        ChatSession chatRecord;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048651, this, chatUser) == null) || (chatRecord = getChatRecord(new ChatObject(this.mContext, 0, chatUser.getUk(), -1L, -1))) == null) {
-            return;
-        }
-        String str = TAG;
-        LogUtils.d(str, "sync user session " + chatUser.toString());
-        chatRecord.setNickName(chatUser.getUserName());
-        chatRecord.setName(chatUser.getUserName());
-        chatRecord.setIconUrl(chatUser.getIconUrl());
-        chatRecord.setMarkTop(chatUser.getMarkTop());
-        chatRecord.setMarkTopTime(chatUser.getMarkTopTime());
-        chatRecord.setVipId(chatUser.getVipId());
-        chatRecord.setVPortrait(chatUser.getVPortrait());
-        chatRecord.setCertification(chatUser.getIdentity());
-        chatRecord.setShield(chatUser.getShield());
-        chatRecord.setShieldTime(chatUser.getShieldTime());
-        updateChatSession(1, chatRecord);
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x0057, code lost:
-        if (r3 != null) goto L29;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x0059, code lost:
-        r3.close();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x0079, code lost:
-        if (r3 == null) goto L27;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x007d, code lost:
-        return r1;
-     */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x00e9 A[Catch: all -> 0x00f2, TryCatch #2 {all -> 0x00f2, blocks: (B:50:0x00e9, B:51:0x00ec, B:42:0x00de, B:43:0x00e1, B:54:0x00f0), top: B:62:0x0007 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int getNewMsgCount(long j) {
-        InterceptResult invokeJ;
+    public long delChatRecordForClassTypeOne() {
+        InterceptResult invokeV;
+        Cursor cursor;
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeJ = interceptable.invokeJ(1048623, this, j)) != null) {
-            return invokeJ.intValue;
-        }
-        synchronized (DBBase.mSyncLock) {
-            int i = -1;
-            SQLiteDatabase openDatabase = openDatabase();
-            if (openDatabase == null) {
-                return -1;
-            }
-            Cursor cursor = null;
-            String str = "";
-            if (j != -1) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            synchronized (DBBase.mSyncLock) {
                 try {
-                    str = "paid=" + j;
-                } catch (Exception e) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                    LogUtils.e(TAG, " getNewMsgCount:", e);
+                    try {
+                        LogUtils.d(TAG, "HBBH im in delChatRecordForClassTypeOne!!!");
+                        SQLiteDatabase openDatabase = openDatabase();
+                        if (openDatabase == null) {
+                            LogUtils.d(TAG, "getWritableDb fail!");
+                            return -1L;
+                        }
+                        ArrayList arrayList = new ArrayList();
+                        try {
+                            String[] strArr = {String.valueOf(1), String.valueOf(5)};
+                            Cursor query = openDatabase.query(TableDefine.DB_TABLE_CHAT_SESSION, new String[]{"contacter"}, "classtype = ? AND chat_type = ?", strArr, null, null, null);
+                            if (query != null) {
+                                while (query.moveToNext()) {
+                                    try {
+                                        arrayList.add(Long.valueOf(query.getLong(query.getColumnIndex("contacter"))));
+                                    } catch (Exception e) {
+                                        e = e;
+                                        cursor = query;
+                                        try {
+                                            try {
+                                                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                                                LogUtils.e(TAG, "HBBH delChatRecordForClassTypeOne:", e);
+                                                if (cursor != null) {
+                                                    cursor.close();
+                                                }
+                                                return -1L;
+                                            } catch (Throwable th) {
+                                                th = th;
+                                                if (cursor != null) {
+                                                    cursor.close();
+                                                }
+                                                throw th;
+                                            }
+                                        } catch (Throwable th2) {
+                                            th = th2;
+                                            if (cursor != null) {
+                                            }
+                                            throw th;
+                                        }
+                                    } catch (Throwable th3) {
+                                        th = th3;
+                                        cursor = query;
+                                        if (cursor != null) {
+                                        }
+                                        throw th;
+                                    }
+                                }
+                            }
+                            if (arrayList.size() > 0) {
+                                j = openDatabase.delete(TableDefine.DB_TABLE_CHAT_SESSION, "classtype = ? AND chat_type = ?", strArr);
+                                for (int i = 0; i < arrayList.size(); i++) {
+                                    openDatabase.delete("message", "from_user = ?", new String[]{String.valueOf(arrayList.get(i))});
+                                }
+                            } else {
+                                j = -1;
+                            }
+                            LogUtils.d(TAG, "HBBH delChatRecordForClassTypeOne num = " + j);
+                            if (query != null) {
+                                query.close();
+                            }
+                            return j;
+                        } catch (Exception e2) {
+                            e = e2;
+                            cursor = null;
+                        } catch (Throwable th4) {
+                            th = th4;
+                            cursor = null;
+                            if (cursor != null) {
+                            }
+                            throw th;
+                        }
+                    } catch (Throwable th5) {
+                        th = th5;
+                        throw th;
+                    }
+                } catch (Throwable th6) {
+                    th = th6;
+                    throw th;
                 }
             }
-            String str2 = "select sum(new_msg_sum) from chatrecord";
-            if (!TextUtils.isEmpty(str)) {
-                str2 = "select sum(new_msg_sum) from chatrecord where " + str;
-            }
-            cursor = openDatabase.rawQuery(str2, null);
-            if (cursor != null && cursor.moveToNext()) {
-                i = cursor.getInt(0);
-            }
+        } else {
+            return invokeV.longValue;
         }
     }
 
-    private int setMsgRead(long j) {
-        InterceptResult invokeJ;
-        int update;
+    public ArrayList getAllClassType() {
+        InterceptResult invokeV;
+        Cursor query;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65571, this, j)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("is_read", (Integer) 1);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
             synchronized (DBBase.mSyncLock) {
-                update = update("message", "msgid = ?", new String[]{String.valueOf(j)}, contentValues);
+                SQLiteDatabase openDatabase = openDatabase();
+                ArrayList arrayList = new ArrayList();
+                Cursor cursor = null;
+                if (openDatabase == null) {
+                    return null;
+                }
+                try {
+                    try {
+                        query = openDatabase.query(TableDefine.DB_TABLE_CHAT_SESSION, new String[]{"classtype", "classtitle", "classshow", "classavatar"}, "classtype > 1 ", null, "classtype", null, null, null);
+                    } catch (Exception e) {
+                        e = e;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                }
+                try {
+                    String str = TAG;
+                    LogUtils.e(str, "cursor " + query);
+                    if (query != null) {
+                        String str2 = TAG;
+                        LogUtils.e(str2, "cursor count " + query.getCount());
+                        while (query.moveToNext()) {
+                            int i = query.getInt(query.getColumnIndex("classtype"));
+                            int i2 = query.getInt(query.getColumnIndex("classshow"));
+                            String string = query.getString(query.getColumnIndex("classtitle"));
+                            String string2 = query.getString(query.getColumnIndex("classavatar"));
+                            SessionClass sessionClass = new SessionClass();
+                            sessionClass.setType(i);
+                            sessionClass.setTitle(string);
+                            sessionClass.setAvatarurl(string2);
+                            sessionClass.setShow(i2);
+                            arrayList.add(sessionClass);
+                        }
+                        if (query != null) {
+                            query.close();
+                        }
+                        return arrayList;
+                    }
+                    if (query != null) {
+                        query.close();
+                    }
+                    return null;
+                } catch (Exception e2) {
+                    e = e2;
+                    cursor = query;
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(TAG, "getChatRecords:", e);
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    return arrayList;
+                } catch (Throwable th2) {
+                    th = th2;
+                    cursor = query;
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    throw th;
+                }
             }
-            return update;
         }
-        return invokeJ.intValue;
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public long delSysMsg(int i, long j, int i2) {
+        InterceptResult invokeCommon;
+        long delete;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2)})) == null) {
+            synchronized (DBBase.mSyncLock) {
+                delete = delete("message", "category = ?  AND (contacter = ? OR from_user = ? ) AND cmd = ? ", new String[]{String.valueOf(i), String.valueOf(j), String.valueOf(j), String.valueOf(i2)});
+            }
+            return delete;
+        }
+        return invokeCommon.longValue;
+    }
+
+    public ArrayList fetchMsg(ChatObject chatObject, long j, long j2) {
+        InterceptResult invokeCommon;
+        long j3;
+        ArrayList fetchMsg;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{chatObject, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            synchronized (DBBase.mSyncLock) {
+                if (j == 0) {
+                    j3 = -1;
+                } else {
+                    j3 = Long.MAX_VALUE;
+                }
+                fetchMsg = fetchMsg(chatObject, j, j2, j3, false);
+            }
+            return fetchMsg;
+        }
+        return (ArrayList) invokeCommon.objValue;
+    }
+
+    public ArrayList fetchMsg(ChatObject chatObject, long j, long j2, long j3) {
+        InterceptResult invokeCommon;
+        ArrayList fetchMsg;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048596, this, new Object[]{chatObject, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            synchronized (DBBase.mSyncLock) {
+                fetchMsg = fetchMsg(chatObject, j, j2, j3, false);
+            }
+            return fetchMsg;
+        }
+        return (ArrayList) invokeCommon.objValue;
+    }
+
+    public ArrayList fetchMsg(ChatObject chatObject, long j, long j2, long j3, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{chatObject, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)})) == null) {
+            return fetchMsg(chatObject, j, j2, j3, z, null);
+        }
+        return (ArrayList) invokeCommon.objValue;
+    }
+
+    public ArrayList fetchMsgsExceptGroupSystemMsgSync(ChatObject chatObject, long j, long j2, long j3, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048603, this, new Object[]{chatObject, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)})) == null) {
+            return fetchMsg(chatObject, j, j2, j3, z, "type != 101");
+        }
+        return (ArrayList) invokeCommon.objValue;
+    }
+
+    public ArrayList fetchMsg(ChatObject chatObject, ChatMsg chatMsg, long j, boolean z) {
+        InterceptResult invokeCommon;
+        long msgId;
+        long rowId;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048598, this, new Object[]{chatObject, chatMsg, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+            if (1 == chatObject.getCategory()) {
+                return GroupMessageDAOImpl.fetchAllChatMsg(this.mContext, String.valueOf(chatObject.getContacter()), chatMsg, j, z);
+            }
+            if (chatMsg == null) {
+                msgId = 0;
+            } else {
+                msgId = chatMsg.getMsgId();
+            }
+            long j2 = msgId;
+            if (chatMsg == null) {
+                rowId = -1;
+            } else {
+                rowId = chatMsg.getRowId();
+            }
+            return fetchMsg(chatObject, j2, j, rowId, z, null);
+        }
+        return (ArrayList) invokeCommon.objValue;
+    }
+
+    public ArrayList fetchMsgExcludeTypes(ChatObject chatObject, long j, long j2, List list) {
+        InterceptResult invokeCommon;
+        long j3;
+        ArrayList fetchMsg;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{chatObject, Long.valueOf(j), Long.valueOf(j2), list})) == null) {
+            synchronized (DBBase.mSyncLock) {
+                String str = null;
+                if (list != null) {
+                    try {
+                        if (list.size() > 0) {
+                            StringBuilder sb = new StringBuilder("type NOT IN (");
+                            Iterator it = list.iterator();
+                            while (it.hasNext()) {
+                                sb.append(((Integer) it.next()).intValue());
+                                sb.append(",");
+                            }
+                            str = sb.substring(0, sb.length() - 1) + SmallTailInfo.EMOTION_SUFFIX;
+                        }
+                    } catch (Throwable th) {
+                        throw th;
+                    }
+                }
+                String str2 = str;
+                if (j == 0) {
+                    j3 = -1;
+                } else {
+                    j3 = Long.MAX_VALUE;
+                }
+                fetchMsg = fetchMsg(chatObject, j, j2, j3, false, str2);
+            }
+            return fetchMsg;
+        }
+        return (ArrayList) invokeCommon.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:19:0x005d  */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0060  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public ArrayList fetchMsgsByMsgTypes(ChatObject chatObject, long j, long j2, List list) {
+        InterceptResult invokeCommon;
+        String str;
+        long j3;
+        ArrayList fetchMsg;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048602, this, new Object[]{chatObject, Long.valueOf(j), Long.valueOf(j2), list})) == null) {
+            synchronized (DBBase.mSyncLock) {
+                if (list != null) {
+                    try {
+                        if (list.size() > 0) {
+                            StringBuilder sb = new StringBuilder();
+                            Iterator it = list.iterator();
+                            while (it.hasNext()) {
+                                sb.append(((Integer) it.next()).intValue());
+                                sb.append(",");
+                            }
+                            str = "type IN (" + sb.substring(0, sb.length() - 1) + ") ";
+                            String str2 = str;
+                            if (j != 0) {
+                                j3 = -1;
+                            } else {
+                                j3 = Long.MAX_VALUE;
+                            }
+                            fetchMsg = fetchMsg(chatObject, j, j2, j3, false, str2);
+                        }
+                    } catch (Throwable th) {
+                        throw th;
+                    }
+                }
+                str = null;
+                String str22 = str;
+                if (j != 0) {
+                }
+                fetchMsg = fetchMsg(chatObject, j, j2, j3, false, str22);
+            }
+            return fetchMsg;
+        }
+        return (ArrayList) invokeCommon.objValue;
+    }
+
+    public ArrayList fetchSpecifyMsgsSync(ChatObject chatObject, int i, long j, long j2, long j3, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048606, this, new Object[]{chatObject, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)})) == null) {
+            return fetchMsg(chatObject, j, j2, j3, z, "type = " + i);
+        }
+        return (ArrayList) invokeCommon.objValue;
+    }
+
+    public ArrayList getChatRecords(long j, long j2, long j3, List list) {
+        InterceptResult invokeCommon;
+        String str;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048613, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), list})) == null) {
+            synchronized (DBBase.mSyncLock) {
+                SQLiteDatabase openDatabase = openDatabase();
+                ArrayList arrayList = new ArrayList();
+                Cursor cursor = null;
+                if (openDatabase == null) {
+                    return null;
+                }
+                long j4 = j + j2;
+                try {
+                    try {
+                        String addPaidCondition = addPaidCondition("show= ?", "paid", j3);
+                        LogUtils.e(TAG, addPaidCondition);
+                        if (list != null && list.size() > 0) {
+                            String str3 = "" + list.get(0);
+                            for (int i = 1; i < list.size(); i++) {
+                                str3 = str3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + list.get(i);
+                            }
+                            str = addPaidCondition + " AND chat_type in (" + str3 + ") ";
+                        } else {
+                            str = addPaidCondition;
+                        }
+                        String[] strArr = {String.valueOf(1)};
+                        if (j4 > 0) {
+                            str2 = String.valueOf(j4);
+                        } else {
+                            str2 = null;
+                        }
+                        Cursor query = openDatabase.query(TableDefine.DB_TABLE_CHAT_SESSION, null, str, strArr, null, null, "last_msg_time desc ", str2);
+                        if (query != null) {
+                            try {
+                                LogUtils.e(TAG, "cursor count" + query.getCount());
+                                query.moveToPosition(((int) j) - 1);
+                                while (query.moveToNext()) {
+                                    ChatSession constructChatRecord = constructChatRecord(openDatabase, query);
+                                    LogUtils.e(TAG, "record : " + constructChatRecord);
+                                    if (constructChatRecord != null) {
+                                        arrayList.add(constructChatRecord);
+                                    }
+                                }
+                                if (query != null) {
+                                    query.close();
+                                }
+                                return arrayList;
+                            } catch (Exception e) {
+                                e = e;
+                                cursor = query;
+                                LogUtils.e(TAG, "getChatRecords:", e);
+                                if (cursor != null) {
+                                    cursor.close();
+                                }
+                                return arrayList;
+                            } catch (Throwable th) {
+                                th = th;
+                                cursor = query;
+                                if (cursor != null) {
+                                    cursor.close();
+                                }
+                                throw th;
+                            }
+                        }
+                        if (query != null) {
+                            query.close();
+                        }
+                        return null;
+                    } catch (Throwable th2) {
+                        th = th2;
+                    }
+                } catch (Exception e2) {
+                    e = e2;
+                }
+            }
+        } else {
+            return (ArrayList) invokeCommon.objValue;
+        }
+    }
+
+    public ArrayList getChatRecordsByClass(long j, long j2, long j3, List list) {
+        InterceptResult invokeCommon;
+        String str;
+        String str2;
+        Cursor query;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048614, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), list})) == null) {
+            synchronized (DBBase.mSyncLock) {
+                SQLiteDatabase openDatabase = openDatabase();
+                ArrayList arrayList = new ArrayList();
+                Cursor cursor = null;
+                if (openDatabase == null) {
+                    return null;
+                }
+                long j4 = j + j2;
+                try {
+                    try {
+                        String addPaidCondition = addPaidCondition("show= ?", "paid", j3);
+                        LogUtils.e(TAG, addPaidCondition);
+                        if (list != null && list.size() > 0) {
+                            String str3 = "" + list.get(0);
+                            for (int i = 1; i < list.size(); i++) {
+                                str3 = str3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + list.get(i);
+                            }
+                            str = addPaidCondition + " AND classtype in (" + str3 + ") ";
+                        } else {
+                            str = addPaidCondition;
+                        }
+                        String[] strArr = {String.valueOf(1)};
+                        if (j4 > 0) {
+                            str2 = String.valueOf(j4);
+                        } else {
+                            str2 = null;
+                        }
+                        query = openDatabase.query(TableDefine.DB_TABLE_CHAT_SESSION, null, str, strArr, null, null, "last_msg_time desc ", str2);
+                    } catch (Exception e) {
+                        e = e;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                }
+                try {
+                    LogUtils.e(TAG, Constants.EXTRA_CONFIG_CURSOR + query);
+                    if (query != null) {
+                        LogUtils.e(TAG, "cursor count" + query.getCount());
+                        query.moveToPosition(((int) j) - 1);
+                        while (query.moveToNext()) {
+                            ChatSession constructChatRecord = constructChatRecord(openDatabase, query);
+                            LogUtils.e(TAG, "record : " + constructChatRecord);
+                            if (constructChatRecord != null) {
+                                arrayList.add(constructChatRecord);
+                            }
+                        }
+                        if (query != null) {
+                            query.close();
+                        }
+                        return arrayList;
+                    }
+                    if (query != null) {
+                        query.close();
+                    }
+                    return null;
+                } catch (Exception e2) {
+                    e = e2;
+                    cursor = query;
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(TAG, "getChatRecords:", e);
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    return arrayList;
+                } catch (Throwable th2) {
+                    th = th2;
+                    cursor = query;
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    throw th;
+                }
+            }
+        }
+        return (ArrayList) invokeCommon.objValue;
+    }
+
+    public List getGroupSession() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                SQLiteDatabase openDatabase = openDatabase();
+                ArrayList arrayList = new ArrayList();
+                Cursor cursor = null;
+                if (openDatabase == null) {
+                    return null;
+                }
+                try {
+                    try {
+                        Cursor query = openDatabase.query(TableDefine.DB_TABLE_CHAT_SESSION, null, "category =? AND show= ?", new String[]{String.valueOf(1), String.valueOf(1)}, null, null, "last_msg_time desc ", null);
+                        if (query != null) {
+                            while (query.moveToNext()) {
+                                try {
+                                    ChatSession constructChatRecord = constructChatRecord(openDatabase, query);
+                                    if (constructChatRecord != null) {
+                                        arrayList.add(constructChatRecord);
+                                    }
+                                } catch (Exception e) {
+                                    e = e;
+                                    cursor = query;
+                                    LogUtils.e(TAG, "getGroupSession:", e);
+                                    if (cursor != null) {
+                                        cursor.close();
+                                    }
+                                    return arrayList;
+                                } catch (Throwable th) {
+                                    th = th;
+                                    cursor = query;
+                                    if (cursor != null) {
+                                        cursor.close();
+                                    }
+                                    throw th;
+                                }
+                            }
+                            if (query != null) {
+                                query.close();
+                            }
+                            return arrayList;
+                        }
+                        if (query != null) {
+                            query.close();
+                        }
+                        return null;
+                    } catch (Exception e2) {
+                        e = e2;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                }
+            }
+        } else {
+            return (List) invokeV.objValue;
+        }
+    }
+
+    public long getMaxMsgid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
+            synchronized (DBBase.mSyncLock) {
+                SQLiteDatabase openDatabase = openDatabase();
+                if (openDatabase == null) {
+                    return -1L;
+                }
+                Cursor cursor = null;
+                try {
+                    cursor = openDatabase.query("message", new String[]{"msgid"}, null, null, null, null, "msgid desc ", String.valueOf(1));
+                    if (cursor != null && cursor.moveToNext()) {
+                        long j = cursor.getLong(cursor.getColumnIndex("msgid"));
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                        return j;
+                    }
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    return 0L;
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(TAG, "getMaxMsgid:", e);
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    return -1L;
+                }
+            }
+        }
+        return invokeV.longValue;
+    }
+
+    public ArrayList getStudioUsePaUnReadMsg() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            synchronized (DBBase.mSyncLock) {
+                SQLiteDatabase openDatabase = openDatabase();
+                Cursor cursor = null;
+                try {
+                    if (openDatabase == null) {
+                        return null;
+                    }
+                    try {
+                        Cursor query = openDatabase.query(TableDefine.DB_TABLE_STUDIO_USE_PA_MESSAGE, null, "is_read =?", new String[]{String.valueOf(0)}, null, null, null, null);
+                        if (query != null) {
+                            while (query.moveToNext()) {
+                                try {
+                                    ChatMsg generateStudioUsePaMsg = generateStudioUsePaMsg(query);
+                                    if (generateStudioUsePaMsg != null) {
+                                        arrayList.add(generateStudioUsePaMsg);
+                                    }
+                                } catch (Exception e) {
+                                    e = e;
+                                    cursor = query;
+                                    LogUtils.e(TAG, "getStudioUsePaUnReadMsg :", e);
+                                    if (cursor != null) {
+                                        cursor.close();
+                                    }
+                                    return arrayList;
+                                } catch (Throwable th) {
+                                    th = th;
+                                    cursor = query;
+                                    if (cursor != null) {
+                                        cursor.close();
+                                    }
+                                    throw th;
+                                }
+                            }
+                            if (query != null) {
+                                query.close();
+                            }
+                            return arrayList;
+                        }
+                        if (query != null) {
+                            query.close();
+                        }
+                        return null;
+                    } catch (Exception e2) {
+                        e = e2;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                }
+            }
+        } else {
+            return (ArrayList) invokeV.objValue;
+        }
+    }
+
+    public ArrayList getPaMsgByChatTypeAndPaidList(List list, List list2, long j, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048628, this, new Object[]{list, list2, Long.valueOf(j), Integer.valueOf(i)})) == null) {
+            synchronized (DBBase.mSyncLock) {
+                SQLiteDatabase openDatabase = openDatabase();
+                if (openDatabase == null) {
+                    return null;
+                }
+                List contacterByChatTypes = getContacterByChatTypes(openDatabase, list);
+                HashSet hashSet = new HashSet();
+                if (list2 != null) {
+                    hashSet.addAll(list2);
+                }
+                if (contacterByChatTypes != null) {
+                    hashSet.addAll(contacterByChatTypes);
+                }
+                return fetchPaMsgByPaids(new ArrayList(hashSet), j, i);
+            }
+        }
+        return (ArrayList) invokeCommon.objValue;
     }
 
     public void recordLastMsg(ChatObject chatObject, String str, long j, int i, int i2, int i3, boolean z, String str2, String str3) {
@@ -4545,7 +4969,7 @@ public class ChatMessageDBManager extends DBBase {
             if (i >= 0) {
                 chatRecord.setNewMsgSum(i);
                 if (chatRecord.getChatType() == 57) {
-                    ArrayList<ChatMsg> fansGroupAtUnread = GroupMessageDAOImpl.getFansGroupAtUnread(this.mContext, Long.toString(chatRecord.getContacterId()), AccountManager.getUid(this.mContext));
+                    ArrayList fansGroupAtUnread = GroupMessageDAOImpl.getFansGroupAtUnread(this.mContext, Long.toString(chatRecord.getContacterId()), AccountManager.getUid(this.mContext));
                     if (fansGroupAtUnread != null) {
                         chatRecord.setNewFansAtMsgSum(fansGroupAtUnread.size());
                     } else {
@@ -4565,265 +4989,10 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    public void updateChatSession(ChatMsg chatMsg) {
-        ArrayList<ChatMsg> fetchMsgExcludeTypes;
+    public void updateChatSession(String str, String[] strArr, ContentValues contentValues) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048645, this, chatMsg) == null) {
-            ChatObject chatObject = new ChatObject(this.mContext, chatMsg.getCategory(), chatMsg.getContacter(), chatMsg.getPaid(), chatMsg.getChatType());
-            ChatSession chatSession = getChatSession(chatObject);
-            boolean z = false;
-            if (!isDraftMsg(chatMsg)) {
-                if (chatSession == null || chatSession.getState() != 3) {
-                    if (1 == chatMsg.getCategory()) {
-                        fetchMsgExcludeTypes = GroupMessageDAOImpl.fetchAllChatMsg(this.mContext, String.valueOf(chatMsg.getContacter()), null, 1L, true);
-                    } else {
-                        fetchMsgExcludeTypes = getInstance(this.mContext).fetchMsgExcludeTypes(chatObject, 0L, 1L, UNUPDATE_SESSION_MSG_TYPES);
-                    }
-                    if (fetchMsgExcludeTypes != null && fetchMsgExcludeTypes.size() > 0) {
-                        int chatType = chatMsg.getChatType();
-                        ChatMsg chatMsg2 = fetchMsgExcludeTypes.get(0);
-                        chatMsg2.setChatType(chatType);
-                        chatMsg = chatMsg2;
-                    }
-                }
-                updateSession(z, chatSession, chatMsg);
-            }
-            z = true;
-            updateSession(z, chatSession, chatMsg);
+        if (interceptable == null || interceptable.invokeLLL(1048646, this, str, strArr, contentValues) == null) {
+            update(TableDefine.DB_TABLE_CHAT_SESSION, str, strArr, contentValues);
         }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:114:0x0253  */
-    /* JADX WARN: Removed duplicated region for block: B:127:0x01ac A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:140:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x0110 A[Catch: all -> 0x0233, Exception -> 0x0236, TryCatch #6 {Exception -> 0x0236, all -> 0x0233, blocks: (B:42:0x007d, B:44:0x008e, B:47:0x0099, B:50:0x0110, B:52:0x0121, B:53:0x0135, B:55:0x014e, B:57:0x0156, B:66:0x0172, B:67:0x01ab, B:48:0x00d6), top: B:129:0x007d }] */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x0121 A[Catch: all -> 0x0233, Exception -> 0x0236, TryCatch #6 {Exception -> 0x0236, all -> 0x0233, blocks: (B:42:0x007d, B:44:0x008e, B:47:0x0099, B:50:0x0110, B:52:0x0121, B:53:0x0135, B:55:0x014e, B:57:0x0156, B:66:0x0172, B:67:0x01ab, B:48:0x00d6), top: B:129:0x007d }] */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x014e A[Catch: all -> 0x0233, Exception -> 0x0236, TryCatch #6 {Exception -> 0x0236, all -> 0x0233, blocks: (B:42:0x007d, B:44:0x008e, B:47:0x0099, B:50:0x0110, B:52:0x0121, B:53:0x0135, B:55:0x014e, B:57:0x0156, B:66:0x0172, B:67:0x01ab, B:48:0x00d6), top: B:129:0x007d }] */
-    /* JADX WARN: Removed duplicated region for block: B:60:0x0164  */
-    /* JADX WARN: Removed duplicated region for block: B:63:0x016b A[ADDED_TO_REGION] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private ArrayList<ChatMsg> fetchMsg(ChatObject chatObject, long j, long j2, long j3, boolean z, String str) {
-        InterceptResult invokeCommon;
-        long j4;
-        String str2;
-        String str3;
-        String str4;
-        String[] strArr;
-        String str5;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65551, this, new Object[]{chatObject, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z), str})) != null) {
-            return (ArrayList) invokeCommon.objValue;
-        }
-        long j5 = j2;
-        ArrayList<ChatMsg> arrayList = new ArrayList<>();
-        SQLiteDatabase openDatabase = openDatabase();
-        Cursor cursor = null;
-        if (openDatabase == null) {
-            LogUtils.d(TAG, "getReadableDb fail!");
-            return null;
-        }
-        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-        if (i <= 0 && j5 >= 0) {
-            j5 = -j5;
-        }
-        try {
-        } catch (Throwable th) {
-            th = th;
-        }
-        try {
-            try {
-                if (0 == j && j3 == -1) {
-                    str2 = " >= ";
-                } else {
-                    int i2 = (j5 > 0L ? 1 : (j5 == 0L ? 0 : -1));
-                    if (i2 == 0) {
-                        str2 = " = ";
-                        j4 = -2;
-                    } else if (i2 > 0) {
-                        str2 = " > ";
-                        j4 = j3 == Long.MAX_VALUE ? 0L : j3;
-                    } else {
-                        j4 = j3 != -1 ? j3 : Long.MAX_VALUE;
-                        str2 = " < ";
-                    }
-                    if (j4 != -2) {
-                        try {
-                            str3 = " AND _id" + str2 + j4;
-                            if (chatObject.getContacter() != 17 && chatObject.getContacter() != 26) {
-                                str4 = "contacter = ? AND msgid" + str2 + "? AND category = ? ";
-                                strArr = new String[]{String.valueOf(chatObject.getContacter()), String.valueOf(j), String.valueOf(chatObject.getCategory())};
-                                if (str3 != null) {
-                                    str4 = str4 + str3;
-                                }
-                                if (str != null) {
-                                    str4 = str4 + " AND " + str;
-                                }
-                                str5 = str4 + " AND status != 3";
-                                if (chatObject.getCategory() != 17 && chatObject.getCategory() != 26) {
-                                    str5 = addPaidCondition(str5, "paid", chatObject.getPaid());
-                                }
-                                if (j5 == 0) {
-                                    j5 = 1;
-                                }
-                                long j6 = j5;
-                                String str6 = (j6 > 0 || i <= 0) ? " desc " : " asc ";
-                                String str7 = "select * from message where " + str5 + " ORDER BY msgid" + str6 + ",_id" + str6 + " limit " + Math.abs(j6);
-                                synchronized (DBBase.mSyncLock) {
-                                    try {
-                                        Cursor rawQuery = openDatabase.rawQuery(str7, strArr);
-                                        if (rawQuery == null) {
-                                            if (rawQuery != null) {
-                                                rawQuery.close();
-                                                return null;
-                                            }
-                                            return null;
-                                        }
-                                        boolean cursorMoveDirection = getCursorMoveDirection(z, j, j6);
-                                        if (!cursorMoveDirection) {
-                                            if (!rawQuery.moveToLast()) {
-                                                if (rawQuery != null) {
-                                                    rawQuery.close();
-                                                }
-                                                return arrayList;
-                                            }
-                                        } else if (!rawQuery.moveToFirst()) {
-                                            if (rawQuery != null) {
-                                                rawQuery.close();
-                                            }
-                                            return arrayList;
-                                        }
-                                        while (true) {
-                                            ChatMsg construChatMsg = construChatMsg(rawQuery);
-                                            if (construChatMsg != null) {
-                                                LogUtils.d(TAG, "msgid : " + construChatMsg.getMsgId());
-                                                arrayList.add(construChatMsg);
-                                            } else {
-                                                LogUtils.d(TAG, "construChatMsg msg is null ");
-                                            }
-                                            if (cursorMoveDirection) {
-                                                if (!rawQuery.moveToNext()) {
-                                                    LogUtils.d(TAG, "cursor is moveToNext failed!");
-                                                    break;
-                                                }
-                                            } else if (!rawQuery.moveToPrevious()) {
-                                                LogUtils.d(TAG, "cursor is moveToPrevious failed!");
-                                                break;
-                                            }
-                                        }
-                                        if (rawQuery != null) {
-                                            rawQuery.close();
-                                        }
-                                        return arrayList;
-                                    } catch (Throwable th2) {
-                                        th = th2;
-                                        throw th;
-                                    }
-                                }
-                            }
-                            str4 = "type = ? AND msgid" + str2 + "? AND category = ? ";
-                            strArr = new String[]{String.valueOf(chatObject.getContacter()), String.valueOf(j), String.valueOf(0)};
-                            if (str3 != null) {
-                            }
-                            if (str != null) {
-                            }
-                            str5 = str4 + " AND status != 3";
-                            if (chatObject.getCategory() != 17) {
-                                str5 = addPaidCondition(str5, "paid", chatObject.getPaid());
-                            }
-                            if (j5 == 0) {
-                            }
-                            long j62 = j5;
-                            if (j62 > 0) {
-                            }
-                            String str72 = "select * from message where " + str5 + " ORDER BY msgid" + str6 + ",_id" + str6 + " limit " + Math.abs(j62);
-                            synchronized (DBBase.mSyncLock) {
-                            }
-                        } catch (Exception e) {
-                            e = e;
-                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                            LogUtils.e(TAG, "fetchMsg:", e);
-                            if (cursor == null) {
-                                cursor.close();
-                                return null;
-                            }
-                            return null;
-                        }
-                    }
-                }
-                if (chatObject.getContacter() != 17) {
-                    str4 = "contacter = ? AND msgid" + str2 + "? AND category = ? ";
-                    strArr = new String[]{String.valueOf(chatObject.getContacter()), String.valueOf(j), String.valueOf(chatObject.getCategory())};
-                    if (str3 != null) {
-                    }
-                    if (str != null) {
-                    }
-                    str5 = str4 + " AND status != 3";
-                    if (chatObject.getCategory() != 17) {
-                    }
-                    if (j5 == 0) {
-                    }
-                    long j622 = j5;
-                    if (j622 > 0) {
-                    }
-                    String str722 = "select * from message where " + str5 + " ORDER BY msgid" + str6 + ",_id" + str6 + " limit " + Math.abs(j622);
-                    synchronized (DBBase.mSyncLock) {
-                    }
-                }
-                synchronized (DBBase.mSyncLock) {
-                }
-            } catch (Throwable th3) {
-                th = th3;
-            }
-            str4 = "type = ? AND msgid" + str2 + "? AND category = ? ";
-            strArr = new String[]{String.valueOf(chatObject.getContacter()), String.valueOf(j), String.valueOf(0)};
-            if (str3 != null) {
-            }
-            if (str != null) {
-            }
-            str5 = str4 + " AND status != 3";
-            if (chatObject.getCategory() != 17) {
-            }
-            if (j5 == 0) {
-            }
-            long j6222 = j5;
-            if (j6222 > 0) {
-            }
-            String str7222 = "select * from message where " + str5 + " ORDER BY msgid" + str6 + ",_id" + str6 + " limit " + Math.abs(j6222);
-        } catch (Exception e2) {
-            e = e2;
-            cursor = null;
-            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-            LogUtils.e(TAG, "fetchMsg:", e);
-            if (cursor == null) {
-            }
-        } catch (Throwable th4) {
-            th = th4;
-            cursor = null;
-            if (cursor != null) {
-                cursor.close();
-            }
-            throw th;
-        }
-        str3 = null;
-    }
-
-    public ArrayList<ChatMsg> fetchMsg(ChatObject chatObject, long j, long j2, long j3, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{chatObject, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)})) == null) ? fetchMsg(chatObject, j, j2, j3, z, null) : (ArrayList) invokeCommon.objValue;
-    }
-
-    public ArrayList<ChatMsg> fetchMsg(ChatObject chatObject, ChatMsg chatMsg, long j, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048598, this, new Object[]{chatObject, chatMsg, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
-            if (1 == chatObject.getCategory()) {
-                return GroupMessageDAOImpl.fetchAllChatMsg(this.mContext, String.valueOf(chatObject.getContacter()), chatMsg, j, z);
-            }
-            return fetchMsg(chatObject, chatMsg == null ? 0L : chatMsg.getMsgId(), j, chatMsg == null ? -1L : chatMsg.getRowId(), z, null);
-        }
-        return (ArrayList) invokeCommon.objValue;
     }
 }

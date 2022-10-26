@@ -18,9 +18,9 @@ import java.util.Hashtable;
 public class GeneralProxy {
     public static /* synthetic */ Interceptable $ic;
     public static Object OBJ_KEY;
-    public static Hashtable<String, GeneralConfigTool> configToolContainer;
+    public static Hashtable configToolContainer;
     public static FlushManager mFlushManager;
-    public static Hashtable<String, GeneralStatisTool> statisToolContainer;
+    public static Hashtable statisToolContainer;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,8 +36,8 @@ public class GeneralProxy {
                 return;
             }
         }
-        statisToolContainer = new Hashtable<>();
-        configToolContainer = new Hashtable<>();
+        statisToolContainer = new Hashtable();
+        configToolContainer = new Hashtable();
         OBJ_KEY = FlushManager.class;
     }
 
@@ -60,13 +60,13 @@ public class GeneralProxy {
         if (interceptable == null || interceptable.invokeLZ(65538, null, context, z) == null) {
             synchronized (GeneralProxy.class) {
                 try {
-                    Enumeration<GeneralStatisTool> elements = statisToolContainer.elements();
+                    Enumeration elements = statisToolContainer.elements();
                     while (elements.hasMoreElements()) {
-                        GeneralStatisTool nextElement = elements.nextElement();
+                        GeneralStatisTool generalStatisTool = (GeneralStatisTool) elements.nextElement();
                         if (z) {
-                            nextElement.getTaskManager().flush(context);
+                            generalStatisTool.getTaskManager().flush(context);
                         } else {
-                            nextElement.getTaskManager().enableSend(z);
+                            generalStatisTool.getTaskManager().enableSend(z);
                         }
                     }
                 } catch (Throwable th) {
@@ -76,11 +76,23 @@ public class GeneralProxy {
         }
     }
 
-    public static synchronized void flushCache(Context context) {
+    public static void flushCache(Context context, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
-            synchronized (GeneralProxy.class) {
-                flushCache(context, true);
+        if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, z) == null) {
+            if (!z) {
+                try {
+                    if (ProcessUtil.isBackground(context)) {
+                        L.verbose("GeneralProxy", "app is Background ,no flush.", new Object[0]);
+                        return;
+                    }
+                } catch (Throwable th) {
+                    th.printStackTrace();
+                    return;
+                }
+            }
+            Enumeration elements = statisToolContainer.elements();
+            while (elements.hasMoreElements()) {
+                ((GeneralStatisTool) elements.nextElement()).getTaskManager().flush(context);
             }
         }
     }
@@ -89,7 +101,7 @@ public class GeneralProxy {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, abstractConfig)) == null) {
-            GeneralConfigTool generalConfigTool = configToolContainer.get(abstractConfig.getConfigKey());
+            GeneralConfigTool generalConfigTool = (GeneralConfigTool) configToolContainer.get(abstractConfig.getConfigKey());
             if (generalConfigTool == null) {
                 GeneralConfigTool generalConfigTool2 = new GeneralConfigTool(context, abstractConfig);
                 configToolContainer.put(abstractConfig.getConfigKey(), generalConfigTool2);
@@ -101,12 +113,45 @@ public class GeneralProxy {
         return (GeneralConfigTool) invokeLL.objValue;
     }
 
+    public static synchronized void flushCache(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
+            synchronized (GeneralProxy.class) {
+                flushCache(context, true);
+            }
+        }
+    }
+
+    public static synchronized void start(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, context) == null) {
+            synchronized (GeneralProxy.class) {
+                try {
+                    initFlushManager(context);
+                    flushCache(context);
+                } catch (Throwable th) {
+                    th.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public static synchronized void stopTimer(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, context) == null) {
+            synchronized (GeneralProxy.class) {
+                initFlushManager(context);
+                mFlushManager.stopTimer(context);
+            }
+        }
+    }
+
     public static GeneralStatisTool getGeneralStatisInstance(Context context, AbstractConfig abstractConfig) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, abstractConfig)) == null) {
             initFlushManager(context);
-            GeneralStatisTool generalStatisTool = statisToolContainer.get(abstractConfig.getConfigKey());
+            GeneralStatisTool generalStatisTool = (GeneralStatisTool) statisToolContainer.get(abstractConfig.getConfigKey());
             if (generalStatisTool == null) {
                 GeneralStatisTool generalStatisTool2 = new GeneralStatisTool(context, abstractConfig);
                 statisToolContainer.put(abstractConfig.getConfigKey(), generalStatisTool2);
@@ -158,57 +203,12 @@ public class GeneralProxy {
         }
     }
 
-    public static synchronized void start(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, context) == null) {
-            synchronized (GeneralProxy.class) {
-                try {
-                    initFlushManager(context);
-                    flushCache(context);
-                } catch (Throwable th) {
-                    th.printStackTrace();
-                }
-            }
-        }
-    }
-
     public static synchronized void startTimer(Context context, Long l) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, null, context, l) == null) {
             synchronized (GeneralProxy.class) {
                 initFlushManager(context);
                 mFlushManager.startTimer(context, l);
-            }
-        }
-    }
-
-    public static synchronized void stopTimer(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, context) == null) {
-            synchronized (GeneralProxy.class) {
-                initFlushManager(context);
-                mFlushManager.stopTimer(context);
-            }
-        }
-    }
-
-    public static void flushCache(Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, z) == null) {
-            if (!z) {
-                try {
-                    if (ProcessUtil.isBackground(context)) {
-                        L.verbose("GeneralProxy", "app is Background ,no flush.", new Object[0]);
-                        return;
-                    }
-                } catch (Throwable th) {
-                    th.printStackTrace();
-                    return;
-                }
-            }
-            Enumeration<GeneralStatisTool> elements = statisToolContainer.elements();
-            while (elements.hasMoreElements()) {
-                elements.nextElement().getTaskManager().flush(context);
             }
         }
     }

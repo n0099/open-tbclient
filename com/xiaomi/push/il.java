@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.BitSet;
 /* loaded from: classes8.dex */
-public class il implements iu<il, Object>, Serializable, Cloneable {
+public class il implements iu, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final jc a;
 
@@ -106,11 +106,11 @@ public class il implements iu<il, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ilVar)) == null) {
             if (il.class.equals(ilVar.getClass())) {
-                int compareTo = Boolean.valueOf(m502a()).compareTo(Boolean.valueOf(ilVar.m502a()));
+                int compareTo = Boolean.valueOf(m501a()).compareTo(Boolean.valueOf(ilVar.m501a()));
                 if (compareTo != 0) {
                     return compareTo;
                 }
-                if (!m502a() || (a8 = iv.a(this.f712a, ilVar.f712a)) == 0) {
+                if (!m501a() || (a8 = iv.a(this.f712a, ilVar.f712a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(ilVar.b()));
                     if (compareTo2 != 0) {
                         return compareTo2;
@@ -180,10 +180,10 @@ public class il implements iu<il, Object>, Serializable, Cloneable {
         if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jfVar) != null) {
             return;
         }
-        jfVar.m550a();
+        jfVar.m549a();
         while (true) {
-            jc m546a = jfVar.m546a();
-            byte b2 = m546a.a;
+            jc m545a = jfVar.m545a();
+            byte b2 = m545a.a;
             if (b2 == 0) {
                 jfVar.f();
                 if (e()) {
@@ -192,10 +192,10 @@ public class il implements iu<il, Object>, Serializable, Cloneable {
                 }
                 throw new jg("Required field 'errorCode' was not found in serialized data! Struct: " + toString());
             }
-            switch (m546a.f810a) {
+            switch (m545a.f810a) {
                 case 1:
                     if (b2 == 11) {
-                        this.f712a = jfVar.m551a();
+                        this.f712a = jfVar.m550a();
                         continue;
                         jfVar.g();
                     }
@@ -211,21 +211,21 @@ public class il implements iu<il, Object>, Serializable, Cloneable {
                     break;
                 case 3:
                     if (b2 == 11) {
-                        this.f714b = jfVar.m551a();
+                        this.f714b = jfVar.m550a();
                         continue;
                         jfVar.g();
                     }
                     break;
                 case 4:
                     if (b2 == 11) {
-                        this.f715c = jfVar.m551a();
+                        this.f715c = jfVar.m550a();
                         continue;
                         jfVar.g();
                     }
                     break;
                 case 6:
                     if (b2 == 10) {
-                        this.f710a = jfVar.m545a();
+                        this.f710a = jfVar.m544a();
                         a(true);
                         continue;
                         jfVar.g();
@@ -233,14 +233,14 @@ public class il implements iu<il, Object>, Serializable, Cloneable {
                     break;
                 case 7:
                     if (b2 == 11) {
-                        this.f716d = jfVar.m551a();
+                        this.f716d = jfVar.m550a();
                         continue;
                         jfVar.g();
                     }
                     break;
                 case 8:
                     if (b2 == 11) {
-                        this.f717e = jfVar.m551a();
+                        this.f717e = jfVar.m550a();
                         continue;
                         jfVar.g();
                     }
@@ -259,28 +259,28 @@ public class il implements iu<il, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m502a() {
+    public boolean m501a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f712a != null : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m503a(il ilVar) {
+    public boolean m502a(il ilVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, ilVar)) == null) {
             if (ilVar == null) {
                 return false;
             }
-            boolean m502a = m502a();
-            boolean m502a2 = ilVar.m502a();
-            if ((m502a || m502a2) && !(m502a && m502a2 && this.f712a.equals(ilVar.f712a))) {
+            boolean m501a = m501a();
+            boolean m501a2 = ilVar.m501a();
+            if ((m501a || m501a2) && !(m501a && m501a2 && this.f712a.equals(ilVar.f712a))) {
                 return false;
             }
             boolean b2 = b();
             boolean b3 = ilVar.b();
-            if ((b2 || b3) && !(b2 && b3 && this.f711a.m444a(ilVar.f711a))) {
+            if ((b2 || b3) && !(b2 && b3 && this.f711a.m443a(ilVar.f711a))) {
                 return false;
             }
             boolean c2 = c();
@@ -314,7 +314,7 @@ public class il implements iu<il, Object>, Serializable, Cloneable {
         if (interceptable == null || interceptable.invokeL(1048582, this, jfVar) == null) {
             a();
             jfVar.a(f709a);
-            if (this.f712a != null && m502a()) {
+            if (this.f712a != null && m501a()) {
                 jfVar.a(a);
                 jfVar.a(this.f712a);
                 jfVar.b();
@@ -348,7 +348,7 @@ public class il implements iu<il, Object>, Serializable, Cloneable {
                 jfVar.b();
             }
             jfVar.c();
-            jfVar.m554a();
+            jfVar.m553a();
         }
     }
 
@@ -381,7 +381,7 @@ public class il implements iu<il, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, obj)) == null) {
             if (obj != null && (obj instanceof il)) {
-                return m503a((il) obj);
+                return m502a((il) obj);
             }
             return false;
         }
@@ -416,7 +416,7 @@ public class il implements iu<il, Object>, Serializable, Cloneable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             StringBuilder sb = new StringBuilder("XmPushActionSendFeedbackResult(");
             boolean z2 = false;
-            if (m502a()) {
+            if (m501a()) {
                 sb.append("debug:");
                 String str = this.f712a;
                 if (str == null) {

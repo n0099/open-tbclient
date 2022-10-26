@@ -83,41 +83,9 @@ public class RoundAdapterLinearLayout extends AdapterLinearLayout {
             RectF rectF = this.g;
             float f = this.c;
             canvas.drawRoundRect(rectF, f, f, this.f);
-            if (saveCount < 1 || saveCount > canvas.getSaveCount()) {
-                return;
+            if (saveCount >= 1 && saveCount <= canvas.getSaveCount()) {
+                canvas.restoreToCount(saveCount);
             }
-            canvas.restoreToCount(saveCount);
-        }
-    }
-
-    @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            super.onLayout(z, i, i2, i3, i4);
-            if (z) {
-                if (this.d == null) {
-                    float[] fArr = new float[8];
-                    Arrays.fill(fArr, 0.0f);
-                    float dimension = ((float) getPaddingLeft()) <= getResources().getDimension(R.dimen.tbds5) ? getResources().getDimension(R.dimen.tbds5) : getPaddingLeft();
-                    float dimension2 = ((float) getPaddingRight()) <= getResources().getDimension(R.dimen.tbds5) ? getResources().getDimension(R.dimen.tbds5) : getPaddingRight();
-                    float paddingTop = getPaddingTop() <= 0 ? 1.0f : getPaddingTop();
-                    float paddingBottom = getPaddingBottom() > 0 ? getPaddingBottom() : 1.0f;
-                    RectF rectF = new RectF(dimension, paddingTop, dimension2, paddingBottom);
-                    float[] fArr2 = new float[8];
-                    Arrays.fill(fArr2, this.c);
-                    this.d = new RoundRectShape(fArr, rectF, fArr2);
-                    this.g.set(dimension, paddingTop, getWidth() - dimension2, getHeight() - paddingBottom);
-                }
-                this.d.resize(getWidth(), getHeight());
-            }
-        }
-    }
-
-    public void setRadius(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) {
-            this.c = f;
         }
     }
 
@@ -177,5 +145,54 @@ public class RoundAdapterLinearLayout extends AdapterLinearLayout {
         this.f.setShadowLayer(getResources().getDimension(R.dimen.tbds5), 0.0f, getResources().getDimension(R.dimen.tbds4), getResources().getColor(black_alpha4));
         this.f.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OVER));
         this.g = new RectF();
+    }
+
+    @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        float paddingLeft;
+        float paddingRight;
+        float paddingTop;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.onLayout(z, i, i2, i3, i4);
+            if (z) {
+                if (this.d == null) {
+                    float[] fArr = new float[8];
+                    Arrays.fill(fArr, 0.0f);
+                    if (getPaddingLeft() <= getResources().getDimension(R.dimen.tbds5)) {
+                        paddingLeft = getResources().getDimension(R.dimen.tbds5);
+                    } else {
+                        paddingLeft = getPaddingLeft();
+                    }
+                    if (getPaddingRight() <= getResources().getDimension(R.dimen.tbds5)) {
+                        paddingRight = getResources().getDimension(R.dimen.tbds5);
+                    } else {
+                        paddingRight = getPaddingRight();
+                    }
+                    float f = 1.0f;
+                    if (getPaddingTop() <= 0) {
+                        paddingTop = 1.0f;
+                    } else {
+                        paddingTop = getPaddingTop();
+                    }
+                    if (getPaddingBottom() > 0) {
+                        f = getPaddingBottom();
+                    }
+                    RectF rectF = new RectF(paddingLeft, paddingTop, paddingRight, f);
+                    float[] fArr2 = new float[8];
+                    Arrays.fill(fArr2, this.c);
+                    this.d = new RoundRectShape(fArr, rectF, fArr2);
+                    this.g.set(paddingLeft, paddingTop, getWidth() - paddingRight, getHeight() - f);
+                }
+                this.d.resize(getWidth(), getHeight());
+            }
+        }
+    }
+
+    public void setRadius(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) {
+            this.c = f;
+        }
     }
 }

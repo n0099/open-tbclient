@@ -21,52 +21,6 @@ import kotlin.Metadata;
 /* loaded from: classes2.dex */
 public interface ILiveRecMoreFeedView {
 
-    @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes2.dex */
-    public static final class DefaultImpls {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static /* synthetic */ void handleFollowData$default(ILiveRecMoreFeedView iLiveRecMoreFeedView, LiveFollowWrapData liveFollowWrapData, boolean z, int i, Object obj) {
-            if (obj == null) {
-                if ((i & 2) != 0) {
-                    z = false;
-                }
-                iLiveRecMoreFeedView.handleFollowData(liveFollowWrapData, z);
-                return;
-            }
-            throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: handleFollowData");
-        }
-
-        public static /* synthetic */ void initUiScene$default(ILiveRecMoreFeedView iLiveRecMoreFeedView, FragmentManager fragmentManager, String str, String str2, int i, Object obj) {
-            if (obj == null) {
-                if ((i & 2) != 0) {
-                    str = null;
-                }
-                if ((i & 4) != 0) {
-                    str2 = null;
-                }
-                iLiveRecMoreFeedView.initUiScene(fragmentManager, str, str2);
-                return;
-            }
-            throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: initUiScene");
-        }
-
-        public static /* synthetic */ void onTabSelectedEvent$default(ILiveRecMoreFeedView iLiveRecMoreFeedView, String str, String str2, int i, Object obj) {
-            if (obj == null) {
-                if ((i & 1) != 0) {
-                    str = null;
-                }
-                if ((i & 2) != 0) {
-                    str2 = null;
-                }
-                iLiveRecMoreFeedView.onTabSelectedEvent(str, str2);
-                return;
-            }
-            throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: onTabSelectedEvent");
-        }
-    }
-
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000.\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000e\n\u0002\b\u0007\bf\u0018\u00002\u00020\u0001J\u000f\u0010\u0003\u001a\u00020\u0002H&¢\u0006\u0004\b\u0003\u0010\u0004J\u001f\u0010\t\u001a\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u00052\u0006\u0010\b\u001a\u00020\u0007H&¢\u0006\u0004\b\t\u0010\nJ\u001f\u0010\r\u001a\u00020\u00022\u0006\u0010\f\u001a\u00020\u000b2\u0006\u0010\b\u001a\u00020\u0007H&¢\u0006\u0004\b\r\u0010\u000eJ\u001f\u0010\u000f\u001a\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u00052\u0006\u0010\b\u001a\u00020\u0007H&¢\u0006\u0004\b\u000f\u0010\nJ\u001f\u0010\u0010\u001a\u00020\u00022\u0006\u0010\f\u001a\u00020\u000b2\u0006\u0010\b\u001a\u00020\u0007H&¢\u0006\u0004\b\u0010\u0010\u000eJ#\u0010\u0014\u001a\u00020\u00022\b\u0010\u0012\u001a\u0004\u0018\u00010\u00112\b\u0010\u0013\u001a\u0004\u0018\u00010\u0011H&¢\u0006\u0004\b\u0014\u0010\u0015J#\u0010\u0016\u001a\u00020\u00022\b\u0010\u0012\u001a\u0004\u0018\u00010\u00112\b\u0010\u0013\u001a\u0004\u0018\u00010\u0011H&¢\u0006\u0004\b\u0016\u0010\u0015J#\u0010\u0017\u001a\u00020\u00022\b\u0010\u0012\u001a\u0004\u0018\u00010\u00112\b\u0010\u0013\u001a\u0004\u0018\u00010\u0011H&¢\u0006\u0004\b\u0017\u0010\u0015¨\u0006\u0018"}, d2 = {"Lcom/baidu/live/recmore/ILiveRecMoreFeedView$LiveSubTabPageListener;", "Lkotlin/Any;", "", "onClickErrorRefresh", "()V", "Lcom/baidu/live/business/model/data/LiveRoomEntity;", "roomEntity", "", CriusAttrConstants.POSITION, "onClickFeedItemRoom", "(Lcom/baidu/live/business/model/data/LiveRoomEntity;I)V", "Lcom/baidu/live/business/model/data/LiveFollowEntity;", "entity", "onClickFollow", "(Lcom/baidu/live/business/model/data/LiveFollowEntity;I)V", "onFeedItemRoomShow", "onFollowShow", "", "tab", "subTab", "onSlideLoadMore", "(Ljava/lang/String;Ljava/lang/String;)V", "onTabPageHideLog", "onTabPageShowLog", "lib-live-feed-page_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
     public interface LiveSubTabPageListener {
@@ -124,4 +78,50 @@ public interface ILiveRecMoreFeedView {
     void showContentView();
 
     void showErrorView();
+
+    @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
+    /* loaded from: classes2.dex */
+    public final class DefaultImpls {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static /* synthetic */ void handleFollowData$default(ILiveRecMoreFeedView iLiveRecMoreFeedView, LiveFollowWrapData liveFollowWrapData, boolean z, int i, Object obj) {
+            if (obj == null) {
+                if ((i & 2) != 0) {
+                    z = false;
+                }
+                iLiveRecMoreFeedView.handleFollowData(liveFollowWrapData, z);
+                return;
+            }
+            throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: handleFollowData");
+        }
+
+        public static /* synthetic */ void onTabSelectedEvent$default(ILiveRecMoreFeedView iLiveRecMoreFeedView, String str, String str2, int i, Object obj) {
+            if (obj == null) {
+                if ((i & 1) != 0) {
+                    str = null;
+                }
+                if ((i & 2) != 0) {
+                    str2 = null;
+                }
+                iLiveRecMoreFeedView.onTabSelectedEvent(str, str2);
+                return;
+            }
+            throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: onTabSelectedEvent");
+        }
+
+        public static /* synthetic */ void initUiScene$default(ILiveRecMoreFeedView iLiveRecMoreFeedView, FragmentManager fragmentManager, String str, String str2, int i, Object obj) {
+            if (obj == null) {
+                if ((i & 2) != 0) {
+                    str = null;
+                }
+                if ((i & 4) != 0) {
+                    str2 = null;
+                }
+                iLiveRecMoreFeedView.initUiScene(fragmentManager, str, str2);
+                return;
+            }
+            throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: initUiScene");
+        }
+    }
 }

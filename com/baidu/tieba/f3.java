@@ -47,14 +47,14 @@ public class f3 extends b1 implements t2 {
     public SensorEventListener K;
     public SensorEventListener L;
     public SensorEventListener M;
-    public final ArrayList<View.OnGenericMotionListener> N;
+    public final ArrayList N;
     public final v2 O;
     public boolean P;
-    public a8<d> f;
-    public a8<f> g;
-    public ArrayList<View.OnKeyListener> h;
-    public ArrayList<d> i;
-    public ArrayList<f> j;
+    public a8 f;
+    public a8 g;
+    public ArrayList h;
+    public ArrayList i;
+    public ArrayList j;
     public int[] k;
     public int[] l;
     public int[] m;
@@ -72,8 +72,15 @@ public class f3 extends b1 implements t2 {
     public final Context y;
     public final a3 z;
 
+    @Override // com.baidu.tieba.t2
+    public void r(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+        }
+    }
+
     /* loaded from: classes4.dex */
-    public class a extends a8<d> {
+    public class a extends a8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -104,12 +111,15 @@ public class f3 extends b1 implements t2 {
         public d d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new d() : (d) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return new d();
+            }
+            return (d) invokeV.objValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b extends a8<f> {
+    public class b extends a8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -140,12 +150,15 @@ public class f3 extends b1 implements t2 {
         public f d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new f() : (f) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return new f();
+            }
+            return (f) invokeV.objValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public static /* synthetic */ class c {
+    public /* synthetic */ class c {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -189,7 +202,7 @@ public class f3 extends b1 implements t2 {
     }
 
     /* loaded from: classes4.dex */
-    public static class d {
+    public class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
@@ -218,6 +231,13 @@ public class f3 extends b1 implements t2 {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ f3 a;
 
+        @Override // android.hardware.SensorEventListener
+        public void onAccuracyChanged(Sensor sensor, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, sensor, i) == null) {
+            }
+        }
+
         public e(f3 f3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -234,13 +254,6 @@ public class f3 extends b1 implements t2 {
                 }
             }
             this.a = f3Var;
-        }
-
-        @Override // android.hardware.SensorEventListener
-        public void onAccuracyChanged(Sensor sensor, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, sensor, i) == null) {
-            }
         }
 
         @Override // android.hardware.SensorEventListener
@@ -299,7 +312,7 @@ public class f3 extends b1 implements t2 {
     }
 
     /* loaded from: classes4.dex */
-    public static class f {
+    public class f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
@@ -343,9 +356,9 @@ public class f3 extends b1 implements t2 {
         }
         this.f = new a(this, 16, 1000);
         this.g = new b(this, 16, 1000);
-        this.h = new ArrayList<>();
-        this.i = new ArrayList<>();
-        this.j = new ArrayList<>();
+        this.h = new ArrayList();
+        this.i = new ArrayList();
+        this.j = new ArrayList();
         this.k = new int[20];
         this.l = new int[20];
         this.m = new int[20];
@@ -365,7 +378,7 @@ public class f3 extends b1 implements t2 {
         this.D = new float[3];
         this.E = new float[3];
         this.F = false;
-        this.N = new ArrayList<>();
+        this.N = new ArrayList();
         this.P = true;
         if (obj instanceof View) {
             View view2 = (View) obj;
@@ -410,19 +423,19 @@ public class f3 extends b1 implements t2 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, onscreenKeyboardType)) == null) {
             int i = c.a[onscreenKeyboardType.ordinal()];
             if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            if (i != 5) {
-                                return Cea708Decoder.COMMAND_SPA;
-                            }
-                            return 17;
-                        }
-                        return 129;
-                    }
-                    return 33;
+                if (i == 2) {
+                    return 3;
                 }
-                return 3;
+                if (i != 3) {
+                    if (i != 4) {
+                        if (i != 5) {
+                            return Cea708Decoder.COMMAND_SPA;
+                        }
+                        return 17;
+                    }
+                    return 129;
+                }
+                return 33;
             }
             return 2;
         }
@@ -433,6 +446,34 @@ public class f3 extends b1 implements t2 {
     public void I0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            g();
+        }
+    }
+
+    @Override // com.baidu.tieba.t2
+    public void Z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            k();
+            Arrays.fill(this.q, -1);
+            Arrays.fill(this.o, false);
+        }
+    }
+
+    @Override // com.baidu.tieba.t2
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            k();
+            Arrays.fill(this.q, -1);
+            Arrays.fill(this.o, false);
+        }
+    }
+
+    @Override // com.baidu.tieba.t2
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             g();
         }
     }
@@ -458,44 +499,56 @@ public class f3 extends b1 implements t2 {
                     g1 g1Var = this.G;
                     int size = this.i.size();
                     for (int i3 = 0; i3 < size; i3++) {
-                        d dVar = this.i.get(i3);
+                        d dVar = (d) this.i.get(i3);
                         long j = dVar.a;
                         int i4 = dVar.b;
-                        if (i4 == 0) {
+                        if (i4 != 0) {
+                            if (i4 != 1) {
+                                if (i4 == 2) {
+                                    g1Var.h(dVar.d);
+                                }
+                            } else {
+                                g1Var.f(dVar.c);
+                            }
+                        } else {
                             g1Var.g(dVar.c);
                             this.e = true;
                             this.b[dVar.c] = true;
-                        } else if (i4 == 1) {
-                            g1Var.f(dVar.c);
-                        } else if (i4 == 2) {
-                            g1Var.h(dVar.d);
                         }
                         this.f.c(dVar);
                     }
                     int size2 = this.j.size();
                     for (int i5 = 0; i5 < size2; i5++) {
-                        f fVar = this.j.get(i5);
+                        f fVar = (f) this.j.get(i5);
                         long j2 = fVar.a;
                         int i6 = fVar.b;
-                        if (i6 == 0) {
+                        if (i6 != 0) {
+                            if (i6 != 1) {
+                                if (i6 != 2) {
+                                    if (i6 != 3) {
+                                        if (i6 == 4) {
+                                            g1Var.e(fVar.c, fVar.d);
+                                        }
+                                    } else {
+                                        g1Var.c(fVar.e, fVar.f);
+                                    }
+                                } else {
+                                    g1Var.d(fVar.c, fVar.d, fVar.h);
+                                }
+                            } else {
+                                g1Var.a(fVar.c, fVar.d, fVar.h, fVar.g);
+                            }
+                        } else {
                             g1Var.b(fVar.c, fVar.d, fVar.h, fVar.g);
                             this.F = true;
                             this.s[fVar.g] = true;
-                        } else if (i6 == 1) {
-                            g1Var.a(fVar.c, fVar.d, fVar.h, fVar.g);
-                        } else if (i6 == 2) {
-                            g1Var.d(fVar.c, fVar.d, fVar.h);
-                        } else if (i6 == 3) {
-                            g1Var.c(fVar.e, fVar.f);
-                        } else if (i6 == 4) {
-                            g1Var.e(fVar.c, fVar.d);
                         }
                         this.g.c(fVar);
                     }
                 } else {
                     int size3 = this.j.size();
                     for (int i7 = 0; i7 < size3; i7++) {
-                        f fVar2 = this.j.get(i7);
+                        f fVar2 = (f) this.j.get(i7);
                         if (fVar2.b == 0) {
                             this.F = true;
                         }
@@ -516,82 +569,6 @@ public class f3 extends b1 implements t2 {
                 this.j.clear();
             }
         }
-    }
-
-    @Override // com.baidu.tieba.t2
-    public void Z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            k();
-            Arrays.fill(this.q, -1);
-            Arrays.fill(this.o, false);
-        }
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int length = this.q.length;
-            for (int i = 0; i < length; i++) {
-                if (this.q[i] == -1) {
-                    return i;
-                }
-            }
-            this.r = h(this.r);
-            this.q = i(this.q);
-            this.k = i(this.k);
-            this.l = i(this.l);
-            this.m = i(this.m);
-            this.n = i(this.n);
-            this.o = j(this.o);
-            this.p = i(this.p);
-            return length;
-        }
-        return invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        int rotation;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Context context = this.y;
-            if (context instanceof Activity) {
-                rotation = ((Activity) context).getWindowManager().getDefaultDisplay().getRotation();
-            } else {
-                rotation = ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getRotation();
-            }
-            if (rotation != 1) {
-                if (rotation != 2) {
-                    return rotation != 3 ? 0 : 270;
-                }
-                return 180;
-            }
-            return 90;
-        }
-        return invokeV.intValue;
-    }
-
-    public int f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            int length = this.q.length;
-            for (int i2 = 0; i2 < length; i2++) {
-                if (this.q[i2] == i) {
-                    return i2;
-                }
-            }
-            StringBuilder sb = new StringBuilder();
-            for (int i3 = 0; i3 < length; i3++) {
-                sb.append(i3 + ":" + this.q[i3] + " ");
-            }
-            Application application = f1.a;
-            application.log("AndroidInput", "Pointer ID lookup failed: " + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + sb.toString());
-            return -1;
-        }
-        return invokeI.intValue;
     }
 
     public void g() {
@@ -666,37 +643,52 @@ public class f3 extends b1 implements t2 {
         }
     }
 
-    public final float[] h(float[] fArr) {
-        InterceptResult invokeL;
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, fArr)) == null) {
-            float[] fArr2 = new float[fArr.length + 2];
-            System.arraycopy(fArr, 0, fArr2, 0, fArr.length);
-            return fArr2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            int length = this.q.length;
+            for (int i = 0; i < length; i++) {
+                if (this.q[i] == -1) {
+                    return i;
+                }
+            }
+            this.r = h(this.r);
+            this.q = i(this.q);
+            this.k = i(this.k);
+            this.l = i(this.l);
+            this.m = i(this.m);
+            this.n = i(this.n);
+            this.o = j(this.o);
+            this.p = i(this.p);
+            return length;
         }
-        return (float[]) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    public final int[] i(int[] iArr) {
-        InterceptResult invokeL;
+    public int e() {
+        InterceptResult invokeV;
+        int rotation;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iArr)) == null) {
-            int[] iArr2 = new int[iArr.length + 2];
-            System.arraycopy(iArr, 0, iArr2, 0, iArr.length);
-            return iArr2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            Context context = this.y;
+            if (context instanceof Activity) {
+                rotation = ((Activity) context).getWindowManager().getDefaultDisplay().getRotation();
+            } else {
+                rotation = ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getRotation();
+            }
+            if (rotation != 1) {
+                if (rotation != 2) {
+                    if (rotation != 3) {
+                        return 0;
+                    }
+                    return 270;
+                }
+                return 180;
+            }
+            return 90;
         }
-        return (int[]) invokeL.objValue;
-    }
-
-    public final boolean[] j(boolean[] zArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, zArr)) == null) {
-            boolean[] zArr2 = new boolean[zArr.length + 2];
-            System.arraycopy(zArr, 0, zArr2, 0, zArr.length);
-            return zArr2;
-        }
-        return (boolean[]) invokeL.objValue;
+        return invokeV.intValue;
     }
 
     public void k() {
@@ -730,6 +722,60 @@ public class f3 extends b1 implements t2 {
         }
     }
 
+    public int f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            int length = this.q.length;
+            for (int i2 = 0; i2 < length; i2++) {
+                if (this.q[i2] == i) {
+                    return i2;
+                }
+            }
+            StringBuilder sb = new StringBuilder();
+            for (int i3 = 0; i3 < length; i3++) {
+                sb.append(i3 + ":" + this.q[i3] + " ");
+            }
+            Application application = f1.a;
+            application.log("AndroidInput", "Pointer ID lookup failed: " + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + sb.toString());
+            return -1;
+        }
+        return invokeI.intValue;
+    }
+
+    public final float[] h(float[] fArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, fArr)) == null) {
+            float[] fArr2 = new float[fArr.length + 2];
+            System.arraycopy(fArr, 0, fArr2, 0, fArr.length);
+            return fArr2;
+        }
+        return (float[]) invokeL.objValue;
+    }
+
+    public final int[] i(int[] iArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iArr)) == null) {
+            int[] iArr2 = new int[iArr.length + 2];
+            System.arraycopy(iArr, 0, iArr2, 0, iArr.length);
+            return iArr2;
+        }
+        return (int[]) invokeL.objValue;
+    }
+
+    public final boolean[] j(boolean[] zArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, zArr)) == null) {
+            boolean[] zArr2 = new boolean[zArr.length + 2];
+            System.arraycopy(zArr, 0, zArr2, 0, zArr.length);
+            return zArr2;
+        }
+        return (boolean[]) invokeL.objValue;
+    }
+
     @Override // android.view.View.OnGenericMotionListener
     public boolean onGenericMotion(View view2, MotionEvent motionEvent) {
         InterceptResult invokeLL;
@@ -740,7 +786,7 @@ public class f3 extends b1 implements t2 {
             }
             int size = this.N.size();
             for (int i = 0; i < size; i++) {
-                if (this.N.get(i).onGenericMotion(view2, motionEvent)) {
+                if (((View.OnGenericMotionListener) this.N.get(i)).onGenericMotion(view2, motionEvent)) {
                     return true;
                 }
             }
@@ -756,7 +802,7 @@ public class f3 extends b1 implements t2 {
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048588, this, view2, i, keyEvent)) == null) {
             int size = this.h.size();
             for (int i2 = 0; i2 < size; i2++) {
-                if (this.h.get(i2).onKey(view2, i, keyEvent)) {
+                if (((View.OnKeyListener) this.h.get(i2)).onKey(view2, i, keyEvent)) {
                     return true;
                 }
             }
@@ -767,12 +813,12 @@ public class f3 extends b1 implements t2 {
                 if (keyEvent.getKeyCode() == 0 && keyEvent.getAction() == 2) {
                     String characters = keyEvent.getCharacters();
                     for (int i3 = 0; i3 < characters.length(); i3++) {
-                        d e2 = this.f.e();
-                        e2.a = System.nanoTime();
-                        e2.c = 0;
-                        e2.d = characters.charAt(i3);
-                        e2.b = 2;
-                        this.i.add(e2);
+                        d dVar = (d) this.f.e();
+                        dVar.a = System.nanoTime();
+                        dVar.c = 0;
+                        dVar.d = characters.charAt(i3);
+                        dVar.b = 2;
+                        this.i.add(dVar);
                     }
                     return false;
                 }
@@ -782,47 +828,49 @@ public class f3 extends b1 implements t2 {
                 }
                 if (keyEvent.getKeyCode() >= 0 && keyEvent.getKeyCode() <= 255) {
                     int action = keyEvent.getAction();
-                    if (action == 0) {
-                        d e3 = this.f.e();
-                        e3.a = System.nanoTime();
-                        e3.d = (char) 0;
-                        e3.c = keyEvent.getKeyCode();
-                        e3.b = 0;
-                        if (i == 4 && keyEvent.isAltPressed()) {
-                            e3.c = 255;
-                            i = 255;
-                        }
-                        this.i.add(e3);
-                        if (!this.a[e3.c]) {
-                            this.d++;
-                            this.a[e3.c] = true;
-                        }
-                    } else if (action == 1) {
-                        long nanoTime = System.nanoTime();
-                        d e4 = this.f.e();
-                        e4.a = nanoTime;
-                        e4.d = (char) 0;
-                        e4.c = keyEvent.getKeyCode();
-                        e4.b = 1;
-                        if (i == 4 && keyEvent.isAltPressed()) {
-                            e4.c = 255;
-                            i = 255;
-                        }
-                        this.i.add(e4);
-                        d e5 = this.f.e();
-                        e5.a = nanoTime;
-                        e5.d = unicodeChar;
-                        e5.c = 0;
-                        e5.b = 2;
-                        this.i.add(e5);
-                        if (i == 255) {
-                            if (this.a[255]) {
-                                this.d--;
-                                this.a[255] = false;
+                    if (action != 0) {
+                        if (action == 1) {
+                            long nanoTime = System.nanoTime();
+                            d dVar2 = (d) this.f.e();
+                            dVar2.a = nanoTime;
+                            dVar2.d = (char) 0;
+                            dVar2.c = keyEvent.getKeyCode();
+                            dVar2.b = 1;
+                            if (i == 4 && keyEvent.isAltPressed()) {
+                                dVar2.c = 255;
+                                i = 255;
                             }
-                        } else if (this.a[keyEvent.getKeyCode()]) {
-                            this.d--;
-                            this.a[keyEvent.getKeyCode()] = false;
+                            this.i.add(dVar2);
+                            d dVar3 = (d) this.f.e();
+                            dVar3.a = nanoTime;
+                            dVar3.d = unicodeChar;
+                            dVar3.c = 0;
+                            dVar3.b = 2;
+                            this.i.add(dVar3);
+                            if (i == 255) {
+                                if (this.a[255]) {
+                                    this.d--;
+                                    this.a[255] = false;
+                                }
+                            } else if (this.a[keyEvent.getKeyCode()]) {
+                                this.d--;
+                                this.a[keyEvent.getKeyCode()] = false;
+                            }
+                        }
+                    } else {
+                        d dVar4 = (d) this.f.e();
+                        dVar4.a = System.nanoTime();
+                        dVar4.d = (char) 0;
+                        dVar4.c = keyEvent.getKeyCode();
+                        dVar4.b = 0;
+                        if (i == 4 && keyEvent.isAltPressed()) {
+                            dVar4.c = 255;
+                            i = 255;
+                        }
+                        this.i.add(dVar4);
+                        if (!this.a[dVar4.c]) {
+                            this.d++;
+                            this.a[dVar4.c] = true;
                         }
                     }
                     this.x.getGraphics().c();
@@ -832,24 +880,6 @@ public class f3 extends b1 implements t2 {
             }
         }
         return invokeLIL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.t2
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            k();
-            Arrays.fill(this.q, -1);
-            Arrays.fill(this.o, false);
-        }
-    }
-
-    @Override // com.baidu.tieba.t2
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            g();
-        }
     }
 
     @Override // android.view.View.OnTouchListener
@@ -873,12 +903,5 @@ public class f3 extends b1 implements t2 {
             return true;
         }
         return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.t2
-    public void r(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-        }
     }
 }

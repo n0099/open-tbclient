@@ -40,6 +40,23 @@ public abstract class TimeCycleSplineSet {
     public float[][] mValues;
     public int mWaveShape;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-958642333, "Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-958642333, "Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;");
+        }
+    }
+
+    public abstract boolean setProperty(View view2, float f, long j, KeyCache keyCache);
+
     /* loaded from: classes.dex */
     public static class AlphaSet extends TimeCycleSplineSet {
         public static /* synthetic */ Interceptable $ic;
@@ -109,9 +126,19 @@ public abstract class TimeCycleSplineSet {
             }
         }
 
+        public void setPoint(int i, ConstraintAttribute constraintAttribute, float f, int i2, float f2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), constraintAttribute, Float.valueOf(f), Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
+                this.mConstraintAttributeList.append(i, constraintAttribute);
+                this.mWaveProperties.append(i, new float[]{f, f2});
+                this.mWaveShape = Math.max(this.mWaveShape, i2);
+            }
+        }
+
         @Override // androidx.constraintlayout.motion.widget.TimeCycleSplineSet
         public boolean setProperty(View view2, float f, long j, KeyCache keyCache) {
             InterceptResult invokeCommon;
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view2, Float.valueOf(f), Long.valueOf(j), keyCache})) == null) {
                 this.mCurveFit.getPos(f, this.mTempValues);
@@ -132,7 +159,13 @@ public abstract class TimeCycleSplineSet {
                 float calcWave = calcWave(f4);
                 this.mContinue = false;
                 for (int i = 0; i < this.mCache.length; i++) {
-                    this.mContinue |= ((double) this.mTempValues[i]) != 0.0d;
+                    boolean z2 = this.mContinue;
+                    if (this.mTempValues[i] != 0.0d) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    this.mContinue = z2 | z;
                     this.mCache[i] = (this.mTempValues[i] * calcWave) + f3;
                 }
                 this.mConstraintAttributeList.valueAt(0).setInterpolatedValue(view2, this.mCache);
@@ -172,15 +205,6 @@ public abstract class TimeCycleSplineSet {
                     dArr2[i3][noOfInterpValues + 1] = valueAt[1];
                 }
                 this.mCurveFit = CurveFit.get(i, dArr, dArr2);
-            }
-        }
-
-        public void setPoint(int i, ConstraintAttribute constraintAttribute, float f, int i2, float f2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), constraintAttribute, Float.valueOf(f), Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-                this.mConstraintAttributeList.append(i, constraintAttribute);
-                this.mWaveProperties.append(i, new float[]{f, f2});
-                this.mWaveShape = Math.max(this.mWaveShape, i2);
             }
         }
     }
@@ -251,7 +275,10 @@ public abstract class TimeCycleSplineSet {
         public boolean setProperty(View view2, float f, long j, KeyCache keyCache) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, Float.valueOf(f), Long.valueOf(j), keyCache})) == null) ? this.mContinue : invokeCommon.booleanValue;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, Float.valueOf(f), Long.valueOf(j), keyCache})) == null) {
+                return this.mContinue;
+            }
+            return invokeCommon.booleanValue;
         }
     }
 
@@ -638,21 +665,6 @@ public abstract class TimeCycleSplineSet {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-958642333, "Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-958642333, "Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;");
-        }
-    }
-
     public TimeCycleSplineSet() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -674,10 +686,27 @@ public abstract class TimeCycleSplineSet {
         this.last_cycle = Float.NaN;
     }
 
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            String str = this.mType;
+            DecimalFormat decimalFormat = new DecimalFormat("##.##");
+            for (int i = 0; i < this.count; i++) {
+                str = str + PreferencesUtil.LEFT_MOUNT + this.mTimePoints[i] + " , " + decimalFormat.format(this.mValues[i]) + "] ";
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public static TimeCycleSplineSet makeCustomSpline(String str, SparseArray<ConstraintAttribute> sparseArray) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, sparseArray)) == null) ? new CustomSet(str, sparseArray) : (TimeCycleSplineSet) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, sparseArray)) == null) {
+            return new CustomSet(str, sparseArray);
+        }
+        return (TimeCycleSplineSet) invokeLL.objValue;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -854,6 +883,7 @@ public abstract class TimeCycleSplineSet {
 
     public float get(float f, long j, View view2, KeyCache keyCache) {
         InterceptResult invokeCommon;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Long.valueOf(j), view2, keyCache})) == null) {
             this.mCurveFit.getPos(f, this.mCache);
@@ -877,7 +907,12 @@ public abstract class TimeCycleSplineSet {
             this.last_time = j;
             float f4 = this.mCache[0];
             float calcWave = (calcWave(this.last_cycle) * f4) + this.mCache[2];
-            this.mContinue = (f4 == 0.0f && i == 0) ? false : true;
+            if (f4 == 0.0f && i == 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            this.mContinue = z;
             return calcWave;
         }
         return invokeCommon.floatValue;
@@ -886,7 +921,10 @@ public abstract class TimeCycleSplineSet {
     public CurveFit getCurveFit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mCurveFit : (CurveFit) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mCurveFit;
+        }
+        return (CurveFit) invokeV.objValue;
     }
 
     public void setPoint(int i, float f, float f2, int i2, float f3) {
@@ -904,8 +942,6 @@ public abstract class TimeCycleSplineSet {
         }
     }
 
-    public abstract boolean setProperty(View view2, float f, long j, KeyCache keyCache);
-
     public void setStartTime(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
@@ -921,61 +957,47 @@ public abstract class TimeCycleSplineSet {
     }
 
     public void setup(int i) {
-        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            int i3 = this.count;
-            if (i3 == 0) {
+            int i2 = this.count;
+            if (i2 == 0) {
                 Log.e("SplineSet", "Error no points added to " + this.mType);
                 return;
             }
-            Sort.doubleQuickSort(this.mTimePoints, this.mValues, 0, i3 - 1);
-            int i4 = 1;
-            int i5 = 0;
+            Sort.doubleQuickSort(this.mTimePoints, this.mValues, 0, i2 - 1);
+            int i3 = 1;
+            int i4 = 0;
             while (true) {
                 int[] iArr = this.mTimePoints;
-                if (i4 >= iArr.length) {
+                if (i3 >= iArr.length) {
                     break;
                 }
-                if (iArr[i4] != iArr[i4 - 1]) {
-                    i5++;
+                if (iArr[i3] != iArr[i3 - 1]) {
+                    i4++;
                 }
-                i4++;
+                i3++;
             }
-            if (i5 == 0) {
-                i5 = 1;
+            if (i4 == 0) {
+                i4 = 1;
             }
-            double[] dArr = new double[i5];
-            double[][] dArr2 = (double[][]) Array.newInstance(double.class, i5, 3);
-            int i6 = 0;
-            while (i2 < this.count) {
-                if (i2 > 0) {
+            double[] dArr = new double[i4];
+            double[][] dArr2 = (double[][]) Array.newInstance(double.class, i4, 3);
+            int i5 = 0;
+            for (int i6 = 0; i6 < this.count; i6++) {
+                if (i6 > 0) {
                     int[] iArr2 = this.mTimePoints;
-                    i2 = iArr2[i2] == iArr2[i2 + (-1)] ? i2 + 1 : 0;
+                    if (iArr2[i6] == iArr2[i6 - 1]) {
+                    }
                 }
-                dArr[i6] = this.mTimePoints[i2] * 0.01d;
-                double[] dArr3 = dArr2[i6];
+                dArr[i5] = this.mTimePoints[i6] * 0.01d;
+                double[] dArr3 = dArr2[i5];
                 float[][] fArr = this.mValues;
-                dArr3[0] = fArr[i2][0];
-                dArr2[i6][1] = fArr[i2][1];
-                dArr2[i6][2] = fArr[i2][2];
-                i6++;
+                dArr3[0] = fArr[i6][0];
+                dArr2[i5][1] = fArr[i6][1];
+                dArr2[i5][2] = fArr[i6][2];
+                i5++;
             }
             this.mCurveFit = CurveFit.get(i, dArr, dArr2);
         }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            String str = this.mType;
-            DecimalFormat decimalFormat = new DecimalFormat("##.##");
-            for (int i = 0; i < this.count; i++) {
-                str = str + PreferencesUtil.LEFT_MOUNT + this.mTimePoints[i] + " , " + decimalFormat.format(this.mValues[i]) + "] ";
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
     }
 }

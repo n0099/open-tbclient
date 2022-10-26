@@ -4,7 +4,6 @@ import android.content.Context;
 import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 import androidx.sqlite.db.SupportSQLiteOpenHelper;
@@ -59,10 +58,9 @@ public class FrameworkSQLiteOpenHelper implements SupportSQLiteOpenHelper {
                 public void onCorruption(SQLiteDatabase sQLiteDatabase) {
                     FrameworkSQLiteDatabase frameworkSQLiteDatabase;
                     Interceptable interceptable = $ic;
-                    if (!(interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) || (frameworkSQLiteDatabase = this.val$dbRef[0]) == null) {
-                        return;
+                    if ((interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) && (frameworkSQLiteDatabase = this.val$dbRef[0]) != null) {
+                        this.val$callback.onCorruption(frameworkSQLiteDatabase);
                     }
-                    this.val$callback.onCorruption(frameworkSQLiteDatabase);
                 }
             });
             Interceptable interceptable = $ic;
@@ -113,18 +111,6 @@ public class FrameworkSQLiteOpenHelper implements SupportSQLiteOpenHelper {
             return (SupportSQLiteDatabase) invokeV.objValue;
         }
 
-        public FrameworkSQLiteDatabase getWrappedDb(SQLiteDatabase sQLiteDatabase) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase)) == null) {
-                if (this.mDbRef[0] == null) {
-                    this.mDbRef[0] = new FrameworkSQLiteDatabase(sQLiteDatabase);
-                }
-                return this.mDbRef[0];
-            }
-            return (FrameworkSQLiteDatabase) invokeL.objValue;
-        }
-
         public synchronized SupportSQLiteDatabase getWritableSupportDatabase() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -140,6 +126,18 @@ public class FrameworkSQLiteOpenHelper implements SupportSQLiteOpenHelper {
                 }
             }
             return (SupportSQLiteDatabase) invokeV.objValue;
+        }
+
+        public FrameworkSQLiteDatabase getWrappedDb(SQLiteDatabase sQLiteDatabase) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase)) == null) {
+                if (this.mDbRef[0] == null) {
+                    this.mDbRef[0] = new FrameworkSQLiteDatabase(sQLiteDatabase);
+                }
+                return this.mDbRef[0];
+            }
+            return (FrameworkSQLiteDatabase) invokeL.objValue;
         }
 
         @Override // android.database.sqlite.SQLiteOpenHelper
@@ -159,21 +157,20 @@ public class FrameworkSQLiteOpenHelper implements SupportSQLiteOpenHelper {
         }
 
         @Override // android.database.sqlite.SQLiteOpenHelper
+        public void onOpen(SQLiteDatabase sQLiteDatabase) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048583, this, sQLiteDatabase) == null) && !this.mMigrated) {
+                this.mCallback.onOpen(getWrappedDb(sQLiteDatabase));
+            }
+        }
+
+        @Override // android.database.sqlite.SQLiteOpenHelper
         public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(1048582, this, sQLiteDatabase, i, i2) == null) {
                 this.mMigrated = true;
                 this.mCallback.onDowngrade(getWrappedDb(sQLiteDatabase), i, i2);
             }
-        }
-
-        @Override // android.database.sqlite.SQLiteOpenHelper
-        public void onOpen(SQLiteDatabase sQLiteDatabase) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048583, this, sQLiteDatabase) == null) || this.mMigrated) {
-                return;
-            }
-            this.mCallback.onOpen(getWrappedDb(sQLiteDatabase));
         }
 
         @Override // android.database.sqlite.SQLiteOpenHelper
@@ -207,7 +204,10 @@ public class FrameworkSQLiteOpenHelper implements SupportSQLiteOpenHelper {
     private OpenHelper createDelegate(Context context, String str, SupportSQLiteOpenHelper.Callback callback) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, context, str, callback)) == null) ? new OpenHelper(context, str, new FrameworkSQLiteDatabase[1], callback) : (OpenHelper) invokeLLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, context, str, callback)) == null) {
+            return new OpenHelper(context, str, new FrameworkSQLiteDatabase[1], callback);
+        }
+        return (OpenHelper) invokeLLL.objValue;
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteOpenHelper
@@ -222,25 +222,33 @@ public class FrameworkSQLiteOpenHelper implements SupportSQLiteOpenHelper {
     public String getDatabaseName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDelegate.getDatabaseName() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mDelegate.getDatabaseName();
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteOpenHelper
     public SupportSQLiteDatabase getReadableDatabase() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mDelegate.getReadableSupportDatabase() : (SupportSQLiteDatabase) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mDelegate.getReadableSupportDatabase();
+        }
+        return (SupportSQLiteDatabase) invokeV.objValue;
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteOpenHelper
     public SupportSQLiteDatabase getWritableDatabase() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mDelegate.getWritableSupportDatabase() : (SupportSQLiteDatabase) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mDelegate.getWritableSupportDatabase();
+        }
+        return (SupportSQLiteDatabase) invokeV.objValue;
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteOpenHelper
-    @RequiresApi(api = 16)
     public void setWriteAheadLoggingEnabled(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {

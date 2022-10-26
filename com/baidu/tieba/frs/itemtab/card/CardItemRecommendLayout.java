@@ -12,7 +12,6 @@ import android.view.ViewParent;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.framework.MessageManager;
@@ -30,13 +29,13 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.hv4;
-import com.baidu.tieba.qp6;
+import com.baidu.tieba.ar4;
+import com.baidu.tieba.bz4;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.nv4;
 import com.baidu.tieba.w9;
-import com.baidu.tieba.wy4;
-import com.baidu.tieba.xx;
-import com.baidu.tieba.yq4;
+import com.baidu.tieba.xp6;
+import com.baidu.tieba.yx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,150 +46,17 @@ import tbclient.ItemInfo;
 import tbclient.ItemPoint;
 import tbclient.ItemTable;
 /* loaded from: classes4.dex */
-public class CardItemRecommendLayout extends LinearLayout implements xx {
+public class CardItemRecommendLayout extends LinearLayout implements yx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EMTextView a;
     public BdRecyclerView b;
     public c c;
-    public List<ItemInfo> d;
+    public List d;
     public final Point e;
 
     /* loaded from: classes4.dex */
-    public class a extends RecyclerView.ItemDecoration {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CardItemRecommendLayout a;
-
-        public a(CardItemRecommendLayout cardItemRecommendLayout) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cardItemRecommendLayout};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cardItemRecommendLayout;
-        }
-
-        @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
-        public void getItemOffsets(@NonNull Rect rect, int i, @NonNull RecyclerView recyclerView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, rect, i, recyclerView) == null) {
-                rect.set(0, 0, ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X006), 0);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements BdRecyclerView.i {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CardItemRecommendLayout a;
-
-        public b(CardItemRecommendLayout cardItemRecommendLayout) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cardItemRecommendLayout};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cardItemRecommendLayout;
-        }
-
-        @Override // com.baidu.adp.widget.ListView.BdRecyclerView.i
-        public void b(ViewGroup viewGroup, View view2, Object obj, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, view2, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) || ListUtils.getItem(this.a.d, i) == null) {
-                return;
-            }
-            ItemClickJumpUtil.itemClickJump(((ItemInfo) ListUtils.getItem(this.a.d, i)).forum_name, String.valueOf(((ItemInfo) ListUtils.getItem(this.a.d, i)).id), 0);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new wy4(3, i + 1, 2)));
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c extends RecyclerView.Adapter<d> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CardItemRecommendLayout a;
-
-        public c(CardItemRecommendLayout cardItemRecommendLayout) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cardItemRecommendLayout};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cardItemRecommendLayout;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-        /* renamed from: d */
-        public void onBindViewHolder(@NonNull d dVar, int i) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, dVar, i) == null) || ListUtils.getItem(this.a.d, i) == null) {
-                return;
-            }
-            dVar.b((ItemInfo) ListUtils.getItem(this.a.d, i));
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new wy4(3, i + 1, 1)));
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-        @NonNull
-        /* renamed from: e */
-        public d onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
-                d dVar = new d(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d032e, (ViewGroup) null));
-                dVar.c(TbadkCoreApplication.getInst().getSkinType());
-                return dVar;
-            }
-            return (d) invokeLI.objValue;
-        }
-
-        @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-        public int getItemCount() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                if (this.a.d == null) {
-                    return 0;
-                }
-                return this.a.d.size();
-            }
-            return invokeV.intValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class d extends RecyclerView.ViewHolder {
+    public class d extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final BarImageView a;
@@ -227,7 +93,7 @@ public class CardItemRecommendLayout extends LinearLayout implements xx {
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.f == null) {
+                if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.f == null) {
                     return;
                 }
                 ItemClickJumpUtil.itemClickJump(this.a.f.forum_name, String.valueOf(this.a.f.id), 0);
@@ -235,7 +101,7 @@ public class CardItemRecommendLayout extends LinearLayout implements xx {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(@NonNull View view2) {
+        public d(View view2) {
             super(view2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -252,7 +118,7 @@ public class CardItemRecommendLayout extends LinearLayout implements xx {
                     return;
                 }
             }
-            BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b7a);
+            BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b84);
             this.a = barImageView;
             barImageView.setConrers(15);
             this.a.setRadiusById(R.string.J_X05);
@@ -260,9 +126,9 @@ public class CardItemRecommendLayout extends LinearLayout implements xx {
             this.a.setShowOuterBorder(true);
             this.a.setPlaceHolder(3);
             this.a.setPageId(w9.a(view2.getContext()).getUniqueId());
-            this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090b7b);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b7d);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b7c);
+            this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090b85);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b87);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b86);
             this.itemView.setOnClickListener(new a(this));
         }
 
@@ -270,11 +136,11 @@ public class CardItemRecommendLayout extends LinearLayout implements xx {
             double d;
             List<ItemPoint> list;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, itemInfo) == null) || itemInfo == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, itemInfo) != null) || itemInfo == null) {
                 return;
             }
             this.f = itemInfo;
-            this.a.K(itemInfo.icon_url, 10, false);
+            this.a.L(itemInfo.icon_url, 10, false);
             if (StringHelper.getChineseAndEnglishLength(itemInfo.name) <= 10) {
                 this.b.setText(itemInfo.name);
             } else {
@@ -295,7 +161,7 @@ public class CardItemRecommendLayout extends LinearLayout implements xx {
                 this.d.setText(String.valueOf(d));
                 this.e = true;
             } else {
-                this.d.setText(R.string.obfuscated_res_0x7f0f06eb);
+                this.d.setText(R.string.obfuscated_res_0x7f0f06f7);
                 this.c.setVisibility(8);
                 this.e = false;
             }
@@ -308,13 +174,143 @@ public class CardItemRecommendLayout extends LinearLayout implements xx {
                 ImageView imageView = this.c;
                 int i2 = R.color.CAM_X0305;
                 WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f0809f5, R.color.CAM_X0305, null);
-                hv4.d(this.b).v(R.color.CAM_X0105);
+                nv4.d(this.b).v(R.color.CAM_X0105);
                 TextView textView = this.d;
                 if (!this.e) {
                     i2 = R.color.CAM_X0109;
                 }
                 SkinManager.setViewTextColor(textView, i2);
             }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class a extends RecyclerView.ItemDecoration {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CardItemRecommendLayout a;
+
+        public a(CardItemRecommendLayout cardItemRecommendLayout) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cardItemRecommendLayout};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cardItemRecommendLayout;
+        }
+
+        @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
+        public void getItemOffsets(Rect rect, int i, RecyclerView recyclerView) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, rect, i, recyclerView) == null) {
+                rect.set(0, 0, fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X006), 0);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements BdRecyclerView.i {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CardItemRecommendLayout a;
+
+        public b(CardItemRecommendLayout cardItemRecommendLayout) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cardItemRecommendLayout};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cardItemRecommendLayout;
+        }
+
+        @Override // com.baidu.adp.widget.ListView.BdRecyclerView.i
+        public void b(ViewGroup viewGroup, View view2, Object obj, int i, long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, view2, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) && ListUtils.getItem(this.a.d, i) != null) {
+                ItemClickJumpUtil.itemClickJump(((ItemInfo) ListUtils.getItem(this.a.d, i)).forum_name, String.valueOf(((ItemInfo) ListUtils.getItem(this.a.d, i)).id), 0);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new bz4(3, i + 1, 2)));
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c extends RecyclerView.Adapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CardItemRecommendLayout a;
+
+        public c(CardItemRecommendLayout cardItemRecommendLayout) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cardItemRecommendLayout};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cardItemRecommendLayout;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+        /* renamed from: d */
+        public void onBindViewHolder(d dVar, int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, dVar, i) == null) && ListUtils.getItem(this.a.d, i) != null) {
+                dVar.b((ItemInfo) ListUtils.getItem(this.a.d, i));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new bz4(3, i + 1, 1)));
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+        /* renamed from: e */
+        public d onCreateViewHolder(ViewGroup viewGroup, int i) {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
+                d dVar = new d(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d032d, (ViewGroup) null));
+                dVar.c(TbadkCoreApplication.getInst().getSkinType());
+                return dVar;
+            }
+            return (d) invokeLI.objValue;
+        }
+
+        @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+        public int getItemCount() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                if (this.a.d == null) {
+                    return 0;
+                }
+                return this.a.d.size();
+            }
+            return invokeV.intValue;
         }
     }
 
@@ -338,86 +334,6 @@ public class CardItemRecommendLayout extends LinearLayout implements xx {
         }
         this.e = new Point();
         b();
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            setOrientation(1);
-            EMTextView eMTextView = new EMTextView(getContext());
-            this.a = eMTextView;
-            eMTextView.setGravity(16);
-            this.a.setText(R.string.obfuscated_res_0x7f0f072d);
-            hv4 d2 = hv4.d(this.a);
-            d2.A(R.string.F_X02);
-            d2.z(R.dimen.T_X07);
-            this.a.setPadding(ej.f(getContext(), R.dimen.M_W_X005), ej.f(getContext(), R.dimen.M_H_X004), ej.f(getContext(), R.dimen.M_W_X005), ej.f(getContext(), R.dimen.M_H_X008));
-            addView(this.a, new LinearLayout.LayoutParams(-1, -2));
-            BdRecyclerView bdRecyclerView = new BdRecyclerView(getContext());
-            this.b = bdRecyclerView;
-            bdRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
-            this.b.setPadding(ej.f(getContext(), R.dimen.M_W_X004), 0, ej.f(getContext(), R.dimen.M_W_X005), 0);
-            this.b.addItemDecoration(new a(this));
-            this.b.setOnItemClickListener(new b(this));
-            addView(this.b, new LinearLayout.LayoutParams(-1, -2));
-            c cVar = new c(this);
-            this.c = cVar;
-            this.b.setAdapter(cVar);
-        }
-    }
-
-    @Override // com.baidu.tieba.xx
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
-            this.c.notifyDataSetChanged();
-            hv4.d(this.a).v(R.color.CAM_X0105);
-            hv4 d2 = hv4.d(this);
-            d2.n(R.string.J_X06);
-            d2.f(R.color.CAM_X0205);
-        }
-    }
-
-    @Override // android.view.ViewGroup
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            if (motionEvent != null) {
-                if (motionEvent.getAction() == 0) {
-                    this.e.set((int) motionEvent.getX(), (int) motionEvent.getY());
-                    if (this.b.getFirstCompletelyVisiblePosition() != 0 && (getContext() instanceof BaseFragmentActivity) && ((BaseFragmentActivity) getContext()).isSwipeBackEnabled()) {
-                        ((BaseFragmentActivity) getContext()).disableSwipeJustOnce();
-                    }
-                } else {
-                    boolean z = false;
-                    if (motionEvent.getAction() == 2) {
-                        boolean z2 = (getContext() instanceof BaseFragmentActivity) && ((BaseFragmentActivity) getContext()).isSwipeBackEnabled();
-                        ViewParent parent = getParent();
-                        if (!z2 && Math.abs(this.e.x - motionEvent.getX()) > Math.abs(this.e.y - motionEvent.getY())) {
-                            z = true;
-                        }
-                        parent.requestDisallowInterceptTouchEvent(z);
-                    } else {
-                        getParent().requestDisallowInterceptTouchEvent(false);
-                    }
-                }
-            }
-            return super.onInterceptTouchEvent(motionEvent);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void setData(yq4 yq4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, yq4Var) == null) && (yq4Var instanceof qp6)) {
-            qp6 qp6Var = (qp6) yq4Var;
-            if (qp6Var.c() == null) {
-                return;
-            }
-            this.d = qp6Var.c();
-            this.c.notifyDataSetChanged();
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -464,5 +380,89 @@ public class CardItemRecommendLayout extends LinearLayout implements xx {
         }
         this.e = new Point();
         b();
+    }
+
+    public void setData(ar4 ar4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, ar4Var) == null) && (ar4Var instanceof xp6)) {
+            xp6 xp6Var = (xp6) ar4Var;
+            if (xp6Var.c() != null) {
+                this.d = xp6Var.c();
+                this.c.notifyDataSetChanged();
+            }
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            setOrientation(1);
+            EMTextView eMTextView = new EMTextView(getContext());
+            this.a = eMTextView;
+            eMTextView.setGravity(16);
+            this.a.setText(R.string.obfuscated_res_0x7f0f0739);
+            nv4 d2 = nv4.d(this.a);
+            d2.A(R.string.F_X02);
+            d2.z(R.dimen.T_X07);
+            this.a.setPadding(fj.f(getContext(), R.dimen.M_W_X005), fj.f(getContext(), R.dimen.M_H_X004), fj.f(getContext(), R.dimen.M_W_X005), fj.f(getContext(), R.dimen.M_H_X008));
+            addView(this.a, new LinearLayout.LayoutParams(-1, -2));
+            BdRecyclerView bdRecyclerView = new BdRecyclerView(getContext());
+            this.b = bdRecyclerView;
+            bdRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
+            this.b.setPadding(fj.f(getContext(), R.dimen.M_W_X004), 0, fj.f(getContext(), R.dimen.M_W_X005), 0);
+            this.b.addItemDecoration(new a(this));
+            this.b.setOnItemClickListener(new b(this));
+            addView(this.b, new LinearLayout.LayoutParams(-1, -2));
+            c cVar = new c(this);
+            this.c = cVar;
+            this.b.setAdapter(cVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.yx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
+            this.c.notifyDataSetChanged();
+            nv4.d(this.a).v(R.color.CAM_X0105);
+            nv4 d2 = nv4.d(this);
+            d2.n(R.string.J_X06);
+            d2.f(R.color.CAM_X0205);
+        }
+    }
+
+    @Override // android.view.ViewGroup
+    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
+            if (motionEvent != null) {
+                if (motionEvent.getAction() == 0) {
+                    this.e.set((int) motionEvent.getX(), (int) motionEvent.getY());
+                    if (this.b.getFirstCompletelyVisiblePosition() != 0 && (getContext() instanceof BaseFragmentActivity) && ((BaseFragmentActivity) getContext()).isSwipeBackEnabled()) {
+                        ((BaseFragmentActivity) getContext()).disableSwipeJustOnce();
+                    }
+                } else {
+                    boolean z2 = false;
+                    if (motionEvent.getAction() == 2) {
+                        if ((getContext() instanceof BaseFragmentActivity) && ((BaseFragmentActivity) getContext()).isSwipeBackEnabled()) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        ViewParent parent = getParent();
+                        if (!z && Math.abs(this.e.x - motionEvent.getX()) > Math.abs(this.e.y - motionEvent.getY())) {
+                            z2 = true;
+                        }
+                        parent.requestDisallowInterceptTouchEvent(z2);
+                    } else {
+                        getParent().requestDisallowInterceptTouchEvent(false);
+                    }
+                }
+            }
+            return super.onInterceptTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
     }
 }

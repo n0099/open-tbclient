@@ -12,7 +12,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gh;
+import com.baidu.tieba.hh;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,32 +43,18 @@ public class FrsLotteryCountDownView extends LinearLayout {
     public CountDownTimer k;
 
     /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes4.dex */
-    public static class b implements Runnable {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<CountDownTimer> a;
+        public final WeakReference a;
 
-        public /* synthetic */ b(WeakReference weakReference, a aVar) {
-            this(weakReference);
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            CountDownTimer countDownTimer;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (countDownTimer = this.a.get()) == null) {
-                return;
-            }
-            countDownTimer.cancel();
-        }
-
-        public b(WeakReference<CountDownTimer> weakReference) {
+        public b(WeakReference weakReference) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -85,16 +71,29 @@ public class FrsLotteryCountDownView extends LinearLayout {
             }
             this.a = weakReference;
         }
+
+        public /* synthetic */ b(WeakReference weakReference, a aVar) {
+            this(weakReference);
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            CountDownTimer countDownTimer;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (countDownTimer = (CountDownTimer) this.a.get()) != null) {
+                countDownTimer.cancel();
+            }
+        }
     }
 
     /* loaded from: classes4.dex */
-    public static class c extends CountDownTimer {
+    public class c extends CountDownTimer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<FrsLotteryCountDownView> a;
+        public final WeakReference a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(WeakReference<FrsLotteryCountDownView> weakReference, long j, long j2) {
+        public c(WeakReference weakReference, long j, long j2) {
             super(j, j2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -119,25 +118,24 @@ public class FrsLotteryCountDownView extends LinearLayout {
         public void onFinish() {
             FrsLotteryCountDownView frsLotteryCountDownView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (frsLotteryCountDownView = this.a.get()) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (frsLotteryCountDownView = (FrsLotteryCountDownView) this.a.get()) != null) {
+                frsLotteryCountDownView.i.setText("0");
             }
-            frsLotteryCountDownView.i.setText("0");
         }
 
         @Override // android.os.CountDownTimer
         public void onTick(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                FrsLotteryCountDownView frsLotteryCountDownView = this.a.get();
-                if (frsLotteryCountDownView != null) {
-                    frsLotteryCountDownView.c.setText(StringUtils.string(Long.valueOf(j / FrsLotteryCountDownView.l)));
-                    frsLotteryCountDownView.e.setText(StringUtils.string(Long.valueOf((j % FrsLotteryCountDownView.l) / FrsLotteryCountDownView.m)));
-                    frsLotteryCountDownView.g.setText(StringUtils.string(Long.valueOf(((j % FrsLotteryCountDownView.l) % FrsLotteryCountDownView.m) / FrsLotteryCountDownView.n)));
-                    frsLotteryCountDownView.i.setText(StringUtils.string(Long.valueOf((((j % FrsLotteryCountDownView.l) % FrsLotteryCountDownView.m) % FrsLotteryCountDownView.n) / FrsLotteryCountDownView.o)));
+                FrsLotteryCountDownView frsLotteryCountDownView = (FrsLotteryCountDownView) this.a.get();
+                if (frsLotteryCountDownView == null) {
+                    hh.a().postDelayed(new b(new WeakReference(this), null), TimeUnit.SECONDS.toSeconds(3L));
                     return;
                 }
-                gh.a().postDelayed(new b(new WeakReference(this), null), TimeUnit.SECONDS.toSeconds(3L));
+                frsLotteryCountDownView.c.setText(StringUtils.string(Long.valueOf(j / FrsLotteryCountDownView.l)));
+                frsLotteryCountDownView.e.setText(StringUtils.string(Long.valueOf((j % FrsLotteryCountDownView.l) / FrsLotteryCountDownView.m)));
+                frsLotteryCountDownView.g.setText(StringUtils.string(Long.valueOf(((j % FrsLotteryCountDownView.l) % FrsLotteryCountDownView.m) / FrsLotteryCountDownView.n)));
+                frsLotteryCountDownView.i.setText(StringUtils.string(Long.valueOf((((j % FrsLotteryCountDownView.l) % FrsLotteryCountDownView.m) % FrsLotteryCountDownView.n) / FrsLotteryCountDownView.o)));
             }
         }
     }
@@ -183,59 +181,6 @@ public class FrsLotteryCountDownView extends LinearLayout {
         this.k = null;
         this.a = context;
         i();
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0334, (ViewGroup) this, true);
-            this.b = inflate;
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091448);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091449);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09144a);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09144b);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09144c);
-            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09144d);
-            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09144e);
-            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09144f);
-        }
-    }
-
-    public void setData(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0111);
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0108);
-            SkinManager.setBackgroundColor(this.c, R.color.common_color_10060);
-            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0111);
-            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0108);
-            SkinManager.setBackgroundColor(this.e, R.color.common_color_10060);
-            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0111);
-            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0108);
-            SkinManager.setBackgroundColor(this.g, R.color.common_color_10060);
-            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0111);
-            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0108);
-            SkinManager.setBackgroundColor(this.i, R.color.common_color_10060);
-            if (j <= o) {
-                this.c.setText("0");
-                this.e.setText("0");
-                this.g.setText("0");
-                this.i.setText("0");
-                return;
-            }
-            if (j / l <= 0) {
-                this.c.setVisibility(8);
-                this.d.setVisibility(8);
-            } else {
-                this.c.setVisibility(0);
-                this.d.setVisibility(0);
-            }
-            CountDownTimer countDownTimer = this.k;
-            if (countDownTimer != null) {
-                countDownTimer.cancel();
-            }
-            this.k = new c(new WeakReference(this), j, 1000L).start();
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -286,5 +231,58 @@ public class FrsLotteryCountDownView extends LinearLayout {
         this.k = null;
         this.a = context;
         i();
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0333, (ViewGroup) this, true);
+            this.b = inflate;
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09143a);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09143b);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09143c);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09143d);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09143e);
+            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09143f);
+            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091440);
+            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091441);
+        }
+    }
+
+    public void setData(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0111);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0108);
+            SkinManager.setBackgroundColor(this.c, R.color.common_color_10060);
+            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0111);
+            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0108);
+            SkinManager.setBackgroundColor(this.e, R.color.common_color_10060);
+            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0111);
+            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0108);
+            SkinManager.setBackgroundColor(this.g, R.color.common_color_10060);
+            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0111);
+            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0108);
+            SkinManager.setBackgroundColor(this.i, R.color.common_color_10060);
+            if (j <= o) {
+                this.c.setText("0");
+                this.e.setText("0");
+                this.g.setText("0");
+                this.i.setText("0");
+                return;
+            }
+            if (j / l <= 0) {
+                this.c.setVisibility(8);
+                this.d.setVisibility(8);
+            } else {
+                this.c.setVisibility(0);
+                this.d.setVisibility(0);
+            }
+            CountDownTimer countDownTimer = this.k;
+            if (countDownTimer != null) {
+                countDownTimer.cancel();
+            }
+            this.k = new c(new WeakReference(this), j, 1000L).start();
+        }
     }
 }

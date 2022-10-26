@@ -2,7 +2,6 @@ package com.baidu.android.imsdk.chatmessage.request;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.internal.IMSDK;
@@ -40,11 +39,35 @@ public class IMAckRequest extends BaseHttpRequest {
     public long mEndid;
     public boolean mIsReliable;
     public String mKey;
-    public ArrayList<ChatMsg> mMsgList;
+    public ArrayList mMsgList;
     public long mTriggerId;
     public long mUk;
 
-    public IMAckRequest(Context context, String str, long j, long j2, int i, int i2, long j3, long j4, boolean z, ArrayList<ChatMsg> arrayList) {
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "application/json" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getMethod() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "POST" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public boolean shouldAbort() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public IMAckRequest(Context context, String str, long j, long j2, int i, int i2, long j3, long j4, boolean z, ArrayList arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,20 +96,19 @@ public class IMAckRequest extends BaseHttpRequest {
         this.mTriggerId = Utility.getTriggerId(context);
     }
 
-    private void getShortAckMsgs(ArrayList<ChatMsg> arrayList) {
+    private void getShortAckMsgs(ArrayList arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, arrayList) == null) {
             LogUtils.d(TAG, "getShortAckMsgs begin~~~");
             new LinkedList();
-            List<NewAckMessage.Tripule> handleAck = MessageParser.handleAck(this.mContext, arrayList, false, false);
-            if (handleAck == null || handleAck.size() <= 0) {
-                return;
+            List handleAck = MessageParser.handleAck(this.mContext, arrayList, false, false);
+            if (handleAck != null && handleAck.size() > 0) {
+                Context context = this.mContext;
+                NewAckMessage newAckMessage = new NewAckMessage(context, IMSDK.getInstance(context).getUk(), this.mTriggerId, this.mIsReliable);
+                newAckMessage.addTriples(handleAck);
+                this.mAckList = newAckMessage.getJsonArray();
+                LogUtils.d(TAG, "ack msgs: " + this.mAckList);
             }
-            Context context = this.mContext;
-            NewAckMessage newAckMessage = new NewAckMessage(context, IMSDK.getInstance(context).getUk(), this.mTriggerId, this.mIsReliable);
-            newAckMessage.addTriples(handleAck);
-            this.mAckList = newAckMessage.getJsonArray();
-            LogUtils.d(TAG, "ack msgs: " + this.mAckList);
         }
     }
 
@@ -114,15 +136,8 @@ public class IMAckRequest extends BaseHttpRequest {
         return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "application/json" : (String) invokeV.objValue;
-    }
-
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public Map<String, String> getHeaders() {
+    public Map getHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -145,15 +160,9 @@ public class IMAckRequest extends BaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getMethod() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "POST" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public byte[] getRequestParameter() throws NoSuchAlgorithmException {
         InterceptResult invokeV;
+        String jSONArray;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             JSONObject jSONObject = new JSONObject();
@@ -167,7 +176,12 @@ public class IMAckRequest extends BaseHttpRequest {
                 jSONObject.put("timestamp", System.currentTimeMillis() / 1000);
                 LogUtils.d(TAG, "mMsgList.size:" + this.mMsgList.size());
                 getShortAckMsgs(this.mMsgList);
-                jSONObject.put("msgs", this.mAckList == null ? "" : this.mAckList.toString());
+                if (this.mAckList == null) {
+                    jSONArray = "";
+                } else {
+                    jSONArray = this.mAckList.toString();
+                }
+                jSONObject.put("msgs", jSONArray);
                 jSONObject.put("sign", generateSign(jSONObject));
             } catch (JSONException e) {
                 LogUtils.d(TAG, "getRequestParameter error：" + e.toString());
@@ -194,15 +208,5 @@ public class IMAckRequest extends BaseHttpRequest {
             String str = new String(bArr);
             LogUtils.d(TAG, "errorCode：" + i + ", resultContent: " + str);
         }
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public boolean shouldAbort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

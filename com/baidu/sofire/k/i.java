@@ -1,7 +1,6 @@
 package com.baidu.sofire.k;
 
 import android.accounts.NetworkErrorException;
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.Proxy;
 import android.os.Build;
@@ -27,7 +26,6 @@ import java.util.Locale;
 import java.util.zip.GZIPInputStream;
 import javax.net.ssl.HttpsURLConnection;
 import org.apache.http.conn.ssl.SSLSocketFactory;
-@SuppressLint({"NewApi"})
 /* loaded from: classes2.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
@@ -54,6 +52,210 @@ public class i {
         }
         this.d = false;
         this.a = context;
+    }
+
+    public final InputStream a(byte[] bArr, HttpURLConnection httpURLConnection) throws IOException, NetworkErrorException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bArr, httpURLConnection)) == null) {
+            BufferedOutputStream bufferedOutputStream = null;
+            try {
+                try {
+                    if (bArr == null) {
+                        int responseCode = httpURLConnection.getResponseCode();
+                        if (responseCode == 200) {
+                            InputStream inputStream = httpURLConnection.getInputStream();
+                            String contentEncoding = httpURLConnection.getContentEncoding();
+                            if (!TextUtils.isEmpty(contentEncoding) && "gzip".equalsIgnoreCase(contentEncoding)) {
+                                this.d = true;
+                            } else {
+                                this.d = false;
+                            }
+                            return inputStream;
+                        }
+                        throw new NetworkErrorException(String.valueOf(responseCode));
+                    }
+                    BufferedOutputStream bufferedOutputStream2 = new BufferedOutputStream(httpURLConnection.getOutputStream());
+                    try {
+                        bufferedOutputStream2.write(bArr);
+                        bufferedOutputStream2.flush();
+                        int responseCode2 = httpURLConnection.getResponseCode();
+                        if (responseCode2 == 200) {
+                            InputStream inputStream2 = httpURLConnection.getInputStream();
+                            if ("gzip".equalsIgnoreCase(httpURLConnection.getContentEncoding())) {
+                                this.d = true;
+                            } else {
+                                this.d = false;
+                            }
+                            try {
+                                bufferedOutputStream2.close();
+                            } catch (Throwable unused) {
+                            }
+                            return inputStream2;
+                        }
+                        throw new NetworkErrorException(String.valueOf(responseCode2));
+                    } catch (NetworkErrorException e) {
+                        throw e;
+                    } catch (IOException e2) {
+                        throw e2;
+                    } catch (Throwable unused2) {
+                        int i = com.baidu.sofire.a.b.a;
+                        throw new IOException();
+                    }
+                } catch (Throwable th) {
+                    if (0 != 0) {
+                        try {
+                            bufferedOutputStream.close();
+                        } catch (Throwable unused3) {
+                        }
+                    }
+                    throw th;
+                }
+            } catch (NetworkErrorException e3) {
+                throw e3;
+            } catch (IOException e4) {
+                throw e4;
+            } catch (Throwable unused4) {
+            }
+        } else {
+            return (InputStream) invokeLL.objValue;
+        }
+    }
+
+    public final String a(InputStream inputStream) throws IOException, InterruptedException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inputStream)) == null) {
+            if (inputStream != null) {
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                byte[] bArr = new byte[1024];
+                while (true) {
+                    int read = inputStream.read(bArr);
+                    if (read == -1) {
+                        break;
+                    }
+                    byteArrayOutputStream.write(bArr, 0, read);
+                }
+                byte[] byteArray = byteArrayOutputStream.toByteArray();
+                byteArrayOutputStream.close();
+                if (byteArray != null) {
+                    if (this.d) {
+                        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray);
+                        ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream();
+                        GZIPInputStream gZIPInputStream = new GZIPInputStream(byteArrayInputStream);
+                        byte[] bArr2 = new byte[2048];
+                        while (true) {
+                            int read2 = gZIPInputStream.read(bArr2, 0, 2048);
+                            if (read2 == -1) {
+                                break;
+                            }
+                            byteArrayOutputStream2.write(bArr2, 0, read2);
+                        }
+                        gZIPInputStream.close();
+                        byte[] byteArray2 = byteArrayOutputStream2.toByteArray();
+                        byteArrayOutputStream2.flush();
+                        byteArrayOutputStream2.close();
+                        byteArrayInputStream.close();
+                        byteArray = byteArray2;
+                    }
+                    if (byteArray != null) {
+                        return new String(byteArray);
+                    }
+                    throw new IOException();
+                }
+                throw new IOException("responseBytes");
+            }
+            throw new IOException("InputStream");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String a(String str) throws IOException, InterruptedException, NetworkErrorException {
+        InterceptResult invokeL;
+        HttpURLConnection httpURLConnection;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            com.baidu.sofire.a.a.b();
+            try {
+                if (m.a(this.a)) {
+                    InputStream inputStream = null;
+                    try {
+                        this.b = "GET";
+                        this.c = str;
+                        httpURLConnection = a();
+                        try {
+                            inputStream = a((byte[]) null, httpURLConnection);
+                            String a = a(inputStream);
+                            inputStream.close();
+                            httpURLConnection.disconnect();
+                            return a;
+                        } catch (Throwable th) {
+                            th = th;
+                            if (inputStream != null) {
+                                inputStream.close();
+                            }
+                            if (httpURLConnection != null) {
+                                httpURLConnection.disconnect();
+                            }
+                            throw th;
+                        }
+                    } catch (Throwable th2) {
+                        th = th2;
+                        httpURLConnection = null;
+                    }
+                } else {
+                    throw new NetworkErrorException("Not allow background connect.");
+                }
+            } finally {
+                com.baidu.sofire.a.a.a();
+            }
+        } else {
+            return (String) invokeL.objValue;
+        }
+    }
+
+    public String a(String str, byte[] bArr) throws IOException, InterruptedException, NetworkErrorException {
+        InterceptResult invokeLL;
+        HttpURLConnection httpURLConnection;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, bArr)) == null) {
+            com.baidu.sofire.a.a.b();
+            try {
+                if (m.a(this.a)) {
+                    this.b = "POST";
+                    this.c = str;
+                    InputStream inputStream = null;
+                    try {
+                        httpURLConnection = a();
+                        try {
+                            inputStream = a(bArr, httpURLConnection);
+                            String a = a(inputStream);
+                            inputStream.close();
+                            httpURLConnection.disconnect();
+                            return a;
+                        } catch (Throwable th) {
+                            th = th;
+                            if (inputStream != null) {
+                                inputStream.close();
+                            }
+                            if (httpURLConnection != null) {
+                                httpURLConnection.disconnect();
+                            }
+                            throw th;
+                        }
+                    } catch (Throwable th2) {
+                        th = th2;
+                        httpURLConnection = null;
+                    }
+                } else {
+                    throw new NetworkErrorException("Not allow background connect.");
+                }
+            } finally {
+                com.baidu.sofire.a.a.a();
+            }
+        } else {
+            return (String) invokeLL.objValue;
+        }
     }
 
     public final HttpURLConnection a() throws IOException {
@@ -120,268 +322,6 @@ public class i {
         return (HttpURLConnection) invokeV.objValue;
     }
 
-    public final InputStream a(byte[] bArr, HttpURLConnection httpURLConnection) throws IOException, NetworkErrorException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(1048576, this, bArr, httpURLConnection)) != null) {
-            return (InputStream) invokeLL.objValue;
-        }
-        BufferedOutputStream bufferedOutputStream = null;
-        try {
-            try {
-                if (bArr == null) {
-                    int responseCode = httpURLConnection.getResponseCode();
-                    if (responseCode == 200) {
-                        InputStream inputStream = httpURLConnection.getInputStream();
-                        String contentEncoding = httpURLConnection.getContentEncoding();
-                        if (!TextUtils.isEmpty(contentEncoding) && "gzip".equalsIgnoreCase(contentEncoding)) {
-                            this.d = true;
-                        } else {
-                            this.d = false;
-                        }
-                        return inputStream;
-                    }
-                    throw new NetworkErrorException(String.valueOf(responseCode));
-                }
-                BufferedOutputStream bufferedOutputStream2 = new BufferedOutputStream(httpURLConnection.getOutputStream());
-                try {
-                    bufferedOutputStream2.write(bArr);
-                    bufferedOutputStream2.flush();
-                    int responseCode2 = httpURLConnection.getResponseCode();
-                    if (responseCode2 == 200) {
-                        InputStream inputStream2 = httpURLConnection.getInputStream();
-                        if ("gzip".equalsIgnoreCase(httpURLConnection.getContentEncoding())) {
-                            this.d = true;
-                        } else {
-                            this.d = false;
-                        }
-                        try {
-                            bufferedOutputStream2.close();
-                        } catch (Throwable unused) {
-                        }
-                        return inputStream2;
-                    }
-                    throw new NetworkErrorException(String.valueOf(responseCode2));
-                } catch (NetworkErrorException e) {
-                    throw e;
-                } catch (IOException e2) {
-                    throw e2;
-                } catch (Throwable unused2) {
-                    int i = com.baidu.sofire.a.b.a;
-                    throw new IOException();
-                }
-            } catch (Throwable th) {
-                if (0 != 0) {
-                    try {
-                        bufferedOutputStream.close();
-                    } catch (Throwable unused3) {
-                    }
-                }
-                throw th;
-            }
-        } catch (NetworkErrorException e3) {
-            throw e3;
-        } catch (IOException e4) {
-            throw e4;
-        } catch (Throwable unused4) {
-        }
-    }
-
-    public String a(String str, byte[] bArr) throws IOException, InterruptedException, NetworkErrorException {
-        InterceptResult invokeLL;
-        HttpURLConnection httpURLConnection;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(1048579, this, str, bArr)) != null) {
-            return (String) invokeLL.objValue;
-        }
-        com.baidu.sofire.a.a.b();
-        try {
-            if (m.a(this.a)) {
-                this.b = "POST";
-                this.c = str;
-                InputStream inputStream = null;
-                try {
-                    httpURLConnection = a();
-                    try {
-                        inputStream = a(bArr, httpURLConnection);
-                        String a = a(inputStream);
-                        inputStream.close();
-                        httpURLConnection.disconnect();
-                        return a;
-                    } catch (Throwable th) {
-                        th = th;
-                        if (inputStream != null) {
-                            inputStream.close();
-                        }
-                        if (httpURLConnection != null) {
-                            httpURLConnection.disconnect();
-                        }
-                        throw th;
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    httpURLConnection = null;
-                }
-            } else {
-                throw new NetworkErrorException("Not allow background connect.");
-            }
-        } finally {
-            com.baidu.sofire.a.a.a();
-        }
-    }
-
-    public final String a(InputStream inputStream) throws IOException, InterruptedException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inputStream)) == null) {
-            if (inputStream != null) {
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                byte[] bArr = new byte[1024];
-                while (true) {
-                    int read = inputStream.read(bArr);
-                    if (read == -1) {
-                        break;
-                    }
-                    byteArrayOutputStream.write(bArr, 0, read);
-                }
-                byte[] byteArray = byteArrayOutputStream.toByteArray();
-                byteArrayOutputStream.close();
-                if (byteArray != null) {
-                    if (this.d) {
-                        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray);
-                        ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream();
-                        GZIPInputStream gZIPInputStream = new GZIPInputStream(byteArrayInputStream);
-                        byte[] bArr2 = new byte[2048];
-                        while (true) {
-                            int read2 = gZIPInputStream.read(bArr2, 0, 2048);
-                            if (read2 == -1) {
-                                break;
-                            }
-                            byteArrayOutputStream2.write(bArr2, 0, read2);
-                        }
-                        gZIPInputStream.close();
-                        byte[] byteArray2 = byteArrayOutputStream2.toByteArray();
-                        byteArrayOutputStream2.flush();
-                        byteArrayOutputStream2.close();
-                        byteArrayInputStream.close();
-                        byteArray = byteArray2;
-                    }
-                    if (byteArray != null) {
-                        return new String(byteArray);
-                    }
-                    throw new IOException();
-                }
-                throw new IOException("responseBytes");
-            }
-            throw new IOException("InputStream");
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public String a(String str) throws IOException, InterruptedException, NetworkErrorException {
-        InterceptResult invokeL;
-        HttpURLConnection httpURLConnection;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) != null) {
-            return (String) invokeL.objValue;
-        }
-        com.baidu.sofire.a.a.b();
-        try {
-            if (m.a(this.a)) {
-                InputStream inputStream = null;
-                try {
-                    this.b = "GET";
-                    this.c = str;
-                    httpURLConnection = a();
-                    try {
-                        inputStream = a((byte[]) null, httpURLConnection);
-                        String a = a(inputStream);
-                        inputStream.close();
-                        httpURLConnection.disconnect();
-                        return a;
-                    } catch (Throwable th) {
-                        th = th;
-                        if (inputStream != null) {
-                            inputStream.close();
-                        }
-                        if (httpURLConnection != null) {
-                            httpURLConnection.disconnect();
-                        }
-                        throw th;
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    httpURLConnection = null;
-                }
-            } else {
-                throw new NetworkErrorException("Not allow background connect.");
-            }
-        } finally {
-            com.baidu.sofire.a.a.a();
-        }
-    }
-
-    public boolean a(String str, File file) {
-        InterceptResult invokeLL;
-        HttpURLConnection httpURLConnection;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, file)) == null) {
-            com.baidu.sofire.a.a.b();
-            try {
-                if (a.l(this.a)) {
-                    if (TextUtils.isEmpty(str)) {
-                        return false;
-                    }
-                    if (m.a(this.a)) {
-                        InputStream inputStream = null;
-                        try {
-                            this.b = "GET";
-                            this.c = str;
-                            httpURLConnection = a();
-                        } catch (Throwable unused) {
-                            httpURLConnection = null;
-                        }
-                        try {
-                            if (a.l(this.a)) {
-                                try {
-                                    InputStream inputStream2 = httpURLConnection.getInputStream();
-                                    if ("gzip".equalsIgnoreCase(httpURLConnection.getContentEncoding())) {
-                                        this.d = true;
-                                    } else {
-                                        this.d = false;
-                                    }
-                                    inputStream = inputStream2;
-                                } catch (IOException unused2) {
-                                    int i = com.baidu.sofire.a.b.a;
-                                }
-                            }
-                            boolean a = a(inputStream, file);
-                            if (inputStream != null) {
-                                inputStream.close();
-                            }
-                            httpURLConnection.disconnect();
-                            return a;
-                        } catch (Throwable unused3) {
-                            int i2 = com.baidu.sofire.a.b.a;
-                            if (inputStream != null) {
-                                inputStream.close();
-                            }
-                            if (httpURLConnection != null) {
-                                httpURLConnection.disconnect();
-                            }
-                            return false;
-                        }
-                    }
-                    return false;
-                }
-                return false;
-            } finally {
-                com.baidu.sofire.a.a.a();
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
     public final boolean a(InputStream inputStream, File file) {
         InterceptResult invokeLL;
         BufferedOutputStream bufferedOutputStream;
@@ -431,6 +371,67 @@ public class i {
                         }
                     }
                 }
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public boolean a(String str, File file) {
+        InterceptResult invokeLL;
+        HttpURLConnection httpURLConnection;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, file)) == null) {
+            com.baidu.sofire.a.a.b();
+            try {
+                if (!a.l(this.a)) {
+                    return false;
+                }
+                if (TextUtils.isEmpty(str)) {
+                    return false;
+                }
+                if (!m.a(this.a)) {
+                    return false;
+                }
+                InputStream inputStream = null;
+                try {
+                    this.b = "GET";
+                    this.c = str;
+                    httpURLConnection = a();
+                } catch (Throwable unused) {
+                    httpURLConnection = null;
+                }
+                try {
+                    if (a.l(this.a)) {
+                        try {
+                            InputStream inputStream2 = httpURLConnection.getInputStream();
+                            if ("gzip".equalsIgnoreCase(httpURLConnection.getContentEncoding())) {
+                                this.d = true;
+                            } else {
+                                this.d = false;
+                            }
+                            inputStream = inputStream2;
+                        } catch (IOException unused2) {
+                            int i = com.baidu.sofire.a.b.a;
+                        }
+                    }
+                    boolean a = a(inputStream, file);
+                    if (inputStream != null) {
+                        inputStream.close();
+                    }
+                    httpURLConnection.disconnect();
+                    return a;
+                } catch (Throwable unused3) {
+                    int i2 = com.baidu.sofire.a.b.a;
+                    if (inputStream != null) {
+                        inputStream.close();
+                    }
+                    if (httpURLConnection != null) {
+                        httpURLConnection.disconnect();
+                    }
+                    return false;
+                }
+            } finally {
+                com.baidu.sofire.a.a.a();
             }
         }
         return invokeLL.booleanValue;

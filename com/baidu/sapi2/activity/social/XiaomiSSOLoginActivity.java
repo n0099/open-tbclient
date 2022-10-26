@@ -27,6 +27,13 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
     public c o;
 
     /* loaded from: classes2.dex */
+    public interface c {
+        void a();
+
+        void a(String str, String str2, String str3);
+    }
+
+    /* loaded from: classes2.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +75,7 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
 
         /* renamed from: com.baidu.sapi2.activity.social.XiaomiSSOLoginActivity$b$b  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0128b implements Runnable {
+        public class RunnableC0129b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
@@ -76,7 +83,7 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
             public final /* synthetic */ String c;
             public final /* synthetic */ b d;
 
-            public RunnableC0128b(b bVar, String str, String str2, String str3) {
+            public RunnableC0129b(b bVar, String str, String str2, String str3) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -168,7 +175,7 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
                         new Handler(Looper.getMainLooper()).post(new a(this));
                         return;
                     }
-                    new Handler(Looper.getMainLooper()).post(new RunnableC0128b(this, xiaomiOAuthResults.getCode(), xiaomiOAuthResults.getMacKey(), xiaomiOAuthResults.getMacAlgorithm()));
+                    new Handler(Looper.getMainLooper()).post(new RunnableC0129b(this, xiaomiOAuthResults.getCode(), xiaomiOAuthResults.getMacKey(), xiaomiOAuthResults.getMacAlgorithm()));
                 } catch (OperationCanceledException e) {
                     new Handler(Looper.getMainLooper()).post(new c(this));
                     Log.e(e);
@@ -176,78 +183,6 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
                     Log.e(e2);
                 }
             }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public interface c {
-        void a();
-
-        void a(String str, String str2, String str3);
-    }
-
-    public XiaomiSSOLoginActivity() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
-    public void finish() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.finish();
-            Thread thread = this.n;
-            if (thread == null || !thread.isAlive()) {
-                return;
-            }
-            this.n.interrupt();
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.social.SocialLoginBase, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            super.onCreate(bundle);
-            setupViews();
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
-    public void setupViews() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.setupViews();
-            setTitleText(R.string.obfuscated_res_0x7f0f109c);
-            RelativeLayout relativeLayout = this.rootView;
-            if (relativeLayout != null) {
-                relativeLayout.setVisibility(4);
-            }
-            this.o = new a(this);
-            try {
-                d();
-            } catch (Exception e) {
-                e.printStackTrace();
-                finish();
-            }
-        }
-    }
-
-    private void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            Thread thread = new Thread(new b(this, new XiaomiOAuthorize().setAppId(this.configuration.xiaomiAppID.longValue()).setUseSystemAccountLogin(true).setScope(new int[]{1, 3}).setRedirectUrl(this.configuration.xiaomiRedirectUri).startGetOAuthCode(this)));
-            this.n = thread;
-            thread.start();
         }
     }
 
@@ -276,26 +211,89 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
         }
 
         @Override // com.baidu.sapi2.activity.social.XiaomiSSOLoginActivity.c
-        public void a(String str, String str2, String str3) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3) == null) || this.a.sapiWebView == null) {
-                return;
-            }
-            SapiConfiguration sapiConfiguration = this.a.configuration;
-            SocialType socialType = SocialType.XIAOMI;
-            String urlBind = ParamsUtil.getUrlBind(sapiConfiguration, socialType, "", str2, this.a.configuration.xiaomiAppID + "");
-            HashMap hashMap = new HashMap();
-            hashMap.put("code", str);
-            hashMap.put("redirect_uri", this.a.configuration.xiaomiRedirectUri);
-            this.a.a(ParamsUtil.addExtras(urlBind, hashMap), "小米授权登录中");
-        }
-
-        @Override // com.baidu.sapi2.activity.social.XiaomiSSOLoginActivity.c
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 XiaomiSSOLoginActivity xiaomiSSOLoginActivity = this.a;
                 xiaomiSSOLoginActivity.a(((BaseSSOLoginActivity) xiaomiSSOLoginActivity).g);
+            }
+        }
+
+        @Override // com.baidu.sapi2.activity.social.XiaomiSSOLoginActivity.c
+        public void a(String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3) == null) && this.a.sapiWebView != null) {
+                SapiConfiguration sapiConfiguration = this.a.configuration;
+                SocialType socialType = SocialType.XIAOMI;
+                String urlBind = ParamsUtil.getUrlBind(sapiConfiguration, socialType, "", str2, this.a.configuration.xiaomiAppID + "");
+                HashMap hashMap = new HashMap();
+                hashMap.put("code", str);
+                hashMap.put("redirect_uri", this.a.configuration.xiaomiRedirectUri);
+                this.a.a(ParamsUtil.addExtras(urlBind, hashMap), "小米授权登录中");
+            }
+        }
+    }
+
+    public XiaomiSSOLoginActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
+    public void finish() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.finish();
+            Thread thread = this.n;
+            if (thread != null && thread.isAlive()) {
+                this.n.interrupt();
+            }
+        }
+    }
+
+    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.social.SocialLoginBase, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            super.onCreate(bundle);
+            setupViews();
+        }
+    }
+
+    private void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
+            Thread thread = new Thread(new b(this, new XiaomiOAuthorize().setAppId(this.configuration.xiaomiAppID.longValue()).setUseSystemAccountLogin(true).setScope(new int[]{1, 3}).setRedirectUrl(this.configuration.xiaomiRedirectUri).startGetOAuthCode(this)));
+            this.n = thread;
+            thread.start();
+        }
+    }
+
+    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
+    public void setupViews() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.setupViews();
+            setTitleText(R.string.obfuscated_res_0x7f0f10ae);
+            RelativeLayout relativeLayout = this.rootView;
+            if (relativeLayout != null) {
+                relativeLayout.setVisibility(4);
+            }
+            this.o = new a(this);
+            try {
+                d();
+            } catch (Exception e) {
+                e.printStackTrace();
+                finish();
             }
         }
     }

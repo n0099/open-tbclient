@@ -1,221 +1,69 @@
 package com.baidu.mobstat;
 
-import android.text.TextUtils;
+import android.app.Activity;
+import android.view.KeyEvent;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.bt;
+import com.baidu.mobstat.MtjConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class aq {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public JSONArray c;
-    public String d;
-    public String e;
-    public String f;
-    public boolean g;
-    public long h;
-    public long i;
-    public long j;
-    public int k;
-    public String l;
-    public String m;
 
-    public aq(String str, String str2, JSONArray jSONArray, String str3, String str4, String str5, boolean z, int i, long j, long j2, long j3, String str6, String str7) {
+    public static void a(Activity activity, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, jSONArray, str3, str4, str5, Boolean.valueOf(z), Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str6, str7};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if ((interceptable != null && interceptable.invokeLZ(65536, null, activity, z) != null) || !z || ar.a().b() || as.a().b()) {
+            return;
         }
-        this.a = str;
-        this.b = str2;
-        this.c = jSONArray;
-        this.d = str3;
-        this.e = str4;
-        this.f = str5;
-        this.g = z;
-        this.k = i;
-        this.h = j;
-        this.i = j2;
-        this.j = j3;
-        this.l = str6;
-        this.m = str7;
+        as.a().a(activity);
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public static void b(Activity activity, boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+        if ((interceptable != null && interceptable.invokeLZ(65541, null, activity, z) != null) || !z || ar.a().b() || as.a().b()) {
+            return;
+        }
+        as.a().b(activity);
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public static void c(Activity activity, boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (String) invokeV.objValue;
+        if ((interceptable != null && interceptable.invokeLZ(65542, null, activity, z) != null) || !z || ar.a().b() || as.a().b()) {
+            return;
+        }
+        as.a().c(activity);
     }
 
-    public JSONArray c() {
-        InterceptResult invokeV;
+    public static void a(KeyEvent keyEvent) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.c : (JSONArray) invokeV.objValue;
+        if ((interceptable != null && interceptable.invokeL(65537, null, keyEvent) != null) || ar.a().b() || as.a().b()) {
+            return;
+        }
+        as.a().a(keyEvent);
     }
 
-    public String d() {
-        InterceptResult invokeV;
+    public static void a(View view2, Activity activity) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.d : (String) invokeV.objValue;
+        if ((interceptable != null && interceptable.invokeLL(65538, null, view2, activity) != null) || ar.a().b() || as.a().b()) {
+            return;
+        }
+        as.a().a(view2, activity);
     }
 
-    public String e() {
-        InterceptResult invokeV;
+    public static void a(MtjConfig.FeedTrackStrategy feedTrackStrategy) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.e : (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f : (String) invokeV.objValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.g : invokeV.booleanValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.k : invokeV.intValue;
-    }
-
-    public long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.h : invokeV.longValue;
-    }
-
-    public long j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.i : invokeV.longValue;
-    }
-
-    public long k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.j : invokeV.longValue;
-    }
-
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.l : (String) invokeV.objValue;
-    }
-
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.k = i;
+        if (interceptable == null || interceptable.invokeL(65539, null, feedTrackStrategy) == null) {
+            as.a().a(feedTrackStrategy);
         }
     }
 
-    public void b(long j) {
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.j = j;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) != null) || as.a().b()) {
+            return;
         }
-    }
-
-    public void a(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.i = j;
-        }
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.m = str;
-        }
-    }
-
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.l = str;
-        }
-    }
-
-    public JSONObject a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3)) == null) {
-            String a = a(this.a, this.b, this.c, this.d, this.e, this.f, this.g);
-            if (TextUtils.isEmpty(a)) {
-                return null;
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("id", this.a);
-                jSONObject.put("d", this.l);
-                jSONObject.put("p", str);
-                jSONObject.put("path", str3);
-                jSONObject.put("title", this.d);
-                jSONObject.put("index", this.e);
-                jSONObject.put("n", str2);
-                jSONObject.put("user", this.g ? 1 : 0);
-                jSONObject.put("c", this.k);
-                jSONObject.put("t", this.h);
-                jSONObject.put("ps", this.m);
-                jSONObject.put("sign", a);
-                return jSONObject;
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (JSONObject) invokeLLL.objValue;
-    }
-
-    public static String a(String str, String str2, JSONArray jSONArray, String str3, String str4, String str5, boolean z) {
-        InterceptResult invokeCommon;
-        String str6;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, jSONArray, str3, str4, str5, Boolean.valueOf(z)})) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("id", str);
-                jSONObject.put("p", str2);
-                jSONObject.put("path", jSONArray);
-                jSONObject.put("title", str3);
-                jSONObject.put("index", str4);
-                jSONObject.put("n", str5);
-                jSONObject.put("user", z ? 1 : 0);
-                str6 = jSONObject.toString();
-            } catch (Exception unused) {
-                str6 = "";
-            }
-            return !TextUtils.isEmpty(str6) ? bt.a.a(str6.getBytes()) : "";
-        }
-        return (String) invokeCommon.objValue;
+        as.a().a(str);
     }
 }

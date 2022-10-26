@@ -18,7 +18,7 @@ public final class AsyncPoster implements Runnable, Poster {
     public transient /* synthetic */ FieldHolder $fh;
     public final String TAG;
     public BdEventBusCore bdEventBusCore;
-    public final ConcurrentLinkedQueue<Pair<Object, SubscriptionInfo>> concurrentLinkedQueue;
+    public final ConcurrentLinkedQueue concurrentLinkedQueue;
 
     public AsyncPoster(BdEventBusCore bdEventBusCore) {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public final class AsyncPoster implements Runnable, Poster {
         Intrinsics.checkNotNullParameter(bdEventBusCore, "bdEventBusCore");
         this.bdEventBusCore = bdEventBusCore;
         this.TAG = "AsyncPoster";
-        this.concurrentLinkedQueue = new ConcurrentLinkedQueue<>();
+        this.concurrentLinkedQueue = new ConcurrentLinkedQueue();
     }
 
     @Override // com.baidu.searchbox.bdeventbus.core.Poster
@@ -48,7 +48,7 @@ public final class AsyncPoster implements Runnable, Poster {
             Intrinsics.checkNotNullParameter(event, "event");
             Intrinsics.checkNotNullParameter(subscriptionInfo, "subscriptionInfo");
             synchronized (this) {
-                this.concurrentLinkedQueue.offer(new Pair<>(event, subscriptionInfo));
+                this.concurrentLinkedQueue.offer(new Pair(event, subscriptionInfo));
                 this.bdEventBusCore.getExecutorService$lib_bd_event_bus_release().execute(this);
                 Unit unit = Unit.INSTANCE;
             }
@@ -58,29 +58,37 @@ public final class AsyncPoster implements Runnable, Poster {
     public final BdEventBusCore getBdEventBusCore() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.bdEventBusCore : (BdEventBusCore) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.bdEventBusCore;
+        }
+        return (BdEventBusCore) invokeV.objValue;
     }
 
-    public final ConcurrentLinkedQueue<Pair<Object, SubscriptionInfo>> getConcurrentLinkedQueue() {
+    public final ConcurrentLinkedQueue getConcurrentLinkedQueue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.concurrentLinkedQueue : (ConcurrentLinkedQueue) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.concurrentLinkedQueue;
+        }
+        return (ConcurrentLinkedQueue) invokeV.objValue;
     }
 
     public final String getTAG() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.TAG : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.TAG;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        Pair<Object, SubscriptionInfo> poll;
+        Pair pair;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (poll = this.concurrentLinkedQueue.poll()) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (pair = (Pair) this.concurrentLinkedQueue.poll()) != null) {
+            ((SubscriptionInfo) pair.getSecond()).getAction().call(pair.getFirst());
         }
-        poll.getSecond().getAction().call(poll.getFirst());
     }
 
     public final void setBdEventBusCore(BdEventBusCore bdEventBusCore) {

@@ -15,22 +15,22 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.functions.ObjectHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class MaybeFlatten<T, R> extends AbstractMaybeWithUpstream<T, R> {
+public final class MaybeFlatten extends AbstractMaybeWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function<? super T, ? extends MaybeSource<? extends R>> mapper;
+    public final Function mapper;
 
     /* loaded from: classes8.dex */
-    public static final class FlatMapMaybeObserver<T, R> extends AtomicReference<Disposable> implements MaybeObserver<T>, Disposable {
+    public final class FlatMapMaybeObserver extends AtomicReference implements MaybeObserver, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4375739915521278546L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver<? super R> actual;
+        public final MaybeObserver actual;
         public Disposable d;
-        public final Function<? super T, ? extends MaybeSource<? extends R>> mapper;
+        public final Function mapper;
 
         /* loaded from: classes8.dex */
-        public final class InnerObserver implements MaybeObserver<R> {
+        public final class InnerObserver implements MaybeObserver {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ FlatMapMaybeObserver this$0;
@@ -54,14 +54,6 @@ public final class MaybeFlatten<T, R> extends AbstractMaybeWithUpstream<T, R> {
             }
 
             @Override // io.reactivex.MaybeObserver
-            public void onComplete() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.this$0.actual.onComplete();
-                }
-            }
-
-            @Override // io.reactivex.MaybeObserver
             public void onError(Throwable th) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -78,15 +70,23 @@ public final class MaybeFlatten<T, R> extends AbstractMaybeWithUpstream<T, R> {
             }
 
             @Override // io.reactivex.MaybeObserver
-            public void onSuccess(R r) {
+            public void onSuccess(Object obj) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048579, this, r) == null) {
-                    this.this$0.actual.onSuccess(r);
+                if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+                    this.this$0.actual.onSuccess(obj);
+                }
+            }
+
+            @Override // io.reactivex.MaybeObserver
+            public void onComplete() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.this$0.actual.onComplete();
                 }
             }
         }
 
-        public FlatMapMaybeObserver(MaybeObserver<? super R> maybeObserver, Function<? super T, ? extends MaybeSource<? extends R>> function) {
+        public FlatMapMaybeObserver(MaybeObserver maybeObserver, Function function) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -118,7 +118,10 @@ public final class MaybeFlatten<T, R> extends AbstractMaybeWithUpstream<T, R> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? DisposableHelper.isDisposed(get()) : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return DisposableHelper.isDisposed((Disposable) get());
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.MaybeObserver
@@ -147,15 +150,14 @@ public final class MaybeFlatten<T, R> extends AbstractMaybeWithUpstream<T, R> {
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(T t) {
+        public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
+            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
                 try {
-                    MaybeSource maybeSource = (MaybeSource) ObjectHelper.requireNonNull(this.mapper.apply(t), "The mapper returned a null MaybeSource");
-                    if (isDisposed()) {
-                        return;
+                    MaybeSource maybeSource = (MaybeSource) ObjectHelper.requireNonNull(this.mapper.apply(obj), "The mapper returned a null MaybeSource");
+                    if (!isDisposed()) {
+                        maybeSource.subscribe(new InnerObserver(this));
                     }
-                    maybeSource.subscribe(new InnerObserver(this));
                 } catch (Exception e) {
                     Exceptions.throwIfFatal(e);
                     this.actual.onError(e);
@@ -165,7 +167,7 @@ public final class MaybeFlatten<T, R> extends AbstractMaybeWithUpstream<T, R> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaybeFlatten(MaybeSource<T> maybeSource, Function<? super T, ? extends MaybeSource<? extends R>> function) {
+    public MaybeFlatten(MaybeSource maybeSource, Function function) {
         super(maybeSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -186,7 +188,7 @@ public final class MaybeFlatten<T, R> extends AbstractMaybeWithUpstream<T, R> {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver<? super R> maybeObserver) {
+    public void subscribeActual(MaybeObserver maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             this.source.subscribe(new FlatMapMaybeObserver(maybeObserver, this.mapper));

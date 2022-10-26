@@ -9,7 +9,7 @@ import android.view.animation.Interpolator;
 import android.widget.AbsListView;
 import android.widget.GridView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,6 +35,23 @@ public class TransparentHeadGridView extends GridView {
     public boolean n;
     public e o;
     public AbsListView.OnScrollListener p;
+
+    /* loaded from: classes6.dex */
+    public interface c {
+        void a(int i);
+    }
+
+    /* loaded from: classes6.dex */
+    public interface d {
+        void a();
+
+        void b(int i);
+    }
+
+    /* loaded from: classes6.dex */
+    public interface e {
+        void a();
+    }
 
     /* loaded from: classes6.dex */
     public class a implements e {
@@ -100,21 +117,23 @@ public class TransparentHeadGridView extends GridView {
 
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+            boolean z;
             int height;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIII(1048576, this, absListView, i, i2, i3) == null) {
-                if (i != 0 || absListView == null || absListView.getChildAt(0) == null || absListView.getPaddingTop() != 0) {
-                    if (this.a.i != null && this.a.m != 100 && this.a.getPaddingTop() == 0) {
-                        this.a.i.a(100);
-                        this.a.m = 100;
-                    }
-                } else {
+                if (i == 0 && absListView != null && absListView.getChildAt(0) != null && absListView.getPaddingTop() == 0) {
                     View childAt = absListView.getChildAt(0);
                     if (this.a.d < 0) {
                         this.a.d = childAt.getTop();
                     }
                     int i4 = -(childAt.getTop() - this.a.d);
-                    this.a.c = i4 == 0;
+                    TransparentHeadGridView transparentHeadGridView = this.a;
+                    if (i4 == 0) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    transparentHeadGridView.c = z;
                     if (this.a.e != null) {
                         this.a.e.scrollTo(0, i4);
                     }
@@ -122,6 +141,9 @@ public class TransparentHeadGridView extends GridView {
                         this.a.i.a(height);
                         this.a.m = height;
                     }
+                } else if (this.a.i != null && this.a.m != 100 && this.a.getPaddingTop() == 0) {
+                    this.a.i.a(100);
+                    this.a.m = 100;
                 }
                 if (this.a.k != null) {
                     this.a.k.onScroll(absListView, i, i2, i3);
@@ -132,28 +154,10 @@ public class TransparentHeadGridView extends GridView {
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScrollStateChanged(AbsListView absListView, int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i) == null) || this.a.k == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i) == null) && this.a.k != null) {
+                this.a.k.onScrollStateChanged(absListView, i);
             }
-            this.a.k.onScrollStateChanged(absListView, i);
         }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface c {
-        void a(int i);
-    }
-
-    /* loaded from: classes6.dex */
-    public interface d {
-        void a();
-
-        void b(int i);
-    }
-
-    /* loaded from: classes6.dex */
-    public interface e {
-        void a();
     }
 
     /* loaded from: classes6.dex */
@@ -259,116 +263,6 @@ public class TransparentHeadGridView extends GridView {
         m(context);
     }
 
-    public final void m(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.l = context;
-            setOnScrollListener(this.p);
-            this.h = (int) (ej.i(context) * 0.22f);
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setPadding(0, (int) ((10.0f - this.b) / 2.0f), 0, 0);
-            this.a = 0;
-            this.b = 0.0f;
-            if (this.n && getPaddingTop() > this.h) {
-                o(getHeight(), 200L, 0L, this.o);
-            } else {
-                o(0, 200L, 0L, null);
-            }
-        }
-    }
-
-    public final void o(int i, long j, long j2, e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), eVar}) == null) {
-            f fVar = this.g;
-            if (fVar != null) {
-                fVar.a();
-            }
-            int paddingTop = getPaddingTop();
-            if (paddingTop != i) {
-                if (this.f == null) {
-                    this.f = new DecelerateInterpolator();
-                }
-                f fVar2 = new f(this, paddingTop, i, j, eVar);
-                this.g = fVar2;
-                if (j2 > 0) {
-                    postDelayed(fVar2, j2);
-                } else {
-                    post(fVar2);
-                }
-            }
-        }
-    }
-
-    @Override // android.widget.AbsListView, android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (action == 1) {
-                this.a = 0;
-                this.b = 0.0f;
-                if (this.n && getPaddingTop() > this.h) {
-                    o(getHeight(), 200L, 0L, this.o);
-                } else {
-                    o(0, 200L, 0L, null);
-                }
-            } else if (action == 2) {
-                if (this.b == 0.0f) {
-                    this.b = motionEvent.getY();
-                }
-                float y = motionEvent.getY();
-                if (y > this.b && getPaddingTop() == 0 && this.c) {
-                    this.a = 1;
-                }
-                if (this.a == 1) {
-                    int i2 = (int) ((y - this.b) / 2.0f);
-                    d dVar = this.j;
-                    if (dVar != null && i2 >= 0 && (i = this.h) > 0 && i2 <= i) {
-                        dVar.b((i2 * 100) / i);
-                    }
-                }
-            }
-            return super.onTouchEvent(motionEvent);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void setBottomMoveView(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.e = view2;
-        }
-    }
-
-    public void setOnHeadDisplayChangeListener(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            this.i = cVar;
-        }
-    }
-
-    public void setOnPullChangeListener(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) {
-            this.j = dVar;
-        }
-    }
-
-    public void setOuterOnScrollListener(AbsListView.OnScrollListener onScrollListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, onScrollListener) == null) {
-            this.k = onScrollListener;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TransparentHeadGridView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -427,5 +321,117 @@ public class TransparentHeadGridView extends GridView {
         this.o = new a(this);
         this.p = new b(this);
         m(context);
+    }
+
+    public final void m(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            this.l = context;
+            setOnScrollListener(this.p);
+            this.h = (int) (fj.i(context) * 0.22f);
+        }
+    }
+
+    public void setBottomMoveView(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            this.e = view2;
+        }
+    }
+
+    public void setOnHeadDisplayChangeListener(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
+            this.i = cVar;
+        }
+    }
+
+    public void setOnPullChangeListener(d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) {
+            this.j = dVar;
+        }
+    }
+
+    public void setOuterOnScrollListener(AbsListView.OnScrollListener onScrollListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, onScrollListener) == null) {
+            this.k = onScrollListener;
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            setPadding(0, (int) ((10.0f - this.b) / 2.0f), 0, 0);
+            this.a = 0;
+            this.b = 0.0f;
+            if (this.n && getPaddingTop() > this.h) {
+                o(getHeight(), 200L, 0L, this.o);
+            } else {
+                o(0, 200L, 0L, null);
+            }
+        }
+    }
+
+    public final void o(int i, long j, long j2, e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), eVar}) == null) {
+            f fVar = this.g;
+            if (fVar != null) {
+                fVar.a();
+            }
+            int paddingTop = getPaddingTop();
+            if (paddingTop != i) {
+                if (this.f == null) {
+                    this.f = new DecelerateInterpolator();
+                }
+                f fVar2 = new f(this, paddingTop, i, j, eVar);
+                this.g = fVar2;
+                if (j2 > 0) {
+                    postDelayed(fVar2, j2);
+                } else {
+                    post(fVar2);
+                }
+            }
+        }
+    }
+
+    @Override // android.widget.AbsListView, android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (action != 1) {
+                if (action == 2) {
+                    if (this.b == 0.0f) {
+                        this.b = motionEvent.getY();
+                    }
+                    float y = motionEvent.getY();
+                    if (y > this.b && getPaddingTop() == 0 && this.c) {
+                        this.a = 1;
+                    }
+                    if (this.a == 1) {
+                        int i2 = (int) ((y - this.b) / 2.0f);
+                        d dVar = this.j;
+                        if (dVar != null && i2 >= 0 && (i = this.h) > 0 && i2 <= i) {
+                            dVar.b((i2 * 100) / i);
+                        }
+                    }
+                }
+            } else {
+                this.a = 0;
+                this.b = 0.0f;
+                if (this.n && getPaddingTop() > this.h) {
+                    o(getHeight(), 200L, 0L, this.o);
+                } else {
+                    o(0, 200L, 0L, null);
+                }
+            }
+            return super.onTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
     }
 }

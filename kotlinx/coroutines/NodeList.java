@@ -15,6 +15,19 @@ public final class NodeList extends LockFreeLinkedListHead implements Incomplete
         return this;
     }
 
+    @Override // kotlinx.coroutines.Incomplete
+    public boolean isActive() {
+        return true;
+    }
+
+    @Override // kotlinx.coroutines.internal.LockFreeLinkedListNode
+    public String toString() {
+        if (DebugKt.getDEBUG()) {
+            return getString("Active");
+        }
+        return super.toString();
+    }
+
     public final String getString(String str) {
         StringBuilder sb = new StringBuilder();
         sb.append("List{");
@@ -40,15 +53,5 @@ public final class NodeList extends LockFreeLinkedListHead implements Incomplete
             return sb2;
         }
         throw new TypeCastException("null cannot be cast to non-null type kotlinx.coroutines.internal.Node /* = kotlinx.coroutines.internal.LockFreeLinkedListNode */");
-    }
-
-    @Override // kotlinx.coroutines.Incomplete
-    public boolean isActive() {
-        return true;
-    }
-
-    @Override // kotlinx.coroutines.internal.LockFreeLinkedListNode
-    public String toString() {
-        return DebugKt.getDEBUG() ? getString("Active") : super.toString();
     }
 }

@@ -31,12 +31,6 @@ public class HardwareVideoDecoderFactory extends MediaCodecVideoDecoderFactory {
     }
 
     @Override // org.webrtc.MediaCodecVideoDecoderFactory, org.webrtc.VideoDecoderFactory
-    @Nullable
-    public /* bridge */ /* synthetic */ VideoDecoder createDecoder(VideoCodecInfo videoCodecInfo) {
-        return super.createDecoder(videoCodecInfo);
-    }
-
-    @Override // org.webrtc.MediaCodecVideoDecoderFactory, org.webrtc.VideoDecoderFactory
     public /* bridge */ /* synthetic */ VideoCodecInfo[] getSupportedCodecs() {
         return super.getSupportedCodecs();
     }
@@ -60,5 +54,11 @@ public class HardwareVideoDecoderFactory extends MediaCodecVideoDecoderFactory {
                 return;
             }
         }
+    }
+
+    @Override // org.webrtc.MediaCodecVideoDecoderFactory, org.webrtc.VideoDecoderFactory
+    @Nullable
+    public /* bridge */ /* synthetic */ VideoDecoder createDecoder(VideoCodecInfo videoCodecInfo) {
+        return super.createDecoder(videoCodecInfo);
     }
 }

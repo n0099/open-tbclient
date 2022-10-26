@@ -50,30 +50,6 @@ public final class TaskStatus implements ITaskModelData {
     public final TaskProcess process;
     public final TaskStatusRuntime taskStatusRuntime;
 
-    /* loaded from: classes.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-    }
-
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -90,85 +66,10 @@ public final class TaskStatus implements ITaskModelData {
         INS = new a(null);
     }
 
-    public TaskStatus(int i, int i2, String str, int i3, long j, TaskStatusRuntime taskStatusRuntime, TaskProcess taskProcess) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), str, Integer.valueOf(i3), Long.valueOf(j), taskStatusRuntime, taskProcess};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this._curStatus = i;
-        this.curStatusCode = i2;
-        this.curStatusCodeMsg = str;
-        this.interruptErrorNo = i3;
-        this.curActiveTime = j;
-        this.taskStatusRuntime = taskStatusRuntime;
-        this.process = taskProcess;
-        this.curStatus = i;
-    }
-
     private final int component1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? this._curStatus : invokeV.intValue;
-    }
-
-    public static /* synthetic */ void reset2Running$default(TaskStatus taskStatus, boolean z, int i, Object obj) {
-        if ((i & 1) != 0) {
-            z = false;
-        }
-        taskStatus.reset2Running(z);
-    }
-
-    private final void statusUpdate(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65542, this, i) == null) {
-            if (i == 2 || i == 8) {
-                this.curActiveTime = System.currentTimeMillis();
-            }
-            this.taskStatusRuntime.onStatusChanged(i);
-        }
-    }
-
-    public final void cleanDuplicateId() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.process.cleanDuplicateId();
-        }
-    }
-
-    public final void cleanNoClickTime() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.process.cleanNoClickTimes();
-        }
-    }
-
-    public final void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            clearProcess();
-            cleanDuplicateId();
-            cleanNoClickTime();
-            resetStatus();
-        }
-    }
-
-    public final void clearProcess() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.process.clearClickNumber();
-            this.process.clearStayTime();
-            this.process.clearTags();
-        }
     }
 
     public final int component2() {
@@ -236,54 +137,6 @@ public final class TaskStatus implements ITaskModelData {
         return invokeL.booleanValue;
     }
 
-    public final long getCurActiveTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.curActiveTime : invokeV.longValue;
-    }
-
-    public final int getCurStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.curStatus : invokeV.intValue;
-    }
-
-    public final int getCurStatusCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.curStatusCode : invokeV.intValue;
-    }
-
-    public final String getCurStatusCodeMsg() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.curStatusCodeMsg : (String) invokeV.objValue;
-    }
-
-    public final int getInterruptErrorNo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.interruptErrorNo : invokeV.intValue;
-    }
-
-    public final TaskProcess getProcess() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.process : (TaskProcess) invokeV.objValue;
-    }
-
-    public final TaskStatusRuntime getTaskStatusRuntime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.taskStatusRuntime : (TaskStatusRuntime) invokeV.objValue;
-    }
-
-    public final boolean hasErrorCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.curStatusCode != 0 : invokeV.booleanValue;
-    }
-
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -301,94 +154,113 @@ public final class TaskStatus implements ITaskModelData {
         return invokeV.intValue;
     }
 
-    public final boolean isActivated() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? !isInterrupted() : invokeV.booleanValue;
-    }
+    /* loaded from: classes.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    @Deprecated(message = "replaced by isLocalCompleted", replaceWith = @ReplaceWith(expression = "status.isCompleted()", imports = {}))
-    public final boolean isCompleted() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.process.isCompleted() : invokeV.booleanValue;
-    }
-
-    public final boolean isDuplicated() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.taskStatusRuntime.getDuplicated() : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.bdtask.model.ITaskModelData
-    public boolean isEmpty() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? ITaskModelData.a.a(this) : invokeV.booleanValue;
-    }
-
-    public final boolean isEnable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? isActivated() && !isUnRegistered() : invokeV.booleanValue;
-    }
-
-    public final boolean isFinished() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.curStatus == 22 : invokeV.booleanValue;
-    }
-
-    public final boolean isInited() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.curStatus == 1 : invokeV.booleanValue;
-    }
-
-    public final boolean isInterrupted() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.curStatus == 50 : invokeV.booleanValue;
-    }
-
-    public final boolean isLocalCompleted() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? isCompleted() : invokeV.booleanValue;
-    }
-
-    public final boolean isOffLined() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
-            int i = this.curStatusCode;
-            return i == 11002 || i == 13002 || i == 12002 || i == 19004;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        return invokeV.booleanValue;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
     }
 
-    public final boolean isRegistered() {
-        InterceptResult invokeV;
+    public TaskStatus(int i, int i2, String str, int i3, long j, TaskStatusRuntime taskStatusRuntime, TaskProcess taskProcess) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.curStatus == 2 : invokeV.booleanValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), str, Integer.valueOf(i3), Long.valueOf(j), taskStatusRuntime, taskProcess};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this._curStatus = i;
+        this.curStatusCode = i2;
+        this.curStatusCodeMsg = str;
+        this.interruptErrorNo = i3;
+        this.curActiveTime = j;
+        this.taskStatusRuntime = taskStatusRuntime;
+        this.process = taskProcess;
+        this.curStatus = i;
     }
 
-    public final boolean isRunning() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.curStatus == 8 : invokeV.booleanValue;
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public /* synthetic */ TaskStatus(int i, int i2, String str, int i3, long j, TaskStatusRuntime taskStatusRuntime, TaskProcess taskProcess, int i4, DefaultConstructorMarker defaultConstructorMarker) {
+        this(r2, r3, r4, r5, r6, r8, taskProcess);
+        int i5;
+        int i6;
+        String str2;
+        int i7;
+        long j2;
+        TaskStatusRuntime taskStatusRuntime2;
+        if ((i4 & 1) != 0) {
+            i5 = 1;
+        } else {
+            i5 = i;
+        }
+        if ((i4 & 2) != 0) {
+            i6 = 0;
+        } else {
+            i6 = i2;
+        }
+        if ((i4 & 4) != 0) {
+            str2 = "";
+        } else {
+            str2 = str;
+        }
+        if ((i4 & 8) != 0) {
+            i7 = 0;
+        } else {
+            i7 = i3;
+        }
+        if ((i4 & 16) != 0) {
+            j2 = System.currentTimeMillis();
+        } else {
+            j2 = j;
+        }
+        if ((i4 & 32) != 0) {
+            taskStatusRuntime2 = TaskStatusRuntime.Companion.a();
+        } else {
+            taskStatusRuntime2 = taskStatusRuntime;
+        }
     }
 
-    public final boolean isUnRegistered() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.curStatus == 4 : invokeV.booleanValue;
+    public static /* synthetic */ void reset2Running$default(TaskStatus taskStatus, boolean z, int i, Object obj) {
+        if ((i & 1) != 0) {
+            z = false;
+        }
+        taskStatus.reset2Running(z);
     }
 
-    public final void reset2Interrupted() {
+    private final void statusUpdate(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
-            setCurStatus(50);
+        if (interceptable == null || interceptable.invokeI(65542, this, i) == null) {
+            if (i == 2 || i == 8) {
+                this.curActiveTime = System.currentTimeMillis();
+            }
+            this.taskStatusRuntime.onStatusChanged(i);
         }
     }
 
@@ -402,29 +274,6 @@ public final class TaskStatus implements ITaskModelData {
             }
             setCurStatus(8);
         }
-    }
-
-    public final void reset2RunningStatus() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
-            resetStatus();
-            setCurStatus(8);
-        }
-    }
-
-    public final void resetStatus() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
-            setCurStatus(1);
-            this.curStatusCode = 0;
-            this.curStatusCodeMsg = "";
-        }
-    }
-
-    public final boolean responseDataIsCache() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.taskStatusRuntime.getResponseDataIsCache() : invokeV.booleanValue;
     }
 
     public final void setCurActiveTime(long j) {
@@ -463,6 +312,313 @@ public final class TaskStatus implements ITaskModelData {
         }
     }
 
+    public final void cleanDuplicateId() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.process.cleanDuplicateId();
+        }
+    }
+
+    public final void cleanNoClickTime() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.process.cleanNoClickTimes();
+        }
+    }
+
+    public final void clear() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            clearProcess();
+            cleanDuplicateId();
+            cleanNoClickTime();
+            resetStatus();
+        }
+    }
+
+    public final void clearProcess() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.process.clearClickNumber();
+            this.process.clearStayTime();
+            this.process.clearTags();
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.bdtask.model.ITaskModelData
+    public TaskStatus deepCopy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return new TaskStatus(this.curStatus, this.curStatusCode, this.curStatusCodeMsg, this.interruptErrorNo, this.curActiveTime, this.taskStatusRuntime.deepCopy(), this.process.deepCopy());
+        }
+        return (TaskStatus) invokeV.objValue;
+    }
+
+    public final long getCurActiveTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.curActiveTime;
+        }
+        return invokeV.longValue;
+    }
+
+    public final int getCurStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.curStatus;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int getCurStatusCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.curStatusCode;
+        }
+        return invokeV.intValue;
+    }
+
+    public final String getCurStatusCodeMsg() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.curStatusCodeMsg;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final int getInterruptErrorNo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.interruptErrorNo;
+        }
+        return invokeV.intValue;
+    }
+
+    public final TaskProcess getProcess() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.process;
+        }
+        return (TaskProcess) invokeV.objValue;
+    }
+
+    public final TaskStatusRuntime getTaskStatusRuntime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.taskStatusRuntime;
+        }
+        return (TaskStatusRuntime) invokeV.objValue;
+    }
+
+    public final boolean hasErrorCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            if (this.curStatusCode != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean isActivated() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return !isInterrupted();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Deprecated(message = "replaced by isLocalCompleted", replaceWith = @ReplaceWith(expression = "status.isCompleted()", imports = {}))
+    public final boolean isCompleted() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return this.process.isCompleted();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean isDuplicated() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return this.taskStatusRuntime.getDuplicated();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.bdtask.model.ITaskModelData
+    public boolean isEmpty() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return ITaskModelData.a.a(this);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean isEnable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            if (isActivated() && !isUnRegistered()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean isFinished() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            if (this.curStatus == 22) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean isInited() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            if (this.curStatus == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean isInterrupted() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            if (this.curStatus == 50) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean isLocalCompleted() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+            return isCompleted();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean isOffLined() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            int i = this.curStatusCode;
+            if (i != 11002 && i != 13002 && i != 12002 && i != 19004) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean isRegistered() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+            if (this.curStatus == 2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean isRunning() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+            if (this.curStatus == 8) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean isUnRegistered() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+            if (this.curStatus == 4) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void reset2Interrupted() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
+            setCurStatus(50);
+        }
+    }
+
+    public final void reset2RunningStatus() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
+            resetStatus();
+            setCurStatus(8);
+        }
+    }
+
+    public final void resetStatus() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
+            setCurStatus(1);
+            this.curStatusCode = 0;
+            this.curStatusCodeMsg = "";
+        }
+    }
+
+    public final boolean responseDataIsCache() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
+            return this.taskStatusRuntime.getResponseDataIsCache();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
+            String jSONObject = toJson().toString();
+            Intrinsics.checkExpressionValueIsNotNull(jSONObject, "toJson().toString()");
+            return jSONObject;
+        }
+        return (String) invokeV.objValue;
+    }
+
     @Override // com.baidu.bdtask.model.ITaskModelData
     public JSONObject toJson() {
         InterceptResult invokeV;
@@ -478,28 +634,5 @@ public final class TaskStatus implements ITaskModelData {
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
-            String jSONObject = toJson().toString();
-            Intrinsics.checkExpressionValueIsNotNull(jSONObject, "toJson().toString()");
-            return jSONObject;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.bdtask.model.ITaskModelData
-    public TaskStatus deepCopy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? new TaskStatus(this.curStatus, this.curStatusCode, this.curStatusCodeMsg, this.interruptErrorNo, this.curActiveTime, this.taskStatusRuntime.deepCopy(), this.process.deepCopy()) : (TaskStatus) invokeV.objValue;
-    }
-
-    public /* synthetic */ TaskStatus(int i, int i2, String str, int i3, long j, TaskStatusRuntime taskStatusRuntime, TaskProcess taskProcess, int i4, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i4 & 1) != 0 ? 1 : i, (i4 & 2) != 0 ? 0 : i2, (i4 & 4) != 0 ? "" : str, (i4 & 8) != 0 ? 0 : i3, (i4 & 16) != 0 ? System.currentTimeMillis() : j, (i4 & 32) != 0 ? TaskStatusRuntime.Companion.a() : taskStatusRuntime, taskProcess);
     }
 }

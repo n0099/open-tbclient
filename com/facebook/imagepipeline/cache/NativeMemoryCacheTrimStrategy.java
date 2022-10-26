@@ -18,7 +18,7 @@ public class NativeMemoryCacheTrimStrategy implements MemoryCache.CacheTrimStrat
 
     /* renamed from: com.facebook.imagepipeline.cache.NativeMemoryCacheTrimStrategy$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$common$memory$MemoryTrimType;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,14 +81,14 @@ public class NativeMemoryCacheTrimStrategy implements MemoryCache.CacheTrimStrat
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, memoryTrimType)) == null) {
             int i = AnonymousClass1.$SwitchMap$com$facebook$common$memory$MemoryTrimType[memoryTrimType.ordinal()];
-            if (i != 1) {
-                if (i == 2 || i == 3 || i == 4 || i == 5) {
-                    return 1.0d;
-                }
+            if (i == 1) {
+                return 0.0d;
+            }
+            if (i != 2 && i != 3 && i != 4 && i != 5) {
                 FLog.wtf(TAG, "unknown trim type: %s", memoryTrimType);
                 return 0.0d;
             }
-            return 0.0d;
+            return 1.0d;
         }
         return invokeL.doubleValue;
     }

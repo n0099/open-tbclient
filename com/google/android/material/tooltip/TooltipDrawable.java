@@ -9,13 +9,6 @@ import android.graphics.Rect;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
-import androidx.annotation.AttrRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.Px;
-import androidx.annotation.RestrictTo;
-import androidx.annotation.StringRes;
-import androidx.annotation.StyleRes;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -36,32 +29,23 @@ import com.google.android.material.shape.EdgeTreatment;
 import com.google.android.material.shape.MarkerEdgeTreatment;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.OffsetEdgeTreatment;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawableHelper.TextDrawableDelegate {
     public static /* synthetic */ Interceptable $ic = null;
-    @StyleRes
     public static final int DEFAULT_STYLE = 2131755930;
-    @AttrRes
     public static final int DEFAULT_THEME_ATTR = 2130970410;
     public transient /* synthetic */ FieldHolder $fh;
     public int arrowSize;
-    @NonNull
     public final View.OnLayoutChangeListener attachedViewLayoutChangeListener;
-    @NonNull
     public final Context context;
-    @NonNull
     public final Rect displayFrame;
-    @Nullable
     public final Paint.FontMetrics fontMetrics;
     public int layoutMargin;
     public int locationOnScreenX;
     public int minHeight;
     public int minWidth;
     public int padding;
-    @Nullable
     public CharSequence text;
-    @NonNull
     public final TextDrawableHelper textDrawableHelper;
 
     static {
@@ -80,7 +64,7 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TooltipDrawable(@NonNull Context context, AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {
+    public TooltipDrawable(Context context, AttributeSet attributeSet, int i, int i2) {
         super(context, attributeSet, i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -137,6 +121,15 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
         this.textDrawableHelper.getTextPaint().setTextAlign(Paint.Align.CENTER);
     }
 
+    public static TooltipDrawable createFromAttributes(Context context, AttributeSet attributeSet) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, attributeSet)) == null) {
+            return createFromAttributes(context, attributeSet, DEFAULT_THEME_ATTR, DEFAULT_STYLE);
+        }
+        return (TooltipDrawable) invokeLL.objValue;
+    }
+
     private float calculatePointerOffset() {
         InterceptResult invokeV;
         int i;
@@ -144,50 +137,14 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             if (((this.displayFrame.right - getBounds().right) - this.locationOnScreenX) - this.layoutMargin < 0) {
                 i = ((this.displayFrame.right - getBounds().right) - this.locationOnScreenX) - this.layoutMargin;
-            } else if (((this.displayFrame.left - getBounds().left) - this.locationOnScreenX) + this.layoutMargin <= 0) {
-                return 0.0f;
-            } else {
+            } else if (((this.displayFrame.left - getBounds().left) - this.locationOnScreenX) + this.layoutMargin > 0) {
                 i = ((this.displayFrame.left - getBounds().left) - this.locationOnScreenX) + this.layoutMargin;
+            } else {
+                return 0.0f;
             }
             return i;
         }
         return invokeV.floatValue;
-    }
-
-    private float calculateTextCenterFromBaseline() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            this.textDrawableHelper.getTextPaint().getFontMetrics(this.fontMetrics);
-            Paint.FontMetrics fontMetrics = this.fontMetrics;
-            return (fontMetrics.descent + fontMetrics.ascent) / 2.0f;
-        }
-        return invokeV.floatValue;
-    }
-
-    private float calculateTextOriginAndAlignment(@NonNull Rect rect) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, this, rect)) == null) ? rect.centerY() - calculateTextCenterFromBaseline() : invokeL.floatValue;
-    }
-
-    @NonNull
-    public static TooltipDrawable create(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? createFromAttributes(context, null, DEFAULT_THEME_ATTR, DEFAULT_STYLE) : (TooltipDrawable) invokeL.objValue;
-    }
-
-    @NonNull
-    public static TooltipDrawable createFromAttributes(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {
-        InterceptResult invokeLLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65544, null, context, attributeSet, i, i2)) == null) {
-            TooltipDrawable tooltipDrawable = new TooltipDrawable(context, attributeSet, i, i2);
-            tooltipDrawable.loadFromAttributes(attributeSet, i, i2);
-            return tooltipDrawable;
-        }
-        return (TooltipDrawable) invokeLLII.objValue;
     }
 
     private EdgeTreatment createMarkerEdge() {
@@ -200,19 +157,15 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
         return (EdgeTreatment) invokeV.objValue;
     }
 
-    private void drawText(@NonNull Canvas canvas) {
+    private float calculateTextCenterFromBaseline() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65546, this, canvas) == null) || this.text == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+            this.textDrawableHelper.getTextPaint().getFontMetrics(this.fontMetrics);
+            Paint.FontMetrics fontMetrics = this.fontMetrics;
+            return (fontMetrics.descent + fontMetrics.ascent) / 2.0f;
         }
-        Rect bounds = getBounds();
-        int calculateTextOriginAndAlignment = (int) calculateTextOriginAndAlignment(bounds);
-        if (this.textDrawableHelper.getTextAppearance() != null) {
-            this.textDrawableHelper.getTextPaint().drawableState = getState();
-            this.textDrawableHelper.updateTextPaintDrawState(this.context);
-        }
-        CharSequence charSequence = this.text;
-        canvas.drawText(charSequence, 0, charSequence.length(), bounds.centerX(), calculateTextOriginAndAlignment, this.textDrawableHelper.getTextPaint());
+        return invokeV.floatValue;
     }
 
     private float getTextWidth() {
@@ -228,7 +181,242 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
         return invokeV.floatValue;
     }
 
-    private void loadFromAttributes(@Nullable AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {
+    @Override // android.graphics.drawable.Drawable
+    public int getIntrinsicHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return (int) Math.max(this.textDrawableHelper.getTextPaint().getTextSize(), this.minHeight);
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public int getIntrinsicWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return (int) Math.max((this.padding * 2) + getTextWidth(), this.minWidth);
+        }
+        return invokeV.intValue;
+    }
+
+    public int getLayoutMargin() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.layoutMargin;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getMinHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.minHeight;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getMinWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.minWidth;
+        }
+        return invokeV.intValue;
+    }
+
+    public CharSequence getText() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.text;
+        }
+        return (CharSequence) invokeV.objValue;
+    }
+
+    public TextAppearance getTextAppearance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.textDrawableHelper.getTextAppearance();
+        }
+        return (TextAppearance) invokeV.objValue;
+    }
+
+    public int getTextPadding() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.padding;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.google.android.material.internal.TextDrawableHelper.TextDrawableDelegate
+    public void onTextSizeChange() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            invalidateSelf();
+        }
+    }
+
+    private float calculateTextOriginAndAlignment(Rect rect) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, rect)) == null) {
+            return rect.centerY() - calculateTextCenterFromBaseline();
+        }
+        return invokeL.floatValue;
+    }
+
+    public static TooltipDrawable create(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            return createFromAttributes(context, null, DEFAULT_THEME_ATTR, DEFAULT_STYLE);
+        }
+        return (TooltipDrawable) invokeL.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void updateLocationOnScreen(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65549, this, view2) == null) {
+            int[] iArr = new int[2];
+            view2.getLocationOnScreen(iArr);
+            this.locationOnScreenX = iArr[0];
+            view2.getWindowVisibleDisplayFrame(this.displayFrame);
+        }
+    }
+
+    public void detachView(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || view2 == null) {
+            return;
+        }
+        view2.removeOnLayoutChangeListener(this.attachedViewLayoutChangeListener);
+    }
+
+    @Override // com.google.android.material.shape.MaterialShapeDrawable, android.graphics.drawable.Drawable
+    public void onBoundsChange(Rect rect) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, rect) == null) {
+            super.onBoundsChange(rect);
+            setShapeAppearanceModel(getShapeAppearanceModel().toBuilder().setBottomEdge(createMarkerEdge()).build());
+        }
+    }
+
+    @Override // com.google.android.material.shape.MaterialShapeDrawable, android.graphics.drawable.Drawable, com.google.android.material.internal.TextDrawableHelper.TextDrawableDelegate
+    public boolean onStateChange(int[] iArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, iArr)) == null) {
+            return super.onStateChange(iArr);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setLayoutMargin(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.layoutMargin = i;
+            invalidateSelf();
+        }
+    }
+
+    public void setMinHeight(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.minHeight = i;
+            invalidateSelf();
+        }
+    }
+
+    public void setMinWidth(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.minWidth = i;
+            invalidateSelf();
+        }
+    }
+
+    public void setRelativeToView(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048592, this, view2) != null) || view2 == null) {
+            return;
+        }
+        updateLocationOnScreen(view2);
+        view2.addOnLayoutChangeListener(this.attachedViewLayoutChangeListener);
+    }
+
+    public void setText(CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048593, this, charSequence) == null) && !TextUtils.equals(this.text, charSequence)) {
+            this.text = charSequence;
+            this.textDrawableHelper.setTextWidthDirty(true);
+            invalidateSelf();
+        }
+    }
+
+    public void setTextAppearance(TextAppearance textAppearance) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, textAppearance) == null) {
+            this.textDrawableHelper.setTextAppearance(textAppearance, this.context);
+        }
+    }
+
+    public void setTextAppearanceResource(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            setTextAppearance(new TextAppearance(this.context, i));
+        }
+    }
+
+    public void setTextPadding(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            this.padding = i;
+            invalidateSelf();
+        }
+    }
+
+    public void setTextResource(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            setText(this.context.getResources().getString(i));
+        }
+    }
+
+    public static TooltipDrawable createFromAttributes(Context context, AttributeSet attributeSet, int i, int i2) {
+        InterceptResult invokeLLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65544, null, context, attributeSet, i, i2)) == null) {
+            TooltipDrawable tooltipDrawable = new TooltipDrawable(context, attributeSet, i, i2);
+            tooltipDrawable.loadFromAttributes(attributeSet, i, i2);
+            return tooltipDrawable;
+        }
+        return (TooltipDrawable) invokeLLII.objValue;
+    }
+
+    private void drawText(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65546, this, canvas) != null) || this.text == null) {
+            return;
+        }
+        Rect bounds = getBounds();
+        int calculateTextOriginAndAlignment = (int) calculateTextOriginAndAlignment(bounds);
+        if (this.textDrawableHelper.getTextAppearance() != null) {
+            this.textDrawableHelper.getTextPaint().drawableState = getState();
+            this.textDrawableHelper.updateTextPaintDrawState(this.context);
+        }
+        CharSequence charSequence = this.text;
+        canvas.drawText(charSequence, 0, charSequence.length(), bounds.centerX(), calculateTextOriginAndAlignment, this.textDrawableHelper.getTextPaint());
+    }
+
+    private void loadFromAttributes(AttributeSet attributeSet, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(65548, this, attributeSet, i, i2) == null) {
             TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(this.context, attributeSet, R.styleable.Tooltip, i, i2, new int[0]);
@@ -246,27 +434,8 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void updateLocationOnScreen(@NonNull View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, this, view2) == null) {
-            int[] iArr = new int[2];
-            view2.getLocationOnScreen(iArr);
-            this.locationOnScreenX = iArr[0];
-            view2.getWindowVisibleDisplayFrame(this.displayFrame);
-        }
-    }
-
-    public void detachView(@Nullable View view2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || view2 == null) {
-            return;
-        }
-        view2.removeOnLayoutChangeListener(this.attachedViewLayoutChangeListener);
-    }
-
     @Override // com.google.android.material.shape.MaterialShapeDrawable, android.graphics.drawable.Drawable
-    public void draw(@NonNull Canvas canvas) {
+    public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             canvas.save();
@@ -275,160 +444,5 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
             drawText(canvas);
             canvas.restore();
         }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public int getIntrinsicHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (int) Math.max(this.textDrawableHelper.getTextPaint().getTextSize(), this.minHeight) : invokeV.intValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public int getIntrinsicWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (int) Math.max((this.padding * 2) + getTextWidth(), this.minWidth) : invokeV.intValue;
-    }
-
-    public int getLayoutMargin() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.layoutMargin : invokeV.intValue;
-    }
-
-    public int getMinHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.minHeight : invokeV.intValue;
-    }
-
-    public int getMinWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.minWidth : invokeV.intValue;
-    }
-
-    @Nullable
-    public CharSequence getText() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.text : (CharSequence) invokeV.objValue;
-    }
-
-    @Nullable
-    public TextAppearance getTextAppearance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.textDrawableHelper.getTextAppearance() : (TextAppearance) invokeV.objValue;
-    }
-
-    public int getTextPadding() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.padding : invokeV.intValue;
-    }
-
-    @Override // com.google.android.material.shape.MaterialShapeDrawable, android.graphics.drawable.Drawable
-    public void onBoundsChange(Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, rect) == null) {
-            super.onBoundsChange(rect);
-            setShapeAppearanceModel(getShapeAppearanceModel().toBuilder().setBottomEdge(createMarkerEdge()).build());
-        }
-    }
-
-    @Override // com.google.android.material.shape.MaterialShapeDrawable, android.graphics.drawable.Drawable, com.google.android.material.internal.TextDrawableHelper.TextDrawableDelegate
-    public boolean onStateChange(int[] iArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, iArr)) == null) ? super.onStateChange(iArr) : invokeL.booleanValue;
-    }
-
-    @Override // com.google.android.material.internal.TextDrawableHelper.TextDrawableDelegate
-    public void onTextSizeChange() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            invalidateSelf();
-        }
-    }
-
-    public void setLayoutMargin(@Px int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            this.layoutMargin = i;
-            invalidateSelf();
-        }
-    }
-
-    public void setMinHeight(@Px int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.minHeight = i;
-            invalidateSelf();
-        }
-    }
-
-    public void setMinWidth(@Px int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.minWidth = i;
-            invalidateSelf();
-        }
-    }
-
-    public void setRelativeToView(@Nullable View view2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, view2) == null) || view2 == null) {
-            return;
-        }
-        updateLocationOnScreen(view2);
-        view2.addOnLayoutChangeListener(this.attachedViewLayoutChangeListener);
-    }
-
-    public void setText(@Nullable CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, charSequence) == null) || TextUtils.equals(this.text, charSequence)) {
-            return;
-        }
-        this.text = charSequence;
-        this.textDrawableHelper.setTextWidthDirty(true);
-        invalidateSelf();
-    }
-
-    public void setTextAppearance(@Nullable TextAppearance textAppearance) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, textAppearance) == null) {
-            this.textDrawableHelper.setTextAppearance(textAppearance, this.context);
-        }
-    }
-
-    public void setTextAppearanceResource(@StyleRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
-            setTextAppearance(new TextAppearance(this.context, i));
-        }
-    }
-
-    public void setTextPadding(@Px int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
-            this.padding = i;
-            invalidateSelf();
-        }
-    }
-
-    public void setTextResource(@StringRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
-            setText(this.context.getResources().getString(i));
-        }
-    }
-
-    @NonNull
-    public static TooltipDrawable createFromAttributes(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, attributeSet)) == null) ? createFromAttributes(context, attributeSet, DEFAULT_THEME_ATTR, DEFAULT_STYLE) : (TooltipDrawable) invokeLL.objValue;
     }
 }

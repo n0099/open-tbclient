@@ -57,44 +57,6 @@ public class URLCodec implements BinaryEncoder, BinaryDecoder, StringEncoder, St
         throw new RuntimeException("Stub!");
     }
 
-    public static final byte[] decodeUrl(byte[] bArr) throws DecoderException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static final byte[] encodeUrl(BitSet bitSet, byte[] bArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bitSet, bArr)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    @Override // org.apache.commons.codec.BinaryDecoder
-    public byte[] decode(byte[] bArr) throws DecoderException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bArr)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    @Override // org.apache.commons.codec.BinaryEncoder
-    public byte[] encode(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bArr)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
     public String getDefaultCharset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -130,6 +92,44 @@ public class URLCodec implements BinaryEncoder, BinaryDecoder, StringEncoder, St
             }
         }
         throw new RuntimeException("Stub!");
+    }
+
+    public static final byte[] decodeUrl(byte[] bArr) throws DecoderException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    @Override // org.apache.commons.codec.Decoder
+    public Object decode(Object obj) throws DecoderException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // org.apache.commons.codec.Encoder
+    public Object encode(Object obj) throws EncoderException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return invokeL.objValue;
+    }
+
+    public static final byte[] encodeUrl(BitSet bitSet, byte[] bArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bitSet, bArr)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (byte[]) invokeLL.objValue;
     }
 
     public String decode(String str, String str2) throws DecoderException, UnsupportedEncodingException {
@@ -170,23 +170,23 @@ public class URLCodec implements BinaryEncoder, BinaryDecoder, StringEncoder, St
         return (String) invokeL.objValue;
     }
 
-    @Override // org.apache.commons.codec.Decoder
-    public Object decode(Object obj) throws DecoderException {
+    @Override // org.apache.commons.codec.BinaryDecoder
+    public byte[] decode(byte[] bArr) throws DecoderException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bArr)) == null) {
             throw new RuntimeException("Stub!");
         }
-        return invokeL.objValue;
+        return (byte[]) invokeL.objValue;
     }
 
-    @Override // org.apache.commons.codec.Encoder
-    public Object encode(Object obj) throws EncoderException {
+    @Override // org.apache.commons.codec.BinaryEncoder
+    public byte[] encode(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bArr)) == null) {
             throw new RuntimeException("Stub!");
         }
-        return invokeL.objValue;
+        return (byte[]) invokeL.objValue;
     }
 }

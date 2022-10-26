@@ -27,6 +27,17 @@ public final class LivePlayerProvider {
     public static final LivePlayerProvider c;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public final ILivePlayerService b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Lazy lazy = b;
+            KProperty kProperty = a[0];
+            return (ILivePlayerService) lazy.getValue();
+        }
+        return (ILivePlayerService) invokeV.objValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -62,17 +73,9 @@ public final class LivePlayerProvider {
     public final LivePlayer a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? b().createPlayer(new BuildParams(str)) : (LivePlayer) invokeL.objValue;
-    }
-
-    public final ILivePlayerService b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Lazy lazy = b;
-            KProperty kProperty = a[0];
-            return (ILivePlayerService) lazy.getValue();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return b().createPlayer(new BuildParams(str));
         }
-        return (ILivePlayerService) invokeV.objValue;
+        return (LivePlayer) invokeL.objValue;
     }
 }

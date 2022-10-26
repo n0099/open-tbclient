@@ -31,7 +31,13 @@ public final class Baijiahao extends Message {
     public final String oriUgcVid;
 
     /* loaded from: classes9.dex */
-    public static final class Builder extends Message.Builder<Baijiahao> {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public final class Builder extends Message.Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String forwardUrl;
@@ -87,14 +93,11 @@ public final class Baijiahao extends Message {
         public Baijiahao build(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? new Baijiahao(this, z, null) : (Baijiahao) invokeZ.objValue;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                return new Baijiahao(this, z, null);
+            }
+            return (Baijiahao) invokeZ.objValue;
         }
-    }
-
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
     }
 
     static {
@@ -111,10 +114,6 @@ public final class Baijiahao extends Message {
             }
         }
         DEFAULT_ORIUGCTYPE = 0;
-    }
-
-    public /* synthetic */ Baijiahao(Builder builder, boolean z, a aVar) {
-        this(builder, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -174,5 +173,9 @@ public final class Baijiahao extends Message {
         this.oriUgcType = builder.oriUgcType;
         this.oriUgcVid = builder.oriUgcVid;
         this.forwardUrl = builder.forwardUrl;
+    }
+
+    public /* synthetic */ Baijiahao(Builder builder, boolean z, a aVar) {
+        this(builder, z);
     }
 }

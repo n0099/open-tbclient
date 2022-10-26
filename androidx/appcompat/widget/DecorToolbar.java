@@ -2,7 +2,6 @@ package androidx.appcompat.widget;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.os.Parcelable;
 import android.util.SparseArray;
 import android.view.Menu;
 import android.view.View;
@@ -10,11 +9,9 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.SpinnerAdapter;
-import androidx.annotation.RestrictTo;
 import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.view.menu.MenuPresenter;
 import androidx.core.view.ViewPropertyAnimatorCompat;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public interface DecorToolbar {
     void animateToVisibility(int i);
@@ -69,9 +66,9 @@ public interface DecorToolbar {
 
     boolean isTitleTruncated();
 
-    void restoreHierarchyState(SparseArray<Parcelable> sparseArray);
+    void restoreHierarchyState(SparseArray sparseArray);
 
-    void saveHierarchyState(SparseArray<Parcelable> sparseArray);
+    void saveHierarchyState(SparseArray sparseArray);
 
     void setBackgroundDrawable(Drawable drawable);
 

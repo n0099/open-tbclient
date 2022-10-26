@@ -11,6 +11,12 @@ public abstract class SmsViewLoginCallback extends WebAuthListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract void onCheckCodeViewHide();
+
+    public abstract void onCheckCodeViewShow();
+
+    public abstract void onNeedBack(WebAuthResult webAuthResult);
+
     public SmsViewLoginCallback() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -24,10 +30,4 @@ public abstract class SmsViewLoginCallback extends WebAuthListener {
             }
         }
     }
-
-    public abstract void onCheckCodeViewHide();
-
-    public abstract void onCheckCodeViewShow();
-
-    public abstract void onNeedBack(WebAuthResult webAuthResult);
 }

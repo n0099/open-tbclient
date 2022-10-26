@@ -1,7 +1,5 @@
 package com.baidu.searchbox.logsystem.logsys;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.logsystem.util.LLog;
@@ -16,19 +14,14 @@ public class LogObject extends LogBaseObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String mCrashTAG;
-    @Nullable
     public String mLogBasicData;
-    @Nullable
     public File mLogBasicDataFile;
     public boolean mLogBasicDataOverflow;
-    @Nullable
     public LogExtra mLogExtra;
-    @Nullable
     public File mLogExtraPathNameKeeper;
-    @NonNull
     public String mProcessName;
 
-    public LogObject(@NonNull LogType logType, @NonNull String str, @Nullable String str2, @Nullable File file, @Nullable File file2, @Nullable LogExtra logExtra, @NonNull String str3) {
+    public LogObject(LogType logType, String str, String str2, File file, File file2, LogExtra logExtra, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,53 +61,74 @@ public class LogObject extends LogBaseObject {
     public String getCrashTAG() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mCrashTAG : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mCrashTAG;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getLogBasicData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mLogBasicData : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mLogBasicData;
+        }
+        return (String) invokeV.objValue;
     }
 
     public File getLogBasicDataFile() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mLogBasicDataFile : (File) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mLogBasicDataFile;
+        }
+        return (File) invokeV.objValue;
     }
 
     public boolean getLogBasicDataOverflow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mLogBasicDataOverflow : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mLogBasicDataOverflow;
+        }
+        return invokeV.booleanValue;
     }
 
     public LogExtra getLogExtra() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mLogExtra : (LogExtra) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mLogExtra;
+        }
+        return (LogExtra) invokeV.objValue;
     }
 
     public File getLogExtraPathNameKeeper() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mLogExtraPathNameKeeper : (File) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mLogExtraPathNameKeeper;
+        }
+        return (File) invokeV.objValue;
     }
 
     public String getProcessName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mProcessName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mProcessName;
+        }
+        return (String) invokeV.objValue;
     }
 
-    public void setLogBasicData(@NonNull String str) {
+    public void setLogBasicData(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             this.mLogBasicData = str;
         }
     }
 
-    public void setLogBasicDataFile(@NonNull File file) {
+    public void setLogBasicDataFile(File file) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, file) == null) {
             this.mLogBasicDataFile = file;

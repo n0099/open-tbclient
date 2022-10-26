@@ -16,6 +16,9 @@ public final class BitmapDrawableKt {
     public static final BitmapDrawable toDrawable(Bitmap bitmap, Resources resources) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bitmap, resources)) == null) ? new BitmapDrawable(resources, bitmap) : (BitmapDrawable) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bitmap, resources)) == null) {
+            return new BitmapDrawable(resources, bitmap);
+        }
+        return (BitmapDrawable) invokeLL.objValue;
     }
 }

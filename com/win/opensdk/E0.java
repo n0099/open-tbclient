@@ -39,20 +39,19 @@ public class E0 extends Handler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
             super.handleMessage(message);
-            if (message.what != 1101) {
-                return;
-            }
-            this.a.e.removeMessages(1101);
-            N0 n0 = this.a;
-            if (!n0.b && n0.a(n0.a)) {
-                M0 m0 = this.a.c;
-                if (m0 != null) {
-                    m0.a();
+            if (message.what == 1101) {
+                this.a.e.removeMessages(1101);
+                N0 n0 = this.a;
+                if (!n0.b && n0.a(n0.a)) {
+                    M0 m0 = this.a.c;
+                    if (m0 != null) {
+                        m0.a();
+                    }
+                    this.a.b = true;
+                    return;
                 }
-                this.a.b = true;
-                return;
+                this.a.e.sendEmptyMessageDelayed(1101, 300L);
             }
-            this.a.e.sendEmptyMessageDelayed(1101, 300L);
         }
     }
 }

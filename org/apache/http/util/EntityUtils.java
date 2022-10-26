@@ -49,15 +49,6 @@ public final class EntityUtils {
         return (byte[]) invokeL.objValue;
     }
 
-    public static String toString(HttpEntity httpEntity, String str) throws IOException, ParseException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, httpEntity, str)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (String) invokeLL.objValue;
-    }
-
     public static String toString(HttpEntity httpEntity) throws IOException, ParseException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -65,5 +56,14 @@ public final class EntityUtils {
             throw new RuntimeException("Stub!");
         }
         return (String) invokeL.objValue;
+    }
+
+    public static String toString(HttpEntity httpEntity, String str) throws IOException, ParseException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, httpEntity, str)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (String) invokeLL.objValue;
     }
 }

@@ -25,26 +25,26 @@ public class CharProgression implements Iterable<Character>, KMappedMarker {
         public Companion() {
         }
 
-        public final CharProgression fromClosedRange(char c, char c2, int i) {
-            return new CharProgression(c, c2, i);
-        }
-
         public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
             this();
+        }
+
+        public final CharProgression fromClosedRange(char c, char c2, int i) {
+            return new CharProgression(c, c2, i);
         }
     }
 
     public CharProgression(char c, char c2, int i) {
-        if (i == 0) {
-            throw new IllegalArgumentException("Step must be non-zero.");
+        if (i != 0) {
+            if (i != Integer.MIN_VALUE) {
+                this.first = c;
+                this.last = (char) ProgressionUtilKt.getProgressionLastElement((int) c, (int) c2, i);
+                this.step = i;
+                return;
+            }
+            throw new IllegalArgumentException("Step must be greater than Int.MIN_VALUE to avoid overflow on negation.");
         }
-        if (i != Integer.MIN_VALUE) {
-            this.first = c;
-            this.last = (char) ProgressionUtilKt.getProgressionLastElement((int) c, (int) c2, i);
-            this.step = i;
-            return;
-        }
-        throw new IllegalArgumentException("Step must be greater than Int.MIN_VALUE to avoid overflow on negation.");
+        throw new IllegalArgumentException("Step must be non-zero.");
     }
 
     public boolean equals(Object obj) {
@@ -89,6 +89,13 @@ public class CharProgression implements Iterable<Character>, KMappedMarker {
         return false;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Return type fixed from 'kotlin.collections.CharIterator' to match base method */
+    @Override // java.lang.Iterable
+    public Iterator<Character> iterator() {
+        return new CharProgressionIterator(this.first, this.last, this.step);
+    }
+
     public String toString() {
         StringBuilder sb;
         int i;
@@ -109,12 +116,5 @@ public class CharProgression implements Iterable<Character>, KMappedMarker {
         }
         sb.append(i);
         return sb.toString();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Return type fixed from 'kotlin.collections.CharIterator' to match base method */
-    @Override // java.lang.Iterable
-    public Iterator<Character> iterator() {
-        return new CharProgressionIterator(this.first, this.last, this.step);
     }
 }

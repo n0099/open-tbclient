@@ -17,24 +17,44 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class LiveTabEntity implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<LiveTabEntity> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String channelId;
     public int id;
     public String name;
     public boolean selected;
-    public List<TabLabelInfo> subTabList;
+    public List subTabList;
     public String type;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes2.dex */
-    public static class TabLabelInfo implements Parcelable {
+    public class TabLabelInfo implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator<TabLabelInfo> CREATOR;
+        public static final Parcelable.Creator CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public int id;
         public String name;
         public boolean selected;
         public String type;
+
+        @Override // android.os.Parcelable
+        public int describeContents() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
+        }
 
         static {
             InterceptResult invokeClinit;
@@ -49,7 +69,7 @@ public class LiveTabEntity implements Parcelable {
                     return;
                 }
             }
-            CREATOR = new Parcelable.Creator<TabLabelInfo>() { // from class: com.baidu.live.business.model.data.LiveTabEntity.TabLabelInfo.1
+            CREATOR = new Parcelable.Creator() { // from class: com.baidu.live.business.model.data.LiveTabEntity.TabLabelInfo.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -68,21 +88,25 @@ public class LiveTabEntity implements Parcelable {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public TabLabelInfo createFromParcel(Parcel parcel) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new TabLabelInfo(parcel) : (TabLabelInfo) invokeL.objValue;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                        return new TabLabelInfo(parcel);
+                    }
+                    return (TabLabelInfo) invokeL.objValue;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public TabLabelInfo[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new TabLabelInfo[i] : (TabLabelInfo[]) invokeI.objValue;
+                    if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                        return new TabLabelInfo[i];
+                    }
+                    return (TabLabelInfo[]) invokeI.objValue;
                 }
             };
         }
@@ -101,19 +125,36 @@ public class LiveTabEntity implements Parcelable {
             }
         }
 
-        @Override // android.os.Parcelable
-        public int describeContents() {
-            InterceptResult invokeV;
+        public TabLabelInfo(Parcel parcel) {
+            boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 0;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {parcel};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
             }
-            return invokeV.intValue;
+            this.id = parcel.readInt();
+            this.type = parcel.readString();
+            this.name = parcel.readString();
+            if (parcel.readByte() != 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.selected = z;
         }
 
         public void parserJson(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
                 return;
             }
             this.id = jSONObject.optInt("id");
@@ -132,27 +173,6 @@ public class LiveTabEntity implements Parcelable {
                 parcel.writeByte(this.selected ? (byte) 1 : (byte) 0);
             }
         }
-
-        public TabLabelInfo(Parcel parcel) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {parcel};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
-                    return;
-                }
-            }
-            this.id = parcel.readInt();
-            this.type = parcel.readString();
-            this.name = parcel.readString();
-            this.selected = parcel.readByte() != 0;
-        }
     }
 
     static {
@@ -168,7 +188,7 @@ public class LiveTabEntity implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<LiveTabEntity>() { // from class: com.baidu.live.business.model.data.LiveTabEntity.1
+        CREATOR = new Parcelable.Creator() { // from class: com.baidu.live.business.model.data.LiveTabEntity.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -187,21 +207,25 @@ public class LiveTabEntity implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public LiveTabEntity createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new LiveTabEntity(parcel) : (LiveTabEntity) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new LiveTabEntity(parcel);
+                }
+                return (LiveTabEntity) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public LiveTabEntity[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new LiveTabEntity[i] : (LiveTabEntity[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new LiveTabEntity[i];
+                }
+                return (LiveTabEntity[]) invokeI.objValue;
             }
         };
     }
@@ -220,55 +244,8 @@ public class LiveTabEntity implements Parcelable {
         }
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        this.id = jSONObject.optInt("id");
-        this.type = jSONObject.optString("type");
-        this.channelId = jSONObject.optString("channel_id");
-        this.name = jSONObject.optString("name");
-        this.selected = jSONObject.optBoolean("selected");
-        JSONArray optJSONArray = jSONObject.optJSONArray("tab_list");
-        if (optJSONArray == null || optJSONArray.length() <= 0) {
-            return;
-        }
-        this.subTabList = new ArrayList();
-        for (int i = 0; i < optJSONArray.length(); i++) {
-            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-            if (optJSONObject != null) {
-                TabLabelInfo tabLabelInfo = new TabLabelInfo();
-                tabLabelInfo.parserJson(optJSONObject);
-                this.subTabList.add(tabLabelInfo);
-            }
-        }
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
-            parcel.writeInt(this.id);
-            parcel.writeString(this.type);
-            parcel.writeString(this.channelId);
-            parcel.writeString(this.name);
-            parcel.writeByte(this.selected ? (byte) 1 : (byte) 0);
-            parcel.writeTypedList(this.subTabList);
-        }
-    }
-
     public LiveTabEntity(Parcel parcel) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -287,7 +264,49 @@ public class LiveTabEntity implements Parcelable {
         this.type = parcel.readString();
         this.channelId = parcel.readString();
         this.name = parcel.readString();
-        this.selected = parcel.readByte() != 0;
+        if (parcel.readByte() != 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.selected = z;
         this.subTabList = parcel.createTypedArrayList(TabLabelInfo.CREATOR);
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.id = jSONObject.optInt("id");
+        this.type = jSONObject.optString("type");
+        this.channelId = jSONObject.optString("channel_id");
+        this.name = jSONObject.optString("name");
+        this.selected = jSONObject.optBoolean("selected");
+        JSONArray optJSONArray = jSONObject.optJSONArray("tab_list");
+        if (optJSONArray != null && optJSONArray.length() > 0) {
+            this.subTabList = new ArrayList();
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    TabLabelInfo tabLabelInfo = new TabLabelInfo();
+                    tabLabelInfo.parserJson(optJSONObject);
+                    this.subTabList.add(tabLabelInfo);
+                }
+            }
+        }
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
+            parcel.writeInt(this.id);
+            parcel.writeString(this.type);
+            parcel.writeString(this.channelId);
+            parcel.writeString(this.name);
+            parcel.writeByte(this.selected ? (byte) 1 : (byte) 0);
+            parcel.writeTypedList(this.subTabList);
+        }
     }
 }

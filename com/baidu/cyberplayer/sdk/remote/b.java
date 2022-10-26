@@ -18,13 +18,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public interface b extends IInterface {
 
     /* loaded from: classes2.dex */
-    public static abstract class a extends Binder implements b {
+    public abstract class a extends Binder implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.cyberplayer.sdk.remote.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static class C0093a implements b {
+        public class C0093a implements b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;
@@ -776,7 +776,7 @@ public interface b extends IInterface {
                         return true;
                     case 3:
                         parcel.enforceInterface("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
-                        a(parcel.readInt() != 0 ? e.CREATOR.createFromParcel(parcel) : null);
+                        a(parcel.readInt() != 0 ? (e) e.CREATOR.createFromParcel(parcel) : null);
                         parcel2.writeNoException();
                         return true;
                     case 4:

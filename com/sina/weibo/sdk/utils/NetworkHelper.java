@@ -50,6 +50,12 @@ public class NetworkHelper {
     public static boolean hasInternetPermission(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? context.getPackageManager().checkPermission(h.a, context.getPackageName()) == 0 : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (context.getPackageManager().checkPermission(h.a, context.getPackageName()) == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

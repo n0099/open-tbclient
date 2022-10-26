@@ -9,8 +9,6 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.airbnb.lottie.LottieComposition;
 import com.airbnb.lottie.LottieDrawable;
@@ -19,8 +17,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.live.business.model.data.LiveBannerEntity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.da0;
-import com.baidu.tieba.uc0;
+import com.baidu.tieba.ea0;
+import com.baidu.tieba.vc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -69,7 +67,7 @@ public class LiveBannerStatusAnimView extends FrameLayout {
         }
 
         @Override // com.airbnb.lottie.OnCompositionLoadedListener
-        public void onCompositionLoaded(@Nullable LottieComposition lottieComposition) {
+        public void onCompositionLoaded(LottieComposition lottieComposition) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, lottieComposition) == null) {
                 this.a.l.setComposition(lottieComposition);
@@ -81,7 +79,7 @@ public class LiveBannerStatusAnimView extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LiveBannerStatusAnimView(@NonNull Context context) {
+    public LiveBannerStatusAnimView(Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -101,11 +99,63 @@ public class LiveBannerStatusAnimView extends FrameLayout {
         }
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public LiveBannerStatusAnimView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public LiveBannerStatusAnimView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.g = false;
+        this.k = "";
+        d(context);
+    }
+
+    public void setScene(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.h = str;
+        }
+    }
+
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!LiveFeedPageSdk.IMMERSION.equals(this.h) && !"recommend".equals(this.h)) {
-                if (!"night".equals(uc0.f().r()) && !"dark".equals(uc0.f().r())) {
+                if (!"night".equals(vc0.f().r()) && !"dark".equals(vc0.f().r())) {
                     this.m = "live_feed_page_tag_live_ani.json";
                     return;
                 } else {
@@ -121,12 +171,12 @@ public class LiveBannerStatusAnimView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             this.a = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0535, this);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09136b);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09136c);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09136d);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09136a);
-            this.f = findViewById(R.id.obfuscated_res_0x7f09134b);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0534, this);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09135c);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09135d);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09135e);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09135b);
+            this.f = findViewById(R.id.obfuscated_res_0x7f09133c);
             this.l = new LottieDrawable();
             c();
             this.l.loop(true);
@@ -136,114 +186,21 @@ public class LiveBannerStatusAnimView extends FrameLayout {
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : invokeV.booleanValue;
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            TextView textView = this.d;
-            if (textView != null) {
-                textView.setTextColor(uc0.f().a(this.a, this.h, "color_white3"));
-            }
-            TextView textView2 = this.e;
-            if (textView2 != null) {
-                textView2.setTextColor(uc0.f().a(this.a, this.h, "color_white3"));
-            }
-            if (this.b == null || this.f == null || this.e == null) {
-                return;
-            }
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setShape(0);
-            gradientDrawable.setCornerRadius(da0.b(this.a, 9.0f));
-            gradientDrawable.setGradientType(0);
-            gradientDrawable.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
-            gradientDrawable.setColors(new int[]{Color.parseColor("#4D000000"), Color.parseColor("#4D000000")});
-            setBackground(gradientDrawable);
-            GradientDrawable gradientDrawable2 = new GradientDrawable();
-            gradientDrawable2.setShape(0);
-            gradientDrawable2.setCornerRadius(da0.b(this.a, 9.0f));
-            if (this.i == 1) {
-                int i = this.j;
-                if (i == 3) {
-                    gradientDrawable2.setColors(new int[]{uc0.f().a(this.a, this.h, "color_768CAE"), uc0.f().a(this.a, this.h, "color_768CAE")});
-                    this.b.setBackgroundDrawable(gradientDrawable2);
-                    if (!"day".equals(uc0.f().r()) && !LiveFeedPageSdk.IMMERSION.equals(this.h) && !"recommend".equals(this.h)) {
-                        if ("tieba".equals(LiveFeedPageSdk.getInstance().getHost())) {
-                            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d0b);
-                        } else {
-                            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d0c);
-                        }
-                    } else {
-                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d0b);
-                    }
-                } else if (i == 0) {
-                    gradientDrawable2.setColors(new int[]{uc0.f().a(this.a, this.h, "color_4E6EF2"), uc0.f().a(this.a, this.h, "color_4E6EF2")});
-                    this.b.setBackgroundDrawable(gradientDrawable2);
-                    if (!"day".equals(uc0.f().r()) && !LiveFeedPageSdk.IMMERSION.equals(this.h) && !"recommend".equals(this.h)) {
-                        if ("tieba".equals(LiveFeedPageSdk.getInstance().getHost())) {
-                            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d0d);
-                        } else {
-                            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d0e);
-                        }
-                    } else {
-                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d0d);
-                    }
-                } else {
-                    gradientDrawable2.setColors(new int[]{uc0.f().a(this.a, this.h, "color_FF3333"), uc0.f().a(this.a, this.h, "color_FF3333")});
-                    this.f.setBackgroundDrawable(gradientDrawable2);
-                    this.e.setVisibility(0);
-                }
-            }
-            c();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.g;
         }
-    }
-
-    public void g() {
-        LottieDrawable lottieDrawable;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.c == null || (lottieDrawable = this.l) == null) {
-            return;
-        }
-        if (this.g) {
-            try {
-                if (lottieDrawable.isAnimating() && this.c.getVisibility() == 0) {
-                    return;
-                }
-                if (this.k != null && !this.k.equals(uc0.f().r())) {
-                    this.k = uc0.f().r();
-                    if (this.l.isAnimating()) {
-                        this.l.cancelAnimation();
-                    }
-                    this.c.setImageDrawable(null);
-                    this.l.clearComposition();
-                    LottieComposition.Factory.fromAssetFileName(this.a, this.m, new a(this));
-                    return;
-                }
-                this.c.setVisibility(0);
-                if (this.l.isAnimating()) {
-                    return;
-                }
-                this.l.playAnimation();
-                return;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return;
-            }
-        }
-        h();
+        return invokeV.booleanValue;
     }
 
     public void h() {
         LottieDrawable lottieDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.c == null || (lottieDrawable = this.l) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.c != null && (lottieDrawable = this.l) != null) {
+            if (lottieDrawable.isAnimating()) {
+                this.l.cancelAnimation();
+            }
+            this.c.setVisibility(8);
         }
-        if (lottieDrawable.isAnimating()) {
-            this.l.cancelAnimation();
-        }
-        this.c.setVisibility(8);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -255,8 +212,101 @@ public class LiveBannerStatusAnimView extends FrameLayout {
         }
     }
 
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            TextView textView = this.d;
+            if (textView != null) {
+                textView.setTextColor(vc0.f().a(this.a, this.h, "color_white3"));
+            }
+            TextView textView2 = this.e;
+            if (textView2 != null) {
+                textView2.setTextColor(vc0.f().a(this.a, this.h, "color_white3"));
+            }
+            if (this.b != null && this.f != null && this.e != null) {
+                GradientDrawable gradientDrawable = new GradientDrawable();
+                gradientDrawable.setShape(0);
+                gradientDrawable.setCornerRadius(ea0.b(this.a, 9.0f));
+                gradientDrawable.setGradientType(0);
+                gradientDrawable.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
+                gradientDrawable.setColors(new int[]{Color.parseColor("#4D000000"), Color.parseColor("#4D000000")});
+                setBackground(gradientDrawable);
+                GradientDrawable gradientDrawable2 = new GradientDrawable();
+                gradientDrawable2.setShape(0);
+                gradientDrawable2.setCornerRadius(ea0.b(this.a, 9.0f));
+                if (this.i == 1) {
+                    int i = this.j;
+                    if (i == 3) {
+                        gradientDrawable2.setColors(new int[]{vc0.f().a(this.a, this.h, "color_768CAE"), vc0.f().a(this.a, this.h, "color_768CAE")});
+                        this.b.setBackgroundDrawable(gradientDrawable2);
+                        if (!"day".equals(vc0.f().r()) && !LiveFeedPageSdk.IMMERSION.equals(this.h) && !"recommend".equals(this.h)) {
+                            if ("tieba".equals(LiveFeedPageSdk.getInstance().getHost())) {
+                                this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d1b);
+                            } else {
+                                this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d1c);
+                            }
+                        } else {
+                            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d1b);
+                        }
+                    } else if (i == 0) {
+                        gradientDrawable2.setColors(new int[]{vc0.f().a(this.a, this.h, "color_4E6EF2"), vc0.f().a(this.a, this.h, "color_4E6EF2")});
+                        this.b.setBackgroundDrawable(gradientDrawable2);
+                        if (!"day".equals(vc0.f().r()) && !LiveFeedPageSdk.IMMERSION.equals(this.h) && !"recommend".equals(this.h)) {
+                            if ("tieba".equals(LiveFeedPageSdk.getInstance().getHost())) {
+                                this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d1d);
+                            } else {
+                                this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d1e);
+                            }
+                        } else {
+                            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d1d);
+                        }
+                    } else {
+                        gradientDrawable2.setColors(new int[]{vc0.f().a(this.a, this.h, "color_FF3333"), vc0.f().a(this.a, this.h, "color_FF3333")});
+                        this.f.setBackgroundDrawable(gradientDrawable2);
+                        this.e.setVisibility(0);
+                    }
+                }
+                c();
+            }
+        }
+    }
+
+    public void g() {
+        LottieDrawable lottieDrawable;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.c != null && (lottieDrawable = this.l) != null) {
+            if (this.g) {
+                try {
+                    if (lottieDrawable.isAnimating() && this.c.getVisibility() == 0) {
+                        return;
+                    }
+                    if (this.k != null && !this.k.equals(vc0.f().r())) {
+                        this.k = vc0.f().r();
+                        if (this.l.isAnimating()) {
+                            this.l.cancelAnimation();
+                        }
+                        this.c.setImageDrawable(null);
+                        this.l.clearComposition();
+                        LottieComposition.Factory.fromAssetFileName(this.a, this.m, new a(this));
+                        return;
+                    }
+                    this.c.setVisibility(0);
+                    if (!this.l.isAnimating()) {
+                        this.l.playAnimation();
+                        return;
+                    }
+                    return;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return;
+                }
+            }
+            h();
+        }
+    }
+
     @Override // android.view.View
-    public void onVisibilityChanged(@NonNull View view2, int i) {
+    public void onVisibilityChanged(View view2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048583, this, view2, i) == null) {
             super.onVisibilityChanged(view2, i);
@@ -283,24 +333,24 @@ public class LiveBannerStatusAnimView extends FrameLayout {
                     if (i2 == 3) {
                         this.g = false;
                         this.b.setVisibility(0);
-                        this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d11);
-                        this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a0f));
-                        this.d.setPadding(da0.b(this.a, 2.0f), 0, da0.b(this.a, 4.0f), 0);
+                        this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d21);
+                        this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a1c));
+                        this.d.setPadding(ea0.b(this.a, 2.0f), 0, ea0.b(this.a, 4.0f), 0);
                         this.e.setVisibility(8);
                     } else if (i2 == 0) {
                         this.g = false;
                         this.b.setVisibility(0);
-                        this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d11);
-                        this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a11));
-                        this.d.setPadding(da0.b(this.a, 2.0f), 0, da0.b(this.a, 4.0f), 0);
+                        this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d21);
+                        this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a1e));
+                        this.d.setPadding(ea0.b(this.a, 2.0f), 0, ea0.b(this.a, 4.0f), 0);
                         this.e.setVisibility(8);
                     } else {
                         this.g = true;
                         this.b.setVisibility(8);
-                        this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a10));
-                        this.d.setPadding(0, 0, da0.b(this.a, 4.0f), 0);
+                        this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a1d));
+                        this.d.setPadding(0, 0, ea0.b(this.a, 4.0f), 0);
                         this.e.setVisibility(0);
-                        this.e.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a0e), da0.a(this.a, liveBannerEntity.audienceCount)));
+                        this.e.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a1b), ea0.a(this.a, liveBannerEntity.audienceCount)));
                     }
                     f("day");
                     setVisibility(0);
@@ -313,57 +363,5 @@ public class LiveBannerStatusAnimView extends FrameLayout {
             this.g = false;
             setVisibility(8);
         }
-    }
-
-    public void setScene(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.h = str;
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LiveBannerStatusAnimView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LiveBannerStatusAnimView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.g = false;
-        this.k = "";
-        d(context);
     }
 }

@@ -20,7 +20,7 @@ public final class HandlerScheduler extends Scheduler {
     public final Handler handler;
 
     /* loaded from: classes8.dex */
-    public static final class HandlerWorker extends Scheduler.Worker {
+    public final class HandlerWorker extends Scheduler.Worker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile boolean disposed;
@@ -57,7 +57,10 @@ public final class HandlerScheduler extends Scheduler {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.disposed : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.disposed;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Scheduler.Worker
@@ -89,7 +92,7 @@ public final class HandlerScheduler extends Scheduler {
     }
 
     /* loaded from: classes8.dex */
-    public static final class ScheduledRunnable implements Runnable, Disposable {
+    public final class ScheduledRunnable implements Runnable, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Runnable delegate;
@@ -128,7 +131,10 @@ public final class HandlerScheduler extends Scheduler {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.disposed : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.disposed;
+            }
+            return invokeV.booleanValue;
         }
 
         @Override // java.lang.Runnable
@@ -166,7 +172,10 @@ public final class HandlerScheduler extends Scheduler {
     public Scheduler.Worker createWorker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new HandlerWorker(this.handler) : (Scheduler.Worker) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new HandlerWorker(this.handler);
+        }
+        return (Scheduler.Worker) invokeV.objValue;
     }
 
     @Override // io.reactivex.Scheduler

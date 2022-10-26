@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.CheckForNull;
 /* loaded from: classes7.dex */
-public abstract class zzw extends zzj<String> {
+public abstract class zzw extends zzj {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final CharSequence zzb;
@@ -14,6 +14,10 @@ public abstract class zzw extends zzj<String> {
     public final boolean zzd;
     public int zze;
     public int zzf;
+
+    public abstract int zzc(int i);
+
+    public abstract int zzd(int i);
 
     public zzw(zzx zzxVar, CharSequence charSequence) {
         zzo zzoVar;
@@ -41,7 +45,6 @@ public abstract class zzw extends zzj<String> {
         this.zzb = charSequence;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     /* JADX WARN: Code restructure failed: missing block: B:21:0x0047, code lost:
         r3 = r5.zzf;
      */
@@ -69,46 +72,43 @@ public abstract class zzw extends zzj<String> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final /* bridge */ /* synthetic */ String zza() {
+    public final /* bridge */ /* synthetic */ Object zza() {
         int zzc;
         int i = this.zze;
         while (true) {
             int i2 = this.zze;
-            if (i2 == -1) {
+            if (i2 != -1) {
+                int zzd = zzd(i2);
+                if (zzd == -1) {
+                    zzd = this.zzb.length();
+                    this.zze = -1;
+                    zzc = -1;
+                } else {
+                    zzc = zzc(zzd);
+                    this.zze = zzc;
+                }
+                if (zzc == i) {
+                    int i3 = zzc + 1;
+                    this.zze = i3;
+                    if (i3 > this.zzb.length()) {
+                        this.zze = -1;
+                    }
+                } else {
+                    if (i < zzd) {
+                        this.zzb.charAt(i);
+                    }
+                    if (i < zzd) {
+                        this.zzb.charAt(zzd - 1);
+                    }
+                    if (!this.zzd || i != zzd) {
+                        break;
+                    }
+                    i = this.zze;
+                }
+            } else {
                 zzb();
                 return null;
             }
-            int zzd = zzd(i2);
-            if (zzd == -1) {
-                zzd = this.zzb.length();
-                this.zze = -1;
-                zzc = -1;
-            } else {
-                zzc = zzc(zzd);
-                this.zze = zzc;
-            }
-            if (zzc == i) {
-                int i3 = zzc + 1;
-                this.zze = i3;
-                if (i3 > this.zzb.length()) {
-                    this.zze = -1;
-                }
-            } else {
-                if (i < zzd) {
-                    this.zzb.charAt(i);
-                }
-                if (i < zzd) {
-                    this.zzb.charAt(zzd - 1);
-                }
-                if (!this.zzd || i != zzd) {
-                    break;
-                }
-                i = this.zze;
-            }
         }
     }
-
-    public abstract int zzc(int i);
-
-    public abstract int zzd(int i);
 }

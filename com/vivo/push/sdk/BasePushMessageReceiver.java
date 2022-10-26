@@ -24,6 +24,76 @@ public abstract class BasePushMessageReceiver extends BroadcastReceiver implemen
     public static final String TAG = "PushMessageReceiver";
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.vivo.push.sdk.PushMessageCallback
+    public void onBind(Context context, int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i, str) == null) {
+        }
+    }
+
+    @Override // com.vivo.push.sdk.PushMessageCallback
+    public void onDelAlias(Context context, int i, List list, List list2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Integer.valueOf(i), list, list2, str}) == null) {
+        }
+    }
+
+    @Override // com.vivo.push.sdk.PushMessageCallback
+    public void onDelTags(Context context, int i, List list, List list2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, Integer.valueOf(i), list, list2, str}) == null) {
+        }
+    }
+
+    @Override // com.vivo.push.sdk.PushMessageCallback
+    public void onListTags(Context context, int i, List list, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(1048580, this, context, i, list, str) == null) {
+        }
+    }
+
+    @Override // com.vivo.push.sdk.PushMessageCallback
+    public void onLog(Context context, String str, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+        }
+    }
+
+    @Override // com.vivo.push.sdk.PushMessageCallback
+    public void onPublish(Context context, int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048582, this, context, i, str) == null) {
+        }
+    }
+
+    @Override // com.vivo.push.sdk.PushMessageCallback
+    public void onSetAlias(Context context, int i, List list, List list2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{context, Integer.valueOf(i), list, list2, str}) == null) {
+        }
+    }
+
+    @Override // com.vivo.push.sdk.PushMessageCallback
+    public void onSetTags(Context context, int i, List list, List list2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{context, Integer.valueOf(i), list, list2, str}) == null) {
+        }
+    }
+
+    @Override // com.vivo.push.sdk.PushMessageCallback
+    public void onTransmissionMessage(Context context, UnvarnishedMessage unvarnishedMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, context, unvarnishedMessage) == null) {
+        }
+    }
+
+    @Override // com.vivo.push.sdk.PushMessageCallback
+    public void onUnBind(Context context, int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048587, this, context, i, str) == null) {
+        }
+    }
+
     public BasePushMessageReceiver() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -64,48 +134,6 @@ public abstract class BasePushMessageReceiver extends BroadcastReceiver implemen
         return invokeL.booleanValue;
     }
 
-    @Override // com.vivo.push.sdk.PushMessageCallback
-    public void onBind(Context context, int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i, str) == null) {
-        }
-    }
-
-    @Override // com.vivo.push.sdk.PushMessageCallback
-    public void onDelAlias(Context context, int i, List<String> list, List<String> list2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Integer.valueOf(i), list, list2, str}) == null) {
-        }
-    }
-
-    @Override // com.vivo.push.sdk.PushMessageCallback
-    public void onDelTags(Context context, int i, List<String> list, List<String> list2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, Integer.valueOf(i), list, list2, str}) == null) {
-        }
-    }
-
-    @Override // com.vivo.push.sdk.PushMessageCallback
-    public void onListTags(Context context, int i, List<String> list, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(1048580, this, context, i, list, str) == null) {
-        }
-    }
-
-    @Override // com.vivo.push.sdk.PushMessageCallback
-    public void onLog(Context context, String str, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-        }
-    }
-
-    @Override // com.vivo.push.sdk.PushMessageCallback
-    public void onPublish(Context context, int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048582, this, context, i, str) == null) {
-        }
-    }
-
     @Override // android.content.BroadcastReceiver
     public final void onReceive(Context context, Intent intent) {
         Interceptable interceptable = $ic;
@@ -119,34 +147,6 @@ public abstract class BasePushMessageReceiver extends BroadcastReceiver implemen
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
-    }
-
-    @Override // com.vivo.push.sdk.PushMessageCallback
-    public void onSetAlias(Context context, int i, List<String> list, List<String> list2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{context, Integer.valueOf(i), list, list2, str}) == null) {
-        }
-    }
-
-    @Override // com.vivo.push.sdk.PushMessageCallback
-    public void onSetTags(Context context, int i, List<String> list, List<String> list2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{context, Integer.valueOf(i), list, list2, str}) == null) {
-        }
-    }
-
-    @Override // com.vivo.push.sdk.PushMessageCallback
-    public void onTransmissionMessage(Context context, UnvarnishedMessage unvarnishedMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, context, unvarnishedMessage) == null) {
-        }
-    }
-
-    @Override // com.vivo.push.sdk.PushMessageCallback
-    public void onUnBind(Context context, int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048587, this, context, i, str) == null) {
         }
     }
 }

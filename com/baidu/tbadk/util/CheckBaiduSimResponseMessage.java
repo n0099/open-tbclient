@@ -34,13 +34,23 @@ public class CheckBaiduSimResponseMessage extends JsonHttpResponsedMessage {
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             int statusCode = getStatusCode();
             int error = getError();
             if (statusCode == 200 && error == 0 && jSONObject != null) {
-                this.isSuc = jSONObject.optInt("status") == 0;
-                this.isBaiduSim = jSONObject.optInt("product") == 1;
+                boolean z2 = false;
+                if (jSONObject.optInt("status") == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                this.isSuc = z;
+                if (jSONObject.optInt("product") == 1) {
+                    z2 = true;
+                }
+                this.isBaiduSim = z2;
             }
         }
     }

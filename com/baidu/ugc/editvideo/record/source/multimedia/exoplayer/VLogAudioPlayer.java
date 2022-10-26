@@ -6,8 +6,8 @@ import android.os.Looper;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qg9;
-import com.baidu.tieba.ug9;
+import com.baidu.tieba.ih9;
+import com.baidu.tieba.mh9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +34,7 @@ public class VLogAudioPlayer {
     public static final int STATE_PREPARING = 2;
     public static final String TAG = "VLogAudioPlayerTag";
     public transient /* synthetic */ FieldHolder $fh;
-    public List<AudioPlayData> handledAudioList;
+    public List handledAudioList;
     public boolean isMute;
     public IMediaPlayer.OnCompletionListener mCompletionListener;
     public volatile int mCurrentState;
@@ -95,7 +95,7 @@ public class VLogAudioPlayer {
                         return;
                     }
                 } else if (this.this$0.mMediaPlayer != null) {
-                    qg9.e(VLogAudioPlayer.TAG, "是否静音：" + this.this$0.isMute);
+                    ih9.e(VLogAudioPlayer.TAG, "是否静音：" + this.this$0.isMute);
                     if (!this.this$0.isMute) {
                         try {
                             this.this$0.updateVolume(this.this$0.mMediaPlayer.getCurrentPosition());
@@ -506,7 +506,7 @@ public class VLogAudioPlayer {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void setDataSourceInternal(List<AudioPlayData> list) {
+    public void setDataSourceInternal(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65578, this, list) == null) {
             resetInternal();
@@ -519,7 +519,7 @@ public class VLogAudioPlayer {
                     }
                     return;
                 }
-                AudioPlayData audioPlayData = list.get(0);
+                AudioPlayData audioPlayData = (AudioPlayData) list.get(0);
                 if (audioPlayData != null) {
                     this.mMediaPlayer.setVolume(audioPlayData.volume);
                 }
@@ -567,17 +567,17 @@ public class VLogAudioPlayer {
         }
     }
 
-    private boolean structureRealData(List<AudioPlayData> list) throws Exception {
+    private boolean structureRealData(List list) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65581, this, list)) == null) {
             MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
             AudioPlayData audioPlayData = null;
             for (int i = 0; i < list.size(); i++) {
-                AudioPlayData audioPlayData2 = list.get(i);
+                AudioPlayData audioPlayData2 = (AudioPlayData) list.get(i);
                 if (!TextUtils.isEmpty(audioPlayData2.audioPath)) {
                     mediaMetadataRetriever.setDataSource(audioPlayData2.audioPath);
-                    int b = ug9.b(mediaMetadataRetriever.extractMetadata(9), 0);
+                    int b = mh9.b(mediaMetadataRetriever.extractMetadata(9), 0);
                     audioPlayData2.realDuration = b;
                     if (audioPlayData == null) {
                         if (b <= 0) {
@@ -597,7 +597,7 @@ public class VLogAudioPlayer {
             ArrayList arrayList = new ArrayList();
             int i2 = 0;
             for (int i3 = 0; i3 < list.size(); i3++) {
-                AudioPlayData audioPlayData3 = list.get(i3);
+                AudioPlayData audioPlayData3 = (AudioPlayData) list.get(i3);
                 int i4 = audioPlayData3.end - audioPlayData3.start;
                 if (i4 < 0) {
                     return false;
@@ -640,7 +640,7 @@ public class VLogAudioPlayer {
             return;
         }
         for (int i = 0; i < this.handledAudioList.size(); i++) {
-            AudioPlayData audioPlayData = this.handledAudioList.get(i);
+            AudioPlayData audioPlayData = (AudioPlayData) this.handledAudioList.get(i);
             if (audioPlayData.relativeMaxDuration >= j) {
                 float volume = this.mMediaPlayer.getVolume();
                 float f = audioPlayData.volume;
@@ -967,7 +967,7 @@ public class VLogAudioPlayer {
         }
     }
 
-    public void setDataSource(List<AudioPlayData> list) {
+    public void setDataSource(List list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048589, this, list) == null) || list == null || list.size() == 0) {
             return;
@@ -1021,7 +1021,7 @@ public class VLogAudioPlayer {
     public void setMute(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            qg9.e(TAG, "设置静音");
+            ih9.e(TAG, "设置静音");
             this.isMute = z;
             setVolume(0.0f);
         }
@@ -1101,7 +1101,7 @@ public class VLogAudioPlayer {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        qg9.e(VLogAudioPlayer.TAG, "设置音量为 = " + this.val$volume);
+                        ih9.e(VLogAudioPlayer.TAG, "设置音量为 = " + this.val$volume);
                         this.this$0.setVolumeInternal(this.val$volume);
                     }
                 }
@@ -1110,10 +1110,10 @@ public class VLogAudioPlayer {
     }
 
     public void setVolume(int i, float f) {
-        List<AudioPlayData> list;
+        List list;
         AudioPlayData audioPlayData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) || (list = this.handledAudioList) == null || i < 0 || f < 0.0f || list.size() <= i || (audioPlayData = this.handledAudioList.get(i)) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) || (list = this.handledAudioList) == null || i < 0 || f < 0.0f || list.size() <= i || (audioPlayData = (AudioPlayData) this.handledAudioList.get(i)) == null) {
             return;
         }
         audioPlayData.volume = f;

@@ -4,12 +4,9 @@ import android.content.Context;
 import android.location.Location;
 import android.os.Build;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import com.kwad.components.offline.api.BuildConfig;
 import com.kwad.sdk.service.ServiceProvider;
-import com.kwad.sdk.utils.InstalledAppInfoManager;
-import com.kwad.sdk.utils.bi;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,7 +30,7 @@ public final class ar {
         return yS != null ? com.kwad.sdk.c.b.a(false, yS.toJson(), 0) : !((com.kwad.sdk.service.kwai.f) ServiceProvider.get(com.kwad.sdk.service.kwai.f.class)).lz() ? com.kwad.sdk.c.b.a(false, "", 1) : com.kwad.sdk.c.b.a(false, "", 2);
     }
 
-    public static List<com.kwad.sdk.f.kwai.e> Aj() {
+    public static List Aj() {
         return at.Aj();
     }
 
@@ -143,7 +140,7 @@ public final class ar {
     }
 
     public static String cS(Context context) {
-        List<bi.a> h = h(context, 15);
+        List h = h(context, 15);
         if (h == null || h.size() <= 0) {
             if (aq.Ad() || ((com.kwad.sdk.service.kwai.f) ServiceProvider.get(com.kwad.sdk.service.kwai.f.class)).i(32L)) {
                 return com.kwad.sdk.c.b.a(false, "", 1);
@@ -153,12 +150,12 @@ public final class ar {
         return com.kwad.sdk.c.b.a(aq.Ad(), r.B(h), 0);
     }
 
-    public static Map<String, InstalledAppInfoManager.AppPackageInfo> cT(Context context) {
+    public static Map cT(Context context) {
         return InstalledAppInfoManager.ci(context);
     }
 
     public static String cU(Context context) {
-        Map<String, InstalledAppInfoManager.AppPackageInfo> ci = InstalledAppInfoManager.ci(context);
+        Map ci = InstalledAppInfoManager.ci(context);
         boolean z = true;
         if (ci.size() > 0) {
             return com.kwad.sdk.c.b.a((!aq.Af() || aq.Ag() == null) ? false : false, InstalledAppInfoManager.d(ci), 0);
@@ -184,7 +181,6 @@ public final class ar {
         }
     }
 
-    @NonNull
     public static com.kwad.sdk.c.c cW(final Context context) {
         return new com.kwad.sdk.c.c() { // from class: com.kwad.sdk.utils.ar.1
             @Override // com.kwad.sdk.c.a
@@ -415,7 +411,7 @@ public final class ar {
         }
     }
 
-    public static List<bi.a> h(Context context, int i) {
+    public static List h(Context context, int i) {
         return bi.h(context, 15);
     }
 

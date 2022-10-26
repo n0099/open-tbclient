@@ -49,6 +49,18 @@ public final class LandingPageSpeedStats extends AbstractSpeedStats {
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.mCreateStartTimestamp = -1L;
+            this.mCreateEndTimestamp = -1L;
+            this.mResumeStartTimestamp = -1L;
+            this.mDataBackTimestamp = -1L;
+            this.mDispatchDrawTimestamp = -1L;
+        }
+    }
+
+    @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
     public void addStatsTimeStamp(int i, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
@@ -98,39 +110,27 @@ public final class LandingPageSpeedStats extends AbstractSpeedStats {
             long j9 = this.mDataBackTimestamp;
             long j10 = j9 - j7;
             long j11 = j - j9;
-            if (j3 <= 0 || j3 > 60000 || j4 > 60000 || j6 < 0 || j6 > 60000 || j8 < 0 || j8 > 60000 || j10 > 60000 || j11 < 0 || j11 > 60000) {
-                return false;
-            }
-            HashMap hashMap = new HashMap();
-            hashMap.put(MIDDLE_2_LANDING_GAP, String.valueOf(j4));
-            hashMap.put("create", String.valueOf(j6));
-            hashMap.put(ONCREATE_2_RESUME, String.valueOf(j8));
-            hashMap.put(RESUME_2_DATABACK, String.valueOf(j10));
-            hashMap.put(DATABACK_2_DRAW, String.valueOf(j11));
-            JSONObject jsonData = SpeedStatsUtils.getJsonData(j3, hashMap);
-            if (jsonData != null) {
-                try {
-                    jSONObject.put(SpeedStatsMainTable.PUSH_SCHEME_LANDING_PAGE, jsonData);
-                } catch (JSONException e) {
-                    if (AppConfig.isDebug()) {
-                        e.printStackTrace();
+            if (j3 > 0 && j3 <= 60000 && j4 <= 60000 && j6 >= 0 && j6 <= 60000 && j8 >= 0 && j8 <= 60000 && j10 <= 60000 && j11 >= 0 && j11 <= 60000) {
+                HashMap hashMap = new HashMap();
+                hashMap.put(MIDDLE_2_LANDING_GAP, String.valueOf(j4));
+                hashMap.put("create", String.valueOf(j6));
+                hashMap.put(ONCREATE_2_RESUME, String.valueOf(j8));
+                hashMap.put(RESUME_2_DATABACK, String.valueOf(j10));
+                hashMap.put(DATABACK_2_DRAW, String.valueOf(j11));
+                JSONObject jsonData = SpeedStatsUtils.getJsonData(j3, hashMap);
+                if (jsonData != null) {
+                    try {
+                        jSONObject.put(SpeedStatsMainTable.PUSH_SCHEME_LANDING_PAGE, jsonData);
+                    } catch (JSONException e) {
+                        if (AppConfig.isDebug()) {
+                            e.printStackTrace();
+                        }
                     }
                 }
+                return true;
             }
-            return true;
+            return false;
         }
         return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.mCreateStartTimestamp = -1L;
-            this.mCreateEndTimestamp = -1L;
-            this.mResumeStartTimestamp = -1L;
-            this.mDataBackTimestamp = -1L;
-            this.mDispatchDrawTimestamp = -1L;
-        }
     }
 }

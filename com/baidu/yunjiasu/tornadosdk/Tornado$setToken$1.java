@@ -22,7 +22,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlinx.coroutines.CoroutineScope;
 @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 5, 1}, xi = 48)
 @DebugMetadata(c = "com.baidu.yunjiasu.tornadosdk.Tornado$setToken$1", f = "Tornado.kt", i = {0}, l = {141}, m = "invokeSuspend", n = {"start"}, s = {"J$0"})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Tornado$setToken$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ TornadoTokenCallback $cb;
@@ -83,7 +83,14 @@ public final class Tornado$setToken$1 extends SuspendLambda implements Function2
             int i = this.label;
             TornadoSetting tornadoSetting7 = null;
             try {
-                if (i == 0) {
+                if (i != 0) {
+                    if (i == 1) {
+                        j = this.J$0;
+                        ResultKt.throwOnFailure(obj);
+                    } else {
+                        throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
+                    }
+                } else {
                     ResultKt.throwOnFailure(obj);
                     Backend backend = Backend.INSTANCE;
                     tornadoSetting = Tornado.setting;
@@ -119,16 +126,13 @@ public final class Tornado$setToken$1 extends SuspendLambda implements Function2
                         return coroutine_suspended;
                     }
                     j = currentTimeMillis;
-                } else if (i != 1) {
-                    throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
-                } else {
-                    j = this.J$0;
-                    ResultKt.throwOnFailure(obj);
                 }
                 SClientConfig sClientConfig = (SClientConfig) obj;
                 if (sClientConfig != null) {
                     TornadoTokenCallback tornadoTokenCallback = this.$cb;
-                    if (sClientConfig.getErrors().getCode() == 0) {
+                    if (sClientConfig.getErrors().getCode() != 0) {
+                        tornadoTokenCallback.onResult(false, String.valueOf(sClientConfig.getErrors()));
+                    } else {
                         tornadoSetting5 = Tornado.setting;
                         if (tornadoSetting5 == null) {
                             Intrinsics.throwUninitializedPropertyAccessException("setting");
@@ -149,8 +153,6 @@ public final class Tornado$setToken$1 extends SuspendLambda implements Function2
                         } else {
                             throw new NullPointerException("null cannot be cast to non-null type kotlin.Array<T>");
                         }
-                    } else {
-                        tornadoTokenCallback.onResult(false, String.valueOf(sClientConfig.getErrors()));
                     }
                 }
                 LogTo.INSTANCE.d("*****", Intrinsics.stringPlus("fetch sclient node: ", Boxing.boxLong(System.currentTimeMillis() - j)));

@@ -22,9 +22,17 @@ public abstract class Task {
     public volatile RunningStatus mRunStatus;
     public volatile Status mStatus;
 
+    public abstract TaskOperation onExecute(TaskOperation taskOperation);
+
+    public void onProgressUpdate(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
+        }
+    }
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class RunningStatus {
+    public final class RunningStatus {
         public static final /* synthetic */ RunningStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RunningStatus UI_THREAD;
@@ -72,19 +80,25 @@ public abstract class Task {
         public static RunningStatus valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (RunningStatus) Enum.valueOf(RunningStatus.class, str) : (RunningStatus) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (RunningStatus) Enum.valueOf(RunningStatus.class, str);
+            }
+            return (RunningStatus) invokeL.objValue;
         }
 
         public static RunningStatus[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RunningStatus[]) $VALUES.clone() : (RunningStatus[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (RunningStatus[]) $VALUES.clone();
+            }
+            return (RunningStatus[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class Status {
+    public final class Status {
         public static final /* synthetic */ Status[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Status FINISHED;
@@ -134,114 +148,20 @@ public abstract class Task {
         public static Status valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Status) Enum.valueOf(Status.class, str) : (Status) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Status) Enum.valueOf(Status.class, str);
+            }
+            return (Status) invokeL.objValue;
         }
 
         public static Status[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Status[]) $VALUES.clone() : (Status[]) invokeV.objValue;
-        }
-    }
-
-    public Task(Task task) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {task};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Status[]) $VALUES.clone();
             }
+            return (Status[]) invokeV.objValue;
         }
-        this.mId = 0;
-        this.mName = null;
-        this.mCancelled = new AtomicBoolean(false);
-        this.mStatus = Status.PENDING;
-        this.mRunStatus = RunningStatus.UI_THREAD;
-        this.mRunStatus = task.mRunStatus;
-        this.mName = task.mName;
-        this.mStatus = task.mStatus;
-    }
-
-    public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.mCancelled.set(true);
-        }
-    }
-
-    public RunningStatus getRunningStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mRunStatus : (RunningStatus) invokeV.objValue;
-    }
-
-    public Status getStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mStatus : (Status) invokeV.objValue;
-    }
-
-    public int getTaskId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mId : invokeV.intValue;
-    }
-
-    public String getTaskName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mName : (String) invokeV.objValue;
-    }
-
-    public boolean isCancelled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mCancelled.get() : invokeV.booleanValue;
-    }
-
-    public abstract TaskOperation onExecute(TaskOperation taskOperation);
-
-    public void onProgressUpdate(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
-        }
-    }
-
-    public void setStatus(Status status) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, status) == null) {
-            this.mStatus = status;
-        }
-    }
-
-    public void setTaskId(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.mId = i;
-        }
-    }
-
-    public void setTaskName(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.mName = str;
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return "name = " + this.mName + GlideException.IndentedAppendable.INDENT + "id = " + this.mId + GlideException.IndentedAppendable.INDENT + super.toString();
-        }
-        return (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -287,5 +207,112 @@ public abstract class Task {
         this.mRunStatus = RunningStatus.UI_THREAD;
         this.mRunStatus = runningStatus;
         this.mName = str;
+    }
+
+    public Task(Task task) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {task};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mId = 0;
+        this.mName = null;
+        this.mCancelled = new AtomicBoolean(false);
+        this.mStatus = Status.PENDING;
+        this.mRunStatus = RunningStatus.UI_THREAD;
+        this.mRunStatus = task.mRunStatus;
+        this.mName = task.mName;
+        this.mStatus = task.mStatus;
+    }
+
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.mCancelled.set(true);
+        }
+    }
+
+    public RunningStatus getRunningStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mRunStatus;
+        }
+        return (RunningStatus) invokeV.objValue;
+    }
+
+    public Status getStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mStatus;
+        }
+        return (Status) invokeV.objValue;
+    }
+
+    public int getTaskId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mId;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getTaskName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean isCancelled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mCancelled.get();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void setStatus(Status status) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, status) == null) {
+            this.mStatus = status;
+        }
+    }
+
+    public void setTaskId(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.mId = i;
+        }
+    }
+
+    public void setTaskName(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.mName = str;
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return "name = " + this.mName + GlideException.IndentedAppendable.INDENT + "id = " + this.mId + GlideException.IndentedAppendable.INDENT + super.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

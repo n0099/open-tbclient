@@ -1,7 +1,6 @@
 package androidx.core.os;
 
 import android.os.Build;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -48,6 +47,27 @@ public final class CancellationSignal {
         }
     }
 
+    public boolean isCanceled() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                z = this.mIsCanceled;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void throwIfCanceled() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || !isCanceled()) {
+            return;
+        }
+        throw new OperationCanceledException();
+    }
+
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     public void cancel() {
         Interceptable interceptable = $ic;
@@ -82,7 +102,6 @@ public final class CancellationSignal {
         }
     }
 
-    @Nullable
     public Object getCancellationSignalObject() {
         InterceptResult invokeV;
         Object obj;
@@ -106,20 +125,7 @@ public final class CancellationSignal {
         return invokeV.objValue;
     }
 
-    public boolean isCanceled() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                z = this.mIsCanceled;
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void setOnCancelListener(@Nullable OnCancelListener onCancelListener) {
+    public void setOnCancelListener(OnCancelListener onCancelListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onCancelListener) == null) {
             synchronized (this) {
@@ -132,13 +138,6 @@ public final class CancellationSignal {
                     onCancelListener.onCancel();
                 }
             }
-        }
-    }
-
-    public void throwIfCanceled() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && isCanceled()) {
-            throw new OperationCanceledException();
         }
     }
 }

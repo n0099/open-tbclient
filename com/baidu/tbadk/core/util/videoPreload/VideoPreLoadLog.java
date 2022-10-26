@@ -10,6 +10,12 @@ public class VideoPreLoadLog {
     public static final String TAG = "VideoPreLoader";
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static void log(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+        }
+    }
+
     public VideoPreLoadLog() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -21,12 +27,6 @@ public class VideoPreLoadLog {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    public static void log(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
         }
     }
 }

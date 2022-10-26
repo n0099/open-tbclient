@@ -2,7 +2,6 @@ package com.bytedance.pangle.activity;
 
 import android.app.Activity;
 import android.view.View;
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -18,7 +17,7 @@ public final class a implements View.OnClickListener {
     public final int c;
     public Method d;
 
-    public a(@NonNull Activity activity, int i, @NonNull String str) {
+    public a(Activity activity, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -39,7 +38,7 @@ public final class a implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public final void onClick(@NonNull View view2) {
+    public final void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
             if (this.d == null) {

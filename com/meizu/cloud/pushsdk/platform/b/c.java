@@ -13,7 +13,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.ScheduledExecutorService;
 /* loaded from: classes8.dex */
-public abstract class c<T extends BasicPushStatus> {
+public abstract class c {
     public ScheduledExecutorService d;
     public Context e;
     public String f;
@@ -37,8 +37,8 @@ public abstract class c<T extends BasicPushStatus> {
         return i >= 110000 && i <= 200000;
     }
 
-    private boolean b(T t) {
-        int intValue = Integer.valueOf(t.getCode()).intValue();
+    private boolean b(BasicPushStatus basicPushStatus) {
+        int intValue = Integer.valueOf(basicPushStatus.getCode()).intValue();
         return (intValue > 200 && intValue < 600) || (intValue > 1000 && intValue < 2000) || intValue == 0;
     }
 
@@ -84,7 +84,7 @@ public abstract class c<T extends BasicPushStatus> {
         }
     }
 
-    public abstract void a(T t);
+    public abstract void a(BasicPushStatus basicPushStatus);
 
     public void a(boolean z) {
         this.k = z;
@@ -92,7 +92,7 @@ public abstract class c<T extends BasicPushStatus> {
 
     public abstract boolean a();
 
-    public abstract T b();
+    public abstract BasicPushStatus b();
 
     public void b(String str) {
         this.f = str;
@@ -112,9 +112,9 @@ public abstract class c<T extends BasicPushStatus> {
         return null;
     }
 
-    public abstract T e();
+    public abstract BasicPushStatus e();
 
-    public abstract T f();
+    public abstract BasicPushStatus f();
 
     public abstract int g();
 
@@ -146,18 +146,18 @@ public abstract class c<T extends BasicPushStatus> {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public boolean n() {
-        T t;
+        BasicPushStatus basicPushStatus;
         String str;
         if (a()) {
             if (k()) {
                 DebugLogger.i("Strategy", "send message to remote service");
                 if (l()) {
-                    t = null;
+                    basicPushStatus = null;
                 } else {
-                    t = f();
-                    if (t != null) {
-                        DebugLogger.e("Strategy", "local response " + t);
-                        a((c<T>) t);
+                    basicPushStatus = f();
+                    if (basicPushStatus != null) {
+                        DebugLogger.e("Strategy", "local response " + basicPushStatus);
+                        a(basicPushStatus);
                     }
                 }
                 Intent c = c();
@@ -173,40 +173,40 @@ public abstract class c<T extends BasicPushStatus> {
                 }
                 MzSystemUtils.sendMessageFromBroadcast(this.e, new Intent("com.meizu.cloud.pushservice.action.PUSH_SERVICE_START"), null, this.e.getPackageName());
             } else {
-                t = e();
-                DebugLogger.i("Strategy", "real response status " + t);
-                if (t != null) {
-                    if (l() && "20000".equals(t.getCode())) {
+                basicPushStatus = e();
+                DebugLogger.i("Strategy", "real response status " + basicPushStatus);
+                if (basicPushStatus != null) {
+                    if (l() && "20000".equals(basicPushStatus.getCode())) {
                         return true;
                     }
                     if (h()) {
                         str = "response all request in local app";
                     } else {
-                        String code = t.getCode();
+                        String code = basicPushStatus.getCode();
                         if (TextUtils.isEmpty(code)) {
                             code = "0";
                         }
-                        if (BasicPushStatus.SUCCESS_CODE.equals(t.getCode())) {
-                            a((c<T>) t);
+                        if (BasicPushStatus.SUCCESS_CODE.equals(basicPushStatus.getCode())) {
+                            a(basicPushStatus);
                         }
                         int intValue = Integer.valueOf(code).intValue();
                         if (a(intValue)) {
-                            str = "service error so notify pushManager invoker code=" + intValue + " message " + t.getMessage();
+                            str = "service error so notify pushManager invoker code=" + intValue + " message " + basicPushStatus.getMessage();
                         }
                     }
                     DebugLogger.e("Strategy", str);
                 }
             }
-            if (t == null) {
-                DebugLogger.e("Strategy", "current status code " + t.getCode());
-                return true ^ b((c<T>) t);
+            if (basicPushStatus == null) {
+                DebugLogger.e("Strategy", "current status code " + basicPushStatus.getCode());
+                return true ^ b(basicPushStatus);
             }
             return true;
         }
         DebugLogger.e("Strategy", "Missing required parameters");
-        t = b();
-        a((c<T>) t);
-        if (t == null) {
+        basicPushStatus = b();
+        a(basicPushStatus);
+        if (basicPushStatus == null) {
         }
     }
 

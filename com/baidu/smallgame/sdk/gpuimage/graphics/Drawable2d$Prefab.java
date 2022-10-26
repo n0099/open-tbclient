@@ -61,12 +61,18 @@ public final class Drawable2d$Prefab {
     public static Drawable2d$Prefab valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Drawable2d$Prefab) Enum.valueOf(Drawable2d$Prefab.class, str) : (Drawable2d$Prefab) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (Drawable2d$Prefab) Enum.valueOf(Drawable2d$Prefab.class, str);
+        }
+        return (Drawable2d$Prefab) invokeL.objValue;
     }
 
     public static Drawable2d$Prefab[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Drawable2d$Prefab[]) $VALUES.clone() : (Drawable2d$Prefab[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (Drawable2d$Prefab[]) $VALUES.clone();
+        }
+        return (Drawable2d$Prefab[]) invokeV.objValue;
     }
 }

@@ -18,8 +18,23 @@ public final class j8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448306783, "Lcom/baidu/tieba/j8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448306783, "Lcom/baidu/tieba/j8;");
+        }
+    }
+
     /* loaded from: classes4.dex */
-    public static class a extends ByteArrayOutputStream {
+    public class a extends ByteArrayOutputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -49,36 +64,23 @@ public final class j8 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 synchronized (this) {
-                    return ((ByteArrayOutputStream) this).count == ((ByteArrayOutputStream) this).buf.length ? ((ByteArrayOutputStream) this).buf : super.toByteArray();
+                    if (((ByteArrayOutputStream) this).count == ((ByteArrayOutputStream) this).buf.length) {
+                        return ((ByteArrayOutputStream) this).buf;
+                    }
+                    return super.toByteArray();
                 }
             }
             return (byte[]) invokeV.objValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448306783, "Lcom/baidu/tieba/j8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448306783, "Lcom/baidu/tieba/j8;");
-        }
-    }
-
     public static void a(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, closeable) == null) || closeable == null) {
-            return;
-        }
-        try {
-            closeable.close();
-        } catch (Throwable unused) {
+        if ((interceptable == null || interceptable.invokeL(65537, null, closeable) == null) && closeable != null) {
+            try {
+                closeable.close();
+            } catch (Throwable unused) {
+            }
         }
     }
 
@@ -86,20 +88,6 @@ public final class j8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, inputStream, outputStream) == null) {
             c(inputStream, outputStream, new byte[4096]);
-        }
-    }
-
-    public static void c(InputStream inputStream, OutputStream outputStream, byte[] bArr) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLLL(65539, null, inputStream, outputStream, bArr) != null) {
-            return;
-        }
-        while (true) {
-            int read = inputStream.read(bArr);
-            if (read == -1) {
-                return;
-            }
-            outputStream.write(bArr, 0, read);
         }
     }
 
@@ -112,5 +100,20 @@ public final class j8 {
             return aVar.toByteArray();
         }
         return (byte[]) invokeLI.objValue;
+    }
+
+    public static void c(InputStream inputStream, OutputStream outputStream, byte[] bArr) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLLL(65539, null, inputStream, outputStream, bArr) != null) {
+            return;
+        }
+        while (true) {
+            int read = inputStream.read(bArr);
+            if (read != -1) {
+                outputStream.write(bArr, 0, read);
+            } else {
+                return;
+            }
+        }
     }
 }

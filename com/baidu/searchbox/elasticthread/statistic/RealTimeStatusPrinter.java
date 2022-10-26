@@ -87,11 +87,17 @@ public class RealTimeStatusPrinter {
 
     private JSONObject loadDredgeExecutorData(BaseDredgeExecutorCell baseDredgeExecutorCell) throws JSONException {
         InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, baseDredgeExecutorCell)) == null) {
             JSONObject jSONObject = new JSONObject();
             if (baseDredgeExecutorCell != null) {
-                jSONObject.put("Status", baseDredgeExecutorCell.isOpen() ? "working" : "shutdown");
+                if (baseDredgeExecutorCell.isOpen()) {
+                    str = "working";
+                } else {
+                    str = "shutdown";
+                }
+                jSONObject.put("Status", str);
                 jSONObject.put("WorkingThreadNum", baseDredgeExecutorCell.getWorkingThreadNum());
                 jSONObject.put("MaxThreadNum", baseDredgeExecutorCell.getMaxThreadNum());
             }

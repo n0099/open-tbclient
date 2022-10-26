@@ -48,6 +48,7 @@ public class w0 extends ClickableSpan {
 
     @Override // android.text.style.ClickableSpan
     public void onClick(View view2) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
             String url = this.a.getURL();
@@ -66,6 +67,11 @@ public class w0 extends ClickableSpan {
                 }
                 List<ResolveInfo> queryIntentActivities = packageManager.queryIntentActivities(intent, 65536);
                 if (queryIntentActivities != null && queryIntentActivities.size() > 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
                     this.b.a.startActivity(intent);
                     return;
                 }

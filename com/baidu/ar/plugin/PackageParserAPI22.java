@@ -1,7 +1,6 @@
 package com.baidu.ar.plugin;
 
 import android.content.Context;
-import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.InstrumentationInfo;
@@ -37,15 +36,15 @@ public class PackageParserAPI22 extends PackageParser {
     public Object mDefaultPackageUserState;
     public Object mPackage;
     public int mUserId;
-    public Class<?> sActivityClass;
-    public Class<?> sArraySetClass;
-    public Class<?> sInstrumentationClass;
-    public Class<?> sPackageParserClass;
-    public Class<?> sPackageUserStateClass;
-    public Class<?> sPermissionClass;
-    public Class<?> sPermissionGroupClass;
-    public Class<?> sProviderClass;
-    public Class<?> sServiceClass;
+    public Class sActivityClass;
+    public Class sArraySetClass;
+    public Class sInstrumentationClass;
+    public Class sPackageParserClass;
+    public Class sPackageUserStateClass;
+    public Class sPermissionClass;
+    public Class sPermissionGroupClass;
+    public Class sProviderClass;
+    public Class sServiceClass;
 
     static {
         InterceptResult invokeClinit;
@@ -97,6 +96,96 @@ public class PackageParserAPI22 extends PackageParser {
         return invokeV.intValue;
     }
 
+    @Override // com.baidu.ar.plugin.PackageParser
+    public List getActivities() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return (List) FieldUtils.readField(this.mPackage, "activities");
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.ar.plugin.PackageParser
+    public List getInstrumentations() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return (List) FieldUtils.readField(this.mPackage, "instrumentation");
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.ar.plugin.PackageParser
+    public String getPackageName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return (String) FieldUtils.readField(this.mPackage, "packageName");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.ar.plugin.PackageParser
+    public List getPermissionGroups() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return (List) FieldUtils.readField(this.mPackage, "permissionGroups");
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.ar.plugin.PackageParser
+    public List getPermissions() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return (List) FieldUtils.readField(this.mPackage, "permissions");
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.ar.plugin.PackageParser
+    public List getProviders() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return (List) FieldUtils.readField(this.mPackage, "providers");
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.ar.plugin.PackageParser
+    public List getReceivers() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return (List) FieldUtils.readField(this.mPackage, "receivers");
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.ar.plugin.PackageParser
+    public List getRequestedPermissions() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return (List) FieldUtils.readField(this.mPackage, "requestedPermissions");
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.ar.plugin.PackageParser
+    public List getServices() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return (List) FieldUtils.readField(this.mPackage, "services");
+        }
+        return (List) invokeV.objValue;
+    }
+
     private void initClasses() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
@@ -133,23 +222,11 @@ public class PackageParserAPI22 extends PackageParser {
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
-    public ActivityInfo generateActivityInfo(Object obj, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i)) == null) {
-            Class<?> cls = this.sPackageParserClass;
-            Class cls2 = Integer.TYPE;
-            return (ActivityInfo) MethodUtils.getAccessibleMethod(cls, "generateActivityInfo", this.sActivityClass, cls2, this.sPackageUserStateClass, cls2).invoke(null, obj, Integer.valueOf(i), this.mDefaultPackageUserState, Integer.valueOf(this.mUserId));
-        }
-        return (ActivityInfo) invokeLI.objValue;
-    }
-
-    @Override // com.baidu.ar.plugin.PackageParser
     public ApplicationInfo generateApplicationInfo(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            Class<?> cls = this.sPackageParserClass;
+            Class cls = this.sPackageParserClass;
             Class cls2 = Integer.TYPE;
             return (ApplicationInfo) MethodUtils.getAccessibleMethod(cls, "generateApplicationInfo", this.mPackage.getClass(), cls2, this.sPackageUserStateClass, cls2).invoke(null, this.mPackage, Integer.valueOf(i), this.mDefaultPackageUserState, Integer.valueOf(this.mUserId));
         }
@@ -157,21 +234,80 @@ public class PackageParserAPI22 extends PackageParser {
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
+    public ActivityInfo generateActivityInfo(Object obj, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i)) == null) {
+            Class cls = this.sPackageParserClass;
+            Class cls2 = Integer.TYPE;
+            return (ActivityInfo) MethodUtils.getAccessibleMethod(cls, "generateActivityInfo", this.sActivityClass, cls2, this.sPackageUserStateClass, cls2).invoke(null, obj, Integer.valueOf(i), this.mDefaultPackageUserState, Integer.valueOf(this.mUserId));
+        }
+        return (ActivityInfo) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.ar.plugin.PackageParser
+    public ProviderInfo generateProviderInfo(Object obj, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, obj, i)) == null) {
+            Class cls = this.sPackageParserClass;
+            Class cls2 = Integer.TYPE;
+            return (ProviderInfo) MethodUtils.getAccessibleMethod(cls, "generateProviderInfo", this.sProviderClass, cls2, this.sPackageUserStateClass, cls2).invoke(null, obj, Integer.valueOf(i), this.mDefaultPackageUserState, Integer.valueOf(this.mUserId));
+        }
+        return (ProviderInfo) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.ar.plugin.PackageParser
+    public ServiceInfo generateServiceInfo(Object obj, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, obj, i)) == null) {
+            Class cls = this.sPackageParserClass;
+            Class cls2 = Integer.TYPE;
+            return (ServiceInfo) MethodUtils.getAccessibleMethod(cls, "generateServiceInfo", this.sServiceClass, cls2, this.sPackageUserStateClass, cls2).invoke(null, obj, Integer.valueOf(i), this.mDefaultPackageUserState, Integer.valueOf(this.mUserId));
+        }
+        return (ServiceInfo) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.ar.plugin.PackageParser
     public InstrumentationInfo generateInstrumentationInfo(Object obj, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, obj, i)) == null) ? (InstrumentationInfo) MethodUtils.getAccessibleMethod(this.sPackageParserClass, "generateInstrumentationInfo", this.sInstrumentationClass, Integer.TYPE).invoke(null, obj, Integer.valueOf(i)) : (InstrumentationInfo) invokeLI.objValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, obj, i)) == null) {
+            return (InstrumentationInfo) MethodUtils.getAccessibleMethod(this.sPackageParserClass, "generateInstrumentationInfo", this.sInstrumentationClass, Integer.TYPE).invoke(null, obj, Integer.valueOf(i));
+        }
+        return (InstrumentationInfo) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.ar.plugin.PackageParser
+    public PermissionGroupInfo generatePermissionGroupInfo(Object obj, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, obj, i)) == null) {
+            return (PermissionGroupInfo) MethodUtils.getAccessibleMethod(this.sPackageParserClass, "generatePermissionGroupInfo", this.sPermissionGroupClass, Integer.TYPE).invoke(null, obj, Integer.valueOf(i));
+        }
+        return (PermissionGroupInfo) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.ar.plugin.PackageParser
+    public PermissionInfo generatePermissionInfo(Object obj, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, obj, i)) == null) {
+            return (PermissionInfo) MethodUtils.getAccessibleMethod(this.sPackageParserClass, "generatePermissionInfo", this.sPermissionClass, Integer.TYPE).invoke(null, obj, Integer.valueOf(i));
+        }
+        return (PermissionInfo) invokeLI.objValue;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:9:0x0054 */
     @Override // com.baidu.ar.plugin.PackageParser
-    public PackageInfo generatePackageInfo(int[] iArr, int i, long j, long j2, HashSet<String> hashSet) {
+    public PackageInfo generatePackageInfo(int[] iArr, int i, long j, long j2, HashSet hashSet) {
         InterceptResult invokeCommon;
         Object obj;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{iArr, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), hashSet})) == null) {
             Class<?> cls = Class.forName("java.util.Set");
-            Class<?> cls2 = this.sPackageParserClass;
+            Class cls2 = this.sPackageParserClass;
             Class cls3 = Long.TYPE;
             Method accessibleMethod = MethodUtils.getAccessibleMethod(cls2, "generatePackageInfo", this.mPackage.getClass(), int[].class, Integer.TYPE, cls3, cls3, cls, this.sPackageUserStateClass);
             try {
@@ -189,109 +325,8 @@ public class PackageParserAPI22 extends PackageParser {
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
-    public PermissionGroupInfo generatePermissionGroupInfo(Object obj, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, obj, i)) == null) ? (PermissionGroupInfo) MethodUtils.getAccessibleMethod(this.sPackageParserClass, "generatePermissionGroupInfo", this.sPermissionGroupClass, Integer.TYPE).invoke(null, obj, Integer.valueOf(i)) : (PermissionGroupInfo) invokeLI.objValue;
-    }
-
-    @Override // com.baidu.ar.plugin.PackageParser
-    public PermissionInfo generatePermissionInfo(Object obj, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, obj, i)) == null) ? (PermissionInfo) MethodUtils.getAccessibleMethod(this.sPackageParserClass, "generatePermissionInfo", this.sPermissionClass, Integer.TYPE).invoke(null, obj, Integer.valueOf(i)) : (PermissionInfo) invokeLI.objValue;
-    }
-
-    @Override // com.baidu.ar.plugin.PackageParser
-    public ProviderInfo generateProviderInfo(Object obj, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, obj, i)) == null) {
-            Class<?> cls = this.sPackageParserClass;
-            Class cls2 = Integer.TYPE;
-            return (ProviderInfo) MethodUtils.getAccessibleMethod(cls, "generateProviderInfo", this.sProviderClass, cls2, this.sPackageUserStateClass, cls2).invoke(null, obj, Integer.valueOf(i), this.mDefaultPackageUserState, Integer.valueOf(this.mUserId));
-        }
-        return (ProviderInfo) invokeLI.objValue;
-    }
-
-    @Override // com.baidu.ar.plugin.PackageParser
     public /* bridge */ /* synthetic */ ActivityInfo generateReceiverInfo(Object obj, int i) {
         return super.generateReceiverInfo(obj, i);
-    }
-
-    @Override // com.baidu.ar.plugin.PackageParser
-    public ServiceInfo generateServiceInfo(Object obj, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, obj, i)) == null) {
-            Class<?> cls = this.sPackageParserClass;
-            Class cls2 = Integer.TYPE;
-            return (ServiceInfo) MethodUtils.getAccessibleMethod(cls, "generateServiceInfo", this.sServiceClass, cls2, this.sPackageUserStateClass, cls2).invoke(null, obj, Integer.valueOf(i), this.mDefaultPackageUserState, Integer.valueOf(this.mUserId));
-        }
-        return (ServiceInfo) invokeLI.objValue;
-    }
-
-    @Override // com.baidu.ar.plugin.PackageParser
-    public List getActivities() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? (List) FieldUtils.readField(this.mPackage, "activities") : (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.ar.plugin.PackageParser
-    public List getInstrumentations() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? (List) FieldUtils.readField(this.mPackage, "instrumentation") : (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.ar.plugin.PackageParser
-    public String getPackageName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? (String) FieldUtils.readField(this.mPackage, "packageName") : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.ar.plugin.PackageParser
-    public List getPermissionGroups() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? (List) FieldUtils.readField(this.mPackage, "permissionGroups") : (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.ar.plugin.PackageParser
-    public List getPermissions() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? (List) FieldUtils.readField(this.mPackage, "permissions") : (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.ar.plugin.PackageParser
-    public List getProviders() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? (List) FieldUtils.readField(this.mPackage, "providers") : (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.ar.plugin.PackageParser
-    public List getReceivers() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? (List) FieldUtils.readField(this.mPackage, "receivers") : (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.ar.plugin.PackageParser
-    public List getRequestedPermissions() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? (List) FieldUtils.readField(this.mPackage, "requestedPermissions") : (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.ar.plugin.PackageParser
-    public List getServices() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? (List) FieldUtils.readField(this.mPackage, "services") : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
@@ -305,17 +340,23 @@ public class PackageParserAPI22 extends PackageParser {
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
-    public List<IntentFilter> readIntentFilterFromComponent(Object obj) {
+    public List readIntentFilterFromComponent(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, obj)) == null) ? (List) FieldUtils.readField(obj, "intents") : (List) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, obj)) == null) {
+            return (List) FieldUtils.readField(obj, "intents");
+        }
+        return (List) invokeL.objValue;
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
     public String readNameFromComponent(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, obj)) == null) ? (String) FieldUtils.readField(obj, PushClientConstants.TAG_CLASS_NAME) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, obj)) == null) {
+            return (String) FieldUtils.readField(obj, PushClientConstants.TAG_CLASS_NAME);
+        }
+        return (String) invokeL.objValue;
     }
 
     @Override // com.baidu.ar.plugin.PackageParser

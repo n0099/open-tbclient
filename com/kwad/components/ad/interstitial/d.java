@@ -5,7 +5,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +26,6 @@ public final class d extends AlertDialog {
     public transient /* synthetic */ FieldHolder $fh;
     public g fB;
     public com.kwad.components.ad.interstitial.widget.b fC;
-    @NonNull
     public KsAdVideoPlayConfig fD;
     public h fE;
     public KsInterstitialAd.AdInteractionListener fo;
@@ -35,7 +33,7 @@ public final class d extends AlertDialog {
     public AdTemplate mAdTemplate;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d(@NonNull Activity activity, @NonNull AdTemplate adTemplate, KsVideoPlayConfig ksVideoPlayConfig, KsInterstitialAd.AdInteractionListener adInteractionListener) {
+    public d(Activity activity, AdTemplate adTemplate, KsVideoPlayConfig ksVideoPlayConfig, KsInterstitialAd.AdInteractionListener adInteractionListener) {
         super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

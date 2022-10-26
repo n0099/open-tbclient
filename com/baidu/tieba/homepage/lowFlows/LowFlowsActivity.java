@@ -6,19 +6,26 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.atomData.LowFlowsActivityConfig;
-import com.baidu.tieba.g07;
-import com.baidu.tieba.t07;
-import com.baidu.tieba.w07;
+import com.baidu.tieba.b17;
+import com.baidu.tieba.e17;
+import com.baidu.tieba.o07;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class LowFlowsActivity extends BaseActivity<LowFlowsActivity> {
+public class LowFlowsActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g07 a;
+    public o07 a;
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.zc5
+    public String getCurrentPageKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "a086" : (String) invokeV.objValue;
+    }
 
     public LowFlowsActivity() {
         Interceptable interceptable = $ic;
@@ -34,11 +41,13 @@ public class LowFlowsActivity extends BaseActivity<LowFlowsActivity> {
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.uc5
-    public String getCurrentPageKey() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onNetRefreshButtonClicked() {
+        o07 o07Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "a086" : (String) invokeV.objValue;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (o07Var = this.a) != null) {
+            o07Var.a();
+        }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -46,9 +55,9 @@ public class LowFlowsActivity extends BaseActivity<LowFlowsActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            g07 g07Var = this.a;
-            if (g07Var != null) {
-                g07Var.onChangeSkinType(i);
+            o07 o07Var = this.a;
+            if (o07Var != null) {
+                o07Var.onChangeSkinType(i);
             }
         }
     }
@@ -58,33 +67,30 @@ public class LowFlowsActivity extends BaseActivity<LowFlowsActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            w07 w07Var = new w07(getPageContext());
-            this.a = w07Var;
-            w07Var.a();
+            e17 e17Var = new e17(getPageContext());
+            this.a = e17Var;
+            e17Var.a();
         }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onNetRefreshButtonClicked() {
-        g07 g07Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (g07Var = this.a) == null) {
-            return;
-        }
-        g07Var.a();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
+        String lFUserTaskId;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onResume();
-            g07 g07Var = this.a;
-            if (g07Var != null) {
-                g07Var.a();
+            o07 o07Var = this.a;
+            if (o07Var != null) {
+                o07Var.a();
             }
             if (getIntent() != null) {
-                t07.a("c14083", StringUtils.isNull(getIntent().getStringExtra(LowFlowsActivityConfig.LF_USER_TASKID)) ? "0" : TbSingleton.getInstance().getLFUserTaskId(), getIntent().getStringExtra("tab_code"));
+                String stringExtra = getIntent().getStringExtra("tab_code");
+                if (StringUtils.isNull(getIntent().getStringExtra(LowFlowsActivityConfig.LF_USER_TASKID))) {
+                    lFUserTaskId = "0";
+                } else {
+                    lFUserTaskId = TbSingleton.getInstance().getLFUserTaskId();
+                }
+                b17.a("c14083", lFUserTaskId, stringExtra);
             }
         }
     }

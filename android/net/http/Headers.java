@@ -140,13 +140,6 @@ public final class Headers {
         return (String) invokeV.objValue;
     }
 
-    public void getHeaders(HeaderCallback headerCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, headerCallback) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
     public String getLastModified() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -192,7 +185,7 @@ public final class Headers {
         return (String) invokeV.objValue;
     }
 
-    public ArrayList<String> getSetCookie() {
+    public ArrayList getSetCookie() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
@@ -226,6 +219,13 @@ public final class Headers {
             throw new RuntimeException("Stub!");
         }
         return (String) invokeV.objValue;
+    }
+
+    public void getHeaders(HeaderCallback headerCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, headerCallback) == null) {
+            throw new RuntimeException("Stub!");
+        }
     }
 
     public void parseHeader(CharArrayBuffer charArrayBuffer) {

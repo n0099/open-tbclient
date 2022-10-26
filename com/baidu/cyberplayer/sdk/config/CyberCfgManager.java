@@ -11,7 +11,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.CyberTaskExcutor;
-import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.SDKVersion;
 import com.baidu.cyberplayer.sdk.c;
 import com.baidu.cyberplayer.sdk.d;
@@ -42,71 +41,46 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class CyberCfgManager {
     public static /* synthetic */ Interceptable $ic = null;
-    @Keep
     public static final String KEY_ACCURATE_SEEK_ENABLE = "accurate_seek_enable";
-    @Keep
     public static final String KEY_INT_DECODE_MODE = "decode_mode";
-    @Keep
     public static final String KEY_INT_ENABLE_BSO = "enable_bso";
-    @Keep
     public static final String KEY_INT_ENABLE_CRASHPAD = "enable_crashpad";
-    @Keep
     public static final String KEY_INT_ENABLE_DLNA = "enable_dlna";
-    @Keep
     public static final String KEY_INT_ENABLE_DMO = "enable_dmo";
-    @Keep
     public static final String KEY_INT_ENABLE_DMR = "enable_decode_mode_random";
-    @Keep
     public static final String KEY_INT_ENABLE_FILE_CACHE = "enable_file_cache";
-    @Keep
     public static final String KEY_INT_ENABLE_HW_DECODE = "enable_hw_decode";
-    @Keep
     public static final String KEY_INT_ENABLE_MEDIACODEC_REUSE = "enable_mediacodec_reuse";
-    @Keep
     public static final String KEY_INT_ENABLE_MONITOR = "enable_monitor";
-    @Keep
     public static final String KEY_INT_ENABLE_MULTI_INSTANCE = "enable_multi_instance";
-    @Keep
     public static final String KEY_INT_ENABLE_PLAYER_SERVER = "enable_player_policy";
-    @Keep
     public static final String KEY_INT_ENABLE_PLAY_SCORE_MONITOR = "enable_play_score_monitor";
-    @Keep
     public static final String KEY_INT_ENABLE_PREFETCH = "enable_prefetch";
-    @Keep
     public static final String KEY_INT_ENABLE_RTC = "enable_rtc";
-    @Keep
     public static final String KEY_INT_ENABLE_SR = "enable_sr";
-    @Keep
     public static final String KEY_INT_FILE_CACHE_MIN_FREE_SIZE = "file_cache_min_free_size";
-    @Keep
     public static final String KEY_INT_MEDIA_INSTANCE_CAP = "instance_capacity";
-    @Keep
     public static final String KEY_INT_PCDN_FORBIDDEN = "pcdn_forbidden";
-    @Keep
     public static final String KEY_INT_REMOTE_RESUME_FORBIDDEN = "remote_resume_forbidden";
-    @Keep
     public static final String LAST_CHECK_UNUSED_LIBS_TIME = "last_check_unused_libs_time";
-    @Keep
     public static final String SP_KEY_UPDATE_TYPE = "update_type";
-    @Keep
     public static final String SP_KEY_UPDATE_VERSION = "update_version";
-    @Keep
     public static final String SR_REMAINING_INFO = "sr_remaining_info";
-    public static ArrayList<String> a;
+    public static ArrayList a;
     public static Context b;
     public static CyberCfgManager g;
     public static volatile boolean h;
     public static volatile boolean i;
     public static int j;
-    public static ArrayList<String> m;
-    public static ArrayList<String> n;
-    public static ArrayList<String> o;
-    public static ArrayList<String> p;
-    public static ArrayList<String> q;
-    public static ArrayList<String> r;
+    public static ArrayList m;
+    public static ArrayList n;
+    public static ArrayList o;
+    public static ArrayList p;
+    public static ArrayList q;
+    public static ArrayList r;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, String> c;
-    public Map<String, String> d;
+    public Map c;
+    public Map d;
     public String e;
     public String f;
     public String k;
@@ -129,13 +103,13 @@ public class CyberCfgManager {
         h = false;
         i = false;
         j = 86400000;
-        a = new ArrayList<>();
-        m = new ArrayList<>();
-        n = new ArrayList<>();
-        o = new ArrayList<>();
-        p = new ArrayList<>();
-        q = new ArrayList<>();
-        r = new ArrayList<>();
+        a = new ArrayList();
+        m = new ArrayList();
+        n = new ArrayList();
+        o = new ArrayList();
+        p = new ArrayList();
+        q = new ArrayList();
+        r = new ArrayList();
         a.add("hwH60");
         a.add("hwp7");
         a.add("sp8830ec");
@@ -215,12 +189,12 @@ public class CyberCfgManager {
         this.f = null;
     }
 
-    public static int a(Map<String, String> map, String str, int i2) {
+    public static int a(Map map, String str, int i2) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, map, str, i2)) == null) {
             if (map != null) {
-                String str2 = map.get(str);
+                String str2 = (String) map.get(str);
                 if (!TextUtils.isEmpty(str2)) {
                     try {
                         return Integer.parseInt(str2);
@@ -233,13 +207,13 @@ public class CyberCfgManager {
         return invokeLLI.intValue;
     }
 
-    public static long a(Map<String, String> map, String str, long j2) {
+    public static long a(Map map, String str, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{map, str, Long.valueOf(j2)})) == null) {
             if (map != null) {
                 try {
-                    return Long.parseLong(map.get(str));
+                    return Long.parseLong((String) map.get(str));
                 } catch (Exception unused) {
                 }
             }
@@ -248,12 +222,12 @@ public class CyberCfgManager {
         return invokeCommon.longValue;
     }
 
-    public static String a(Map<String, String> map, String str, String str2) {
+    public static String a(Map map, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, map, str, str2)) == null) {
             if (map != null) {
-                String str3 = map.get(str);
+                String str3 = (String) map.get(str);
                 if (!TextUtils.isEmpty(str3)) {
                     return str3;
                 }
@@ -263,7 +237,7 @@ public class CyberCfgManager {
         return (String) invokeLLL.objValue;
     }
 
-    private boolean a(Map<String, String> map) {
+    private boolean a(Map map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, map)) == null) {
@@ -273,7 +247,7 @@ public class CyberCfgManager {
         return invokeL.booleanValue;
     }
 
-    public static boolean a(Map<String, String> map, String str, boolean z) {
+    public static boolean a(Map map, String str, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65543, null, map, str, z)) == null) ? a(map, str, z ? 1 : 0) == 1 : invokeLLZ.booleanValue;
@@ -303,7 +277,7 @@ public class CyberCfgManager {
         }
     }
 
-    private void b(Map<String, String> map) {
+    private void b(Map map) {
         int a2;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65547, this, map) == null) || (a2 = a(map, "log_level", -1)) == -1) {
@@ -332,7 +306,7 @@ public class CyberCfgManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
             this.k = o.b() + File.separator + "config";
-            Map<String, String> a2 = b.a(this.k + File.separator + "cybermedia.pro");
+            Map a2 = b.a(this.k + File.separator + "cybermedia.pro");
             if (a2 != null) {
                 this.d.putAll(a2);
             }
@@ -350,7 +324,6 @@ public class CyberCfgManager {
         }
     }
 
-    @Keep
     public static int compareVersion(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -403,12 +376,12 @@ public class CyberCfgManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, this) == null) {
             try {
-                for (Map.Entry<String, String> entry : CyberPlayerManager.getInstallOpts().entrySet()) {
-                    String key = entry.getKey();
-                    String value = entry.getValue();
-                    if (key.startsWith(CyberPlayerManager.INSTALL_OPT_ABTEST_SWITCH_START_CODE)) {
-                        CyberLog.d("CyberCfgManager", "ABTest key:" + key + " value:" + value);
-                        Map<String, String> c = o.c(value);
+                for (Map.Entry entry : CyberPlayerManager.getInstallOpts().entrySet()) {
+                    String str = (String) entry.getKey();
+                    String str2 = (String) entry.getValue();
+                    if (str.startsWith(CyberPlayerManager.INSTALL_OPT_ABTEST_SWITCH_START_CODE)) {
+                        CyberLog.d("CyberCfgManager", "ABTest key:" + str + " value:" + str2);
+                        Map c = o.c(str2);
                         if (c != null) {
                             this.d.putAll(c);
                         }
@@ -429,7 +402,7 @@ public class CyberCfgManager {
                 if (TextUtils.isEmpty(this.l)) {
                     return;
                 }
-                Map<String, String> a2 = b.a(this.l + File.separator + "cybermedia.pro");
+                Map a2 = b.a(this.l + File.separator + "cybermedia.pro");
                 if (a2 != null) {
                     b(a2);
                     if (a(a2)) {
@@ -468,7 +441,6 @@ public class CyberCfgManager {
         }
     }
 
-    @Keep
     public static CyberCfgManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -530,12 +502,12 @@ public class CyberCfgManager {
                             String a3 = o.a(a2);
                             String a4 = o.a(a2, new String(Base64.decode(WebSettingsGlobalBlink.DEFAULT_SECRECT_KEY.getBytes(), 0)));
                             if (a4 != null) {
-                                Map<String, String> c = o.c(a4);
+                                Map c = o.c(a4);
                                 if (c != null) {
                                     FileWriter fileWriter = new FileWriter(file2.getAbsolutePath());
-                                    for (Map.Entry<String, String> entry : c.entrySet()) {
-                                        properties.setProperty(entry.getKey(), entry.getValue());
-                                        CyberLog.d("CyberCfgManager", "update cloud cfg key:" + entry.getKey() + " value:" + entry.getValue());
+                                    for (Map.Entry entry : c.entrySet()) {
+                                        properties.setProperty((String) entry.getKey(), (String) entry.getValue());
+                                        CyberLog.d("CyberCfgManager", "update cloud cfg key:" + ((String) entry.getKey()) + " value:" + ((String) entry.getValue()));
                                     }
                                     properties.store(fileWriter, "update");
                                     fileWriter.close();
@@ -559,7 +531,7 @@ public class CyberCfgManager {
     }
 
     private void i() {
-        Map<String, String> map;
+        Map map;
         String num;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65558, this) == null) && a(this.d, "enable_upload_session_log", -1) == -1) {
@@ -614,10 +586,9 @@ public class CyberCfgManager {
         }
     }
 
-    @Keep
     public static String keepMainProcessVersion(String str, String str2) {
         InterceptResult invokeLL;
-        Map<String, String> installOpts;
+        Map installOpts;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65561, null, str, str2)) == null) {
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
@@ -626,7 +597,7 @@ public class CyberCfgManager {
             if (o.m() || (installOpts = CyberPlayerManager.getInstallOpts()) == null) {
                 return str2;
             }
-            String str3 = installOpts.get(str);
+            String str3 = (String) installOpts.get(str);
             return (TextUtils.isEmpty(str3) || str3.equals("0.0.0.0") || str3.equals(str2)) ? str2 : str3;
         }
         return (String) invokeLL.objValue;
@@ -836,7 +807,6 @@ public class CyberCfgManager {
         return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) ? a(this.c, str, z ? 1 : 0) == 1 : invokeLZ.booleanValue;
     }
 
-    @Keep
     public synchronized boolean getCfgBoolValue(String str, boolean z) {
         InterceptResult invokeLZ;
         boolean z2;
@@ -850,7 +820,6 @@ public class CyberCfgManager {
         return invokeLZ.booleanValue;
     }
 
-    @Keep
     public synchronized int getCfgIntValue(String str, int i2) {
         InterceptResult invokeLI;
         int a2;
@@ -864,7 +833,6 @@ public class CyberCfgManager {
         return invokeLI.intValue;
     }
 
-    @Keep
     public synchronized long getCfgLongValue(String str, long j2) {
         InterceptResult invokeLJ;
         long a2;
@@ -878,8 +846,7 @@ public class CyberCfgManager {
         return invokeLJ.longValue;
     }
 
-    @Keep
-    public synchronized Map<String, String> getCfgMap() {
+    public synchronized Map getCfgMap() {
         InterceptResult invokeV;
         HashMap hashMap;
         Interceptable interceptable = $ic;
@@ -903,7 +870,6 @@ public class CyberCfgManager {
         return (Map) invokeV.objValue;
     }
 
-    @Keep
     public synchronized String getCfgValue(String str, String str2) {
         InterceptResult invokeLL;
         String a2;
@@ -917,7 +883,6 @@ public class CyberCfgManager {
         return (String) invokeLL.objValue;
     }
 
-    @Keep
     public synchronized int getPrefInt(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -932,7 +897,6 @@ public class CyberCfgManager {
         return invokeLI.intValue;
     }
 
-    @Keep
     public synchronized long getPrefLong(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
@@ -947,7 +911,6 @@ public class CyberCfgManager {
         return invokeLJ.longValue;
     }
 
-    @Keep
     public synchronized String getPrefStr(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -962,7 +925,6 @@ public class CyberCfgManager {
         return (String) invokeLL.objValue;
     }
 
-    @Keep
     public synchronized void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
@@ -977,7 +939,6 @@ public class CyberCfgManager {
         }
     }
 
-    @Keep
     public boolean isAllowUpdate(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -1011,7 +972,6 @@ public class CyberCfgManager {
         return invokeLLL.booleanValue;
     }
 
-    @Keep
     public synchronized boolean isBlackUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -1038,7 +998,6 @@ public class CyberCfgManager {
         return invokeL.booleanValue;
     }
 
-    @Keep
     public synchronized void removePref(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
@@ -1052,7 +1011,6 @@ public class CyberCfgManager {
         }
     }
 
-    @Keep
     public synchronized void setPrefInt(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048592, this, str, i2) == null) {
@@ -1066,7 +1024,6 @@ public class CyberCfgManager {
         }
     }
 
-    @Keep
     public synchronized void setPrefLong(String str, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048593, this, str, j2) == null) {
@@ -1080,7 +1037,6 @@ public class CyberCfgManager {
         }
     }
 
-    @Keep
     public synchronized void setPrefStr(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048594, this, str, str2) == null) {

@@ -11,6 +11,12 @@ public class BinaryHttpHandlerWrap extends HttpHandlerWrap {
     public transient /* synthetic */ FieldHolder $fh;
     public String[] allowedContentTypes;
 
+    public void onSuccess(int i, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, bArr) == null) {
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BinaryHttpHandlerWrap(Looper looper) {
         super(looper);
@@ -28,12 +34,6 @@ public class BinaryHttpHandlerWrap extends HttpHandlerWrap {
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-    }
-
-    public void onSuccess(int i, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, bArr) == null) {
         }
     }
 

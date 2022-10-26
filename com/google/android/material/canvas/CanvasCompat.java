@@ -3,15 +3,11 @@ package com.google.android.material.canvas;
 import android.graphics.Canvas;
 import android.graphics.RectF;
 import android.os.Build;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class CanvasCompat {
     public static /* synthetic */ Interceptable $ic;
@@ -31,19 +27,7 @@ public class CanvasCompat {
         }
     }
 
-    public static int saveLayerAlpha(@NonNull Canvas canvas, @Nullable RectF rectF, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, canvas, rectF, i)) == null) {
-            if (Build.VERSION.SDK_INT > 21) {
-                return canvas.saveLayerAlpha(rectF, i);
-            }
-            return canvas.saveLayerAlpha(rectF, i, 31);
-        }
-        return invokeLLI.intValue;
-    }
-
-    public static int saveLayerAlpha(@NonNull Canvas canvas, float f, float f2, float f3, float f4, int i) {
+    public static int saveLayerAlpha(Canvas canvas, float f, float f2, float f3, float f4, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{canvas, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Integer.valueOf(i)})) == null) {
@@ -53,5 +37,17 @@ public class CanvasCompat {
             return canvas.saveLayerAlpha(f, f2, f3, f4, i, 31);
         }
         return invokeCommon.intValue;
+    }
+
+    public static int saveLayerAlpha(Canvas canvas, RectF rectF, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, canvas, rectF, i)) == null) {
+            if (Build.VERSION.SDK_INT > 21) {
+                return canvas.saveLayerAlpha(rectF, i);
+            }
+            return canvas.saveLayerAlpha(rectF, i, 31);
+        }
+        return invokeLLI.intValue;
     }
 }

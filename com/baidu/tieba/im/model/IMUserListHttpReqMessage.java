@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes4.dex */
@@ -18,7 +19,7 @@ public class IMUserListHttpReqMessage extends HttpMessage {
     public boolean hasCheckParam;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public IMUserListHttpReqMessage(List<String> list) {
+    public IMUserListHttpReqMessage(List list) {
         super(CmdConfigHttp.CMD_GET_USER_LIST);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -37,8 +38,9 @@ public class IMUserListHttpReqMessage extends HttpMessage {
         }
         JSONArray jSONArray = new JSONArray();
         if (!ListUtils.isEmpty(list)) {
-            for (String str : list) {
-                jSONArray.put(str);
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                jSONArray.put((String) it.next());
             }
         }
         addParam("user_list", jSONArray.toString());
@@ -47,7 +49,10 @@ public class IMUserListHttpReqMessage extends HttpMessage {
     public boolean hasCheckParam() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.hasCheckParam : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.hasCheckParam;
+        }
+        return invokeV.booleanValue;
     }
 
     public void needCheckBlock() {

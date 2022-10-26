@@ -8,7 +8,6 @@ import android.os.SystemClock;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberLog;
-import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,7 +19,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicInteger;
-@Keep
 /* loaded from: classes2.dex */
 public class DuplayerHandlerThreadPool {
     public static /* synthetic */ Interceptable $ic = null;
@@ -30,19 +28,19 @@ public class DuplayerHandlerThreadPool {
     public static final Object b;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
-    public ArrayList<DuplayerHandlerThread> c;
-    public ArrayList<DuplayerHandlerThread> d;
+    public ArrayList c;
+    public ArrayList d;
     public c e;
 
     /* renamed from: com.baidu.cyberplayer.sdk.utils.DuplayerHandlerThreadPool$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final AtomicInteger a;
@@ -83,7 +81,7 @@ public class DuplayerHandlerThreadPool {
     }
 
     /* loaded from: classes2.dex */
-    public static class b {
+    public class b {
         public static /* synthetic */ Interceptable $ic;
         public static DuplayerHandlerThreadPool a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -106,7 +104,7 @@ public class DuplayerHandlerThreadPool {
     }
 
     /* loaded from: classes2.dex */
-    public static class c extends Handler {
+    public class c extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -178,8 +176,8 @@ public class DuplayerHandlerThreadPool {
                 return;
             }
         }
-        this.c = new ArrayList<>();
-        this.d = new ArrayList<>();
+        this.c = new ArrayList();
+        this.d = new ArrayList();
         this.a = new a("duplayer-t");
         this.e = new c(Looper.getMainLooper(), null);
     }
@@ -228,15 +226,15 @@ public class DuplayerHandlerThreadPool {
                 CyberLog.d(TAG, "checkIdlePoolShortTimeNoUse size:" + size);
                 if (size > 3) {
                     int i = size - 3;
-                    Iterator<DuplayerHandlerThread> it = this.c.iterator();
+                    Iterator it = this.c.iterator();
                     while (it.hasNext() && i > 0) {
-                        DuplayerHandlerThread next = it.next();
-                        if (next != null) {
-                            long idleBeginTime = next.getIdleBeginTime();
+                        DuplayerHandlerThread duplayerHandlerThread = (DuplayerHandlerThread) it.next();
+                        if (duplayerHandlerThread != null) {
+                            long idleBeginTime = duplayerHandlerThread.getIdleBeginTime();
                             if (idleBeginTime > 0 && SystemClock.uptimeMillis() - idleBeginTime >= AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
-                                CyberLog.d(TAG, "checkIdlePoolShortTimeNoUse short time no use next:" + next);
+                                CyberLog.d(TAG, "checkIdlePoolShortTimeNoUse short time no use next:" + duplayerHandlerThread);
                                 it.remove();
-                                a(next);
+                                a(duplayerHandlerThread);
                                 i += -1;
                             }
                         }
@@ -262,16 +260,16 @@ public class DuplayerHandlerThreadPool {
                     return;
                 }
                 CyberLog.d(TAG, "checkIdlePoolLongTimeNoUse called size:" + this.c.size());
-                Iterator<DuplayerHandlerThread> it = this.c.iterator();
+                Iterator it = this.c.iterator();
                 while (it.hasNext()) {
-                    DuplayerHandlerThread next = it.next();
-                    if (next != null) {
-                        long idleBeginTime = next.getIdleBeginTime();
+                    DuplayerHandlerThread duplayerHandlerThread = (DuplayerHandlerThread) it.next();
+                    if (duplayerHandlerThread != null) {
+                        long idleBeginTime = duplayerHandlerThread.getIdleBeginTime();
                         CyberLog.d(TAG, "checkIdlePoolLongTimeNoUse long time no use delta:" + (SystemClock.uptimeMillis() - idleBeginTime));
                         if (idleBeginTime > 0 && SystemClock.uptimeMillis() - idleBeginTime >= 900000) {
                             CyberLog.d(TAG, "checkIdlePoolLongTimeNoUse long time no use");
                             it.remove();
-                            a(next);
+                            a(duplayerHandlerThread);
                         }
                     }
                 }
@@ -294,7 +292,7 @@ public class DuplayerHandlerThreadPool {
             synchronized (b) {
                 if (this.c.size() != 0) {
                     int size = this.c.size() - 1;
-                    DuplayerHandlerThread duplayerHandlerThread2 = this.c.get(size);
+                    DuplayerHandlerThread duplayerHandlerThread2 = (DuplayerHandlerThread) this.c.get(size);
                     this.c.remove(size);
                     if (duplayerHandlerThread2 != null) {
                         duplayerHandlerThread = duplayerHandlerThread2;

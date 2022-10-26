@@ -41,6 +41,12 @@ public final class EmojionUtils {
     public static String removeEmoji(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? TextUtils.isEmpty(str) ? "" : str.trim().replaceAll("([\ue000-\ue5ff])", "") : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            return str.trim().replaceAll("([\ue000-\ue5ff])", "");
+        }
+        return (String) invokeL.objValue;
     }
 }

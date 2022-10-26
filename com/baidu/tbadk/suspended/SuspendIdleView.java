@@ -2,9 +2,8 @@ package com.baidu.tbadk.suspended;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,35 +34,8 @@ public class SuspendIdleView extends SusPendedView {
         }
     }
 
-    @Override // com.baidu.tbadk.suspended.SusPendedView
-    public void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && getIsFinish() && getTranView() != null) {
-            getTranView().setOnClickListener(null);
-        }
-    }
-
-    @Override // com.baidu.tbadk.suspended.SusPendedView
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setIsFinish(false);
-            setRatio(0.0f);
-            if (getTranAnim() != null) {
-                getTranAnim().setIntValues(ej.i(getContext()), 0);
-            }
-            super.i();
-        }
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? getRatio() > 0.0f : invokeV.booleanValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SuspendIdleView(Context context, @Nullable AttributeSet attributeSet) {
+    public SuspendIdleView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -84,7 +56,7 @@ public class SuspendIdleView extends SusPendedView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SuspendIdleView(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public SuspendIdleView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -101,6 +73,39 @@ public class SuspendIdleView extends SusPendedView {
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
+        }
+    }
+
+    @Override // com.baidu.tbadk.suspended.SusPendedView
+    public void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && getIsFinish() && getTranView() != null) {
+            getTranView().setOnClickListener(null);
+        }
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (getRatio() > 0.0f) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.suspended.SusPendedView
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            setIsFinish(false);
+            setRatio(0.0f);
+            if (getTranAnim() != null) {
+                getTranAnim().setIntValues(fj.i(getContext()), 0);
+            }
+            super.i();
         }
     }
 }

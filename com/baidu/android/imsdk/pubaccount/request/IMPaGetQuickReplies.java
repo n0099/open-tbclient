@@ -28,6 +28,30 @@ public class IMPaGetQuickReplies extends PaBaseHttpRequest {
     public String mKey;
     public long mPaid;
 
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getMethod() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "POST" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public boolean shouldAbort() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public IMPaGetQuickReplies(Context context, long j, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -48,13 +72,6 @@ public class IMPaGetQuickReplies extends PaBaseHttpRequest {
         this.mKey = str;
     }
 
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
-    }
-
     @Override // com.baidu.android.imsdk.pubaccount.request.PaBaseHttpRequest, com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public String getHost() {
         InterceptResult invokeV;
@@ -66,13 +83,6 @@ public class IMPaGetQuickReplies extends PaBaseHttpRequest {
             return getHostUrl() + "rest/2.0/im/custom_menu?method=read";
         }
         return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getMethod() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "POST" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -127,68 +137,58 @@ public class IMPaGetQuickReplies extends PaBaseHttpRequest {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void onSuccess(int i, byte[] bArr) {
-        String str;
         JSONObject jSONObject;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeIL(1048581, this, i, bArr) != null) {
-            return;
-        }
-        str = "";
-        String str2 = new String(bArr);
-        int i3 = 1010;
-        try {
-            jSONObject = new JSONObject(str2);
-            i2 = jSONObject.getInt("error_code");
-            jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
-        } catch (JSONException e) {
-            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-        }
-        if (i2 == 0) {
-            str = jSONObject.has("response_params") ? jSONObject.getString("response_params") : "";
-            String str3 = str;
-            IGetQuickReplyListener iGetQuickReplyListener = (IGetQuickReplyListener) ListenerManager.getInstance().removeListener(this.mKey);
-            if (i3 == 0) {
-                if (iGetQuickReplyListener != null) {
-                    iGetQuickReplyListener.onGetQuickReply(null, false);
-                    return;
-                }
-                return;
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, bArr) == null) {
+            String str = "";
+            String str2 = new String(bArr);
+            int i3 = 1010;
+            try {
+                jSONObject = new JSONObject(str2);
+                i2 = jSONObject.getInt("error_code");
+                jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
+            } catch (JSONException e) {
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
-            QuickReply createQuickReply = QuickReply.createQuickReply(str3);
-            if (createQuickReply == null) {
-                if (iGetQuickReplyListener != null) {
-                    iGetQuickReplyListener.onGetQuickReply(null, false);
-                    return;
+            if (i2 == 0) {
+                if (jSONObject.has("response_params")) {
+                    str = jSONObject.getString("response_params");
                 }
-                return;
-            }
-            PaManagerImpl.getInstance(this.mContext).setPaQuickRelies(this.mPaid, str3, System.currentTimeMillis());
-            if (iGetQuickReplyListener != null) {
-                if (createQuickReply.getStatus() == 0) {
-                    iGetQuickReplyListener.onGetQuickReply(createQuickReply, false);
+                String str3 = str;
+                IGetQuickReplyListener iGetQuickReplyListener = (IGetQuickReplyListener) ListenerManager.getInstance().removeListener(this.mKey);
+                if (i3 != 0) {
+                    QuickReply createQuickReply = QuickReply.createQuickReply(str3);
+                    if (createQuickReply != null) {
+                        PaManagerImpl.getInstance(this.mContext).setPaQuickRelies(this.mPaid, str3, System.currentTimeMillis());
+                        if (iGetQuickReplyListener != null) {
+                            if (createQuickReply.getStatus() == 0) {
+                                iGetQuickReplyListener.onGetQuickReply(createQuickReply, false);
+                                return;
+                            } else {
+                                iGetQuickReplyListener.onGetQuickReply(null, false);
+                                return;
+                            }
+                        }
+                        return;
+                    } else if (iGetQuickReplyListener != null) {
+                        iGetQuickReplyListener.onGetQuickReply(null, false);
+                        return;
+                    } else {
+                        return;
+                    }
+                } else if (iGetQuickReplyListener != null) {
+                    iGetQuickReplyListener.onGetQuickReply(null, false);
                     return;
                 } else {
-                    iGetQuickReplyListener.onGetQuickReply(null, false);
                     return;
                 }
             }
-            return;
+            i3 = i2;
+            String str32 = str;
+            IGetQuickReplyListener iGetQuickReplyListener2 = (IGetQuickReplyListener) ListenerManager.getInstance().removeListener(this.mKey);
+            if (i3 != 0) {
+            }
         }
-        i3 = i2;
-        String str32 = str;
-        IGetQuickReplyListener iGetQuickReplyListener2 = (IGetQuickReplyListener) ListenerManager.getInstance().removeListener(this.mKey);
-        if (i3 == 0) {
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public boolean shouldAbort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

@@ -73,12 +73,18 @@ public final class PMSDownloadType {
     public static PMSDownloadType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (PMSDownloadType) Enum.valueOf(PMSDownloadType.class, str) : (PMSDownloadType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (PMSDownloadType) Enum.valueOf(PMSDownloadType.class, str);
+        }
+        return (PMSDownloadType) invokeL.objValue;
     }
 
     public static PMSDownloadType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PMSDownloadType[]) $VALUES.clone() : (PMSDownloadType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (PMSDownloadType[]) $VALUES.clone();
+        }
+        return (PMSDownloadType[]) invokeV.objValue;
     }
 }

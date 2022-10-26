@@ -18,7 +18,6 @@ import com.facebook.cache.common.WriterCallback;
 import com.facebook.cache.disk.DiskStorage;
 import com.facebook.common.disk.DiskTrimmable;
 import com.facebook.common.disk.DiskTrimmableRegistry;
-import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.logging.FLog;
 import com.facebook.common.statfs.StatFsHelper;
 import com.facebook.common.time.Clock;
@@ -28,22 +27,20 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executor;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
-import javax.annotation.concurrent.GuardedBy;
-import javax.annotation.concurrent.ThreadSafe;
-@ThreadSafe
 /* loaded from: classes7.dex */
 public class DiskStorageCache implements FileCache, DiskTrimmable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long FILECACHE_SIZE_UPDATE_PERIOD_MS;
     public static final long FUTURE_TIMESTAMP_THRESHOLD_MS;
     public static final int START_OF_VERSIONING = 1;
-    public static final Class<?> TAG;
+    public static final Class TAG;
     public static final double TRIMMING_LOWER_BOUND = 0.02d;
     public static final long UNINITIALIZED = -1;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,15 +58,12 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
     public boolean mIndexReady;
     public final Object mLock;
     public final long mLowDiskSpaceCacheSizeLimit;
-    @VisibleForTesting
-    @GuardedBy("mLock")
-    public final Set<String> mResourceIndex;
+    public final Set mResourceIndex;
     public final StatFsHelper mStatFsHelper;
     public final DiskStorage mStorage;
 
-    @VisibleForTesting
     /* loaded from: classes7.dex */
-    public static class CacheStats {
+    public class CacheStats {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long mCount;
@@ -120,18 +114,6 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
             return invokeV.longValue;
         }
 
-        public synchronized void increment(long j, long j2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-                synchronized (this) {
-                    if (this.mInitialized) {
-                        this.mSize += j;
-                        this.mCount += j2;
-                    }
-                }
-            }
-        }
-
         public synchronized boolean isInitialized() {
             InterceptResult invokeV;
             boolean z;
@@ -156,6 +138,18 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
             }
         }
 
+        public synchronized void increment(long j, long j2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+                synchronized (this) {
+                    if (this.mInitialized) {
+                        this.mSize += j;
+                        this.mCount += j2;
+                    }
+                }
+            }
+        }
+
         public synchronized void set(long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
@@ -169,7 +163,7 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
     }
 
     /* loaded from: classes7.dex */
-    public static class Params {
+    public class Params {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long mCacheSizeLimitMinimum;
@@ -213,6 +207,40 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
         TAG = DiskStorageCache.class;
         FUTURE_TIMESTAMP_THRESHOLD_MS = TimeUnit.HOURS.toMillis(2L);
         FILECACHE_SIZE_UPDATE_PERIOD_MS = TimeUnit.MINUTES.toMillis(30L);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean maybeUpdateFileCacheSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
+            long now = this.mClock.now();
+            if (this.mCacheStats.isInitialized()) {
+                long j = this.mCacheSizeLastUpdateTime;
+                if (j != -1 && now - j <= FILECACHE_SIZE_UPDATE_PERIOD_MS) {
+                    return false;
+                }
+            }
+            return maybeUpdateFileCacheSizeAndIndex();
+        }
+        return invokeV.booleanValue;
+    }
+
+    private void updateFileCacheSizeLimit() {
+        StatFsHelper.StorageType storageType;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
+            if (this.mStorage.isExternal()) {
+                storageType = StatFsHelper.StorageType.EXTERNAL;
+            } else {
+                storageType = StatFsHelper.StorageType.INTERNAL;
+            }
+            if (this.mStatFsHelper.testLowDiskSpace(storageType, this.mDefaultCacheSizeLimit - this.mCacheStats.getSize())) {
+                this.mCacheSizeLimit = this.mLowDiskSpaceCacheSizeLimit;
+            } else {
+                this.mCacheSizeLimit = this.mDefaultCacheSizeLimit;
+            }
+        }
     }
 
     public DiskStorageCache(DiskStorage diskStorage, EntryEvictionComparatorSupplier entryEvictionComparatorSupplier, Params params, CacheEventListener cacheEventListener, CacheErrorLogger cacheErrorLogger, @Nullable DiskTrimmableRegistry diskTrimmableRegistry, Executor executor, boolean z) {
@@ -277,18 +305,29 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        synchronized (this.this$0.mLock) {
-                            this.this$0.maybeUpdateFileCacheSize();
-                        }
-                        this.this$0.mIndexReady = true;
-                        this.this$0.mCountDownLatch.countDown();
+                    if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                        return;
                     }
+                    synchronized (this.this$0.mLock) {
+                        this.this$0.maybeUpdateFileCacheSize();
+                    }
+                    this.this$0.mIndexReady = true;
+                    this.this$0.mCountDownLatch.countDown();
                 }
             });
             return;
         }
         this.mCountDownLatch = new CountDownLatch(0);
+    }
+
+    private DiskStorage.Inserter startInsert(String str, CacheKey cacheKey) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, this, str, cacheKey)) == null) {
+            maybeEvictFilesInCacheDir();
+            return this.mStorage.insert(str, cacheKey);
+        }
+        return (DiskStorage.Inserter) invokeLL.objValue;
     }
 
     private BinaryResource endInsert(DiskStorage.Inserter inserter, CacheKey cacheKey, String str) throws IOException {
@@ -306,7 +345,6 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
         return (BinaryResource) invokeLLL.objValue;
     }
 
-    @GuardedBy("mLock")
     private void evictAboveSize(long j, CacheEventListener.EvictionReason evictionReason) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJL(65543, this, j, evictionReason) == null) {
@@ -335,21 +373,23 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
             } catch (IOException e) {
                 CacheErrorLogger cacheErrorLogger = this.mCacheErrorLogger;
                 CacheErrorLogger.CacheErrorCategory cacheErrorCategory = CacheErrorLogger.CacheErrorCategory.EVICTION;
-                Class<?> cls = TAG;
+                Class cls = TAG;
                 cacheErrorLogger.logError(cacheErrorCategory, cls, "evictAboveSize: " + e.getMessage(), e);
                 throw e;
             }
         }
     }
 
-    private Collection<DiskStorage.Entry> getSortedEntries(Collection<DiskStorage.Entry> collection) {
+    private Collection getSortedEntries(Collection collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, collection)) == null) {
             long now = this.mClock.now() + FUTURE_TIMESTAMP_THRESHOLD_MS;
             ArrayList arrayList = new ArrayList(collection.size());
             ArrayList arrayList2 = new ArrayList(collection.size());
-            for (DiskStorage.Entry entry : collection) {
+            Iterator it = collection.iterator();
+            while (it.hasNext()) {
+                DiskStorage.Entry entry = (DiskStorage.Entry) it.next();
                 if (entry.getTimestamp() > now) {
                     arrayList.add(entry);
                 } else {
@@ -361,6 +401,125 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
             return arrayList;
         }
         return (Collection) invokeL.objValue;
+    }
+
+    private void trimBy(double d) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65549, this, new Object[]{Double.valueOf(d)}) == null) {
+            synchronized (this.mLock) {
+                try {
+                    this.mCacheStats.reset();
+                    maybeUpdateFileCacheSize();
+                    long size = this.mCacheStats.getSize();
+                    evictAboveSize(size - ((long) (d * size)), CacheEventListener.EvictionReason.CACHE_MANAGER_TRIMMED);
+                } catch (IOException e) {
+                    CacheErrorLogger cacheErrorLogger = this.mCacheErrorLogger;
+                    CacheErrorLogger.CacheErrorCategory cacheErrorCategory = CacheErrorLogger.CacheErrorCategory.EVICTION;
+                    Class cls = TAG;
+                    cacheErrorLogger.logError(cacheErrorCategory, cls, "trimBy: " + e.getMessage(), e);
+                }
+            }
+        }
+    }
+
+    @Override // com.facebook.cache.disk.FileCache
+    public boolean hasKey(CacheKey cacheKey) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, cacheKey)) == null) {
+            synchronized (this.mLock) {
+                if (hasKeySync(cacheKey)) {
+                    return true;
+                }
+                try {
+                    List resourceIds = CacheKeyUtil.getResourceIds(cacheKey);
+                    for (int i = 0; i < resourceIds.size(); i++) {
+                        String str = (String) resourceIds.get(i);
+                        if (this.mStorage.contains(str, cacheKey)) {
+                            this.mResourceIndex.add(str);
+                            return true;
+                        }
+                    }
+                    return false;
+                } catch (IOException unused) {
+                    return false;
+                }
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.facebook.cache.disk.FileCache
+    public boolean probe(CacheKey cacheKey) {
+        InterceptResult invokeL;
+        String str;
+        IOException e;
+        Throwable th;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, cacheKey)) == null) {
+            String str2 = null;
+            try {
+                synchronized (this.mLock) {
+                    try {
+                        List resourceIds = CacheKeyUtil.getResourceIds(cacheKey);
+                        int i = 0;
+                        while (i < resourceIds.size()) {
+                            str = (String) resourceIds.get(i);
+                            try {
+                                if (this.mStorage.touch(str, cacheKey)) {
+                                    this.mResourceIndex.add(str);
+                                    return true;
+                                }
+                                i++;
+                                str2 = str;
+                            } catch (Throwable th2) {
+                                th = th2;
+                                try {
+                                    throw th;
+                                } catch (IOException e2) {
+                                    e = e2;
+                                    SettableCacheEvent exception = SettableCacheEvent.obtain().setCacheKey(cacheKey).setResourceId(str).setException(e);
+                                    this.mCacheEventListener.onReadException(exception);
+                                    exception.recycle();
+                                    return false;
+                                }
+                            }
+                        }
+                        return false;
+                    } catch (Throwable th3) {
+                        str = str2;
+                        th = th3;
+                    }
+                }
+            } catch (IOException e3) {
+                str = null;
+                e = e3;
+            }
+        } else {
+            return invokeL.booleanValue;
+        }
+    }
+
+    @Override // com.facebook.cache.disk.FileCache
+    public void remove(CacheKey cacheKey) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, cacheKey) == null) {
+            synchronized (this.mLock) {
+                try {
+                    List resourceIds = CacheKeyUtil.getResourceIds(cacheKey);
+                    for (int i = 0; i < resourceIds.size(); i++) {
+                        String str = (String) resourceIds.get(i);
+                        this.mStorage.remove(str);
+                        this.mResourceIndex.remove(str);
+                    }
+                } catch (IOException e) {
+                    CacheErrorLogger cacheErrorLogger = this.mCacheErrorLogger;
+                    CacheErrorLogger.CacheErrorCategory cacheErrorCategory = CacheErrorLogger.CacheErrorCategory.DELETE_FILE;
+                    Class cls = TAG;
+                    cacheErrorLogger.logError(cacheErrorCategory, cls, "delete: " + e.getMessage(), e);
+                }
+            }
+        }
     }
 
     private void maybeEvictFilesInCacheDir() throws IOException {
@@ -381,37 +540,57 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    @GuardedBy("mLock")
-    public boolean maybeUpdateFileCacheSize() {
-        InterceptResult invokeV;
+    @Override // com.facebook.cache.disk.FileCache
+    public void clearAll() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
-            long now = this.mClock.now();
-            if (this.mCacheStats.isInitialized()) {
-                long j = this.mCacheSizeLastUpdateTime;
-                if (j != -1 && now - j <= FILECACHE_SIZE_UPDATE_PERIOD_MS) {
-                    return false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this.mLock) {
+                try {
+                    this.mStorage.clearAll();
+                    this.mResourceIndex.clear();
+                    this.mCacheEventListener.onCleared();
+                } catch (IOException | NullPointerException e) {
+                    CacheErrorLogger cacheErrorLogger = this.mCacheErrorLogger;
+                    CacheErrorLogger.CacheErrorCategory cacheErrorCategory = CacheErrorLogger.CacheErrorCategory.EVICTION;
+                    Class cls = TAG;
+                    cacheErrorLogger.logError(cacheErrorCategory, cls, "clearAll: " + e.getMessage(), e);
                 }
+                this.mCacheStats.reset();
             }
-            return maybeUpdateFileCacheSizeAndIndex();
         }
-        return invokeV.booleanValue;
     }
 
-    @GuardedBy("mLock")
+    @Override // com.facebook.common.disk.DiskTrimmable
+    public void trimToMinimum() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            synchronized (this.mLock) {
+                maybeUpdateFileCacheSize();
+                long size = this.mCacheStats.getSize();
+                if (this.mCacheSizeLimitMinimum > 0 && size > 0 && size >= this.mCacheSizeLimitMinimum) {
+                    double d = 1.0d - (this.mCacheSizeLimitMinimum / size);
+                    if (d > 0.02d) {
+                        trimBy(d);
+                    }
+                }
+            }
+        }
+    }
+
     private boolean maybeUpdateFileCacheSizeAndIndex() {
         InterceptResult invokeV;
-        Set<String> hashSet;
+        Set set;
         long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
             long now = this.mClock.now();
             long j2 = FUTURE_TIMESTAMP_THRESHOLD_MS + now;
             if (this.mIndexPopulateAtStartupEnabled && this.mResourceIndex.isEmpty()) {
-                hashSet = this.mResourceIndex;
+                set = this.mResourceIndex;
+            } else if (this.mIndexPopulateAtStartupEnabled) {
+                set = new HashSet();
             } else {
-                hashSet = this.mIndexPopulateAtStartupEnabled ? new HashSet<>() : null;
+                set = null;
             }
             try {
                 long j3 = 0;
@@ -432,7 +611,7 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
                     } else {
                         j = j2;
                         if (this.mIndexPopulateAtStartupEnabled) {
-                            hashSet.add(entry.getId());
+                            set.add(entry.getId());
                         }
                     }
                     j2 = j;
@@ -442,9 +621,9 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
                 }
                 long j5 = i2;
                 if (this.mCacheStats.getCount() != j5 || this.mCacheStats.getSize() != j3) {
-                    if (this.mIndexPopulateAtStartupEnabled && this.mResourceIndex != hashSet) {
+                    if (this.mIndexPopulateAtStartupEnabled && this.mResourceIndex != set) {
                         this.mResourceIndex.clear();
-                        this.mResourceIndex.addAll(hashSet);
+                        this.mResourceIndex.addAll(set);
                     }
                     this.mCacheStats.set(j3, j5);
                 }
@@ -458,48 +637,6 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
         return invokeV.booleanValue;
     }
 
-    private DiskStorage.Inserter startInsert(String str, CacheKey cacheKey) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, this, str, cacheKey)) == null) {
-            maybeEvictFilesInCacheDir();
-            return this.mStorage.insert(str, cacheKey);
-        }
-        return (DiskStorage.Inserter) invokeLL.objValue;
-    }
-
-    private void trimBy(double d) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65549, this, new Object[]{Double.valueOf(d)}) == null) {
-            synchronized (this.mLock) {
-                try {
-                    this.mCacheStats.reset();
-                    maybeUpdateFileCacheSize();
-                    long size = this.mCacheStats.getSize();
-                    evictAboveSize(size - ((long) (d * size)), CacheEventListener.EvictionReason.CACHE_MANAGER_TRIMMED);
-                } catch (IOException e) {
-                    CacheErrorLogger cacheErrorLogger = this.mCacheErrorLogger;
-                    CacheErrorLogger.CacheErrorCategory cacheErrorCategory = CacheErrorLogger.CacheErrorCategory.EVICTION;
-                    Class<?> cls = TAG;
-                    cacheErrorLogger.logError(cacheErrorCategory, cls, "trimBy: " + e.getMessage(), e);
-                }
-            }
-        }
-    }
-
-    @GuardedBy("mLock")
-    private void updateFileCacheSizeLimit() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
-            if (this.mStatFsHelper.testLowDiskSpace(this.mStorage.isExternal() ? StatFsHelper.StorageType.EXTERNAL : StatFsHelper.StorageType.INTERNAL, this.mDefaultCacheSizeLimit - this.mCacheStats.getSize())) {
-                this.mCacheSizeLimit = this.mLowDiskSpaceCacheSizeLimit;
-            } else {
-                this.mCacheSizeLimit = this.mDefaultCacheSizeLimit;
-            }
-        }
-    }
-
-    @VisibleForTesting
     public void awaitIndex() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -512,22 +649,62 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
     }
 
     @Override // com.facebook.cache.disk.FileCache
-    public void clearAll() {
+    public long getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this.mLock) {
-                try {
-                    this.mStorage.clearAll();
-                    this.mResourceIndex.clear();
-                    this.mCacheEventListener.onCleared();
-                } catch (IOException | NullPointerException e) {
-                    CacheErrorLogger cacheErrorLogger = this.mCacheErrorLogger;
-                    CacheErrorLogger.CacheErrorCategory cacheErrorCategory = CacheErrorLogger.CacheErrorCategory.EVICTION;
-                    Class<?> cls = TAG;
-                    cacheErrorLogger.logError(cacheErrorCategory, cls, "clearAll: " + e.getMessage(), e);
-                }
-                this.mCacheStats.reset();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mCacheStats.getCount();
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.facebook.cache.disk.FileCache
+    public DiskStorage.DiskDumpInfo getDumpInfo() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mStorage.getDumpInfo();
+        }
+        return (DiskStorage.DiskDumpInfo) invokeV.objValue;
+    }
+
+    @Override // com.facebook.cache.disk.FileCache
+    public long getSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mCacheStats.getSize();
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.facebook.cache.disk.FileCache
+    public boolean isEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mStorage.isEnabled();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isIndexReady() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (!this.mIndexReady && this.mIndexPopulateAtStartupEnabled) {
+                return false;
             }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.facebook.common.disk.DiskTrimmable
+    public void trimToNothing() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            clearAll();
         }
     }
 
@@ -588,20 +765,6 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
     }
 
     @Override // com.facebook.cache.disk.FileCache
-    public long getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mCacheStats.getCount() : invokeV.longValue;
-    }
-
-    @Override // com.facebook.cache.disk.FileCache
-    public DiskStorage.DiskDumpInfo getDumpInfo() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mStorage.getDumpInfo() : (DiskStorage.DiskDumpInfo) invokeV.objValue;
-    }
-
-    @Override // com.facebook.cache.disk.FileCache
     @Nullable
     public BinaryResource getResource(CacheKey cacheKey) {
         InterceptResult invokeL;
@@ -611,11 +774,11 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
             SettableCacheEvent cacheKey2 = SettableCacheEvent.obtain().setCacheKey(cacheKey);
             try {
                 synchronized (this.mLock) {
-                    List<String> resourceIds = CacheKeyUtil.getResourceIds(cacheKey);
+                    List resourceIds = CacheKeyUtil.getResourceIds(cacheKey);
                     String str = null;
                     binaryResource = null;
                     for (int i = 0; i < resourceIds.size(); i++) {
-                        str = resourceIds.get(i);
+                        str = (String) resourceIds.get(i);
                         cacheKey2.setResourceId(str);
                         binaryResource = this.mStorage.getResource(str, cacheKey);
                         if (binaryResource != null) {
@@ -644,48 +807,14 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
     }
 
     @Override // com.facebook.cache.disk.FileCache
-    public long getSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mCacheStats.getSize() : invokeV.longValue;
-    }
-
-    @Override // com.facebook.cache.disk.FileCache
-    public boolean hasKey(CacheKey cacheKey) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, cacheKey)) == null) {
-            synchronized (this.mLock) {
-                if (hasKeySync(cacheKey)) {
-                    return true;
-                }
-                try {
-                    List<String> resourceIds = CacheKeyUtil.getResourceIds(cacheKey);
-                    for (int i = 0; i < resourceIds.size(); i++) {
-                        String str = resourceIds.get(i);
-                        if (this.mStorage.contains(str, cacheKey)) {
-                            this.mResourceIndex.add(str);
-                            return true;
-                        }
-                    }
-                    return false;
-                } catch (IOException unused) {
-                    return false;
-                }
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.facebook.cache.disk.FileCache
     public boolean hasKeySync(CacheKey cacheKey) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cacheKey)) == null) {
             synchronized (this.mLock) {
-                List<String> resourceIds = CacheKeyUtil.getResourceIds(cacheKey);
+                List resourceIds = CacheKeyUtil.getResourceIds(cacheKey);
                 for (int i = 0; i < resourceIds.size(); i++) {
-                    if (this.mResourceIndex.contains(resourceIds.get(i))) {
+                    if (this.mResourceIndex.contains((String) resourceIds.get(i))) {
                         return true;
                     }
                 }
@@ -732,115 +861,5 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
             }
         }
         return (BinaryResource) invokeLL.objValue;
-    }
-
-    @Override // com.facebook.cache.disk.FileCache
-    public boolean isEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mStorage.isEnabled() : invokeV.booleanValue;
-    }
-
-    public boolean isIndexReady() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mIndexReady || !this.mIndexPopulateAtStartupEnabled : invokeV.booleanValue;
-    }
-
-    @Override // com.facebook.cache.disk.FileCache
-    public boolean probe(CacheKey cacheKey) {
-        InterceptResult invokeL;
-        String str;
-        IOException e;
-        Throwable th;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048588, this, cacheKey)) != null) {
-            return invokeL.booleanValue;
-        }
-        String str2 = null;
-        try {
-            synchronized (this.mLock) {
-                try {
-                    List<String> resourceIds = CacheKeyUtil.getResourceIds(cacheKey);
-                    int i = 0;
-                    while (i < resourceIds.size()) {
-                        str = resourceIds.get(i);
-                        try {
-                            if (this.mStorage.touch(str, cacheKey)) {
-                                this.mResourceIndex.add(str);
-                                return true;
-                            }
-                            i++;
-                            str2 = str;
-                        } catch (Throwable th2) {
-                            th = th2;
-                            try {
-                                throw th;
-                            } catch (IOException e2) {
-                                e = e2;
-                                SettableCacheEvent exception = SettableCacheEvent.obtain().setCacheKey(cacheKey).setResourceId(str).setException(e);
-                                this.mCacheEventListener.onReadException(exception);
-                                exception.recycle();
-                                return false;
-                            }
-                        }
-                    }
-                    return false;
-                } catch (Throwable th3) {
-                    str = str2;
-                    th = th3;
-                }
-            }
-        } catch (IOException e3) {
-            str = null;
-            e = e3;
-        }
-    }
-
-    @Override // com.facebook.cache.disk.FileCache
-    public void remove(CacheKey cacheKey) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, cacheKey) == null) {
-            synchronized (this.mLock) {
-                try {
-                    List<String> resourceIds = CacheKeyUtil.getResourceIds(cacheKey);
-                    for (int i = 0; i < resourceIds.size(); i++) {
-                        String str = resourceIds.get(i);
-                        this.mStorage.remove(str);
-                        this.mResourceIndex.remove(str);
-                    }
-                } catch (IOException e) {
-                    CacheErrorLogger cacheErrorLogger = this.mCacheErrorLogger;
-                    CacheErrorLogger.CacheErrorCategory cacheErrorCategory = CacheErrorLogger.CacheErrorCategory.DELETE_FILE;
-                    Class<?> cls = TAG;
-                    cacheErrorLogger.logError(cacheErrorCategory, cls, "delete: " + e.getMessage(), e);
-                }
-            }
-        }
-    }
-
-    @Override // com.facebook.common.disk.DiskTrimmable
-    public void trimToMinimum() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            synchronized (this.mLock) {
-                maybeUpdateFileCacheSize();
-                long size = this.mCacheStats.getSize();
-                if (this.mCacheSizeLimitMinimum > 0 && size > 0 && size >= this.mCacheSizeLimitMinimum) {
-                    double d = 1.0d - (this.mCacheSizeLimitMinimum / size);
-                    if (d > 0.02d) {
-                        trimBy(d);
-                    }
-                }
-            }
-        }
-    }
-
-    @Override // com.facebook.common.disk.DiskTrimmable
-    public void trimToNothing() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            clearAll();
-        }
     }
 }

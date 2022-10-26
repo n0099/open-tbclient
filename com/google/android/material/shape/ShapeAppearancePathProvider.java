@@ -5,10 +5,6 @@ import android.graphics.Path;
 import android.graphics.PointF;
 import android.graphics.RectF;
 import android.os.Build;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +27,6 @@ public class ShapeAppearancePathProvider {
     public final float[] scratch2;
     public final ShapePath shapePath;
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes7.dex */
     public interface PathListener {
         void onCornerPathCreated(ShapePath shapePath, Matrix matrix, int i);
@@ -39,21 +34,23 @@ public class ShapeAppearancePathProvider {
         void onEdgePathCreated(ShapePath shapePath, Matrix matrix, int i);
     }
 
+    private float angleOfEdge(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) ? (i + 1) * 90 : invokeI.floatValue;
+    }
+
     /* loaded from: classes7.dex */
-    public static final class ShapeAppearancePathSpec {
+    public final class ShapeAppearancePathSpec {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @NonNull
         public final RectF bounds;
         public final float interpolation;
-        @NonNull
         public final Path path;
-        @Nullable
         public final PathListener pathListener;
-        @NonNull
         public final ShapeAppearanceModel shapeAppearanceModel;
 
-        public ShapeAppearancePathSpec(@NonNull ShapeAppearanceModel shapeAppearanceModel, float f, RectF rectF, @Nullable PathListener pathListener, Path path) {
+        public ShapeAppearancePathSpec(ShapeAppearanceModel shapeAppearanceModel, float f, RectF rectF, PathListener pathListener, Path path) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -106,13 +103,7 @@ public class ShapeAppearancePathProvider {
         }
     }
 
-    private float angleOfEdge(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) ? (i + 1) * 90 : invokeI.floatValue;
-    }
-
-    private void appendCornerPath(@NonNull ShapeAppearancePathSpec shapeAppearancePathSpec, int i) {
+    private void appendCornerPath(ShapeAppearancePathSpec shapeAppearancePathSpec, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65538, this, shapeAppearancePathSpec, i) == null) {
             this.scratch[0] = this.cornerPaths[i].getStartX();
@@ -135,7 +126,7 @@ public class ShapeAppearancePathProvider {
         }
     }
 
-    private void appendEdgePath(@NonNull ShapeAppearancePathSpec shapeAppearancePathSpec, int i) {
+    private void appendEdgePath(ShapeAppearancePathSpec shapeAppearancePathSpec, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65539, this, shapeAppearancePathSpec, i) == null) {
             int i2 = (i + 1) % 4;
@@ -174,22 +165,27 @@ public class ShapeAppearancePathProvider {
         }
     }
 
-    private void getCoordinatesOfCorner(int i, @NonNull RectF rectF, @NonNull PointF pointF) {
+    private void getCoordinatesOfCorner(int i, RectF rectF, PointF pointF) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(InputDeviceCompat.SOURCE_TRACKBALL, this, i, rectF, pointF) == null) {
-            if (i == 1) {
-                pointF.set(rectF.right, rectF.bottom);
-            } else if (i == 2) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        pointF.set(rectF.right, rectF.top);
+                        return;
+                    } else {
+                        pointF.set(rectF.left, rectF.top);
+                        return;
+                    }
+                }
                 pointF.set(rectF.left, rectF.bottom);
-            } else if (i != 3) {
-                pointF.set(rectF.right, rectF.top);
-            } else {
-                pointF.set(rectF.left, rectF.top);
+                return;
             }
+            pointF.set(rectF.right, rectF.bottom);
         }
     }
 
-    private CornerSize getCornerSizeForIndex(int i, @NonNull ShapeAppearanceModel shapeAppearanceModel) {
+    private CornerSize getCornerSizeForIndex(int i, ShapeAppearanceModel shapeAppearanceModel) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65541, this, i, shapeAppearanceModel)) == null) {
@@ -207,7 +203,7 @@ public class ShapeAppearancePathProvider {
         return (CornerSize) invokeIL.objValue;
     }
 
-    private CornerTreatment getCornerTreatmentForIndex(int i, @NonNull ShapeAppearanceModel shapeAppearanceModel) {
+    private CornerTreatment getCornerTreatmentForIndex(int i, ShapeAppearanceModel shapeAppearanceModel) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65542, this, i, shapeAppearanceModel)) == null) {
@@ -225,24 +221,7 @@ public class ShapeAppearancePathProvider {
         return (CornerTreatment) invokeIL.objValue;
     }
 
-    private float getEdgeCenterForIndex(@NonNull RectF rectF, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, this, rectF, i)) == null) {
-            float[] fArr = this.scratch;
-            ShapePath[] shapePathArr = this.cornerPaths;
-            fArr[0] = shapePathArr[i].endX;
-            fArr[1] = shapePathArr[i].endY;
-            this.cornerTransforms[i].mapPoints(fArr);
-            if (i != 1 && i != 3) {
-                return Math.abs(rectF.centerY() - this.scratch[1]);
-            }
-            return Math.abs(rectF.centerX() - this.scratch[0]);
-        }
-        return invokeLI.floatValue;
-    }
-
-    private EdgeTreatment getEdgeTreatmentForIndex(int i, @NonNull ShapeAppearanceModel shapeAppearanceModel) {
+    private EdgeTreatment getEdgeTreatmentForIndex(int i, ShapeAppearanceModel shapeAppearanceModel) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65544, this, i, shapeAppearanceModel)) == null) {
@@ -260,7 +239,23 @@ public class ShapeAppearancePathProvider {
         return (EdgeTreatment) invokeIL.objValue;
     }
 
-    @RequiresApi(19)
+    private float getEdgeCenterForIndex(RectF rectF, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, this, rectF, i)) == null) {
+            float[] fArr = this.scratch;
+            ShapePath[] shapePathArr = this.cornerPaths;
+            fArr[0] = shapePathArr[i].endX;
+            fArr[1] = shapePathArr[i].endY;
+            this.cornerTransforms[i].mapPoints(fArr);
+            if (i != 1 && i != 3) {
+                return Math.abs(rectF.centerY() - this.scratch[1]);
+            }
+            return Math.abs(rectF.centerX() - this.scratch[0]);
+        }
+        return invokeLI.floatValue;
+    }
+
     private boolean pathOverlapsCorner(Path path, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -272,15 +267,18 @@ public class ShapeAppearancePathProvider {
             path2.computeBounds(rectF, true);
             path.op(path2, Path.Op.INTERSECT);
             path.computeBounds(rectF, true);
-            if (rectF.isEmpty()) {
-                return rectF.width() > 1.0f && rectF.height() > 1.0f;
+            if (!rectF.isEmpty()) {
+                return true;
             }
-            return true;
+            if (rectF.width() > 1.0f && rectF.height() > 1.0f) {
+                return true;
+            }
+            return false;
         }
         return invokeLI.booleanValue;
     }
 
-    private void setCornerPathAndTransform(@NonNull ShapeAppearancePathSpec shapeAppearancePathSpec, int i) {
+    private void setCornerPathAndTransform(ShapeAppearancePathSpec shapeAppearancePathSpec, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65546, this, shapeAppearancePathSpec, i) == null) {
             getCornerTreatmentForIndex(i, shapeAppearancePathSpec.shapeAppearanceModel).getCornerPath(this.cornerPaths[i], 90.0f, shapeAppearancePathSpec.interpolation, shapeAppearancePathSpec.bounds, getCornerSizeForIndex(i, shapeAppearancePathSpec.shapeAppearanceModel));
@@ -309,22 +307,14 @@ public class ShapeAppearancePathProvider {
         }
     }
 
-    public void calculatePath(ShapeAppearanceModel shapeAppearanceModel, float f, RectF rectF, @NonNull Path path) {
+    public void calculatePath(ShapeAppearanceModel shapeAppearanceModel, float f, RectF rectF, Path path) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{shapeAppearanceModel, Float.valueOf(f), rectF, path}) == null) {
             calculatePath(shapeAppearanceModel, f, rectF, null, path);
         }
     }
 
-    public void setEdgeIntersectionCheckEnable(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.edgeIntersectionCheckEnabled = z;
-        }
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    public void calculatePath(ShapeAppearanceModel shapeAppearanceModel, float f, RectF rectF, PathListener pathListener, @NonNull Path path) {
+    public void calculatePath(ShapeAppearanceModel shapeAppearanceModel, float f, RectF rectF, PathListener pathListener, Path path) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{shapeAppearanceModel, Float.valueOf(f), rectF, pathListener, path}) == null) {
             path.rewind();
@@ -342,10 +332,16 @@ public class ShapeAppearancePathProvider {
             }
             path.close();
             this.overlappedEdgePath.close();
-            if (Build.VERSION.SDK_INT < 19 || this.overlappedEdgePath.isEmpty()) {
-                return;
+            if (Build.VERSION.SDK_INT >= 19 && !this.overlappedEdgePath.isEmpty()) {
+                path.op(this.overlappedEdgePath, Path.Op.UNION);
             }
-            path.op(this.overlappedEdgePath, Path.Op.UNION);
+        }
+    }
+
+    public void setEdgeIntersectionCheckEnable(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.edgeIntersectionCheckEnabled = z;
         }
     }
 }

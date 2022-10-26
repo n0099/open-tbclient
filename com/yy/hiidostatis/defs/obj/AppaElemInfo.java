@@ -36,6 +36,63 @@ public class AppaElemInfo extends ParamableElem implements Elem {
         }
     }
 
+    public long getDelayedTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.dtime;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getFtime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.ftime;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getLingerTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.ltime;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getStime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.stime;
+        }
+        return invokeV.longValue;
+    }
+
+    public AppaElemInfo(long j, long j2, long j3, long j4) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.stime = j;
+        this.ftime = j2;
+        this.ltime = j3;
+        this.dtime = j4;
+    }
+
     private void readObject(ObjectInputStream objectInputStream) throws IOException, ClassNotFoundException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, objectInputStream) == null) {
@@ -54,68 +111,6 @@ public class AppaElemInfo extends ParamableElem implements Elem {
             objectOutputStream.writeLong(this.ltime);
             objectOutputStream.writeLong(this.dtime);
         }
-    }
-
-    public AppaElemInfo copy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            AppaElemInfo appaElemInfo = new AppaElemInfo();
-            appaElemInfo.dtime = this.dtime;
-            appaElemInfo.ftime = this.ftime;
-            appaElemInfo.ltime = this.ltime;
-            appaElemInfo.stime = this.stime;
-            appaElemInfo.addParams(new ArrayList(getParams()));
-            return appaElemInfo;
-        }
-        return (AppaElemInfo) invokeV.objValue;
-    }
-
-    public long getDelayedTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.dtime : invokeV.longValue;
-    }
-
-    public long getFtime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.ftime : invokeV.longValue;
-    }
-
-    public long getLingerTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.ltime : invokeV.longValue;
-    }
-
-    public long getStime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.stime : invokeV.longValue;
-    }
-
-    @Override // com.yy.hiidostatis.defs.obj.Elem
-    public String getStringRep() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(this.stime);
-            sb.append(":");
-            sb.append(this.ftime);
-            sb.append(":");
-            sb.append(this.ltime);
-            sb.append(":");
-            sb.append(this.dtime);
-            sb.append(":");
-            String connectedParams = getConnectedParams();
-            if (!Util.empty(connectedParams)) {
-                sb.append(Util.replaceEncode(connectedParams, ":"));
-            }
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
     }
 
     public void setDtime(long j) {
@@ -146,6 +141,21 @@ public class AppaElemInfo extends ParamableElem implements Elem {
         }
     }
 
+    public AppaElemInfo copy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            AppaElemInfo appaElemInfo = new AppaElemInfo();
+            appaElemInfo.dtime = this.dtime;
+            appaElemInfo.ftime = this.ftime;
+            appaElemInfo.ltime = this.ltime;
+            appaElemInfo.stime = this.stime;
+            appaElemInfo.addParams(new ArrayList(getParams()));
+            return appaElemInfo;
+        }
+        return (AppaElemInfo) invokeV.objValue;
+    }
+
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -155,24 +165,26 @@ public class AppaElemInfo extends ParamableElem implements Elem {
         return (String) invokeV.objValue;
     }
 
-    public AppaElemInfo(long j, long j2, long j3, long j4) {
+    @Override // com.yy.hiidostatis.defs.obj.Elem
+    public String getStringRep() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(this.stime);
+            sb.append(":");
+            sb.append(this.ftime);
+            sb.append(":");
+            sb.append(this.ltime);
+            sb.append(":");
+            sb.append(this.dtime);
+            sb.append(":");
+            String connectedParams = getConnectedParams();
+            if (!Util.empty(connectedParams)) {
+                sb.append(Util.replaceEncode(connectedParams, ":"));
             }
+            return sb.toString();
         }
-        this.stime = j;
-        this.ftime = j2;
-        this.ltime = j3;
-        this.dtime = j4;
+        return (String) invokeV.objValue;
     }
 }

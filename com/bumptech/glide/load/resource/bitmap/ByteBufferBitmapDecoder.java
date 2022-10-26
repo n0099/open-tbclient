@@ -1,7 +1,5 @@
 package com.bumptech.glide.load.resource.bitmap;
 
-import android.graphics.Bitmap;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,7 +13,7 @@ import com.bumptech.glide.util.ByteBufferUtil;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 /* loaded from: classes7.dex */
-public class ByteBufferBitmapDecoder implements ResourceDecoder<ByteBuffer, Bitmap> {
+public class ByteBufferBitmapDecoder implements ResourceDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Downsampler downsampler;
@@ -40,17 +38,23 @@ public class ByteBufferBitmapDecoder implements ResourceDecoder<ByteBuffer, Bitm
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
-    public Resource<Bitmap> decode(@NonNull ByteBuffer byteBuffer, int i, int i2, @NonNull Options options) throws IOException {
+    public Resource decode(ByteBuffer byteBuffer, int i, int i2, Options options) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{byteBuffer, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) ? this.downsampler.decode(ByteBufferUtil.toStream(byteBuffer), i, i2, options) : (Resource) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{byteBuffer, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
+            return this.downsampler.decode(ByteBufferUtil.toStream(byteBuffer), i, i2, options);
+        }
+        return (Resource) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
-    public boolean handles(@NonNull ByteBuffer byteBuffer, @NonNull Options options) {
+    public boolean handles(ByteBuffer byteBuffer, Options options) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, byteBuffer, options)) == null) ? this.downsampler.handles(byteBuffer) : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, byteBuffer, options)) == null) {
+            return this.downsampler.handles(byteBuffer);
+        }
+        return invokeLL.booleanValue;
     }
 }

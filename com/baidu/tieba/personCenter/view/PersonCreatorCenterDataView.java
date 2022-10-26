@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -18,8 +17,8 @@ import com.baidu.tbadk.core.dialog.RoundLinearLayout;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.hv4;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.nv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -60,6 +59,64 @@ public class PersonCreatorCenterDataView extends LinearLayout implements View.On
         b();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public PersonCreatorCenterDataView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = "https://tieba.baidu.com/mo/q/creativeData?source=videouser";
+        this.b = "https://tieba.baidu.com/mo/q/creativeData";
+        b();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public PersonCreatorCenterDataView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = "https://tieba.baidu.com/mo/q/creativeData?source=videouser";
+        this.b = "https://tieba.baidu.com/mo/q/creativeData";
+        b();
+    }
+
+    public final void d(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
+            TiebaStatic.log(new StatisticItem("c14149").param("obj_locate", str2));
+            TiebaStatic.log(new StatisticItem("c14149").param("obj_type", str));
+            TiebaStatic.log(new StatisticItem("c14149").param("obj_param1", str3));
+            TiebaStatic.log(new StatisticItem("c14149").param("uid", String.valueOf(TbadkCoreApplication.getCurrentAccountId())));
+        }
+    }
+
     public void a(int i, String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
@@ -86,16 +143,16 @@ public class PersonCreatorCenterDataView extends LinearLayout implements View.On
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d070c, (ViewGroup) this, true);
             inflate.setOnClickListener(this);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091923);
-            this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091925);
-            RoundLinearLayout roundLinearLayout = (RoundLinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09192b);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091917);
+            this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091919);
+            RoundLinearLayout roundLinearLayout = (RoundLinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09191f);
             this.d = roundLinearLayout;
-            roundLinearLayout.setRadius(ej.f(getContext(), R.dimen.obfuscated_res_0x7f070287));
+            roundLinearLayout.setRadius(fj.f(getContext(), R.dimen.obfuscated_res_0x7f070287));
             this.d.setRoundCount(8);
-            hv4.d(this.d).n(R.string.J_X03);
-            this.e = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09192c);
-            this.f = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09192d);
-            this.g = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091926);
+            nv4.d(this.d).n(R.string.J_X03);
+            this.e = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091920);
+            this.f = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091921);
+            this.g = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09191a);
         }
     }
 
@@ -108,88 +165,30 @@ public class PersonCreatorCenterDataView extends LinearLayout implements View.On
         }
     }
 
-    public final void d(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
-            TiebaStatic.log(new StatisticItem("c14149").param("obj_locate", str2));
-            TiebaStatic.log(new StatisticItem("c14149").param("obj_type", str));
-            TiebaStatic.log(new StatisticItem("c14149").param("obj_param1", str3));
-            TiebaStatic.log(new StatisticItem("c14149").param("uid", String.valueOf(TbadkCoreApplication.getCurrentAccountId())));
-        }
-    }
-
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
             String str = (String) ((PersonCreatorCenterDataView) view2).h.getText();
-            if ("昨日有效播放".equals(str)) {
+            if (getContext().getString(R.string.obfuscated_res_0x7f0f1647).equals(str)) {
                 d("3", "1", "2");
                 c(this.a);
-            } else if ("昨日视频点赞".equals(str)) {
+            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f1648).equals(str)) {
                 d("3", "1", "3");
                 c(this.a);
-            } else if ("昨日播放".equals(str)) {
+            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f1646).equals(str)) {
                 d("3", "1", "1");
                 c(this.a);
-            } else if ("昨日新增点赞".equals(str)) {
+            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f1645).equals(str)) {
                 d("3", "2", "2");
                 c(this.b);
-            } else if ("昨日新增评论".equals(str)) {
+            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f1644).equals(str)) {
                 d("3", "2", "3");
                 c(this.b);
-            } else if ("昨日新增浏览".equals(str)) {
+            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f1643).equals(str)) {
                 d("3", "2", "1");
                 c(this.b);
             }
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonCreatorCenterDataView(Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = "https://tieba.baidu.com/mo/q/creativeData?source=videouser";
-        this.b = "https://tieba.baidu.com/mo/q/creativeData";
-        b();
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonCreatorCenterDataView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = "https://tieba.baidu.com/mo/q/creativeData?source=videouser";
-        this.b = "https://tieba.baidu.com/mo/q/creativeData";
-        b();
     }
 }

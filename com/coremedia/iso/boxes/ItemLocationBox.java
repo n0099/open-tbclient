@@ -41,9 +41,296 @@ public class ItemLocationBox extends AbstractFullBox {
     public transient /* synthetic */ FieldHolder $fh;
     public int baseOffsetSize;
     public int indexSize;
-    public List<Item> items;
+    public List items;
     public int lengthSize;
     public int offsetSize;
+
+    /* loaded from: classes7.dex */
+    public class Extent {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long extentIndex;
+        public long extentLength;
+        public long extentOffset;
+        public final /* synthetic */ ItemLocationBox this$0;
+
+        public Extent(ItemLocationBox itemLocationBox, long j, long j2, long j3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {itemLocationBox, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = itemLocationBox;
+            this.extentOffset = j;
+            this.extentLength = j2;
+            this.extentIndex = j3;
+        }
+
+        public Extent(ItemLocationBox itemLocationBox, ByteBuffer byteBuffer) {
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {itemLocationBox, byteBuffer};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = itemLocationBox;
+            if (itemLocationBox.getVersion() == 1 && (i = itemLocationBox.indexSize) > 0) {
+                this.extentIndex = IsoTypeReaderVariable.read(byteBuffer, i);
+            }
+            this.extentOffset = IsoTypeReaderVariable.read(byteBuffer, itemLocationBox.offsetSize);
+            this.extentLength = IsoTypeReaderVariable.read(byteBuffer, itemLocationBox.lengthSize);
+        }
+
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                if (this == obj) {
+                    return true;
+                }
+                if (obj == null || Extent.class != obj.getClass()) {
+                    return false;
+                }
+                Extent extent = (Extent) obj;
+                if (this.extentIndex == extent.extentIndex && this.extentLength == extent.extentLength && this.extentOffset == extent.extentOffset) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public void getContent(ByteBuffer byteBuffer) {
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer) == null) {
+                if (this.this$0.getVersion() == 1 && (i = this.this$0.indexSize) > 0) {
+                    IsoTypeWriterVariable.write(this.extentIndex, byteBuffer, i);
+                }
+                IsoTypeWriterVariable.write(this.extentOffset, byteBuffer, this.this$0.offsetSize);
+                IsoTypeWriterVariable.write(this.extentLength, byteBuffer, this.this$0.lengthSize);
+            }
+        }
+
+        public int getSize() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                int i = this.this$0.indexSize;
+                if (i <= 0) {
+                    i = 0;
+                }
+                ItemLocationBox itemLocationBox = this.this$0;
+                return i + itemLocationBox.offsetSize + itemLocationBox.lengthSize;
+            }
+            return invokeV.intValue;
+        }
+
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                long j = this.extentOffset;
+                long j2 = this.extentLength;
+                long j3 = this.extentIndex;
+                return (((((int) (j ^ (j >>> 32))) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31) + ((int) (j3 ^ (j3 >>> 32)));
+            }
+            return invokeV.intValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return "Extent{extentOffset=" + this.extentOffset + ", extentLength=" + this.extentLength + ", extentIndex=" + this.extentIndex + '}';
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class Item {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long baseOffset;
+        public int constructionMethod;
+        public int dataReferenceIndex;
+        public List extents;
+        public int itemId;
+        public final /* synthetic */ ItemLocationBox this$0;
+
+        public Item(ItemLocationBox itemLocationBox, int i, int i2, int i3, long j, List list) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {itemLocationBox, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), list};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = itemLocationBox;
+            this.extents = new LinkedList();
+            this.itemId = i;
+            this.constructionMethod = i2;
+            this.dataReferenceIndex = i3;
+            this.baseOffset = j;
+            this.extents = list;
+        }
+
+        public Item(ItemLocationBox itemLocationBox, ByteBuffer byteBuffer) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {itemLocationBox, byteBuffer};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = itemLocationBox;
+            this.extents = new LinkedList();
+            this.itemId = IsoTypeReader.readUInt16(byteBuffer);
+            if (itemLocationBox.getVersion() == 1) {
+                this.constructionMethod = IsoTypeReader.readUInt16(byteBuffer) & 15;
+            }
+            this.dataReferenceIndex = IsoTypeReader.readUInt16(byteBuffer);
+            int i3 = itemLocationBox.baseOffsetSize;
+            if (i3 > 0) {
+                this.baseOffset = IsoTypeReaderVariable.read(byteBuffer, i3);
+            } else {
+                this.baseOffset = 0L;
+            }
+            int readUInt16 = IsoTypeReader.readUInt16(byteBuffer);
+            for (int i4 = 0; i4 < readUInt16; i4++) {
+                this.extents.add(new Extent(itemLocationBox, byteBuffer));
+            }
+        }
+
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                if (this == obj) {
+                    return true;
+                }
+                if (obj == null || Item.class != obj.getClass()) {
+                    return false;
+                }
+                Item item = (Item) obj;
+                if (this.baseOffset != item.baseOffset || this.constructionMethod != item.constructionMethod || this.dataReferenceIndex != item.dataReferenceIndex || this.itemId != item.itemId) {
+                    return false;
+                }
+                List list = this.extents;
+                List list2 = item.extents;
+                if (list == null ? list2 == null : list.equals(list2)) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public void getContent(ByteBuffer byteBuffer) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer) == null) {
+                IsoTypeWriter.writeUInt16(byteBuffer, this.itemId);
+                if (this.this$0.getVersion() == 1) {
+                    IsoTypeWriter.writeUInt16(byteBuffer, this.constructionMethod);
+                }
+                IsoTypeWriter.writeUInt16(byteBuffer, this.dataReferenceIndex);
+                int i = this.this$0.baseOffsetSize;
+                if (i > 0) {
+                    IsoTypeWriterVariable.write(this.baseOffset, byteBuffer, i);
+                }
+                IsoTypeWriter.writeUInt16(byteBuffer, this.extents.size());
+                for (Extent extent : this.extents) {
+                    extent.getContent(byteBuffer);
+                }
+            }
+        }
+
+        public int getSize() {
+            InterceptResult invokeV;
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                if (this.this$0.getVersion() == 1) {
+                    i = 4;
+                } else {
+                    i = 2;
+                }
+                int i2 = i + 2 + this.this$0.baseOffsetSize + 2;
+                for (Extent extent : this.extents) {
+                    i2 += extent.getSize();
+                }
+                return i2;
+            }
+            return invokeV.intValue;
+        }
+
+        public int hashCode() {
+            InterceptResult invokeV;
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                long j = this.baseOffset;
+                int i2 = ((((((this.itemId * 31) + this.constructionMethod) * 31) + this.dataReferenceIndex) * 31) + ((int) (j ^ (j >>> 32)))) * 31;
+                List list = this.extents;
+                if (list != null) {
+                    i = list.hashCode();
+                } else {
+                    i = 0;
+                }
+                return i2 + i;
+            }
+            return invokeV.intValue;
+        }
+
+        public void setBaseOffset(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+                this.baseOffset = j;
+            }
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return "Item{baseOffset=" + this.baseOffset + ", itemId=" + this.itemId + ", constructionMethod=" + this.constructionMethod + ", dataReferenceIndex=" + this.dataReferenceIndex + ", extents=" + this.extents + '}';
+            }
+            return (String) invokeV.objValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -59,6 +346,70 @@ public class ItemLocationBox extends AbstractFullBox {
             }
         }
         ajc$preClinit();
+    }
+
+    public int getBaseOffsetSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this));
+            return this.baseOffsetSize;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            long j = 8;
+            for (Item item : this.items) {
+                j += item.getSize();
+            }
+            return j;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getIndexSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_6, this, this));
+            return this.indexSize;
+        }
+        return invokeV.intValue;
+    }
+
+    public List getItems() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_8, this, this));
+            return this.items;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public int getLengthSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
+            return this.lengthSize;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getOffsetSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+            return this.offsetSize;
+        }
+        return invokeV.intValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -130,96 +481,22 @@ public class ItemLocationBox extends AbstractFullBox {
         return (Extent) invokeCommon.objValue;
     }
 
-    public Item createItem(int i, int i2, int i3, long j, List<Extent> list) {
-        InterceptResult invokeCommon;
+    public Extent createExtent(ByteBuffer byteBuffer) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), list})) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_10, (Object) this, (Object) this, new Object[]{Conversions.intObject(i), Conversions.intObject(i2), Conversions.intObject(i3), Conversions.longObject(j), list}));
-            return new Item(this, i, i2, i3, j, list);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer)) == null) {
+            return new Extent(this, byteBuffer);
         }
-        return (Item) invokeCommon.objValue;
+        return (Extent) invokeL.objValue;
     }
 
-    public int getBaseOffsetSize() {
-        InterceptResult invokeV;
+    public Item createItem(ByteBuffer byteBuffer) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this));
-            return this.baseOffsetSize;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, byteBuffer)) == null) {
+            return new Item(this, byteBuffer);
         }
-        return invokeV.intValue;
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public void getContent(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, byteBuffer) == null) {
-            writeVersionAndFlags(byteBuffer);
-            IsoTypeWriter.writeUInt8(byteBuffer, (this.offsetSize << 4) | this.lengthSize);
-            if (getVersion() == 1) {
-                IsoTypeWriter.writeUInt8(byteBuffer, (this.baseOffsetSize << 4) | this.indexSize);
-            } else {
-                IsoTypeWriter.writeUInt8(byteBuffer, this.baseOffsetSize << 4);
-            }
-            IsoTypeWriter.writeUInt16(byteBuffer, this.items.size());
-            for (Item item : this.items) {
-                item.getContent(byteBuffer);
-            }
-        }
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public long getContentSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            long j = 8;
-            for (Item item : this.items) {
-                j += item.getSize();
-            }
-            return j;
-        }
-        return invokeV.longValue;
-    }
-
-    public int getIndexSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_6, this, this));
-            return this.indexSize;
-        }
-        return invokeV.intValue;
-    }
-
-    public List<Item> getItems() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_8, this, this));
-            return this.items;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public int getLengthSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return this.lengthSize;
-        }
-        return invokeV.intValue;
-    }
-
-    public int getOffsetSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return this.offsetSize;
-        }
-        return invokeV.intValue;
+        return (Item) invokeL.objValue;
     }
 
     public void setBaseOffsetSize(int i) {
@@ -238,7 +515,7 @@ public class ItemLocationBox extends AbstractFullBox {
         }
     }
 
-    public void setItems(List<Item> list) {
+    public void setItems(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, list) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_9, this, this, list));
@@ -262,284 +539,31 @@ public class ItemLocationBox extends AbstractFullBox {
         }
     }
 
-    public Extent createExtent(ByteBuffer byteBuffer) {
-        InterceptResult invokeL;
+    public Item createItem(int i, int i2, int i3, long j, List list) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer)) == null) ? new Extent(this, byteBuffer) : (Extent) invokeL.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), list})) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_10, (Object) this, (Object) this, new Object[]{Conversions.intObject(i), Conversions.intObject(i2), Conversions.intObject(i3), Conversions.longObject(j), list}));
+            return new Item(this, i, i2, i3, j, list);
+        }
+        return (Item) invokeCommon.objValue;
     }
 
-    public Item createItem(ByteBuffer byteBuffer) {
-        InterceptResult invokeL;
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public void getContent(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, byteBuffer)) == null) ? new Item(this, byteBuffer) : (Item) invokeL.objValue;
-    }
-
-    /* loaded from: classes7.dex */
-    public class Extent {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long extentIndex;
-        public long extentLength;
-        public long extentOffset;
-        public final /* synthetic */ ItemLocationBox this$0;
-
-        public Extent(ItemLocationBox itemLocationBox, long j, long j2, long j3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {itemLocationBox, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = itemLocationBox;
-            this.extentOffset = j;
-            this.extentLength = j2;
-            this.extentIndex = j3;
-        }
-
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                if (this == obj) {
-                    return true;
-                }
-                if (obj == null || Extent.class != obj.getClass()) {
-                    return false;
-                }
-                Extent extent = (Extent) obj;
-                return this.extentIndex == extent.extentIndex && this.extentLength == extent.extentLength && this.extentOffset == extent.extentOffset;
-            }
-            return invokeL.booleanValue;
-        }
-
-        public void getContent(ByteBuffer byteBuffer) {
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer) == null) {
-                if (this.this$0.getVersion() == 1 && (i = this.this$0.indexSize) > 0) {
-                    IsoTypeWriterVariable.write(this.extentIndex, byteBuffer, i);
-                }
-                IsoTypeWriterVariable.write(this.extentOffset, byteBuffer, this.this$0.offsetSize);
-                IsoTypeWriterVariable.write(this.extentLength, byteBuffer, this.this$0.lengthSize);
-            }
-        }
-
-        public int getSize() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                int i = this.this$0.indexSize;
-                if (i <= 0) {
-                    i = 0;
-                }
-                ItemLocationBox itemLocationBox = this.this$0;
-                return i + itemLocationBox.offsetSize + itemLocationBox.lengthSize;
-            }
-            return invokeV.intValue;
-        }
-
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                long j = this.extentOffset;
-                long j2 = this.extentLength;
-                long j3 = this.extentIndex;
-                return (((((int) (j ^ (j >>> 32))) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31) + ((int) (j3 ^ (j3 >>> 32)));
-            }
-            return invokeV.intValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return "Extent{extentOffset=" + this.extentOffset + ", extentLength=" + this.extentLength + ", extentIndex=" + this.extentIndex + '}';
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public Extent(ItemLocationBox itemLocationBox, ByteBuffer byteBuffer) {
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {itemLocationBox, byteBuffer};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = itemLocationBox;
-            if (itemLocationBox.getVersion() == 1 && (i = itemLocationBox.indexSize) > 0) {
-                this.extentIndex = IsoTypeReaderVariable.read(byteBuffer, i);
-            }
-            this.extentOffset = IsoTypeReaderVariable.read(byteBuffer, itemLocationBox.offsetSize);
-            this.extentLength = IsoTypeReaderVariable.read(byteBuffer, itemLocationBox.lengthSize);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class Item {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long baseOffset;
-        public int constructionMethod;
-        public int dataReferenceIndex;
-        public List<Extent> extents;
-        public int itemId;
-        public final /* synthetic */ ItemLocationBox this$0;
-
-        public Item(ItemLocationBox itemLocationBox, ByteBuffer byteBuffer) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {itemLocationBox, byteBuffer};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = itemLocationBox;
-            this.extents = new LinkedList();
-            this.itemId = IsoTypeReader.readUInt16(byteBuffer);
-            if (itemLocationBox.getVersion() == 1) {
-                this.constructionMethod = IsoTypeReader.readUInt16(byteBuffer) & 15;
-            }
-            this.dataReferenceIndex = IsoTypeReader.readUInt16(byteBuffer);
-            int i3 = itemLocationBox.baseOffsetSize;
-            if (i3 > 0) {
-                this.baseOffset = IsoTypeReaderVariable.read(byteBuffer, i3);
+        if (interceptable == null || interceptable.invokeL(1048582, this, byteBuffer) == null) {
+            writeVersionAndFlags(byteBuffer);
+            IsoTypeWriter.writeUInt8(byteBuffer, (this.offsetSize << 4) | this.lengthSize);
+            if (getVersion() == 1) {
+                IsoTypeWriter.writeUInt8(byteBuffer, (this.baseOffsetSize << 4) | this.indexSize);
             } else {
-                this.baseOffset = 0L;
+                IsoTypeWriter.writeUInt8(byteBuffer, this.baseOffsetSize << 4);
             }
-            int readUInt16 = IsoTypeReader.readUInt16(byteBuffer);
-            for (int i4 = 0; i4 < readUInt16; i4++) {
-                this.extents.add(new Extent(itemLocationBox, byteBuffer));
+            IsoTypeWriter.writeUInt16(byteBuffer, this.items.size());
+            for (Item item : this.items) {
+                item.getContent(byteBuffer);
             }
-        }
-
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                if (this == obj) {
-                    return true;
-                }
-                if (obj == null || Item.class != obj.getClass()) {
-                    return false;
-                }
-                Item item = (Item) obj;
-                if (this.baseOffset == item.baseOffset && this.constructionMethod == item.constructionMethod && this.dataReferenceIndex == item.dataReferenceIndex && this.itemId == item.itemId) {
-                    List<Extent> list = this.extents;
-                    List<Extent> list2 = item.extents;
-                    return list == null ? list2 == null : list.equals(list2);
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-
-        public void getContent(ByteBuffer byteBuffer) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer) == null) {
-                IsoTypeWriter.writeUInt16(byteBuffer, this.itemId);
-                if (this.this$0.getVersion() == 1) {
-                    IsoTypeWriter.writeUInt16(byteBuffer, this.constructionMethod);
-                }
-                IsoTypeWriter.writeUInt16(byteBuffer, this.dataReferenceIndex);
-                int i = this.this$0.baseOffsetSize;
-                if (i > 0) {
-                    IsoTypeWriterVariable.write(this.baseOffset, byteBuffer, i);
-                }
-                IsoTypeWriter.writeUInt16(byteBuffer, this.extents.size());
-                for (Extent extent : this.extents) {
-                    extent.getContent(byteBuffer);
-                }
-            }
-        }
-
-        public int getSize() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                int i = (this.this$0.getVersion() == 1 ? 4 : 2) + 2 + this.this$0.baseOffsetSize + 2;
-                for (Extent extent : this.extents) {
-                    i += extent.getSize();
-                }
-                return i;
-            }
-            return invokeV.intValue;
-        }
-
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                long j = this.baseOffset;
-                int i = ((((((this.itemId * 31) + this.constructionMethod) * 31) + this.dataReferenceIndex) * 31) + ((int) (j ^ (j >>> 32)))) * 31;
-                List<Extent> list = this.extents;
-                return i + (list != null ? list.hashCode() : 0);
-            }
-            return invokeV.intValue;
-        }
-
-        public void setBaseOffset(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-                this.baseOffset = j;
-            }
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                return "Item{baseOffset=" + this.baseOffset + ", itemId=" + this.itemId + ", constructionMethod=" + this.constructionMethod + ", dataReferenceIndex=" + this.dataReferenceIndex + ", extents=" + this.extents + '}';
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public Item(ItemLocationBox itemLocationBox, int i, int i2, int i3, long j, List<Extent> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {itemLocationBox, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), list};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = itemLocationBox;
-            this.extents = new LinkedList();
-            this.itemId = i;
-            this.constructionMethod = i2;
-            this.dataReferenceIndex = i3;
-            this.baseOffset = j;
-            this.extents = list;
         }
     }
 }

@@ -55,6 +55,188 @@ public class AlphaVideo extends GLTextureView {
         init();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public AlphaVideo(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        MediaPlayerProxy mediaPlayerProxy = new MediaPlayerProxy();
+        this.mPlayer = mediaPlayerProxy;
+        mediaPlayerProxy.setGLTextureView(this);
+        this.mIsKeepLastFrame = false;
+        init();
+    }
+
+    @Override // android.view.View
+    public void onWindowFocusChanged(boolean z) {
+        IPlayer iPlayer;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            super.onWindowFocusChanged(z);
+            if (z && getVisibility() == 0 && (iPlayer = this.mPlayer) != null && !iPlayer.isNotPrepared() && !isDestroyed()) {
+                requestRender();
+            }
+        }
+    }
+
+    public void setDarkFilter(float f) {
+        AlphaVideoRenderer alphaVideoRenderer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeF(1048588, this, f) == null) && (alphaVideoRenderer = this.mAlphaVideoRenderer) != null) {
+            alphaVideoRenderer.setDarkFilter(f);
+        }
+    }
+
+    public void setKeepLastFrame(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            this.mIsKeepLastFrame = z;
+        }
+    }
+
+    public void setLoopSection(int i) {
+        IPlayer iPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048590, this, i) == null) && (iPlayer = this.mPlayer) != null) {
+            iPlayer.setLoopSection(i);
+        }
+    }
+
+    public void setLooping(boolean z) {
+        IPlayer iPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048594, this, z) == null) && (iPlayer = this.mPlayer) != null) {
+            iPlayer.setLooping(z);
+        }
+    }
+
+    public void setOnReportListener(OnReportListener onReportListener) {
+        IPlayer iPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048595, this, onReportListener) == null) && (iPlayer = this.mPlayer) != null) {
+            iPlayer.setOnReportListener(onReportListener);
+        }
+    }
+
+    public void setOnVideoEndedListener(OnVideoEndedListener onVideoEndedListener) {
+        IPlayer iPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048596, this, onVideoEndedListener) == null) && (iPlayer = this.mPlayer) != null) {
+            iPlayer.setOnVideoEndedListener(new OnVideoEndedListener(this, onVideoEndedListener) { // from class: com.baidu.searchbox.afx.AlphaVideo.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ AlphaVideo this$0;
+                public final /* synthetic */ OnVideoEndedListener val$listener;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, onVideoEndedListener};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$listener = onVideoEndedListener;
+                }
+
+                @Override // com.baidu.searchbox.afx.callback.OnVideoEndedListener
+                public void onVideoEnded() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        if (this.this$0.mAlphaVideoRenderer != null && !this.this$0.mIsKeepLastFrame) {
+                            this.this$0.mAlphaVideoRenderer.clearLastFrame();
+                        }
+                        OnVideoEndedListener onVideoEndedListener2 = this.val$listener;
+                        if (onVideoEndedListener2 != null) {
+                            onVideoEndedListener2.onVideoEnded();
+                        }
+                    }
+                }
+            });
+        }
+    }
+
+    public void setOnVideoErrorListener(OnVideoErrorListener onVideoErrorListener) {
+        IPlayer iPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048597, this, onVideoErrorListener) == null) && (iPlayer = this.mPlayer) != null) {
+            iPlayer.setOnVideoErrorListener(onVideoErrorListener);
+        }
+    }
+
+    public void setOnVideoStartedListener(OnVideoStartedListener onVideoStartedListener) {
+        IPlayer iPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048598, this, onVideoStartedListener) == null) && (iPlayer = this.mPlayer) != null) {
+            iPlayer.setOnVideoStartedListener(onVideoStartedListener);
+        }
+    }
+
+    public void setPlayer(IPlayer iPlayer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, iPlayer) == null) {
+            this.mPlayer = iPlayer;
+            if (iPlayer != null) {
+                iPlayer.setGLTextureView(this);
+            }
+            initReport();
+        }
+    }
+
+    public void setSourceAssets(String str) {
+        IPlayer iPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048600, this, str) == null) && (iPlayer = this.mPlayer) != null) {
+            iPlayer.setSourceAssets(getContext(), str);
+        }
+    }
+
+    public void setSourceFile(File file) {
+        IPlayer iPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048601, this, file) == null) && (iPlayer = this.mPlayer) != null) {
+            iPlayer.setSourceFile(file);
+        }
+    }
+
+    public void setSourcePath(String str) {
+        IPlayer iPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048602, this, str) == null) && (iPlayer = this.mPlayer) != null) {
+            iPlayer.setSourcePath(str);
+        }
+    }
+
+    public void setLoopSection(int i, int i2) {
+        IPlayer iPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeII(1048591, this, i, i2) == null) && (iPlayer = this.mPlayer) != null) {
+            iPlayer.setLoopSection(i, i2);
+        }
+    }
+
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
@@ -104,13 +286,14 @@ public class AlphaVideo extends GLTextureView {
                             this.this$0.mPlayer.setSurface(surface);
                         }
                         this.this$0.mIsSurfacePrepared = true;
-                        if (this.this$0.mIsPlayRequested) {
-                            this.this$0.mIsPlayRequested = false;
-                            if (this.this$0.mPlayer != null) {
-                                this.this$0.mPlayer.play();
-                                if (this.this$0.mAlphaVideoRenderer != null) {
-                                    this.this$0.mAlphaVideoRenderer.onPlay();
-                                }
+                        if (!this.this$0.mIsPlayRequested) {
+                            return;
+                        }
+                        this.this$0.mIsPlayRequested = false;
+                        if (this.this$0.mPlayer != null) {
+                            this.this$0.mPlayer.play();
+                            if (this.this$0.mAlphaVideoRenderer != null) {
+                                this.this$0.mAlphaVideoRenderer.onPlay();
                             }
                         }
                     }
@@ -185,7 +368,10 @@ public class AlphaVideo extends GLTextureView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             IPlayer iPlayer = this.mPlayer;
-            return iPlayer != null && iPlayer.isDestroyed();
+            if (iPlayer != null && iPlayer.isDestroyed()) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
@@ -195,7 +381,10 @@ public class AlphaVideo extends GLTextureView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             IPlayer iPlayer = this.mPlayer;
-            return iPlayer != null && iPlayer.isPaused();
+            if (iPlayer != null && iPlayer.isPaused()) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
@@ -205,7 +394,10 @@ public class AlphaVideo extends GLTextureView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             IPlayer iPlayer = this.mPlayer;
-            return iPlayer != null && iPlayer.isPlaying();
+            if (iPlayer != null && iPlayer.isPlaying()) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
@@ -215,7 +407,10 @@ public class AlphaVideo extends GLTextureView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             IPlayer iPlayer = this.mPlayer;
-            return iPlayer != null && iPlayer.isStopped();
+            if (iPlayer != null && iPlayer.isStopped()) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
@@ -228,26 +423,12 @@ public class AlphaVideo extends GLTextureView {
         }
     }
 
-    @Override // android.view.View
-    public void onWindowFocusChanged(boolean z) {
-        IPlayer iPlayer;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            super.onWindowFocusChanged(z);
-            if (!z || getVisibility() != 0 || (iPlayer = this.mPlayer) == null || iPlayer.isNotPrepared() || isDestroyed()) {
-                return;
-            }
-            requestRender();
-        }
-    }
-
     public void pause() {
         IPlayer iPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (iPlayer = this.mPlayer) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (iPlayer = this.mPlayer) != null) {
+            iPlayer.pause();
         }
-        iPlayer.pause();
     }
 
     public void play() {
@@ -270,211 +451,27 @@ public class AlphaVideo extends GLTextureView {
         }
     }
 
-    public void setDarkFilter(float f) {
-        AlphaVideoRenderer alphaVideoRenderer;
+    public void stop() {
+        IPlayer iPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048588, this, f) == null) || (alphaVideoRenderer = this.mAlphaVideoRenderer) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048603, this) == null) && (iPlayer = this.mPlayer) != null) {
+            iPlayer.stop();
         }
-        alphaVideoRenderer.setDarkFilter(f);
     }
 
-    public void setKeepLastFrame(boolean z) {
+    public void setLoopSection(long j) {
+        IPlayer iPlayer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.mIsKeepLastFrame = z;
+        if ((interceptable == null || interceptable.invokeJ(1048592, this, j) == null) && (iPlayer = this.mPlayer) != null) {
+            iPlayer.setLoopSection(j);
         }
     }
 
     public void setLoopSection(long j, long j2) {
         IPlayer iPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (iPlayer = this.mPlayer) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && (iPlayer = this.mPlayer) != null) {
+            iPlayer.setLoopSection(j, j2);
         }
-        iPlayer.setLoopSection(j, j2);
-    }
-
-    public void setLooping(boolean z) {
-        IPlayer iPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048594, this, z) == null) || (iPlayer = this.mPlayer) == null) {
-            return;
-        }
-        iPlayer.setLooping(z);
-    }
-
-    public void setOnReportListener(OnReportListener onReportListener) {
-        IPlayer iPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048595, this, onReportListener) == null) || (iPlayer = this.mPlayer) == null) {
-            return;
-        }
-        iPlayer.setOnReportListener(onReportListener);
-    }
-
-    public void setOnVideoEndedListener(OnVideoEndedListener onVideoEndedListener) {
-        IPlayer iPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048596, this, onVideoEndedListener) == null) || (iPlayer = this.mPlayer) == null) {
-            return;
-        }
-        iPlayer.setOnVideoEndedListener(new OnVideoEndedListener(this, onVideoEndedListener) { // from class: com.baidu.searchbox.afx.AlphaVideo.2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ AlphaVideo this$0;
-            public final /* synthetic */ OnVideoEndedListener val$listener;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, onVideoEndedListener};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-                this.val$listener = onVideoEndedListener;
-            }
-
-            @Override // com.baidu.searchbox.afx.callback.OnVideoEndedListener
-            public void onVideoEnded() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    if (this.this$0.mAlphaVideoRenderer != null && !this.this$0.mIsKeepLastFrame) {
-                        this.this$0.mAlphaVideoRenderer.clearLastFrame();
-                    }
-                    OnVideoEndedListener onVideoEndedListener2 = this.val$listener;
-                    if (onVideoEndedListener2 != null) {
-                        onVideoEndedListener2.onVideoEnded();
-                    }
-                }
-            }
-        });
-    }
-
-    public void setOnVideoErrorListener(OnVideoErrorListener onVideoErrorListener) {
-        IPlayer iPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048597, this, onVideoErrorListener) == null) || (iPlayer = this.mPlayer) == null) {
-            return;
-        }
-        iPlayer.setOnVideoErrorListener(onVideoErrorListener);
-    }
-
-    public void setOnVideoStartedListener(OnVideoStartedListener onVideoStartedListener) {
-        IPlayer iPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048598, this, onVideoStartedListener) == null) || (iPlayer = this.mPlayer) == null) {
-            return;
-        }
-        iPlayer.setOnVideoStartedListener(onVideoStartedListener);
-    }
-
-    public void setPlayer(IPlayer iPlayer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, iPlayer) == null) {
-            this.mPlayer = iPlayer;
-            if (iPlayer != null) {
-                iPlayer.setGLTextureView(this);
-            }
-            initReport();
-        }
-    }
-
-    public void setSourceAssets(String str) {
-        IPlayer iPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048600, this, str) == null) || (iPlayer = this.mPlayer) == null) {
-            return;
-        }
-        iPlayer.setSourceAssets(getContext(), str);
-    }
-
-    public void setSourceFile(File file) {
-        IPlayer iPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048601, this, file) == null) || (iPlayer = this.mPlayer) == null) {
-            return;
-        }
-        iPlayer.setSourceFile(file);
-    }
-
-    public void setSourcePath(String str) {
-        IPlayer iPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048602, this, str) == null) || (iPlayer = this.mPlayer) == null) {
-            return;
-        }
-        iPlayer.setSourcePath(str);
-    }
-
-    public void stop() {
-        IPlayer iPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048603, this) == null) || (iPlayer = this.mPlayer) == null) {
-            return;
-        }
-        iPlayer.stop();
-    }
-
-    public void setLoopSection(long j) {
-        IPlayer iPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048592, this, j) == null) || (iPlayer = this.mPlayer) == null) {
-            return;
-        }
-        iPlayer.setLoopSection(j);
-    }
-
-    public void setLoopSection(int i, int i2) {
-        IPlayer iPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048591, this, i, i2) == null) || (iPlayer = this.mPlayer) == null) {
-            return;
-        }
-        iPlayer.setLoopSection(i, i2);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlphaVideo(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        MediaPlayerProxy mediaPlayerProxy = new MediaPlayerProxy();
-        this.mPlayer = mediaPlayerProxy;
-        mediaPlayerProxy.setGLTextureView(this);
-        this.mIsKeepLastFrame = false;
-        init();
-    }
-
-    public void setLoopSection(int i) {
-        IPlayer iPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048590, this, i) == null) || (iPlayer = this.mPlayer) == null) {
-            return;
-        }
-        iPlayer.setLoopSection(i);
     }
 }

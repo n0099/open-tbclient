@@ -19,61 +19,9 @@ public final class BdTracesConfig {
     public final boolean isFpsEnable;
     public final int timeSliceMs;
 
-    public BdTracesConfig(Builder builder) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {builder};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(builder, "builder");
-        this.isFpsEnable = builder.isFpsEnable$lib_fps_release();
-        this.isDebug = builder.isDebug$lib_fps_release();
-        this.isDevEnv = builder.isDevEnv$lib_fps_release();
-        this.timeSliceMs = builder.getTimeSliceMs$lib_fps_release();
-    }
-
-    public final int getTimeSliceMs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.timeSliceMs : invokeV.intValue;
-    }
-
-    public final boolean isDebug() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.isDebug : invokeV.booleanValue;
-    }
-
-    public final boolean isDevEnv() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.isDevEnv : invokeV.booleanValue;
-    }
-
-    public final boolean isFpsEnable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.isFpsEnable : invokeV.booleanValue;
-    }
-
-    public Builder newBuilder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new Builder(this) : (Builder) invokeV.objValue;
-    }
-
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0007\n\u0002\u0010\b\n\u0002\b\u0015\u0018\u0000B\u0011\b\u0010\u0012\u0006\u0010\u001d\u001a\u00020\u0001¢\u0006\u0004\b\u001e\u0010\u001fB\u0007¢\u0006\u0004\b\u001e\u0010 J\r\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0002\u0010\u0003J\u0015\u0010\u0006\u001a\u00020\u00002\u0006\u0010\u0005\u001a\u00020\u0004¢\u0006\u0004\b\u0006\u0010\u0007J\u0015\u0010\t\u001a\u00020\u00002\u0006\u0010\b\u001a\u00020\u0004¢\u0006\u0004\b\t\u0010\u0007J\u0015\u0010\u000b\u001a\u00020\u00002\u0006\u0010\n\u001a\u00020\u0004¢\u0006\u0004\b\u000b\u0010\u0007J\u0015\u0010\r\u001a\u00020\u00002\u0006\u0010\r\u001a\u00020\f¢\u0006\u0004\b\r\u0010\u000eR\"\u0010\u0005\u001a\u00020\u00048\u0000@\u0000X\u0080\u000e¢\u0006\u0012\n\u0004\b\u0005\u0010\u000f\u001a\u0004\b\u0010\u0010\u0011\"\u0004\b\u0012\u0010\u0013R\"\u0010\b\u001a\u00020\u00048\u0000@\u0000X\u0080\u000e¢\u0006\u0012\n\u0004\b\b\u0010\u000f\u001a\u0004\b\u0014\u0010\u0011\"\u0004\b\u0015\u0010\u0013R\"\u0010\n\u001a\u00020\u00048\u0000@\u0000X\u0080\u000e¢\u0006\u0012\n\u0004\b\n\u0010\u000f\u001a\u0004\b\u0016\u0010\u0011\"\u0004\b\u0017\u0010\u0013R\"\u0010\r\u001a\u00020\f8\u0000@\u0000X\u0080\u000e¢\u0006\u0012\n\u0004\b\r\u0010\u0018\u001a\u0004\b\u0019\u0010\u001a\"\u0004\b\u001b\u0010\u001c¨\u0006!"}, d2 = {"Lcom/baidu/searchbox/fluency/config/BdTracesConfig$Builder;", "Lcom/baidu/searchbox/fluency/config/BdTracesConfig;", "build", "()Lcom/baidu/searchbox/fluency/config/BdTracesConfig;", "", "isDebug", "debug", "(Z)Lcom/baidu/searchbox/fluency/config/BdTracesConfig$Builder;", "isDevEnv", "devEnv", "isFpsEnable", "fpsEnable", "", "timeSliceMs", "(I)Lcom/baidu/searchbox/fluency/config/BdTracesConfig$Builder;", "Z", "isDebug$lib_fps_release", "()Z", "setDebug$lib_fps_release", "(Z)V", "isDevEnv$lib_fps_release", "setDevEnv$lib_fps_release", "isFpsEnable$lib_fps_release", "setFpsEnable$lib_fps_release", "I", "getTimeSliceMs$lib_fps_release", "()I", "setTimeSliceMs$lib_fps_release", "(I)V", "config", "<init>", "(Lcom/baidu/searchbox/fluency/config/BdTracesConfig;)V", "()V", "lib-fps_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public static final class Builder {
+    public final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean isDebug;
@@ -100,7 +48,71 @@ public final class BdTracesConfig {
         public final BdTracesConfig build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new BdTracesConfig(this) : (BdTracesConfig) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new BdTracesConfig(this);
+            }
+            return (BdTracesConfig) invokeV.objValue;
+        }
+
+        public final int getTimeSliceMs$lib_fps_release() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.timeSliceMs;
+            }
+            return invokeV.intValue;
+        }
+
+        public final boolean isDebug$lib_fps_release() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.isDebug;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public final boolean isDevEnv$lib_fps_release() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return this.isDevEnv;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public final boolean isFpsEnable$lib_fps_release() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return this.isFpsEnable;
+            }
+            return invokeV.booleanValue;
+        }
+
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+        public Builder(BdTracesConfig config) {
+            this();
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {config};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    this();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            Intrinsics.checkNotNullParameter(config, "config");
+            this.isFpsEnable = config.isFpsEnable();
+            this.isDebug = config.isDebug();
+            this.isDevEnv = config.isDevEnv();
+            this.timeSliceMs = config.getTimeSliceMs();
         }
 
         public final Builder debug(boolean z) {
@@ -131,30 +143,6 @@ public final class BdTracesConfig {
                 return this;
             }
             return (Builder) invokeZ.objValue;
-        }
-
-        public final int getTimeSliceMs$lib_fps_release() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.timeSliceMs : invokeV.intValue;
-        }
-
-        public final boolean isDebug$lib_fps_release() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.isDebug : invokeV.booleanValue;
-        }
-
-        public final boolean isDevEnv$lib_fps_release() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.isDevEnv : invokeV.booleanValue;
-        }
-
-        public final boolean isFpsEnable$lib_fps_release() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.isFpsEnable : invokeV.booleanValue;
         }
 
         public final void setDebug$lib_fps_release(boolean z) {
@@ -194,31 +182,6 @@ public final class BdTracesConfig {
             }
             return (Builder) invokeI.objValue;
         }
-
-        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public Builder(BdTracesConfig config) {
-            this();
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {config};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    this();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            Intrinsics.checkNotNullParameter(config, "config");
-            this.isFpsEnable = config.isFpsEnable();
-            this.isDebug = config.isDebug();
-            this.isDevEnv = config.isDevEnv();
-            this.timeSliceMs = config.getTimeSliceMs();
-        }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -237,5 +200,72 @@ public final class BdTracesConfig {
                 return;
             }
         }
+    }
+
+    public final int getTimeSliceMs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.timeSliceMs;
+        }
+        return invokeV.intValue;
+    }
+
+    public final boolean isDebug() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.isDebug;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean isDevEnv() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.isDevEnv;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean isFpsEnable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.isFpsEnable;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public Builder newBuilder() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return new Builder(this);
+        }
+        return (Builder) invokeV.objValue;
+    }
+
+    public BdTracesConfig(Builder builder) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {builder};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(builder, "builder");
+        this.isFpsEnable = builder.isFpsEnable$lib_fps_release();
+        this.isDebug = builder.isDebug$lib_fps_release();
+        this.isDevEnv = builder.isDevEnv$lib_fps_release();
+        this.timeSliceMs = builder.getTimeSliceMs$lib_fps_release();
     }
 }

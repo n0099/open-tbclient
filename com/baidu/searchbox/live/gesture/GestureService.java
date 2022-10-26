@@ -15,7 +15,7 @@ import kotlin.Metadata;
 public final class GestureService implements IService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<OnGestureListener> mListeners;
+    public final List mListeners;
 
     public GestureService() {
         Interceptable interceptable = $ic;
@@ -33,14 +33,6 @@ public final class GestureService implements IService {
         this.mListeners = new ArrayList();
     }
 
-    public final void addGestureListener(OnGestureListener onGestureListener) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, onGestureListener) == null) || this.mListeners.contains(onGestureListener)) {
-            return;
-        }
-        this.mListeners.add(onGestureListener);
-    }
-
     public final void onCloseEvent() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -49,6 +41,27 @@ public final class GestureService implements IService {
                     onGestureListener.onCloseEvent();
                 }
             }
+        }
+    }
+
+    public final void addGestureListener(OnGestureListener onGestureListener) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, onGestureListener) == null) && !this.mListeners.contains(onGestureListener)) {
+            this.mListeners.add(onGestureListener);
+        }
+    }
+
+    public final void removeAllRegisterListener(OnGestureListener onGestureListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onGestureListener) == null) {
+            this.mListeners.clear();
+        }
+    }
+
+    public final void removeRegisterListener(OnGestureListener onGestureListener) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, onGestureListener) == null) && this.mListeners.contains(onGestureListener)) {
+            this.mListeners.remove(onGestureListener);
         }
     }
 
@@ -71,20 +84,6 @@ public final class GestureService implements IService {
                     onGestureListener.onRightMove(i, i2);
                 }
             }
-        }
-    }
-
-    public final void removeAllRegisterListener(OnGestureListener onGestureListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onGestureListener) == null) {
-            this.mListeners.clear();
-        }
-    }
-
-    public final void removeRegisterListener(OnGestureListener onGestureListener) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, onGestureListener) == null) && this.mListeners.contains(onGestureListener)) {
-            this.mListeners.remove(onGestureListener);
         }
     }
 }

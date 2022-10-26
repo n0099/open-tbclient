@@ -1,7 +1,5 @@
 package com.baidu.searchbox.process.ipc.delegate;
-
-import androidx.annotation.NonNull;
 /* loaded from: classes2.dex */
 public interface DelegateListener {
-    void onDelegateCallBack(@NonNull DelegateResult delegateResult);
+    void onDelegateCallBack(DelegateResult delegateResult);
 }

@@ -68,6 +68,31 @@ public class SecureHashUtil {
         return (String) invokeL.objValue;
     }
 
+    public static String makeHash(InputStream inputStream, String str) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, inputStream, str)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance(str);
+                byte[] bArr = new byte[4096];
+                while (true) {
+                    int read = inputStream.read(bArr);
+                    if (read > 0) {
+                        messageDigest.update(bArr, 0, read);
+                    } else {
+                        return convertToHex(messageDigest.digest());
+                    }
+                }
+            } catch (UnsupportedEncodingException e) {
+                throw new RuntimeException(e);
+            } catch (NoSuchAlgorithmException e2) {
+                throw new RuntimeException(e2);
+            }
+        } else {
+            return (String) invokeLL.objValue;
+        }
+    }
+
     public static String makeHash(byte[] bArr, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -85,15 +110,11 @@ public class SecureHashUtil {
         return (String) invokeLL.objValue;
     }
 
-    public static String makeMD5Hash(String str) {
+    public static String makeMD5Hash(InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            try {
-                return makeMD5Hash(str.getBytes(IMAudioTransRequest.CHARSET));
-            } catch (UnsupportedEncodingException e) {
-                throw new RuntimeException(e);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, inputStream)) == null) {
+            return makeHash(inputStream, "MD5");
         }
         return (String) invokeL.objValue;
     }
@@ -129,48 +150,40 @@ public class SecureHashUtil {
     public static String makeSHA256Hash(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, bArr)) == null) ? makeHash(bArr, "SHA-256") : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, bArr)) == null) {
+            return makeHash(bArr, "SHA-256");
+        }
+        return (String) invokeL.objValue;
     }
 
-    public static String makeMD5Hash(byte[] bArr) {
+    public static String makeMD5Hash(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bArr)) == null) ? makeHash(bArr, "MD5") : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            try {
+                return makeMD5Hash(str.getBytes(IMAudioTransRequest.CHARSET));
+            } catch (UnsupportedEncodingException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String makeSHA1Hash(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, bArr)) == null) ? makeHash(bArr, "SHA-1") : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, bArr)) == null) {
+            return makeHash(bArr, "SHA-1");
+        }
+        return (String) invokeL.objValue;
     }
 
-    public static String makeMD5Hash(InputStream inputStream) throws IOException {
+    public static String makeMD5Hash(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, inputStream)) == null) ? makeHash(inputStream, "MD5") : (String) invokeL.objValue;
-    }
-
-    public static String makeHash(InputStream inputStream, String str) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65539, null, inputStream, str)) != null) {
-            return (String) invokeLL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bArr)) == null) {
+            return makeHash(bArr, "MD5");
         }
-        try {
-            MessageDigest messageDigest = MessageDigest.getInstance(str);
-            byte[] bArr = new byte[4096];
-            while (true) {
-                int read = inputStream.read(bArr);
-                if (read > 0) {
-                    messageDigest.update(bArr, 0, read);
-                } else {
-                    return convertToHex(messageDigest.digest());
-                }
-            }
-        } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException(e);
-        } catch (NoSuchAlgorithmException e2) {
-            throw new RuntimeException(e2);
-        }
+        return (String) invokeL.objValue;
     }
 }

@@ -62,33 +62,6 @@ public class TbWebViewActivityConfig extends WebViewActivityConfig {
         }
     }
 
-    public void setIsFromSchema(boolean z) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra(KEY_IS_FROM_SCHEMA, z);
-    }
-
-    public void setUri(Uri uri) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra(IntentConfig.KEY_URI, uri);
-    }
-
-    public void setUseCustomHistoryStack(boolean z) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra(KEY_USE_CUSTOM_HISTORY_STACK, z);
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TbWebViewActivityConfig(Context context, String str, String str2, boolean z) {
         super(context, str, str2, z);
@@ -128,6 +101,30 @@ public class TbWebViewActivityConfig extends WebViewActivityConfig {
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
             }
+        }
+    }
+
+    public void setIsFromSchema(boolean z) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(KEY_IS_FROM_SCHEMA, z);
+        }
+    }
+
+    public void setUri(Uri uri) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(IntentConfig.KEY_URI, uri);
+        }
+    }
+
+    public void setUseCustomHistoryStack(boolean z) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(KEY_USE_CUSTOM_HISTORY_STACK, z);
         }
     }
 }

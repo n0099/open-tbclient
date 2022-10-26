@@ -72,13 +72,19 @@ public class BackupExecutors {
     public Executor getSerialExecutor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mSerialExecutor : (Executor) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mSerialExecutor;
+        }
+        return (Executor) invokeV.objValue;
     }
 
     public Executor getThreadPoolExecutor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mThreadPoolExecutor : (Executor) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mThreadPoolExecutor;
+        }
+        return (Executor) invokeV.objValue;
     }
 
     public void postSerialTask(Runnable runnable, long j) {

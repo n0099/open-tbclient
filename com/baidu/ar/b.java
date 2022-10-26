@@ -24,6 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -44,20 +45,20 @@ public class b {
     public com.baidu.ar.arrender.c g;
     public com.baidu.ar.d.g h;
     public com.baidu.ar.imu.c i;
-    public ConcurrentHashMap<String, String> j;
-    public ConcurrentHashMap<String, String> k;
-    public ConcurrentHashMap<String, com.baidu.ar.c> l;
+    public ConcurrentHashMap j;
+    public ConcurrentHashMap k;
+    public ConcurrentHashMap l;
     public ARProxyManager m;
     public Context mContext;
-    public List<Integer> n;
+    public List n;
     public com.baidu.ar.lua.c o;
-    public List<String> p;
+    public List p;
     public LuaMsgListener q;
-    public List<String> r;
+    public List r;
     public LuaMsgListener s;
-    public List<String> t;
-    public final List<String> u;
-    public List<String> v;
+    public List t;
+    public final List u;
+    public List v;
     public com.baidu.ar.a.b w;
 
     /* loaded from: classes.dex */
@@ -122,10 +123,10 @@ public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b F;
-        public HashMap<String, Object> G;
+        public HashMap G;
         public String mClassName;
 
-        public C0053b(b bVar, String str, HashMap<String, Object> hashMap) {
+        public C0053b(b bVar, String str, HashMap hashMap) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -151,14 +152,14 @@ public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b F;
-        public HashMap<String, Object> G;
-        public List<String> H;
+        public HashMap G;
+        public List H;
         public boolean I;
         public String J;
         public com.baidu.ar.d.e K;
         public String mClassName;
 
-        public c(b bVar, String str, String str2, boolean z, HashMap<String, Object> hashMap) {
+        public c(b bVar, String str, String str2, boolean z, HashMap hashMap) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -182,7 +183,7 @@ public class b {
             this.G = hashMap;
         }
 
-        public c(b bVar, String str, HashMap<String, Object> hashMap, String str2, com.baidu.ar.d.e eVar) {
+        public c(b bVar, String str, HashMap hashMap, String str2, com.baidu.ar.d.e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -204,7 +205,7 @@ public class b {
             this.K = eVar;
         }
 
-        public c(b bVar, String str, List<String> list, boolean z, HashMap<String, Object> hashMap) {
+        public c(b bVar, String str, List list, boolean z, HashMap hashMap) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -292,9 +293,9 @@ public class b {
                 return;
             }
         }
-        this.j = new ConcurrentHashMap<>();
-        this.k = new ConcurrentHashMap<>();
-        this.l = new ConcurrentHashMap<>();
+        this.j = new ConcurrentHashMap();
+        this.k = new ConcurrentHashMap();
+        this.l = new ConcurrentHashMap();
         this.t = new ArrayList();
         this.u = new CopyOnWriteArrayList();
         this.v = new ArrayList();
@@ -313,7 +314,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i, HashMap<String, Object> hashMap) {
+    public void a(int i, HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65538, this, i, hashMap) == null) {
             if (i == 301) {
@@ -337,7 +338,7 @@ public class b {
             if (TextUtils.isEmpty(str)) {
                 str3 = "destroyAbility error!!! arClassName is empty!!!";
             } else {
-                com.baidu.ar.c cVar = this.l.get(str);
+                com.baidu.ar.c cVar = (com.baidu.ar.c) this.l.get(str);
                 if (cVar != null) {
                     if (TextUtils.isEmpty(str2) || eVar == null) {
                         cVar.o();
@@ -362,22 +363,22 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str, HashMap<String, Object> hashMap) {
+    public void a(String str, HashMap hashMap) {
         com.baidu.ar.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65545, this, str, hashMap) == null) || (cVar = this.l.get(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65545, this, str, hashMap) == null) || (cVar = (com.baidu.ar.c) this.l.get(str)) == null) {
             return;
         }
         cVar.adjust(hashMap);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str, List<String> list, boolean z, HashMap<String, Object> hashMap, String str2, com.baidu.ar.d.e eVar) {
+    public void a(String str, List list, boolean z, HashMap hashMap, String str2, com.baidu.ar.d.e eVar) {
         String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65546, this, new Object[]{str, list, Boolean.valueOf(z), hashMap, str2, eVar}) == null) {
             if (com.baidu.ar.ability.a.o(str)) {
-                com.baidu.ar.c cVar = this.l.get(str);
+                com.baidu.ar.c cVar = (com.baidu.ar.c) this.l.get(str);
                 if (cVar != null) {
                     com.baidu.ar.h.b.c("AbilityManager", "createARAbility arClassName = " + str + " ARAbility exist!!!");
                     if (list != null) {
@@ -422,7 +423,7 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(HashMap<String, Object> hashMap) {
+    public void a(HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeL(65547, this, hashMap) != null) {
             return;
@@ -457,7 +458,7 @@ public class b {
         }
     }
 
-    private void a(List<String> list) {
+    private void a(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, this, list) == null) {
             com.baidu.ar.libloader.a.prepareCaseRes(ARType.FACE, null, null, new ILibLoader.a(this, list) { // from class: com.baidu.ar.b.1
@@ -495,7 +496,7 @@ public class b {
                             return;
                         }
                         if (this.F.l.get(str3) == null) {
-                            this.F.c.sendMessage(this.F.c.obtainMessage(1001, new c(this.F, str3, (List<String>) this.E, true, (HashMap<String, Object>) null)));
+                            this.F.c.sendMessage(this.F.c.obtainMessage(1001, new c(this.F, str3, this.E, true, (HashMap) null)));
                             return;
                         }
                         ((com.baidu.ar.c) this.F.l.get(str3)).o();
@@ -507,18 +508,18 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(HashMap<String, Object> hashMap) {
+    public void b(HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65551, this, hashMap) == null) {
             String str = (String) hashMap.get("event_name");
             com.baidu.ar.h.b.c("AbilityManager", "operateAbilityByEvent eventName = " + str);
             if (!"ability_operation".equals(str)) {
-                String str2 = com.baidu.ar.ability.b.bz.get(str);
+                String str2 = (String) com.baidu.ar.ability.b.bz.get(str);
                 if (!TextUtils.isEmpty(str2)) {
                     startAbility(str2, hashMap);
                     return;
                 }
-                String str3 = com.baidu.ar.ability.b.bA.get(str);
+                String str3 = (String) com.baidu.ar.ability.b.bA.get(str);
                 if (TextUtils.isEmpty(str3)) {
                     return;
                 }
@@ -543,7 +544,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c(HashMap<String, Object> hashMap) {
+    public void c(HashMap hashMap) {
         com.baidu.ar.filter.a aVar;
         FilterNode filterNode;
         Interceptable interceptable = $ic;
@@ -623,16 +624,16 @@ public class b {
     }
 
     private void g(String str) {
-        ConcurrentHashMap<String, com.baidu.ar.c> concurrentHashMap;
+        ConcurrentHashMap concurrentHashMap;
         com.baidu.ar.c cVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65561, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        ConcurrentHashMap<String, String> concurrentHashMap2 = this.j;
+        ConcurrentHashMap concurrentHashMap2 = this.j;
         if (concurrentHashMap2 != null) {
-            String str2 = concurrentHashMap2.get(str);
-            if (!TextUtils.isEmpty(str2) && (concurrentHashMap = this.l) != null && (cVar = concurrentHashMap.get(str2)) != null) {
+            String str2 = (String) concurrentHashMap2.get(str);
+            if (!TextUtils.isEmpty(str2) && (concurrentHashMap = this.l) != null && (cVar = (com.baidu.ar.c) concurrentHashMap.get(str2)) != null) {
                 cVar.j(str);
             }
         }
@@ -676,7 +677,7 @@ public class b {
             }
 
             @Override // com.baidu.ar.lua.c
-            public void a(int i, int i2, HashMap<String, Object> hashMap) {
+            public void a(int i, int i2, HashMap hashMap) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIIL(1048576, this, i, i2, hashMap) == null) {
                     this.F.a(i, hashMap);
@@ -684,7 +685,7 @@ public class b {
             }
 
             @Override // com.baidu.ar.lua.c
-            public List<Integer> n() {
+            public List n() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.F.n : (List) invokeV.objValue;
@@ -717,14 +718,14 @@ public class b {
             }
 
             @Override // com.baidu.ar.lua.LuaMsgListener
-            public List<String> getMsgKeyListened() {
+            public List getMsgKeyListened() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.F.p : (List) invokeV.objValue;
             }
 
             @Override // com.baidu.ar.lua.LuaMsgListener
-            public void onLuaMessage(HashMap<String, Object> hashMap) {
+            public void onLuaMessage(HashMap hashMap) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap) == null) {
                     this.F.a(hashMap);
@@ -757,14 +758,14 @@ public class b {
             }
 
             @Override // com.baidu.ar.lua.LuaMsgListener
-            public List<String> getMsgKeyListened() {
+            public List getMsgKeyListened() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.F.r : (List) invokeV.objValue;
             }
 
             @Override // com.baidu.ar.lua.LuaMsgListener
-            public void onLuaMessage(HashMap<String, Object> hashMap) {
+            public void onLuaMessage(HashMap hashMap) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap) == null) {
                     this.F.b(hashMap);
@@ -780,7 +781,7 @@ public class b {
         if (!(interceptable == null || interceptable.invokeV(65565, this) == null) || this.f == null) {
             return;
         }
-        HashMap<String, Object> hashMap = new HashMap<>();
+        HashMap hashMap = new HashMap();
         hashMap.put("ability_name", this.u);
         this.f.b(1902, hashMap);
     }
@@ -790,8 +791,8 @@ public class b {
         if (interceptable == null || interceptable.invokeV(65566, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             ClassLoader classLoader = b.class.getClassLoader();
-            for (Map.Entry<String, String> entry : com.baidu.ar.ability.b.bx.entrySet()) {
-                if (n.a(entry.getValue(), classLoader)) {
+            for (Map.Entry entry : com.baidu.ar.ability.b.bx.entrySet()) {
+                if (n.a((String) entry.getValue(), classLoader)) {
                     this.j.put(entry.getKey(), entry.getValue());
                 }
             }
@@ -846,7 +847,7 @@ public class b {
                 }
 
                 @Override // com.baidu.ar.c.a
-                public boolean a(String str, com.baidu.ar.d.e eVar, HashMap<String, Object> hashMap) {
+                public boolean a(String str, com.baidu.ar.d.e eVar, HashMap hashMap) {
                     InterceptResult invokeLLL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLLL = interceptable2.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, eVar, hashMap)) == null) {
@@ -907,13 +908,13 @@ public class b {
         }
     }
 
-    private List<String> m() {
+    private List m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65569, this)) == null) {
             ArrayList arrayList = new ArrayList();
             for (String str : this.t) {
-                String str2 = this.j.get(str);
+                String str2 = (String) this.j.get(str);
                 if (!arrayList.contains(str2)) {
                     arrayList.add(str2);
                 }
@@ -936,19 +937,19 @@ public class b {
                 }
             }
             this.B.a(FilterParam.SkinFilter.whiten, aRType == ARType.FACE || this.d.isUseBeautyFilter());
-            String str = com.baidu.ar.ability.b.bB.get(aRType);
+            String str = (String) com.baidu.ar.ability.b.bB.get(aRType);
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            String str2 = this.j.get(str);
+            String str2 = (String) this.j.get(str);
             if (!TextUtils.isEmpty(str2) && this.l.get(str2) != null) {
-                this.l.get(str2).i(str);
+                ((com.baidu.ar.c) this.l.get(str2)).i(str);
             }
             if (this.u.contains(str) || aRType == ARType.IMU || TextUtils.isEmpty(str2) || this.c == null) {
                 return;
             }
             this.u.add(str);
-            c cVar = new c(this, str2, str, false, (HashMap<String, Object>) null);
+            c cVar = new c(this, str2, str, false, (HashMap) null);
             a aVar = this.c;
             aVar.sendMessage(aVar.obtainMessage(1001, cVar));
         }
@@ -977,7 +978,7 @@ public class b {
         }
     }
 
-    public boolean a(String str, HashMap<String, Object> hashMap, boolean z) {
+    public boolean a(String str, HashMap hashMap, boolean z) {
         InterceptResult invokeLLZ;
         StringBuilder sb;
         String str2;
@@ -988,7 +989,7 @@ public class b {
                     this.v.add(str);
                 }
                 if (!this.u.contains(str)) {
-                    String str3 = this.j.get(str);
+                    String str3 = (String) this.j.get(str);
                     if (!TextUtils.isEmpty(str3)) {
                         f(str);
                         if (this.c != null) {
@@ -1017,15 +1018,16 @@ public class b {
         return invokeLLZ.booleanValue;
     }
 
-    public boolean a(String str, List<String> list, String str2) {
+    public boolean a(String str, List list, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, list, str2)) == null) {
             if (TextUtils.isEmpty(str) || list == null || list.size() <= 0 || !n.a(str, b.class.getClassLoader())) {
                 return false;
             }
-            for (String str3 : list) {
-                this.j.put(str3, str);
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                this.j.put((String) it.next(), str);
             }
             if (TextUtils.isEmpty(str2)) {
                 return true;
@@ -1047,12 +1049,12 @@ public class b {
             g(str);
             ArrayList arrayList = new ArrayList();
             for (String str2 : this.u) {
-                String str3 = this.j.get(str2);
+                String str3 = (String) this.j.get(str2);
                 if (!TextUtils.isEmpty(str3) && !arrayList.contains(str3)) {
                     arrayList.add(str3);
                 }
             }
-            String str4 = this.j.get(str);
+            String str4 = (String) this.j.get(str);
             if (arrayList.contains(str4) || (aVar = this.c) == null) {
                 return false;
             }
@@ -1062,13 +1064,13 @@ public class b {
         return invokeLZ.booleanValue;
     }
 
-    public boolean adjustAbility(String str, HashMap<String, Object> hashMap) {
+    public boolean adjustAbility(String str, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, hashMap)) == null) {
             if (this.u.contains(str)) {
                 if (this.c != null) {
-                    C0053b c0053b = new C0053b(this, this.j.get(str), hashMap);
+                    C0053b c0053b = new C0053b(this, (String) this.j.get(str), hashMap);
                     a aVar = this.c;
                     aVar.sendMessage(aVar.obtainMessage(1002, c0053b));
                     return true;
@@ -1089,7 +1091,7 @@ public class b {
         this.t.clear();
         this.u.clear();
         this.u.add("ability_common_filter");
-        List<String> list = this.v;
+        List list = this.v;
         if (list != null && list.size() > 0) {
             this.u.addAll(this.v);
         }
@@ -1135,9 +1137,9 @@ public class b {
                 aRProxyManager.d();
             }
             ArrayList<String> arrayList = new ArrayList();
-            List<String> m = m();
+            List m = m();
             for (String str : this.u) {
-                String str2 = TextUtils.isEmpty(str) ? null : this.j.get(str);
+                String str2 = TextUtils.isEmpty(str) ? null : (String) this.j.get(str);
                 if (!TextUtils.isEmpty(str2) && !m.contains(str2) && !arrayList.contains(str2)) {
                     arrayList.add(str2);
                 }
@@ -1169,15 +1171,15 @@ public class b {
             }
             this.u.clear();
             this.u.add("ability_common_filter");
-            List<String> list = this.v;
+            List list = this.v;
             if (list != null && list.size() > 0) {
                 this.u.addAll(this.v);
             }
             if (this.c != null) {
-                for (Map.Entry<String, com.baidu.ar.c> entry : this.l.entrySet()) {
-                    if (!h(entry.getKey())) {
+                for (Map.Entry entry : this.l.entrySet()) {
+                    if (!h((String) entry.getKey())) {
                         a aVar2 = this.c;
-                        aVar2.sendMessage(aVar2.obtainMessage(1003, new d(this, entry.getKey())));
+                        aVar2.sendMessage(aVar2.obtainMessage(1003, new d(this, (String) entry.getKey())));
                     }
                 }
             }
@@ -1190,18 +1192,18 @@ public class b {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.m : (ARProxyManager) invokeV.objValue;
     }
 
-    public List<String> getActiveAbilities() {
+    public List getActiveAbilities() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.u : (List) invokeV.objValue;
     }
 
-    public List<String> getSupportedAbilities() {
+    public List getSupportedAbilities() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            for (Map.Entry<String, String> entry : this.j.entrySet()) {
+            for (Map.Entry entry : this.j.entrySet()) {
                 arrayList.add(entry.getKey());
             }
             return arrayList;
@@ -1218,7 +1220,7 @@ public class b {
                 return false;
             }
             for (String str2 : list) {
-                if (str.equals(this.j.get(str2))) {
+                if (str.equals((String) this.j.get(str2))) {
                     return true;
                 }
             }
@@ -1306,7 +1308,7 @@ public class b {
                 gVar.release();
                 this.h = null;
             }
-            List<String> list = this.v;
+            List list = this.v;
             if (list != null) {
                 list.clear();
                 this.v = null;
@@ -1343,7 +1345,7 @@ public class b {
         }
     }
 
-    public boolean startAbility(String str, HashMap<String, Object> hashMap) {
+    public boolean startAbility(String str, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048597, this, str, hashMap)) == null) ? a(str, hashMap, false) : invokeLL.booleanValue;

@@ -16,7 +16,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.searchbox.common.security.DeviceInfoIPCServiceManager;
-import com.baidu.tieba.b80;
+import com.baidu.tieba.c80;
 import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -97,15 +97,25 @@ public class IMUserLoginByTokenMsg extends Message {
 
     public static IMUserLoginByTokenMsg newInstance(Context context, Intent intent) {
         InterceptResult invokeLL;
+        String str;
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, intent)) == null) {
             String token = AccountManagerImpl.getInstance(context).getToken();
             boolean booleanExtra = intent.getBooleanExtra(Constants.EXTRA_INTERNAL_LOGIN, true);
-            String stringExtra = intent.hasExtra(Constants.EXTRA_LOGIN_FROM) ? intent.getStringExtra(Constants.EXTRA_LOGIN_FROM) : "";
-            String stringExtra2 = intent.hasExtra(Constants.EXTRA_LOGIN_CFROM) ? intent.getStringExtra(Constants.EXTRA_LOGIN_CFROM) : "";
+            if (!intent.hasExtra(Constants.EXTRA_LOGIN_FROM)) {
+                str = "";
+            } else {
+                str = intent.getStringExtra(Constants.EXTRA_LOGIN_FROM);
+            }
+            if (!intent.hasExtra(Constants.EXTRA_LOGIN_CFROM)) {
+                str2 = "";
+            } else {
+                str2 = intent.getStringExtra(Constants.EXTRA_LOGIN_CFROM);
+            }
             if (!TextUtils.isEmpty(token)) {
                 Utility.writeLoginFlag(context, "7Y", "new IMUserLoginByTokenMsg");
-                return new IMUserLoginByTokenMsg(context, token, booleanExtra, stringExtra, stringExtra2);
+                return new IMUserLoginByTokenMsg(context, token, booleanExtra, str, str2);
             }
             Utility.writeLoginFlag(context, "7N", "IMUserLoginByTokenMsg return null");
             return null;
@@ -201,7 +211,7 @@ public class IMUserLoginByTokenMsg extends Message {
                             }
                         }
                     }
-                    if (!b80.e) {
+                    if (!c80.e) {
                         ChatMsgManagerImpl.getInstance(this.mContext).fetchConfigMsg(this.mContext, 0L, 20L);
                     }
                 } catch (Exception e) {

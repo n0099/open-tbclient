@@ -71,7 +71,10 @@ public class SmoothCalendarLayoutManager extends LinearLayoutManager {
                 public float calculateSpeedPerPixel(DisplayMetrics displayMetrics) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, displayMetrics)) == null) ? 100.0f / displayMetrics.densityDpi : invokeL.floatValue;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, displayMetrics)) == null) {
+                        return 100.0f / displayMetrics.densityDpi;
+                    }
+                    return invokeL.floatValue;
                 }
             };
             linearSmoothScroller.setTargetPosition(i);

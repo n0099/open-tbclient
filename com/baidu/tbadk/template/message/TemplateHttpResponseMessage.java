@@ -3,7 +3,7 @@ package com.baidu.tbadk.template.message;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.qf5;
+import com.baidu.tieba.wf5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TemplateHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qf5 mIResp;
+    public wf5 mIResp;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TemplateHttpResponseMessage(int i) {
@@ -39,18 +39,12 @@ public class TemplateHttpResponseMessage extends TbHttpResponsedMessage {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            if (getOrginalMessage() == null || !(getOrginalMessage().getExtra() instanceof TemplateNetMessage)) {
-                return null;
+            if (getOrginalMessage() != null && (getOrginalMessage().getExtra() instanceof TemplateNetMessage)) {
+                return (TemplateNetMessage) getOrginalMessage().getExtra();
             }
-            return (TemplateNetMessage) getOrginalMessage().getExtra();
+            return null;
         }
         return (TemplateNetMessage) invokeV.objValue;
-    }
-
-    public qf5 getIResp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mIResp : (qf5) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -78,14 +72,22 @@ public class TemplateHttpResponseMessage extends TbHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(1048581, this, i, bArr) == null) {
             Log.i("Template", "TemplateHttpResponseMessage-->decodeInBackGround");
             TemplateNetMessage templateNetMessage = getTemplateNetMessage();
-            if (templateNetMessage == null || templateNetMessage.getIResp() == null) {
-                return;
+            if (templateNetMessage != null && templateNetMessage.getIResp() != null) {
+                wf5 iResp = templateNetMessage.getIResp();
+                this.mIResp = iResp;
+                iResp.a(i, bArr);
+                setError(this.mIResp.getErrorCode());
+                setErrorString(this.mIResp.getErrorMsg());
             }
-            qf5 iResp = templateNetMessage.getIResp();
-            this.mIResp = iResp;
-            iResp.a(i, bArr);
-            setError(this.mIResp.getErrorCode());
-            setErrorString(this.mIResp.getErrorMsg());
         }
+    }
+
+    public wf5 getIResp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mIResp;
+        }
+        return (wf5) invokeV.objValue;
     }
 }

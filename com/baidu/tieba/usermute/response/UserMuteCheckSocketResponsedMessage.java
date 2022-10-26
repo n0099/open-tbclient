@@ -1,6 +1,5 @@
 package com.baidu.tieba.usermute.response;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,11 +35,18 @@ public class UserMuteCheckSocketResponsedMessage extends SocketResponsedMessage 
         }
     }
 
+    public DataRes getResult() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mResult;
+        }
+        return (DataRes) invokeV.objValue;
+    }
+
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
-        DataRes dataRes;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
             UserMuteCheckResIdl userMuteCheckResIdl = (UserMuteCheckResIdl) new Wire(new Class[0]).parseFrom(bArr, UserMuteCheckResIdl.class);
@@ -49,17 +55,15 @@ public class UserMuteCheckSocketResponsedMessage extends SocketResponsedMessage 
                 setError(error.errorno.intValue());
                 setErrorString(userMuteCheckResIdl.error.usermsg);
             }
-            if (getError() == 0 && (dataRes = userMuteCheckResIdl.data) != null) {
+            if (getError() != 0) {
+                return userMuteCheckResIdl;
+            }
+            DataRes dataRes = userMuteCheckResIdl.data;
+            if (dataRes != null) {
                 this.mResult = dataRes;
             }
             return userMuteCheckResIdl;
         }
         return invokeIL.objValue;
-    }
-
-    public DataRes getResult() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mResult : (DataRes) invokeV.objValue;
     }
 }

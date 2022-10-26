@@ -45,38 +45,6 @@ public final class w extends b {
         return (w) invokeV.objValue;
     }
 
-    public final synchronized void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            synchronized (this) {
-                if (this.a == null) {
-                    this.a = context;
-                    a(context, "com.vivo.push_preferences");
-                }
-            }
-        }
-    }
-
-    public final byte[] c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            byte[] c = c(b("com.vivo.push.secure_cache_iv", ""));
-            return (c == null || c.length <= 0) ? new byte[]{34, 32, 33, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 33, 34, 32, 33, 33, 33, 34, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, Base64.INTERNAL_PADDING, 32, 32, 32} : c;
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public final byte[] d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            byte[] c = c(b("com.vivo.push.secure_cache_key", ""));
-            return (c == null || c.length <= 0) ? new byte[]{33, 34, Base64.INTERNAL_PADDING, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 40, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 32, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Base64.INTERNAL_PADDING, 34, 33} : c;
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
     public static byte[] c(String str) {
         InterceptResult invokeL;
         int i;
@@ -100,5 +68,43 @@ public final class w extends b {
             return bArr;
         }
         return (byte[]) invokeL.objValue;
+    }
+
+    public final synchronized void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            synchronized (this) {
+                if (this.a == null) {
+                    this.a = context;
+                    a(context, "com.vivo.push_preferences");
+                }
+            }
+        }
+    }
+
+    public final byte[] c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            byte[] c = c(b("com.vivo.push.secure_cache_iv", ""));
+            if (c == null || c.length <= 0) {
+                return new byte[]{34, 32, 33, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 33, 34, 32, 33, 33, 33, 34, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, Base64.INTERNAL_PADDING, 32, 32, 32};
+            }
+            return c;
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    public final byte[] d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            byte[] c = c(b("com.vivo.push.secure_cache_key", ""));
+            if (c == null || c.length <= 0) {
+                return new byte[]{33, 34, Base64.INTERNAL_PADDING, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 40, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 32, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Base64.INTERNAL_PADDING, 34, 33};
+            }
+            return c;
+        }
+        return (byte[]) invokeV.objValue;
     }
 }

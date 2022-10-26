@@ -14,6 +14,12 @@ public class PerClauseImpl implements PerClause {
     public transient /* synthetic */ FieldHolder $fh;
     public final PerClauseKind kind;
 
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "issingleton()" : (String) invokeV.objValue;
+    }
+
     public PerClauseImpl(PerClauseKind perClauseKind) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -36,12 +42,9 @@ public class PerClauseImpl implements PerClause {
     public PerClauseKind getKind() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.kind : (PerClauseKind) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "issingleton()" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.kind;
+        }
+        return (PerClauseKind) invokeV.objValue;
     }
 }

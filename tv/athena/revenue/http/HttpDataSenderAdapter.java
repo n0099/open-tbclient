@@ -2,13 +2,12 @@ package tv.athena.revenue.http;
 
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.Keep;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.tieba.f2a;
-import com.baidu.tieba.g2a;
-import com.baidu.tieba.h2a;
+import com.baidu.tieba.x2a;
+import com.baidu.tieba.y2a;
+import com.baidu.tieba.z2a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +31,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import okhttp3.Request;
 import org.json.JSONObject;
-@Keep
 /* loaded from: classes9.dex */
 public class HttpDataSenderAdapter implements IDataSenderAdapter {
     public static /* synthetic */ Interceptable $ic;
@@ -91,7 +89,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
     }
 
     /* loaded from: classes9.dex */
-    public class b extends g2a {
+    public class b extends y2a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -128,7 +126,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
             this.g = arrayList;
         }
 
-        @Override // com.baidu.tieba.g2a
+        @Override // com.baidu.tieba.y2a
         public void a(Request request, boolean z, Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{request, Boolean.valueOf(z), exc}) == null) {
@@ -150,7 +148,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
             }
         }
 
-        @Override // com.baidu.tieba.g2a
+        @Override // com.baidu.tieba.y2a
         public void b(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
@@ -189,6 +187,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
         Object[] objArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
+            String str2 = null;
             if (this.sEnableBackupDomain && (objArr = Env.instance().BACKUP_DOMAIN_POOL) != null && objArr.length > 0 && str != null) {
                 int i = -1;
                 int i2 = 0;
@@ -203,10 +202,12 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
                     }
                 }
                 int i3 = i + 1;
-                r1 = i3 < objArr.length ? objArr[i3] : null;
-                RLog.warn("HttpDataSenderAdapter", "getRetryDomain backupDomain=" + r1 + ", cur=" + str);
+                if (i3 < objArr.length) {
+                    str2 = objArr[i3];
+                }
+                RLog.warn("HttpDataSenderAdapter", "getRetryDomain backupDomain=" + str2 + ", cur=" + str);
             }
-            return r1;
+            return str2;
         }
         return (String) invokeL.objValue;
     }
@@ -273,7 +274,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sendByHttpPost(String str, int i, int i2, String str2, ArrayList<Integer> arrayList, byte[] bArr) throws Exception {
+    public void sendByHttpPost(String str, int i, int i2, String str2, ArrayList arrayList, byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2, arrayList, bArr}) == null) {
             PSCIMessageRequest pSCIMessageRequest = new PSCIMessageRequest(bArr, ProtocolType.HTTP);
@@ -297,7 +298,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
             hashMap2.put("data", jSONObject2.toString());
             hashMap2.put("ticket", pSCIMessageRequest.getTicket());
             RLog.info("HttpDataSenderAdapter", "sendByHttpPost requstUrl:" + str3 + " seq:" + str2 + " sign:" + md5 + " hostId:" + this.hostId + " authType:" + this.authType + " clientVersion:" + this.version);
-            f2a.f().e(str3, hashMap2, i, i2, pSCIMessageRequest.getTraceid(), this.version, this.pakageName, this.hostId, this.authType, new b(this, i, i2, str2, bArr, pSCIMessageRequest, str, arrayList));
+            x2a.f().e(str3, hashMap2, i, i2, pSCIMessageRequest.getTraceid(), this.version, this.pakageName, this.hostId, this.authType, new b(this, i, i2, str2, bArr, pSCIMessageRequest, str, arrayList));
         }
     }
 
@@ -306,8 +307,8 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
             RLog.info("HttpDataSenderAdapter", "cancelAllRequest appId:" + i + " useChannel:" + i2);
-            f2a.f().d(i, i2);
-            h2a.g(this.mPayNetReporter);
+            x2a.f().d(i, i2);
+            z2a.g(this.mPayNetReporter);
         }
     }
 
@@ -326,7 +327,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
             this.mPayNetReporter = dataSenderConfig.payNetReporter;
             this.sEnableBackupDomain = true ^ Env.instance().isTestEnv();
             if (dataSenderConfig != null && !TextUtils.isEmpty(dataSenderConfig.gslbAppId)) {
-                int h = h2a.c().h(dataSenderConfig.appContext, dataSenderConfig.gslbAppId, dataSenderConfig.hdid);
+                int h = z2a.c().h(dataSenderConfig.appContext, dataSenderConfig.gslbAppId, dataSenderConfig.hdid);
                 String str = "initHttpDns result " + h;
                 RLog.info("HttpDataSenderAdapter", "tryInitHttpDns gslbAppId:" + dataSenderConfig.gslbAppId + " " + str);
                 this.delayDnsInitReportRunnable = new a(this, h, str);
@@ -336,14 +337,14 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataSender
-    public void sendData(int i, int i2, String str, ArrayList<Integer> arrayList, byte[] bArr) {
+    public void sendData(int i, int i2, String str, ArrayList arrayList, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, arrayList, bArr}) == null) {
             if (!this.isInit) {
                 RLog.error("HttpDataSenderAdapter", "init first before sendData", new Object[0]);
                 return;
             }
-            h2a.a(this.mPayNetReporter);
+            z2a.a(this.mPayNetReporter);
             synchronized (this.runnableLock) {
                 if (this.delayDnsInitReportRunnable != null) {
                     this.delayDnsInitReportRunnable.run();

@@ -12,6 +12,13 @@ public final class zzj extends zzi {
     public transient /* synthetic */ FieldHolder $fh;
     public final byte[] zza;
 
+    @Override // com.google.android.gms.common.zzi
+    public final byte[] zzf() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.zza : (byte[]) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public zzj(byte[] bArr) {
         super(Arrays.copyOfRange(bArr, 0, 25));
@@ -31,12 +38,5 @@ public final class zzj extends zzi {
             }
         }
         this.zza = bArr;
-    }
-
-    @Override // com.google.android.gms.common.zzi
-    public final byte[] zzf() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.zza : (byte[]) invokeV.objValue;
     }
 }

@@ -6,7 +6,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.tieba.R;
-import com.baidu.tieba.uc0;
+import com.baidu.tieba.vc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -40,23 +40,23 @@ public class LiveSearchDeleteStatusViewHolder extends RecyclerView.ViewHolder {
             }
         }
         this.a = view2;
-        this.b = view2.findViewById(R.id.obfuscated_res_0x7f091396);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09078d);
-        this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091395);
-        this.e = view2.findViewById(R.id.obfuscated_res_0x7f0913cc);
+        this.b = view2.findViewById(R.id.obfuscated_res_0x7f091387);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090796);
+        this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091386);
+        this.e = view2.findViewById(R.id.obfuscated_res_0x7f0913bd);
     }
 
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.c.setTextColor(uc0.f().a(this.a.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
-            String r = uc0.f().r();
+            this.c.setTextColor(vc0.f().a(this.a.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
+            String r = vc0.f().r();
             if (r == "day") {
-                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080d2a);
-                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d18);
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080d3a);
+                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d28);
             } else if (r == "night") {
-                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080d34);
-                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d19);
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080d44);
+                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d29);
             }
         }
     }

@@ -7,23 +7,31 @@ import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.ShimmerFrameLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sm2;
-import com.baidu.tieba.u23;
-import com.baidu.tieba.z83;
+import com.baidu.tieba.a93;
+import com.baidu.tieba.tm2;
+import com.baidu.tieba.v23;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class BdShimmerView extends ShimmerFrameLayout implements u23<BdShimmerView> {
+public class BdShimmerView extends ShimmerFrameLayout implements v23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView s;
     public int t;
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.v23
+    public BdShimmerView getLoadingView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this : (BdShimmerView) invokeV.objValue;
+    }
+
     /* loaded from: classes2.dex */
-    public class a implements z83 {
+    public class a implements a93 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BdShimmerView a;
@@ -68,77 +76,6 @@ public class BdShimmerView extends ShimmerFrameLayout implements u23<BdShimmerVi
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.u23
-    public BdShimmerView getLoadingView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this : (BdShimmerView) invokeV.objValue;
-    }
-
-    @Override // com.baidu.swan.apps.res.ui.ShimmerFrameLayout, android.view.ViewGroup, android.view.View
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.onAttachedToWindow();
-            sm2.M().f(this, new a(this));
-        }
-    }
-
-    @Override // com.baidu.swan.apps.res.ui.ShimmerFrameLayout, android.view.ViewGroup, android.view.View
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.onDetachedFromWindow();
-            sm2.M().g(this);
-        }
-    }
-
-    public void setPageResources() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            v();
-        }
-    }
-
-    public void setType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.t = i;
-            v();
-        }
-    }
-
-    public void u(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
-            this.s = new ImageView(context);
-            this.s.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
-            addView(this.s);
-        }
-    }
-
-    public final void v() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            int i = this.t;
-            if (i != 0) {
-                if (i != 1) {
-                    return;
-                }
-                this.s.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801ca));
-                setMaskShape(ShimmerFrameLayout.MaskShape.WHITE_LINEAR);
-                return;
-            }
-            this.s.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08012f));
-            ShimmerFrameLayout.MaskShape maskShape = ShimmerFrameLayout.MaskShape.LINEAR;
-            if (sm2.M().a()) {
-                maskShape = ShimmerFrameLayout.MaskShape.WHITE_LINEAR;
-            }
-            setMaskShape(maskShape);
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public BdShimmerView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
@@ -180,5 +117,68 @@ public class BdShimmerView extends ShimmerFrameLayout implements u23<BdShimmerVi
             }
         }
         u(context);
+    }
+
+    @Override // com.baidu.swan.apps.res.ui.ShimmerFrameLayout, android.view.ViewGroup, android.view.View
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.onAttachedToWindow();
+            tm2.M().f(this, new a(this));
+        }
+    }
+
+    @Override // com.baidu.swan.apps.res.ui.ShimmerFrameLayout, android.view.ViewGroup, android.view.View
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onDetachedFromWindow();
+            tm2.M().g(this);
+        }
+    }
+
+    public void setPageResources() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            v();
+        }
+    }
+
+    public void setType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.t = i;
+            v();
+        }
+    }
+
+    public void u(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
+            this.s = new ImageView(context);
+            this.s.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
+            addView(this.s);
+        }
+    }
+
+    public final void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            int i = this.t;
+            if (i != 0) {
+                if (i == 1) {
+                    this.s.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801ca));
+                    setMaskShape(ShimmerFrameLayout.MaskShape.WHITE_LINEAR);
+                    return;
+                }
+                return;
+            }
+            this.s.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08012f));
+            ShimmerFrameLayout.MaskShape maskShape = ShimmerFrameLayout.MaskShape.LINEAR;
+            if (tm2.M().a()) {
+                maskShape = ShimmerFrameLayout.MaskShape.WHITE_LINEAR;
+            }
+            setMaskShape(maskShape);
+        }
     }
 }

@@ -57,12 +57,18 @@ public final class ClockType {
     public static ClockType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ClockType) Enum.valueOf(ClockType.class, str) : (ClockType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (ClockType) Enum.valueOf(ClockType.class, str);
+        }
+        return (ClockType) invokeL.objValue;
     }
 
     public static ClockType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ClockType[]) $VALUES.clone() : (ClockType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (ClockType[]) $VALUES.clone();
+        }
+        return (ClockType[]) invokeV.objValue;
     }
 }

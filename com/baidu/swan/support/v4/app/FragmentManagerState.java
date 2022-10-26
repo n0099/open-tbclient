@@ -13,14 +13,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public final class FragmentManagerState implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<FragmentManagerState> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public FragmentState[] mActive;
     public int[] mAdded;
     public BackStackState[] mBackStack;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes3.dex */
-    public static class a implements Parcelable.Creator<FragmentManagerState> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -44,7 +54,10 @@ public final class FragmentManagerState implements Parcelable {
         public FragmentManagerState createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new FragmentManagerState(parcel) : (FragmentManagerState) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new FragmentManagerState(parcel);
+            }
+            return (FragmentManagerState) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -53,7 +66,10 @@ public final class FragmentManagerState implements Parcelable {
         public FragmentManagerState[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new FragmentManagerState[i] : (FragmentManagerState[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new FragmentManagerState[i];
+            }
+            return (FragmentManagerState[]) invokeI.objValue;
         }
     }
 
@@ -87,26 +103,6 @@ public final class FragmentManagerState implements Parcelable {
         }
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
-            parcel.writeTypedArray(this.mActive, i);
-            parcel.writeIntArray(this.mAdded);
-            parcel.writeTypedArray(this.mBackStack, i);
-        }
-    }
-
     public FragmentManagerState(Parcel parcel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -125,5 +121,15 @@ public final class FragmentManagerState implements Parcelable {
         this.mActive = (FragmentState[]) parcel.createTypedArray(FragmentState.CREATOR);
         this.mAdded = parcel.createIntArray();
         this.mBackStack = (BackStackState[]) parcel.createTypedArray(BackStackState.CREATOR);
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
+            parcel.writeTypedArray(this.mActive, i);
+            parcel.writeIntArray(this.mAdded);
+            parcel.writeTypedArray(this.mBackStack, i);
+        }
     }
 }

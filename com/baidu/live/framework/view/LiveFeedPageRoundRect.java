@@ -10,11 +10,9 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pa0;
+import com.baidu.tieba.qa0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +29,7 @@ public class LiveFeedPageRoundRect extends FrameLayout {
     public boolean e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LiveFeedPageRoundRect(@NonNull Context context) {
+    public LiveFeedPageRoundRect(Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -49,6 +47,28 @@ public class LiveFeedPageRoundRect extends FrameLayout {
                 return;
             }
         }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public LiveFeedPageRoundRect(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        d(attributeSet);
     }
 
     public final void a(Canvas canvas) {
@@ -69,17 +89,6 @@ public class LiveFeedPageRoundRect extends FrameLayout {
             super.draw(canvas);
             canvas.restore();
         }
-    }
-
-    public final Path c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            this.b.reset();
-            this.b.addRoundRect(this.c, this.d, Path.Direction.CW);
-            return this.b;
-        }
-        return (Path) invokeV.objValue;
     }
 
     public final void d(AttributeSet attributeSet) {
@@ -110,12 +119,23 @@ public class LiveFeedPageRoundRect extends FrameLayout {
         }
     }
 
+    public final Path c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            this.b.reset();
+            this.b.addRoundRect(this.c, this.d, Path.Direction.CW);
+            return this.b;
+        }
+        return (Path) invokeV.objValue;
+    }
+
     public final void e(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, attributeSet) == null) || attributeSet == null) {
+        if ((interceptable != null && interceptable.invokeL(1048582, this, attributeSet) != null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, pa0.LiveFeedPageRoundRect);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, qa0.LiveFeedPageRoundRect);
         this.e = obtainStyledAttributes.getBoolean(0, true);
         int dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(1, 0);
         int dimensionPixelOffset2 = obtainStyledAttributes.getDimensionPixelOffset(4, dimensionPixelOffset);
@@ -157,27 +177,5 @@ public class LiveFeedPageRoundRect extends FrameLayout {
             super.onSizeChanged(i, i2, i3, i4);
             this.c.set(0.0f, 0.0f, i, i2);
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LiveFeedPageRoundRect(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        d(attributeSet);
     }
 }

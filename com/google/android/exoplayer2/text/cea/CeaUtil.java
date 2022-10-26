@@ -75,7 +75,10 @@ public final class CeaUtil {
             int readInt = parsableByteArray.readInt();
             int readUnsignedByte2 = parsableByteArray.readUnsignedByte();
             parsableByteArray.setPosition(position);
-            return readUnsignedByte == 181 && readUnsignedShort == 49 && readInt == 1195456820 && readUnsignedByte2 == 3;
+            if (readUnsignedByte != 181 || readUnsignedShort != 49 || readInt != 1195456820 || readUnsignedByte2 != 3) {
+                return false;
+            }
+            return true;
         }
         return invokeIIL.booleanValue;
     }

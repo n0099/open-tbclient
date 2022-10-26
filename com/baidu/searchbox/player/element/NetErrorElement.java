@@ -4,7 +4,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.event.LayerEvent;
@@ -23,6 +22,23 @@ public class NetErrorElement extends AbsElement {
     public LinearLayout mRootView;
     public TextView mTextNetError;
 
+    @Override // com.baidu.searchbox.player.element.AbsElement
+    public boolean attachToRootAtOnce() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.player.element.AbsElement, com.baidu.searchbox.player.element.IElement
+    public void onPlayerStatusChanged(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, playerStatus, playerStatus2) == null) {
+        }
+    }
+
     public NetErrorElement() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -35,6 +51,16 @@ public class NetErrorElement extends AbsElement {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.searchbox.player.element.IElement
+    public View getContentView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mRootView;
+        }
+        return (View) invokeV.objValue;
     }
 
     private void onSwitchFullStyle() {
@@ -64,39 +90,21 @@ public class NetErrorElement extends AbsElement {
     }
 
     @Override // com.baidu.searchbox.player.element.AbsElement
-    public boolean attachToRootAtOnce() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.player.element.IElement
-    @NonNull
-    public View getContentView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mRootView : (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.player.element.AbsElement
     public void initElement() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (this.mRootView == null) {
                 this.mRootView = (LinearLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0154, null);
             }
-            this.mTextNetError = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f092396);
-            Button button = (Button) this.mRootView.findViewById(R.id.obfuscated_res_0x7f090418);
+            this.mTextNetError = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f092381);
+            Button button = (Button) this.mRootView.findViewById(R.id.obfuscated_res_0x7f090421);
             this.mBtnRetry = button;
             button.setOnClickListener(this.mParent);
         }
     }
 
     @Override // com.baidu.searchbox.player.element.AbsElement, com.baidu.searchbox.player.element.IElement
-    public void onEventNotify(@NonNull VideoEvent videoEvent) {
+    public void onEventNotify(VideoEvent videoEvent) {
         char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, videoEvent) == null) {
@@ -113,19 +121,14 @@ public class NetErrorElement extends AbsElement {
                 }
                 c = 65535;
             }
-            if (c == 0) {
-                onSwitchFullStyle();
-            } else if (c != 1) {
-            } else {
-                onSwitchHalfStyle();
+            if (c != 0) {
+                if (c == 1) {
+                    onSwitchHalfStyle();
+                    return;
+                }
+                return;
             }
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.element.AbsElement, com.baidu.searchbox.player.element.IElement
-    public void onPlayerStatusChanged(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, playerStatus, playerStatus2) == null) {
+            onSwitchFullStyle();
         }
     }
 }

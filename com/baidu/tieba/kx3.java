@@ -1,7 +1,89 @@
 package com.baidu.tieba;
-/* loaded from: classes4.dex */
-public interface kx3 {
-    void a(String str, String str2);
 
-    void fail(int i, String str);
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
+public class kx3 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947928419, "Lcom/baidu/tieba/kx3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947928419, "Lcom/baidu/tieba/kx3;");
+                return;
+            }
+        }
+        a = wj1.a;
+    }
+
+    public kx3(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jsObject};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        tv1 F = tv1.F(jsObject);
+        if (F == null) {
+            return;
+        }
+        m33 M = m33.M();
+        if (M == null) {
+            a(F, false, b("internal error"));
+            return;
+        }
+        try {
+            boolean m = F.m("mixWithOther", false);
+            M.U().h("key_audio_is_mix_with_other", Boolean.valueOf(m));
+            if (a) {
+                Log.d("InnerAudioOptionApi", "Audio Mix Changed to " + m);
+            }
+            a(F, true, "setInnerAudioOption:ok");
+        } catch (Exception unused) {
+            m02.c("InnerAudioOptionApi", "set swanApp global var error");
+            a(F, false, b("internal error"));
+        }
+    }
+
+    public final void a(tv1 tv1Var, boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{tv1Var, Boolean.valueOf(z), str}) == null) {
+            vx3 vx3Var = new vx3();
+            vx3Var.errMsg = str;
+            y54.call(tv1Var, z, vx3Var);
+        }
+    }
+
+    public final String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return String.format("setInnerAudioOption:fail %s", str);
+        }
+        return (String) invokeL.objValue;
+    }
 }

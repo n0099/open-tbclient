@@ -1,6 +1,5 @@
 package com.baidu.swan.apps.core.container;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -8,9 +7,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase;
-import com.baidu.tieba.ei4;
-import com.baidu.tieba.vj1;
-import com.baidu.tieba.x13;
+import com.baidu.tieba.fi4;
+import com.baidu.tieba.wj1;
+import com.baidu.tieba.y13;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<T> {
+public class PullToRefreshBaseWebView extends PullToRefreshBase {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean y;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,6 +28,16 @@ public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<
     /* loaded from: classes2.dex */
     public interface a {
         void b(int i, int i2, int i3, int i4);
+    }
+
+    @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
+    public boolean u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     static {
@@ -44,111 +53,14 @@ public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<
                 return;
             }
         }
-        y = vj1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PullToRefreshBaseWebView(Context context, x13<T> x13Var, PullToRefreshBase.HEADERTYPE headertype) {
-        super(context, x13Var, headertype);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, x13Var, headertype};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (x13) objArr2[1], (PullToRefreshBase.HEADERTYPE) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.x = false;
+        y = wj1.a;
     }
 
     public boolean N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.x : invokeV.booleanValue;
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (action == 1 || action == 3) {
-                this.x = false;
-            }
-            return super.dispatchTouchEvent(motionEvent);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
-    public T j(Context context, AttributeSet attributeSet) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet)) == null) ? getRefreshableFactory().S(context) : (T) invokeLL.objValue;
-    }
-
-    @Override // android.view.View
-    public void onScrollChanged(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048579, this, i, i2, i3, i4) == null) {
-            super.onScrollChanged(i, i2, i3, i4);
-            a aVar = this.w;
-            if (aVar != null) {
-                aVar.b(i, i2, i3, i4);
-            }
-        }
-    }
-
-    @SuppressLint({"KotlinPropertyAccess"})
-    public void setIsPreventPullToRefresh(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.x = z;
-        }
-    }
-
-    public void setOnPullToRefreshScrollChangeListener(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            this.w = aVar;
-        }
-    }
-
-    @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
-    public boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.p == null) {
-                return false;
-            }
-            if (getScrollYValue() == 0 && this.x) {
-                return false;
-            }
-            boolean a2 = ei4.a(this.p, -1);
-            if (y) {
-                Log.d("PullToRefreshWebView", "isReadyForPullDown result: " + a2);
-            }
-            return !a2;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
-    public boolean u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.x;
         }
         return invokeV.booleanValue;
     }
@@ -194,5 +106,97 @@ public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<
             }
         }
         this.x = false;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public PullToRefreshBaseWebView(Context context, y13 y13Var, PullToRefreshBase.HEADERTYPE headertype) {
+        super(context, y13Var, headertype);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, y13Var, headertype};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (y13) objArr2[1], (PullToRefreshBase.HEADERTYPE) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.x = false;
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (action == 1 || action == 3) {
+                this.x = false;
+            }
+            return super.dispatchTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setIsPreventPullToRefresh(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.x = z;
+        }
+    }
+
+    public void setOnPullToRefreshScrollChangeListener(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
+            this.w = aVar;
+        }
+    }
+
+    @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
+    public View j(Context context, AttributeSet attributeSet) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet)) == null) {
+            return getRefreshableFactory().S(context);
+        }
+        return (View) invokeLL.objValue;
+    }
+
+    @Override // android.view.View
+    public void onScrollChanged(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048579, this, i, i2, i3, i4) == null) {
+            super.onScrollChanged(i, i2, i3, i4);
+            a aVar = this.w;
+            if (aVar != null) {
+                aVar.b(i, i2, i3, i4);
+            }
+        }
+    }
+
+    @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
+    public boolean t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.p == null) {
+                return false;
+            }
+            if (getScrollYValue() == 0 && this.x) {
+                return false;
+            }
+            boolean a2 = fi4.a(this.p, -1);
+            if (y) {
+                Log.d("PullToRefreshWebView", "isReadyForPullDown result: " + a2);
+            }
+            return !a2;
+        }
+        return invokeV.booleanValue;
     }
 }

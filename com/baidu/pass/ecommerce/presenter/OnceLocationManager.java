@@ -78,10 +78,9 @@ public class OnceLocationManager implements GetLocationCallback {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, getLocationCallback) == null) {
             this.mGetLocationCallback = getLocationCallback;
             AddressManageDTO addressManageDTO = EcommerceRouter.getInstance().getAddressManageDTO();
-            if (addressManageDTO == null || (mapStatusAndLocateCallback = addressManageDTO.mapStatusAndLocateCallback) == null) {
-                return;
+            if (addressManageDTO != null && (mapStatusAndLocateCallback = addressManageDTO.mapStatusAndLocateCallback) != null) {
+                mapStatusAndLocateCallback.requestLocation(this);
             }
-            mapStatusAndLocateCallback.requestLocation(this);
         }
     }
 }

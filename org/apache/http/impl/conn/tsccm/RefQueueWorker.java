@@ -13,10 +13,10 @@ public class RefQueueWorker implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final RefQueueHandler refHandler;
-    public final ReferenceQueue<?> refQueue;
+    public final ReferenceQueue refQueue;
     public volatile Thread workerThread;
 
-    public RefQueueWorker(ReferenceQueue<?> referenceQueue, RefQueueHandler refQueueHandler) {
+    public RefQueueWorker(ReferenceQueue referenceQueue, RefQueueHandler refQueueHandler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

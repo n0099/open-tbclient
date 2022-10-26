@@ -18,7 +18,6 @@ import com.google.android.exoplayer2.extractor.ts.TsExtractor;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.google.android.material.behavior.HideBottomViewOnScrollBehavior;
 import com.google.zxing.BarcodeFormat;
-import com.google.zxing.DecodeHintType;
 import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.Result;
@@ -53,8 +52,8 @@ public final class RSSExpandedReader extends AbstractRSSReader {
     public static final int[] SYMBOL_WIDEST;
     public static final int[][] WEIGHTS;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<ExpandedPair> pairs;
-    public final List<ExpandedRow> rows;
+    public final List pairs;
+    public final List rows;
     public final int[] startEnd;
     public boolean startFromEven;
 
@@ -102,72 +101,90 @@ public final class RSSExpandedReader extends AbstractRSSReader {
         boolean z2;
         boolean z3;
         boolean z4;
+        boolean z5;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65538, this, i) == null) {
             int sum = MathUtils.sum(getOddCounts());
             int sum2 = MathUtils.sum(getEvenCounts());
-            boolean z5 = true;
+            boolean z6 = false;
+            boolean z7 = true;
             if (sum > 13) {
                 z = false;
                 z2 = true;
             } else {
-                z = sum < 4;
+                if (sum < 4) {
+                    z = true;
+                } else {
+                    z = false;
+                }
                 z2 = false;
             }
             if (sum2 > 13) {
                 z3 = false;
                 z4 = true;
             } else {
-                z3 = sum2 < 4;
+                if (sum2 < 4) {
+                    z3 = true;
+                } else {
+                    z3 = false;
+                }
                 z4 = false;
             }
             int i2 = (sum + sum2) - i;
-            boolean z6 = (sum & 1) == 1;
-            boolean z7 = (sum2 & 1) == 0;
+            if ((sum & 1) == 1) {
+                z5 = true;
+            } else {
+                z5 = false;
+            }
+            if ((sum2 & 1) == 0) {
+                z6 = true;
+            }
             if (i2 == 1) {
-                if (z6) {
-                    if (z7) {
+                if (z5) {
+                    if (!z6) {
+                        z7 = z;
+                        z2 = true;
+                    } else {
                         throw NotFoundException.getNotFoundInstance();
                     }
-                    z5 = z;
-                    z2 = true;
-                } else if (!z7) {
-                    throw NotFoundException.getNotFoundInstance();
-                } else {
-                    z5 = z;
+                } else if (z6) {
+                    z7 = z;
                     z4 = true;
+                } else {
+                    throw NotFoundException.getNotFoundInstance();
                 }
             } else if (i2 == -1) {
-                if (z6) {
-                    if (z7) {
+                if (z5) {
+                    if (z6) {
                         throw NotFoundException.getNotFoundInstance();
                     }
-                } else if (!z7) {
-                    throw NotFoundException.getNotFoundInstance();
-                } else {
-                    z5 = z;
+                } else if (z6) {
+                    z7 = z;
                     z3 = true;
+                } else {
+                    throw NotFoundException.getNotFoundInstance();
                 }
-            } else if (i2 != 0) {
-                throw NotFoundException.getNotFoundInstance();
-            } else {
-                if (z6) {
-                    if (!z7) {
+            } else if (i2 == 0) {
+                if (z5) {
+                    if (z6) {
+                        if (sum >= sum2) {
+                            z7 = z;
+                            z3 = true;
+                            z2 = true;
+                        }
+                        z4 = true;
+                    } else {
                         throw NotFoundException.getNotFoundInstance();
                     }
-                    if (sum >= sum2) {
-                        z5 = z;
-                        z3 = true;
-                        z2 = true;
-                    }
-                    z4 = true;
-                } else if (z7) {
-                    throw NotFoundException.getNotFoundInstance();
+                } else if (!z6) {
+                    z7 = z;
                 } else {
-                    z5 = z;
+                    throw NotFoundException.getNotFoundInstance();
                 }
+            } else {
+                throw NotFoundException.getNotFoundInstance();
             }
-            if (z5) {
+            if (z7) {
                 if (!z2) {
                     AbstractRSSReader.increment(getOddCounts(), getOddRoundingErrors());
                 } else {
@@ -194,7 +211,7 @@ public final class RSSExpandedReader extends AbstractRSSReader {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            ExpandedPair expandedPair = this.pairs.get(0);
+            ExpandedPair expandedPair = (ExpandedPair) this.pairs.get(0);
             DataCharacter leftChar = expandedPair.getLeftChar();
             DataCharacter rightChar = expandedPair.getRightChar();
             if (rightChar == null) {
@@ -203,7 +220,7 @@ public final class RSSExpandedReader extends AbstractRSSReader {
             int checksumPortion = rightChar.getChecksumPortion();
             int i = 2;
             for (int i2 = 1; i2 < this.pairs.size(); i2++) {
-                ExpandedPair expandedPair2 = this.pairs.get(i2);
+                ExpandedPair expandedPair2 = (ExpandedPair) this.pairs.get(i2);
                 checksumPortion += expandedPair2.getLeftChar().getChecksumPortion();
                 i++;
                 DataCharacter rightChar2 = expandedPair2.getRightChar();
@@ -212,16 +229,125 @@ public final class RSSExpandedReader extends AbstractRSSReader {
                     i++;
                 }
             }
-            return ((i + (-4)) * 211) + (checksumPortion % 211) == leftChar.getValue();
+            if (((i - 4) * 211) + (checksumPortion % 211) != leftChar.getValue()) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
     }
 
-    private List<ExpandedPair> checkRows(boolean z) {
+    private List checkRows(List list, int i) throws NotFoundException {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, list, i)) == null) {
+            while (i < this.rows.size()) {
+                ExpandedRow expandedRow = (ExpandedRow) this.rows.get(i);
+                this.pairs.clear();
+                for (ExpandedRow expandedRow2 : list) {
+                    this.pairs.addAll(expandedRow2.getPairs());
+                }
+                this.pairs.addAll(expandedRow.getPairs());
+                if (isValidSequence(this.pairs)) {
+                    if (checkChecksum()) {
+                        return this.pairs;
+                    }
+                    ArrayList arrayList = new ArrayList();
+                    arrayList.addAll(list);
+                    arrayList.add(expandedRow);
+                    try {
+                        return checkRows(arrayList, i + 1);
+                    } catch (NotFoundException unused) {
+                        continue;
+                    }
+                }
+                i++;
+            }
+            throw NotFoundException.getNotFoundInstance();
+        }
+        return (List) invokeLI.objValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x0050, code lost:
+        continue;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void removePartialRows(List list, List list2) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65549, null, list, list2) == null) {
+            Iterator it = list2.iterator();
+            while (it.hasNext()) {
+                ExpandedRow expandedRow = (ExpandedRow) it.next();
+                if (expandedRow.getPairs().size() != list.size()) {
+                    Iterator it2 = expandedRow.getPairs().iterator();
+                    while (true) {
+                        z = false;
+                        boolean z2 = true;
+                        if (it2.hasNext()) {
+                            ExpandedPair expandedPair = (ExpandedPair) it2.next();
+                            Iterator it3 = list.iterator();
+                            while (true) {
+                                if (it3.hasNext()) {
+                                    if (expandedPair.equals((ExpandedPair) it3.next())) {
+                                        break;
+                                    }
+                                } else {
+                                    z2 = false;
+                                    continue;
+                                    break;
+                                }
+                            }
+                            if (!z2) {
+                                break;
+                            }
+                        } else {
+                            z = true;
+                            break;
+                        }
+                    }
+                    if (z) {
+                        it.remove();
+                    }
+                }
+            }
+        }
+    }
+
+    private void storeRow(int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65551, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            boolean z2 = false;
+            int i2 = 0;
+            boolean z3 = false;
+            while (true) {
+                if (i2 >= this.rows.size()) {
+                    break;
+                }
+                ExpandedRow expandedRow = (ExpandedRow) this.rows.get(i2);
+                if (expandedRow.getRowNumber() > i) {
+                    z2 = expandedRow.isEquivalent(this.pairs);
+                    break;
+                } else {
+                    z3 = expandedRow.isEquivalent(this.pairs);
+                    i2++;
+                }
+            }
+            if (z2 || z3 || isPartialRow(this.pairs, this.rows)) {
+                return;
+            }
+            this.rows.add(i2, new ExpandedRow(this.pairs, i, z));
+            removePartialRows(this.pairs, this.rows);
+        }
+    }
+
+    private List checkRows(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65541, this, z)) == null) {
-            List<ExpandedPair> list = null;
+            List list = null;
             if (this.rows.size() > 25) {
                 this.rows.clear();
                 return null;
@@ -242,19 +368,51 @@ public final class RSSExpandedReader extends AbstractRSSReader {
         return (List) invokeZ.objValue;
     }
 
-    public static Result constructResult(List<ExpandedPair> list) throws NotFoundException, FormatException {
+    public static Result constructResult(List list) throws NotFoundException, FormatException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, list)) == null) {
             String parseInformation = AbstractExpandedDecoder.createDecoder(BitArrayBuilder.buildBitArray(list)).parseInformation();
-            ResultPoint[] resultPoints = list.get(0).getFinderPattern().getResultPoints();
-            ResultPoint[] resultPoints2 = list.get(list.size() - 1).getFinderPattern().getResultPoints();
+            ResultPoint[] resultPoints = ((ExpandedPair) list.get(0)).getFinderPattern().getResultPoints();
+            ResultPoint[] resultPoints2 = ((ExpandedPair) list.get(list.size() - 1)).getFinderPattern().getResultPoints();
             return new Result(parseInformation, null, new ResultPoint[]{resultPoints[0], resultPoints[1], resultPoints2[0], resultPoints2[1]}, BarcodeFormat.RSS_EXPANDED);
         }
         return (Result) invokeL.objValue;
     }
 
-    private void findNextPair(BitArray bitArray, List<ExpandedPair> list, int i) throws NotFoundException {
+    public static boolean isValidSequence(List list) {
+        InterceptResult invokeL;
+        int[][] iArr;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, list)) == null) {
+            for (int[] iArr2 : FINDER_PATTERN_SEQUENCES) {
+                if (list.size() <= iArr2.length) {
+                    int i = 0;
+                    while (true) {
+                        if (i < list.size()) {
+                            if (((ExpandedPair) list.get(i)).getFinderPattern().getValue() != iArr2[i]) {
+                                z = false;
+                                break;
+                            }
+                            i++;
+                        } else {
+                            z = true;
+                            break;
+                        }
+                    }
+                    if (z) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    private void findNextPair(BitArray bitArray, List list, int i) throws NotFoundException {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65543, this, bitArray, list, i) == null) {
             int[] decodeFinderCounters = getDecodeFinderCounters();
@@ -264,9 +422,17 @@ public final class RSSExpandedReader extends AbstractRSSReader {
             decodeFinderCounters[3] = 0;
             int size = bitArray.getSize();
             if (i < 0) {
-                i = list.isEmpty() ? 0 : list.get(list.size() - 1).getFinderPattern().getStartEnd()[1];
+                if (list.isEmpty()) {
+                    i = 0;
+                } else {
+                    i = ((ExpandedPair) list.get(list.size() - 1)).getFinderPattern().getStartEnd()[1];
+                }
             }
-            boolean z = list.size() % 2 != 0;
+            if (list.size() % 2 != 0) {
+                z = true;
+            } else {
+                z = false;
+            }
             if (this.startFromEven) {
                 z = !z;
             }
@@ -331,7 +497,31 @@ public final class RSSExpandedReader extends AbstractRSSReader {
     public static boolean isNotA1left(FinderPattern finderPattern, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{finderPattern, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? (finderPattern.getValue() == 0 && z && z2) ? false : true : invokeCommon.booleanValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{finderPattern, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (finderPattern.getValue() == 0 && z && z2) {
+                return false;
+            }
+            return true;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    @Override // com.google.zxing.oned.OneDReader
+    public Result decodeRow(int i, BitArray bitArray, Map map) throws NotFoundException, FormatException {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bitArray, map)) == null) {
+            this.pairs.clear();
+            this.startFromEven = false;
+            try {
+                return constructResult(decodeRow2pairs(i, bitArray));
+            } catch (NotFoundException unused) {
+                this.pairs.clear();
+                this.startFromEven = true;
+                return constructResult(decodeRow2pairs(i, bitArray));
+            }
+        }
+        return (Result) invokeILL.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:30:0x0047, code lost:
@@ -340,40 +530,43 @@ public final class RSSExpandedReader extends AbstractRSSReader {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean isPartialRow(Iterable<ExpandedPair> iterable, Iterable<ExpandedRow> iterable2) {
+    public static boolean isPartialRow(Iterable iterable, Iterable iterable2) {
         InterceptResult invokeLL;
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, iterable, iterable2)) == null) {
-            Iterator<ExpandedRow> it = iterable2.iterator();
+            Iterator it = iterable2.iterator();
             do {
                 z = false;
                 if (!it.hasNext()) {
                     return false;
                 }
-                ExpandedRow next = it.next();
-                Iterator<ExpandedPair> it2 = iterable.iterator();
+                ExpandedRow expandedRow = (ExpandedRow) it.next();
+                Iterator it2 = iterable.iterator();
                 while (true) {
-                    if (!it2.hasNext()) {
-                        z = true;
-                        continue;
-                        break;
-                    }
-                    ExpandedPair next2 = it2.next();
-                    Iterator<ExpandedPair> it3 = next.getPairs().iterator();
-                    while (true) {
-                        if (!it3.hasNext()) {
-                            z2 = false;
-                            continue;
-                            break;
-                        } else if (next2.equals(it3.next())) {
-                            z2 = true;
-                            continue;
+                    if (it2.hasNext()) {
+                        ExpandedPair expandedPair = (ExpandedPair) it2.next();
+                        Iterator it3 = expandedRow.getPairs().iterator();
+                        while (true) {
+                            if (it3.hasNext()) {
+                                if (expandedPair.equals((ExpandedPair) it3.next())) {
+                                    z2 = true;
+                                    continue;
+                                    break;
+                                }
+                            } else {
+                                z2 = false;
+                                continue;
+                                break;
+                            }
+                        }
+                        if (!z2) {
                             break;
                         }
-                    }
-                    if (!z2) {
+                    } else {
+                        z = true;
+                        continue;
                         break;
                     }
                 }
@@ -383,34 +576,37 @@ public final class RSSExpandedReader extends AbstractRSSReader {
         return invokeLL.booleanValue;
     }
 
-    public static boolean isValidSequence(List<ExpandedPair> list) {
-        InterceptResult invokeL;
-        int[][] iArr;
-        boolean z;
+    public List decodeRow2pairs(int i, BitArray bitArray) throws NotFoundException {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, list)) == null) {
-            for (int[] iArr2 : FINDER_PATTERN_SEQUENCES) {
-                if (list.size() <= iArr2.length) {
-                    int i = 0;
-                    while (true) {
-                        if (i >= list.size()) {
-                            z = true;
-                            break;
-                        } else if (list.get(i).getFinderPattern().getValue() != iArr2[i]) {
-                            z = false;
-                            break;
-                        } else {
-                            i++;
+        if (interceptable != null && (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bitArray)) != null) {
+            return (List) invokeIL.objValue;
+        }
+        while (true) {
+            try {
+                this.pairs.add(retrieveNextPair(bitArray, this.pairs, i));
+            } catch (NotFoundException e) {
+                if (!this.pairs.isEmpty()) {
+                    if (checkChecksum()) {
+                        return this.pairs;
+                    }
+                    boolean z = !this.rows.isEmpty();
+                    storeRow(i, false);
+                    if (z) {
+                        List checkRows = checkRows(false);
+                        if (checkRows != null) {
+                            return checkRows;
+                        }
+                        List checkRows2 = checkRows(true);
+                        if (checkRows2 != null) {
+                            return checkRows2;
                         }
                     }
-                    if (z) {
-                        return true;
-                    }
+                    throw NotFoundException.getNotFoundInstance();
                 }
+                throw e;
             }
-            return false;
         }
-        return invokeL.booleanValue;
     }
 
     private FinderPattern parseFoundFinderPattern(BitArray bitArray, int i, boolean z) {
@@ -450,248 +646,18 @@ public final class RSSExpandedReader extends AbstractRSSReader {
         return (FinderPattern) invokeCommon.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x0050, code lost:
-        continue;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void removePartialRows(List<ExpandedPair> list, List<ExpandedRow> list2) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65549, null, list, list2) == null) {
-            Iterator<ExpandedRow> it = list2.iterator();
-            while (it.hasNext()) {
-                ExpandedRow next = it.next();
-                if (next.getPairs().size() != list.size()) {
-                    Iterator<ExpandedPair> it2 = next.getPairs().iterator();
-                    while (true) {
-                        z = false;
-                        boolean z2 = true;
-                        if (!it2.hasNext()) {
-                            z = true;
-                            break;
-                        }
-                        ExpandedPair next2 = it2.next();
-                        Iterator<ExpandedPair> it3 = list.iterator();
-                        while (true) {
-                            if (!it3.hasNext()) {
-                                z2 = false;
-                                continue;
-                                break;
-                            } else if (next2.equals(it3.next())) {
-                                break;
-                            }
-                        }
-                        if (!z2) {
-                            break;
-                        }
-                    }
-                    if (z) {
-                        it.remove();
-                    }
-                }
-            }
-        }
-    }
-
-    public static void reverseCounters(int[] iArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, null, iArr) == null) {
-            int length = iArr.length;
-            for (int i = 0; i < length / 2; i++) {
-                int i2 = iArr[i];
-                int i3 = (length - i) - 1;
-                iArr[i] = iArr[i3];
-                iArr[i3] = i2;
-            }
-        }
-    }
-
-    private void storeRow(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65551, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            boolean z2 = false;
-            int i2 = 0;
-            boolean z3 = false;
-            while (true) {
-                if (i2 >= this.rows.size()) {
-                    break;
-                }
-                ExpandedRow expandedRow = this.rows.get(i2);
-                if (expandedRow.getRowNumber() > i) {
-                    z2 = expandedRow.isEquivalent(this.pairs);
-                    break;
-                } else {
-                    z3 = expandedRow.isEquivalent(this.pairs);
-                    i2++;
-                }
-            }
-            if (z2 || z3 || isPartialRow(this.pairs, this.rows)) {
-                return;
-            }
-            this.rows.add(i2, new ExpandedRow(this.pairs, i, z));
-            removePartialRows(this.pairs, this.rows);
-        }
-    }
-
-    public DataCharacter decodeDataCharacter(BitArray bitArray, FinderPattern finderPattern, boolean z, boolean z2) throws NotFoundException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{bitArray, finderPattern, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            int[] dataCharacterCounters = getDataCharacterCounters();
-            dataCharacterCounters[0] = 0;
-            dataCharacterCounters[1] = 0;
-            dataCharacterCounters[2] = 0;
-            dataCharacterCounters[3] = 0;
-            dataCharacterCounters[4] = 0;
-            dataCharacterCounters[5] = 0;
-            dataCharacterCounters[6] = 0;
-            dataCharacterCounters[7] = 0;
-            if (z2) {
-                OneDReader.recordPatternInReverse(bitArray, finderPattern.getStartEnd()[0], dataCharacterCounters);
-            } else {
-                OneDReader.recordPattern(bitArray, finderPattern.getStartEnd()[1], dataCharacterCounters);
-                int i = 0;
-                for (int length = dataCharacterCounters.length - 1; i < length; length--) {
-                    int i2 = dataCharacterCounters[i];
-                    dataCharacterCounters[i] = dataCharacterCounters[length];
-                    dataCharacterCounters[length] = i2;
-                    i++;
-                }
-            }
-            float sum = MathUtils.sum(dataCharacterCounters) / 17.0f;
-            float f = (finderPattern.getStartEnd()[1] - finderPattern.getStartEnd()[0]) / 15.0f;
-            if (Math.abs(sum - f) / f <= 0.3f) {
-                int[] oddCounts = getOddCounts();
-                int[] evenCounts = getEvenCounts();
-                float[] oddRoundingErrors = getOddRoundingErrors();
-                float[] evenRoundingErrors = getEvenRoundingErrors();
-                for (int i3 = 0; i3 < dataCharacterCounters.length; i3++) {
-                    float f2 = (dataCharacterCounters[i3] * 1.0f) / sum;
-                    int i4 = (int) (0.5f + f2);
-                    if (i4 <= 0) {
-                        if (f2 < 0.3f) {
-                            throw NotFoundException.getNotFoundInstance();
-                        }
-                        i4 = 1;
-                    } else if (i4 > 8) {
-                        if (f2 > 8.7f) {
-                            throw NotFoundException.getNotFoundInstance();
-                        }
-                        i4 = 8;
-                    }
-                    int i5 = i3 / 2;
-                    if ((i3 & 1) == 0) {
-                        oddCounts[i5] = i4;
-                        oddRoundingErrors[i5] = f2 - i4;
-                    } else {
-                        evenCounts[i5] = i4;
-                        evenRoundingErrors[i5] = f2 - i4;
-                    }
-                }
-                adjustOddEvenCounts(17);
-                int value = (((finderPattern.getValue() * 4) + (z ? 0 : 2)) + (!z2 ? 1 : 0)) - 1;
-                int i6 = 0;
-                int i7 = 0;
-                for (int length2 = oddCounts.length - 1; length2 >= 0; length2--) {
-                    if (isNotA1left(finderPattern, z, z2)) {
-                        i6 += oddCounts[length2] * WEIGHTS[value][length2 * 2];
-                    }
-                    i7 += oddCounts[length2];
-                }
-                int i8 = 0;
-                for (int length3 = evenCounts.length - 1; length3 >= 0; length3--) {
-                    if (isNotA1left(finderPattern, z, z2)) {
-                        i8 += evenCounts[length3] * WEIGHTS[value][(length3 * 2) + 1];
-                    }
-                }
-                int i9 = i6 + i8;
-                if ((i7 & 1) == 0 && i7 <= 13 && i7 >= 4) {
-                    int i10 = (13 - i7) / 2;
-                    int i11 = SYMBOL_WIDEST[i10];
-                    return new DataCharacter((RSSUtils.getRSSvalue(oddCounts, i11, true) * EVEN_TOTAL_SUBSET[i10]) + RSSUtils.getRSSvalue(evenCounts, 9 - i11, false) + GSUM[i10], i9);
-                }
-                throw NotFoundException.getNotFoundInstance();
-            }
-            throw NotFoundException.getNotFoundInstance();
-        }
-        return (DataCharacter) invokeCommon.objValue;
-    }
-
-    @Override // com.google.zxing.oned.OneDReader
-    public Result decodeRow(int i, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException, FormatException {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bitArray, map)) == null) {
-            this.pairs.clear();
-            this.startFromEven = false;
-            try {
-                return constructResult(decodeRow2pairs(i, bitArray));
-            } catch (NotFoundException unused) {
-                this.pairs.clear();
-                this.startFromEven = true;
-                return constructResult(decodeRow2pairs(i, bitArray));
-            }
-        }
-        return (Result) invokeILL.objValue;
-    }
-
-    public List<ExpandedPair> decodeRow2pairs(int i, BitArray bitArray) throws NotFoundException {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bitArray)) != null) {
-            return (List) invokeIL.objValue;
-        }
-        while (true) {
-            try {
-                this.pairs.add(retrieveNextPair(bitArray, this.pairs, i));
-            } catch (NotFoundException e) {
-                if (!this.pairs.isEmpty()) {
-                    if (checkChecksum()) {
-                        return this.pairs;
-                    }
-                    boolean z = !this.rows.isEmpty();
-                    storeRow(i, false);
-                    if (z) {
-                        List<ExpandedPair> checkRows = checkRows(false);
-                        if (checkRows != null) {
-                            return checkRows;
-                        }
-                        List<ExpandedPair> checkRows2 = checkRows(true);
-                        if (checkRows2 != null) {
-                            return checkRows2;
-                        }
-                    }
-                    throw NotFoundException.getNotFoundInstance();
-                }
-                throw e;
-            }
-        }
-    }
-
-    public List<ExpandedRow> getRows() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.rows : (List) invokeV.objValue;
-    }
-
-    @Override // com.google.zxing.oned.OneDReader, com.google.zxing.Reader
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.pairs.clear();
-            this.rows.clear();
-        }
-    }
-
-    public ExpandedPair retrieveNextPair(BitArray bitArray, List<ExpandedPair> list, int i) throws NotFoundException {
+    public ExpandedPair retrieveNextPair(BitArray bitArray, List list, int i) throws NotFoundException {
         InterceptResult invokeLLI;
+        boolean z;
         FinderPattern parseFoundFinderPattern;
         DataCharacter dataCharacter;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048581, this, bitArray, list, i)) == null) {
-            boolean z = list.size() % 2 == 0;
+            if (list.size() % 2 == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
             if (this.startFromEven) {
                 z = !z;
             }
@@ -709,7 +675,7 @@ public final class RSSExpandedReader extends AbstractRSSReader {
                 }
             } while (z2);
             DataCharacter decodeDataCharacter = decodeDataCharacter(bitArray, parseFoundFinderPattern, z, true);
-            if (!list.isEmpty() && list.get(list.size() - 1).mustBeLast()) {
+            if (!list.isEmpty() && ((ExpandedPair) list.get(list.size() - 1)).mustBeLast()) {
                 throw NotFoundException.getNotFoundInstance();
             }
             try {
@@ -722,34 +688,127 @@ public final class RSSExpandedReader extends AbstractRSSReader {
         return (ExpandedPair) invokeLLI.objValue;
     }
 
-    private List<ExpandedPair> checkRows(List<ExpandedRow> list, int i) throws NotFoundException {
-        InterceptResult invokeLI;
+    public static void reverseCounters(int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, list, i)) == null) {
-            while (i < this.rows.size()) {
-                ExpandedRow expandedRow = this.rows.get(i);
-                this.pairs.clear();
-                for (ExpandedRow expandedRow2 : list) {
-                    this.pairs.addAll(expandedRow2.getPairs());
+        if (interceptable == null || interceptable.invokeL(65550, null, iArr) == null) {
+            int length = iArr.length;
+            for (int i = 0; i < length / 2; i++) {
+                int i2 = iArr[i];
+                int i3 = (length - i) - 1;
+                iArr[i] = iArr[i3];
+                iArr[i3] = i2;
+            }
+        }
+    }
+
+    public DataCharacter decodeDataCharacter(BitArray bitArray, FinderPattern finderPattern, boolean z, boolean z2) throws NotFoundException {
+        InterceptResult invokeCommon;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{bitArray, finderPattern, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            int[] dataCharacterCounters = getDataCharacterCounters();
+            dataCharacterCounters[0] = 0;
+            dataCharacterCounters[1] = 0;
+            dataCharacterCounters[2] = 0;
+            dataCharacterCounters[3] = 0;
+            dataCharacterCounters[4] = 0;
+            dataCharacterCounters[5] = 0;
+            dataCharacterCounters[6] = 0;
+            dataCharacterCounters[7] = 0;
+            if (z2) {
+                OneDReader.recordPatternInReverse(bitArray, finderPattern.getStartEnd()[0], dataCharacterCounters);
+            } else {
+                OneDReader.recordPattern(bitArray, finderPattern.getStartEnd()[1], dataCharacterCounters);
+                int i2 = 0;
+                for (int length = dataCharacterCounters.length - 1; i2 < length; length--) {
+                    int i3 = dataCharacterCounters[i2];
+                    dataCharacterCounters[i2] = dataCharacterCounters[length];
+                    dataCharacterCounters[length] = i3;
+                    i2++;
                 }
-                this.pairs.addAll(expandedRow.getPairs());
-                if (isValidSequence(this.pairs)) {
-                    if (checkChecksum()) {
-                        return this.pairs;
+            }
+            float sum = MathUtils.sum(dataCharacterCounters) / 17.0f;
+            float f = (finderPattern.getStartEnd()[1] - finderPattern.getStartEnd()[0]) / 15.0f;
+            if (Math.abs(sum - f) / f <= 0.3f) {
+                int[] oddCounts = getOddCounts();
+                int[] evenCounts = getEvenCounts();
+                float[] oddRoundingErrors = getOddRoundingErrors();
+                float[] evenRoundingErrors = getEvenRoundingErrors();
+                for (int i4 = 0; i4 < dataCharacterCounters.length; i4++) {
+                    float f2 = (dataCharacterCounters[i4] * 1.0f) / sum;
+                    int i5 = (int) (0.5f + f2);
+                    if (i5 <= 0) {
+                        if (f2 >= 0.3f) {
+                            i5 = 1;
+                        } else {
+                            throw NotFoundException.getNotFoundInstance();
+                        }
+                    } else if (i5 > 8) {
+                        if (f2 <= 8.7f) {
+                            i5 = 8;
+                        } else {
+                            throw NotFoundException.getNotFoundInstance();
+                        }
                     }
-                    ArrayList arrayList = new ArrayList();
-                    arrayList.addAll(list);
-                    arrayList.add(expandedRow);
-                    try {
-                        return checkRows(arrayList, i + 1);
-                    } catch (NotFoundException unused) {
-                        continue;
+                    int i6 = i4 / 2;
+                    if ((i4 & 1) == 0) {
+                        oddCounts[i6] = i5;
+                        oddRoundingErrors[i6] = f2 - i5;
+                    } else {
+                        evenCounts[i6] = i5;
+                        evenRoundingErrors[i6] = f2 - i5;
                     }
                 }
-                i++;
+                adjustOddEvenCounts(17);
+                int value = finderPattern.getValue() * 4;
+                if (z) {
+                    i = 0;
+                } else {
+                    i = 2;
+                }
+                int i7 = ((value + i) + (!z2 ? 1 : 0)) - 1;
+                int i8 = 0;
+                int i9 = 0;
+                for (int length2 = oddCounts.length - 1; length2 >= 0; length2--) {
+                    if (isNotA1left(finderPattern, z, z2)) {
+                        i8 += oddCounts[length2] * WEIGHTS[i7][length2 * 2];
+                    }
+                    i9 += oddCounts[length2];
+                }
+                int i10 = 0;
+                for (int length3 = evenCounts.length - 1; length3 >= 0; length3--) {
+                    if (isNotA1left(finderPattern, z, z2)) {
+                        i10 += evenCounts[length3] * WEIGHTS[i7][(length3 * 2) + 1];
+                    }
+                }
+                int i11 = i8 + i10;
+                if ((i9 & 1) == 0 && i9 <= 13 && i9 >= 4) {
+                    int i12 = (13 - i9) / 2;
+                    int i13 = SYMBOL_WIDEST[i12];
+                    return new DataCharacter((RSSUtils.getRSSvalue(oddCounts, i13, true) * EVEN_TOTAL_SUBSET[i12]) + RSSUtils.getRSSvalue(evenCounts, 9 - i13, false) + GSUM[i12], i11);
+                }
+                throw NotFoundException.getNotFoundInstance();
             }
             throw NotFoundException.getNotFoundInstance();
         }
-        return (List) invokeLI.objValue;
+        return (DataCharacter) invokeCommon.objValue;
+    }
+
+    public List getRows() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.rows;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.google.zxing.oned.OneDReader, com.google.zxing.Reader
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.pairs.clear();
+            this.rows.clear();
+        }
     }
 }

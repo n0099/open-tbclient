@@ -21,6 +21,13 @@ public class MetricsHttpEncryptUtil extends AbstractStatisHttpUtil {
     public String mLastSmkData;
     public RsaCipher mRsaCipher;
 
+    @Override // com.yy.hiidostatis.inner.util.http.AbstractStatisHttpUtil
+    public String getUrlFormat() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "http://%s/c.gif" : (String) invokeV.objValue;
+    }
+
     public MetricsHttpEncryptUtil() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -56,40 +63,67 @@ public class MetricsHttpEncryptUtil extends AbstractStatisHttpUtil {
     public String getHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? HiidoSDK.getHiidoHost() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return HiidoSDK.getHiidoHost();
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getLastHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mLastHost : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mLastHost;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getLastSmkData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mLastSmkData : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mLastSmkData;
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // com.yy.hiidostatis.inner.util.http.AbstractStatisHttpUtil
     public String[] getUrlAddress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? HiidoSDK.getHiidoIps() : (String[]) invokeV.objValue;
-    }
-
-    @Override // com.yy.hiidostatis.inner.util.http.AbstractStatisHttpUtil
-    public String getUrlFormat() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "http://%s/c.gif" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return HiidoSDK.getHiidoIps();
+        }
+        return (String[]) invokeV.objValue;
     }
 
     @Override // com.yy.hiidostatis.inner.util.http.AbstractStatisHttpUtil
     public String getUrlService() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? String.format("http://%s/c.gif", HiidoSDK.getHiidoHost()) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return String.format("http://%s/c.gif", HiidoSDK.getHiidoHost());
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Deprecated
+    public MetricsHttpEncryptUtil(String str, String[] strArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, strArr};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mRsaCipher = null;
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
@@ -409,24 +443,5 @@ public class MetricsHttpEncryptUtil extends AbstractStatisHttpUtil {
             return r1
         */
         throw new UnsupportedOperationException("Method not decompiled: com.yy.hiidostatis.inner.util.http.MetricsHttpEncryptUtil.sendContent(java.lang.String, java.lang.String, int):boolean");
-    }
-
-    @Deprecated
-    public MetricsHttpEncryptUtil(String str, String[] strArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, strArr};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mRsaCipher = null;
     }
 }

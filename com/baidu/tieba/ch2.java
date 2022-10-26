@@ -1,303 +1,132 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.appcompat.widget.ActivityChooserModel;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.storage.swankv.SwanKV;
-import com.baidu.swan.apps.core.container.NgWebView;
-import com.baidu.swan.apps.database.SwanAppDbControl;
+import android.util.Base64;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStreamReader;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.zip.GZIPInputStream;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ch2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final byte[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes3.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ch2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-890388738, "Lcom/baidu/tieba/ch2$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-890388738, "Lcom/baidu/tieba/ch2$b;");
-                    return;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947674684, "Lcom/baidu/tieba/ch2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            a = new ch2(null);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947674684, "Lcom/baidu/tieba/ch2;");
+                return;
+            }
         }
+        a = wj1.a;
+        b = new byte[]{31, -117};
     }
 
-    public /* synthetic */ ch2(a aVar) {
-        this();
-    }
-
-    public static ch2 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (ch2) invokeV.objValue;
-    }
-
-    public final boolean a(File file, File file2) {
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, THROW, INVOKE, MOVE_EXCEPTION, INVOKE, THROW, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION, THROW, THROW, THROW, INVOKE, MOVE_EXCEPTION, INVOKE, THROW, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION] complete} */
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public static File a(byte[] bArr, File file) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, file2)) == null) {
-            if (file != null && file.exists() && file2 != null) {
-                if (!file2.exists()) {
-                    pj4.l(file2);
-                }
-                String[] list = file.list();
-                if (list != null && list.length != 0) {
-                    for (String str : list) {
-                        if (!TextUtils.isEmpty(str)) {
-                            File file3 = new File(file, str);
-                            if (file3.exists()) {
-                                boolean isFile = file3.isFile();
-                                File file4 = new File(file2, str);
-                                if (file4.exists()) {
-                                    pj4.j(file4);
-                                }
-                                if (isFile) {
-                                    pj4.h(file4);
-                                    pj4.f(file3, file4);
-                                } else if (file3.isDirectory()) {
-                                    pj4.e(file3, file4);
-                                }
-                            }
-                        }
-                    }
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final boolean b(@NonNull File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file)) == null) {
-            if (file.exists() && file.isDirectory()) {
-                File file2 = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/");
-                File file3 = new File(cc3.e());
-                File[] listFiles = file.listFiles();
-                if (listFiles != null && listFiles.length != 0) {
-                    pj4.l(file2);
-                    pj4.l(file3);
-                    File file4 = null;
-                    for (File file5 : listFiles) {
-                        String name = file5.getName();
-                        if (!TextUtils.isEmpty(name)) {
-                            if (name.endsWith(ActivityChooserModel.HISTORY_FILE_EXTENSION)) {
-                                file4 = new File(file2, name);
-                            } else if (name.endsWith(SwanKV.PREFS_SUFFIX)) {
-                                file4 = new File(file3, name);
-                            }
-                            if (file4 != null) {
-                                if (file4.exists()) {
-                                    pj4.L(file4);
-                                }
-                                if (file5.isFile()) {
-                                    pj4.h(file4);
-                                    pj4.f(file5, file4);
-                                } else {
-                                    pj4.e(file5, file4);
-                                }
-                            }
-                        }
-                    }
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean e(String str, File file) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, file)) == null) {
-            if (file == null || !file.exists()) {
-                return false;
-            }
-            return a(new File(file, dh2.h), dh2.a);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public boolean f(String str, File file) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, file)) == null) {
-            if (file == null || !file.exists()) {
-                return false;
-            }
-            boolean a2 = a(new File(file, dh2.k), new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, NgWebView.APP_DATABASE_PATH));
-            SwanAppDbControl.f(AppRuntime.getAppContext()).p();
-            bc4.a().e();
-            sm2.g0().E();
-            return a2;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public boolean g(String str, File file) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, file)) == null) {
-            if (file == null || !file.exists()) {
-                return false;
-            }
-            return a(new File(file, dh2.i), AppRuntime.getAppContext().getFilesDir());
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public boolean h(String str, File file) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, file)) == null) {
-            if (TextUtils.isEmpty(str) || file == null || !file.exists()) {
-                return false;
-            }
-            return b(new File(file, dh2.j));
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public boolean i(String str) {
-        InterceptResult invokeL;
-        String str2;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            ah2.n().p("installSwanApp start, appKey = " + str);
-            File a2 = dh2.a();
-            if (a2 != null && a2.exists()) {
-                File file = new File(a2, dh2.m);
-                if (!file.exists()) {
-                    ah2.n().p("installSwanApp clone_zipFiles file not exists");
-                    return false;
-                }
-                File a3 = bh2.a(pj4.G(file), a2);
-                if (a3 != null && a3.exists()) {
-                    File file2 = new File(dh2.d);
-                    if (file2.exists()) {
-                        pj4.L(file2);
-                    }
-                    if (!pj4.l(file2)) {
-                        ah2.n().p("installSwanApp root cache dir create fail");
-                        return false;
-                    }
-                    boolean z = pj4.W(a3.getAbsolutePath(), dh2.d) == null;
-                    if (z) {
-                        pj4.j(file);
-                        pj4.j(a3);
-                    }
-                    ah2.n().p("unzip file status = " + z);
-                    File file3 = new File(dh2.d);
-                    String[] list = file3.list();
-                    if (list != null && list.length != 0) {
-                        int length = list.length;
-                        int i = 0;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, file)) == null) {
+            if (bArr != null && bArr.length >= 2 && file != null && file.exists()) {
+                byte[] bArr2 = b;
+                bArr[0] = bArr2[0];
+                bArr[1] = bArr2[1];
+                try {
+                    ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+                    GZIPInputStream gZIPInputStream = new GZIPInputStream(byteArrayInputStream);
+                    InputStreamReader inputStreamReader = new InputStreamReader(gZIPInputStream);
+                    BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                    try {
+                        StringBuilder sb = new StringBuilder();
                         while (true) {
-                            str2 = null;
-                            if (i >= length) {
-                                str3 = null;
+                            String readLine = bufferedReader.readLine();
+                            if (readLine == null) {
                                 break;
                             }
-                            String str4 = list[i];
-                            if (!TextUtils.isEmpty(str4) && str4.startsWith(dh2.e)) {
-                                str2 = str4.substring(dh2.e.length());
-                                str3 = str4;
-                                break;
-                            }
-                            i++;
+                            sb.append(readLine);
                         }
-                        if (TextUtils.equals(str, str2) && !TextUtils.isEmpty(str3)) {
-                            File file4 = new File(dh2.d, str3);
-                            boolean j = j(str, file4);
-                            boolean e = e(str, file4);
-                            boolean h = h(str, file4);
-                            boolean f = f(str, file4);
-                            boolean d = d(str);
-                            boolean g = g(str, file4);
-                            ah2.n().p("installSwanPkg = " + j + " ; installCore = " + e + " ; installSp = " + h + " ; installDb = " + f + " ; installAbTest = " + d + " ; installDynamicLib = " + g);
-                            return pj4.j(file3);
+                        if (a) {
+                            Log.d("SwanAppCloneModule", "first char:" + sb.charAt(0));
                         }
-                        ah2.n().p("installSwanApp install appKey not match zip file appKey");
-                        return false;
+                        String string = new JSONObject(sb.toString()).getString(eh2.l);
+                        if (a) {
+                            Log.d("SwanAppCloneModule", string);
+                        }
+                        byte[] doFinal = b(2).doFinal(Base64.decode(string, 0));
+                        File file2 = new File(file, eh2.l);
+                        new FileOutputStream(file2).write(doFinal);
+                        if (a) {
+                            Log.d("SwanAppCloneModule", file2.getAbsolutePath());
+                        }
+                        bufferedReader.close();
+                        inputStreamReader.close();
+                        gZIPInputStream.close();
+                        byteArrayInputStream.close();
+                        return file2;
+                    } finally {
                     }
-                    ah2.n().p("installSwanApp unzip file length invalid");
-                    return false;
+                } catch (Exception e) {
+                    if (a) {
+                        e.printStackTrace();
+                    }
                 }
-                ah2.n().p("installSwanApp cloneZip.zip file not exists");
             }
-            return false;
+            return null;
         }
-        return invokeL.booleanValue;
+        return (File) invokeLL.objValue;
     }
 
-    public boolean j(String str, File file) {
-        InterceptResult invokeLL;
+    public static Cipher b(int i) throws Exception {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, file)) == null) {
-            if (file == null || !file.exists()) {
-                return false;
-            }
-            return a(new File(file, dh2.g), dh2.a);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
+            cipher.init(i, new SecretKeySpec(c("la32118_p9d8#*!6)".getBytes()).substring(16).getBytes(), "AES"), new IvParameterSpec("2081147213143090".getBytes()));
+            return cipher;
         }
-        return invokeLL.booleanValue;
+        return (Cipher) invokeI.objValue;
     }
 
-    public ch2() {
+    public static String c(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                messageDigest.update(bArr);
+                return qj4.T(messageDigest.digest(), "", false);
+            } catch (NoSuchAlgorithmException e) {
+                if (a) {
+                    e.printStackTrace();
+                    return null;
+                }
+                return null;
             }
         }
+        return (String) invokeL.objValue;
     }
 }

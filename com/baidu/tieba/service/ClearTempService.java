@@ -27,6 +27,16 @@ public class ClearTempService extends BdBaseService {
     public volatile boolean interrupted;
     public Thread thread;
 
+    @Override // android.app.Service
+    public IBinder onBind(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
+            return null;
+        }
+        return (IBinder) invokeL.objValue;
+    }
+
     /* loaded from: classes5.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
@@ -126,6 +136,15 @@ public class ClearTempService extends BdBaseService {
         this.handler = new a(this);
     }
 
+    @Override // android.app.Service
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.onDestroy();
+            this.interrupted = true;
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void deleteCache(File file, boolean z) {
         Interceptable interceptable = $ic;
@@ -148,10 +167,9 @@ public class ClearTempService extends BdBaseService {
                 }
             } catch (Throwable th) {
                 BdLog.e(th.getMessage());
-                if (z) {
-                    return;
+                if (!z) {
+                    deleteImageCacheByName();
                 }
-                deleteImageCacheByName();
             }
         }
     }
@@ -186,25 +204,6 @@ public class ClearTempService extends BdBaseService {
                     deleteCache(file, true);
                 }
             }
-        }
-    }
-
-    @Override // android.app.Service
-    public IBinder onBind(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
-            return null;
-        }
-        return (IBinder) invokeL.objValue;
-    }
-
-    @Override // android.app.Service
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.onDestroy();
-            this.interrupted = true;
         }
     }
 

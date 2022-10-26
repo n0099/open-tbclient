@@ -88,15 +88,15 @@ public class IMMarkMsgReadedMsg extends Message {
                 long longExtra2 = intent.getLongExtra("msgid", -1L);
                 long longExtra3 = intent.getLongExtra(Constants.EXTRA_CLIENT_MAX_MSGID, -1L);
                 boolean booleanExtra = intent.getBooleanExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, false);
-                if (-1 == longExtra || -1 == intExtra) {
-                    return null;
+                if (-1 != longExtra && -1 != intExtra) {
+                    IMMarkMsgReadedMsg iMMarkMsgReadedMsg = new IMMarkMsgReadedMsg(context, intExtra, longExtra, longExtra2, longExtra3, booleanExtra);
+                    if (IMConfigInternal.getInstance().getIMConfig(context).isNeedPaid()) {
+                        iMMarkMsgReadedMsg.setPaid(intent.getLongExtra(Constants.EXTRA_PA_ID, -1L));
+                    }
+                    Message.saveCmdMessage(context, iMMarkMsgReadedMsg, null, iMMarkMsgReadedMsg.getPriority());
+                    return iMMarkMsgReadedMsg;
                 }
-                IMMarkMsgReadedMsg iMMarkMsgReadedMsg = new IMMarkMsgReadedMsg(context, intExtra, longExtra, longExtra2, longExtra3, booleanExtra);
-                if (IMConfigInternal.getInstance().getIMConfig(context).isNeedPaid()) {
-                    iMMarkMsgReadedMsg.setPaid(intent.getLongExtra(Constants.EXTRA_PA_ID, -1L));
-                }
-                Message.saveCmdMessage(context, iMMarkMsgReadedMsg, null, iMMarkMsgReadedMsg.getPriority());
-                return iMMarkMsgReadedMsg;
+                return null;
             }
             return null;
         }
@@ -105,10 +105,20 @@ public class IMMarkMsgReadedMsg extends Message {
 
     public static IMMarkMsgReadedMsg parseBody(Context context, String str, String str2, String str3) throws Exception {
         InterceptResult invokeLLLL;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, context, str, str2, str3)) == null) {
             JSONObject jSONObject = new JSONObject(str2);
-            IMMarkMsgReadedMsg iMMarkMsgReadedMsg = new IMMarkMsgReadedMsg(context, jSONObject.optLong("category"), jSONObject.optLong("to"), jSONObject.optLong("msgid"), jSONObject.optLong(Constants.EXTRA_CLIENT_MAX_MSGID, -1L), jSONObject.optInt("tpl") == Constants.getTplZhida(context));
+            long optLong = jSONObject.optLong("category");
+            long optLong2 = jSONObject.optLong("to");
+            long optLong3 = jSONObject.optLong("msgid");
+            long optLong4 = jSONObject.optLong(Constants.EXTRA_CLIENT_MAX_MSGID, -1L);
+            if (jSONObject.optInt("tpl") == Constants.getTplZhida(context)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            IMMarkMsgReadedMsg iMMarkMsgReadedMsg = new IMMarkMsgReadedMsg(context, optLong, optLong2, optLong3, optLong4, z);
             iMMarkMsgReadedMsg.setUUID(str);
             if (IMConfigInternal.getInstance().getIMConfig(context).isNeedPaid()) {
                 iMMarkMsgReadedMsg.setPaid(jSONObject.getLong("pa_uid"));

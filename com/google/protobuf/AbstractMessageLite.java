@@ -13,11 +13,329 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Collection;
-import java.util.Iterator;
 /* loaded from: classes7.dex */
 public abstract class AbstractMessageLite implements MessageLite {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes7.dex */
+    public abstract class Builder implements MessageLite.Builder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLite.Builder
+        public abstract Builder clone();
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLite.Builder
+        public abstract Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException;
+
+        /* loaded from: classes7.dex */
+        public final class LimitedInputStream extends FilterInputStream {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public int limit;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            public LimitedInputStream(InputStream inputStream, int i) {
+                super(inputStream);
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {inputStream, Integer.valueOf(i)};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        super((InputStream) newInitContext.callArgs[0]);
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.limit = i;
+            }
+
+            @Override // java.io.FilterInputStream, java.io.InputStream
+            public int available() throws IOException {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    return Math.min(super.available(), this.limit);
+                }
+                return invokeV.intValue;
+            }
+
+            @Override // java.io.FilterInputStream, java.io.InputStream
+            public int read() throws IOException {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    if (this.limit <= 0) {
+                        return -1;
+                    }
+                    int read = super.read();
+                    if (read >= 0) {
+                        this.limit--;
+                    }
+                    return read;
+                }
+                return invokeV.intValue;
+            }
+
+            @Override // java.io.FilterInputStream, java.io.InputStream
+            public int read(byte[] bArr, int i, int i2) throws IOException {
+                InterceptResult invokeLII;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2)) == null) {
+                    int i3 = this.limit;
+                    if (i3 <= 0) {
+                        return -1;
+                    }
+                    int read = super.read(bArr, i, Math.min(i2, i3));
+                    if (read >= 0) {
+                        this.limit -= read;
+                    }
+                    return read;
+                }
+                return invokeLII.intValue;
+            }
+
+            @Override // java.io.FilterInputStream, java.io.InputStream
+            public long skip(long j) throws IOException {
+                InterceptResult invokeJ;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
+                    long skip = super.skip(Math.min(j, this.limit));
+                    if (skip >= 0) {
+                        this.limit = (int) (this.limit - skip);
+                    }
+                    return skip;
+                }
+                return invokeJ.longValue;
+            }
+        }
+
+        public Builder() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public static void addAll(Iterable iterable, Collection collection) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(65537, null, iterable, collection) == null) {
+                if (iterable instanceof LazyStringList) {
+                    checkForNullValues(((LazyStringList) iterable).getUnderlyingElements());
+                } else {
+                    checkForNullValues(iterable);
+                }
+                if (iterable instanceof Collection) {
+                    collection.addAll((Collection) iterable);
+                    return;
+                }
+                for (Object obj : iterable) {
+                    collection.add(obj);
+                }
+            }
+        }
+
+        public static void checkForNullValues(Iterable iterable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(65538, null, iterable) == null) {
+                for (Object obj : iterable) {
+                    if (obj == null) {
+                        throw null;
+                    }
+                }
+            }
+        }
+
+        public static UninitializedMessageException newUninitializedMessageException(MessageLite messageLite) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, messageLite)) == null) {
+                return new UninitializedMessageException(messageLite);
+            }
+            return (UninitializedMessageException) invokeL.objValue;
+        }
+
+        @Override // com.google.protobuf.MessageLite.Builder
+        public boolean mergeDelimitedFrom(InputStream inputStream) throws IOException {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, inputStream)) == null) {
+                return mergeDelimitedFrom(inputStream, ExtensionRegistryLite.getEmptyRegistry());
+            }
+            return invokeL.booleanValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLite.Builder
+        public Builder mergeFrom(ByteString byteString) throws InvalidProtocolBufferException {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, byteString)) == null) {
+                try {
+                    CodedInputStream newCodedInput = byteString.newCodedInput();
+                    mergeFrom(newCodedInput);
+                    newCodedInput.checkLastTagWas(0);
+                    return this;
+                } catch (InvalidProtocolBufferException e) {
+                    throw e;
+                } catch (IOException e2) {
+                    throw new RuntimeException("Reading from a ByteString threw an IOException (should never happen).", e2);
+                }
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        @Override // com.google.protobuf.MessageLite.Builder
+        public boolean mergeDelimitedFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, inputStream, extensionRegistryLite)) == null) {
+                int read = inputStream.read();
+                if (read == -1) {
+                    return false;
+                }
+                mergeFrom((InputStream) new LimitedInputStream(inputStream, CodedInputStream.readRawVarint32(read, inputStream)), extensionRegistryLite);
+                return true;
+            }
+            return invokeLL.booleanValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLite.Builder
+        public Builder mergeFrom(ByteString byteString, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, byteString, extensionRegistryLite)) == null) {
+                try {
+                    CodedInputStream newCodedInput = byteString.newCodedInput();
+                    mergeFrom(newCodedInput, extensionRegistryLite);
+                    newCodedInput.checkLastTagWas(0);
+                    return this;
+                } catch (InvalidProtocolBufferException e) {
+                    throw e;
+                } catch (IOException e2) {
+                    throw new RuntimeException("Reading from a ByteString threw an IOException (should never happen).", e2);
+                }
+            }
+            return (Builder) invokeLL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLite.Builder
+        public Builder mergeFrom(CodedInputStream codedInputStream) throws IOException {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, codedInputStream)) == null) {
+                return mergeFrom(codedInputStream, ExtensionRegistryLite.getEmptyRegistry());
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLite.Builder
+        public Builder mergeFrom(InputStream inputStream) throws IOException {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, inputStream)) == null) {
+                CodedInputStream newInstance = CodedInputStream.newInstance(inputStream);
+                mergeFrom(newInstance);
+                newInstance.checkLastTagWas(0);
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLite.Builder
+        public Builder mergeFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, inputStream, extensionRegistryLite)) == null) {
+                CodedInputStream newInstance = CodedInputStream.newInstance(inputStream);
+                mergeFrom(newInstance, extensionRegistryLite);
+                newInstance.checkLastTagWas(0);
+                return this;
+            }
+            return (Builder) invokeLL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLite.Builder
+        public Builder mergeFrom(byte[] bArr) throws InvalidProtocolBufferException {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, bArr)) == null) {
+                return mergeFrom(bArr, 0, bArr.length);
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLite.Builder
+        public Builder mergeFrom(byte[] bArr, int i, int i2) throws InvalidProtocolBufferException {
+            InterceptResult invokeLII;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048588, this, bArr, i, i2)) == null) {
+                try {
+                    CodedInputStream newInstance = CodedInputStream.newInstance(bArr, i, i2);
+                    mergeFrom(newInstance);
+                    newInstance.checkLastTagWas(0);
+                    return this;
+                } catch (InvalidProtocolBufferException e) {
+                    throw e;
+                } catch (IOException e2) {
+                    throw new RuntimeException("Reading from a byte array threw an IOException (should never happen).", e2);
+                }
+            }
+            return (Builder) invokeLII.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLite.Builder
+        public Builder mergeFrom(byte[] bArr, int i, int i2, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), extensionRegistryLite})) == null) {
+                try {
+                    CodedInputStream newInstance = CodedInputStream.newInstance(bArr, i, i2);
+                    mergeFrom(newInstance, extensionRegistryLite);
+                    newInstance.checkLastTagWas(0);
+                    return this;
+                } catch (InvalidProtocolBufferException e) {
+                    throw e;
+                } catch (IOException e2) {
+                    throw new RuntimeException("Reading from a byte array threw an IOException (should never happen).", e2);
+                }
+            }
+            return (Builder) invokeCommon.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLite.Builder
+        public Builder mergeFrom(byte[] bArr, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, bArr, extensionRegistryLite)) == null) {
+                return mergeFrom(bArr, 0, bArr.length, extensionRegistryLite);
+            }
+            return (Builder) invokeLL.objValue;
+        }
+    }
 
     public AbstractMessageLite() {
         Interceptable interceptable = $ic;
@@ -36,7 +354,10 @@ public abstract class AbstractMessageLite implements MessageLite {
     public UninitializedMessageException newUninitializedMessageException() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new UninitializedMessageException(this) : (UninitializedMessageException) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new UninitializedMessageException(this);
+        }
+        return (UninitializedMessageException) invokeV.objValue;
     }
 
     @Override // com.google.protobuf.MessageLite
@@ -92,308 +413,6 @@ public abstract class AbstractMessageLite implements MessageLite {
             CodedOutputStream newInstance = CodedOutputStream.newInstance(outputStream, CodedOutputStream.computePreferredBufferSize(getSerializedSize()));
             writeTo(newInstance);
             newInstance.flush();
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static abstract class Builder<BuilderType extends Builder> implements MessageLite.Builder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public Builder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public static <T> void addAll(Iterable<T> iterable, Collection<? super T> collection) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65537, null, iterable, collection) == null) {
-                if (iterable instanceof LazyStringList) {
-                    checkForNullValues(((LazyStringList) iterable).getUnderlyingElements());
-                } else {
-                    checkForNullValues(iterable);
-                }
-                if (iterable instanceof Collection) {
-                    collection.addAll((Collection) iterable);
-                    return;
-                }
-                for (T t : iterable) {
-                    collection.add(t);
-                }
-            }
-        }
-
-        public static void checkForNullValues(Iterable<?> iterable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65538, null, iterable) == null) {
-                Iterator<?> it = iterable.iterator();
-                while (it.hasNext()) {
-                    if (it.next() == null) {
-                        throw null;
-                    }
-                }
-            }
-        }
-
-        public static UninitializedMessageException newUninitializedMessageException(MessageLite messageLite) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, messageLite)) == null) ? new UninitializedMessageException(messageLite) : (UninitializedMessageException) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLite.Builder
-        public abstract BuilderType clone();
-
-        @Override // com.google.protobuf.MessageLite.Builder
-        public boolean mergeDelimitedFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, inputStream, extensionRegistryLite)) == null) {
-                int read = inputStream.read();
-                if (read == -1) {
-                    return false;
-                }
-                mergeFrom((InputStream) new LimitedInputStream(inputStream, CodedInputStream.readRawVarint32(read, inputStream)), extensionRegistryLite);
-                return true;
-            }
-            return invokeLL.booleanValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLite.Builder
-        public abstract BuilderType mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException;
-
-        /* loaded from: classes7.dex */
-        public static final class LimitedInputStream extends FilterInputStream {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public int limit;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public LimitedInputStream(InputStream inputStream, int i) {
-                super(inputStream);
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {inputStream, Integer.valueOf(i)};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        super((InputStream) newInitContext.callArgs[0]);
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.limit = i;
-            }
-
-            @Override // java.io.FilterInputStream, java.io.InputStream
-            public int available() throws IOException {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Math.min(super.available(), this.limit) : invokeV.intValue;
-            }
-
-            @Override // java.io.FilterInputStream, java.io.InputStream
-            public int read() throws IOException {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                    if (this.limit <= 0) {
-                        return -1;
-                    }
-                    int read = super.read();
-                    if (read >= 0) {
-                        this.limit--;
-                    }
-                    return read;
-                }
-                return invokeV.intValue;
-            }
-
-            @Override // java.io.FilterInputStream, java.io.InputStream
-            public long skip(long j) throws IOException {
-                InterceptResult invokeJ;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
-                    long skip = super.skip(Math.min(j, this.limit));
-                    if (skip >= 0) {
-                        this.limit = (int) (this.limit - skip);
-                    }
-                    return skip;
-                }
-                return invokeJ.longValue;
-            }
-
-            @Override // java.io.FilterInputStream, java.io.InputStream
-            public int read(byte[] bArr, int i, int i2) throws IOException {
-                InterceptResult invokeLII;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2)) == null) {
-                    int i3 = this.limit;
-                    if (i3 <= 0) {
-                        return -1;
-                    }
-                    int read = super.read(bArr, i, Math.min(i2, i3));
-                    if (read >= 0) {
-                        this.limit -= read;
-                    }
-                    return read;
-                }
-                return invokeLII.intValue;
-            }
-        }
-
-        @Override // com.google.protobuf.MessageLite.Builder
-        public boolean mergeDelimitedFrom(InputStream inputStream) throws IOException {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, inputStream)) == null) ? mergeDelimitedFrom(inputStream, ExtensionRegistryLite.getEmptyRegistry()) : invokeL.booleanValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLite.Builder
-        public BuilderType mergeFrom(CodedInputStream codedInputStream) throws IOException {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, codedInputStream)) == null) ? mergeFrom(codedInputStream, ExtensionRegistryLite.getEmptyRegistry()) : (BuilderType) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLite.Builder
-        public BuilderType mergeFrom(ByteString byteString) throws InvalidProtocolBufferException {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, byteString)) == null) {
-                try {
-                    CodedInputStream newCodedInput = byteString.newCodedInput();
-                    mergeFrom(newCodedInput);
-                    newCodedInput.checkLastTagWas(0);
-                    return this;
-                } catch (InvalidProtocolBufferException e) {
-                    throw e;
-                } catch (IOException e2) {
-                    throw new RuntimeException("Reading from a ByteString threw an IOException (should never happen).", e2);
-                }
-            }
-            return (BuilderType) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLite.Builder
-        public BuilderType mergeFrom(ByteString byteString, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, byteString, extensionRegistryLite)) == null) {
-                try {
-                    CodedInputStream newCodedInput = byteString.newCodedInput();
-                    mergeFrom(newCodedInput, extensionRegistryLite);
-                    newCodedInput.checkLastTagWas(0);
-                    return this;
-                } catch (InvalidProtocolBufferException e) {
-                    throw e;
-                } catch (IOException e2) {
-                    throw new RuntimeException("Reading from a ByteString threw an IOException (should never happen).", e2);
-                }
-            }
-            return (BuilderType) invokeLL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLite.Builder
-        public BuilderType mergeFrom(byte[] bArr) throws InvalidProtocolBufferException {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, bArr)) == null) ? mergeFrom(bArr, 0, bArr.length) : (BuilderType) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLite.Builder
-        public BuilderType mergeFrom(byte[] bArr, int i, int i2) throws InvalidProtocolBufferException {
-            InterceptResult invokeLII;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048588, this, bArr, i, i2)) == null) {
-                try {
-                    CodedInputStream newInstance = CodedInputStream.newInstance(bArr, i, i2);
-                    mergeFrom(newInstance);
-                    newInstance.checkLastTagWas(0);
-                    return this;
-                } catch (InvalidProtocolBufferException e) {
-                    throw e;
-                } catch (IOException e2) {
-                    throw new RuntimeException("Reading from a byte array threw an IOException (should never happen).", e2);
-                }
-            }
-            return (BuilderType) invokeLII.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLite.Builder
-        public BuilderType mergeFrom(byte[] bArr, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, bArr, extensionRegistryLite)) == null) ? mergeFrom(bArr, 0, bArr.length, extensionRegistryLite) : (BuilderType) invokeLL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLite.Builder
-        public BuilderType mergeFrom(byte[] bArr, int i, int i2, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), extensionRegistryLite})) == null) {
-                try {
-                    CodedInputStream newInstance = CodedInputStream.newInstance(bArr, i, i2);
-                    mergeFrom(newInstance, extensionRegistryLite);
-                    newInstance.checkLastTagWas(0);
-                    return this;
-                } catch (InvalidProtocolBufferException e) {
-                    throw e;
-                } catch (IOException e2) {
-                    throw new RuntimeException("Reading from a byte array threw an IOException (should never happen).", e2);
-                }
-            }
-            return (BuilderType) invokeCommon.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLite.Builder
-        public BuilderType mergeFrom(InputStream inputStream) throws IOException {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, inputStream)) == null) {
-                CodedInputStream newInstance = CodedInputStream.newInstance(inputStream);
-                mergeFrom(newInstance);
-                newInstance.checkLastTagWas(0);
-                return this;
-            }
-            return (BuilderType) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.protobuf.MessageLite.Builder
-        public BuilderType mergeFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, inputStream, extensionRegistryLite)) == null) {
-                CodedInputStream newInstance = CodedInputStream.newInstance(inputStream);
-                mergeFrom(newInstance, extensionRegistryLite);
-                newInstance.checkLastTagWas(0);
-                return this;
-            }
-            return (BuilderType) invokeLL.objValue;
         }
     }
 }

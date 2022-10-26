@@ -1,10 +1,9 @@
 package com.kwad.sdk.crash.offline.monitor.mem.message;
 
-import androidx.annotation.Nullable;
 import com.kwad.sdk.crash.model.message.ExceptionMessage;
 import com.kwad.sdk.utils.r;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class OfflineMemExceptionMessage extends ExceptionMessage {
     public static final String MSG_QUEUE_DETAIL = "mMessageQueueDetail";
     public static final String REASON = "mReason";
@@ -23,7 +22,7 @@ public class OfflineMemExceptionMessage extends ExceptionMessage {
     }
 
     @Override // com.kwad.sdk.crash.model.message.ExceptionMessage, com.kwad.sdk.core.b
-    public void parseJson(@Nullable JSONObject jSONObject) {
+    public void parseJson(JSONObject jSONObject) {
         super.parseJson(jSONObject);
         if (jSONObject == null) {
             return;

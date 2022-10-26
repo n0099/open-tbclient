@@ -14,7 +14,7 @@ public interface Request {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class Method {
+    public final class Method {
         public static /* synthetic */ Interceptable $ic;
         public static final Method GET;
         public static final Method POST;
@@ -78,7 +78,7 @@ public interface Request {
 
     int getConnectionTimeOut();
 
-    Map<String, String> getHeaders();
+    Map getHeaders();
 
     Method getMethod();
 
@@ -86,7 +86,7 @@ public interface Request {
 
     int getPriority();
 
-    Map<String, String> getQuerys();
+    Map getQuerys();
 
     int getSocketTimeOut();
 

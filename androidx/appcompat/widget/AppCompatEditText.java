@@ -12,11 +12,6 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.view.textclassifier.TextClassifier;
 import android.widget.EditText;
-import androidx.annotation.DrawableRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.TintableBackgroundView;
 import androidx.core.widget.TextViewCompat;
@@ -36,7 +31,7 @@ public class AppCompatEditText extends EditText implements TintableBackgroundVie
     public final AppCompatTextHelper mTextHelper;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppCompatEditText(@NonNull Context context) {
+    public AppCompatEditText(Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -56,159 +51,8 @@ public class AppCompatEditText extends EditText implements TintableBackgroundVie
         }
     }
 
-    @Override // android.widget.TextView, android.view.View
-    public void drawableStateChanged() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.drawableStateChanged();
-            AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
-            if (appCompatBackgroundHelper != null) {
-                appCompatBackgroundHelper.applySupportBackgroundTint();
-            }
-            AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
-            if (appCompatTextHelper != null) {
-                appCompatTextHelper.applyCompoundDrawablesTints();
-            }
-        }
-    }
-
-    @Override // androidx.core.view.TintableBackgroundView
-    @Nullable
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public ColorStateList getSupportBackgroundTintList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
-            if (appCompatBackgroundHelper != null) {
-                return appCompatBackgroundHelper.getSupportBackgroundTintList();
-            }
-            return null;
-        }
-        return (ColorStateList) invokeV.objValue;
-    }
-
-    @Override // androidx.core.view.TintableBackgroundView
-    @Nullable
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public PorterDuff.Mode getSupportBackgroundTintMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
-            if (appCompatBackgroundHelper != null) {
-                return appCompatBackgroundHelper.getSupportBackgroundTintMode();
-            }
-            return null;
-        }
-        return (PorterDuff.Mode) invokeV.objValue;
-    }
-
-    @Override // android.widget.TextView
-    @NonNull
-    @RequiresApi(api = 26)
-    public TextClassifier getTextClassifier() {
-        InterceptResult invokeV;
-        AppCompatTextClassifierHelper appCompatTextClassifierHelper;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (Build.VERSION.SDK_INT < 28 && (appCompatTextClassifierHelper = this.mTextClassifierHelper) != null) {
-                return appCompatTextClassifierHelper.getTextClassifier();
-            }
-            return super.getTextClassifier();
-        }
-        return (TextClassifier) invokeV.objValue;
-    }
-
-    @Override // android.widget.TextView, android.view.View
-    public InputConnection onCreateInputConnection(EditorInfo editorInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, editorInfo)) == null) ? AppCompatHintHelper.onCreateInputConnection(super.onCreateInputConnection(editorInfo), editorInfo, this) : (InputConnection) invokeL.objValue;
-    }
-
-    @Override // android.view.View
-    public void setBackgroundDrawable(Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, drawable) == null) {
-            super.setBackgroundDrawable(drawable);
-            AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
-            if (appCompatBackgroundHelper != null) {
-                appCompatBackgroundHelper.onSetBackgroundDrawable(drawable);
-            }
-        }
-    }
-
-    @Override // android.view.View
-    public void setBackgroundResource(@DrawableRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            super.setBackgroundResource(i);
-            AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
-            if (appCompatBackgroundHelper != null) {
-                appCompatBackgroundHelper.onSetBackgroundResource(i);
-            }
-        }
-    }
-
-    @Override // android.widget.TextView
-    public void setCustomSelectionActionModeCallback(ActionMode.Callback callback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, callback) == null) {
-            super.setCustomSelectionActionModeCallback(TextViewCompat.wrapCustomSelectionActionModeCallback(this, callback));
-        }
-    }
-
-    @Override // androidx.core.view.TintableBackgroundView
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void setSupportBackgroundTintList(@Nullable ColorStateList colorStateList) {
-        AppCompatBackgroundHelper appCompatBackgroundHelper;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, colorStateList) == null) || (appCompatBackgroundHelper = this.mBackgroundTintHelper) == null) {
-            return;
-        }
-        appCompatBackgroundHelper.setSupportBackgroundTintList(colorStateList);
-    }
-
-    @Override // androidx.core.view.TintableBackgroundView
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void setSupportBackgroundTintMode(@Nullable PorterDuff.Mode mode) {
-        AppCompatBackgroundHelper appCompatBackgroundHelper;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, mode) == null) || (appCompatBackgroundHelper = this.mBackgroundTintHelper) == null) {
-            return;
-        }
-        appCompatBackgroundHelper.setSupportBackgroundTintMode(mode);
-    }
-
-    @Override // android.widget.TextView
-    public void setTextAppearance(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048588, this, context, i) == null) {
-            super.setTextAppearance(context, i);
-            AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
-            if (appCompatTextHelper != null) {
-                appCompatTextHelper.onSetTextAppearance(context, i);
-            }
-        }
-    }
-
-    @Override // android.widget.TextView
-    @RequiresApi(api = 26)
-    public void setTextClassifier(@Nullable TextClassifier textClassifier) {
-        AppCompatTextClassifierHelper appCompatTextClassifierHelper;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, textClassifier) == null) {
-            if (Build.VERSION.SDK_INT < 28 && (appCompatTextClassifierHelper = this.mTextClassifierHelper) != null) {
-                appCompatTextClassifierHelper.setTextClassifier(textClassifier);
-            } else {
-                super.setTextClassifier(textClassifier);
-            }
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppCompatEditText(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public AppCompatEditText(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.obfuscated_res_0x7f04026d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -228,23 +72,8 @@ public class AppCompatEditText extends EditText implements TintableBackgroundVie
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.EditText, android.widget.TextView
-    @Nullable
-    public Editable getText() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (Build.VERSION.SDK_INT >= 28) {
-                return super.getText();
-            }
-            return super.getEditableText();
-        }
-        return (Editable) invokeV.objValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AppCompatEditText(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public AppCompatEditText(Context context, AttributeSet attributeSet, int i) {
         super(TintContextWrapper.wrap(context), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -271,5 +100,162 @@ public class AppCompatEditText extends EditText implements TintableBackgroundVie
         appCompatTextHelper.loadFromAttributes(attributeSet, i);
         this.mTextHelper.applyCompoundDrawablesTints();
         this.mTextClassifierHelper = new AppCompatTextClassifierHelper(this);
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public void drawableStateChanged() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.drawableStateChanged();
+            AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
+            if (appCompatBackgroundHelper != null) {
+                appCompatBackgroundHelper.applySupportBackgroundTint();
+            }
+            AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
+            if (appCompatTextHelper != null) {
+                appCompatTextHelper.applyCompoundDrawablesTints();
+            }
+        }
+    }
+
+    @Override // androidx.core.view.TintableBackgroundView
+    public ColorStateList getSupportBackgroundTintList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
+            if (appCompatBackgroundHelper != null) {
+                return appCompatBackgroundHelper.getSupportBackgroundTintList();
+            }
+            return null;
+        }
+        return (ColorStateList) invokeV.objValue;
+    }
+
+    @Override // androidx.core.view.TintableBackgroundView
+    public PorterDuff.Mode getSupportBackgroundTintMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
+            if (appCompatBackgroundHelper != null) {
+                return appCompatBackgroundHelper.getSupportBackgroundTintMode();
+            }
+            return null;
+        }
+        return (PorterDuff.Mode) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.EditText, android.widget.TextView
+    public Editable getText() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (Build.VERSION.SDK_INT >= 28) {
+                return super.getText();
+            }
+            return super.getEditableText();
+        }
+        return (Editable) invokeV.objValue;
+    }
+
+    @Override // android.widget.TextView
+    public TextClassifier getTextClassifier() {
+        InterceptResult invokeV;
+        AppCompatTextClassifierHelper appCompatTextClassifierHelper;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (Build.VERSION.SDK_INT < 28 && (appCompatTextClassifierHelper = this.mTextClassifierHelper) != null) {
+                return appCompatTextClassifierHelper.getTextClassifier();
+            }
+            return super.getTextClassifier();
+        }
+        return (TextClassifier) invokeV.objValue;
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public InputConnection onCreateInputConnection(EditorInfo editorInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, editorInfo)) == null) {
+            return AppCompatHintHelper.onCreateInputConnection(super.onCreateInputConnection(editorInfo), editorInfo, this);
+        }
+        return (InputConnection) invokeL.objValue;
+    }
+
+    @Override // android.view.View
+    public void setBackgroundDrawable(Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, drawable) == null) {
+            super.setBackgroundDrawable(drawable);
+            AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
+            if (appCompatBackgroundHelper != null) {
+                appCompatBackgroundHelper.onSetBackgroundDrawable(drawable);
+            }
+        }
+    }
+
+    @Override // android.view.View
+    public void setBackgroundResource(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            super.setBackgroundResource(i);
+            AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
+            if (appCompatBackgroundHelper != null) {
+                appCompatBackgroundHelper.onSetBackgroundResource(i);
+            }
+        }
+    }
+
+    @Override // android.widget.TextView
+    public void setCustomSelectionActionModeCallback(ActionMode.Callback callback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, callback) == null) {
+            super.setCustomSelectionActionModeCallback(TextViewCompat.wrapCustomSelectionActionModeCallback(this, callback));
+        }
+    }
+
+    @Override // androidx.core.view.TintableBackgroundView
+    public void setSupportBackgroundTintList(ColorStateList colorStateList) {
+        AppCompatBackgroundHelper appCompatBackgroundHelper;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048586, this, colorStateList) == null) && (appCompatBackgroundHelper = this.mBackgroundTintHelper) != null) {
+            appCompatBackgroundHelper.setSupportBackgroundTintList(colorStateList);
+        }
+    }
+
+    @Override // androidx.core.view.TintableBackgroundView
+    public void setSupportBackgroundTintMode(PorterDuff.Mode mode) {
+        AppCompatBackgroundHelper appCompatBackgroundHelper;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, mode) == null) && (appCompatBackgroundHelper = this.mBackgroundTintHelper) != null) {
+            appCompatBackgroundHelper.setSupportBackgroundTintMode(mode);
+        }
+    }
+
+    @Override // android.widget.TextView
+    public void setTextClassifier(TextClassifier textClassifier) {
+        AppCompatTextClassifierHelper appCompatTextClassifierHelper;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, textClassifier) == null) {
+            if (Build.VERSION.SDK_INT < 28 && (appCompatTextClassifierHelper = this.mTextClassifierHelper) != null) {
+                appCompatTextClassifierHelper.setTextClassifier(textClassifier);
+            } else {
+                super.setTextClassifier(textClassifier);
+            }
+        }
+    }
+
+    @Override // android.widget.TextView
+    public void setTextAppearance(Context context, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048588, this, context, i) == null) {
+            super.setTextAppearance(context, i);
+            AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
+            if (appCompatTextHelper != null) {
+                appCompatTextHelper.onSetTextAppearance(context, i);
+            }
+        }
     }
 }

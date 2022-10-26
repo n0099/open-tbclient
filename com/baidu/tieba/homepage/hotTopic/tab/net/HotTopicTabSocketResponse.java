@@ -1,11 +1,9 @@
 package com.baidu.tieba.homepage.hotTopic.tab.net;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.Cdo;
-import com.baidu.tieba.hz6;
-import com.baidu.tieba.zz6;
+import com.baidu.tieba.h07;
+import com.baidu.tieba.pz6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,11 +13,11 @@ import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.HotThreadList.HotThreadListResIdl;
 /* loaded from: classes4.dex */
-public class HotTopicTabSocketResponse extends SocketResponsedMessage implements zz6 {
+public class HotTopicTabSocketResponse extends SocketResponsedMessage implements h07 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HotThreadListResIdl mData;
-    public List<Cdo> mHotTopicDataList;
+    public List mHotTopicDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotTopicTabSocketResponse() {
@@ -39,8 +37,27 @@ public class HotTopicTabSocketResponse extends SocketResponsedMessage implements
         }
     }
 
+    @Override // com.baidu.tieba.h07
+    public List getDataList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mHotTopicDataList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.h07
+    public HotThreadListResIdl getResData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mData;
+        }
+        return (HotThreadListResIdl) invokeV.objValue;
+    }
+
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -52,26 +69,15 @@ public class HotTopicTabSocketResponse extends SocketResponsedMessage implements
             }
             setError(hotThreadListResIdl.error.errorno.intValue());
             setErrorString(hotThreadListResIdl.error.usermsg);
-            if (getError() == 0 && hotThreadListResIdl.data != null) {
-                this.mHotTopicDataList = hz6.c(hotThreadListResIdl);
+            if (getError() != 0) {
                 return hotThreadListResIdl;
             }
+            if (hotThreadListResIdl.data == null) {
+                return hotThreadListResIdl;
+            }
+            this.mHotTopicDataList = pz6.c(hotThreadListResIdl);
             return hotThreadListResIdl;
         }
         return invokeIL.objValue;
-    }
-
-    @Override // com.baidu.tieba.zz6
-    public List<Cdo> getDataList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mHotTopicDataList : (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.zz6
-    public HotThreadListResIdl getResData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (HotThreadListResIdl) invokeV.objValue;
     }
 }

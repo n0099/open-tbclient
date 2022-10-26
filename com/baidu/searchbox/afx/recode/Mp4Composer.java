@@ -1,6 +1,5 @@
 package com.baidu.searchbox.afx.recode;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.media.MediaMetadataRetriever;
@@ -62,6 +61,25 @@ public class Mp4Composer {
         return (ExecutorService) invokeV.objValue;
     }
 
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            getExecutorService().shutdownNow();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public Mp4Info getMp4Info(FileDescriptor fileDescriptor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, fileDescriptor)) == null) {
+            MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+            mediaMetadataRetriever.setDataSource(fileDescriptor);
+            return getMp4Info(mediaMetadataRetriever);
+        }
+        return (Mp4Info) invokeL.objValue;
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public Mp4Info getMp4Info(AssetFileDescriptor assetFileDescriptor) {
         InterceptResult invokeL;
@@ -78,17 +96,148 @@ public class Mp4Composer {
         return (Mp4Info) invokeL.objValue;
     }
 
-    public void cancel() {
+    private Mp4Info getMp4Info(MediaMetadataRetriever mediaMetadataRetriever) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            getExecutorService().shutdownNow();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, mediaMetadataRetriever)) == null) {
+            try {
+                mediaMetadataRetriever.extractMetadata(12);
+                return new Mp4Info(Integer.valueOf(mediaMetadataRetriever.extractMetadata(18)).intValue(), Integer.valueOf(mediaMetadataRetriever.extractMetadata(19)).intValue(), Integer.valueOf(mediaMetadataRetriever.extractMetadata(24)).intValue(), Integer.valueOf(mediaMetadataRetriever.extractMetadata(20)).intValue(), 1000 * Long.valueOf(mediaMetadataRetriever.extractMetadata(9)).longValue());
+            } finally {
+                if (mediaMetadataRetriever != null) {
+                    try {
+                        mediaMetadataRetriever.release();
+                    } catch (RuntimeException e) {
+                        Log.e(TAG, "Failed to release mediaMetadataRetriever.", e);
+                    }
+                }
+            }
+        }
+        return (Mp4Info) invokeL.objValue;
+    }
+
+    private void start(AssetFileDescriptor assetFileDescriptor, FileDescriptor fileDescriptor, String str, Listener listener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65544, this, assetFileDescriptor, fileDescriptor, str, listener) == null) {
+            File file = new File(str);
+            if (file.exists() && file.length() > 0) {
+                if (listener != null) {
+                    listener.onCompleted();
+                    return;
+                }
+                return;
+            }
+            getExecutorService().execute(new Runnable(this, listener, assetFileDescriptor, fileDescriptor, str) { // from class: com.baidu.searchbox.afx.recode.Mp4Composer.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ Mp4Composer this$0;
+                public final /* synthetic */ AssetFileDescriptor val$afd;
+                public final /* synthetic */ String val$destPath;
+                public final /* synthetic */ FileDescriptor val$fd;
+                public final /* synthetic */ Listener val$listener;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, listener, assetFileDescriptor, fileDescriptor, str};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$listener = listener;
+                    this.val$afd = assetFileDescriptor;
+                    this.val$fd = fileDescriptor;
+                    this.val$destPath = str;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        Mp4ComposerEngine mp4ComposerEngine = new Mp4ComposerEngine();
+                        mp4ComposerEngine.setProgressCallback(new Mp4ComposerEngine.ProgressCallback(this) { // from class: com.baidu.searchbox.afx.recode.Mp4Composer.1.1
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+                            public final /* synthetic */ AnonymousClass1 this$1;
+
+                            {
+                                Interceptable interceptable3 = $ic;
+                                if (interceptable3 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {this};
+                                    interceptable3.invokeUnInit(65536, newInitContext);
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable3.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.this$1 = this;
+                            }
+
+                            @Override // com.baidu.searchbox.afx.recode.Mp4ComposerEngine.ProgressCallback
+                            public void onProgress(float f) {
+                                Listener listener2;
+                                Interceptable interceptable3 = $ic;
+                                if ((interceptable3 == null || interceptable3.invokeF(1048576, this, f) == null) && (listener2 = this.this$1.val$listener) != null) {
+                                    listener2.onProgress(f);
+                                }
+                            }
+                        });
+                        try {
+                            if (this.val$afd == null) {
+                                mp4ComposerEngine.compose(this.val$fd, this.val$destPath, this.this$0.getMp4Info(this.val$fd));
+                            } else {
+                                mp4ComposerEngine.compose(this.val$afd, this.val$destPath, this.this$0.getMp4Info(this.val$afd));
+                            }
+                            Listener listener2 = this.val$listener;
+                            if (listener2 != null) {
+                                listener2.onCompleted();
+                            }
+                            this.this$0.mExecutorService.shutdown();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            Listener listener3 = this.val$listener;
+                            if (listener3 != null) {
+                                listener3.onFailed(e);
+                            }
+                            this.this$0.mExecutorService.shutdown();
+                        }
+                    }
+                }
+            });
         }
     }
 
-    public void start(String str, String str2, Listener listener) {
+    public void start(Context context, String str, String str2, Listener listener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, str, str2, listener) == null) {
-            start(new File(str), str2, listener);
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, listener) == null) {
+            try {
+                start(context.getAssets().openFd(str), str2, listener);
+            } catch (IOException e) {
+                e.printStackTrace();
+                if (listener != null) {
+                    listener.onFailed(e);
+                }
+            }
+        }
+    }
+
+    public void start(AssetFileDescriptor assetFileDescriptor, String str, Listener listener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, assetFileDescriptor, str, listener) == null) {
+            start(assetFileDescriptor, (FileDescriptor) null, str, listener);
         }
     }
 
@@ -111,60 +260,6 @@ public class Mp4Composer {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public Mp4Info getMp4Info(FileDescriptor fileDescriptor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, fileDescriptor)) == null) {
-            MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-            mediaMetadataRetriever.setDataSource(fileDescriptor);
-            return getMp4Info(mediaMetadataRetriever);
-        }
-        return (Mp4Info) invokeL.objValue;
-    }
-
-    public void start(Context context, String str, String str2, Listener listener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, listener) == null) {
-            try {
-                start(context.getAssets().openFd(str), str2, listener);
-            } catch (IOException e) {
-                e.printStackTrace();
-                if (listener != null) {
-                    listener.onFailed(e);
-                }
-            }
-        }
-    }
-
-    @SuppressLint({"InlinedApi"})
-    private Mp4Info getMp4Info(MediaMetadataRetriever mediaMetadataRetriever) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, mediaMetadataRetriever)) == null) {
-            try {
-                mediaMetadataRetriever.extractMetadata(12);
-                return new Mp4Info(Integer.valueOf(mediaMetadataRetriever.extractMetadata(18)).intValue(), Integer.valueOf(mediaMetadataRetriever.extractMetadata(19)).intValue(), Integer.valueOf(mediaMetadataRetriever.extractMetadata(24)).intValue(), Integer.valueOf(mediaMetadataRetriever.extractMetadata(20)).intValue(), 1000 * Long.valueOf(mediaMetadataRetriever.extractMetadata(9)).longValue());
-            } finally {
-                if (mediaMetadataRetriever != null) {
-                    try {
-                        mediaMetadataRetriever.release();
-                    } catch (RuntimeException e) {
-                        Log.e(TAG, "Failed to release mediaMetadataRetriever.", e);
-                    }
-                }
-            }
-        }
-        return (Mp4Info) invokeL.objValue;
-    }
-
-    public void start(AssetFileDescriptor assetFileDescriptor, String str, Listener listener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, assetFileDescriptor, str, listener) == null) {
-            start(assetFileDescriptor, (FileDescriptor) null, str, listener);
-        }
-    }
-
     public void start(FileDescriptor fileDescriptor, String str, Listener listener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, fileDescriptor, str, listener) == null) {
@@ -176,105 +271,10 @@ public class Mp4Composer {
         }
     }
 
-    private void start(AssetFileDescriptor assetFileDescriptor, FileDescriptor fileDescriptor, String str, Listener listener) {
+    public void start(String str, String str2, Listener listener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65544, this, assetFileDescriptor, fileDescriptor, str, listener) == null) {
-            File file = new File(str);
-            if (!file.exists() || file.length() <= 0) {
-                getExecutorService().execute(new Runnable(this, listener, assetFileDescriptor, fileDescriptor, str) { // from class: com.baidu.searchbox.afx.recode.Mp4Composer.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ Mp4Composer this$0;
-                    public final /* synthetic */ AssetFileDescriptor val$afd;
-                    public final /* synthetic */ String val$destPath;
-                    public final /* synthetic */ FileDescriptor val$fd;
-                    public final /* synthetic */ Listener val$listener;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, listener, assetFileDescriptor, fileDescriptor, str};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$listener = listener;
-                        this.val$afd = assetFileDescriptor;
-                        this.val$fd = fileDescriptor;
-                        this.val$destPath = str;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            Mp4ComposerEngine mp4ComposerEngine = new Mp4ComposerEngine();
-                            mp4ComposerEngine.setProgressCallback(new Mp4ComposerEngine.ProgressCallback(this) { // from class: com.baidu.searchbox.afx.recode.Mp4Composer.1.1
-                                public static /* synthetic */ Interceptable $ic;
-                                public transient /* synthetic */ FieldHolder $fh;
-                                public final /* synthetic */ AnonymousClass1 this$1;
-
-                                {
-                                    Interceptable interceptable3 = $ic;
-                                    if (interceptable3 != null) {
-                                        InitContext newInitContext = TitanRuntime.newInitContext();
-                                        newInitContext.initArgs = r2;
-                                        Object[] objArr = {this};
-                                        interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i = newInitContext.flag;
-                                        if ((i & 1) != 0) {
-                                            int i2 = i & 2;
-                                            newInitContext.thisArg = this;
-                                            interceptable3.invokeInitBody(65536, newInitContext);
-                                            return;
-                                        }
-                                    }
-                                    this.this$1 = this;
-                                }
-
-                                @Override // com.baidu.searchbox.afx.recode.Mp4ComposerEngine.ProgressCallback
-                                public void onProgress(float f) {
-                                    Listener listener2;
-                                    Interceptable interceptable3 = $ic;
-                                    if (!(interceptable3 == null || interceptable3.invokeF(1048576, this, f) == null) || (listener2 = this.this$1.val$listener) == null) {
-                                        return;
-                                    }
-                                    listener2.onProgress(f);
-                                }
-                            });
-                            try {
-                                if (this.val$afd == null) {
-                                    mp4ComposerEngine.compose(this.val$fd, this.val$destPath, this.this$0.getMp4Info(this.val$fd));
-                                } else {
-                                    mp4ComposerEngine.compose(this.val$afd, this.val$destPath, this.this$0.getMp4Info(this.val$afd));
-                                }
-                                Listener listener2 = this.val$listener;
-                                if (listener2 != null) {
-                                    listener2.onCompleted();
-                                }
-                                this.this$0.mExecutorService.shutdown();
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                                Listener listener3 = this.val$listener;
-                                if (listener3 != null) {
-                                    listener3.onFailed(e);
-                                }
-                                this.this$0.mExecutorService.shutdown();
-                            }
-                        }
-                    }
-                });
-            } else if (listener != null) {
-                listener.onCompleted();
-            }
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, str, str2, listener) == null) {
+            start(new File(str), str2, listener);
         }
     }
 }

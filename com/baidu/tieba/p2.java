@@ -56,6 +56,90 @@ public class p2 implements n3 {
     }
 
     @Override // com.baidu.tieba.n3
+    public void E(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            GLES20.glBindBuffer(i, i2);
+        }
+    }
+
+    @Override // com.baidu.tieba.n3
+    public void L(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) {
+            GLES20.glAttachShader(i, i2);
+        }
+    }
+
+    @Override // com.baidu.tieba.n3
+    public void N(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048588, this, i, i2) == null) {
+            GLES20.glBindTexture(i, i2);
+        }
+    }
+
+    @Override // com.baidu.tieba.n3
+    public int R(int i, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048591, this, i, str)) == null) {
+            return GLES20.glGetAttribLocation(i, str);
+        }
+        return invokeIL.intValue;
+    }
+
+    @Override // com.baidu.tieba.n3
+    public void f(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048598, this, i, i2) == null) {
+            GLES20.glBindFramebuffer(i, i2);
+        }
+    }
+
+    @Override // com.baidu.tieba.n3
+    public void g(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048599, this, i, i2) == null) {
+            GLES20.glPixelStorei(i, i2);
+        }
+    }
+
+    @Override // com.baidu.tieba.n3
+    public void i(int i, FloatBuffer floatBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048601, this, i, floatBuffer) == null) {
+            GLES20.glGetFloatv(i, floatBuffer);
+        }
+    }
+
+    @Override // com.baidu.tieba.n3
+    public void m(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048605, this, i, i2) == null) {
+            GLES20.glBindRenderbuffer(i, i2);
+        }
+    }
+
+    @Override // com.baidu.tieba.n3
+    public int w(int i, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048614, this, i, str)) == null) {
+            return GLES20.glGetUniformLocation(i, str);
+        }
+        return invokeIL.intValue;
+    }
+
+    @Override // com.baidu.tieba.n3
+    public void y(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048616, this, i, str) == null) {
+            GLES20.glShaderSource(i, str);
+        }
+    }
+
+    @Override // com.baidu.tieba.n3
     public String D(int i, int i2, IntBuffer intBuffer, IntBuffer intBuffer2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -70,11 +154,17 @@ public class p2 implements n3 {
     }
 
     @Override // com.baidu.tieba.n3
-    public void E(int i, int i2) {
+    public String z(int i, int i2, IntBuffer intBuffer, IntBuffer intBuffer2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            GLES20.glBindBuffer(i, i2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048617, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), intBuffer, intBuffer2})) == null) {
+            byte[] bArr = this.d;
+            GLES20.glGetActiveUniform(i, i2, bArr.length, this.a, 0, this.b, 0, this.c, 0, bArr, 0);
+            intBuffer.put(this.b[0]);
+            intBuffer2.put(this.c[0]);
+            return new String(this.d, 0, this.a[0]);
         }
+        return (String) invokeCommon.objValue;
     }
 
     @Override // com.baidu.tieba.n3
@@ -102,18 +192,13 @@ public class p2 implements n3 {
     }
 
     @Override // com.baidu.tieba.n3
-    public void I(int i, int i2, IntBuffer intBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048583, this, i, i2, intBuffer) == null) {
-            GLES20.glGetShaderiv(i, i2, intBuffer);
-        }
-    }
-
-    @Override // com.baidu.tieba.n3
     public String J(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? GLES20.glGetProgramInfoLog(i) : (String) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            return GLES20.glGetProgramInfoLog(i);
+        }
+        return (String) invokeI.objValue;
     }
 
     @Override // com.baidu.tieba.n3
@@ -122,58 +207,6 @@ public class p2 implements n3 {
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             GLES20.glDeleteShader(i);
         }
-    }
-
-    @Override // com.baidu.tieba.n3
-    public void L(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) {
-            GLES20.glAttachShader(i, i2);
-        }
-    }
-
-    @Override // com.baidu.tieba.n3
-    public int M() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? GLES20.glCreateProgram() : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.n3
-    public void N(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048588, this, i, i2) == null) {
-            GLES20.glBindTexture(i, i2);
-        }
-    }
-
-    @Override // com.baidu.tieba.n3
-    public int P() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            GLES20.glGenRenderbuffers(1, this.a, 0);
-            return this.a[0];
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.n3
-    public int Q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            GLES20.glGenFramebuffers(1, this.a, 0);
-            return this.a[0];
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.n3
-    public int R(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048591, this, i, str)) == null) ? GLES20.glGetAttribLocation(i, str) : invokeIL.intValue;
     }
 
     @Override // com.baidu.tieba.n3
@@ -190,18 +223,10 @@ public class p2 implements n3 {
     public int T(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) ? GLES20.glCreateShader(i) : invokeI.intValue;
-    }
-
-    @Override // com.baidu.tieba.n3
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            GLES20.glGenTextures(1, this.a, 0);
-            return this.a[0];
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
+            return GLES20.glCreateShader(i);
         }
-        return invokeV.intValue;
+        return invokeI.intValue;
     }
 
     @Override // com.baidu.tieba.n3
@@ -223,93 +248,13 @@ public class p2 implements n3 {
     }
 
     @Override // com.baidu.tieba.n3
-    public void e(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048597, this, i, i2, i3, i4) == null) {
-            GLES20.glRenderbufferStorage(i, i2, i3, i4);
-        }
-    }
-
-    @Override // com.baidu.tieba.n3
-    public void f(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048598, this, i, i2) == null) {
-            GLES20.glBindFramebuffer(i, i2);
-        }
-    }
-
-    @Override // com.baidu.tieba.n3
-    public void g(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048599, this, i, i2) == null) {
-            GLES20.glPixelStorei(i, i2);
-        }
-    }
-
-    @Override // com.baidu.tieba.n3
-    public void h(int i, int i2, int i3, int i4, int i5, int i6, int i7, Buffer buffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), buffer}) == null) {
-            GLES20.glCompressedTexImage2D(i, i2, i3, i4, i5, i6, i7, buffer);
-        }
-    }
-
-    @Override // com.baidu.tieba.n3
-    public void i(int i, FloatBuffer floatBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048601, this, i, floatBuffer) == null) {
-            GLES20.glGetFloatv(i, floatBuffer);
-        }
-    }
-
-    @Override // com.baidu.tieba.n3
-    public void j(int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048602, this, i, i2, i3) == null) {
-            GLES20.glTexParameteri(i, i2, i3);
-        }
-    }
-
-    @Override // com.baidu.tieba.n3
-    public void k(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048603, this, i, i2, i3, i4) == null) {
-            GLES20.glFramebufferRenderbuffer(i, i2, i3, i4);
-        }
-    }
-
-    @Override // com.baidu.tieba.n3
-    public void l(int i, int i2, IntBuffer intBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048604, this, i, i2, intBuffer) == null) {
-            GLES20.glGetProgramiv(i, i2, intBuffer);
-        }
-    }
-
-    @Override // com.baidu.tieba.n3
-    public void m(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048605, this, i, i2) == null) {
-            GLES20.glBindRenderbuffer(i, i2);
-        }
-    }
-
-    @Override // com.baidu.tieba.n3
-    public int n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            GLES20.glGenBuffers(1, this.a, 0);
-            return this.a[0];
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.n3
     public String o(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048607, this, i)) == null) ? GLES20.glGetString(i) : (String) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048607, this, i)) == null) {
+            return GLES20.glGetString(i);
+        }
+        return (String) invokeI.objValue;
     }
 
     @Override // com.baidu.tieba.n3
@@ -319,14 +264,6 @@ public class p2 implements n3 {
             int[] iArr = this.a;
             iArr[0] = i;
             GLES20.glDeleteRenderbuffers(1, iArr, 0);
-        }
-    }
-
-    @Override // com.baidu.tieba.n3
-    public void q(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, Buffer buffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), buffer}) == null) {
-            GLES20.glTexImage2D(i, i2, i3, i4, i5, i6, i7, i8, buffer);
         }
     }
 
@@ -352,7 +289,44 @@ public class p2 implements n3 {
     public int t(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048612, this, i)) == null) ? GLES20.glCheckFramebufferStatus(i) : invokeI.intValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048612, this, i)) == null) {
+            return GLES20.glCheckFramebufferStatus(i);
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // com.baidu.tieba.n3
+    public String x(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048615, this, i)) == null) {
+            return GLES20.glGetShaderInfoLog(i);
+        }
+        return (String) invokeI.objValue;
+    }
+
+    @Override // com.baidu.tieba.n3
+    public void I(int i, int i2, IntBuffer intBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048583, this, i, i2, intBuffer) == null) {
+            GLES20.glGetShaderiv(i, i2, intBuffer);
+        }
+    }
+
+    @Override // com.baidu.tieba.n3
+    public void j(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(1048602, this, i, i2, i3) == null) {
+            GLES20.glTexParameteri(i, i2, i3);
+        }
+    }
+
+    @Override // com.baidu.tieba.n3
+    public void l(int i, int i2, IntBuffer intBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048604, this, i, i2, intBuffer) == null) {
+            GLES20.glGetProgramiv(i, i2, intBuffer);
+        }
     }
 
     @Override // com.baidu.tieba.n3
@@ -364,38 +338,88 @@ public class p2 implements n3 {
     }
 
     @Override // com.baidu.tieba.n3
-    public int w(int i, String str) {
-        InterceptResult invokeIL;
+    public int M() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048614, this, i, str)) == null) ? GLES20.glGetUniformLocation(i, str) : invokeIL.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return GLES20.glCreateProgram();
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.n3
-    public String x(int i) {
-        InterceptResult invokeI;
+    public int P() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048615, this, i)) == null) ? GLES20.glGetShaderInfoLog(i) : (String) invokeI.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            GLES20.glGenRenderbuffers(1, this.a, 0);
+            return this.a[0];
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.n3
-    public void y(int i, String str) {
+    public int Q() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048616, this, i, str) == null) {
-            GLES20.glShaderSource(i, str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            GLES20.glGenFramebuffers(1, this.a, 0);
+            return this.a[0];
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.n3
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            GLES20.glGenTextures(1, this.a, 0);
+            return this.a[0];
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.n3
+    public int n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            GLES20.glGenBuffers(1, this.a, 0);
+            return this.a[0];
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.n3
+    public void e(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048597, this, i, i2, i3, i4) == null) {
+            GLES20.glRenderbufferStorage(i, i2, i3, i4);
         }
     }
 
     @Override // com.baidu.tieba.n3
-    public String z(int i, int i2, IntBuffer intBuffer, IntBuffer intBuffer2) {
-        InterceptResult invokeCommon;
+    public void k(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048617, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), intBuffer, intBuffer2})) == null) {
-            byte[] bArr = this.d;
-            GLES20.glGetActiveUniform(i, i2, bArr.length, this.a, 0, this.b, 0, this.c, 0, bArr, 0);
-            intBuffer.put(this.b[0]);
-            intBuffer2.put(this.c[0]);
-            return new String(this.d, 0, this.a[0]);
+        if (interceptable == null || interceptable.invokeIIII(1048603, this, i, i2, i3, i4) == null) {
+            GLES20.glFramebufferRenderbuffer(i, i2, i3, i4);
         }
-        return (String) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.n3
+    public void h(int i, int i2, int i3, int i4, int i5, int i6, int i7, Buffer buffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), buffer}) == null) {
+            GLES20.glCompressedTexImage2D(i, i2, i3, i4, i5, i6, i7, buffer);
+        }
+    }
+
+    @Override // com.baidu.tieba.n3
+    public void q(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, Buffer buffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), buffer}) == null) {
+            GLES20.glTexImage2D(i, i2, i3, i4, i5, i6, i7, i8, buffer);
+        }
     }
 }

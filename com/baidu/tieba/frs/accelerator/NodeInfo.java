@@ -55,18 +55,30 @@ public class NodeInfo implements Serializable {
     public boolean compare(NodeInfo nodeInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, nodeInfo)) == null) ? nodeInfo != null && this.nodeName.equals(nodeInfo.nodeName) && this.nodeTag.equals(nodeInfo.nodeTag) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, nodeInfo)) == null) {
+            if (nodeInfo == null || !this.nodeName.equals(nodeInfo.nodeName) || !this.nodeTag.equals(nodeInfo.nodeTag)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     public String getNodeName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.nodeName : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.nodeName;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getNodeTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.nodeTag : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.nodeTag;
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -3,7 +3,6 @@ package com.airbnb.lottie.parser;
 import android.graphics.PointF;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
-import androidx.annotation.Nullable;
 import androidx.collection.SparseArrayCompat;
 import androidx.core.view.animation.PathInterpolatorCompat;
 import com.airbnb.lottie.LottieComposition;
@@ -17,35 +16,42 @@ import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class KeyframeParser {
     public static final float MAX_CP_VALUE = 100.0f;
-    public static SparseArrayCompat<WeakReference<Interpolator>> pathInterpolatorCache;
+    public static SparseArrayCompat pathInterpolatorCache;
     public static final Interpolator LINEAR_INTERPOLATOR = new LinearInterpolator();
     public static JsonReader.Options NAMES = JsonReader.Options.of("t", "s", "e", "o", "i", "h", "to", Config.FEED_LIST_PART);
 
-    @Nullable
-    public static WeakReference<Interpolator> getInterpolator(int i) {
-        WeakReference<Interpolator> weakReference;
+    public static SparseArrayCompat pathInterpolatorCache() {
+        if (pathInterpolatorCache == null) {
+            pathInterpolatorCache = new SparseArrayCompat();
+        }
+        return pathInterpolatorCache;
+    }
+
+    public static WeakReference getInterpolator(int i) {
+        WeakReference weakReference;
         synchronized (KeyframeParser.class) {
-            weakReference = pathInterpolatorCache().get(i);
+            weakReference = (WeakReference) pathInterpolatorCache().get(i);
         }
         return weakReference;
     }
 
-    public static <T> Keyframe<T> parse(JsonReader jsonReader, LottieComposition lottieComposition, float f, ValueParser<T> valueParser, boolean z) throws IOException {
+    public static Keyframe parse(JsonReader jsonReader, LottieComposition lottieComposition, float f, ValueParser valueParser, boolean z) throws IOException {
         if (z) {
             return parseKeyframe(lottieComposition, jsonReader, f, valueParser);
         }
         return parseStaticValue(jsonReader, f, valueParser);
     }
 
-    public static <T> Keyframe<T> parseKeyframe(LottieComposition lottieComposition, JsonReader jsonReader, float f, ValueParser<T> valueParser) throws IOException {
+    public static Keyframe parseKeyframe(LottieComposition lottieComposition, JsonReader jsonReader, float f, ValueParser valueParser) throws IOException {
         Interpolator interpolator;
-        T t;
+        Object obj;
         Interpolator linearInterpolator;
         jsonReader.beginObject();
+        Interpolator interpolator2 = null;
         PointF pointF = null;
         PointF pointF2 = null;
-        T t2 = null;
-        T t3 = null;
+        Object obj2 = null;
+        Object obj3 = null;
         PointF pointF3 = null;
         PointF pointF4 = null;
         boolean z = false;
@@ -56,10 +62,10 @@ public class KeyframeParser {
                     f2 = (float) jsonReader.nextDouble();
                     break;
                 case 1:
-                    t3 = valueParser.parse(jsonReader, f);
+                    obj3 = valueParser.parse(jsonReader, f);
                     break;
                 case 2:
-                    t2 = valueParser.parse(jsonReader, f);
+                    obj2 = valueParser.parse(jsonReader, f);
                     break;
                 case 3:
                     pointF = JsonUtils.jsonToPoint(jsonReader, f);
@@ -68,11 +74,11 @@ public class KeyframeParser {
                     pointF2 = JsonUtils.jsonToPoint(jsonReader, f);
                     break;
                 case 5:
-                    if (jsonReader.nextInt() != 1) {
-                        z = false;
+                    if (jsonReader.nextInt() == 1) {
+                        z = true;
                         break;
                     } else {
-                        z = true;
+                        z = false;
                         break;
                     }
                 case 6:
@@ -89,7 +95,7 @@ public class KeyframeParser {
         jsonReader.endObject();
         if (z) {
             interpolator = LINEAR_INTERPOLATOR;
-            t = t3;
+            obj = obj3;
         } else {
             if (pointF != null && pointF2 != null) {
                 float f3 = -f;
@@ -99,9 +105,11 @@ public class KeyframeParser {
                 float clamp = MiscUtils.clamp(pointF2.y, -100.0f, 100.0f);
                 pointF2.y = clamp;
                 int hashFor = Utils.hashFor(pointF.x, pointF.y, pointF2.x, clamp);
-                WeakReference<Interpolator> interpolator2 = getInterpolator(hashFor);
-                Interpolator interpolator3 = interpolator2 != null ? interpolator2.get() : null;
-                if (interpolator2 == null || interpolator3 == null) {
+                WeakReference interpolator3 = getInterpolator(hashFor);
+                if (interpolator3 != null) {
+                    interpolator2 = (Interpolator) interpolator3.get();
+                }
+                if (interpolator3 == null || interpolator2 == null) {
                     pointF.x /= f;
                     pointF.y /= f;
                     float f4 = pointF2.x / f;
@@ -117,36 +125,29 @@ public class KeyframeParser {
                             linearInterpolator = new LinearInterpolator();
                         }
                     }
-                    interpolator3 = linearInterpolator;
+                    interpolator2 = linearInterpolator;
                     try {
-                        putInterpolator(hashFor, new WeakReference(interpolator3));
+                        putInterpolator(hashFor, new WeakReference(interpolator2));
                     } catch (ArrayIndexOutOfBoundsException unused) {
                     }
                 }
-                interpolator = interpolator3;
+                interpolator = interpolator2;
             } else {
                 interpolator = LINEAR_INTERPOLATOR;
             }
-            t = t2;
+            obj = obj2;
         }
-        Keyframe<T> keyframe = new Keyframe<>(lottieComposition, t3, t, interpolator, f2, null);
+        Keyframe keyframe = new Keyframe(lottieComposition, obj3, obj, interpolator, f2, null);
         keyframe.pathCp1 = pointF4;
         keyframe.pathCp2 = pointF3;
         return keyframe;
     }
 
-    public static <T> Keyframe<T> parseStaticValue(JsonReader jsonReader, float f, ValueParser<T> valueParser) throws IOException {
-        return new Keyframe<>(valueParser.parse(jsonReader, f));
+    public static Keyframe parseStaticValue(JsonReader jsonReader, float f, ValueParser valueParser) throws IOException {
+        return new Keyframe(valueParser.parse(jsonReader, f));
     }
 
-    public static SparseArrayCompat<WeakReference<Interpolator>> pathInterpolatorCache() {
-        if (pathInterpolatorCache == null) {
-            pathInterpolatorCache = new SparseArrayCompat<>();
-        }
-        return pathInterpolatorCache;
-    }
-
-    public static void putInterpolator(int i, WeakReference<Interpolator> weakReference) {
+    public static void putInterpolator(int i, WeakReference weakReference) {
         synchronized (KeyframeParser.class) {
             pathInterpolatorCache.put(i, weakReference);
         }

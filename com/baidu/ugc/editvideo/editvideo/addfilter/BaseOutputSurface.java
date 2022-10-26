@@ -9,10 +9,9 @@ import android.opengl.GLES30;
 import android.os.Build;
 import android.os.Handler;
 import android.view.Surface;
-import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qg9;
+import com.baidu.tieba.ih9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -65,6 +64,24 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
         this.mSTMatrix = new float[16];
     }
 
+    public Surface getSurface() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mSurface;
+        }
+        return (Surface) invokeV.objValue;
+    }
+
+    public void setup() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            FullFrameRect fullFrameRect = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT));
+            this.mFullScreenEXT = fullFrameRect;
+            this.mTextureId = fullFrameRect.createTextureObject();
+        }
+    }
+
     private void initPbo() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
@@ -79,7 +96,42 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
         }
     }
 
-    @RequiresApi(api = 24)
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            Surface surface = this.mSurface;
+            if (surface != null) {
+                surface.release();
+                this.mSurface = null;
+            }
+            SurfaceTexture surfaceTexture = this.mSurfaceTexture;
+            if (surfaceTexture != null) {
+                surfaceTexture.release();
+                this.mSurfaceTexture = null;
+            }
+            FullFrameRect fullFrameRect = this.mFullScreenEXT;
+            if (fullFrameRect != null) {
+                fullFrameRect.release(true);
+                this.mFullScreenEXT = null;
+            }
+            OffscreenSurface offscreenSurface = this.mOffscreenSurface;
+            if (offscreenSurface != null) {
+                offscreenSurface.release();
+                this.mOffscreenSurface = null;
+            }
+            EglCore eglCore = this.mEglCore;
+            if (eglCore != null) {
+                eglCore.release();
+                this.mEglCore = null;
+            }
+            GLES20.glDeleteTextures(1, new int[]{this.mTextureId}, 0);
+            int[] iArr = this.mPbo;
+            if (iArr != null) {
+                GLES20.glDeleteBuffers(iArr.length, iArr, 0);
+            }
+        }
+    }
+
     private Bitmap saveOffscreenBitmapWith2Pbo(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
@@ -104,7 +156,7 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
                 this.mPboNextIndex = (i3 + 1) % 2;
                 return createBitmap;
             } catch (OutOfMemoryError e) {
-                qg9.g(e);
+                ih9.g(e);
                 return null;
             }
         }
@@ -163,7 +215,7 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
                 }, null);
                 new WindowSurface(this.mEglCore, newInstance.getSurface(), true).makeCurrent();
             } catch (OutOfMemoryError e) {
-                qg9.g(e);
+                ih9.g(e);
             }
             return null;
         }
@@ -172,17 +224,18 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
 
     private void setupEgl() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && this.mIsOffscreenRenderer) {
-            EglCore eglCore = new EglCore(null, 2);
-            this.mEglCore = eglCore;
-            OffscreenSurface offscreenSurface = new OffscreenSurface(eglCore, this.mVideoWidth, this.mVideoHeight);
-            this.mOffscreenSurface = offscreenSurface;
-            offscreenSurface.makeCurrent();
-            ByteBuffer allocateDirect = ByteBuffer.allocateDirect(this.mVideoWidth * this.mVideoHeight * 4);
-            this.mPixelBuf = allocateDirect;
-            allocateDirect.order(ByteOrder.LITTLE_ENDIAN);
-            initPbo();
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) != null) || !this.mIsOffscreenRenderer) {
+            return;
         }
+        EglCore eglCore = new EglCore(null, 2);
+        this.mEglCore = eglCore;
+        OffscreenSurface offscreenSurface = new OffscreenSurface(eglCore, this.mVideoWidth, this.mVideoHeight);
+        this.mOffscreenSurface = offscreenSurface;
+        offscreenSurface.makeCurrent();
+        ByteBuffer allocateDirect = ByteBuffer.allocateDirect(this.mVideoWidth * this.mVideoHeight * 4);
+        this.mPixelBuf = allocateDirect;
+        allocateDirect.order(ByteOrder.LITTLE_ENDIAN);
+        initPbo();
     }
 
     public void awaitNewImage() {
@@ -214,31 +267,48 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
         }
         while (true) {
             int glGetError = GLES20.glGetError();
-            if (glGetError == 0) {
+            if (glGetError != 0) {
+                ih9.d(str + ": glError " + glGetError);
+            } else {
                 return;
             }
-            qg9.d(str + ": glError " + glGetError);
         }
     }
 
     public void drawImage(int i) {
         SurfaceTexture surfaceTexture;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (surfaceTexture = this.mSurfaceTexture) == null) {
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) || (surfaceTexture = this.mSurfaceTexture) == null) {
             return;
         }
         surfaceTexture.updateTexImage();
         this.mSurfaceTexture.getTransformMatrix(this.mSTMatrix);
     }
 
+    @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
+    public void onFrameAvailable(SurfaceTexture surfaceTexture) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, surfaceTexture) == null) {
+            synchronized (this.mFrameSyncObject) {
+                this.mFrameAvailable = true;
+                this.mFrameSyncObject.notifyAll();
+            }
+        }
+    }
+
     public Bitmap getFrameBitmap() {
         InterceptResult invokeV;
+        Bitmap bitmap;
         EglCore eglCore;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Bitmap saveOffscreenBitmapWith2Pbo = (Build.VERSION.SDK_INT < 24 || (eglCore = this.mEglCore) == null || eglCore.getGlVersion() != 3) ? null : saveOffscreenBitmapWith2Pbo(this.mVideoWidth, this.mVideoHeight);
-            if (saveOffscreenBitmapWith2Pbo != null) {
-                return saveOffscreenBitmapWith2Pbo;
+            if (Build.VERSION.SDK_INT >= 24 && (eglCore = this.mEglCore) != null && eglCore.getGlVersion() == 3) {
+                bitmap = saveOffscreenBitmapWith2Pbo(this.mVideoWidth, this.mVideoHeight);
+            } else {
+                bitmap = null;
+            }
+            if (bitmap != null) {
+                return bitmap;
             }
             try {
                 System.currentTimeMillis();
@@ -257,79 +327,17 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
                 System.currentTimeMillis();
                 return createBitmap;
             } catch (OutOfMemoryError e) {
-                qg9.g(e);
+                ih9.g(e);
                 return null;
             }
         }
         return (Bitmap) invokeV.objValue;
     }
 
-    public Surface getSurface() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mSurface : (Surface) invokeV.objValue;
-    }
-
     public void init(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
             init(i, i2, false, null);
-        }
-    }
-
-    @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
-    public void onFrameAvailable(SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, surfaceTexture) == null) {
-            synchronized (this.mFrameSyncObject) {
-                this.mFrameAvailable = true;
-                this.mFrameSyncObject.notifyAll();
-            }
-        }
-    }
-
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            Surface surface = this.mSurface;
-            if (surface != null) {
-                surface.release();
-                this.mSurface = null;
-            }
-            SurfaceTexture surfaceTexture = this.mSurfaceTexture;
-            if (surfaceTexture != null) {
-                surfaceTexture.release();
-                this.mSurfaceTexture = null;
-            }
-            FullFrameRect fullFrameRect = this.mFullScreenEXT;
-            if (fullFrameRect != null) {
-                fullFrameRect.release(true);
-                this.mFullScreenEXT = null;
-            }
-            OffscreenSurface offscreenSurface = this.mOffscreenSurface;
-            if (offscreenSurface != null) {
-                offscreenSurface.release();
-                this.mOffscreenSurface = null;
-            }
-            EglCore eglCore = this.mEglCore;
-            if (eglCore != null) {
-                eglCore.release();
-                this.mEglCore = null;
-            }
-            GLES20.glDeleteTextures(1, new int[]{this.mTextureId}, 0);
-            int[] iArr = this.mPbo;
-            if (iArr != null) {
-                GLES20.glDeleteBuffers(iArr.length, iArr, 0);
-            }
-        }
-    }
-
-    public void setup() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            FullFrameRect fullFrameRect = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT));
-            this.mFullScreenEXT = fullFrameRect;
-            this.mTextureId = fullFrameRect.createTextureObject();
         }
     }
 

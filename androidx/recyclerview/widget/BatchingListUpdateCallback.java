@@ -1,6 +1,5 @@
 package androidx.recyclerview.widget;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,7 +19,7 @@ public class BatchingListUpdateCallback implements ListUpdateCallback {
     public int mLastEventType;
     public final ListUpdateCallback mWrapped;
 
-    public BatchingListUpdateCallback(@NonNull ListUpdateCallback listUpdateCallback) {
+    public BatchingListUpdateCallback(ListUpdateCallback listUpdateCallback) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,15 +44,19 @@ public class BatchingListUpdateCallback implements ListUpdateCallback {
     public void dispatchLastEvent() {
         int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (i = this.mLastEventType) == 0) {
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (i = this.mLastEventType) == 0) {
             return;
         }
-        if (i == 1) {
+        if (i != 1) {
+            if (i != 2) {
+                if (i == 3) {
+                    this.mWrapped.onChanged(this.mLastEventPosition, this.mLastEventCount, this.mLastEventPayload);
+                }
+            } else {
+                this.mWrapped.onRemoved(this.mLastEventPosition, this.mLastEventCount);
+            }
+        } else {
             this.mWrapped.onInserted(this.mLastEventPosition, this.mLastEventCount);
-        } else if (i == 2) {
-            this.mWrapped.onRemoved(this.mLastEventPosition, this.mLastEventCount);
-        } else if (i == 3) {
-            this.mWrapped.onChanged(this.mLastEventPosition, this.mLastEventCount, this.mLastEventPayload);
         }
         this.mLastEventPayload = null;
         this.mLastEventType = 0;

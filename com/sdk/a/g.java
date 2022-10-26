@@ -1,6 +1,5 @@
 package com.sdk.a;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
@@ -33,7 +32,7 @@ import org.apache.http.client.methods.HttpOptions;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpTrace;
 /* loaded from: classes8.dex */
-public class g<T> {
+public class g {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "g";
     public static boolean b;
@@ -41,11 +40,11 @@ public class g<T> {
     public static final HostnameVerifier d;
     public transient /* synthetic */ FieldHolder $fh;
     public Context e;
-    public h<T> f;
+    public h f;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public static final class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
         public static final a b;
@@ -147,7 +146,7 @@ public class g<T> {
         d = new f();
     }
 
-    public g(Context context, h<T> hVar) {
+    public g(Context context, h hVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -166,10 +165,50 @@ public class g<T> {
         this.f = hVar;
     }
 
+    public String a() {
+        StringBuilder sb;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                if (this.f != null) {
+                    String str = this.f.c;
+                    String str2 = this.f.d;
+                    if (str.equals(a.a.l)) {
+                        String a2 = this.f.a(this.f.f);
+                        if (com.sdk.n.a.b(a2).booleanValue()) {
+                            sb = new StringBuilder();
+                            sb.append(str2);
+                            sb.append("?");
+                            sb.append(a2);
+                        } else {
+                            return str2;
+                        }
+                    } else {
+                        String str3 = this.f.e;
+                        if (com.sdk.n.a.b(str3).booleanValue()) {
+                            sb = new StringBuilder();
+                            sb.append(str2);
+                            sb.append("?unikey=");
+                            sb.append(str3);
+                        } else {
+                            return str2;
+                        }
+                    }
+                    return sb.toString();
+                }
+                return null;
+            } catch (Exception e) {
+                com.sdk.n.a.a(a, e.getMessage(), Boolean.valueOf(b));
+                return null;
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:70:0x013f */
     /* JADX WARN: Removed duplicated region for block: B:29:0x0090 A[RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:30:0x0091  */
-    @SuppressLint({"DefaultLocale"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -204,14 +243,14 @@ public class g<T> {
                                 a2 = com.sdk.o.f.a(this.e, null);
                             }
                             a3 = a2.a();
-                            if (androidSDKVersion <= 21 || a3 == f.a.b.a()) {
+                            if (androidSDKVersion > 21 && a3 != f.a.b.a()) {
+                                bVar = new b(this.e, url);
+                            } else {
                                 httpURLConnection2 = null;
                                 if (httpURLConnection2 != null) {
                                     return null;
                                 }
                                 httpURLConnection3 = httpURLConnection2;
-                            } else {
-                                bVar = new b(this.e, url);
                             }
                         } else {
                             bVar = new b(this.e, url);
@@ -249,10 +288,10 @@ public class g<T> {
                     httpsURLConnection.setRequestProperty("user-agent", com.sdk.l.a.a(this.e));
                     httpsURLConnection.setRequestProperty("netType", a3 + "");
                     httpsURLConnection.setRequestProperty("os", "android");
-                    HashMap<String, Object> hashMap = this.f.h;
+                    HashMap hashMap = this.f.h;
                     if (hashMap != null && hashMap.size() > 0) {
-                        for (Map.Entry<String, Object> entry : hashMap.entrySet()) {
-                            httpsURLConnection.setRequestProperty(entry.getKey(), entry.getValue() + "");
+                        for (Map.Entry entry : hashMap.entrySet()) {
+                            httpsURLConnection.setRequestProperty((String) entry.getKey(), entry.getValue() + "");
                         }
                     }
                 }
@@ -273,13 +312,19 @@ public class g<T> {
     public HttpURLConnection a(HttpURLConnection httpURLConnection) {
         InterceptResult invokeL;
         String str;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, httpURLConnection)) == null) {
             if (httpURLConnection != null) {
-                h<T> hVar = this.f;
+                h hVar = this.f;
                 if (hVar != null) {
-                    ArrayList<File> arrayList = hVar.g;
-                    if ((arrayList == null || arrayList.size() == 0) ? false : true) {
+                    ArrayList arrayList = hVar.g;
+                    if (arrayList != null && arrayList.size() != 0) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (z) {
                         str = "multipart/form-data; boundary=" + c;
                         httpURLConnection.setRequestProperty("Content-Type", str);
                         httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
@@ -289,7 +334,7 @@ public class g<T> {
                                 httpURLConnection.setRequestMethod("POST");
                                 httpURLConnection.getRequestMethod();
                                 httpURLConnection.connect();
-                                h<T> hVar2 = this.f;
+                                h hVar2 = this.f;
                                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                                 if (hVar2 != null) {
                                     try {
@@ -297,17 +342,15 @@ public class g<T> {
                                         if (hVar2.d.contains("/dro/log/v1.0/log")) {
                                             a2 = hVar2.f.toString();
                                         }
-                                        ArrayList<File> arrayList2 = hVar2.g;
-                                        if (arrayList2 == null || arrayList2.size() <= 0) {
-                                            byteArrayOutputStream.write(a2.getBytes(IMAudioTransRequest.CHARSET));
-                                        } else {
+                                        ArrayList arrayList2 = hVar2.g;
+                                        if (arrayList2 != null && arrayList2.size() > 0) {
                                             byteArrayOutputStream.write(("--" + c + "\r\n").getBytes(IMAudioTransRequest.CHARSET));
                                             byteArrayOutputStream.write("Content-Disposition: form-data; name=\"params\"".getBytes(IMAudioTransRequest.CHARSET));
                                             byteArrayOutputStream.write("\r\n\r\n".getBytes(IMAudioTransRequest.CHARSET));
                                             byteArrayOutputStream.write(a2.getBytes(IMAudioTransRequest.CHARSET));
                                             byteArrayOutputStream.write("\r\n".getBytes(IMAudioTransRequest.CHARSET));
                                             for (int i = 0; i < arrayList2.size(); i++) {
-                                                File file = arrayList2.get(i);
+                                                File file = (File) arrayList2.get(i);
                                                 if (file != null) {
                                                     FileInputStream fileInputStream = new FileInputStream(file);
                                                     String name = file.getName();
@@ -338,6 +381,8 @@ public class g<T> {
                                                     fileInputStream.close();
                                                 }
                                             }
+                                        } else {
+                                            byteArrayOutputStream.write(a2.getBytes(IMAudioTransRequest.CHARSET));
                                         }
                                     } catch (Exception e) {
                                         com.sdk.n.b.c(e.toString());
@@ -365,48 +410,15 @@ public class g<T> {
         return (HttpURLConnection) invokeL.objValue;
     }
 
-    public String a() {
-        StringBuilder sb;
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                if (this.f != null) {
-                    String str = this.f.c;
-                    String str2 = this.f.d;
-                    if (str.equals(a.a.l)) {
-                        String a2 = this.f.a(this.f.f);
-                        if (!com.sdk.n.a.b(a2).booleanValue()) {
-                            return str2;
-                        }
-                        sb = new StringBuilder();
-                        sb.append(str2);
-                        sb.append("?");
-                        sb.append(a2);
-                    } else {
-                        String str3 = this.f.e;
-                        if (!com.sdk.n.a.b(str3).booleanValue()) {
-                            return str2;
-                        }
-                        sb = new StringBuilder();
-                        sb.append(str2);
-                        sb.append("?unikey=");
-                        sb.append(str3);
-                    }
-                    return sb.toString();
-                }
-                return null;
-            } catch (Exception e) {
-                com.sdk.n.a.a(a, e.getMessage(), Boolean.valueOf(b));
-                return null;
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
     public final boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? (!SDKManager.isStrong || str.contains("/api/netm/v1.0/qhbt") || str.contains("/api/netm/v1.0/qhbv") || str.contains("/st/api/v1.0/ses")) ? false : true : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (!SDKManager.isStrong || str.contains("/api/netm/v1.0/qhbt") || str.contains("/api/netm/v1.0/qhbv") || str.contains("/st/api/v1.0/ses")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

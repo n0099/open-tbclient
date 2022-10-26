@@ -15,17 +15,23 @@ public class FontParser {
         float f = 0.0f;
         while (jsonReader.hasNext()) {
             int selectName = jsonReader.selectName(NAMES);
-            if (selectName == 0) {
-                str = jsonReader.nextString();
-            } else if (selectName == 1) {
-                str2 = jsonReader.nextString();
-            } else if (selectName == 2) {
-                str3 = jsonReader.nextString();
-            } else if (selectName != 3) {
-                jsonReader.skipName();
-                jsonReader.skipValue();
+            if (selectName != 0) {
+                if (selectName != 1) {
+                    if (selectName != 2) {
+                        if (selectName != 3) {
+                            jsonReader.skipName();
+                            jsonReader.skipValue();
+                        } else {
+                            f = (float) jsonReader.nextDouble();
+                        }
+                    } else {
+                        str3 = jsonReader.nextString();
+                    }
+                } else {
+                    str2 = jsonReader.nextString();
+                }
             } else {
-                f = (float) jsonReader.nextDouble();
+                str = jsonReader.nextString();
             }
         }
         jsonReader.endObject();

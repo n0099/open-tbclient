@@ -34,11 +34,11 @@ public class EC3SpecificBox extends AbstractBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_8 = null;
     public transient /* synthetic */ FieldHolder $fh;
     public int dataRate;
-    public List<Entry> entries;
+    public List entries;
     public int numIndSub;
 
     /* loaded from: classes7.dex */
-    public static class Entry {
+    public class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int acmod;
@@ -91,6 +91,36 @@ public class EC3SpecificBox extends AbstractBox {
         ajc$preClinit();
     }
 
+    public int getDataRate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this));
+            return this.dataRate;
+        }
+        return invokeV.intValue;
+    }
+
+    public List getEntries() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
+            return this.entries;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public int getNumIndSub() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_7, this, this));
+            return this.numIndSub;
+        }
+        return invokeV.intValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public EC3SpecificBox() {
         super(TYPE);
@@ -108,6 +138,27 @@ public class EC3SpecificBox extends AbstractBox {
             }
         }
         this.entries = new LinkedList();
+    }
+
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        InterceptResult invokeV;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
+            long j2 = 2;
+            for (Entry entry : this.entries) {
+                if (entry.num_dep_sub > 0) {
+                    j = 4;
+                } else {
+                    j = 3;
+                }
+                j2 += j;
+            }
+            return j2;
+        }
+        return invokeV.longValue;
     }
 
     public static /* synthetic */ void ajc$preClinit() {
@@ -150,14 +201,6 @@ public class EC3SpecificBox extends AbstractBox {
         }
     }
 
-    public void addEntry(Entry entry) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, entry) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this, entry));
-            this.entries.add(entry);
-        }
-    }
-
     @Override // com.googlecode.mp4parser.AbstractBox
     public void getContent(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
@@ -183,49 +226,12 @@ public class EC3SpecificBox extends AbstractBox {
         }
     }
 
-    @Override // com.googlecode.mp4parser.AbstractBox
-    public long getContentSize() {
-        InterceptResult invokeV;
+    public void addEntry(Entry entry) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            long j = 2;
-            for (Entry entry : this.entries) {
-                j += entry.num_dep_sub > 0 ? 4L : 3L;
-            }
-            return j;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, entry) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this, entry));
+            this.entries.add(entry);
         }
-        return invokeV.longValue;
-    }
-
-    public int getDataRate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this));
-            return this.dataRate;
-        }
-        return invokeV.intValue;
-    }
-
-    public List<Entry> getEntries() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return this.entries;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public int getNumIndSub() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_7, this, this));
-            return this.numIndSub;
-        }
-        return invokeV.intValue;
     }
 
     public void setDataRate(int i) {
@@ -236,7 +242,7 @@ public class EC3SpecificBox extends AbstractBox {
         }
     }
 
-    public void setEntries(List<Entry> list) {
+    public void setEntries(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, list));

@@ -1,6 +1,5 @@
 package com.xiaomi.push;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -15,6 +14,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class bt {
@@ -37,7 +37,7 @@ public class bt {
             String a = bw.a(context).a("sp_client_report_status", "sp_client_report_key", "");
             if (TextUtils.isEmpty(a)) {
                 String a2 = bp.a(20);
-                bw.a(context).m213a("sp_client_report_status", "sp_client_report_key", a2);
+                bw.a(context).m212a("sp_client_report_status", "sp_client_report_key", a2);
                 return a2;
             }
             return a;
@@ -102,7 +102,7 @@ public class bt {
                     if (!TextUtils.isEmpty(file3.getAbsolutePath())) {
                         file = new File(file3.getAbsolutePath() + ".lock");
                         try {
-                            ab.m162a(file);
+                            ab.m161a(file);
                             randomAccessFile = new RandomAccessFile(file, "rw");
                             try {
                                 try {
@@ -179,12 +179,14 @@ public class bt {
         }
     }
 
-    public static void a(Context context, List<String> list) {
+    public static void a(Context context, List list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, list) == null) || list == null || list.size() <= 0 || !m209a(context)) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, list) == null) || list == null || list.size() <= 0 || !m208a(context)) {
             return;
         }
-        for (String str : list) {
+        Iterator it = list.iterator();
+        while (it.hasNext()) {
+            String str = (String) it.next();
             if (!TextUtils.isEmpty(str)) {
                 a(context, str);
             }
@@ -192,7 +194,7 @@ public class bt {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m209a(Context context) {
+    public static boolean m208a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
@@ -206,12 +208,12 @@ public class bt {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m210a(Context context, String str) {
+    public static boolean m209a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
             File file = new File(str);
-            long maxFileLength = com.xiaomi.clientreport.manager.a.a(context).m95a().getMaxFileLength();
+            long maxFileLength = com.xiaomi.clientreport.manager.a.a(context).m94a().getMaxFileLength();
             if (file.exists()) {
                 try {
                     if (file.length() > maxFileLength) {
@@ -222,19 +224,18 @@ public class bt {
                     return false;
                 }
             } else {
-                ab.m162a(file);
+                ab.m161a(file);
             }
             return true;
         }
         return invokeLL.booleanValue;
     }
 
-    @TargetApi(9)
     public static byte[] a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            byte[] copyOf = Arrays.copyOf(bm.m203a(str), 16);
+            byte[] copyOf = Arrays.copyOf(bm.m202a(str), 16);
             copyOf[0] = 68;
             copyOf[15] = 84;
             return copyOf;
@@ -243,7 +244,7 @@ public class bt {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static File[] m211a(Context context, String str) {
+    public static File[] m210a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) {

@@ -87,6 +87,15 @@ public class BasicHeaderValueParser implements HeaderValueParser {
         return (NameValuePair[]) invokeLL.objValue;
     }
 
+    public NameValuePair createNameValuePair(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            throw new RuntimeException("Stub!");
+        }
+        return (NameValuePair) invokeLL.objValue;
+    }
+
     public HeaderElement createHeaderElement(String str, String str2, NameValuePair[] nameValuePairArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -96,13 +105,13 @@ public class BasicHeaderValueParser implements HeaderValueParser {
         return (HeaderElement) invokeLLL.objValue;
     }
 
-    public NameValuePair createNameValuePair(String str, String str2) {
-        InterceptResult invokeLL;
+    public NameValuePair parseNameValuePair(CharArrayBuffer charArrayBuffer, ParserCursor parserCursor, char[] cArr) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, charArrayBuffer, parserCursor, cArr)) == null) {
             throw new RuntimeException("Stub!");
         }
-        return (NameValuePair) invokeLL.objValue;
+        return (NameValuePair) invokeLLL.objValue;
     }
 
     @Override // org.apache.http.message.HeaderValueParser
@@ -143,14 +152,5 @@ public class BasicHeaderValueParser implements HeaderValueParser {
             throw new RuntimeException("Stub!");
         }
         return (NameValuePair[]) invokeLL.objValue;
-    }
-
-    public NameValuePair parseNameValuePair(CharArrayBuffer charArrayBuffer, ParserCursor parserCursor, char[] cArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, charArrayBuffer, parserCursor, cArr)) == null) {
-            throw new RuntimeException("Stub!");
-        }
-        return (NameValuePair) invokeLLL.objValue;
     }
 }

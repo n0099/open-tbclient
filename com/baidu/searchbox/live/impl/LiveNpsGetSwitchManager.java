@@ -7,8 +7,8 @@ import com.baidu.common.param.CommonUrlParamManager;
 import com.baidu.live.net.LiveNetwork;
 import com.baidu.searchbox.live.interfaces.net.LiveNetConstants;
 import com.baidu.searchbox.live.interfaces.net.NetResponse;
-import com.baidu.tieba.jc0;
-import com.baidu.tieba.xc0;
+import com.baidu.tieba.kc0;
+import com.baidu.tieba.yc0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -73,7 +73,7 @@ public final class LiveNpsGetSwitchManager {
         }
     }
 
-    private final Map<String, String> addLiveCommonParameters(Map<String, String> map, Map<String, String> map2) {
+    private final Map addLiveCommonParameters(Map map, Map map2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, map, map2)) == null) {
@@ -87,13 +87,13 @@ public final class LiveNpsGetSwitchManager {
         return (Map) invokeLL.objValue;
     }
 
-    private final String addLiveCommonToUrl(String str, Map<String, String> map) {
+    private final String addLiveCommonToUrl(String str, Map map) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, str, map)) == null) {
             String fullUrl = CommonUrlParamManager.getInstance().processUrl(str);
             if (map != null) {
-                String a = xc0.a(fullUrl, map);
+                String a = yc0.a(fullUrl, map);
                 Intrinsics.checkExpressionValueIsNotNull(a, "UrlUtil.addParam(fullUrl, params)");
                 return a;
             }
@@ -103,20 +103,20 @@ public final class LiveNpsGetSwitchManager {
         return (String) invokeLL.objValue;
     }
 
-    private final StringBuffer addParamsToStringBuffer(StringBuffer stringBuffer, ArrayList<Map.Entry<String, String>> arrayList) {
+    private final StringBuffer addParamsToStringBuffer(StringBuffer stringBuffer, ArrayList arrayList) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, stringBuffer, arrayList)) == null) {
             if (arrayList != null && !arrayList.isEmpty()) {
-                Iterator<Map.Entry<String, String>> it = arrayList.iterator();
+                Iterator it = arrayList.iterator();
                 while (it.hasNext()) {
-                    Map.Entry<String, String> next = it.next();
-                    String key = next.getKey();
-                    String value = next.getValue();
-                    if (!"sign".equals(key)) {
-                        stringBuffer.append(key);
+                    Map.Entry entry = (Map.Entry) it.next();
+                    String str = (String) entry.getKey();
+                    String str2 = (String) entry.getValue();
+                    if (!"sign".equals(str)) {
+                        stringBuffer.append(str);
                         stringBuffer.append("=");
-                        stringBuffer.append(value);
+                        stringBuffer.append(str2);
                     }
                 }
             }
@@ -125,11 +125,11 @@ public final class LiveNpsGetSwitchManager {
         return (StringBuffer) invokeLL.objValue;
     }
 
-    private final String genSignParamsStr(Map<String, String> map, Map<String, String> map2, Map<String, String> map3) {
+    private final String genSignParamsStr(Map map, Map map2, Map map3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, this, map, map2, map3)) == null) {
-            ArrayList<Map.Entry<String, String>> arrayList = new ArrayList<>();
+            ArrayList arrayList = new ArrayList();
             if (map != null) {
                 arrayList.addAll(map.entrySet());
             }
@@ -158,22 +158,25 @@ public final class LiveNpsGetSwitchManager {
         return (String) invokeLLL.objValue;
     }
 
-    private final Map<String, String> getUrlParamsFromUrl(String str) {
+    private final Map getUrlParamsFromUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) ? xc0.d(xc0.b(str)) : (Map) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) {
+            return yc0.d(yc0.b(str));
+        }
+        return (Map) invokeL.objValue;
     }
 
-    private final Map<String, Object> transformMap(Map<String, String> map) {
+    private final Map transformMap(Map map) {
         InterceptResult invokeL;
-        String key;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, map)) == null) {
             HashMap hashMap = new HashMap();
             if (map != null) {
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    if (entry != null && (key = entry.getKey()) != null) {
-                        hashMap.put(key, entry.getValue());
+                for (Map.Entry entry : map.entrySet()) {
+                    if (entry != null && (str = (String) entry.getKey()) != null) {
+                        hashMap.put(str, entry.getValue());
                     }
                 }
             }
@@ -195,10 +198,10 @@ public final class LiveNpsGetSwitchManager {
             String format = String.format("%s/yylive/switch?", Arrays.copyOf(new Object[]{HOST_URL}, 1));
             Intrinsics.checkExpressionValueIsNotNull(format, "java.lang.String.format(format, *args)");
             String addLiveCommonToUrl = addLiveCommonToUrl(format, null);
-            Map<String, String> addLiveCommonParameters = addLiveCommonParameters(linkedHashMap, getUrlParamsFromUrl(addLiveCommonToUrl));
+            Map addLiveCommonParameters = addLiveCommonParameters(linkedHashMap, getUrlParamsFromUrl(addLiveCommonToUrl));
             liveNetwork.c(MapsKt__MapsKt.mapOf(TuplesKt.to(LiveNetConstants.EXTRA_KEY_ENABLE_STAT, Boolean.TRUE), TuplesKt.to(LiveNetConstants.EXTRA_KEY_REQUEST_FROM, 17), TuplesKt.to(LiveNetConstants.EXTRA_KEY_REQUEST_SUB_FROM, 136)));
             liveNetwork.e(addLiveCommonToUrl);
-            liveNetwork.b(transformMap(MapsKt__MapsKt.plus(new HashMap(addLiveCommonParameters), linkedHashMap)), new jc0<LiveMasterSwitchBean>(iMasterSwitchCallback) { // from class: com.baidu.searchbox.live.impl.LiveNpsGetSwitchManager$getMasterSwitch$1
+            liveNetwork.b(transformMap(MapsKt__MapsKt.plus(new HashMap(addLiveCommonParameters), linkedHashMap)), new kc0(iMasterSwitchCallback) { // from class: com.baidu.searchbox.live.impl.LiveNpsGetSwitchManager$getMasterSwitch$1
                 public static /* synthetic */ Interceptable $ic;
                 public final /* synthetic */ IMasterSwitchCallback $callback;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -222,12 +225,19 @@ public final class LiveNpsGetSwitchManager {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.tieba.jc0
+                @Override // com.baidu.tieba.kc0
                 public void onNetResponse(NetResponse netResponse, LiveMasterSwitchBean liveMasterSwitchBean) {
+                    String str2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, netResponse, liveMasterSwitchBean) == null) {
                         if (netResponse != null && !netResponse.isSuccessful()) {
-                            this.$callback.switchCallback(liveMasterSwitchBean != null ? liveMasterSwitchBean.getErrmsg() : null);
+                            IMasterSwitchCallback iMasterSwitchCallback2 = this.$callback;
+                            if (liveMasterSwitchBean != null) {
+                                str2 = liveMasterSwitchBean.getErrmsg();
+                            } else {
+                                str2 = null;
+                            }
+                            iMasterSwitchCallback2.switchCallback(str2);
                         } else if (liveMasterSwitchBean == null) {
                             this.$callback.switchCallback("error");
                         } else {
@@ -237,8 +247,7 @@ public final class LiveNpsGetSwitchManager {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tieba.jc0
+                @Override // com.baidu.tieba.kc0
                 public LiveMasterSwitchBean onParseResponseInBackground(NetResponse netResponse) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;

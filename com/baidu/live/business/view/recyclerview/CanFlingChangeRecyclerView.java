@@ -2,7 +2,6 @@ package com.baidu.live.business.view.recyclerview;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -34,15 +33,8 @@ public class CanFlingChangeRecyclerView extends RecyclerView {
         }
     }
 
-    @Override // androidx.recyclerview.widget.RecyclerView
-    public boolean fling(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) ? super.fling(i, i2 * 1) : invokeII.booleanValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CanFlingChangeRecyclerView(Context context, @Nullable AttributeSet attributeSet) {
+    public CanFlingChangeRecyclerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -63,7 +55,7 @@ public class CanFlingChangeRecyclerView extends RecyclerView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CanFlingChangeRecyclerView(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public CanFlingChangeRecyclerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -81,5 +73,15 @@ public class CanFlingChangeRecyclerView extends RecyclerView {
                 return;
             }
         }
+    }
+
+    @Override // androidx.recyclerview.widget.RecyclerView
+    public boolean fling(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
+            return super.fling(i, i2 * 1);
+        }
+        return invokeII.booleanValue;
     }
 }

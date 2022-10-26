@@ -1,6 +1,5 @@
 package androidx.media2.session;
 
-import androidx.annotation.RestrictTo;
 import androidx.media2.common.MediaItem;
 import androidx.media2.common.ParcelImplListSlice;
 import androidx.media2.session.MediaLibraryService;
@@ -10,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
 public final class LibraryResultParcelizer {
     public static /* synthetic */ Interceptable $ic;

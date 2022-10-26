@@ -43,11 +43,17 @@ public final class f {
         c = new byte[4194304];
     }
 
-    public static void a(String str) {
+    public static String a(Context context) {
+        InterceptResult invokeL;
+        File parentFile;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            a(new File(str));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (a == null && (parentFile = context.getCacheDir().getParentFile()) != null) {
+                a = parentFile.getAbsolutePath();
+            }
+            return a;
         }
+        return (String) invokeL.objValue;
     }
 
     public static String b(Context context) {
@@ -67,13 +73,23 @@ public final class f {
         return (String) invokeL.objValue;
     }
 
+    public static void a(Closeable closeable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, null, closeable) == null) && closeable != null) {
+            try {
+                closeable.close();
+            } catch (IOException unused) {
+            }
+        }
+    }
+
     public static void a(File file) {
         File[] listFiles;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65539, null, file) == null) && file != null && file.exists()) {
             if (Build.VERSION.SDK_INT >= 26) {
                 try {
-                    Files.walkFileTree(Paths.get(file.getAbsolutePath(), new String[0]), new SimpleFileVisitor<Path>() { // from class: com.bytedance.pangle.util.g.1
+                    Files.walkFileTree(Paths.get(file.getAbsolutePath(), new String[0]), new SimpleFileVisitor() { // from class: com.bytedance.pangle.util.g.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -155,27 +171,10 @@ public final class f {
         }
     }
 
-    public static void a(Closeable closeable) {
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, closeable) == null) || closeable == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            a(new File(str));
         }
-        try {
-            closeable.close();
-        } catch (IOException unused) {
-        }
-    }
-
-    public static String a(Context context) {
-        InterceptResult invokeL;
-        File parentFile;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (a == null && (parentFile = context.getCacheDir().getParentFile()) != null) {
-                a = parentFile.getAbsolutePath();
-            }
-            return a;
-        }
-        return (String) invokeL.objValue;
     }
 }

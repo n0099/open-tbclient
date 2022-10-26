@@ -47,6 +47,16 @@ public abstract class VisibilityPropagation extends TransitionPropagation {
         }
     }
 
+    @Override // androidx.transition.TransitionPropagation
+    public String[] getPropagationProperties() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return VISIBILITY_PROPAGATION_VALUES;
+        }
+        return (String[]) invokeV.objValue;
+    }
+
     public static int getViewCoordinate(TransitionValues transitionValues, int i) {
         InterceptResult invokeLI;
         int[] iArr;
@@ -79,13 +89,6 @@ public abstract class VisibilityPropagation extends TransitionPropagation {
         }
     }
 
-    @Override // androidx.transition.TransitionPropagation
-    public String[] getPropagationProperties() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? VISIBILITY_PROPAGATION_VALUES : (String[]) invokeV.objValue;
-    }
-
     public int getViewVisibility(TransitionValues transitionValues) {
         InterceptResult invokeL;
         Integer num;
@@ -102,12 +105,18 @@ public abstract class VisibilityPropagation extends TransitionPropagation {
     public int getViewX(TransitionValues transitionValues) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, transitionValues)) == null) ? getViewCoordinate(transitionValues, 0) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, transitionValues)) == null) {
+            return getViewCoordinate(transitionValues, 0);
+        }
+        return invokeL.intValue;
     }
 
     public int getViewY(TransitionValues transitionValues) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, transitionValues)) == null) ? getViewCoordinate(transitionValues, 1) : invokeL.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, transitionValues)) == null) {
+            return getViewCoordinate(transitionValues, 1);
+        }
+        return invokeL.intValue;
     }
 }

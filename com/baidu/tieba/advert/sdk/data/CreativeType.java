@@ -65,18 +65,27 @@ public final class CreativeType {
     public static CreativeType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (CreativeType) Enum.valueOf(CreativeType.class, str) : (CreativeType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (CreativeType) Enum.valueOf(CreativeType.class, str);
+        }
+        return (CreativeType) invokeL.objValue;
     }
 
     public static CreativeType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CreativeType[]) $VALUES.clone() : (CreativeType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (CreativeType[]) $VALUES.clone();
+        }
+        return (CreativeType[]) invokeV.objValue;
     }
 
     public int getValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.typeId : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.typeId;
+        }
+        return invokeV.intValue;
     }
 }

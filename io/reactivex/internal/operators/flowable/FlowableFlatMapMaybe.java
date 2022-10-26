@@ -28,32 +28,32 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableFlatMapMaybe<T, R> extends AbstractFlowableWithUpstream<T, R> {
+public final class FlowableFlatMapMaybe extends AbstractFlowableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean delayErrors;
-    public final Function<? super T, ? extends MaybeSource<? extends R>> mapper;
+    public final Function mapper;
     public final int maxConcurrency;
 
     /* loaded from: classes8.dex */
-    public static final class FlatMapMaybeSubscriber<T, R> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
+    public final class FlatMapMaybeSubscriber extends AtomicInteger implements FlowableSubscriber, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8600231336733376951L;
         public transient /* synthetic */ FieldHolder $fh;
         public final AtomicInteger active;
-        public final Subscriber<? super R> actual;
+        public final Subscriber actual;
         public volatile boolean cancelled;
         public final boolean delayErrors;
         public final AtomicThrowable errors;
-        public final Function<? super T, ? extends MaybeSource<? extends R>> mapper;
+        public final Function mapper;
         public final int maxConcurrency;
-        public final AtomicReference<SpscLinkedArrayQueue<R>> queue;
+        public final AtomicReference queue;
         public final AtomicLong requested;
         public Subscription s;
         public final CompositeDisposable set;
 
         /* loaded from: classes8.dex */
-        public final class InnerObserver extends AtomicReference<Disposable> implements MaybeObserver<R>, Disposable {
+        public final class InnerObserver extends AtomicReference implements MaybeObserver, Disposable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -502562646270949838L;
             public transient /* synthetic */ FieldHolder $fh;
@@ -77,29 +77,6 @@ public final class FlowableFlatMapMaybe<T, R> extends AbstractFlowableWithUpstre
                 this.this$0 = flatMapMaybeSubscriber;
             }
 
-            @Override // io.reactivex.disposables.Disposable
-            public void dispose() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    DisposableHelper.dispose(this);
-                }
-            }
-
-            @Override // io.reactivex.disposables.Disposable
-            public boolean isDisposed() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? DisposableHelper.isDisposed(get()) : invokeV.booleanValue;
-            }
-
-            @Override // io.reactivex.MaybeObserver
-            public void onComplete() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    this.this$0.innerComplete(this);
-                }
-            }
-
             @Override // io.reactivex.MaybeObserver
             public void onError(Throwable th) {
                 Interceptable interceptable = $ic;
@@ -117,15 +94,41 @@ public final class FlowableFlatMapMaybe<T, R> extends AbstractFlowableWithUpstre
             }
 
             @Override // io.reactivex.MaybeObserver
-            public void onSuccess(R r) {
+            public void onSuccess(Object obj) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048581, this, r) == null) {
-                    this.this$0.innerSuccess(this, r);
+                if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
+                    this.this$0.innerSuccess(this, obj);
+                }
+            }
+
+            @Override // io.reactivex.disposables.Disposable
+            public void dispose() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    DisposableHelper.dispose(this);
+                }
+            }
+
+            @Override // io.reactivex.disposables.Disposable
+            public boolean isDisposed() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    return DisposableHelper.isDisposed((Disposable) get());
+                }
+                return invokeV.booleanValue;
+            }
+
+            @Override // io.reactivex.MaybeObserver
+            public void onComplete() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                    this.this$0.innerComplete(this);
                 }
             }
         }
 
-        public FlatMapMaybeSubscriber(Subscriber<? super R> subscriber, Function<? super T, ? extends MaybeSource<? extends R>> function, boolean z, int i) {
+        public FlatMapMaybeSubscriber(Subscriber subscriber, Function function, boolean z, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -148,7 +151,7 @@ public final class FlowableFlatMapMaybe<T, R> extends AbstractFlowableWithUpstre
             this.set = new CompositeDisposable();
             this.errors = new AtomicThrowable();
             this.active = new AtomicInteger(1);
-            this.queue = new AtomicReference<>();
+            this.queue = new AtomicReference();
         }
 
         @Override // org.reactivestreams.Subscription
@@ -162,18 +165,43 @@ public final class FlowableFlatMapMaybe<T, R> extends AbstractFlowableWithUpstre
         }
 
         public void clear() {
-            SpscLinkedArrayQueue<R> spscLinkedArrayQueue;
+            SpscLinkedArrayQueue spscLinkedArrayQueue;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (spscLinkedArrayQueue = this.queue.get()) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (spscLinkedArrayQueue = (SpscLinkedArrayQueue) this.queue.get()) != null) {
+                spscLinkedArrayQueue.clear();
             }
-            spscLinkedArrayQueue.clear();
         }
 
         public void drain() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && getAndIncrement() == 0) {
                 drainLoop();
+            }
+        }
+
+        public SpscLinkedArrayQueue getOrCreateQueue() {
+            SpscLinkedArrayQueue spscLinkedArrayQueue;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                do {
+                    SpscLinkedArrayQueue spscLinkedArrayQueue2 = (SpscLinkedArrayQueue) this.queue.get();
+                    if (spscLinkedArrayQueue2 != null) {
+                        return spscLinkedArrayQueue2;
+                    }
+                    spscLinkedArrayQueue = new SpscLinkedArrayQueue(Flowable.bufferSize());
+                } while (!this.queue.compareAndSet(null, spscLinkedArrayQueue));
+                return spscLinkedArrayQueue;
+            }
+            return (SpscLinkedArrayQueue) invokeV.objValue;
+        }
+
+        @Override // org.reactivestreams.Subscriber
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+                this.active.decrementAndGet();
+                drain();
             }
         }
 
@@ -193,7 +221,7 @@ public final class FlowableFlatMapMaybe<T, R> extends AbstractFlowableWithUpstre
             if (r17.delayErrors != false) goto L47;
          */
         /* JADX WARN: Code restructure failed: missing block: B:47:0x0091, code lost:
-            if (r17.errors.get() == null) goto L47;
+            if (((java.lang.Throwable) r17.errors.get()) == null) goto L47;
          */
         /* JADX WARN: Code restructure failed: missing block: B:48:0x0093, code lost:
             r2 = r17.errors.terminate();
@@ -213,7 +241,7 @@ public final class FlowableFlatMapMaybe<T, R> extends AbstractFlowableWithUpstre
             r6 = false;
          */
         /* JADX WARN: Code restructure failed: missing block: B:54:0x00a9, code lost:
-            r7 = r3.get();
+            r7 = (io.reactivex.internal.queue.SpscLinkedArrayQueue) r3.get();
          */
         /* JADX WARN: Code restructure failed: missing block: B:55:0x00af, code lost:
             if (r7 == null) goto L63;
@@ -267,34 +295,49 @@ public final class FlowableFlatMapMaybe<T, R> extends AbstractFlowableWithUpstre
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void drainLoop() {
+            boolean z;
+            Object obj;
+            boolean z2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                Subscriber<? super R> subscriber = this.actual;
+                Subscriber subscriber = this.actual;
                 AtomicInteger atomicInteger = this.active;
-                AtomicReference<SpscLinkedArrayQueue<R>> atomicReference = this.queue;
+                AtomicReference atomicReference = this.queue;
                 int i = 1;
                 do {
                     long j = this.requested.get();
                     long j2 = 0;
                     while (true) {
-                        boolean z = false;
+                        boolean z3 = false;
                         int i2 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
                         if (i2 == 0) {
                             break;
                         } else if (this.cancelled) {
                             clear();
                             return;
-                        } else if (!this.delayErrors && this.errors.get() != null) {
+                        } else if (!this.delayErrors && ((Throwable) this.errors.get()) != null) {
                             Throwable terminate = this.errors.terminate();
                             clear();
                             subscriber.onError(terminate);
                             return;
                         } else {
-                            boolean z2 = atomicInteger.get() == 0;
-                            SpscLinkedArrayQueue<R> spscLinkedArrayQueue = atomicReference.get();
-                            R poll = spscLinkedArrayQueue != null ? spscLinkedArrayQueue.poll() : (Object) null;
-                            boolean z3 = poll == null;
-                            if (z2 && z3) {
+                            if (atomicInteger.get() == 0) {
+                                z = true;
+                            } else {
+                                z = false;
+                            }
+                            SpscLinkedArrayQueue spscLinkedArrayQueue = (SpscLinkedArrayQueue) atomicReference.get();
+                            if (spscLinkedArrayQueue != null) {
+                                obj = spscLinkedArrayQueue.poll();
+                            } else {
+                                obj = null;
+                            }
+                            if (obj == null) {
+                                z2 = true;
+                            } else {
+                                z2 = false;
+                            }
+                            if (z && z2) {
                                 Throwable terminate2 = this.errors.terminate();
                                 if (terminate2 != null) {
                                     subscriber.onError(terminate2);
@@ -303,10 +346,10 @@ public final class FlowableFlatMapMaybe<T, R> extends AbstractFlowableWithUpstre
                                     subscriber.onComplete();
                                     return;
                                 }
-                            } else if (z3) {
+                            } else if (z2) {
                                 break;
                             } else {
-                                subscriber.onNext(poll);
+                                subscriber.onNext(obj);
                                 j2++;
                             }
                         }
@@ -315,31 +358,17 @@ public final class FlowableFlatMapMaybe<T, R> extends AbstractFlowableWithUpstre
             }
         }
 
-        public SpscLinkedArrayQueue<R> getOrCreateQueue() {
-            SpscLinkedArrayQueue<R> spscLinkedArrayQueue;
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                do {
-                    SpscLinkedArrayQueue<R> spscLinkedArrayQueue2 = this.queue.get();
-                    if (spscLinkedArrayQueue2 != null) {
-                        return spscLinkedArrayQueue2;
-                    }
-                    spscLinkedArrayQueue = new SpscLinkedArrayQueue<>(Flowable.bufferSize());
-                } while (!this.queue.compareAndSet(null, spscLinkedArrayQueue));
-                return spscLinkedArrayQueue;
-            }
-            return (SpscLinkedArrayQueue) invokeV.objValue;
-        }
-
-        public void innerComplete(FlatMapMaybeSubscriber<T, R>.InnerObserver innerObserver) {
+        public void innerComplete(InnerObserver innerObserver) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, innerObserver) == null) {
                 this.set.delete(innerObserver);
                 if (get() == 0) {
+                    boolean z = false;
                     if (compareAndSet(0, 1)) {
-                        boolean z = this.active.decrementAndGet() == 0;
-                        SpscLinkedArrayQueue<R> spscLinkedArrayQueue = this.queue.get();
+                        if (this.active.decrementAndGet() == 0) {
+                            z = true;
+                        }
+                        SpscLinkedArrayQueue spscLinkedArrayQueue = (SpscLinkedArrayQueue) this.queue.get();
                         if (z && (spscLinkedArrayQueue == null || spscLinkedArrayQueue.isEmpty())) {
                             Throwable terminate = this.errors.terminate();
                             if (terminate != null) {
@@ -368,7 +397,7 @@ public final class FlowableFlatMapMaybe<T, R> extends AbstractFlowableWithUpstre
             }
         }
 
-        public void innerError(FlatMapMaybeSubscriber<T, R>.InnerObserver innerObserver, Throwable th) {
+        public void innerError(InnerObserver innerObserver, Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048582, this, innerObserver, th) == null) {
                 this.set.delete(innerObserver);
@@ -387,16 +416,19 @@ public final class FlowableFlatMapMaybe<T, R> extends AbstractFlowableWithUpstre
             }
         }
 
-        public void innerSuccess(FlatMapMaybeSubscriber<T, R>.InnerObserver innerObserver, R r) {
+        public void innerSuccess(InnerObserver innerObserver, Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048583, this, innerObserver, r) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048583, this, innerObserver, obj) == null) {
                 this.set.delete(innerObserver);
                 if (get() == 0) {
+                    boolean z = false;
                     if (compareAndSet(0, 1)) {
-                        boolean z = this.active.decrementAndGet() == 0;
+                        if (this.active.decrementAndGet() == 0) {
+                            z = true;
+                        }
                         if (this.requested.get() != 0) {
-                            this.actual.onNext(r);
-                            SpscLinkedArrayQueue<R> spscLinkedArrayQueue = this.queue.get();
+                            this.actual.onNext(obj);
+                            SpscLinkedArrayQueue spscLinkedArrayQueue = (SpscLinkedArrayQueue) this.queue.get();
                             if (z && (spscLinkedArrayQueue == null || spscLinkedArrayQueue.isEmpty())) {
                                 Throwable terminate = this.errors.terminate();
                                 if (terminate != null) {
@@ -412,9 +444,9 @@ public final class FlowableFlatMapMaybe<T, R> extends AbstractFlowableWithUpstre
                                 this.s.request(1L);
                             }
                         } else {
-                            SpscLinkedArrayQueue<R> orCreateQueue = getOrCreateQueue();
+                            SpscLinkedArrayQueue orCreateQueue = getOrCreateQueue();
                             synchronized (orCreateQueue) {
-                                orCreateQueue.offer(r);
+                                orCreateQueue.offer(obj);
                             }
                         }
                         if (decrementAndGet() == 0) {
@@ -423,24 +455,15 @@ public final class FlowableFlatMapMaybe<T, R> extends AbstractFlowableWithUpstre
                         drainLoop();
                     }
                 }
-                SpscLinkedArrayQueue<R> orCreateQueue2 = getOrCreateQueue();
+                SpscLinkedArrayQueue orCreateQueue2 = getOrCreateQueue();
                 synchronized (orCreateQueue2) {
-                    orCreateQueue2.offer(r);
+                    orCreateQueue2.offer(obj);
                 }
                 this.active.decrementAndGet();
                 if (getAndIncrement() != 0) {
                     return;
                 }
                 drainLoop();
-            }
-        }
-
-        @Override // org.reactivestreams.Subscriber
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-                this.active.decrementAndGet();
-                drain();
             }
         }
 
@@ -460,18 +483,26 @@ public final class FlowableFlatMapMaybe<T, R> extends AbstractFlowableWithUpstre
             }
         }
 
-        @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
+        @Override // org.reactivestreams.Subscription
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048586, this, t) == null) {
+            if ((interceptable == null || interceptable.invokeJ(1048588, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.add(this.requested, j);
+                drain();
+            }
+        }
+
+        @Override // org.reactivestreams.Subscriber
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048586, this, obj) == null) {
                 try {
-                    MaybeSource maybeSource = (MaybeSource) ObjectHelper.requireNonNull(this.mapper.apply(t), "The mapper returned a null MaybeSource");
+                    MaybeSource maybeSource = (MaybeSource) ObjectHelper.requireNonNull(this.mapper.apply(obj), "The mapper returned a null MaybeSource");
                     this.active.getAndIncrement();
                     InnerObserver innerObserver = new InnerObserver(this);
-                    if (this.cancelled || !this.set.add(innerObserver)) {
-                        return;
+                    if (!this.cancelled && this.set.add(innerObserver)) {
+                        maybeSource.subscribe(innerObserver);
                     }
-                    maybeSource.subscribe(innerObserver);
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     this.s.cancel();
@@ -494,19 +525,10 @@ public final class FlowableFlatMapMaybe<T, R> extends AbstractFlowableWithUpstre
                 }
             }
         }
-
-        @Override // org.reactivestreams.Subscription
-        public void request(long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048588, this, j) == null) && SubscriptionHelper.validate(j)) {
-                BackpressureHelper.add(this.requested, j);
-                drain();
-            }
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableFlatMapMaybe(Flowable<T> flowable, Function<? super T, ? extends MaybeSource<? extends R>> function, boolean z, int i) {
+    public FlowableFlatMapMaybe(Flowable flowable, Function function, boolean z, int i) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -529,7 +551,7 @@ public final class FlowableFlatMapMaybe<T, R> extends AbstractFlowableWithUpstre
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super R> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new FlatMapMaybeSubscriber(subscriber, this.mapper, this.delayErrors, this.maxConcurrency));

@@ -1,13 +1,12 @@
 package com.kwai.sodler.lib.c;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public final class a implements Comparable<a> {
+public final class a implements Comparable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String ayz;
@@ -32,7 +31,7 @@ public final class a implements Comparable<a> {
     /* JADX INFO: Access modifiers changed from: private */
     @Override // java.lang.Comparable
     /* renamed from: a */
-    public int compareTo(@NonNull a aVar) {
+    public int compareTo(a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, aVar)) == null) ? aVar.version.compareTo(this.version) : invokeL.intValue;

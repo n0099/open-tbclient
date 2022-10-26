@@ -24,6 +24,54 @@ public class Huffman {
     public transient /* synthetic */ FieldHolder $fh;
     public final Node root;
 
+    /* loaded from: classes8.dex */
+    public static final class Node {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Node[] children;
+        public final int symbol;
+        public final int terminalBits;
+
+        public Node() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.children = new Node[256];
+            this.symbol = 0;
+            this.terminalBits = 0;
+        }
+
+        public Node(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.children = null;
+            this.symbol = i;
+            int i5 = i2 & 7;
+            this.terminalBits = i5 == 0 ? 8 : i5;
+        }
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -59,6 +107,31 @@ public class Huffman {
         buildTree();
     }
 
+    private void buildTree() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            int i = 0;
+            while (true) {
+                byte[] bArr = CODE_LENGTHS;
+                if (i < bArr.length) {
+                    addCode(i, CODES[i], bArr[i]);
+                    i++;
+                } else {
+                    return;
+                }
+            }
+        }
+    }
+
+    public static Huffman get() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return INSTANCE;
+        }
+        return (Huffman) invokeV.objValue;
+    }
+
     private void addCode(int i, int i2, byte b) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Byte.valueOf(b)}) == null) {
@@ -84,28 +157,6 @@ public class Huffman {
                 node2.children[i7] = node;
             }
         }
-    }
-
-    private void buildTree() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(65539, this) != null) {
-            return;
-        }
-        int i = 0;
-        while (true) {
-            byte[] bArr = CODE_LENGTHS;
-            if (i >= bArr.length) {
-                return;
-            }
-            addCode(i, CODES[i], bArr[i]);
-            i++;
-        }
-    }
-
-    public static Huffman get() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? INSTANCE : (Huffman) invokeV.objValue;
     }
 
     public byte[] decode(byte[] bArr) {
@@ -180,53 +231,5 @@ public class Huffman {
             return (int) ((j + 7) >> 3);
         }
         return invokeL.intValue;
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class Node {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Node[] children;
-        public final int symbol;
-        public final int terminalBits;
-
-        public Node() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.children = new Node[256];
-            this.symbol = 0;
-            this.terminalBits = 0;
-        }
-
-        public Node(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.children = null;
-            this.symbol = i;
-            int i5 = i2 & 7;
-            this.terminalBits = i5 == 0 ? 8 : i5;
-        }
     }
 }

@@ -35,6 +35,69 @@ public class InstallmentEntity implements Serializable {
         }
     }
 
+    public String getCommission() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.commission;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getDisplay() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.display;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getInstallmentPeriod() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.installmentPeriod;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getPayText() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.payText;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.title;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean isChecked() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.isChecked;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isSelected() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return "1".equals(this.isSelected);
+        }
+        return invokeV.booleanValue;
+    }
+
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -46,57 +109,21 @@ public class InstallmentEntity implements Serializable {
                 return false;
             }
             InstallmentEntity installmentEntity = (InstallmentEntity) obj;
-            return this.isChecked == installmentEntity.isChecked && Objects.equals(this.title, installmentEntity.title) && Objects.equals(this.payText, installmentEntity.payText) && Objects.equals(this.commission, installmentEntity.commission) && Objects.equals(this.display, installmentEntity.display) && Objects.equals(this.isSelected, installmentEntity.isSelected) && Objects.equals(this.installmentPeriod, installmentEntity.installmentPeriod);
+            if (this.isChecked == installmentEntity.isChecked && Objects.equals(this.title, installmentEntity.title) && Objects.equals(this.payText, installmentEntity.payText) && Objects.equals(this.commission, installmentEntity.commission) && Objects.equals(this.display, installmentEntity.display) && Objects.equals(this.isSelected, installmentEntity.isSelected) && Objects.equals(this.installmentPeriod, installmentEntity.installmentPeriod)) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
-    }
-
-    public String getCommission() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.commission : (String) invokeV.objValue;
-    }
-
-    public String getDisplay() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.display : (String) invokeV.objValue;
-    }
-
-    public String getInstallmentPeriod() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.installmentPeriod : (String) invokeV.objValue;
-    }
-
-    public String getPayText() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.payText : (String) invokeV.objValue;
-    }
-
-    public String getTitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.title : (String) invokeV.objValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? Objects.hash(this.title, this.payText, this.commission, this.display, this.isSelected, this.installmentPeriod, Boolean.valueOf(this.isChecked)) : invokeV.intValue;
-    }
-
-    public boolean isChecked() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.isChecked : invokeV.booleanValue;
-    }
-
-    public boolean isSelected() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? "1".equals(this.isSelected) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return Objects.hash(this.title, this.payText, this.commission, this.display, this.isSelected, this.installmentPeriod, Boolean.valueOf(this.isChecked));
+        }
+        return invokeV.intValue;
     }
 
     public void setChecked(boolean z) {

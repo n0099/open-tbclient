@@ -62,48 +62,51 @@ public final class DistinguishedNameParser {
                 }
                 char[] cArr2 = this.chars;
                 char c = cArr2[i2];
-                if (c == ' ') {
-                    int i4 = this.end;
-                    this.cur = i4;
+                if (c != ' ') {
+                    if (c == ';') {
+                        break;
+                    } else if (c != '\\') {
+                        if (c == '+' || c == ',') {
+                            break;
+                        }
+                        int i4 = this.end;
+                        this.end = i4 + 1;
+                        cArr2[i4] = cArr2[i2];
+                        this.pos = i2 + 1;
+                    } else {
+                        int i5 = this.end;
+                        this.end = i5 + 1;
+                        cArr2[i5] = getEscaped();
+                        this.pos++;
+                    }
+                } else {
+                    int i6 = this.end;
+                    this.cur = i6;
                     this.pos = i2 + 1;
-                    this.end = i4 + 1;
-                    cArr2[i4] = WebvttCueParser.CHAR_SPACE;
+                    this.end = i6 + 1;
+                    cArr2[i6] = WebvttCueParser.CHAR_SPACE;
                     while (true) {
-                        int i5 = this.pos;
-                        if (i5 >= this.length) {
+                        int i7 = this.pos;
+                        if (i7 >= this.length) {
                             break;
                         }
                         char[] cArr3 = this.chars;
-                        if (cArr3[i5] != ' ') {
+                        if (cArr3[i7] != ' ') {
                             break;
                         }
-                        int i6 = this.end;
-                        this.end = i6 + 1;
-                        cArr3[i6] = WebvttCueParser.CHAR_SPACE;
-                        this.pos = i5 + 1;
+                        int i8 = this.end;
+                        this.end = i8 + 1;
+                        cArr3[i8] = WebvttCueParser.CHAR_SPACE;
+                        this.pos = i7 + 1;
                     }
-                    int i7 = this.pos;
-                    if (i7 == this.length) {
+                    int i9 = this.pos;
+                    if (i9 == this.length) {
                         break;
                     }
                     char[] cArr4 = this.chars;
-                    if (cArr4[i7] == ',' || cArr4[i7] == '+' || cArr4[i7] == ';') {
+                    if (cArr4[i9] == ',' || cArr4[i9] == '+' || cArr4[i9] == ';') {
                         break;
                     }
-                } else if (c == ';') {
-                    break;
-                } else if (c == '\\') {
-                    int i8 = this.end;
-                    this.end = i8 + 1;
-                    cArr2[i8] = getEscaped();
-                    this.pos++;
-                } else if (c == '+' || c == ',') {
-                    break;
-                } else {
-                    int i9 = this.end;
-                    this.end = i9 + 1;
-                    cArr2[i9] = cArr2[i2];
-                    this.pos = i2 + 1;
                 }
             }
             char[] cArr5 = this.chars;
@@ -126,26 +129,78 @@ public final class DistinguishedNameParser {
                     i2 = c - '0';
                 } else if (c >= 'a' && c <= 'f') {
                     i2 = c - 'W';
-                } else if (c < 'A' || c > 'F') {
-                    throw new IllegalStateException("Malformed DN: " + this.dn);
-                } else {
+                } else if (c >= 'A' && c <= 'F') {
                     i2 = c - '7';
+                } else {
+                    throw new IllegalStateException("Malformed DN: " + this.dn);
                 }
                 char c2 = this.chars[i4];
                 if (c2 >= '0' && c2 <= '9') {
                     i3 = c2 - '0';
                 } else if (c2 >= 'a' && c2 <= 'f') {
                     i3 = c2 - 'W';
-                } else if (c2 < 'A' || c2 > 'F') {
-                    throw new IllegalStateException("Malformed DN: " + this.dn);
-                } else {
+                } else if (c2 >= 'A' && c2 <= 'F') {
                     i3 = c2 - '7';
+                } else {
+                    throw new IllegalStateException("Malformed DN: " + this.dn);
                 }
                 return (i2 << 4) + i3;
             }
             throw new IllegalStateException("Malformed DN: " + this.dn);
         }
         return invokeI.intValue;
+    }
+
+    public String findMostSpecific(String str) {
+        InterceptResult invokeL;
+        String quotedAV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            this.pos = 0;
+            this.beg = 0;
+            this.end = 0;
+            this.cur = 0;
+            this.chars = this.dn.toCharArray();
+            String nextAT = nextAT();
+            if (nextAT == null) {
+                return null;
+            }
+            do {
+                int i = this.pos;
+                if (i == this.length) {
+                    return null;
+                }
+                char c = this.chars[i];
+                if (c != '\"') {
+                    if (c != '#') {
+                        if (c != '+' && c != ',' && c != ';') {
+                            quotedAV = escapedAV();
+                        } else {
+                            quotedAV = "";
+                        }
+                    } else {
+                        quotedAV = hexAV();
+                    }
+                } else {
+                    quotedAV = quotedAV();
+                }
+                if (str.equalsIgnoreCase(nextAT)) {
+                    return quotedAV;
+                }
+                int i2 = this.pos;
+                if (i2 >= this.length) {
+                    return null;
+                }
+                char[] cArr = this.chars;
+                if (cArr[i2] != ',' && cArr[i2] != ';' && cArr[i2] != '+') {
+                    throw new IllegalStateException("Malformed DN: " + this.dn);
+                }
+                this.pos++;
+                nextAT = nextAT();
+            } while (nextAT != null);
+            throw new IllegalStateException("Malformed DN: " + this.dn);
+        }
+        return (String) invokeL.objValue;
     }
 
     private char getEscaped() {
@@ -223,6 +278,47 @@ public final class DistinguishedNameParser {
             return (char) i2;
         }
         return invokeV.charValue;
+    }
+
+    private String quotedAV() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
+            int i = this.pos + 1;
+            this.pos = i;
+            this.beg = i;
+            this.end = i;
+            while (true) {
+                int i2 = this.pos;
+                if (i2 != this.length) {
+                    char[] cArr = this.chars;
+                    if (cArr[i2] == '\"') {
+                        this.pos = i2 + 1;
+                        while (true) {
+                            int i3 = this.pos;
+                            if (i3 >= this.length || this.chars[i3] != ' ') {
+                                break;
+                            }
+                            this.pos = i3 + 1;
+                        }
+                        char[] cArr2 = this.chars;
+                        int i4 = this.beg;
+                        return new String(cArr2, i4, this.end - i4);
+                    }
+                    if (cArr[i2] == '\\') {
+                        cArr[this.end] = getEscaped();
+                    } else {
+                        cArr[this.end] = cArr[i2];
+                    }
+                    this.pos++;
+                    this.end++;
+                } else {
+                    throw new IllegalStateException("Unexpected end of DN: " + this.dn);
+                }
+            }
+        } else {
+            return (String) invokeV.objValue;
+        }
     }
 
     private String hexAV() {
@@ -359,91 +455,5 @@ public final class DistinguishedNameParser {
             throw new IllegalStateException("Unexpected end of DN: " + this.dn);
         }
         return (String) invokeV.objValue;
-    }
-
-    private String quotedAV() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65543, this)) != null) {
-            return (String) invokeV.objValue;
-        }
-        int i = this.pos + 1;
-        this.pos = i;
-        this.beg = i;
-        this.end = i;
-        while (true) {
-            int i2 = this.pos;
-            if (i2 != this.length) {
-                char[] cArr = this.chars;
-                if (cArr[i2] == '\"') {
-                    this.pos = i2 + 1;
-                    while (true) {
-                        int i3 = this.pos;
-                        if (i3 >= this.length || this.chars[i3] != ' ') {
-                            break;
-                        }
-                        this.pos = i3 + 1;
-                    }
-                    char[] cArr2 = this.chars;
-                    int i4 = this.beg;
-                    return new String(cArr2, i4, this.end - i4);
-                }
-                if (cArr[i2] == '\\') {
-                    cArr[this.end] = getEscaped();
-                } else {
-                    cArr[this.end] = cArr[i2];
-                }
-                this.pos++;
-                this.end++;
-            } else {
-                throw new IllegalStateException("Unexpected end of DN: " + this.dn);
-            }
-        }
-    }
-
-    public String findMostSpecific(String str) {
-        InterceptResult invokeL;
-        String quotedAV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            this.pos = 0;
-            this.beg = 0;
-            this.end = 0;
-            this.cur = 0;
-            this.chars = this.dn.toCharArray();
-            String nextAT = nextAT();
-            if (nextAT == null) {
-                return null;
-            }
-            do {
-                int i = this.pos;
-                if (i == this.length) {
-                    return null;
-                }
-                char c = this.chars[i];
-                if (c == '\"') {
-                    quotedAV = quotedAV();
-                } else if (c != '#') {
-                    quotedAV = (c == '+' || c == ',' || c == ';') ? "" : escapedAV();
-                } else {
-                    quotedAV = hexAV();
-                }
-                if (str.equalsIgnoreCase(nextAT)) {
-                    return quotedAV;
-                }
-                int i2 = this.pos;
-                if (i2 >= this.length) {
-                    return null;
-                }
-                char[] cArr = this.chars;
-                if (cArr[i2] != ',' && cArr[i2] != ';' && cArr[i2] != '+') {
-                    throw new IllegalStateException("Malformed DN: " + this.dn);
-                }
-                this.pos++;
-                nextAT = nextAT();
-            } while (nextAT != null);
-            throw new IllegalStateException("Malformed DN: " + this.dn);
-        }
-        return (String) invokeL.objValue;
     }
 }

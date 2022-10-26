@@ -1,7 +1,6 @@
 package androidx.core.content;
 
 import android.content.SharedPreferences;
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +39,7 @@ public final class SharedPreferencesCompat {
                 }
             }
 
-            public void apply(@NonNull SharedPreferences.Editor editor) {
+            public void apply(SharedPreferences.Editor editor) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, editor) == null) {
                     try {
@@ -82,7 +81,7 @@ public final class SharedPreferencesCompat {
         }
 
         @Deprecated
-        public void apply(@NonNull SharedPreferences.Editor editor) {
+        public void apply(SharedPreferences.Editor editor) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editor) == null) {
                 this.mHelper.apply(editor);

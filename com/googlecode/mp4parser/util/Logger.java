@@ -10,6 +10,12 @@ public abstract class Logger {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract void logDebug(String str);
+
+    public abstract void logError(String str);
+
+    public abstract void logWarn(String str);
+
     public Logger() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -35,10 +41,4 @@ public abstract class Logger {
         }
         return (Logger) invokeL.objValue;
     }
-
-    public abstract void logDebug(String str);
-
-    public abstract void logError(String str);
-
-    public abstract void logWarn(String str);
 }

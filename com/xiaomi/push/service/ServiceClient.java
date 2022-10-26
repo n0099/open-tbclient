@@ -27,6 +27,7 @@ import com.xiaomi.push.gp;
 import com.xiaomi.push.gy;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.apache.http.NameValuePair;
@@ -50,7 +51,7 @@ public class ServiceClient {
     public Messenger f834a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List<Message> f835a;
+    public List f835a;
 
     /* renamed from: a  reason: collision with other field name */
     public boolean f836a;
@@ -98,7 +99,7 @@ public class ServiceClient {
         this.f835a = new ArrayList();
         this.f838b = false;
         this.f833a = context.getApplicationContext();
-        if (m575a()) {
+        if (m574a()) {
             com.xiaomi.channel.commonutils.logger.b.c("use miui push service");
             this.f836a = true;
         }
@@ -116,9 +117,9 @@ public class ServiceClient {
             }
             Intent intent2 = new Intent();
             intent2.setPackage("com.xiaomi.xmsf");
-            intent2.setClassName("com.xiaomi.xmsf", m571a());
+            intent2.setClassName("com.xiaomi.xmsf", m570a());
             intent2.putExtra(bk.B, this.f833a.getPackageName());
-            m573a();
+            m572a();
             return intent2;
         }
         return (Intent) invokeV.objValue;
@@ -137,7 +138,7 @@ public class ServiceClient {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private String m571a() {
+    private String m570a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
@@ -150,16 +151,16 @@ public class ServiceClient {
         return (String) invokeV.objValue;
     }
 
-    private String a(Map<String, String> map) {
+    private String a(Map map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, map)) == null) {
             StringBuilder sb = new StringBuilder();
             int i = 1;
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                sb.append(entry.getKey());
+            for (Map.Entry entry : map.entrySet()) {
+                sb.append((String) entry.getKey());
                 sb.append(":");
-                sb.append(entry.getValue());
+                sb.append((String) entry.getValue());
                 if (i < map.size()) {
                     sb.append(",");
                 }
@@ -170,13 +171,15 @@ public class ServiceClient {
         return (String) invokeL.objValue;
     }
 
-    private Map<String, String> a(List<NameValuePair> list) {
+    private Map a(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, list)) == null) {
             HashMap hashMap = new HashMap();
             if (list != null && list.size() > 0) {
-                for (NameValuePair nameValuePair : list) {
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    NameValuePair nameValuePair = (NameValuePair) it.next();
                     if (nameValuePair != null) {
                         hashMap.put(nameValuePair.getName(), nameValuePair.getValue());
                     }
@@ -188,7 +191,7 @@ public class ServiceClient {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m573a() {
+    private void m572a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
             this.f833a.getPackageManager().setComponentEnabledSetting(new ComponentName(this.f833a, XMPushService.class), 2, 1);
@@ -196,7 +199,7 @@ public class ServiceClient {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private synchronized void m574a(Intent intent) {
+    private synchronized void m573a(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, this, intent) == null) {
             synchronized (this) {
@@ -225,7 +228,7 @@ public class ServiceClient {
         }
     }
 
-    private void a(Intent intent, String str, String str2, String str3, String str4, String str5, boolean z, Map<String, String> map, Map<String, String> map2) {
+    private void a(Intent intent, String str, String str2, String str3, String str4, String str5, boolean z, Map map, Map map2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65548, this, new Object[]{intent, str, str2, str3, str4, str5, Boolean.valueOf(z), map, map2}) == null) {
             intent.putExtra(bk.q, str);
@@ -254,7 +257,7 @@ public class ServiceClient {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m575a() {
+    private boolean m574a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
@@ -319,7 +322,7 @@ public class ServiceClient {
                     if (!TextUtils.isEmpty(a3)) {
                         gk gkVar = new gk("pf", null, null, null);
                         gk gkVar2 = new gk("sent", null, null, null);
-                        gkVar2.m369a(a3);
+                        gkVar2.m368a(a3);
                         gkVar.a(gkVar2);
                         gmVarArr[i].a(gkVar);
                     }
@@ -386,13 +389,13 @@ public class ServiceClient {
     }
 
     @Deprecated
-    public boolean forceReconnection(String str, String str2, String str3, String str4, String str5, boolean z, List<NameValuePair> list, List<NameValuePair> list2) {
+    public boolean forceReconnection(String str, String str2, String str3, String str4, String str5, boolean z, List list, List list2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, str2, str3, str4, str5, Boolean.valueOf(z), list, list2})) == null) ? forceReconnection(str, str2, str3, str4, str5, z, a(list), a(list2)) : invokeCommon.booleanValue;
     }
 
-    public boolean forceReconnection(String str, String str2, String str3, String str4, String str5, boolean z, Map<String, String> map, Map<String, String> map2) {
+    public boolean forceReconnection(String str, String str2, String str3, String str4, String str5, boolean z, Map map, Map map2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, str3, str4, str5, Boolean.valueOf(z), map, map2})) == null) {
@@ -410,7 +413,7 @@ public class ServiceClient {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f836a : invokeV.booleanValue;
     }
 
-    public int openChannel(String str, String str2, String str3, String str4, String str5, Map<String, String> map, Map<String, String> map2, boolean z) {
+    public int openChannel(String str, String str2, String str3, String str4, String str5, Map map, Map map2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, str3, str4, str5, map, map2, Boolean.valueOf(z)})) == null) {
@@ -424,21 +427,21 @@ public class ServiceClient {
     }
 
     @Deprecated
-    public int openChannel(String str, String str2, String str3, String str4, String str5, boolean z, List<NameValuePair> list, List<NameValuePair> list2) {
+    public int openChannel(String str, String str2, String str3, String str4, String str5, boolean z, List list, List list2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, str3, str4, str5, Boolean.valueOf(z), list, list2})) == null) ? openChannel(str, str2, str3, str4, str5, a(list), a(list2), z) : invokeCommon.intValue;
     }
 
     @Deprecated
-    public void resetConnection(String str, String str2, String str3, String str4, String str5, boolean z, List<NameValuePair> list, List<NameValuePair> list2) {
+    public void resetConnection(String str, String str2, String str3, String str4, String str5, boolean z, List list, List list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{str, str2, str3, str4, str5, Boolean.valueOf(z), list, list2}) == null) {
             resetConnection(str, str2, str3, str4, str5, z, a(list), a(list2));
         }
     }
 
-    public void resetConnection(String str, String str2, String str3, String str4, String str5, boolean z, Map<String, String> map, Map<String, String> map2) {
+    public void resetConnection(String str, String str2, String str3, String str4, String str5, boolean z, Map map, Map map2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{str, str2, str3, str4, str5, Boolean.valueOf(z), map, map2}) == null) {
             Intent a2 = a();
@@ -479,7 +482,7 @@ public class ServiceClient {
                 if (!TextUtils.isEmpty(a3)) {
                     gk gkVar = new gk("pf", null, null, null);
                     gk gkVar2 = new gk("sent", null, null, null);
-                    gkVar2.m369a(a3);
+                    gkVar2.m368a(a3);
                     gkVar.a(gkVar2);
                     gmVar.a(gkVar);
                 }
@@ -505,7 +508,7 @@ public class ServiceClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048590, this, bArr, str, str2)) == null) {
             if (!com.xiaomi.push.bj.b(this.f833a) || bArr == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                com.xiaomi.channel.commonutils.logger.b.m90a("Failed to send message: message|userId|chid may be empty, or the network is unavailable.");
+                com.xiaomi.channel.commonutils.logger.b.m89a("Failed to send message: message|userId|chid may be empty, or the network is unavailable.");
                 return false;
             }
             Intent a2 = a();
@@ -575,11 +578,11 @@ public class ServiceClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, intent)) == null) {
             try {
-                if (com.xiaomi.push.m.m561a() || Build.VERSION.SDK_INT < 26) {
+                if (com.xiaomi.push.m.m560a() || Build.VERSION.SDK_INT < 26) {
                     this.f833a.startService(intent);
                     return true;
                 }
-                m574a(intent);
+                m573a(intent);
                 return true;
             } catch (Exception e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
@@ -590,14 +593,14 @@ public class ServiceClient {
     }
 
     @Deprecated
-    public void updateChannelInfo(String str, List<NameValuePair> list, List<NameValuePair> list2) {
+    public void updateChannelInfo(String str, List list, List list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048594, this, str, list, list2) == null) {
             updateChannelInfo(str, a(list), a(list2));
         }
     }
 
-    public void updateChannelInfo(String str, Map<String, String> map, Map<String, String> map2) {
+    public void updateChannelInfo(String str, Map map, Map map2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048595, this, str, map, map2) == null) {
             Intent a2 = a();

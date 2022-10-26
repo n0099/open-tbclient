@@ -3,8 +3,8 @@ package com.baidu.tieba.hottopicselect;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.m77;
-import com.baidu.tieba.mu4;
+import com.baidu.tieba.ou4;
+import com.baidu.tieba.u77;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,13 +15,13 @@ import java.io.IOException;
 import tbclient.GetSugTopic.DataRes;
 import tbclient.GetSugTopic.GetSugTopicResIdl;
 /* loaded from: classes4.dex */
-public class HotSelectCacheResponseMessage extends CustomResponsedMessage<Object> {
+public class HotSelectCacheResponseMessage extends CustomResponsedMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TOPIC_SELECT_KEY = "topic_select_user";
     public transient /* synthetic */ FieldHolder $fh;
-    public m77 mBangData;
-    public m77 mUserData;
-    public m77 mVideoHotpicData;
+    public u77 mBangData;
+    public u77 mUserData;
+    public u77 mVideoHotpicData;
     public int resultStatus;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -42,6 +42,15 @@ public class HotSelectCacheResponseMessage extends CustomResponsedMessage<Object
         }
     }
 
+    public int getResultStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.resultStatus;
+        }
+        return invokeV.intValue;
+    }
+
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         DataRes dataRes;
         Interceptable interceptable = $ic;
@@ -50,8 +59,8 @@ public class HotSelectCacheResponseMessage extends CustomResponsedMessage<Object
             if (currentAccount == null) {
                 currentAccount = "";
             }
-            mu4.f();
-            byte[] bArr2 = mu4.e("topic_select_space", currentAccount).get("topic_select_user");
+            ou4.f();
+            byte[] bArr2 = (byte[]) ou4.e("topic_select_space", currentAccount).get("topic_select_user");
             GetSugTopicResIdl getSugTopicResIdl = null;
             if (bArr2 == null) {
                 this.resultStatus = 1;
@@ -63,33 +72,27 @@ public class HotSelectCacheResponseMessage extends CustomResponsedMessage<Object
             }
             if (getSugTopicResIdl != null && (dataRes = getSugTopicResIdl.data) != null) {
                 if (dataRes.user_his_topic != null) {
-                    m77 m77Var = new m77();
-                    m77Var.d(getSugTopicResIdl.data.user_his_topic);
-                    m77Var.f(0);
-                    this.mUserData = m77Var;
+                    u77 u77Var = new u77();
+                    u77Var.d(getSugTopicResIdl.data.user_his_topic);
+                    u77Var.f(0);
+                    this.mUserData = u77Var;
                 }
                 if (getSugTopicResIdl.data.bang_topic != null) {
-                    m77 m77Var2 = new m77();
-                    m77Var2.d(getSugTopicResIdl.data.bang_topic);
-                    m77Var2.f(1);
-                    this.mBangData = m77Var2;
+                    u77 u77Var2 = new u77();
+                    u77Var2.d(getSugTopicResIdl.data.bang_topic);
+                    u77Var2.f(1);
+                    this.mBangData = u77Var2;
                 }
                 if (getSugTopicResIdl.data.video_topic != null) {
-                    m77 m77Var3 = new m77();
-                    m77Var3.d(getSugTopicResIdl.data.video_topic);
-                    m77Var3.f(2);
-                    this.mVideoHotpicData = m77Var3;
+                    u77 u77Var3 = new u77();
+                    u77Var3.d(getSugTopicResIdl.data.video_topic);
+                    u77Var3.f(2);
+                    this.mVideoHotpicData = u77Var3;
                 }
                 this.resultStatus = 2;
                 return;
             }
             this.resultStatus = 3;
         }
-    }
-
-    public int getResultStatus() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.resultStatus : invokeV.intValue;
     }
 }

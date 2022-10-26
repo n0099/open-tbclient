@@ -13,8 +13,6 @@ import android.view.animation.AnimationSet;
 import android.view.animation.ScaleAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -38,7 +36,7 @@ public final class d extends FrameLayout {
     public ImageView dz;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public d(@NonNull Context context) {
+    public d(Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -59,7 +57,7 @@ public final class d extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public d(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public d(Context context, AttributeSet attributeSet) {
         this(context, null, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -80,7 +78,7 @@ public final class d extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public d(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -105,10 +103,10 @@ public final class d extends FrameLayout {
     private void E(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d044b, this);
-            this.dz = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910c0);
-            this.dA = (ImageView) findViewById(R.id.obfuscated_res_0x7f09110e);
-            this.dB = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910bd);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0448, this);
+            this.dz = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910b4);
+            this.dA = (ImageView) findViewById(R.id.obfuscated_res_0x7f091102);
+            this.dB = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910b1);
         }
     }
 

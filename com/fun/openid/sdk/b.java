@@ -56,20 +56,20 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             q a2 = q.a(context);
             a2.getClass();
-            if (q.b) {
-                String str = q.h;
-                if (str != null) {
-                    return str;
-                }
-                a2.a(0, null);
-                if (q.c == null) {
-                    Context context2 = q.a;
-                    q.c = new s(q.i, 0, null);
-                    context2.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, q.c);
-                }
-                return q.h;
+            if (!q.b) {
+                return null;
             }
-            return null;
+            String str = q.h;
+            if (str != null) {
+                return str;
+            }
+            a2.a(0, null);
+            if (q.c == null) {
+                Context context2 = q.a;
+                q.c = new s(q.i, 0, null);
+                context2.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, q.c);
+            }
+            return q.h;
         }
         return (String) invokeL.objValue;
     }

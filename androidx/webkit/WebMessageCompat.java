@@ -1,6 +1,5 @@
 package androidx.webkit;
 
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,7 +13,7 @@ public class WebMessageCompat {
     public String mData;
     public WebMessagePortCompat[] mPorts;
 
-    public WebMessageCompat(@Nullable String str) {
+    public WebMessageCompat(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -32,21 +31,7 @@ public class WebMessageCompat {
         this.mData = str;
     }
 
-    @Nullable
-    public String getData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mData : (String) invokeV.objValue;
-    }
-
-    @Nullable
-    public WebMessagePortCompat[] getPorts() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mPorts : (WebMessagePortCompat[]) invokeV.objValue;
-    }
-
-    public WebMessageCompat(@Nullable String str, @Nullable WebMessagePortCompat[] webMessagePortCompatArr) {
+    public WebMessageCompat(String str, WebMessagePortCompat[] webMessagePortCompatArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,5 +48,23 @@ public class WebMessageCompat {
         }
         this.mData = str;
         this.mPorts = webMessagePortCompatArr;
+    }
+
+    public String getData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mData;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public WebMessagePortCompat[] getPorts() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mPorts;
+        }
+        return (WebMessagePortCompat[]) invokeV.objValue;
     }
 }

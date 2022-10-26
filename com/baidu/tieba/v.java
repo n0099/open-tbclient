@@ -32,7 +32,10 @@ public class v implements s {
     public boolean a(Context context, File file) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, file)) == null) ? t.f((String[]) t.g((PathClassLoader) context.getClassLoader(), "mLibPaths"), file.getAbsolutePath()) : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, file)) == null) {
+            return t.f((String[]) t.g((PathClassLoader) context.getClassLoader(), "mLibPaths"), file.getAbsolutePath());
+        }
+        return invokeLL.booleanValue;
     }
 
     @Override // com.baidu.tieba.s

@@ -18,6 +18,13 @@ public class FullStandardShareView extends BaseVideoPlayEndUI implements View.On
     public transient /* synthetic */ FieldHolder $fh;
     public ImageTextView b;
 
+    @Override // com.baidu.nadcore.video.videoplayer.ui.BaseVideoPlayEndUI
+    public void setShowSharePanel(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FullStandardShareView(Context context) {
         super(context);
@@ -35,38 +42,6 @@ public class FullStandardShareView extends BaseVideoPlayEndUI implements View.On
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-    }
-
-    @Override // com.baidu.nadcore.video.videoplayer.ui.BaseVideoPlayEndUI
-    public View b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            ImageTextView imageTextView = new ImageTextView(context);
-            this.b = imageTextView;
-            imageTextView.setIconAndTitle(R.drawable.obfuscated_res_0x7f080e26, R.string.obfuscated_res_0x7f0f0bed);
-            this.b.b(R.drawable.obfuscated_res_0x7f080e36);
-            this.b.setOnClickListener(this);
-            return this.b;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        BaseVideoPlayEndUI.a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) || (aVar = this.a) == null) {
-            return;
-        }
-        aVar.a(view2);
-    }
-
-    @Override // com.baidu.nadcore.video.videoplayer.ui.BaseVideoPlayEndUI
-    public void setShowSharePanel(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
         }
     }
 
@@ -109,6 +84,30 @@ public class FullStandardShareView extends BaseVideoPlayEndUI implements View.On
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
+        }
+    }
+
+    @Override // com.baidu.nadcore.video.videoplayer.ui.BaseVideoPlayEndUI
+    public View b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            ImageTextView imageTextView = new ImageTextView(context);
+            this.b = imageTextView;
+            imageTextView.setIconAndTitle(R.drawable.obfuscated_res_0x7f080e37, R.string.obfuscated_res_0x7f0f0bfc);
+            this.b.b(R.drawable.obfuscated_res_0x7f080e47);
+            this.b.setOnClickListener(this);
+            return this.b;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        BaseVideoPlayEndUI.a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) && (aVar = this.a) != null) {
+            aVar.a(view2);
         }
     }
 }

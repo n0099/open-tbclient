@@ -21,46 +21,9 @@ public final class GlideHelper {
 
     /* renamed from: com.fun.ad.sdk.internal.api.utils.GlideHelper$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class GlideHelperHolder {
-        public static /* synthetic */ Interceptable $ic;
-        public static final GlideHelper a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1634105819, "Lcom/fun/ad/sdk/internal/api/utils/GlideHelper$GlideHelperHolder;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(1634105819, "Lcom/fun/ad/sdk/internal/api/utils/GlideHelper$GlideHelperHolder;");
-                    return;
-                }
-            }
-            a = new GlideHelper();
-        }
-
-        public GlideHelperHolder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
     }
 
     public GlideHelper() {
@@ -117,6 +80,43 @@ public final class GlideHelper {
                 return;
             }
             LogPrinter.e("GlideHelper: view is null when load: " + str, new Object[0]);
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class GlideHelperHolder {
+        public static /* synthetic */ Interceptable $ic;
+        public static final GlideHelper a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public GlideHelperHolder() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1634105819, "Lcom/fun/ad/sdk/internal/api/utils/GlideHelper$GlideHelperHolder;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(1634105819, "Lcom/fun/ad/sdk/internal/api/utils/GlideHelper$GlideHelperHolder;");
+                    return;
+                }
+            }
+            a = new GlideHelper();
         }
     }
 }

@@ -1,7 +1,6 @@
 package androidx.core.animation;
 
 import android.animation.Animator;
-import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
@@ -31,6 +30,18 @@ public final class AnimatorKt {
         return (Animator.AnimatorListener) invokeLLLLL.objValue;
     }
 
+    public static /* synthetic */ Animator.AnimatorPauseListener addPauseListener$default(Animator animator, Function1 function1, Function1 function12, int i, Object obj) {
+        if ((i & 1) != 0) {
+            function1 = AnimatorKt$addPauseListener$1.INSTANCE;
+        }
+        if ((i & 2) != 0) {
+            function12 = AnimatorKt$addPauseListener$2.INSTANCE;
+        }
+        AnimatorKt$addPauseListener$listener$1 animatorKt$addPauseListener$listener$1 = new AnimatorKt$addPauseListener$listener$1(function12, function1);
+        animator.addPauseListener(animatorKt$addPauseListener$listener$1);
+        return animatorKt$addPauseListener$listener$1;
+    }
+
     public static /* synthetic */ Animator.AnimatorListener addListener$default(Animator animator, Function1 function1, Function1 function12, Function1 function13, Function1 function14, int i, Object obj) {
         if ((i & 1) != 0) {
             function1 = AnimatorKt$addListener$1.INSTANCE;
@@ -49,7 +60,6 @@ public final class AnimatorKt {
         return animatorKt$addListener$listener$1;
     }
 
-    @RequiresApi(19)
     public static final Animator.AnimatorPauseListener addPauseListener(Animator animator, Function1<? super Animator, Unit> function1, Function1<? super Animator, Unit> function12) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -61,18 +71,6 @@ public final class AnimatorKt {
         return (Animator.AnimatorPauseListener) invokeLLL.objValue;
     }
 
-    public static /* synthetic */ Animator.AnimatorPauseListener addPauseListener$default(Animator animator, Function1 function1, Function1 function12, int i, Object obj) {
-        if ((i & 1) != 0) {
-            function1 = AnimatorKt$addPauseListener$1.INSTANCE;
-        }
-        if ((i & 2) != 0) {
-            function12 = AnimatorKt$addPauseListener$2.INSTANCE;
-        }
-        AnimatorKt$addPauseListener$listener$1 animatorKt$addPauseListener$listener$1 = new AnimatorKt$addPauseListener$listener$1(function12, function1);
-        animator.addPauseListener(animatorKt$addPauseListener$listener$1);
-        return animatorKt$addPauseListener$listener$1;
-    }
-
     public static final Animator.AnimatorListener doOnCancel(Animator animator, final Function1<? super Animator, Unit> function1) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -81,6 +79,27 @@ public final class AnimatorKt {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Function1 $onCancel;
+
+                @Override // android.animation.Animator.AnimatorListener
+                public void onAnimationEnd(Animator animator2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator2) == null) {
+                    }
+                }
+
+                @Override // android.animation.Animator.AnimatorListener
+                public void onAnimationRepeat(Animator animator2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator2) == null) {
+                    }
+                }
+
+                @Override // android.animation.Animator.AnimatorListener
+                public void onAnimationStart(Animator animator2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048579, this, animator2) == null) {
+                    }
+                }
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -107,11 +126,26 @@ public final class AnimatorKt {
                         this.$onCancel.invoke(animator2);
                     }
                 }
+            };
+            animator.addListener(animatorListener);
+            return animatorListener;
+        }
+        return (Animator.AnimatorListener) invokeLL.objValue;
+    }
+
+    public static final Animator.AnimatorListener doOnEnd(Animator animator, final Function1<? super Animator, Unit> function1) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, animator, function1)) == null) {
+            Animator.AnimatorListener animatorListener = new Animator.AnimatorListener(function1) { // from class: androidx.core.animation.AnimatorKt$doOnEnd$$inlined$addListener$1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ Function1 $onEnd;
 
                 @Override // android.animation.Animator.AnimatorListener
-                public void onAnimationEnd(Animator animator2) {
+                public void onAnimationCancel(Animator animator2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator2) == null) {
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator2) == null) {
                     }
                 }
 
@@ -128,21 +162,6 @@ public final class AnimatorKt {
                     if (interceptable2 == null || interceptable2.invokeL(1048579, this, animator2) == null) {
                     }
                 }
-            };
-            animator.addListener(animatorListener);
-            return animatorListener;
-        }
-        return (Animator.AnimatorListener) invokeLL.objValue;
-    }
-
-    public static final Animator.AnimatorListener doOnEnd(Animator animator, final Function1<? super Animator, Unit> function1) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, animator, function1)) == null) {
-            Animator.AnimatorListener animatorListener = new Animator.AnimatorListener(function1) { // from class: androidx.core.animation.AnimatorKt$doOnEnd$$inlined$addListener$1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ Function1 $onEnd;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -163,31 +182,10 @@ public final class AnimatorKt {
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
-                public void onAnimationCancel(Animator animator2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator2) == null) {
-                    }
-                }
-
-                @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator2) == null) {
                         this.$onEnd.invoke(animator2);
-                    }
-                }
-
-                @Override // android.animation.Animator.AnimatorListener
-                public void onAnimationRepeat(Animator animator2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator2) == null) {
-                    }
-                }
-
-                @Override // android.animation.Animator.AnimatorListener
-                public void onAnimationStart(Animator animator2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048579, this, animator2) == null) {
                     }
                 }
             };
@@ -197,7 +195,6 @@ public final class AnimatorKt {
         return (Animator.AnimatorListener) invokeLL.objValue;
     }
 
-    @RequiresApi(19)
     public static final Animator.AnimatorPauseListener doOnPause(Animator animator, final Function1<? super Animator, Unit> function1) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -206,6 +203,13 @@ public final class AnimatorKt {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Function1 $onPause;
+
+                @Override // android.animation.Animator.AnimatorPauseListener
+                public void onAnimationResume(Animator animator2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator2) == null) {
+                    }
+                }
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -232,13 +236,6 @@ public final class AnimatorKt {
                         this.$onPause.invoke(animator2);
                     }
                 }
-
-                @Override // android.animation.Animator.AnimatorPauseListener
-                public void onAnimationResume(Animator animator2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator2) == null) {
-                    }
-                }
             };
             animator.addPauseListener(animatorPauseListener);
             return animatorPauseListener;
@@ -254,6 +251,27 @@ public final class AnimatorKt {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Function1 $onRepeat;
+
+                @Override // android.animation.Animator.AnimatorListener
+                public void onAnimationCancel(Animator animator2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator2) == null) {
+                    }
+                }
+
+                @Override // android.animation.Animator.AnimatorListener
+                public void onAnimationEnd(Animator animator2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator2) == null) {
+                    }
+                }
+
+                @Override // android.animation.Animator.AnimatorListener
+                public void onAnimationStart(Animator animator2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048579, this, animator2) == null) {
+                    }
+                }
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -274,31 +292,10 @@ public final class AnimatorKt {
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
-                public void onAnimationCancel(Animator animator2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator2) == null) {
-                    }
-                }
-
-                @Override // android.animation.Animator.AnimatorListener
-                public void onAnimationEnd(Animator animator2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator2) == null) {
-                    }
-                }
-
-                @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationRepeat(Animator animator2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator2) == null) {
                         this.$onRepeat.invoke(animator2);
-                    }
-                }
-
-                @Override // android.animation.Animator.AnimatorListener
-                public void onAnimationStart(Animator animator2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048579, this, animator2) == null) {
                     }
                 }
             };
@@ -308,7 +305,6 @@ public final class AnimatorKt {
         return (Animator.AnimatorListener) invokeLL.objValue;
     }
 
-    @RequiresApi(19)
     public static final Animator.AnimatorPauseListener doOnResume(Animator animator, final Function1<? super Animator, Unit> function1) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -317,6 +313,13 @@ public final class AnimatorKt {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Function1 $onResume;
+
+                @Override // android.animation.Animator.AnimatorPauseListener
+                public void onAnimationPause(Animator animator2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator2) == null) {
+                    }
+                }
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -334,13 +337,6 @@ public final class AnimatorKt {
                         }
                     }
                     this.$onResume = function1;
-                }
-
-                @Override // android.animation.Animator.AnimatorPauseListener
-                public void onAnimationPause(Animator animator2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator2) == null) {
-                    }
                 }
 
                 @Override // android.animation.Animator.AnimatorPauseListener
@@ -366,24 +362,6 @@ public final class AnimatorKt {
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Function1 $onStart;
 
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {function1};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.$onStart = function1;
-                }
-
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationCancel(Animator animator2) {
                     Interceptable interceptable2 = $ic;
@@ -403,6 +381,24 @@ public final class AnimatorKt {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator2) == null) {
                     }
+                }
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {function1};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.$onStart = function1;
                 }
 
                 @Override // android.animation.Animator.AnimatorListener

@@ -22,11 +22,11 @@ public class a {
     public final h b;
     public final g c;
     public final e d;
-    public C0501a e;
+    public C0497a e;
 
     /* renamed from: com.bytedance.pangle.res.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0501a {
+    public final class C0497a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final short a;
@@ -35,7 +35,7 @@ public class a {
         public final int d;
         public final int e;
 
-        public C0501a(short s, int i, int i2, int i3) {
+        public C0497a(short s, int i, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,17 +57,17 @@ public class a {
             this.e = i3 + i2;
         }
 
-        public static C0501a a(g gVar, e eVar) {
+        public static C0497a a(g gVar, e eVar) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, gVar, eVar)) == null) {
                 try {
-                    return new C0501a(gVar.readShort(), gVar.readShort(), gVar.readInt(), eVar.a());
+                    return new C0497a(gVar.readShort(), gVar.readShort(), gVar.readInt(), eVar.a());
                 } catch (EOFException unused) {
-                    return new C0501a((short) -1, 0, 0, eVar.a());
+                    return new C0497a((short) -1, 0, 0, eVar.a());
                 }
             }
-            return (C0501a) invokeLL.objValue;
+            return (C0497a) invokeLL.objValue;
         }
     }
 
@@ -85,6 +85,27 @@ public class a {
             }
         }
         f = Logger.getLogger(a.class.getName());
+    }
+
+    private void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
+            b(514);
+            this.c.readUnsignedByte();
+            this.c.skipBytes(3);
+            this.c.skipBytes(this.c.readInt() * 4);
+        }
+    }
+
+    private C0497a j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
+            C0497a a = C0497a.a(this.c, this.d);
+            this.e = a;
+            return a;
+        }
+        return (C0497a) invokeV.objValue;
     }
 
     public a(byte[] bArr, h hVar) {
@@ -130,6 +151,14 @@ public class a {
         return (String) invokeI.objValue;
     }
 
+    private void b(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i) != null) || this.e.a == i) {
+            return;
+        }
+        throw new RuntimeException(String.format("Invalid chunk type: expected=0x%08x, got=0x%08x", Integer.valueOf(i), Short.valueOf(this.e.a)));
+    }
+
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
@@ -141,64 +170,6 @@ public class a {
             }
             while (j().a == 513) {
                 c();
-            }
-        }
-    }
-
-    private void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            d();
-            short s = j().a;
-            while (s == 514) {
-                d();
-                s = j().a;
-            }
-            while (s == 513) {
-                e();
-                if (this.d.a() < this.e.e) {
-                    Logger logger = f;
-                    logger.warning("Unknown data detected. Skipping: " + (this.e.e - this.d.a()) + " byte(s)");
-                    e eVar = this.d;
-                    eVar.skip((long) (this.e.e - eVar.a()));
-                }
-                s = j().a;
-            }
-        }
-    }
-
-    private void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            b(514);
-            this.c.readUnsignedByte();
-            this.c.skipBytes(3);
-            this.c.skipBytes(this.c.readInt() * 4);
-        }
-    }
-
-    private void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            b(513);
-            this.c.readUnsignedByte();
-            this.c.readByte();
-            this.c.skipBytes(2);
-            int readInt = this.c.readInt();
-            int readInt2 = this.c.readInt();
-            i();
-            int i = (this.e.d + readInt2) - (readInt * 4);
-            if (i != this.d.a()) {
-                f.warning("Invalid data detected. Skipping: " + (i - this.d.a()) + " byte(s)");
-                this.c.skipBytes(i - this.d.a());
-            }
-            int[] a = this.c.a(readInt);
-            HashSet hashSet = new HashSet();
-            for (int i2 : a) {
-                if (i2 != -1 && !hashSet.contains(Integer.valueOf(i2))) {
-                    f();
-                    hashSet.add(Integer.valueOf(i2));
-                }
             }
         }
     }
@@ -248,6 +219,93 @@ public class a {
             }
             if (readByte == 2) {
                 k.a(this.a, readInt, a, this.b);
+            }
+        }
+    }
+
+    private void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
+            d();
+            short s = j().a;
+            while (s == 514) {
+                d();
+                s = j().a;
+            }
+            while (s == 513) {
+                e();
+                if (this.d.a() < this.e.e) {
+                    Logger logger = f;
+                    logger.warning("Unknown data detected. Skipping: " + (this.e.e - this.d.a()) + " byte(s)");
+                    e eVar = this.d;
+                    eVar.skip((long) (this.e.e - eVar.a()));
+                }
+                s = j().a;
+            }
+        }
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            j();
+            b(2);
+            int readInt = this.c.readInt();
+            l.a(this.c);
+            j();
+            for (int i = 0; i < readInt; i++) {
+                b(512);
+                this.c.readInt();
+                this.c.skipBytes(256);
+                this.c.skipBytes(4);
+                this.c.skipBytes(4);
+                this.c.skipBytes(4);
+                this.c.skipBytes(4);
+                if (this.e.b == 288 && this.c.readInt() > 0) {
+                    throw new RuntimeException("don't support");
+                }
+                l.a(this.c);
+                l.a(this.c);
+                j();
+                boolean z = true;
+                while (z) {
+                    short s = this.e.a;
+                    if (s != 514) {
+                        if (s != 515) {
+                            z = false;
+                        } else {
+                            b();
+                        }
+                    } else {
+                        c();
+                    }
+                }
+            }
+        }
+    }
+
+    private void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
+            b(513);
+            this.c.readUnsignedByte();
+            this.c.readByte();
+            this.c.skipBytes(2);
+            int readInt = this.c.readInt();
+            int readInt2 = this.c.readInt();
+            i();
+            int i = (this.e.d + readInt2) - (readInt * 4);
+            if (i != this.d.a()) {
+                f.warning("Invalid data detected. Skipping: " + (i - this.d.a()) + " byte(s)");
+                this.c.skipBytes(i - this.d.a());
+            }
+            int[] a = this.c.a(readInt);
+            HashSet hashSet = new HashSet();
+            for (int i2 : a) {
+                if (i2 != -1 && !hashSet.contains(Integer.valueOf(i2))) {
+                    f();
+                    hashSet.add(Integer.valueOf(i2));
+                }
             }
         }
     }
@@ -321,61 +379,6 @@ public class a {
                 return;
             }
             throw new RuntimeException("Config size < 28");
-        }
-    }
-
-    private C0501a j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
-            C0501a a = C0501a.a(this.c, this.d);
-            this.e = a;
-            return a;
-        }
-        return (C0501a) invokeV.objValue;
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            j();
-            b(2);
-            int readInt = this.c.readInt();
-            l.a(this.c);
-            j();
-            for (int i = 0; i < readInt; i++) {
-                b(512);
-                this.c.readInt();
-                this.c.skipBytes(256);
-                this.c.skipBytes(4);
-                this.c.skipBytes(4);
-                this.c.skipBytes(4);
-                this.c.skipBytes(4);
-                if (this.e.b == 288 && this.c.readInt() > 0) {
-                    throw new RuntimeException("don't support");
-                }
-                l.a(this.c);
-                l.a(this.c);
-                j();
-                boolean z = true;
-                while (z) {
-                    short s = this.e.a;
-                    if (s == 514) {
-                        c();
-                    } else if (s != 515) {
-                        z = false;
-                    } else {
-                        b();
-                    }
-                }
-            }
-        }
-    }
-
-    private void b(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i) == null) && this.e.a != i) {
-            throw new RuntimeException(String.format("Invalid chunk type: expected=0x%08x, got=0x%08x", Integer.valueOf(i), Short.valueOf(this.e.a)));
         }
     }
 }

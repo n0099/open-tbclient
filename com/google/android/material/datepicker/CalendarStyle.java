@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Paint;
-import androidx.annotation.NonNull;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,24 +15,16 @@ import com.google.android.material.resources.MaterialResources;
 public final class CalendarStyle {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
     public final CalendarItemStyle day;
-    @NonNull
     public final CalendarItemStyle invalidDay;
-    @NonNull
     public final Paint rangeFill;
-    @NonNull
     public final CalendarItemStyle selectedDay;
-    @NonNull
     public final CalendarItemStyle selectedYear;
-    @NonNull
     public final CalendarItemStyle todayDay;
-    @NonNull
     public final CalendarItemStyle todayYear;
-    @NonNull
     public final CalendarItemStyle year;
 
-    public CalendarStyle(@NonNull Context context) {
+    public CalendarStyle(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

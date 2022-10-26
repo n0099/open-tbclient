@@ -44,6 +44,50 @@ public final class DefaultAllocator implements Allocator {
         }
     }
 
+    public DefaultAllocator(boolean z, int i, int i2) {
+        boolean z2;
+        boolean z3;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        if (i > 0) {
+            z2 = true;
+        } else {
+            z2 = false;
+        }
+        Assertions.checkArgument(z2);
+        if (i2 >= 0) {
+            z3 = true;
+        } else {
+            z3 = false;
+        }
+        Assertions.checkArgument(z3);
+        this.trimOnReset = z;
+        this.individualAllocationSize = i;
+        this.availableCount = i2;
+        this.availableAllocations = new Allocation[i2 + 100];
+        if (i2 > 0) {
+            this.initialAllocationBlock = new byte[i2 * i];
+            for (int i5 = 0; i5 < i2; i5++) {
+                this.availableAllocations[i5] = new Allocation(this.initialAllocationBlock, i5 * i);
+            }
+        } else {
+            this.initialAllocationBlock = null;
+        }
+        this.singleAllocationReleaseHolder = new Allocation[1];
+    }
+
     @Override // com.google.android.exoplayer2.upstream.Allocator
     public synchronized Allocation allocate() {
         InterceptResult invokeV;
@@ -71,7 +115,10 @@ public final class DefaultAllocator implements Allocator {
     public int getIndividualAllocationLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.individualAllocationSize : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.individualAllocationSize;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Allocator
@@ -88,17 +135,6 @@ public final class DefaultAllocator implements Allocator {
         return invokeV.intValue;
     }
 
-    @Override // com.google.android.exoplayer2.upstream.Allocator
-    public synchronized void release(Allocation allocation) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, allocation) == null) {
-            synchronized (this) {
-                this.singleAllocationReleaseHolder[0] = allocation;
-                release(this.singleAllocationReleaseHolder);
-            }
-        }
-    }
-
     public synchronized void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -110,15 +146,62 @@ public final class DefaultAllocator implements Allocator {
         }
     }
 
+    @Override // com.google.android.exoplayer2.upstream.Allocator
+    public synchronized void release(Allocation allocation) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, allocation) == null) {
+            synchronized (this) {
+                this.singleAllocationReleaseHolder[0] = allocation;
+                release(this.singleAllocationReleaseHolder);
+            }
+        }
+    }
+
     public synchronized void setTargetBufferSize(int i) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             synchronized (this) {
-                boolean z = i < this.targetBufferSize;
+                if (i < this.targetBufferSize) {
+                    z = true;
+                } else {
+                    z = false;
+                }
                 this.targetBufferSize = i;
                 if (z) {
                     trim();
                 }
+            }
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.upstream.Allocator
+    public synchronized void release(Allocation[] allocationArr) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, allocationArr) == null) {
+            synchronized (this) {
+                if (this.availableCount + allocationArr.length >= this.availableAllocations.length) {
+                    this.availableAllocations = (Allocation[]) Arrays.copyOf(this.availableAllocations, Math.max(this.availableAllocations.length * 2, this.availableCount + allocationArr.length));
+                }
+                for (Allocation allocation : allocationArr) {
+                    if (allocation.data != this.initialAllocationBlock && allocation.data.length != this.individualAllocationSize) {
+                        z = false;
+                        Assertions.checkArgument(z);
+                        Allocation[] allocationArr2 = this.availableAllocations;
+                        int i = this.availableCount;
+                        this.availableCount = i + 1;
+                        allocationArr2[i] = allocation;
+                    }
+                    z = true;
+                    Assertions.checkArgument(z);
+                    Allocation[] allocationArr22 = this.availableAllocations;
+                    int i2 = this.availableCount;
+                    this.availableCount = i2 + 1;
+                    allocationArr22[i2] = allocation;
+                }
+                this.allocatedCount -= allocationArr.length;
+                notifyAll();
             }
         }
     }
@@ -158,69 +241,6 @@ public final class DefaultAllocator implements Allocator {
                 }
                 Arrays.fill(this.availableAllocations, max, this.availableCount, (Object) null);
                 this.availableCount = max;
-            }
-        }
-    }
-
-    public DefaultAllocator(boolean z, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        Assertions.checkArgument(i > 0);
-        Assertions.checkArgument(i2 >= 0);
-        this.trimOnReset = z;
-        this.individualAllocationSize = i;
-        this.availableCount = i2;
-        this.availableAllocations = new Allocation[i2 + 100];
-        if (i2 > 0) {
-            this.initialAllocationBlock = new byte[i2 * i];
-            for (int i5 = 0; i5 < i2; i5++) {
-                this.availableAllocations[i5] = new Allocation(this.initialAllocationBlock, i5 * i);
-            }
-        } else {
-            this.initialAllocationBlock = null;
-        }
-        this.singleAllocationReleaseHolder = new Allocation[1];
-    }
-
-    @Override // com.google.android.exoplayer2.upstream.Allocator
-    public synchronized void release(Allocation[] allocationArr) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, allocationArr) == null) {
-            synchronized (this) {
-                if (this.availableCount + allocationArr.length >= this.availableAllocations.length) {
-                    this.availableAllocations = (Allocation[]) Arrays.copyOf(this.availableAllocations, Math.max(this.availableAllocations.length * 2, this.availableCount + allocationArr.length));
-                }
-                for (Allocation allocation : allocationArr) {
-                    if (allocation.data != this.initialAllocationBlock && allocation.data.length != this.individualAllocationSize) {
-                        z = false;
-                        Assertions.checkArgument(z);
-                        Allocation[] allocationArr2 = this.availableAllocations;
-                        int i = this.availableCount;
-                        this.availableCount = i + 1;
-                        allocationArr2[i] = allocation;
-                    }
-                    z = true;
-                    Assertions.checkArgument(z);
-                    Allocation[] allocationArr22 = this.availableAllocations;
-                    int i2 = this.availableCount;
-                    this.availableCount = i2 + 1;
-                    allocationArr22[i2] = allocation;
-                }
-                this.allocatedCount -= allocationArr.length;
-                notifyAll();
             }
         }
     }

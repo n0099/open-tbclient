@@ -20,7 +20,7 @@ public final class Rotation {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class a {
+    public /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,13 +126,19 @@ public final class Rotation {
     public static Rotation valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (Rotation) Enum.valueOf(Rotation.class, str) : (Rotation) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (Rotation) Enum.valueOf(Rotation.class, str);
+        }
+        return (Rotation) invokeL.objValue;
     }
 
     public static Rotation[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (Rotation[]) $VALUES.clone() : (Rotation[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return (Rotation[]) $VALUES.clone();
+        }
+        return (Rotation[]) invokeV.objValue;
     }
 
     public int asInt() {

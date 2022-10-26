@@ -16,6 +16,19 @@ public class PBVideo implements g {
     public q2 b;
     public PBVideoListener c;
 
+    public String getPid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public void setVideoListener(PBVideoListener pBVideoListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, pBVideoListener) == null) {
+            this.c = pBVideoListener;
+        }
+    }
+
     public PBVideo(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -52,19 +65,19 @@ public class PBVideo implements g {
         }
     }
 
-    public String getPid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
     public boolean isReady() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             q2 q2Var = this.b;
             if (!q2Var.a()) {
-                if (!(q2Var.d && !q2Var.e && q2Var.b() && !q2Var.f.isShown() && q2Var.f.isEffective())) {
+                if (q2Var.d && !q2Var.e && q2Var.b() && !q2Var.f.isShown() && q2Var.f.isEffective()) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (!z) {
                     return false;
                 }
             }
@@ -86,13 +99,6 @@ public class PBVideo implements g {
             }
             q2Var.i.g = new o2(q2Var);
             q2Var.i.b();
-        }
-    }
-
-    public void setVideoListener(PBVideoListener pBVideoListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, pBVideoListener) == null) {
-            this.c = pBVideoListener;
         }
     }
 

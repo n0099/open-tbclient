@@ -1,6 +1,5 @@
 package com.baidu.tieba.view;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.android.imsdk.internal.Constants;
@@ -32,42 +31,6 @@ public class SymbolEMTextView extends EMTextView {
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public final float a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (getPaint() == null) {
-                return 0.0f;
-            }
-            return getPaint().measureText(str);
-        }
-        return invokeL.floatValue;
-    }
-
-    @Override // android.widget.TextView, android.view.View
-    @SuppressLint({"SetTextI18n"})
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) != null) {
-            return;
-        }
-        super.onMeasure(i, i2);
-        if (getLineCount() == 0 || getLayout() == null || getText() == null || getLayout().getEllipsisCount(getLineCount() - 1) == 0) {
-            return;
-        }
-        String charSequence = getText().toString();
-        String substring = charSequence.substring(charSequence.length() - 1);
-        int measuredWidth = getMeasuredWidth() * getLineCount();
-        while (true) {
-            if (a(charSequence + StringHelper.STRING_MORE + substring) > measuredWidth) {
-                charSequence = charSequence.substring(0, charSequence.length() - 1);
-            } else {
-                setText(charSequence + StringHelper.STRING_MORE + substring);
                 return;
             }
         }
@@ -111,6 +74,40 @@ public class SymbolEMTextView extends EMTextView {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
+            }
+        }
+    }
+
+    public final float a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (getPaint() == null) {
+                return 0.0f;
+            }
+            return getPaint().measureText(str);
+        }
+        return invokeL.floatValue;
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            if (getLineCount() == 0 || getLayout() == null || getText() == null || getLayout().getEllipsisCount(getLineCount() - 1) == 0) {
+                return;
+            }
+            String charSequence = getText().toString();
+            String substring = charSequence.substring(charSequence.length() - 1);
+            int measuredWidth = getMeasuredWidth() * getLineCount();
+            while (true) {
+                if (a(charSequence + StringHelper.STRING_MORE + substring) > measuredWidth) {
+                    charSequence = charSequence.substring(0, charSequence.length() - 1);
+                } else {
+                    setText(charSequence + StringHelper.STRING_MORE + substring);
+                    return;
+                }
             }
         }
     }

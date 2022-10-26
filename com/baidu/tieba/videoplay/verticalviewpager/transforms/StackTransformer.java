@@ -30,7 +30,11 @@ public class StackTransformer implements ViewPager.PageTransformer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLF(1048576, this, view2, f) == null) {
             view2.setTranslationX(view2.getWidth() * (-f));
-            view2.setTranslationY(f < 0.0f ? view2.getHeight() * f : 0.0f);
+            float f2 = 0.0f;
+            if (f < 0.0f) {
+                f2 = view2.getHeight() * f;
+            }
+            view2.setTranslationY(f2);
         }
     }
 }

@@ -38,7 +38,10 @@ public abstract class zzy extends com.google.android.gms.internal.common.zzb imp
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iBinder)) == null) {
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.google.android.gms.common.internal.ICertData");
-            return queryLocalInterface instanceof zzz ? (zzz) queryLocalInterface : new zzx(iBinder);
+            if (queryLocalInterface instanceof zzz) {
+                return (zzz) queryLocalInterface;
+            }
+            return new zzx(iBinder);
         }
         return (zzz) invokeL.objValue;
     }
@@ -48,16 +51,17 @@ public abstract class zzy extends com.google.android.gms.internal.common.zzb imp
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), parcel, parcel2, Integer.valueOf(i2)})) == null) {
-            if (i == 1) {
-                IObjectWrapper zzd = zzd();
-                parcel2.writeNoException();
-                com.google.android.gms.internal.common.zzc.zze(parcel2, zzd);
-            } else if (i != 2) {
-                return false;
-            } else {
+            if (i != 1) {
+                if (i != 2) {
+                    return false;
+                }
                 int zzc = zzc();
                 parcel2.writeNoException();
                 parcel2.writeInt(zzc);
+            } else {
+                IObjectWrapper zzd = zzd();
+                parcel2.writeNoException();
+                com.google.android.gms.internal.common.zzc.zze(parcel2, zzd);
             }
             return true;
         }

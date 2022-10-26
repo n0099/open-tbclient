@@ -12,13 +12,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b26;
-import com.baidu.tieba.dg7;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.ge5;
-import com.baidu.tieba.jm8;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.i26;
+import com.baidu.tieba.kg7;
 import com.baidu.tieba.lego.card.model.FocusListCard;
-import com.baidu.tieba.zf7;
+import com.baidu.tieba.me5;
+import com.baidu.tieba.og7;
+import com.baidu.tieba.qm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class FocusListCardView extends BaseCardView<FocusListCard> {
+public class FocusListCardView extends BaseCardView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View m;
@@ -36,8 +36,8 @@ public class FocusListCardView extends BaseCardView<FocusListCard> {
     public View p;
     public View q;
     public LinearLayout r;
-    public List<LinearLayout> s;
-    public List<View> t;
+    public List s;
+    public List t;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -70,16 +70,16 @@ public class FocusListCardView extends BaseCardView<FocusListCard> {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || TextUtils.isEmpty(this.a.getFocusItemList().get(this.b).f)) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || TextUtils.isEmpty(((FocusListCard.a) this.a.getFocusItemList().get(this.b)).f)) {
                 return;
             }
-            b26.b().d(true);
-            zf7 e = dg7.e(this.a);
+            i26.b().d(true);
+            kg7 e = og7.e(this.a);
             e.b("obj_locate", this.b + 1);
-            e.d(TiebaStatic.Params.OBJ_URL, this.a.getFocusItemList().get(this.b).f);
-            e.c("obj_id", this.a.getFocusItemList().get(this.b).g);
+            e.d(TiebaStatic.Params.OBJ_URL, ((FocusListCard.a) this.a.getFocusItemList().get(this.b)).f);
+            e.c("obj_id", ((FocusListCard.a) this.a.getFocusItemList().get(this.b)).g);
             e.a(this.a);
-            jm8.c(this.c.i, this.a.getFocusItemList().get(this.b).f);
+            qm8.c(this.c.i, ((FocusListCard.a) this.a.getFocusItemList().get(this.b)).f);
         }
     }
 
@@ -125,12 +125,11 @@ public class FocusListCardView extends BaseCardView<FocusListCard> {
                 y(this.n, focusListCard.getTitleColor(), focusListCard.getTitleColorNight(), R.color.CAM_X0101);
             }
             SkinManager.setBackgroundColor(this.r, R.color.CAM_X0201);
-            List<LinearLayout> list = this.s;
-            if (list == null || list.size() <= 0) {
-                return;
-            }
-            for (int i = 0; i < this.s.size(); i++) {
-                SkinManager.setBackgroundResource(this.s.get(i), R.drawable.addresslist_item_bg);
+            List list = this.s;
+            if (list != null && list.size() > 0) {
+                for (int i = 0; i < this.s.size(); i++) {
+                    SkinManager.setBackgroundResource((View) this.s.get(i), R.drawable.addresslist_item_bg);
+                }
             }
         }
     }
@@ -146,10 +145,9 @@ public class FocusListCardView extends BaseCardView<FocusListCard> {
 
     public final void E(TextView textView, FocusListCard.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, textView, aVar) == null) || textView == null || aVar == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, textView, aVar) == null) && textView != null && aVar != null) {
+            y(textView, aVar.d, aVar.e, R.color.CAM_X0308);
         }
-        y(textView, aVar.d, aVar.e, R.color.CAM_X0308);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -158,7 +156,7 @@ public class FocusListCardView extends BaseCardView<FocusListCard> {
     public void t(FocusListCard focusListCard, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, focusListCard, i) == null) {
-            ge5.a(this.i, getRootView());
+            me5.a(this.i, getRootView());
             if (focusListCard != null) {
                 C(focusListCard);
             }
@@ -175,38 +173,38 @@ public class FocusListCardView extends BaseCardView<FocusListCard> {
                 this.n.setText(focusListCard.getCardTitle());
                 int size = focusListCard.getFocusItemList().size();
                 for (int i = 0; i < size && i < 5; i++) {
-                    this.s.get(i).setVisibility(0);
+                    ((LinearLayout) this.s.get(i)).setVisibility(0);
                     if (i < size - 1 && i < 4) {
-                        this.t.get(i).setVisibility(0);
-                        SkinManager.setBackgroundColor(this.t.get(i), R.color.CAM_X0204);
+                        ((View) this.t.get(i)).setVisibility(0);
+                        SkinManager.setBackgroundColor((View) this.t.get(i), R.color.CAM_X0204);
                     } else {
-                        this.t.get(i).setVisibility(8);
+                        ((View) this.t.get(i)).setVisibility(8);
                     }
-                    TextView textView = (TextView) l(this.s.get(i), R.id.obfuscated_res_0x7f090a18);
-                    TextView textView2 = (TextView) l(this.s.get(i), R.id.obfuscated_res_0x7f091fae);
-                    TextView textView3 = (TextView) l(this.s.get(i), R.id.obfuscated_res_0x7f091c24);
-                    ImageView imageView = (ImageView) l(this.s.get(i), R.id.obfuscated_res_0x7f091c2a);
-                    D(textView, textView2, textView3, focusListCard.getFocusItemList().get(i));
-                    textView.setText(focusListCard.getFocusItemList().get(i).a);
-                    textView2.setText(focusListCard.getFocusItemList().get(i).b);
-                    textView3.setText(focusListCard.getFocusItemList().get(i).c);
-                    if (!TextUtils.isEmpty(focusListCard.getFocusItemList().get(i).f)) {
+                    TextView textView = (TextView) l((View) this.s.get(i), R.id.obfuscated_res_0x7f090a22);
+                    TextView textView2 = (TextView) l((View) this.s.get(i), R.id.obfuscated_res_0x7f091fac);
+                    TextView textView3 = (TextView) l((View) this.s.get(i), R.id.obfuscated_res_0x7f091c20);
+                    ImageView imageView = (ImageView) l((View) this.s.get(i), R.id.obfuscated_res_0x7f091c26);
+                    D(textView, textView2, textView3, (FocusListCard.a) focusListCard.getFocusItemList().get(i));
+                    textView.setText(((FocusListCard.a) focusListCard.getFocusItemList().get(i)).a);
+                    textView2.setText(((FocusListCard.a) focusListCard.getFocusItemList().get(i)).b);
+                    textView3.setText(((FocusListCard.a) focusListCard.getFocusItemList().get(i)).c);
+                    if (!TextUtils.isEmpty(((FocusListCard.a) focusListCard.getFocusItemList().get(i)).f)) {
                         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView3.getLayoutParams();
                         layoutParams.setMargins(0, 0, 0, 0);
                         textView3.setLayoutParams(layoutParams);
                         imageView.setVisibility(0);
                         SkinManager.setImageResource(imageView, R.drawable.icon_arrow_tab);
-                        this.s.get(i).setOnClickListener(new a(this, focusListCard, i));
+                        ((LinearLayout) this.s.get(i)).setOnClickListener(new a(this, focusListCard, i));
                     } else {
                         imageView.setVisibility(8);
                         LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) textView3.getLayoutParams();
-                        layoutParams2.setMargins(0, 0, ej.f(getContext(), R.dimen.obfuscated_res_0x7f0701be), 0);
+                        layoutParams2.setMargins(0, 0, fj.f(getContext(), R.dimen.obfuscated_res_0x7f0701be), 0);
                         textView3.setLayoutParams(layoutParams2);
-                        this.s.get(i).setOnClickListener(null);
+                        ((LinearLayout) this.s.get(i)).setOnClickListener(null);
                     }
                 }
                 for (int size2 = focusListCard.getFocusItemList().size(); size2 < 5; size2++) {
-                    this.s.get(size2).setVisibility(8);
+                    ((LinearLayout) this.s.get(size2)).setVisibility(8);
                 }
             }
             C(focusListCard);
@@ -218,25 +216,25 @@ public class FocusListCardView extends BaseCardView<FocusListCard> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0183, (ViewGroup) null);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0182, (ViewGroup) null);
             this.m = inflate;
-            this.n = (TextView) l(inflate, R.id.obfuscated_res_0x7f0912da);
-            this.o = (View) l(this.m, R.id.obfuscated_res_0x7f09228b);
-            this.p = (View) l(this.m, R.id.obfuscated_res_0x7f0903d8);
-            this.q = (View) l(this.m, R.id.obfuscated_res_0x7f091c2d);
-            this.r = (LinearLayout) l(this.m, R.id.obfuscated_res_0x7f0906d3);
+            this.n = (TextView) l(inflate, R.id.obfuscated_res_0x7f0912ce);
+            this.o = (View) l(this.m, R.id.obfuscated_res_0x7f092275);
+            this.p = (View) l(this.m, R.id.obfuscated_res_0x7f0903e1);
+            this.q = (View) l(this.m, R.id.obfuscated_res_0x7f091c29);
+            this.r = (LinearLayout) l(this.m, R.id.obfuscated_res_0x7f0906dc);
             this.s = new ArrayList();
-            this.s.add((LinearLayout) l(this.r, R.id.obfuscated_res_0x7f091736));
-            this.s.add((LinearLayout) l(this.r, R.id.obfuscated_res_0x7f09242f));
-            this.s.add((LinearLayout) l(this.r, R.id.obfuscated_res_0x7f0921ce));
-            this.s.add((LinearLayout) l(this.r, R.id.obfuscated_res_0x7f090ac7));
-            this.s.add((LinearLayout) l(this.r, R.id.obfuscated_res_0x7f0909dd));
+            this.s.add((LinearLayout) l(this.r, R.id.obfuscated_res_0x7f091728));
+            this.s.add((LinearLayout) l(this.r, R.id.obfuscated_res_0x7f092419));
+            this.s.add((LinearLayout) l(this.r, R.id.obfuscated_res_0x7f0921b8));
+            this.s.add((LinearLayout) l(this.r, R.id.obfuscated_res_0x7f090ad1));
+            this.s.add((LinearLayout) l(this.r, R.id.obfuscated_res_0x7f0909e7));
             this.t = new ArrayList();
-            this.t.add((View) l(this.r, R.id.obfuscated_res_0x7f091737));
-            this.t.add((View) l(this.r, R.id.obfuscated_res_0x7f092431));
-            this.t.add((View) l(this.r, R.id.obfuscated_res_0x7f0921cf));
-            this.t.add((View) l(this.r, R.id.obfuscated_res_0x7f090ac8));
-            this.t.add((View) l(this.r, R.id.obfuscated_res_0x7f0909de));
+            this.t.add((View) l(this.r, R.id.obfuscated_res_0x7f091729));
+            this.t.add((View) l(this.r, R.id.obfuscated_res_0x7f09241b));
+            this.t.add((View) l(this.r, R.id.obfuscated_res_0x7f0921b9));
+            this.t.add((View) l(this.r, R.id.obfuscated_res_0x7f090ad2));
+            this.t.add((View) l(this.r, R.id.obfuscated_res_0x7f0909e8));
             return this.m;
         }
         return (View) invokeV.objValue;

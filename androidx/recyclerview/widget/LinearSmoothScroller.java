@@ -35,6 +35,26 @@ public class LinearSmoothScroller extends RecyclerView.SmoothScroller {
     public float mMillisPerPixel;
     public PointF mTargetVector;
 
+    private int clampApplyScroll(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65537, this, i, i2)) == null) {
+            int i3 = i - i2;
+            if (i * i3 <= 0) {
+                return 0;
+            }
+            return i3;
+        }
+        return invokeII.intValue;
+    }
+
+    @Override // androidx.recyclerview.widget.RecyclerView.SmoothScroller
+    public void onStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        }
+    }
+
     public LinearSmoothScroller(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -58,19 +78,6 @@ public class LinearSmoothScroller extends RecyclerView.SmoothScroller {
         this.mDisplayMetrics = context.getResources().getDisplayMetrics();
     }
 
-    private int clampApplyScroll(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65537, this, i, i2)) == null) {
-            int i3 = i - i2;
-            if (i * i3 <= 0) {
-                return 0;
-            }
-            return i3;
-        }
-        return invokeII.intValue;
-    }
-
     private float getSpeedPerPixel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -82,6 +89,54 @@ public class LinearSmoothScroller extends RecyclerView.SmoothScroller {
             return this.mMillisPerPixel;
         }
         return invokeV.floatValue;
+    }
+
+    public int getHorizontalSnapPreference() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            PointF pointF = this.mTargetVector;
+            if (pointF != null) {
+                float f = pointF.x;
+                if (f != 0.0f) {
+                    if (f > 0.0f) {
+                        return 1;
+                    }
+                    return -1;
+                }
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getVerticalSnapPreference() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            PointF pointF = this.mTargetVector;
+            if (pointF != null) {
+                float f = pointF.y;
+                if (f != 0.0f) {
+                    if (f > 0.0f) {
+                        return 1;
+                    }
+                    return -1;
+                }
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // androidx.recyclerview.widget.RecyclerView.SmoothScroller
+    public void onStop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.mInterimTargetDy = 0;
+            this.mInterimTargetDx = 0;
+            this.mTargetVector = null;
+        }
     }
 
     public int calculateDtToFit(int i, int i2, int i3, int i4, int i5) {
@@ -115,11 +170,11 @@ public class LinearSmoothScroller extends RecyclerView.SmoothScroller {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i)) == null) {
             RecyclerView.LayoutManager layoutManager = getLayoutManager();
-            if (layoutManager == null || !layoutManager.canScrollHorizontally()) {
-                return 0;
+            if (layoutManager != null && layoutManager.canScrollHorizontally()) {
+                RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view2.getLayoutParams();
+                return calculateDtToFit(layoutManager.getDecoratedLeft(view2) - ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin, layoutManager.getDecoratedRight(view2) + ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin, layoutManager.getPaddingLeft(), layoutManager.getWidth() - layoutManager.getPaddingRight(), i);
             }
-            RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view2.getLayoutParams();
-            return calculateDtToFit(layoutManager.getDecoratedLeft(view2) - ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin, layoutManager.getDecoratedRight(view2) + ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin, layoutManager.getPaddingLeft(), layoutManager.getWidth() - layoutManager.getPaddingRight(), i);
+            return 0;
         }
         return invokeLI.intValue;
     }
@@ -129,11 +184,11 @@ public class LinearSmoothScroller extends RecyclerView.SmoothScroller {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view2, i)) == null) {
             RecyclerView.LayoutManager layoutManager = getLayoutManager();
-            if (layoutManager == null || !layoutManager.canScrollVertically()) {
-                return 0;
+            if (layoutManager != null && layoutManager.canScrollVertically()) {
+                RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view2.getLayoutParams();
+                return calculateDtToFit(layoutManager.getDecoratedTop(view2) - ((ViewGroup.MarginLayoutParams) layoutParams).topMargin, layoutManager.getDecoratedBottom(view2) + ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin, layoutManager.getPaddingTop(), layoutManager.getHeight() - layoutManager.getPaddingBottom(), i);
             }
-            RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view2.getLayoutParams();
-            return calculateDtToFit(layoutManager.getDecoratedTop(view2) - ((ViewGroup.MarginLayoutParams) layoutParams).topMargin, layoutManager.getDecoratedBottom(view2) + ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin, layoutManager.getPaddingTop(), layoutManager.getHeight() - layoutManager.getPaddingBottom(), i);
+            return 0;
         }
         return invokeLI.intValue;
     }
@@ -141,51 +196,28 @@ public class LinearSmoothScroller extends RecyclerView.SmoothScroller {
     public float calculateSpeedPerPixel(DisplayMetrics displayMetrics) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, displayMetrics)) == null) ? 25.0f / displayMetrics.densityDpi : invokeL.floatValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, displayMetrics)) == null) {
+            return 25.0f / displayMetrics.densityDpi;
+        }
+        return invokeL.floatValue;
     }
 
     public int calculateTimeForDeceleration(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? (int) Math.ceil(calculateTimeForScrolling(i) / 0.3356d) : invokeI.intValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return (int) Math.ceil(calculateTimeForScrolling(i) / 0.3356d);
+        }
+        return invokeI.intValue;
     }
 
     public int calculateTimeForScrolling(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? (int) Math.ceil(Math.abs(i) * getSpeedPerPixel()) : invokeI.intValue;
-    }
-
-    public int getHorizontalSnapPreference() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            PointF pointF = this.mTargetVector;
-            if (pointF != null) {
-                float f = pointF.x;
-                if (f != 0.0f) {
-                    return f > 0.0f ? 1 : -1;
-                }
-            }
-            return 0;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return (int) Math.ceil(Math.abs(i) * getSpeedPerPixel());
         }
-        return invokeV.intValue;
-    }
-
-    public int getVerticalSnapPreference() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            PointF pointF = this.mTargetVector;
-            if (pointF != null) {
-                float f = pointF.y;
-                if (f != 0.0f) {
-                    return f > 0.0f ? 1 : -1;
-                }
-            }
-            return 0;
-        }
-        return invokeV.intValue;
+        return invokeI.intValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.SmoothScroller
@@ -202,23 +234,6 @@ public class LinearSmoothScroller extends RecyclerView.SmoothScroller {
             if (this.mInterimTargetDx == 0 && clampApplyScroll == 0) {
                 updateActionForInterimTarget(action);
             }
-        }
-    }
-
-    @Override // androidx.recyclerview.widget.RecyclerView.SmoothScroller
-    public void onStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-        }
-    }
-
-    @Override // androidx.recyclerview.widget.RecyclerView.SmoothScroller
-    public void onStop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.mInterimTargetDy = 0;
-            this.mInterimTargetDx = 0;
-            this.mTargetVector = null;
         }
     }
 

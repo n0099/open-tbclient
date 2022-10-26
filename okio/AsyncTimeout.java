@@ -28,6 +28,12 @@ public class AsyncTimeout extends Timeout {
     public AsyncTimeout next;
     public long timeoutAt;
 
+    public void timedOut() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
+    }
+
     /* loaded from: classes8.dex */
     public static final class Watchdog extends Thread {
         public static /* synthetic */ Interceptable $ic;
@@ -109,6 +115,36 @@ public class AsyncTimeout extends Timeout {
         }
     }
 
+    public final void enter() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (!this.inQueue) {
+                long timeoutNanos = timeoutNanos();
+                boolean hasDeadline = hasDeadline();
+                if (timeoutNanos == 0 && !hasDeadline) {
+                    return;
+                }
+                this.inQueue = true;
+                scheduleTimeout(this, timeoutNanos, hasDeadline);
+                return;
+            }
+            throw new IllegalStateException("Unbalanced enter/exit");
+        }
+    }
+
+    public final boolean exit() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (!this.inQueue) {
+                return false;
+            }
+            this.inQueue = false;
+            return cancelScheduledTimeout(this);
+        }
+        return invokeV.booleanValue;
+    }
+
     @Nullable
     public static AsyncTimeout awaitTimeout() throws InterruptedException {
         InterceptResult invokeV;
@@ -157,7 +193,257 @@ public class AsyncTimeout extends Timeout {
     private long remainingNanos(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j)) == null) ? this.timeoutAt - j : invokeJ.longValue;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j)) == null) {
+            return this.timeoutAt - j;
+        }
+        return invokeJ.longValue;
+    }
+
+    public final IOException exit(IOException iOException) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iOException)) == null) {
+            if (!exit()) {
+                return iOException;
+            }
+            return newTimeoutException(iOException);
+        }
+        return (IOException) invokeL.objValue;
+    }
+
+    public IOException newTimeoutException(@Nullable IOException iOException) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, iOException)) == null) {
+            InterruptedIOException interruptedIOException = new InterruptedIOException("timeout");
+            if (iOException != null) {
+                interruptedIOException.initCause(iOException);
+            }
+            return interruptedIOException;
+        }
+        return (IOException) invokeL.objValue;
+    }
+
+    public final Sink sink(Sink sink) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, sink)) == null) {
+            return new Sink(this, sink) { // from class: okio.AsyncTimeout.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ AsyncTimeout this$0;
+                public final /* synthetic */ Sink val$sink;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, sink};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$sink = sink;
+                }
+
+                @Override // okio.Sink, java.io.Closeable, java.lang.AutoCloseable
+                public void close() throws IOException {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.this$0.enter();
+                        try {
+                            try {
+                                this.val$sink.close();
+                                this.this$0.exit(true);
+                            } catch (IOException e) {
+                                throw this.this$0.exit(e);
+                            }
+                        } catch (Throwable th) {
+                            this.this$0.exit(false);
+                            throw th;
+                        }
+                    }
+                }
+
+                @Override // okio.Sink, java.io.Flushable
+                public void flush() throws IOException {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                        this.this$0.enter();
+                        try {
+                            try {
+                                this.val$sink.flush();
+                                this.this$0.exit(true);
+                            } catch (IOException e) {
+                                throw this.this$0.exit(e);
+                            }
+                        } catch (Throwable th) {
+                            this.this$0.exit(false);
+                            throw th;
+                        }
+                    }
+                }
+
+                @Override // okio.Sink
+                public Timeout timeout() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                        return this.this$0;
+                    }
+                    return (Timeout) invokeV.objValue;
+                }
+
+                public String toString() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048579, this)) == null) {
+                        return "AsyncTimeout.sink(" + this.val$sink + SmallTailInfo.EMOTION_SUFFIX;
+                    }
+                    return (String) invokeV.objValue;
+                }
+
+                @Override // okio.Sink
+                public void write(Buffer buffer, long j) throws IOException {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLJ(1048580, this, buffer, j) == null) {
+                        Util.checkOffsetAndCount(buffer.size, 0L, j);
+                        while (true) {
+                            long j2 = 0;
+                            if (j > 0) {
+                                Segment segment = buffer.head;
+                                while (true) {
+                                    if (j2 >= 65536) {
+                                        break;
+                                    }
+                                    j2 += segment.limit - segment.pos;
+                                    if (j2 >= j) {
+                                        j2 = j;
+                                        break;
+                                    }
+                                    segment = segment.next;
+                                }
+                                this.this$0.enter();
+                                try {
+                                    try {
+                                        this.val$sink.write(buffer, j2);
+                                        j -= j2;
+                                        this.this$0.exit(true);
+                                    } catch (IOException e) {
+                                        throw this.this$0.exit(e);
+                                    }
+                                } catch (Throwable th) {
+                                    this.this$0.exit(false);
+                                    throw th;
+                                }
+                            } else {
+                                return;
+                            }
+                        }
+                    }
+                }
+            };
+        }
+        return (Sink) invokeL.objValue;
+    }
+
+    public final Source source(Source source) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, source)) == null) {
+            return new Source(this, source) { // from class: okio.AsyncTimeout.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ AsyncTimeout this$0;
+                public final /* synthetic */ Source val$source;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, source};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$source = source;
+                }
+
+                @Override // okio.Source
+                public long read(Buffer buffer, long j) throws IOException {
+                    InterceptResult invokeLJ;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeLJ = interceptable2.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) == null) {
+                        this.this$0.enter();
+                        try {
+                            try {
+                                long read = this.val$source.read(buffer, j);
+                                this.this$0.exit(true);
+                                return read;
+                            } catch (IOException e) {
+                                throw this.this$0.exit(e);
+                            }
+                        } catch (Throwable th) {
+                            this.this$0.exit(false);
+                            throw th;
+                        }
+                    }
+                    return invokeLJ.longValue;
+                }
+
+                @Override // okio.Source, java.io.Closeable, java.lang.AutoCloseable
+                public void close() throws IOException {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        try {
+                            try {
+                                this.val$source.close();
+                                this.this$0.exit(true);
+                            } catch (IOException e) {
+                                throw this.this$0.exit(e);
+                            }
+                        } catch (Throwable th) {
+                            this.this$0.exit(false);
+                            throw th;
+                        }
+                    }
+                }
+
+                @Override // okio.Source
+                public Timeout timeout() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                        return this.this$0;
+                    }
+                    return (Timeout) invokeV.objValue;
+                }
+
+                public String toString() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048579, this)) == null) {
+                        return "AsyncTimeout.source(" + this.val$source + SmallTailInfo.EMOTION_SUFFIX;
+                    }
+                    return (String) invokeV.objValue;
+                }
+            };
+        }
+        return (Source) invokeL.objValue;
     }
 
     public static synchronized void scheduleTimeout(AsyncTimeout asyncTimeout, long j, boolean z) {
@@ -193,275 +479,10 @@ public class AsyncTimeout extends Timeout {
         }
     }
 
-    public final void enter() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (!this.inQueue) {
-                long timeoutNanos = timeoutNanos();
-                boolean hasDeadline = hasDeadline();
-                if (timeoutNanos != 0 || hasDeadline) {
-                    this.inQueue = true;
-                    scheduleTimeout(this, timeoutNanos, hasDeadline);
-                    return;
-                }
-                return;
-            }
-            throw new IllegalStateException("Unbalanced enter/exit");
-        }
-    }
-
-    public final boolean exit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.inQueue) {
-                this.inQueue = false;
-                return cancelScheduledTimeout(this);
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public IOException newTimeoutException(@Nullable IOException iOException) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, iOException)) == null) {
-            InterruptedIOException interruptedIOException = new InterruptedIOException("timeout");
-            if (iOException != null) {
-                interruptedIOException.initCause(iOException);
-            }
-            return interruptedIOException;
-        }
-        return (IOException) invokeL.objValue;
-    }
-
-    public final Sink sink(Sink sink) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, sink)) == null) ? new Sink(this, sink) { // from class: okio.AsyncTimeout.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ AsyncTimeout this$0;
-            public final /* synthetic */ Sink val$sink;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, sink};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-                this.val$sink = sink;
-            }
-
-            @Override // okio.Sink, java.io.Closeable, java.lang.AutoCloseable
-            public void close() throws IOException {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.this$0.enter();
-                    try {
-                        try {
-                            this.val$sink.close();
-                            this.this$0.exit(true);
-                        } catch (IOException e) {
-                            throw this.this$0.exit(e);
-                        }
-                    } catch (Throwable th) {
-                        this.this$0.exit(false);
-                        throw th;
-                    }
-                }
-            }
-
-            @Override // okio.Sink, java.io.Flushable
-            public void flush() throws IOException {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    this.this$0.enter();
-                    try {
-                        try {
-                            this.val$sink.flush();
-                            this.this$0.exit(true);
-                        } catch (IOException e) {
-                            throw this.this$0.exit(e);
-                        }
-                    } catch (Throwable th) {
-                        this.this$0.exit(false);
-                        throw th;
-                    }
-                }
-            }
-
-            @Override // okio.Sink
-            public Timeout timeout() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.this$0 : (Timeout) invokeV.objValue;
-            }
-
-            public String toString() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048579, this)) == null) {
-                    return "AsyncTimeout.sink(" + this.val$sink + SmallTailInfo.EMOTION_SUFFIX;
-                }
-                return (String) invokeV.objValue;
-            }
-
-            @Override // okio.Sink
-            public void write(Buffer buffer, long j) throws IOException {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null && interceptable2.invokeLJ(1048580, this, buffer, j) != null) {
-                    return;
-                }
-                Util.checkOffsetAndCount(buffer.size, 0L, j);
-                while (true) {
-                    long j2 = 0;
-                    if (j <= 0) {
-                        return;
-                    }
-                    Segment segment = buffer.head;
-                    while (true) {
-                        if (j2 >= 65536) {
-                            break;
-                        }
-                        j2 += segment.limit - segment.pos;
-                        if (j2 >= j) {
-                            j2 = j;
-                            break;
-                        }
-                        segment = segment.next;
-                    }
-                    this.this$0.enter();
-                    try {
-                        try {
-                            this.val$sink.write(buffer, j2);
-                            j -= j2;
-                            this.this$0.exit(true);
-                        } catch (IOException e) {
-                            throw this.this$0.exit(e);
-                        }
-                    } catch (Throwable th) {
-                        this.this$0.exit(false);
-                        throw th;
-                    }
-                }
-            }
-        } : (Sink) invokeL.objValue;
-    }
-
-    public final Source source(Source source) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, source)) == null) ? new Source(this, source) { // from class: okio.AsyncTimeout.2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ AsyncTimeout this$0;
-            public final /* synthetic */ Source val$source;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, source};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-                this.val$source = source;
-            }
-
-            @Override // okio.Source, java.io.Closeable, java.lang.AutoCloseable
-            public void close() throws IOException {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    try {
-                        try {
-                            this.val$source.close();
-                            this.this$0.exit(true);
-                        } catch (IOException e) {
-                            throw this.this$0.exit(e);
-                        }
-                    } catch (Throwable th) {
-                        this.this$0.exit(false);
-                        throw th;
-                    }
-                }
-            }
-
-            @Override // okio.Source
-            public long read(Buffer buffer, long j) throws IOException {
-                InterceptResult invokeLJ;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLJ = interceptable2.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) == null) {
-                    this.this$0.enter();
-                    try {
-                        try {
-                            long read = this.val$source.read(buffer, j);
-                            this.this$0.exit(true);
-                            return read;
-                        } catch (IOException e) {
-                            throw this.this$0.exit(e);
-                        }
-                    } catch (Throwable th) {
-                        this.this$0.exit(false);
-                        throw th;
-                    }
-                }
-                return invokeLJ.longValue;
-            }
-
-            @Override // okio.Source
-            public Timeout timeout() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.this$0 : (Timeout) invokeV.objValue;
-            }
-
-            public String toString() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048579, this)) == null) {
-                    return "AsyncTimeout.source(" + this.val$source + SmallTailInfo.EMOTION_SUFFIX;
-                }
-                return (String) invokeV.objValue;
-            }
-        } : (Source) invokeL.objValue;
-    }
-
-    public void timedOut() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-        }
-    }
-
     public final void exit(boolean z) throws IOException {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && exit() && z) {
             throw newTimeoutException(null);
         }
-    }
-
-    public final IOException exit(IOException iOException) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iOException)) == null) ? !exit() ? iOException : newTimeoutException(iOException) : (IOException) invokeL.objValue;
     }
 }

@@ -15,6 +15,7 @@ import com.airbnb.lottie.utils.Utils;
 import com.airbnb.lottie.value.Keyframe;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.common.security.CacheDeviceInfo;
+import com.baidu.tbadk.TbConfig;
 import com.fun.ad.sdk.FunAdSdk;
 import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.io.IOException;
@@ -22,13 +23,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 /* loaded from: classes.dex */
 public class LayerParser {
-    public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "ind", "refId", Config.EXCEPTION_CRASH_CHANNEL, "parent", "sw", "sh", Config.STAT_SDK_CHANNEL, FunAdSdk.PLATFORM_KS, "tt", "masksProperties", "shapes", "t", "ef", BaseStatisContent.SR, "st", "w", "h", "ip", "op", "tm", Config.CELL_LOCATION, "hd");
+    public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "ind", "refId", Config.EXCEPTION_CRASH_CHANNEL, "parent", TbConfig.SW_APID, "sh", Config.STAT_SDK_CHANNEL, FunAdSdk.PLATFORM_KS, "tt", "masksProperties", "shapes", "t", "ef", BaseStatisContent.SR, "st", "w", "h", "ip", "op", "tm", "cl", "hd");
     public static final JsonReader.Options TEXT_NAMES = JsonReader.Options.of("d", "a");
     public static final JsonReader.Options EFFECTS_NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE);
 
     /* renamed from: com.airbnb.lottie.parser.LayerParser$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$model$layer$Layer$MatteType;
 
         static {
@@ -123,10 +124,12 @@ public class LayerParser {
                     } else {
                         matteType2 = Layer.MatteType.values()[nextInt2];
                         int i6 = AnonymousClass1.$SwitchMap$com$airbnb$lottie$model$layer$Layer$MatteType[matteType2.ordinal()];
-                        if (i6 == 1) {
+                        if (i6 != 1) {
+                            if (i6 == 2) {
+                                lottieComposition.addWarning("Unsupported matte type: Luma Inverted");
+                            }
+                        } else {
                             lottieComposition.addWarning("Unsupported matte type: Luma");
-                        } else if (i6 == 2) {
-                            lottieComposition.addWarning("Unsupported matte type: Luma Inverted");
                         }
                         lottieComposition.incrementMatteOrMaskCount(1);
                         break;
@@ -153,20 +156,22 @@ public class LayerParser {
                     jsonReader.beginObject();
                     while (jsonReader.hasNext()) {
                         int selectName = jsonReader.selectName(TEXT_NAMES);
-                        if (selectName == 0) {
-                            animatableTextFrame = AnimatableValueParser.parseDocumentData(jsonReader, lottieComposition);
-                        } else if (selectName != 1) {
-                            jsonReader.skipName();
-                            jsonReader.skipValue();
-                        } else {
-                            jsonReader.beginArray();
-                            if (jsonReader.hasNext()) {
-                                animatableTextProperties = AnimatableTextPropertiesParser.parse(jsonReader, lottieComposition);
-                            }
-                            while (jsonReader.hasNext()) {
+                        if (selectName != 0) {
+                            if (selectName != 1) {
+                                jsonReader.skipName();
                                 jsonReader.skipValue();
+                            } else {
+                                jsonReader.beginArray();
+                                if (jsonReader.hasNext()) {
+                                    animatableTextProperties = AnimatableTextPropertiesParser.parse(jsonReader, lottieComposition);
+                                }
+                                while (jsonReader.hasNext()) {
+                                    jsonReader.skipValue();
+                                }
+                                jsonReader.endArray();
                             }
-                            jsonReader.endArray();
+                        } else {
+                            animatableTextFrame = AnimatableValueParser.parseDocumentData(jsonReader, lottieComposition);
                         }
                     }
                     jsonReader.endObject();

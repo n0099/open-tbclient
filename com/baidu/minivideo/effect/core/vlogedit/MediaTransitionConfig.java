@@ -20,8 +20,18 @@ public class MediaTransitionConfig implements Parcelable {
     public MediaTransition mediaTransition;
     public Map<String, ShaderConfig> shaderConfigMap;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes2.dex */
-    public static class a implements Parcelable.Creator<MediaTransitionConfig> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -45,7 +55,10 @@ public class MediaTransitionConfig implements Parcelable {
         public MediaTransitionConfig createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new MediaTransitionConfig(parcel) : (MediaTransitionConfig) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new MediaTransitionConfig(parcel);
+            }
+            return (MediaTransitionConfig) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +67,10 @@ public class MediaTransitionConfig implements Parcelable {
         public MediaTransitionConfig[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new MediaTransitionConfig[i] : (MediaTransitionConfig[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new MediaTransitionConfig[i];
+            }
+            return (MediaTransitionConfig[]) invokeI.objValue;
         }
     }
 
@@ -88,29 +104,6 @@ public class MediaTransitionConfig implements Parcelable {
         }
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
-            parcel.writeParcelable(this.mediaTransition, i);
-            parcel.writeInt(this.shaderConfigMap.size());
-            for (Map.Entry<String, ShaderConfig> entry : this.shaderConfigMap.entrySet()) {
-                parcel.writeString(entry.getKey());
-                parcel.writeParcelable(entry.getValue(), i);
-            }
-        }
-    }
-
     public MediaTransitionConfig(Parcel parcel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -131,6 +124,19 @@ public class MediaTransitionConfig implements Parcelable {
         this.shaderConfigMap = new HashMap(readInt);
         for (int i3 = 0; i3 < readInt; i3++) {
             this.shaderConfigMap.put(parcel.readString(), (ShaderConfig) parcel.readParcelable(ShaderConfig.class.getClassLoader()));
+        }
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
+            parcel.writeParcelable(this.mediaTransition, i);
+            parcel.writeInt(this.shaderConfigMap.size());
+            for (Map.Entry<String, ShaderConfig> entry : this.shaderConfigMap.entrySet()) {
+                parcel.writeString(entry.getKey());
+                parcel.writeParcelable(entry.getValue(), i);
+            }
         }
     }
 }

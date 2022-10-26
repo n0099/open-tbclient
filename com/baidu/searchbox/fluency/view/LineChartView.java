@@ -45,7 +45,7 @@ public final class LineChartView extends View {
     public final float lineRightPadding;
     public final float lineStrokeWidth;
     public float lineWidth;
-    public final LinkedList<LineInfo> lines;
+    public final LinkedList lines;
     public final int middleColor;
     public final Path middlePath;
     public final float[] middleTip;
@@ -56,9 +56,52 @@ public final class LineChartView extends View {
     public final Paint tipPaint;
     public float width;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1593957925, "Lcom/baidu/searchbox/fluency/view/LineChartView;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1593957925, "Lcom/baidu/searchbox/fluency/view/LineChartView;");
+                return;
+            }
+        }
+        Companion = new Companion(null);
+    }
+
+    public void _$_clearFindViewByIdCache() {
+        HashMap hashMap;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (hashMap = this._$_findViewCache) == null) {
+            return;
+        }
+        hashMap.clear();
+    }
+
+    public View _$_findCachedViewById(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (this._$_findViewCache == null) {
+                this._$_findViewCache = new HashMap();
+            }
+            View view2 = (View) this._$_findViewCache.get(Integer.valueOf(i));
+            if (view2 == null) {
+                View findViewById = findViewById(i);
+                this._$_findViewCache.put(Integer.valueOf(i), findViewById);
+                return findViewById;
+            }
+            return view2;
+        }
+        return (View) invokeI.objValue;
+    }
+
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\u0005\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0004\u0010\u0005R\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003¨\u0006\u0006"}, d2 = {"Lcom/baidu/searchbox/fluency/view/LineChartView$Companion;", "", "LINE_COUNT", "I", "<init>", "()V", "lib-fps_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public static final class Companion {
+    public final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -130,30 +173,20 @@ public final class LineChartView extends View {
         public final int getFps() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.fps : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.fps;
+            }
+            return invokeV.intValue;
         }
 
         public final float[] getLinePoint() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.linePoint : (float[]) invokeV.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1593957925, "Lcom/baidu/searchbox/fluency/view/LineChartView;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.linePoint;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1593957925, "Lcom/baidu/searchbox/fluency/view/LineChartView;");
-                return;
-            }
+            return (float[]) invokeV.objValue;
         }
-        Companion = new Companion(null);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -178,6 +211,95 @@ public final class LineChartView extends View {
         Intrinsics.checkNotNullParameter(context, "context");
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public LineChartView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(context, "context");
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public LineChartView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(context, "context");
+        this.paint = new Paint();
+        this.levelLinePaint = new Paint();
+        this.tipPaint = new Paint();
+        this.tipLinePaint = new Paint();
+        this.middlePath = new Path();
+        this.highPath = new Path();
+        this.frozenPath = new Path();
+        this.middleTip = new float[2];
+        this.highTip = new float[2];
+        this.frozenTip = new float[2];
+        float dp2px = CommonUtilsKt.dp2px(1);
+        this.lineStrokeWidth = dp2px;
+        this.lineMargin = dp2px * 2;
+        this.lineRightPadding = CommonUtilsKt.dp2px(8);
+        this.lines = new LinkedList();
+        Context context2 = getContext();
+        Intrinsics.checkNotNullExpressionValue(context2, "context");
+        this.bestColor = context2.getResources().getColor(R.color.obfuscated_res_0x7f060799);
+        Context context3 = getContext();
+        Intrinsics.checkNotNullExpressionValue(context3, "context");
+        this.normalColor = context3.getResources().getColor(R.color.obfuscated_res_0x7f06079d);
+        Context context4 = getContext();
+        Intrinsics.checkNotNullExpressionValue(context4, "context");
+        this.middleColor = context4.getResources().getColor(R.color.obfuscated_res_0x7f06079c);
+        Context context5 = getContext();
+        Intrinsics.checkNotNullExpressionValue(context5, "context");
+        this.highColor = context5.getResources().getColor(R.color.obfuscated_res_0x7f06079b);
+        Context context6 = getContext();
+        Intrinsics.checkNotNullExpressionValue(context6, "context");
+        this.frozenColor = context6.getResources().getColor(R.color.obfuscated_res_0x7f06079a);
+        Context context7 = getContext();
+        Intrinsics.checkNotNullExpressionValue(context7, "context");
+        this.tipColor = context7.getResources().getColor(R.color.obfuscated_res_0x7f0606f9);
+        this.paint.setStrokeWidth(this.lineStrokeWidth);
+        this.tipPaint.setTextSize(CommonUtilsKt.dp2px(8));
+        this.tipPaint.setStrokeWidth(CommonUtilsKt.dp2px(1));
+        this.tipPaint.setAntiAlias(true);
+        this.tipPaint.setColor(this.tipColor);
+        this.levelLinePaint.setStrokeWidth(CommonUtilsKt.dp2px(1));
+        this.levelLinePaint.setStyle(Paint.Style.STROKE);
+        this.levelLinePaint.setPathEffect(new DashPathEffect(new float[]{8.0f, 8.0f}, 0.0f));
+        this.tipLinePaint.setStrokeWidth(CommonUtilsKt.dp2px(1));
+        this.tipLinePaint.setColor(this.tipColor);
+        this.tipLinePaint.setStyle(Paint.Style.STROKE);
+        this.tipLinePaint.setPathEffect(new DashPathEffect(new float[]{6.0f, 6.0f}, 0.0f));
+    }
+
     private final int getColor(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -197,33 +319,6 @@ public final class LineChartView extends View {
             return this.frozenColor;
         }
         return invokeI.intValue;
-    }
-
-    public void _$_clearFindViewByIdCache() {
-        HashMap hashMap;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (hashMap = this._$_findViewCache) == null) {
-            return;
-        }
-        hashMap.clear();
-    }
-
-    public View _$_findCachedViewById(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (this._$_findViewCache == null) {
-                this._$_findViewCache = new HashMap();
-            }
-            View view2 = (View) this._$_findViewCache.get(Integer.valueOf(i));
-            if (view2 == null) {
-                View findViewById = findViewById(i);
-                this._$_findViewCache.put(Integer.valueOf(i), findViewById);
-                return findViewById;
-            }
-            return view2;
-        }
-        return (View) invokeI.objValue;
     }
 
     public final void addFps(int i) {
@@ -247,16 +342,16 @@ public final class LineChartView extends View {
                 return;
             }
             float dp2px = CommonUtilsKt.dp2px(8);
-            Iterator<LineInfo> it = this.lines.iterator();
+            Iterator it = this.lines.iterator();
             int i = 0;
             int i2 = 1;
             while (it.hasNext()) {
-                LineInfo next = it.next();
-                i += next.getFps();
-                next.draw(canvas, i2);
+                LineInfo lineInfo = (LineInfo) it.next();
+                i += lineInfo.getFps();
+                lineInfo.draw(canvas, i2);
                 if (i2 % 25 == 0) {
                     Path path = new Path();
-                    float f = next.getLinePoint()[1];
+                    float f = lineInfo.getLinePoint()[1];
                     path.moveTo(0.0f, f);
                     path.lineTo(this.width, f);
                     canvas.drawPath(path, this.tipLinePaint);
@@ -319,94 +414,5 @@ public final class LineChartView extends View {
             this.middlePath.moveTo(fArr3[0], fArr3[1]);
             this.middlePath.lineTo(this.middleTip[0], 0.0f);
         }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LineChartView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(context, "context");
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LineChartView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(context, "context");
-        this.paint = new Paint();
-        this.levelLinePaint = new Paint();
-        this.tipPaint = new Paint();
-        this.tipLinePaint = new Paint();
-        this.middlePath = new Path();
-        this.highPath = new Path();
-        this.frozenPath = new Path();
-        this.middleTip = new float[2];
-        this.highTip = new float[2];
-        this.frozenTip = new float[2];
-        float dp2px = CommonUtilsKt.dp2px(1);
-        this.lineStrokeWidth = dp2px;
-        this.lineMargin = dp2px * 2;
-        this.lineRightPadding = CommonUtilsKt.dp2px(8);
-        this.lines = new LinkedList<>();
-        Context context2 = getContext();
-        Intrinsics.checkNotNullExpressionValue(context2, "context");
-        this.bestColor = context2.getResources().getColor(R.color.obfuscated_res_0x7f060799);
-        Context context3 = getContext();
-        Intrinsics.checkNotNullExpressionValue(context3, "context");
-        this.normalColor = context3.getResources().getColor(R.color.obfuscated_res_0x7f06079d);
-        Context context4 = getContext();
-        Intrinsics.checkNotNullExpressionValue(context4, "context");
-        this.middleColor = context4.getResources().getColor(R.color.obfuscated_res_0x7f06079c);
-        Context context5 = getContext();
-        Intrinsics.checkNotNullExpressionValue(context5, "context");
-        this.highColor = context5.getResources().getColor(R.color.obfuscated_res_0x7f06079b);
-        Context context6 = getContext();
-        Intrinsics.checkNotNullExpressionValue(context6, "context");
-        this.frozenColor = context6.getResources().getColor(R.color.obfuscated_res_0x7f06079a);
-        Context context7 = getContext();
-        Intrinsics.checkNotNullExpressionValue(context7, "context");
-        this.tipColor = context7.getResources().getColor(R.color.obfuscated_res_0x7f0606f9);
-        this.paint.setStrokeWidth(this.lineStrokeWidth);
-        this.tipPaint.setTextSize(CommonUtilsKt.dp2px(8));
-        this.tipPaint.setStrokeWidth(CommonUtilsKt.dp2px(1));
-        this.tipPaint.setAntiAlias(true);
-        this.tipPaint.setColor(this.tipColor);
-        this.levelLinePaint.setStrokeWidth(CommonUtilsKt.dp2px(1));
-        this.levelLinePaint.setStyle(Paint.Style.STROKE);
-        this.levelLinePaint.setPathEffect(new DashPathEffect(new float[]{8.0f, 8.0f}, 0.0f));
-        this.tipLinePaint.setStrokeWidth(CommonUtilsKt.dp2px(1));
-        this.tipLinePaint.setColor(this.tipColor);
-        this.tipLinePaint.setStyle(Paint.Style.STROKE);
-        this.tipLinePaint.setPathEffect(new DashPathEffect(new float[]{6.0f, 6.0f}, 0.0f));
     }
 }

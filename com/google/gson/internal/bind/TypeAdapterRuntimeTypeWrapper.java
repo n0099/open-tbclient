@@ -46,14 +46,26 @@ public final class TypeAdapterRuntimeTypeWrapper<T> extends TypeAdapter<T> {
     private Type getRuntimeTypeIfMoreSpecific(Type type, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, type, obj)) == null) ? obj != null ? (type == Object.class || (type instanceof TypeVariable) || (type instanceof Class)) ? obj.getClass() : type : type : (Type) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, type, obj)) == null) {
+            if (obj != null) {
+                if (type == Object.class || (type instanceof TypeVariable) || (type instanceof Class)) {
+                    return obj.getClass();
+                }
+                return type;
+            }
+            return type;
+        }
+        return (Type) invokeLL.objValue;
     }
 
     @Override // com.google.gson.TypeAdapter
     public T read(JsonReader jsonReader) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jsonReader)) == null) ? this.delegate.read(jsonReader) : (T) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jsonReader)) == null) {
+            return this.delegate.read(jsonReader);
+        }
+        return (T) invokeL.objValue;
     }
 
     @Override // com.google.gson.TypeAdapter

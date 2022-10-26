@@ -25,28 +25,6 @@ public class Math {
         }
     }
 
-    public static long gcd(long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) != null) {
-            return invokeCommon.longValue;
-        }
-        while (true) {
-            long j3 = j;
-            j = j2;
-            if (j <= 0) {
-                return j3;
-            }
-            j2 = j3 % j;
-        }
-    }
-
-    public static long lcm(long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? j * (j2 / gcd(j, j2)) : invokeCommon.longValue;
-    }
-
     public static int gcd(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
@@ -67,6 +45,34 @@ public class Math {
     public static int lcm(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) ? i * (i2 / gcd(i, i2)) : invokeII.intValue;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) {
+            return i * (i2 / gcd(i, i2));
+        }
+        return invokeII.intValue;
+    }
+
+    public static long gcd(long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) != null) {
+            return invokeCommon.longValue;
+        }
+        while (true) {
+            long j3 = j;
+            j = j2;
+            if (j <= 0) {
+                return j3;
+            }
+            j2 = j3 % j;
+        }
+    }
+
+    public static long lcm(long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return j * (j2 / gcd(j, j2));
+        }
+        return invokeCommon.longValue;
     }
 }

@@ -32,6 +32,16 @@ public class SecureJsInterface extends a.b {
         }
     }
 
+    @Override // com.tencent.open.a.b
+    public boolean customCallback() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
     public SecureJsInterface() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -88,16 +98,6 @@ public class SecureJsInterface extends a.b {
             }
             throw new RuntimeException("position is illegal.");
         }
-    }
-
-    @Override // com.tencent.open.a.b
-    public boolean customCallback() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
     }
 
     public String getMD5FromNative() {

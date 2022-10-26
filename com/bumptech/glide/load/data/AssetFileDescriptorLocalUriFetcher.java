@@ -3,7 +3,6 @@ package com.bumptech.glide.load.data;
 import android.content.ContentResolver;
 import android.content.res.AssetFileDescriptor;
 import android.net.Uri;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 /* loaded from: classes7.dex */
-public final class AssetFileDescriptorLocalUriFetcher extends LocalUriFetcher<AssetFileDescriptor> {
+public final class AssetFileDescriptorLocalUriFetcher extends LocalUriFetcher {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -38,25 +37,7 @@ public final class AssetFileDescriptorLocalUriFetcher extends LocalUriFetcher<As
         }
     }
 
-    @Override // com.bumptech.glide.load.data.DataFetcher
-    @NonNull
-    public Class<AssetFileDescriptor> getDataClass() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? AssetFileDescriptor.class : (Class) invokeV.objValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.bumptech.glide.load.data.LocalUriFetcher
-    public void close(AssetFileDescriptor assetFileDescriptor) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, assetFileDescriptor) == null) {
-            assetFileDescriptor.close();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.load.data.LocalUriFetcher
     public AssetFileDescriptor loadResource(Uri uri, ContentResolver contentResolver) throws FileNotFoundException {
         InterceptResult invokeLL;
@@ -69,5 +50,24 @@ public final class AssetFileDescriptorLocalUriFetcher extends LocalUriFetcher<As
             throw new FileNotFoundException("FileDescriptor is null for: " + uri);
         }
         return (AssetFileDescriptor) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.bumptech.glide.load.data.LocalUriFetcher
+    public void close(AssetFileDescriptor assetFileDescriptor) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, assetFileDescriptor) == null) {
+            assetFileDescriptor.close();
+        }
+    }
+
+    @Override // com.bumptech.glide.load.data.DataFetcher
+    public Class getDataClass() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return AssetFileDescriptor.class;
+        }
+        return (Class) invokeV.objValue;
     }
 }

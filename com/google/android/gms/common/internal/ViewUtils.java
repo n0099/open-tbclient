@@ -5,15 +5,11 @@ import android.content.res.Resources;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.annotation.KeepForSdk;
-@KeepForSdk
 /* loaded from: classes7.dex */
 public class ViewUtils {
     public static /* synthetic */ Interceptable $ic;
@@ -33,13 +29,16 @@ public class ViewUtils {
         }
     }
 
-    @Nullable
-    @KeepForSdk
-    public static String getXmlAttributeString(@NonNull String str, @NonNull String str2, @NonNull Context context, @NonNull AttributeSet attributeSet, boolean z, boolean z2, @NonNull String str3) {
+    public static String getXmlAttributeString(String str, String str2, Context context, AttributeSet attributeSet, boolean z, boolean z2, String str3) {
         InterceptResult invokeCommon;
+        String attributeValue;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, context, attributeSet, Boolean.valueOf(z), Boolean.valueOf(z2), str3})) == null) {
-            String attributeValue = attributeSet == null ? null : attributeSet.getAttributeValue(str, str2);
+            if (attributeSet == null) {
+                attributeValue = null;
+            } else {
+                attributeValue = attributeSet.getAttributeValue(str, str2);
+            }
             if (attributeValue != null && attributeValue.startsWith("@string/") && z) {
                 String substring = attributeValue.substring(8);
                 String packageName = context.getPackageName();

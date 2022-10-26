@@ -29,37 +29,30 @@ public class DeepLinkItem {
     public String pkgName;
     public String webUrl;
 
-    public DeepLinkItem(String str, String str2, String str3, String str4) {
+    public DeepLinkItem(UriBuilder uriBuilder) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, str4};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {uriBuilder};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.isDesignatePkg = true;
-        this.appUrl = str2;
-        this.webUrl = str;
-        this.pkgName = str3;
-        this.ext = str4;
-        this.isDesignatePkg = false;
-    }
-
-    private void checkDesignatePkg() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || TextUtils.isEmpty(this.appUrl)) {
+        if (uriBuilder == null) {
             return;
         }
-        if (this.appUrl.startsWith("tiebaapp") || this.appUrl.startsWith("com.baidu.tieba") || this.appUrl.startsWith("tieba") || this.appUrl.startsWith("tiebaclient") || this.appUrl.startsWith("tieba.baidu.com") || this.appUrl.startsWith("bdtiebalive")) {
-            this.isDesignatePkg = false;
+        parserBundle(uriBuilder.getParamsObject());
+        if (TextUtils.isEmpty(this.appUrl) && TextUtils.isEmpty(this.webUrl)) {
+            parserUri(uriBuilder.getUri());
         }
+        checkDesignatePkg();
     }
 
     private DeepLinkItem parserBundle(Bundle bundle) {
@@ -100,29 +93,36 @@ public class DeepLinkItem {
         return (DeepLinkItem) invokeL.objValue;
     }
 
-    public DeepLinkItem(UriBuilder uriBuilder) {
+    public DeepLinkItem(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {uriBuilder};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {str, str2, str3, str4};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.isDesignatePkg = true;
-        if (uriBuilder == null) {
+        this.appUrl = str2;
+        this.webUrl = str;
+        this.pkgName = str3;
+        this.ext = str4;
+        this.isDesignatePkg = false;
+    }
+
+    private void checkDesignatePkg() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65538, this) != null) || TextUtils.isEmpty(this.appUrl)) {
             return;
         }
-        parserBundle(uriBuilder.getParamsObject());
-        if (TextUtils.isEmpty(this.appUrl) && TextUtils.isEmpty(this.webUrl)) {
-            parserUri(uriBuilder.getUri());
+        if (this.appUrl.startsWith("tiebaapp") || this.appUrl.startsWith("com.baidu.tieba") || this.appUrl.startsWith("tieba") || this.appUrl.startsWith("tiebaclient") || this.appUrl.startsWith("tieba.baidu.com") || this.appUrl.startsWith("bdtiebalive")) {
+            this.isDesignatePkg = false;
         }
-        checkDesignatePkg();
     }
 }

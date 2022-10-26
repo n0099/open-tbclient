@@ -38,6 +38,18 @@ public class ScreenBrightUtils {
         }
     }
 
+    public static int limitRange(int i, int i2, int i3) {
+        InterceptResult invokeIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65542, null, i, i2, i3)) == null) {
+            if (i < i2) {
+                i = i2;
+            }
+            return i > i3 ? i3 : i;
+        }
+        return invokeIII.intValue;
+    }
+
     public ScreenBrightUtils() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -54,13 +66,21 @@ public class ScreenBrightUtils {
 
     public static int getActivityBrightness(Activity activity) {
         InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
             if (activity != null) {
                 float f = activity.getWindow().getAttributes().screenBrightness;
-                int screenBrightness = f < 0.0f ? getScreenBrightness(activity) : (int) (f * 255.0f);
-                int i = mBrightLevel;
-                return (i < 0 || screenBrightness > 50) ? screenBrightness : i;
+                if (f < 0.0f) {
+                    i = getScreenBrightness(activity);
+                } else {
+                    i = (int) (f * 255.0f);
+                }
+                int i2 = mBrightLevel;
+                if (i2 >= 0 && i <= 50) {
+                    return i2;
+                }
+                return i;
             }
             return -1;
         }
@@ -98,58 +118,16 @@ public class ScreenBrightUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             try {
-                return Settings.System.getInt(context.getContentResolver(), "screen_brightness_mode") == 1;
+                if (Settings.System.getInt(context.getContentResolver(), "screen_brightness_mode") != 1) {
+                    return false;
+                }
+                return true;
             } catch (Settings.SettingNotFoundException e) {
                 e.printStackTrace();
                 return false;
             }
         }
         return invokeL.booleanValue;
-    }
-
-    public static int limitRange(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65542, null, i, i2, i3)) == null) {
-            if (i < i2) {
-                i = i2;
-            }
-            return i > i3 ? i3 : i;
-        }
-        return invokeIII.intValue;
-    }
-
-    public static void saveBrightness(Activity activity, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65543, null, activity, i) == null) {
-            Uri uriFor = Settings.System.getUriFor("screen_brightness");
-            ContentResolver contentResolver = activity.getContentResolver();
-            Settings.System.putInt(contentResolver, "screen_brightness", i);
-            contentResolver.notifyChange(uriFor, null);
-        }
-    }
-
-    public static void setBrightness(Activity activity, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65544, null, activity, i) == null) || activity == null) {
-            return;
-        }
-        mBrightLevel = limitRange(i, 0, 255);
-        int limitRange = limitRange(i, 50, 255);
-        WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
-        attributes.screenBrightness = Float.valueOf(limitRange).floatValue() * 0.003921569f;
-        activity.getWindow().setAttributes(attributes);
-    }
-
-    public static void setWinBrightness(Activity activity, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65545, null, activity, i) == null) || activity == null) {
-            return;
-        }
-        Window window = activity.getWindow();
-        WindowManager.LayoutParams attributes = window.getAttributes();
-        attributes.screenBrightness = i;
-        window.setAttributes(attributes);
     }
 
     public static void setWinDefBrightness(Activity activity) {
@@ -170,6 +148,37 @@ public class ScreenBrightUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, null, activity) == null) {
             Settings.System.putInt(activity.getContentResolver(), "screen_brightness_mode", 0);
+        }
+    }
+
+    public static void saveBrightness(Activity activity, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65543, null, activity, i) == null) {
+            Uri uriFor = Settings.System.getUriFor("screen_brightness");
+            ContentResolver contentResolver = activity.getContentResolver();
+            Settings.System.putInt(contentResolver, "screen_brightness", i);
+            contentResolver.notifyChange(uriFor, null);
+        }
+    }
+
+    public static void setWinBrightness(Activity activity, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65545, null, activity, i) == null) && activity != null) {
+            Window window = activity.getWindow();
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            attributes.screenBrightness = i;
+            window.setAttributes(attributes);
+        }
+    }
+
+    public static void setBrightness(Activity activity, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65544, null, activity, i) == null) && activity != null) {
+            mBrightLevel = limitRange(i, 0, 255);
+            int limitRange = limitRange(i, 50, 255);
+            WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
+            attributes.screenBrightness = Float.valueOf(limitRange).floatValue() * 0.003921569f;
+            activity.getWindow().setAttributes(attributes);
         }
     }
 }

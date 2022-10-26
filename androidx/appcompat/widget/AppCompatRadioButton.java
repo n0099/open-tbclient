@@ -6,9 +6,6 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.RadioButton;
-import androidx.annotation.DrawableRes;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.TintableBackgroundView;
@@ -49,180 +46,8 @@ public class AppCompatRadioButton extends RadioButton implements TintableCompoun
         }
     }
 
-    @Override // android.widget.CompoundButton, android.widget.TextView, android.view.View
-    public void drawableStateChanged() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.drawableStateChanged();
-            AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
-            if (appCompatBackgroundHelper != null) {
-                appCompatBackgroundHelper.applySupportBackgroundTint();
-            }
-            AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
-            if (appCompatTextHelper != null) {
-                appCompatTextHelper.applyCompoundDrawablesTints();
-            }
-        }
-    }
-
-    @Override // android.widget.CompoundButton, android.widget.TextView
-    public int getCompoundPaddingLeft() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int compoundPaddingLeft = super.getCompoundPaddingLeft();
-            AppCompatCompoundButtonHelper appCompatCompoundButtonHelper = this.mCompoundButtonHelper;
-            return appCompatCompoundButtonHelper != null ? appCompatCompoundButtonHelper.getCompoundPaddingLeft(compoundPaddingLeft) : compoundPaddingLeft;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // androidx.core.view.TintableBackgroundView
-    @Nullable
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public ColorStateList getSupportBackgroundTintList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
-            if (appCompatBackgroundHelper != null) {
-                return appCompatBackgroundHelper.getSupportBackgroundTintList();
-            }
-            return null;
-        }
-        return (ColorStateList) invokeV.objValue;
-    }
-
-    @Override // androidx.core.view.TintableBackgroundView
-    @Nullable
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public PorterDuff.Mode getSupportBackgroundTintMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
-            if (appCompatBackgroundHelper != null) {
-                return appCompatBackgroundHelper.getSupportBackgroundTintMode();
-            }
-            return null;
-        }
-        return (PorterDuff.Mode) invokeV.objValue;
-    }
-
-    @Override // androidx.core.widget.TintableCompoundButton
-    @Nullable
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public ColorStateList getSupportButtonTintList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            AppCompatCompoundButtonHelper appCompatCompoundButtonHelper = this.mCompoundButtonHelper;
-            if (appCompatCompoundButtonHelper != null) {
-                return appCompatCompoundButtonHelper.getSupportButtonTintList();
-            }
-            return null;
-        }
-        return (ColorStateList) invokeV.objValue;
-    }
-
-    @Override // androidx.core.widget.TintableCompoundButton
-    @Nullable
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public PorterDuff.Mode getSupportButtonTintMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            AppCompatCompoundButtonHelper appCompatCompoundButtonHelper = this.mCompoundButtonHelper;
-            if (appCompatCompoundButtonHelper != null) {
-                return appCompatCompoundButtonHelper.getSupportButtonTintMode();
-            }
-            return null;
-        }
-        return (PorterDuff.Mode) invokeV.objValue;
-    }
-
-    @Override // android.view.View
-    public void setBackgroundDrawable(Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, drawable) == null) {
-            super.setBackgroundDrawable(drawable);
-            AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
-            if (appCompatBackgroundHelper != null) {
-                appCompatBackgroundHelper.onSetBackgroundDrawable(drawable);
-            }
-        }
-    }
-
-    @Override // android.view.View
-    public void setBackgroundResource(@DrawableRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            super.setBackgroundResource(i);
-            AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
-            if (appCompatBackgroundHelper != null) {
-                appCompatBackgroundHelper.onSetBackgroundResource(i);
-            }
-        }
-    }
-
-    @Override // android.widget.CompoundButton
-    public void setButtonDrawable(Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, drawable) == null) {
-            super.setButtonDrawable(drawable);
-            AppCompatCompoundButtonHelper appCompatCompoundButtonHelper = this.mCompoundButtonHelper;
-            if (appCompatCompoundButtonHelper != null) {
-                appCompatCompoundButtonHelper.onSetButtonDrawable();
-            }
-        }
-    }
-
-    @Override // androidx.core.view.TintableBackgroundView
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void setSupportBackgroundTintList(@Nullable ColorStateList colorStateList) {
-        AppCompatBackgroundHelper appCompatBackgroundHelper;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, colorStateList) == null) || (appCompatBackgroundHelper = this.mBackgroundTintHelper) == null) {
-            return;
-        }
-        appCompatBackgroundHelper.setSupportBackgroundTintList(colorStateList);
-    }
-
-    @Override // androidx.core.view.TintableBackgroundView
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void setSupportBackgroundTintMode(@Nullable PorterDuff.Mode mode) {
-        AppCompatBackgroundHelper appCompatBackgroundHelper;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, mode) == null) || (appCompatBackgroundHelper = this.mBackgroundTintHelper) == null) {
-            return;
-        }
-        appCompatBackgroundHelper.setSupportBackgroundTintMode(mode);
-    }
-
-    @Override // androidx.core.widget.TintableCompoundButton
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void setSupportButtonTintList(@Nullable ColorStateList colorStateList) {
-        AppCompatCompoundButtonHelper appCompatCompoundButtonHelper;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, colorStateList) == null) || (appCompatCompoundButtonHelper = this.mCompoundButtonHelper) == null) {
-            return;
-        }
-        appCompatCompoundButtonHelper.setSupportButtonTintList(colorStateList);
-    }
-
-    @Override // androidx.core.widget.TintableCompoundButton
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void setSupportButtonTintMode(@Nullable PorterDuff.Mode mode) {
-        AppCompatCompoundButtonHelper appCompatCompoundButtonHelper;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, mode) == null) || (appCompatCompoundButtonHelper = this.mCompoundButtonHelper) == null) {
-            return;
-        }
-        appCompatCompoundButtonHelper.setSupportButtonTintMode(mode);
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppCompatRadioButton(Context context, @Nullable AttributeSet attributeSet) {
+    public AppCompatRadioButton(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.obfuscated_res_0x7f04059f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -243,7 +68,7 @@ public class AppCompatRadioButton extends RadioButton implements TintableCompoun
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AppCompatRadioButton(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public AppCompatRadioButton(Context context, AttributeSet attributeSet, int i) {
         super(TintContextWrapper.wrap(context), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -273,11 +98,170 @@ public class AppCompatRadioButton extends RadioButton implements TintableCompoun
         appCompatTextHelper.loadFromAttributes(attributeSet, i);
     }
 
+    @Override // android.widget.CompoundButton, android.widget.TextView, android.view.View
+    public void drawableStateChanged() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.drawableStateChanged();
+            AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
+            if (appCompatBackgroundHelper != null) {
+                appCompatBackgroundHelper.applySupportBackgroundTint();
+            }
+            AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
+            if (appCompatTextHelper != null) {
+                appCompatTextHelper.applyCompoundDrawablesTints();
+            }
+        }
+    }
+
+    @Override // android.widget.CompoundButton, android.widget.TextView
+    public int getCompoundPaddingLeft() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int compoundPaddingLeft = super.getCompoundPaddingLeft();
+            AppCompatCompoundButtonHelper appCompatCompoundButtonHelper = this.mCompoundButtonHelper;
+            if (appCompatCompoundButtonHelper != null) {
+                return appCompatCompoundButtonHelper.getCompoundPaddingLeft(compoundPaddingLeft);
+            }
+            return compoundPaddingLeft;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // androidx.core.view.TintableBackgroundView
+    public ColorStateList getSupportBackgroundTintList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
+            if (appCompatBackgroundHelper != null) {
+                return appCompatBackgroundHelper.getSupportBackgroundTintList();
+            }
+            return null;
+        }
+        return (ColorStateList) invokeV.objValue;
+    }
+
+    @Override // androidx.core.view.TintableBackgroundView
+    public PorterDuff.Mode getSupportBackgroundTintMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
+            if (appCompatBackgroundHelper != null) {
+                return appCompatBackgroundHelper.getSupportBackgroundTintMode();
+            }
+            return null;
+        }
+        return (PorterDuff.Mode) invokeV.objValue;
+    }
+
+    @Override // androidx.core.widget.TintableCompoundButton
+    public ColorStateList getSupportButtonTintList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            AppCompatCompoundButtonHelper appCompatCompoundButtonHelper = this.mCompoundButtonHelper;
+            if (appCompatCompoundButtonHelper != null) {
+                return appCompatCompoundButtonHelper.getSupportButtonTintList();
+            }
+            return null;
+        }
+        return (ColorStateList) invokeV.objValue;
+    }
+
+    @Override // androidx.core.widget.TintableCompoundButton
+    public PorterDuff.Mode getSupportButtonTintMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            AppCompatCompoundButtonHelper appCompatCompoundButtonHelper = this.mCompoundButtonHelper;
+            if (appCompatCompoundButtonHelper != null) {
+                return appCompatCompoundButtonHelper.getSupportButtonTintMode();
+            }
+            return null;
+        }
+        return (PorterDuff.Mode) invokeV.objValue;
+    }
+
+    @Override // android.view.View
+    public void setBackgroundDrawable(Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, drawable) == null) {
+            super.setBackgroundDrawable(drawable);
+            AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
+            if (appCompatBackgroundHelper != null) {
+                appCompatBackgroundHelper.onSetBackgroundDrawable(drawable);
+            }
+        }
+    }
+
+    @Override // android.view.View
+    public void setBackgroundResource(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            super.setBackgroundResource(i);
+            AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
+            if (appCompatBackgroundHelper != null) {
+                appCompatBackgroundHelper.onSetBackgroundResource(i);
+            }
+        }
+    }
+
     @Override // android.widget.CompoundButton
-    public void setButtonDrawable(@DrawableRes int i) {
+    public void setButtonDrawable(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             setButtonDrawable(AppCompatResources.getDrawable(getContext(), i));
+        }
+    }
+
+    @Override // androidx.core.view.TintableBackgroundView
+    public void setSupportBackgroundTintList(ColorStateList colorStateList) {
+        AppCompatBackgroundHelper appCompatBackgroundHelper;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048586, this, colorStateList) == null) && (appCompatBackgroundHelper = this.mBackgroundTintHelper) != null) {
+            appCompatBackgroundHelper.setSupportBackgroundTintList(colorStateList);
+        }
+    }
+
+    @Override // androidx.core.view.TintableBackgroundView
+    public void setSupportBackgroundTintMode(PorterDuff.Mode mode) {
+        AppCompatBackgroundHelper appCompatBackgroundHelper;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, mode) == null) && (appCompatBackgroundHelper = this.mBackgroundTintHelper) != null) {
+            appCompatBackgroundHelper.setSupportBackgroundTintMode(mode);
+        }
+    }
+
+    @Override // androidx.core.widget.TintableCompoundButton
+    public void setSupportButtonTintList(ColorStateList colorStateList) {
+        AppCompatCompoundButtonHelper appCompatCompoundButtonHelper;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048588, this, colorStateList) == null) && (appCompatCompoundButtonHelper = this.mCompoundButtonHelper) != null) {
+            appCompatCompoundButtonHelper.setSupportButtonTintList(colorStateList);
+        }
+    }
+
+    @Override // androidx.core.widget.TintableCompoundButton
+    public void setSupportButtonTintMode(PorterDuff.Mode mode) {
+        AppCompatCompoundButtonHelper appCompatCompoundButtonHelper;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048589, this, mode) == null) && (appCompatCompoundButtonHelper = this.mCompoundButtonHelper) != null) {
+            appCompatCompoundButtonHelper.setSupportButtonTintMode(mode);
+        }
+    }
+
+    @Override // android.widget.CompoundButton
+    public void setButtonDrawable(Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, drawable) == null) {
+            super.setButtonDrawable(drawable);
+            AppCompatCompoundButtonHelper appCompatCompoundButtonHelper = this.mCompoundButtonHelper;
+            if (appCompatCompoundButtonHelper != null) {
+                appCompatCompoundButtonHelper.onSetButtonDrawable();
+            }
         }
     }
 }

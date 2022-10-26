@@ -15,6 +15,8 @@ public abstract class MediaChunk extends Chunk {
     public transient /* synthetic */ FieldHolder $fh;
     public final int chunkIndex;
 
+    public abstract boolean isLoadCompleted();
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MediaChunk(DataSource dataSource, DataSpec dataSpec, Format format, int i, Object obj, long j, long j2, int i2) {
         super(dataSource, dataSpec, 1, format, i, obj, j, j2);
@@ -41,8 +43,9 @@ public abstract class MediaChunk extends Chunk {
     public int getNextChunkIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.chunkIndex + 1 : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.chunkIndex + 1;
+        }
+        return invokeV.intValue;
     }
-
-    public abstract boolean isLoadCompleted();
 }

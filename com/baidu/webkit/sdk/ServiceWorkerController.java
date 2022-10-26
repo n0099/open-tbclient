@@ -1,7 +1,5 @@
 package com.baidu.webkit.sdk;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,15 +24,13 @@ public abstract class ServiceWorkerController {
         }
     }
 
-    @NonNull
     public static ServiceWorkerController getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? WebViewFactory.getProvider().getServiceWorkerController() : (ServiceWorkerController) invokeV.objValue;
     }
 
-    @NonNull
     public abstract ServiceWorkerWebSettings getServiceWorkerWebSettings();
 
-    public abstract void setServiceWorkerClient(@Nullable ServiceWorkerClient serviceWorkerClient);
+    public abstract void setServiceWorkerClient(ServiceWorkerClient serviceWorkerClient);
 }

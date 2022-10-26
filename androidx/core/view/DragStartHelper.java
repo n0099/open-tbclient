@@ -68,7 +68,10 @@ public class DragStartHelper {
             public boolean onLongClick(View view3) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, view3)) == null) ? this.this$0.onLongClick(view3) : invokeL.booleanValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, view3)) == null) {
+                    return this.this$0.onLongClick(view3);
+                }
+                return invokeL.booleanValue;
             }
         };
         this.mTouchListener = new View.OnTouchListener(this) { // from class: androidx.core.view.DragStartHelper.2
@@ -98,7 +101,10 @@ public class DragStartHelper {
             public boolean onTouch(View view3, MotionEvent motionEvent) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view3, motionEvent)) == null) ? this.this$0.onTouch(view3, motionEvent) : invokeLL.booleanValue;
+                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view3, motionEvent)) == null) {
+                    return this.this$0.onTouch(view3, motionEvent);
+                }
+                return invokeLL.booleanValue;
             }
         };
         this.mView = view2;
@@ -131,7 +137,10 @@ public class DragStartHelper {
     public boolean onLongClick(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) ? this.mListener.onDragStart(view2, this) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
+            return this.mListener.onDragStart(view2, this);
+        }
+        return invokeL.booleanValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:11:0x001c, code lost:

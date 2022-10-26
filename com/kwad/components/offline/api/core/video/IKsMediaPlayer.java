@@ -1,7 +1,6 @@
 package com.kwad.components.offline.api.core.video;
 
 import android.view.Surface;
-import androidx.annotation.NonNull;
 import com.kwad.components.offline.api.core.video.IMediaPlayer;
 import com.kwad.components.offline.api.core.video.listener.ReleaseCallback;
 import com.kwad.components.offline.api.core.video.listener.VideoPlayStateListener;
@@ -39,9 +38,9 @@ public interface IKsMediaPlayer {
 
     int getVolume();
 
-    void initMediaPlayer(@NonNull PlayVideoInfo playVideoInfo, @NonNull IKsMediaPlayerView iKsMediaPlayerView);
+    void initMediaPlayer(PlayVideoInfo playVideoInfo, IKsMediaPlayerView iKsMediaPlayerView);
 
-    void initMediaPlayer(@NonNull PlayVideoInfo playVideoInfo, boolean z, boolean z2, @NonNull IKsMediaPlayerView iKsMediaPlayerView);
+    void initMediaPlayer(PlayVideoInfo playVideoInfo, boolean z, boolean z2, IKsMediaPlayerView iKsMediaPlayerView);
 
     boolean isPlaying();
 
@@ -79,7 +78,7 @@ public interface IKsMediaPlayer {
 
     void setAudioEnabled(boolean z);
 
-    void setDataSource(@NonNull PlayVideoInfo playVideoInfo);
+    void setDataSource(PlayVideoInfo playVideoInfo);
 
     void setRadius(float f, float f2, float f3, float f4);
 

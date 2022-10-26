@@ -3,8 +3,6 @@ package com.baidu.searchbox.anr.impl;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.anr.ioc.IANRContext;
 import com.baidu.searchbox.anr.ioc.IANRRegister;
 import com.baidu.searchbox.aperf.param.CommonUtils;
@@ -12,7 +10,7 @@ import com.baidu.searchbox.block.impl.BlockMonitor;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.track.Track;
 import com.baidu.searchbox.track.ui.TrackUI;
-import com.baidu.tieba.te1;
+import com.baidu.tieba.ue1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +18,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Autowired
 /* loaded from: classes2.dex */
 public class ANRContext {
     public static /* synthetic */ Interceptable $ic;
@@ -65,25 +62,24 @@ public class ANRContext {
                     if (AppConfig.isDebug()) {
                         Log.d(BlockMonitor.TAG, "onAppNotResponding");
                     }
-                    te1<IANRRegister> iANRUploadList = ANRRuntime.getInstance().getIANRUploadList();
-                    if (iANRUploadList == null || iANRUploadList.getList() == null || aNRInfo == null) {
-                        return;
-                    }
-                    if (AppConfig.isDebug()) {
-                        Log.i(BlockMonitor.TAG, "ANRInfo = " + aNRInfo.getStackTrace());
-                    }
-                    TrackUI lastTrackUI = Track.getInstance().getLastTrackUI();
-                    if (lastTrackUI != null) {
-                        if (!TextUtils.isEmpty(lastTrackUI.getFragmentPage())) {
-                            aNRInfo.setCurrentPage(lastTrackUI.getFragmentPage());
-                        } else if (!TextUtils.isEmpty(lastTrackUI.getActivityPage())) {
-                            aNRInfo.setCurrentPage(lastTrackUI.getActivityPage());
+                    ue1 iANRUploadList = ANRRuntime.getInstance().getIANRUploadList();
+                    if (iANRUploadList != null && iANRUploadList.getList() != null && aNRInfo != null) {
+                        if (AppConfig.isDebug()) {
+                            Log.i(BlockMonitor.TAG, "ANRInfo = " + aNRInfo.getStackTrace());
                         }
-                    }
-                    aNRInfo.setTrackUIs(Track.getInstance().getAllTrackUIs());
-                    aNRInfo.setLogId(CommonUtils.getLogId());
-                    for (IANRRegister iANRRegister : iANRUploadList.getList()) {
-                        iANRRegister.onANR(context, aNRInfo);
+                        TrackUI lastTrackUI = Track.getInstance().getLastTrackUI();
+                        if (lastTrackUI != null) {
+                            if (!TextUtils.isEmpty(lastTrackUI.getFragmentPage())) {
+                                aNRInfo.setCurrentPage(lastTrackUI.getFragmentPage());
+                            } else if (!TextUtils.isEmpty(lastTrackUI.getActivityPage())) {
+                                aNRInfo.setCurrentPage(lastTrackUI.getActivityPage());
+                            }
+                        }
+                        aNRInfo.setTrackUIs(Track.getInstance().getAllTrackUIs());
+                        aNRInfo.setLogId(CommonUtils.getLogId());
+                        for (IANRRegister iANRRegister : iANRUploadList.getList()) {
+                            iANRRegister.onANR(context, aNRInfo);
+                        }
                     }
                 }
             }
@@ -104,10 +100,12 @@ public class ANRContext {
         }
     }
 
-    @Inject(force = false)
     public static IANRContext getANRContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? ANR_CONTEXT_DEFAULT : (IANRContext) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return ANR_CONTEXT_DEFAULT;
+        }
+        return (IANRContext) invokeV.objValue;
     }
 }

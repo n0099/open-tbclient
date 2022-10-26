@@ -15,7 +15,13 @@ public class RegisterIntentConfigHelper {
     public static /* synthetic */ Interceptable $ic;
     public static final RegisterIntentConfigHelper inst;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<Class<?>, Class<?>> mActicyConfig;
+    public final HashMap mActicyConfig;
+
+    public void logStaticRegister(Class cls, Class cls2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, cls, cls2) == null) {
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -46,16 +52,28 @@ public class RegisterIntentConfigHelper {
                 return;
             }
         }
-        this.mActicyConfig = new HashMap<>();
+        this.mActicyConfig = new HashMap();
     }
 
     public static final RegisterIntentConfigHelper getInst() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? inst : (RegisterIntentConfigHelper) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return inst;
+        }
+        return (RegisterIntentConfigHelper) invokeV.objValue;
     }
 
-    public void RegisterIntent(Class<?> cls, Class<?> cls2) {
+    public int getConfigSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mActicyConfig.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public void RegisterIntent(Class cls, Class cls2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, cls, cls2) == null) {
             if (!this.mActicyConfig.containsKey(cls)) {
@@ -67,7 +85,7 @@ public class RegisterIntentConfigHelper {
         }
     }
 
-    public void RegisterOrUpdateIntent(Class<?> cls, Class<?> cls2) {
+    public void RegisterOrUpdateIntent(Class cls, Class cls2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls, cls2) == null) {
             logStaticRegister(cls, cls2);
@@ -75,34 +93,28 @@ public class RegisterIntentConfigHelper {
         }
     }
 
-    public boolean appResponseToIntentClass(Class<?> cls) {
+    public boolean appResponseToIntentClass(Class cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cls)) == null) ? getIntentClass(cls) != null : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cls)) == null) {
+            if (getIntentClass(cls) != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
-    public int getConfigSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mActicyConfig.size() : invokeV.intValue;
-    }
-
-    public Class<?> getIntentClass(Class<?> cls) {
+    public Class getIntentClass(Class cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cls)) == null) {
-            HashMap<Class<?>, Class<?>> hashMap = this.mActicyConfig;
+            HashMap hashMap = this.mActicyConfig;
             if (hashMap != null) {
-                return hashMap.get(cls);
+                return (Class) hashMap.get(cls);
             }
             return null;
         }
         return (Class) invokeL.objValue;
-    }
-
-    public void logStaticRegister(Class<?> cls, Class<?> cls2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, cls, cls2) == null) {
-        }
     }
 }

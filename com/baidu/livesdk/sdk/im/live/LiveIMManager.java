@@ -25,7 +25,7 @@ public class LiveIMManager implements LiveIM {
     public static final String TAG = "LiveIMController";
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
-    public final Map<String, LiveIMController> mHashMap;
+    public final Map mHashMap;
     public IMManager mIMManager;
     public boolean mIsRegisterConnectListener;
 
@@ -50,88 +50,6 @@ public class LiveIMManager implements LiveIM {
         this.mIMManager = iMManager;
     }
 
-    private LiveIMController create(String str, String str2, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, this, str, str2, z)) == null) {
-            LiveIMController liveIMController = new LiveIMController(this.mIMManager.build(this.mContext, str, str2, z));
-            this.mHashMap.put(str, liveIMController);
-            return liveIMController;
-        }
-        return (LiveIMController) invokeLLZ.objValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void reconnect() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            try {
-                for (Map.Entry<String, LiveIMController> entry : this.mHashMap.entrySet()) {
-                    LiveIMController liveIMController = this.mHashMap.get(entry.getKey());
-                    if (liveIMController != null) {
-                        liveIMController.enterRoom();
-                    }
-                }
-            } catch (Exception unused) {
-            }
-        }
-    }
-
-    private void register() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65541, this) == null) || this.mIsRegisterConnectListener) {
-            return;
-        }
-        this.mIMManager.unregisterConnectListener();
-        this.mIMManager.registerConnectListener(new ConnectListener(this) { // from class: com.baidu.livesdk.sdk.im.live.LiveIMManager.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ LiveIMManager this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
-            @Override // com.baidu.livesdk.api.im.ConnectListener
-            public void onResult(int i) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
-                    if (i == 0) {
-                        this.this$0.reconnect();
-                    } else if (1 == i) {
-                        this.this$0.mIMManager.tryConnection();
-                    }
-                }
-            }
-        });
-        this.mIsRegisterConnectListener = true;
-    }
-
-    @Override // com.baidu.livesdk.api.im.live.LiveIM
-    public synchronized void enterRoom(String str, String str2, int i, IMCastSetListener iMCastSetListener, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), iMCastSetListener, Boolean.valueOf(z)}) == null) {
-            synchronized (this) {
-                register();
-                create(str, str2, z).enterRoom(str, str2, i, iMCastSetListener, z);
-            }
-        }
-    }
-
     @Override // com.baidu.livesdk.api.im.live.LiveIM
     public synchronized void exitRoom(String str) {
         Interceptable interceptable = $ic;
@@ -149,23 +67,30 @@ public class LiveIMManager implements LiveIM {
     public IMConversation getConversation(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.mHashMap.get(str).getConversation() : (IMConversation) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return ((LiveIMController) this.mHashMap.get(str)).getConversation();
+        }
+        return (IMConversation) invokeL.objValue;
     }
 
     public LiveIMController getLiveIMController(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.mHashMap.get(str) : (LiveIMController) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return (LiveIMController) this.mHashMap.get(str);
+        }
+        return (LiveIMController) invokeL.objValue;
     }
 
-    @Override // com.baidu.livesdk.api.im.live.LiveIM
-    public void registerMsgReceiveListener(String str, LiveMsgReceiverListener liveMsgReceiverListener) {
-        LiveIMController liveIMController;
+    private LiveIMController create(String str, String str2, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048581, this, str, liveMsgReceiverListener) == null) || (liveIMController = getLiveIMController(str)) == null) {
-            return;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, this, str, str2, z)) == null) {
+            LiveIMController liveIMController = new LiveIMController(this.mIMManager.build(this.mContext, str, str2, z));
+            this.mHashMap.put(str, liveIMController);
+            return liveIMController;
         }
-        liveIMController.registerMsgReceiveListener(str, liveMsgReceiverListener);
+        return (LiveIMController) invokeLLZ.objValue;
     }
 
     @Override // com.baidu.livesdk.api.im.live.LiveIM
@@ -181,20 +106,93 @@ public class LiveIMManager implements LiveIM {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public void reconnect() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            try {
+                for (Map.Entry entry : this.mHashMap.entrySet()) {
+                    LiveIMController liveIMController = (LiveIMController) this.mHashMap.get((String) entry.getKey());
+                    if (liveIMController != null) {
+                        liveIMController.enterRoom();
+                    }
+                }
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    private void register() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65541, this) == null) && !this.mIsRegisterConnectListener) {
+            this.mIMManager.unregisterConnectListener();
+            this.mIMManager.registerConnectListener(new ConnectListener(this) { // from class: com.baidu.livesdk.sdk.im.live.LiveIMManager.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ LiveIMManager this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // com.baidu.livesdk.api.im.ConnectListener
+                public void onResult(int i) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
+                        if (i != 0) {
+                            if (1 == i) {
+                                this.this$0.mIMManager.tryConnection();
+                                return;
+                            }
+                            return;
+                        }
+                        this.this$0.reconnect();
+                    }
+                }
+            });
+            this.mIsRegisterConnectListener = true;
+        }
+    }
+
+    @Override // com.baidu.livesdk.api.im.live.LiveIM
+    public synchronized void enterRoom(String str, String str2, int i, IMCastSetListener iMCastSetListener, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), iMCastSetListener, Boolean.valueOf(z)}) == null) {
+            synchronized (this) {
+                register();
+                create(str, str2, z).enterRoom(str, str2, i, iMCastSetListener, z);
+            }
+        }
+    }
+
     @Override // com.baidu.livesdk.api.im.live.LiveIM
     public synchronized void exitRoom() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
                 try {
-                    for (Map.Entry<String, LiveIMController> entry : this.mHashMap.entrySet()) {
-                        String key = entry.getKey();
-                        LiveIMController liveIMController = this.mHashMap.get(key);
+                    for (Map.Entry entry : this.mHashMap.entrySet()) {
+                        String str = (String) entry.getKey();
+                        LiveIMController liveIMController = (LiveIMController) this.mHashMap.get(str);
                         if (liveIMController != null) {
                             if (liveIMController.isConnect()) {
                                 liveIMController.exitRoom();
                             }
-                            this.mHashMap.remove(key);
+                            this.mHashMap.remove(str);
                         }
                     }
                     this.mIMManager.unregisterConnectListener();
@@ -202,6 +200,15 @@ public class LiveIMManager implements LiveIM {
                 } catch (Exception unused) {
                 }
             }
+        }
+    }
+
+    @Override // com.baidu.livesdk.api.im.live.LiveIM
+    public void registerMsgReceiveListener(String str, LiveMsgReceiverListener liveMsgReceiverListener) {
+        LiveIMController liveIMController;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, str, liveMsgReceiverListener) == null) && (liveIMController = getLiveIMController(str)) != null) {
+            liveIMController.registerMsgReceiveListener(str, liveMsgReceiverListener);
         }
     }
 }

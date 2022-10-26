@@ -63,12 +63,18 @@ public final class AdviceKind {
     public static AdviceKind valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (AdviceKind) Enum.valueOf(AdviceKind.class, str) : (AdviceKind) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (AdviceKind) Enum.valueOf(AdviceKind.class, str);
+        }
+        return (AdviceKind) invokeL.objValue;
     }
 
     public static AdviceKind[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (AdviceKind[]) $VALUES.clone() : (AdviceKind[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (AdviceKind[]) $VALUES.clone();
+        }
+        return (AdviceKind[]) invokeV.objValue;
     }
 }

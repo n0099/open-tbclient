@@ -1,6 +1,5 @@
 package com.baidu.sapi2.utils;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.pass.common.SecurityUtil;
@@ -40,14 +39,17 @@ public class Security {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
             String gzfi = FH.gzfi(context, null, i);
-            return TextUtils.isEmpty(gzfi) ? "NoZidYet" : gzfi;
+            if (TextUtils.isEmpty(gzfi)) {
+                return "NoZidYet";
+            }
+            return gzfi;
         }
         return (String) invokeLI.objValue;
     }
 
-    @TargetApi(8)
     public String encryptSsoHash(Long l, String str, String str2) {
         InterceptResult invokeLLL;
+        String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, l, str, str2)) == null) {
             SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
@@ -62,7 +64,12 @@ public class Security {
                 jSONObject.put("host_pkgname", packageName);
                 jSONObject.put("host_key_hash", packageSign);
                 SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
-                jSONObject.put("bduss_sign", SecurityUtil.md5((currentAccount == null ? "" : currentAccount.bduss).getBytes(), false));
+                if (currentAccount == null) {
+                    str3 = "";
+                } else {
+                    str3 = currentAccount.bduss;
+                }
+                jSONObject.put("bduss_sign", SecurityUtil.md5(str3.getBytes(), false));
                 jSONObject.put("pkgname", str);
                 jSONObject.put("key_hash", packageSign2);
                 jSONObject.put("app_id", str2);

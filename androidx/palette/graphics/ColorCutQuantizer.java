@@ -2,7 +2,6 @@ package androidx.palette.graphics;
 
 import android.graphics.Color;
 import android.util.TimingLogger;
-import androidx.annotation.Nullable;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.view.InputDeviceCompat;
 import androidx.palette.graphics.Palette;
@@ -37,8 +36,34 @@ public final class ColorCutQuantizer {
     public final int[] mHistogram;
     public final List<Palette.Swatch> mQuantizedColors;
     public final float[] mTempHsl;
-    @Nullable
     public final TimingLogger mTimingLogger;
+
+    public static int modifyWordWidth(int i, int i2, int i3) {
+        InterceptResult invokeIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65542, null, i, i2, i3)) == null) {
+            return (i3 > i2 ? i << (i3 - i2) : i >> (i2 - i3)) & ((1 << i3) - 1);
+        }
+        return invokeIII.intValue;
+    }
+
+    public static int quantizedBlue(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i)) == null) ? i & 31 : invokeI.intValue;
+    }
+
+    public static int quantizedGreen(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) ? (i >> 5) & 31 : invokeI.intValue;
+    }
+
+    public static int quantizedRed(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65547, null, i)) == null) ? (i >> 10) & 31 : invokeI.intValue;
+    }
 
     /* loaded from: classes.dex */
     public class Vbox {
@@ -79,36 +104,79 @@ public final class ColorCutQuantizer {
         public final boolean canSplit() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? getColorCount() > 1 : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (getColorCount() > 1) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public final int getColorCount() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return (this.mUpperIndex + 1) - this.mLowerIndex;
+            }
+            return invokeV.intValue;
+        }
+
+        public final int getLongestColorDimension() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                int i = this.mMaxRed - this.mMinRed;
+                int i2 = this.mMaxGreen - this.mMinGreen;
+                int i3 = this.mMaxBlue - this.mMinBlue;
+                if (i >= i2 && i >= i3) {
+                    return -3;
+                }
+                if (i2 >= i && i2 >= i3) {
+                    return -2;
+                }
+                return -1;
+            }
+            return invokeV.intValue;
+        }
+
+        public final int getVolume() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return ((this.mMaxRed - this.mMinRed) + 1) * ((this.mMaxGreen - this.mMinGreen) + 1) * ((this.mMaxBlue - this.mMinBlue) + 1);
+            }
+            return invokeV.intValue;
         }
 
         public final int findSplitPoint() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
-                return invokeV.intValue;
-            }
-            int longestColorDimension = getLongestColorDimension();
-            ColorCutQuantizer colorCutQuantizer = this.this$0;
-            int[] iArr = colorCutQuantizer.mColors;
-            int[] iArr2 = colorCutQuantizer.mHistogram;
-            ColorCutQuantizer.modifySignificantOctet(iArr, longestColorDimension, this.mLowerIndex, this.mUpperIndex);
-            Arrays.sort(iArr, this.mLowerIndex, this.mUpperIndex + 1);
-            ColorCutQuantizer.modifySignificantOctet(iArr, longestColorDimension, this.mLowerIndex, this.mUpperIndex);
-            int i = this.mPopulation / 2;
-            int i2 = this.mLowerIndex;
-            int i3 = 0;
-            while (true) {
-                int i4 = this.mUpperIndex;
-                if (i2 <= i4) {
-                    i3 += iArr2[iArr[i2]];
-                    if (i3 >= i) {
-                        return Math.min(i4 - 1, i2);
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                int longestColorDimension = getLongestColorDimension();
+                ColorCutQuantizer colorCutQuantizer = this.this$0;
+                int[] iArr = colorCutQuantizer.mColors;
+                int[] iArr2 = colorCutQuantizer.mHistogram;
+                ColorCutQuantizer.modifySignificantOctet(iArr, longestColorDimension, this.mLowerIndex, this.mUpperIndex);
+                Arrays.sort(iArr, this.mLowerIndex, this.mUpperIndex + 1);
+                ColorCutQuantizer.modifySignificantOctet(iArr, longestColorDimension, this.mLowerIndex, this.mUpperIndex);
+                int i = this.mPopulation / 2;
+                int i2 = this.mLowerIndex;
+                int i3 = 0;
+                while (true) {
+                    int i4 = this.mUpperIndex;
+                    if (i2 <= i4) {
+                        i3 += iArr2[iArr[i2]];
+                        if (i3 >= i) {
+                            return Math.min(i4 - 1, i2);
+                        }
+                        i2++;
+                    } else {
+                        return this.mLowerIndex;
                     }
-                    i2++;
-                } else {
-                    return this.mLowerIndex;
                 }
+            } else {
+                return invokeV.intValue;
             }
         }
 
@@ -185,33 +253,6 @@ public final class ColorCutQuantizer {
             return (Palette.Swatch) invokeV.objValue;
         }
 
-        public final int getColorCount() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (this.mUpperIndex + 1) - this.mLowerIndex : invokeV.intValue;
-        }
-
-        public final int getLongestColorDimension() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                int i = this.mMaxRed - this.mMinRed;
-                int i2 = this.mMaxGreen - this.mMinGreen;
-                int i3 = this.mMaxBlue - this.mMinBlue;
-                if (i < i2 || i < i3) {
-                    return (i2 < i || i2 < i3) ? -1 : -2;
-                }
-                return -3;
-            }
-            return invokeV.intValue;
-        }
-
-        public final int getVolume() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? ((this.mMaxRed - this.mMinRed) + 1) * ((this.mMaxGreen - this.mMinGreen) + 1) * ((this.mMaxBlue - this.mMinBlue) + 1) : invokeV.intValue;
-        }
-
         public final Vbox splitBox() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -265,9 +306,21 @@ public final class ColorCutQuantizer {
             public int compare(Vbox vbox, Vbox vbox2) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, vbox, vbox2)) == null) ? vbox2.getVolume() - vbox.getVolume() : invokeLL.intValue;
+                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, vbox, vbox2)) == null) {
+                    return vbox2.getVolume() - vbox.getVolume();
+                }
+                return invokeLL.intValue;
             }
         };
+    }
+
+    public List<Palette.Swatch> getQuantizedColors() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mQuantizedColors;
+        }
+        return (List) invokeV.objValue;
     }
 
     public ColorCutQuantizer(int[] iArr, int i, Palette.Filter[] filterArr) {
@@ -324,10 +377,45 @@ public final class ColorCutQuantizer {
         this.mQuantizedColors = quantizePixels(i);
     }
 
+    public static int approximateToRgb888(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            return approximateToRgb888(quantizedRed(i), quantizedGreen(i), quantizedBlue(i));
+        }
+        return invokeI.intValue;
+    }
+
+    private List<Palette.Swatch> quantizePixels(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65544, this, i)) == null) {
+            PriorityQueue<Vbox> priorityQueue = new PriorityQueue<>(i, VBOX_COMPARATOR_VOLUME);
+            priorityQueue.offer(new Vbox(this, 0, this.mColors.length - 1));
+            splitBoxes(priorityQueue, i);
+            return generateAverageColors(priorityQueue);
+        }
+        return (List) invokeI.objValue;
+    }
+
+    private boolean shouldIgnoreColor(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65548, this, i)) == null) {
+            int approximateToRgb888 = approximateToRgb888(i);
+            ColorUtils.colorToHSL(approximateToRgb888, this.mTempHsl);
+            return shouldIgnoreColor(approximateToRgb888, this.mTempHsl);
+        }
+        return invokeI.booleanValue;
+    }
+
     public static int approximateToRgb888(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(65539, null, i, i2, i3)) == null) ? Color.rgb(modifyWordWidth(i, 5, 8), modifyWordWidth(i2, 5, 8), modifyWordWidth(i3, 5, 8)) : invokeIII.intValue;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65539, null, i, i2, i3)) == null) {
+            return Color.rgb(modifyWordWidth(i, 5, 8), modifyWordWidth(i2, 5, 8), modifyWordWidth(i3, 5, 8));
+        }
+        return invokeIII.intValue;
     }
 
     private List<Palette.Swatch> generateAverageColors(Collection<Vbox> collection) {
@@ -346,109 +434,35 @@ public final class ColorCutQuantizer {
         return (List) invokeL.objValue;
     }
 
-    public static void modifySignificantOctet(int[] iArr, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(65541, null, iArr, i, i2, i3) == null) {
-            if (i == -2) {
-                while (i2 <= i3) {
-                    int i4 = iArr[i2];
-                    iArr[i2] = quantizedBlue(i4) | (quantizedGreen(i4) << 10) | (quantizedRed(i4) << 5);
-                    i2++;
-                }
-            } else if (i != -1) {
-            } else {
-                while (i2 <= i3) {
-                    int i5 = iArr[i2];
-                    iArr[i2] = quantizedRed(i5) | (quantizedBlue(i5) << 10) | (quantizedGreen(i5) << 5);
-                    i2++;
-                }
-            }
-        }
-    }
-
-    public static int modifyWordWidth(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65542, null, i, i2, i3)) == null) {
-            return (i3 > i2 ? i << (i3 - i2) : i >> (i2 - i3)) & ((1 << i3) - 1);
-        }
-        return invokeIII.intValue;
-    }
-
     public static int quantizeFromRgb888(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) ? modifyWordWidth(Color.blue(i), 8, 5) | (modifyWordWidth(Color.red(i), 8, 5) << 10) | (modifyWordWidth(Color.green(i), 8, 5) << 5) : invokeI.intValue;
-    }
-
-    private List<Palette.Swatch> quantizePixels(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65544, this, i)) == null) {
-            PriorityQueue<Vbox> priorityQueue = new PriorityQueue<>(i, VBOX_COMPARATOR_VOLUME);
-            priorityQueue.offer(new Vbox(this, 0, this.mColors.length - 1));
-            splitBoxes(priorityQueue, i);
-            return generateAverageColors(priorityQueue);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
+            return modifyWordWidth(Color.blue(i), 8, 5) | (modifyWordWidth(Color.red(i), 8, 5) << 10) | (modifyWordWidth(Color.green(i), 8, 5) << 5);
         }
-        return (List) invokeI.objValue;
+        return invokeI.intValue;
     }
 
-    public static int quantizedBlue(int i) {
-        InterceptResult invokeI;
+    public static void modifySignificantOctet(int[] iArr, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i)) == null) ? i & 31 : invokeI.intValue;
-    }
-
-    public static int quantizedGreen(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) ? (i >> 5) & 31 : invokeI.intValue;
-    }
-
-    public static int quantizedRed(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65547, null, i)) == null) ? (i >> 10) & 31 : invokeI.intValue;
-    }
-
-    private boolean shouldIgnoreColor(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65548, this, i)) == null) {
-            int approximateToRgb888 = approximateToRgb888(i);
-            ColorUtils.colorToHSL(approximateToRgb888, this.mTempHsl);
-            return shouldIgnoreColor(approximateToRgb888, this.mTempHsl);
-        }
-        return invokeI.booleanValue;
-    }
-
-    private void splitBoxes(PriorityQueue<Vbox> priorityQueue, int i) {
-        Vbox poll;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65551, this, priorityQueue, i) == null) {
-            while (priorityQueue.size() < i && (poll = priorityQueue.poll()) != null && poll.canSplit()) {
-                priorityQueue.offer(poll.splitBox());
-                priorityQueue.offer(poll);
+        if (interceptable == null || interceptable.invokeLIII(65541, null, iArr, i, i2, i3) == null) {
+            if (i != -2) {
+                if (i == -1) {
+                    while (i2 <= i3) {
+                        int i4 = iArr[i2];
+                        iArr[i2] = quantizedRed(i4) | (quantizedBlue(i4) << 10) | (quantizedGreen(i4) << 5);
+                        i2++;
+                    }
+                    return;
+                }
+                return;
+            }
+            while (i2 <= i3) {
+                int i5 = iArr[i2];
+                iArr[i2] = quantizedBlue(i5) | (quantizedGreen(i5) << 10) | (quantizedRed(i5) << 5);
+                i2++;
             }
         }
-    }
-
-    public List<Palette.Swatch> getQuantizedColors() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mQuantizedColors : (List) invokeV.objValue;
-    }
-
-    private boolean shouldIgnoreColor(Palette.Swatch swatch) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65550, this, swatch)) == null) ? shouldIgnoreColor(swatch.getRgb(), swatch.getHsl()) : invokeL.booleanValue;
-    }
-
-    public static int approximateToRgb888(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? approximateToRgb888(quantizedRed(i), quantizedGreen(i), quantizedBlue(i)) : invokeI.intValue;
     }
 
     private boolean shouldIgnoreColor(int i, float[] fArr) {
@@ -467,5 +481,25 @@ public final class ColorCutQuantizer {
             return false;
         }
         return invokeIL.booleanValue;
+    }
+
+    private void splitBoxes(PriorityQueue<Vbox> priorityQueue, int i) {
+        Vbox poll;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65551, this, priorityQueue, i) == null) {
+            while (priorityQueue.size() < i && (poll = priorityQueue.poll()) != null && poll.canSplit()) {
+                priorityQueue.offer(poll.splitBox());
+                priorityQueue.offer(poll);
+            }
+        }
+    }
+
+    private boolean shouldIgnoreColor(Palette.Swatch swatch) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, this, swatch)) == null) {
+            return shouldIgnoreColor(swatch.getRgb(), swatch.getHsl());
+        }
+        return invokeL.booleanValue;
     }
 }

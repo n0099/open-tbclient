@@ -1,6 +1,5 @@
 package com.baidu.sapi2.utils;
 
-import android.annotation.TargetApi;
 import android.text.TextUtils;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
@@ -30,8 +29,8 @@ public final class StatService implements NoProguard {
     public static final String AUTO_STATISTIC = "auto_statistic";
     public static final String STAT_ENENT_QR_LOGIN_ENTER = "qrlogin_enter";
     public static final String TAG = "StatService";
-    public static final Map<String, String> commonParams;
-    public static List<String> delayRequestName;
+    public static final Map commonParams;
+    public static List delayRequestName;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -76,15 +75,6 @@ public final class StatService implements NoProguard {
         }
     }
 
-    public static String getEventTypeBase64Value(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return "{eventType:" + str + "}";
-        }
-        return (String) invokeL.objValue;
-    }
-
     public static boolean isSearchBox() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -99,9 +89,69 @@ public final class StatService implements NoProguard {
         return invokeV.booleanValue;
     }
 
-    public static void onEvent(String str, Map<String, String> map) {
+    public static String getEventTypeBase64Value(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65541, null, str, map) == null) || TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return "{eventType:" + str + "}";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void onEventAutoStat(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
+            onEventAutoStat(str, null);
+        }
+    }
+
+    public static void onEventAutoStatistic(LinkedHashMap linkedHashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, linkedHashMap) == null) {
+            onEventAutoStatistic(linkedHashMap, null);
+        }
+    }
+
+    public static void sendRequest(HttpHashMapWrap httpHashMapWrap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, httpHashMapWrap) == null) {
+            new HttpClientWrap().get(SapiHost.getHost(SapiHost.DOMAIN_NSCLICK_URL), ReqPriority.LOW, httpHashMapWrap, null, null, new HttpHandlerWrap(true) { // from class: com.baidu.sapi2.utils.StatService.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+                public void onSuccess(int i, String str) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str) == null) {
+                    }
+                }
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(r7);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {Boolean.valueOf(r7)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            super(((Boolean) newInitContext.callArgs[0]).booleanValue());
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                }
+            });
+        }
+    }
+
+    public static void onEvent(String str, Map map) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65541, null, str, map) != null) || TextUtils.isEmpty(str)) {
             return;
         }
         try {
@@ -111,9 +161,9 @@ public final class StatService implements NoProguard {
             httpHashMapWrap.put("v", String.valueOf(System.currentTimeMillis()));
             httpHashMapWrap.put("clientfrom", "mobilesdk_enhanced");
             if (map != null) {
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    if (!TextUtils.isEmpty(entry.getKey()) && !TextUtils.isEmpty(entry.getValue())) {
-                        httpHashMapWrap.put(entry.getKey(), entry.getValue());
+                for (Map.Entry entry : map.entrySet()) {
+                    if (!TextUtils.isEmpty((CharSequence) entry.getKey()) && !TextUtils.isEmpty((CharSequence) entry.getValue())) {
+                        httpHashMapWrap.put((String) entry.getKey(), (String) entry.getValue());
                     }
                 }
             }
@@ -144,9 +194,10 @@ public final class StatService implements NoProguard {
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            StatService.sendRequest(this.val$params);
+                        if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                            return;
                         }
+                        StatService.sendRequest(this.val$params);
                     }
                 }, "pass_sdk_".concat(str), 60000L, false);
                 return;
@@ -157,92 +208,18 @@ public final class StatService implements NoProguard {
         }
     }
 
-    public static void onEventAutoStat(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
-            onEventAutoStat(str, null);
-        }
-    }
-
-    public static void onEventAutoStatistic(LinkedHashMap<String, String> linkedHashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, linkedHashMap) == null) {
-            onEventAutoStatistic(linkedHashMap, null);
-        }
-    }
-
-    public static void sendRequest(HttpHashMapWrap httpHashMapWrap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, httpHashMapWrap) == null) {
-            new HttpClientWrap().get(SapiHost.getHost(SapiHost.DOMAIN_NSCLICK_URL), ReqPriority.LOW, httpHashMapWrap, null, null, new HttpHandlerWrap(true) { // from class: com.baidu.sapi2.utils.StatService.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                {
-                    super(r7);
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {Boolean.valueOf(r7)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            super(((Boolean) newInitContext.callArgs[0]).booleanValue());
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                }
-
-                @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-                public void onSuccess(int i, String str) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str) == null) {
-                    }
-                }
-            });
-        }
-    }
-
-    public static void onEventAutoStat(String str, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, str, map) == null) {
-            HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
-            httpHashMapWrap.put("auto_statistic", Base64.encodeToString(getEventTypeBase64Value(str).getBytes(), 0));
-            httpHashMapWrap.putAll(commonParams);
-            httpHashMapWrap.put("source", "native");
-            httpHashMapWrap.put("data_source", "client");
-            httpHashMapWrap.put("v", String.valueOf(System.currentTimeMillis()));
-            httpHashMapWrap.put("clientfrom", "mobilesdk_enhanced");
-            if (map != null) {
-                for (String str2 : map.keySet()) {
-                    httpHashMapWrap.put(str2, map.get(str2));
-                }
-            }
-            try {
-                sendRequest(httpHashMapWrap);
-            } catch (Exception unused) {
-            }
-        }
-    }
-
-    @TargetApi(8)
-    public static void onEventAutoStatistic(LinkedHashMap<String, String> linkedHashMap, Map<String, String> map) {
+    public static void onEventAutoStatistic(LinkedHashMap linkedHashMap, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, null, linkedHashMap, map) == null) {
             if (map == null) {
-                map = new HashMap<>();
+                map = new HashMap();
             }
             StringBuilder sb = new StringBuilder();
             sb.append("{");
             for (String str : linkedHashMap.keySet()) {
                 sb.append(str);
                 sb.append(":");
-                sb.append(linkedHashMap.get(str));
+                sb.append((String) linkedHashMap.get(str));
                 sb.append(",");
             }
             int lastIndexOf = sb.lastIndexOf(",");
@@ -255,6 +232,28 @@ public final class StatService implements NoProguard {
             map.put("source", "native");
             map.put("data_source", "client");
             onEvent("auto_statistic", map);
+        }
+    }
+
+    public static void onEventAutoStat(String str, Map map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, str, map) == null) {
+            HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
+            httpHashMapWrap.put("auto_statistic", Base64.encodeToString(getEventTypeBase64Value(str).getBytes(), 0));
+            httpHashMapWrap.putAll(commonParams);
+            httpHashMapWrap.put("source", "native");
+            httpHashMapWrap.put("data_source", "client");
+            httpHashMapWrap.put("v", String.valueOf(System.currentTimeMillis()));
+            httpHashMapWrap.put("clientfrom", "mobilesdk_enhanced");
+            if (map != null) {
+                for (String str2 : map.keySet()) {
+                    httpHashMapWrap.put(str2, (String) map.get(str2));
+                }
+            }
+            try {
+                sendRequest(httpHashMapWrap);
+            } catch (Exception unused) {
+            }
         }
     }
 }

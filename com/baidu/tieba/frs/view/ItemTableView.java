@@ -4,11 +4,10 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.util.SparseArray;
 import android.widget.LinearLayout;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,6 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
 import java.util.List;
 import tbclient.ItemPlot;
 /* loaded from: classes4.dex */
@@ -28,7 +28,7 @@ public class ItemTableView extends LinearLayout {
     public ItemTableRowView c;
     public ItemTableRowView d;
     public ItemTableRowView e;
-    public SparseArray<ItemTableRowView> f;
+    public SparseArray f;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +43,29 @@ public class ItemTableView extends LinearLayout {
                 return;
             }
         }
-        g = ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds5);
+        g = fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds5);
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.a();
+            this.b.a();
+            this.c.a();
+            this.d.a();
+            this.e.a();
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.c();
+            this.b.c();
+            this.c.c();
+            this.d.c();
+            this.e.c();
+        }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -67,15 +89,70 @@ public class ItemTableView extends LinearLayout {
         }
     }
 
-    public void a() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public ItemTableView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.a();
-            this.b.a();
-            this.c.a();
-            this.d.a();
-            this.e.a();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
+    }
+
+    public void setData(List list, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048580, this, list, i) == null) {
+            a();
+            if (list == null) {
+                return;
+            }
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                ItemPlot itemPlot = (ItemPlot) it.next();
+                if (itemPlot != null) {
+                    int intValue = itemPlot.level.intValue();
+                    float intValue2 = (itemPlot.num.intValue() * 1.0f) / i;
+                    ItemTableRowView itemTableRowView = (ItemTableRowView) this.f.get(intValue);
+                    if (itemTableRowView != null) {
+                        itemTableRowView.setData(intValue2);
+                    }
+                }
+            }
+            invalidate();
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ItemTableView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        b(context);
     }
 
     public final void b(Context context) {
@@ -87,7 +164,7 @@ public class ItemTableView extends LinearLayout {
             this.c = c(context, 2, g);
             this.b = c(context, 3, g);
             this.a = c(context, 4, g);
-            SparseArray<ItemTableRowView> sparseArray = new SparseArray<>();
+            SparseArray sparseArray = new SparseArray();
             this.f = sparseArray;
             sparseArray.put(5, this.e);
             this.f.put(4, this.d);
@@ -109,80 +186,5 @@ public class ItemTableView extends LinearLayout {
             return itemTableRowView;
         }
         return (ItemTableRowView) invokeLII.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.c();
-            this.b.c();
-            this.c.c();
-            this.d.c();
-            this.e.c();
-        }
-    }
-
-    public void setData(List<ItemPlot> list, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, list, i) == null) {
-            a();
-            if (list == null) {
-                return;
-            }
-            for (ItemPlot itemPlot : list) {
-                if (itemPlot != null) {
-                    int intValue = itemPlot.level.intValue();
-                    float intValue2 = (itemPlot.num.intValue() * 1.0f) / i;
-                    ItemTableRowView itemTableRowView = this.f.get(intValue);
-                    if (itemTableRowView != null) {
-                        itemTableRowView.setData(intValue2);
-                    }
-                }
-            }
-            invalidate();
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ItemTableView(Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ItemTableView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        b(context);
     }
 }

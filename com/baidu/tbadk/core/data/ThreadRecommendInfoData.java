@@ -64,7 +64,7 @@ public class ThreadRecommendInfoData implements Serializable {
 
     public void parseProto(ThreadRecommendInfo threadRecommendInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadRecommendInfo) == null) || threadRecommendInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadRecommendInfo) != null) || threadRecommendInfo == null) {
             return;
         }
         this.forumAvatar = threadRecommendInfo.forum_avatar;

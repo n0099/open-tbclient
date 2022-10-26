@@ -21,18 +21,18 @@ public class a extends com.kwad.sdk.g.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public d ar;
-    public final Map<String, Integer> as;
+    public final Map as;
     public Service at;
-    public final HandlerC0518a au;
+    public final HandlerC0514a au;
 
     /* renamed from: com.ksad.download.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class HandlerC0518a extends Handler {
+    public final class HandlerC0514a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<a> av;
+        public final WeakReference av;
 
-        public HandlerC0518a(a aVar) {
+        public HandlerC0514a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,14 +47,14 @@ public class a extends com.kwad.sdk.g.a {
                     return;
                 }
             }
-            this.av = new WeakReference<>(aVar);
+            this.av = new WeakReference(aVar);
         }
 
         @Override // android.os.Handler
         public final void handleMessage(Message message) {
             a aVar;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && (aVar = this.av.get()) != null && message.what == 1) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && (aVar = (a) this.av.get()) != null && message.what == 1) {
                 if (aVar.ar == null || !aVar.ar.Q()) {
                     sendEmptyMessageDelayed(1, 30000L);
                 } else {
@@ -78,7 +78,7 @@ public class a extends com.kwad.sdk.g.a {
             }
         }
         this.as = new ConcurrentHashMap();
-        this.au = new HandlerC0518a(this);
+        this.au = new HandlerC0514a(this);
     }
 
     private void b(Intent intent) {
@@ -90,7 +90,7 @@ public class a extends com.kwad.sdk.g.a {
             int intExtra = intent.getIntExtra("download_service_type_tag", 0);
             String stringExtra = intent.getStringExtra("download_service_id_tag");
             DownloadTask.DownloadRequest downloadRequest = (DownloadTask.DownloadRequest) intent.getSerializableExtra("download_service_args_tag");
-            Integer num = this.as.get(stringExtra);
+            Integer num = (Integer) this.as.get(stringExtra);
             if (intExtra == 1) {
                 this.as.put(stringExtra, Integer.valueOf(this.ar.a(downloadRequest, (c) null)));
             } else if (intExtra == 2) {

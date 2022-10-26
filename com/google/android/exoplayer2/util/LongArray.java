@@ -33,43 +33,22 @@ public final class LongArray {
         }
     }
 
-    public void add(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            int i = this.size;
-            long[] jArr = this.values;
-            if (i == jArr.length) {
-                this.values = Arrays.copyOf(jArr, i * 2);
-            }
-            long[] jArr2 = this.values;
-            int i2 = this.size;
-            this.size = i2 + 1;
-            jArr2[i2] = j;
-        }
-    }
-
-    public long get(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i >= 0 && i < this.size) {
-                return this.values[i];
-            }
-            throw new IndexOutOfBoundsException("Invalid index " + i + ", size is " + this.size);
-        }
-        return invokeI.longValue;
-    }
-
     public int size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.size : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.size;
+        }
+        return invokeV.intValue;
     }
 
     public long[] toArray() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Arrays.copyOf(this.values, this.size) : (long[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return Arrays.copyOf(this.values, this.size);
+        }
+        return (long[]) invokeV.objValue;
     }
 
     public LongArray(int i) {
@@ -88,5 +67,32 @@ public final class LongArray {
             }
         }
         this.values = new long[i];
+    }
+
+    public long get(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i >= 0 && i < this.size) {
+                return this.values[i];
+            }
+            throw new IndexOutOfBoundsException("Invalid index " + i + ", size is " + this.size);
+        }
+        return invokeI.longValue;
+    }
+
+    public void add(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            int i = this.size;
+            long[] jArr = this.values;
+            if (i == jArr.length) {
+                this.values = Arrays.copyOf(jArr, i * 2);
+            }
+            long[] jArr2 = this.values;
+            int i2 = this.size;
+            this.size = i2 + 1;
+            jArr2[i2] = j;
+        }
     }
 }

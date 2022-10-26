@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 /* loaded from: classes8.dex */
 public class b implements Parcelable {
-    public static final Parcelable.Creator<b> CREATOR = new Parcelable.Creator<b>() { // from class: com.ss.android.downloadlib.a.b.b.1
+    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() { // from class: com.ss.android.downloadlib.a.b.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
@@ -26,15 +26,43 @@ public class b implements Parcelable {
     public String e;
     public String f;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        return 0;
+    }
+
+    public String toString() {
+        return "";
+    }
+
     public b() {
         this.c = "";
         this.e = "";
         this.f = "";
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        return 0;
+    public int hashCode() {
+        int i;
+        int i2 = ((this.a * 31) + this.b) * 31;
+        String str = this.c;
+        if (str != null) {
+            i = str.hashCode();
+        } else {
+            i = 0;
+        }
+        return i2 + i;
+    }
+
+    public b(Parcel parcel) {
+        this.c = "";
+        this.e = "";
+        this.f = "";
+        this.a = parcel.readInt();
+        this.b = parcel.readInt();
+        this.c = parcel.readString();
+        this.e = parcel.readString();
+        this.f = parcel.readString();
+        this.d = parcel.readInt();
     }
 
     public boolean equals(Object obj) {
@@ -56,16 +84,6 @@ public class b implements Parcelable {
         return false;
     }
 
-    public int hashCode() {
-        int i = ((this.a * 31) + this.b) * 31;
-        String str = this.c;
-        return i + (str != null ? str.hashCode() : 0);
-    }
-
-    public String toString() {
-        return "";
-    }
-
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeInt(this.a);
@@ -74,17 +92,5 @@ public class b implements Parcelable {
         parcel.writeString(this.e);
         parcel.writeString(this.f);
         parcel.writeInt(this.d);
-    }
-
-    public b(Parcel parcel) {
-        this.c = "";
-        this.e = "";
-        this.f = "";
-        this.a = parcel.readInt();
-        this.b = parcel.readInt();
-        this.c = parcel.readString();
-        this.e = parcel.readString();
-        this.f = parcel.readString();
-        this.d = parcel.readInt();
     }
 }

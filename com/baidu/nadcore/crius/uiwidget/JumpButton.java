@@ -31,15 +31,7 @@ public class JumpButton extends AppCompatTextView {
                 return;
             }
         }
-        d();
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            setGravity(17);
-            setTextSize(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070551));
-        }
+        a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -61,7 +53,7 @@ public class JumpButton extends AppCompatTextView {
                 return;
             }
         }
-        d();
+        a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -83,6 +75,14 @@ public class JumpButton extends AppCompatTextView {
                 return;
             }
         }
-        d();
+        a();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            setGravity(17);
+            setTextSize(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070551));
+        }
     }
 }

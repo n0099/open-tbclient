@@ -59,6 +59,7 @@ public class c {
         StringBuilder sb;
         StringBuilder sb2;
         long j;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, httpURLConnection, bVar, str)) == null) {
             if (httpURLConnection != null) {
@@ -73,48 +74,54 @@ public class c {
                         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream(), str));
                         while (true) {
                             String readLine = bufferedReader.readLine();
-                            if (readLine == null) {
+                            if (readLine != null) {
+                                sb3.append(readLine);
+                                sb3.append('\n');
+                                long j3 = 0;
+                                if (!TextUtils.isEmpty(readLine)) {
+                                    int length = readLine.length();
+                                    if (length < 100) {
+                                        j3 = readLine.getBytes(str).length;
+                                    } else {
+                                        int i2 = 0;
+                                        while (i2 < length) {
+                                            int i3 = i2 + 100;
+                                            if (i3 < length) {
+                                                i = i3;
+                                            } else {
+                                                i = length;
+                                            }
+                                            j3 += new String(readLine.substring(i2, i)).getBytes(str).length;
+                                            i2 = i3;
+                                            sb3 = sb3;
+                                        }
+                                    }
+                                }
+                                sb2 = sb3;
+                                j2 += j3;
+                                if (bVar != null) {
+                                    j = contentLength;
+                                    try {
+                                        if (!((e) bVar).a(contentLength, j2, false)) {
+                                            break;
+                                        }
+                                    } catch (Exception e) {
+                                        e = e;
+                                        sb = sb2;
+                                        com.sdk.n.a.a("StringDownloadHandler", e.getMessage(), a);
+                                        if (sb != null) {
+                                        }
+                                    }
+                                } else {
+                                    j = contentLength;
+                                }
+                                contentLength = j;
+                                sb3 = sb2;
+                            } else {
                                 sb2 = sb3;
                                 j = contentLength;
                                 break;
                             }
-                            sb3.append(readLine);
-                            sb3.append('\n');
-                            long j3 = 0;
-                            if (!TextUtils.isEmpty(readLine)) {
-                                int length = readLine.length();
-                                if (length < 100) {
-                                    j3 = readLine.getBytes(str).length;
-                                } else {
-                                    int i = 0;
-                                    while (i < length) {
-                                        int i2 = i + 100;
-                                        j3 += new String(readLine.substring(i, i2 < length ? i2 : length)).getBytes(str).length;
-                                        i = i2;
-                                        sb3 = sb3;
-                                    }
-                                }
-                            }
-                            sb2 = sb3;
-                            j2 += j3;
-                            if (bVar != null) {
-                                j = contentLength;
-                                try {
-                                    if (!((e) bVar).a(contentLength, j2, false)) {
-                                        break;
-                                    }
-                                } catch (Exception e) {
-                                    e = e;
-                                    sb = sb2;
-                                    com.sdk.n.a.a("StringDownloadHandler", e.getMessage(), a);
-                                    if (sb != null) {
-                                    }
-                                }
-                            } else {
-                                j = contentLength;
-                            }
-                            contentLength = j;
-                            sb3 = sb2;
                         }
                         long j4 = j2;
                         if (bVar != null) {

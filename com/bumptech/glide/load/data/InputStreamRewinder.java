@@ -1,6 +1,5 @@
 package com.bumptech.glide.load.data;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,14 +12,14 @@ import com.bumptech.glide.load.resource.bitmap.RecyclableBufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes7.dex */
-public final class InputStreamRewinder implements DataRewinder<InputStream> {
+public final class InputStreamRewinder implements DataRewinder {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int MARK_LIMIT = 5242880;
+    public static final int MARK_READ_LIMIT = 5242880;
     public transient /* synthetic */ FieldHolder $fh;
     public final RecyclableBufferedInputStream bufferedStream;
 
     /* loaded from: classes7.dex */
-    public static final class Factory implements DataRewinder.Factory<InputStream> {
+    public final class Factory implements DataRewinder.Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ArrayPool byteArrayPool;
@@ -43,21 +42,25 @@ public final class InputStreamRewinder implements DataRewinder<InputStream> {
             this.byteArrayPool = arrayPool;
         }
 
-        @Override // com.bumptech.glide.load.data.DataRewinder.Factory
-        @NonNull
-        public Class<InputStream> getDataClass() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? InputStream.class : (Class) invokeV.objValue;
-        }
-
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.bumptech.glide.load.data.DataRewinder.Factory
-        @NonNull
-        public DataRewinder<InputStream> build(InputStream inputStream) {
+        public DataRewinder build(InputStream inputStream) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, inputStream)) == null) ? new InputStreamRewinder(inputStream, this.byteArrayPool) : (DataRewinder) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, inputStream)) == null) {
+                return new InputStreamRewinder(inputStream, this.byteArrayPool);
+            }
+            return (DataRewinder) invokeL.objValue;
+        }
+
+        @Override // com.bumptech.glide.load.data.DataRewinder.Factory
+        public Class getDataClass() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return InputStream.class;
+            }
+            return (Class) invokeV.objValue;
         }
     }
 
@@ -89,14 +92,19 @@ public final class InputStreamRewinder implements DataRewinder<InputStream> {
         }
     }
 
+    public void fixMarkLimits() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.bufferedStream.fixMarkLimit();
+        }
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.load.data.DataRewinder
-    @NonNull
     public InputStream rewindAndGet() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             this.bufferedStream.reset();
             return this.bufferedStream;
         }

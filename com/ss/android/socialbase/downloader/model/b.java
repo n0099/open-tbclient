@@ -20,14 +20,14 @@ public class b implements Parcelable {
     public int g;
     public AtomicInteger h;
     public long i;
-    public List<b> j;
+    public List j;
     public b k;
     public int l;
     public boolean m;
     public AtomicBoolean n;
     public com.ss.android.socialbase.downloader.h.b o;
     public static final String a = b.class.getSimpleName();
-    public static final Parcelable.Creator<b> CREATOR = new Parcelable.Creator<b>() { // from class: com.ss.android.socialbase.downloader.model.b.1
+    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() { // from class: com.ss.android.socialbase.downloader.model.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
@@ -43,8 +43,13 @@ public class b implements Parcelable {
         }
     };
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        return 0;
+    }
+
     /* loaded from: classes8.dex */
-    public static class a {
+    public class a {
         public int a;
         public long b;
         public long c;
@@ -58,8 +63,8 @@ public class b implements Parcelable {
             this.a = i;
         }
 
-        public a a(long j) {
-            this.b = j;
+        public a a(int i) {
+            this.f = i;
             return this;
         }
 
@@ -83,8 +88,8 @@ public class b implements Parcelable {
             return this;
         }
 
-        public a a(int i) {
-            this.f = i;
+        public a a(long j) {
+            this.b = j;
             return this;
         }
 
@@ -96,18 +101,6 @@ public class b implements Parcelable {
         public b a() {
             return new b(this);
         }
-    }
-
-    public ContentValues a() {
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("_id", Integer.valueOf(this.b));
-        contentValues.put("chunkIndex", Integer.valueOf(this.g));
-        contentValues.put("startOffset", Long.valueOf(this.c));
-        contentValues.put("curOffset", Long.valueOf(n()));
-        contentValues.put("endOffset", Long.valueOf(this.e));
-        contentValues.put("chunkContentLen", Long.valueOf(this.f));
-        contentValues.put("hostChunkIndex", Integer.valueOf(b()));
-        return contentValues;
     }
 
     public int b() {
@@ -127,52 +120,35 @@ public class b implements Parcelable {
     }
 
     public boolean d() {
-        return b() == -1;
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        return 0;
+        if (b() == -1) {
+            return true;
+        }
+        return false;
     }
 
     public b e() {
-        b bVar = !d() ? this.k : this;
-        if (bVar == null || !bVar.f()) {
-            return null;
+        b bVar;
+        if (!d()) {
+            bVar = this.k;
+        } else {
+            bVar = this;
         }
-        return bVar.g().get(0);
+        if (bVar != null && bVar.f()) {
+            return (b) bVar.g().get(0);
+        }
+        return null;
     }
 
     public boolean f() {
-        List<b> list = this.j;
-        return list != null && list.size() > 0;
-    }
-
-    public List<b> g() {
-        return this.j;
-    }
-
-    public boolean h() {
-        b bVar = this.k;
-        if (bVar == null) {
+        List list = this.j;
+        if (list != null && list.size() > 0) {
             return true;
         }
-        if (bVar.f()) {
-            for (int i = 0; i < this.k.g().size(); i++) {
-                b bVar2 = this.k.g().get(i);
-                if (bVar2 != null) {
-                    int indexOf = this.k.g().indexOf(this);
-                    if (indexOf > i && !bVar2.i()) {
-                        return false;
-                    }
-                    if (indexOf == i) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
         return false;
+    }
+
+    public List g() {
+        return this.j;
     }
 
     public boolean i() {
@@ -183,27 +159,10 @@ public class b implements Parcelable {
                 j = j2;
             }
         }
-        return n() - j >= this.f;
-    }
-
-    public long j() {
-        b bVar = this.k;
-        if (bVar != null && bVar.g() != null) {
-            int indexOf = this.k.g().indexOf(this);
-            boolean z = false;
-            for (int i = 0; i < this.k.g().size(); i++) {
-                b bVar2 = this.k.g().get(i);
-                if (bVar2 != null) {
-                    if (z) {
-                        return bVar2.n();
-                    }
-                    if (indexOf == i) {
-                        z = true;
-                    }
-                }
-            }
+        if (n() - j >= this.f) {
+            return true;
         }
-        return -1L;
+        return false;
     }
 
     public int k() {
@@ -222,31 +181,12 @@ public class b implements Parcelable {
         return 0L;
     }
 
-    public long n() {
-        if (d() && f()) {
-            long j = 0;
-            for (int i = 0; i < this.j.size(); i++) {
-                b bVar = this.j.get(i);
-                if (bVar != null) {
-                    if (!bVar.i()) {
-                        return bVar.m();
-                    }
-                    if (j < bVar.m()) {
-                        j = bVar.m();
-                    }
-                }
-            }
-            return j;
-        }
-        return m();
-    }
-
     public long o() {
         long n = n() - this.c;
         if (f()) {
             n = 0;
             for (int i = 0; i < this.j.size(); i++) {
-                b bVar = this.j.get(i);
+                b bVar = (b) this.j.get(i);
                 if (bVar != null) {
                     n += bVar.n() - bVar.l();
                 }
@@ -271,17 +211,41 @@ public class b implements Parcelable {
         return this.g;
     }
 
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.b);
-        parcel.writeLong(this.c);
-        AtomicLong atomicLong = this.d;
-        parcel.writeLong(atomicLong != null ? atomicLong.get() : 0L);
-        parcel.writeLong(this.e);
-        parcel.writeLong(this.f);
-        parcel.writeInt(this.g);
-        AtomicInteger atomicInteger = this.h;
-        parcel.writeInt(atomicInteger != null ? atomicInteger.get() : -1);
+    public b(Cursor cursor) {
+        if (cursor == null) {
+            return;
+        }
+        this.b = cursor.getInt(cursor.getColumnIndex("_id"));
+        this.g = cursor.getInt(cursor.getColumnIndex("chunkIndex"));
+        this.c = cursor.getLong(cursor.getColumnIndex("startOffset"));
+        int columnIndex = cursor.getColumnIndex("curOffset");
+        if (columnIndex != -1) {
+            this.d = new AtomicLong(cursor.getLong(columnIndex));
+        } else {
+            this.d = new AtomicLong(0L);
+        }
+        this.e = cursor.getLong(cursor.getColumnIndex("endOffset"));
+        int columnIndex2 = cursor.getColumnIndex("hostChunkIndex");
+        if (columnIndex2 != -1) {
+            this.h = new AtomicInteger(cursor.getInt(columnIndex2));
+        } else {
+            this.h = new AtomicInteger(-1);
+        }
+        int columnIndex3 = cursor.getColumnIndex("chunkContentLen");
+        if (columnIndex3 != -1) {
+            this.f = cursor.getLong(columnIndex3);
+        }
+        this.n = new AtomicBoolean(false);
+    }
+
+    public b(Parcel parcel) {
+        this.b = parcel.readInt();
+        this.c = parcel.readLong();
+        this.d = new AtomicLong(parcel.readLong());
+        this.e = parcel.readLong();
+        this.f = parcel.readLong();
+        this.g = parcel.readInt();
+        this.h = new AtomicInteger(parcel.readInt());
     }
 
     public b(a aVar) {
@@ -298,42 +262,6 @@ public class b implements Parcelable {
         this.h = new AtomicInteger(-1);
         a(aVar.h);
         this.n = new AtomicBoolean(false);
-    }
-
-    public void b(boolean z) {
-        this.m = z;
-    }
-
-    public void c(int i) {
-        this.g = i;
-    }
-
-    public void b(int i) {
-        this.b = i;
-    }
-
-    public long c(boolean z) {
-        long n = n();
-        long j = this.f;
-        long j2 = this.i;
-        long j3 = j - (n - j2);
-        if (!z && n == j2) {
-            j3 = j - (n - this.c);
-        }
-        com.ss.android.socialbase.downloader.c.a.b("DownloadChunk", "contentLength:" + this.f + " curOffset:" + n() + " oldOffset:" + this.i + " retainLen:" + j3);
-        if (j3 < 0) {
-            return 0L;
-        }
-        return j3;
-    }
-
-    public void b(long j) {
-        AtomicLong atomicLong = this.d;
-        if (atomicLong != null) {
-            atomicLong.set(j);
-        } else {
-            this.d = new AtomicLong(j);
-        }
     }
 
     public void a(SQLiteStatement sQLiteStatement) {
@@ -365,31 +293,123 @@ public class b implements Parcelable {
         sQLiteStatement.bindLong(i7, b());
     }
 
-    public b(Cursor cursor) {
-        if (cursor == null) {
-            return;
+    public long c(boolean z) {
+        long n = n();
+        long j = this.f;
+        long j2 = this.i;
+        long j3 = j - (n - j2);
+        if (!z && n == j2) {
+            j3 = j - (n - this.c);
         }
-        this.b = cursor.getInt(cursor.getColumnIndex("_id"));
-        this.g = cursor.getInt(cursor.getColumnIndex("chunkIndex"));
-        this.c = cursor.getLong(cursor.getColumnIndex("startOffset"));
-        int columnIndex = cursor.getColumnIndex("curOffset");
-        if (columnIndex != -1) {
-            this.d = new AtomicLong(cursor.getLong(columnIndex));
-        } else {
-            this.d = new AtomicLong(0L);
+        com.ss.android.socialbase.downloader.c.a.b("DownloadChunk", "contentLength:" + this.f + " curOffset:" + n() + " oldOffset:" + this.i + " retainLen:" + j3);
+        if (j3 < 0) {
+            return 0L;
         }
-        this.e = cursor.getLong(cursor.getColumnIndex("endOffset"));
-        int columnIndex2 = cursor.getColumnIndex("hostChunkIndex");
-        if (columnIndex2 != -1) {
-            this.h = new AtomicInteger(cursor.getInt(columnIndex2));
-        } else {
-            this.h = new AtomicInteger(-1);
+        return j3;
+    }
+
+    public ContentValues a() {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("_id", Integer.valueOf(this.b));
+        contentValues.put("chunkIndex", Integer.valueOf(this.g));
+        contentValues.put("startOffset", Long.valueOf(this.c));
+        contentValues.put("curOffset", Long.valueOf(n()));
+        contentValues.put("endOffset", Long.valueOf(this.e));
+        contentValues.put("chunkContentLen", Long.valueOf(this.f));
+        contentValues.put("hostChunkIndex", Integer.valueOf(b()));
+        return contentValues;
+    }
+
+    public List a(int i, long j) {
+        b bVar;
+        long p;
+        long j2;
+        long j3;
+        long j4;
+        long j5;
+        long j6;
+        b bVar2 = this;
+        int i2 = i;
+        if (d() && !f()) {
+            ArrayList arrayList = new ArrayList();
+            long m = m();
+            long c = bVar2.c(true);
+            long j7 = c / i2;
+            com.ss.android.socialbase.downloader.c.a.b(a, "retainLen:" + c + " divideChunkForReuse chunkSize:" + j7 + " current host downloadChunk index:" + bVar2.g);
+            int i3 = 0;
+            while (i3 < i2) {
+                if (i3 == 0) {
+                    j3 = l();
+                    j2 = (m + j7) - 1;
+                } else {
+                    int i4 = i2 - 1;
+                    if (i3 == i4) {
+                        long p2 = p();
+                        if (p2 > m) {
+                            j4 = (p2 - m) + 1;
+                        } else {
+                            j4 = c - (i4 * j7);
+                        }
+                        j5 = j4;
+                        j6 = p2;
+                        j3 = m;
+                        long j8 = c;
+                        long j9 = j6;
+                        b a2 = new a(bVar2.b).a((-i3) - 1).a(j3).b(m).e(m).c(j9).d(j5).a(bVar2).a();
+                        com.ss.android.socialbase.downloader.c.a.b(a, "divide sub chunk : " + i3 + " startOffset:" + j3 + " curOffset:" + m + " endOffset:" + j9 + " contentLen:" + j5);
+                        arrayList.add(a2);
+                        m += j7;
+                        i3++;
+                        bVar2 = this;
+                        i2 = i;
+                        c = j8;
+                    } else {
+                        j2 = (m + j7) - 1;
+                        j3 = m;
+                    }
+                }
+                j5 = j7;
+                j6 = j2;
+                long j82 = c;
+                long j92 = j6;
+                b a22 = new a(bVar2.b).a((-i3) - 1).a(j3).b(m).e(m).c(j92).d(j5).a(bVar2).a();
+                com.ss.android.socialbase.downloader.c.a.b(a, "divide sub chunk : " + i3 + " startOffset:" + j3 + " curOffset:" + m + " endOffset:" + j92 + " contentLen:" + j5);
+                arrayList.add(a22);
+                m += j7;
+                i3++;
+                bVar2 = this;
+                i2 = i;
+                c = j82;
+            }
+            long j10 = 0;
+            for (int size = arrayList.size() - 1; size > 0; size--) {
+                b bVar3 = (b) arrayList.get(size);
+                if (bVar3 != null) {
+                    j10 += bVar3.q();
+                }
+            }
+            com.ss.android.socialbase.downloader.c.a.b(a, "reuseChunkContentLen:" + j10);
+            b bVar4 = (b) arrayList.get(0);
+            if (bVar4 != null) {
+                if (p() == 0) {
+                    p = j - l();
+                } else {
+                    p = (p() - l()) + 1;
+                }
+                bVar4.a(p - j10);
+                bVar = this;
+                bVar4.c(bVar.g);
+                com.ss.android.socialbase.downloader.h.b bVar5 = bVar.o;
+                if (bVar5 != null) {
+                    bVar5.a(bVar4.p(), q() - j10);
+                }
+            } else {
+                bVar = this;
+            }
+            bVar.a(arrayList);
+            return arrayList;
         }
-        int columnIndex3 = cursor.getColumnIndex("chunkContentLen");
-        if (columnIndex3 != -1) {
-            this.f = cursor.getLong(columnIndex3);
-        }
-        this.n = new AtomicBoolean(false);
+        return null;
     }
 
     public void a(int i) {
@@ -401,9 +421,45 @@ public class b implements Parcelable {
         }
     }
 
+    public void b(int i) {
+        this.b = i;
+    }
+
+    public void c(int i) {
+        this.g = i;
+    }
+
+    public void a(long j) {
+        this.f = j;
+    }
+
+    public void b(long j) {
+        AtomicLong atomicLong = this.d;
+        if (atomicLong != null) {
+            atomicLong.set(j);
+        } else {
+            this.d = new AtomicLong(j);
+        }
+    }
+
     public void a(com.ss.android.socialbase.downloader.h.b bVar) {
         this.o = bVar;
         r();
+    }
+
+    public void b(boolean z) {
+        this.m = z;
+    }
+
+    public void a(b bVar) {
+        this.k = bVar;
+        if (bVar != null) {
+            a(bVar.s());
+        }
+    }
+
+    public void a(List list) {
+        this.j = list;
     }
 
     public void a(boolean z) {
@@ -416,114 +472,88 @@ public class b implements Parcelable {
         this.o = null;
     }
 
-    public b(Parcel parcel) {
-        this.b = parcel.readInt();
-        this.c = parcel.readLong();
-        this.d = new AtomicLong(parcel.readLong());
-        this.e = parcel.readLong();
-        this.f = parcel.readLong();
-        this.g = parcel.readInt();
-        this.h = new AtomicInteger(parcel.readInt());
-    }
-
-    public void a(b bVar) {
-        this.k = bVar;
-        if (bVar != null) {
-            a(bVar.s());
+    public boolean h() {
+        b bVar = this.k;
+        if (bVar == null) {
+            return true;
         }
-    }
-
-    public void a(List<b> list) {
-        this.j = list;
-    }
-
-    public void a(long j) {
-        this.f = j;
-    }
-
-    public List<b> a(int i, long j) {
-        b bVar;
-        long p;
-        long j2;
-        long j3;
-        long j4;
-        long j5;
-        b bVar2 = this;
-        int i2 = i;
-        if (!d() || f()) {
-            return null;
+        if (!bVar.f()) {
+            return false;
         }
-        ArrayList arrayList = new ArrayList();
-        long m = m();
-        long c = bVar2.c(true);
-        long j6 = c / i2;
-        com.ss.android.socialbase.downloader.c.a.b(a, "retainLen:" + c + " divideChunkForReuse chunkSize:" + j6 + " current host downloadChunk index:" + bVar2.g);
-        int i3 = 0;
-        while (i3 < i2) {
-            if (i3 == 0) {
-                j3 = l();
-                j2 = (m + j6) - 1;
-            } else {
-                int i4 = i2 - 1;
-                if (i3 == i4) {
-                    long p2 = p();
-                    j4 = p2 > m ? (p2 - m) + 1 : c - (i4 * j6);
-                    j5 = p2;
-                    j3 = m;
-                    long j7 = c;
-                    long j8 = j5;
-                    b a2 = new a(bVar2.b).a((-i3) - 1).a(j3).b(m).e(m).c(j8).d(j4).a(bVar2).a();
-                    com.ss.android.socialbase.downloader.c.a.b(a, "divide sub chunk : " + i3 + " startOffset:" + j3 + " curOffset:" + m + " endOffset:" + j8 + " contentLen:" + j4);
-                    arrayList.add(a2);
-                    m += j6;
-                    i3++;
-                    bVar2 = this;
-                    i2 = i;
-                    c = j7;
-                } else {
-                    j2 = (m + j6) - 1;
-                    j3 = m;
+        for (int i = 0; i < this.k.g().size(); i++) {
+            b bVar2 = (b) this.k.g().get(i);
+            if (bVar2 != null) {
+                int indexOf = this.k.g().indexOf(this);
+                if (indexOf > i && !bVar2.i()) {
+                    return false;
+                }
+                if (indexOf == i) {
+                    return true;
                 }
             }
-            j4 = j6;
-            j5 = j2;
-            long j72 = c;
-            long j82 = j5;
-            b a22 = new a(bVar2.b).a((-i3) - 1).a(j3).b(m).e(m).c(j82).d(j4).a(bVar2).a();
-            com.ss.android.socialbase.downloader.c.a.b(a, "divide sub chunk : " + i3 + " startOffset:" + j3 + " curOffset:" + m + " endOffset:" + j82 + " contentLen:" + j4);
-            arrayList.add(a22);
-            m += j6;
-            i3++;
-            bVar2 = this;
-            i2 = i;
-            c = j72;
         }
-        long j9 = 0;
-        for (int size = arrayList.size() - 1; size > 0; size--) {
-            b bVar3 = arrayList.get(size);
-            if (bVar3 != null) {
-                j9 += bVar3.q();
+        return false;
+    }
+
+    public long j() {
+        b bVar = this.k;
+        if (bVar != null && bVar.g() != null) {
+            int indexOf = this.k.g().indexOf(this);
+            boolean z = false;
+            for (int i = 0; i < this.k.g().size(); i++) {
+                b bVar2 = (b) this.k.g().get(i);
+                if (bVar2 != null) {
+                    if (z) {
+                        return bVar2.n();
+                    }
+                    if (indexOf == i) {
+                        z = true;
+                    }
+                }
             }
         }
-        com.ss.android.socialbase.downloader.c.a.b(a, "reuseChunkContentLen:" + j9);
-        b bVar4 = arrayList.get(0);
-        if (bVar4 != null) {
-            if (p() == 0) {
-                p = j - l();
-            } else {
-                p = (p() - l()) + 1;
+        return -1L;
+    }
+
+    public long n() {
+        if (d() && f()) {
+            long j = 0;
+            for (int i = 0; i < this.j.size(); i++) {
+                b bVar = (b) this.j.get(i);
+                if (bVar != null) {
+                    if (!bVar.i()) {
+                        return bVar.m();
+                    }
+                    if (j < bVar.m()) {
+                        j = bVar.m();
+                    }
+                }
             }
-            bVar4.a(p - j9);
-            bVar = this;
-            bVar4.c(bVar.g);
-            com.ss.android.socialbase.downloader.h.b bVar5 = bVar.o;
-            if (bVar5 != null) {
-                bVar5.a(bVar4.p(), q() - j9);
-            }
+            return j;
+        }
+        return m();
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        long j;
+        parcel.writeInt(this.b);
+        parcel.writeLong(this.c);
+        AtomicLong atomicLong = this.d;
+        if (atomicLong != null) {
+            j = atomicLong.get();
         } else {
-            bVar = this;
+            j = 0;
         }
-        bVar.a(arrayList);
-        return arrayList;
+        parcel.writeLong(j);
+        parcel.writeLong(this.e);
+        parcel.writeLong(this.f);
+        parcel.writeInt(this.g);
+        int i2 = -1;
+        AtomicInteger atomicInteger = this.h;
+        if (atomicInteger != null) {
+            i2 = atomicInteger.get();
+        }
+        parcel.writeInt(i2);
     }
 }

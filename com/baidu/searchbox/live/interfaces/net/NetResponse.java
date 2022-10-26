@@ -5,7 +5,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class NetResponse {
@@ -17,12 +16,13 @@ public class NetResponse {
     public String decodedResponseStr;
     public int downSize;
     public String exception;
-    public Map<String, List<String>> headers;
+    public Map headers;
     public int netErrorCode;
     public String realHost;
     public int responseCode;
     public byte[] retBytes;
     public NetStatData statData;
+    public String traceid;
 
     public NetResponse() {
         Interceptable interceptable = $ic;
@@ -50,7 +50,10 @@ public class NetResponse {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             int i = this.responseCode;
-            return i >= 200 && i < 300;
+            if (i >= 200 && i < 300) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }

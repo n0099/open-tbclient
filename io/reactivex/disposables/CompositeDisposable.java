@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import io.reactivex.annotations.NonNull;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.internal.disposables.DisposableContainer;
@@ -15,12 +14,13 @@ import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.internal.util.ExceptionHelper;
 import io.reactivex.internal.util.OpenHashSet;
 import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes8.dex */
 public final class CompositeDisposable implements Disposable, DisposableContainer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile boolean disposed;
-    public OpenHashSet<Disposable> resources;
+    public OpenHashSet resources;
 
     public CompositeDisposable() {
         Interceptable interceptable = $ic;
@@ -36,32 +36,96 @@ public final class CompositeDisposable implements Disposable, DisposableContaine
         }
     }
 
-    @Override // io.reactivex.internal.disposables.DisposableContainer
-    public boolean add(@NonNull Disposable disposable) {
-        InterceptResult invokeL;
+    public void clear() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, disposable)) == null) {
-            ObjectHelper.requireNonNull(disposable, "d is null");
-            if (!this.disposed) {
-                synchronized (this) {
-                    if (!this.disposed) {
-                        OpenHashSet<Disposable> openHashSet = this.resources;
-                        if (openHashSet == null) {
-                            openHashSet = new OpenHashSet<>();
-                            this.resources = openHashSet;
-                        }
-                        openHashSet.add(disposable);
-                        return true;
-                    }
-                }
-            }
-            disposable.dispose();
-            return false;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.disposed) {
+            return;
         }
-        return invokeL.booleanValue;
+        synchronized (this) {
+            if (this.disposed) {
+                return;
+            }
+            OpenHashSet openHashSet = this.resources;
+            this.resources = null;
+            dispose(openHashSet);
+        }
     }
 
-    public boolean addAll(@NonNull Disposable... disposableArr) {
+    @Override // io.reactivex.disposables.Disposable
+    public void dispose() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.disposed) {
+            return;
+        }
+        synchronized (this) {
+            if (this.disposed) {
+                return;
+            }
+            this.disposed = true;
+            OpenHashSet openHashSet = this.resources;
+            this.resources = null;
+            dispose(openHashSet);
+        }
+    }
+
+    @Override // io.reactivex.disposables.Disposable
+    public boolean isDisposed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.disposed;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int size() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            int i = 0;
+            if (this.disposed) {
+                return 0;
+            }
+            synchronized (this) {
+                if (this.disposed) {
+                    return 0;
+                }
+                OpenHashSet openHashSet = this.resources;
+                if (openHashSet != null) {
+                    i = openHashSet.size();
+                }
+                return i;
+            }
+        }
+        return invokeV.intValue;
+    }
+
+    public CompositeDisposable(Iterable iterable) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {iterable};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        ObjectHelper.requireNonNull(iterable, "resources is null");
+        this.resources = new OpenHashSet();
+        Iterator it = iterable.iterator();
+        while (it.hasNext()) {
+            Disposable disposable = (Disposable) it.next();
+            ObjectHelper.requireNonNull(disposable, "Disposable item is null");
+            this.resources.add(disposable);
+        }
+    }
+
+    public boolean addAll(Disposable... disposableArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, disposableArr)) == null) {
@@ -69,9 +133,9 @@ public final class CompositeDisposable implements Disposable, DisposableContaine
             if (!this.disposed) {
                 synchronized (this) {
                     if (!this.disposed) {
-                        OpenHashSet<Disposable> openHashSet = this.resources;
+                        OpenHashSet openHashSet = this.resources;
                         if (openHashSet == null) {
-                            openHashSet = new OpenHashSet<>(disposableArr.length + 1);
+                            openHashSet = new OpenHashSet(disposableArr.length + 1);
                             this.resources = openHashSet;
                         }
                         for (Disposable disposable : disposableArr) {
@@ -90,150 +154,10 @@ public final class CompositeDisposable implements Disposable, DisposableContaine
         return invokeL.booleanValue;
     }
 
-    public void clear() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.disposed) {
-            return;
-        }
-        synchronized (this) {
-            if (this.disposed) {
-                return;
-            }
-            OpenHashSet<Disposable> openHashSet = this.resources;
-            this.resources = null;
-            dispose(openHashSet);
-        }
-    }
-
-    @Override // io.reactivex.internal.disposables.DisposableContainer
-    public boolean delete(@NonNull Disposable disposable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, disposable)) == null) {
-            ObjectHelper.requireNonNull(disposable, "Disposable item is null");
-            if (this.disposed) {
-                return false;
-            }
-            synchronized (this) {
-                if (this.disposed) {
-                    return false;
-                }
-                OpenHashSet<Disposable> openHashSet = this.resources;
-                if (openHashSet != null && openHashSet.remove(disposable)) {
-                    return true;
-                }
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // io.reactivex.disposables.Disposable
-    public void dispose() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.disposed) {
-            return;
-        }
-        synchronized (this) {
-            if (this.disposed) {
-                return;
-            }
-            this.disposed = true;
-            OpenHashSet<Disposable> openHashSet = this.resources;
-            this.resources = null;
-            dispose(openHashSet);
-        }
-    }
-
-    @Override // io.reactivex.disposables.Disposable
-    public boolean isDisposed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.disposed : invokeV.booleanValue;
-    }
-
-    @Override // io.reactivex.internal.disposables.DisposableContainer
-    public boolean remove(@NonNull Disposable disposable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, disposable)) == null) {
-            if (delete(disposable)) {
-                disposable.dispose();
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int size() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.disposed) {
-                return 0;
-            }
-            synchronized (this) {
-                if (this.disposed) {
-                    return 0;
-                }
-                OpenHashSet<Disposable> openHashSet = this.resources;
-                return openHashSet != null ? openHashSet.size() : 0;
-            }
-        }
-        return invokeV.intValue;
-    }
-
-    public CompositeDisposable(@NonNull Disposable... disposableArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {disposableArr};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        ObjectHelper.requireNonNull(disposableArr, "resources is null");
-        this.resources = new OpenHashSet<>(disposableArr.length + 1);
-        for (Disposable disposable : disposableArr) {
-            ObjectHelper.requireNonNull(disposable, "Disposable item is null");
-            this.resources.add(disposable);
-        }
-    }
-
-    public CompositeDisposable(@NonNull Iterable<? extends Disposable> iterable) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {iterable};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        ObjectHelper.requireNonNull(iterable, "resources is null");
-        this.resources = new OpenHashSet<>();
-        for (Disposable disposable : iterable) {
-            ObjectHelper.requireNonNull(disposable, "Disposable item is null");
-            this.resources.add(disposable);
-        }
-    }
-
-    public void dispose(OpenHashSet<Disposable> openHashSet) {
+    public void dispose(OpenHashSet openHashSet) {
         Object[] keys;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, openHashSet) == null) || openHashSet == null) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, openHashSet) != null) || openHashSet == null) {
             return;
         }
         ArrayList arrayList = null;
@@ -256,5 +180,90 @@ public final class CompositeDisposable implements Disposable, DisposableContaine
             }
             throw new CompositeException(arrayList);
         }
+    }
+
+    public CompositeDisposable(Disposable... disposableArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {disposableArr};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        ObjectHelper.requireNonNull(disposableArr, "resources is null");
+        this.resources = new OpenHashSet(disposableArr.length + 1);
+        for (Disposable disposable : disposableArr) {
+            ObjectHelper.requireNonNull(disposable, "Disposable item is null");
+            this.resources.add(disposable);
+        }
+    }
+
+    @Override // io.reactivex.internal.disposables.DisposableContainer
+    public boolean add(Disposable disposable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, disposable)) == null) {
+            ObjectHelper.requireNonNull(disposable, "d is null");
+            if (!this.disposed) {
+                synchronized (this) {
+                    if (!this.disposed) {
+                        OpenHashSet openHashSet = this.resources;
+                        if (openHashSet == null) {
+                            openHashSet = new OpenHashSet();
+                            this.resources = openHashSet;
+                        }
+                        openHashSet.add(disposable);
+                        return true;
+                    }
+                }
+            }
+            disposable.dispose();
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // io.reactivex.internal.disposables.DisposableContainer
+    public boolean delete(Disposable disposable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, disposable)) == null) {
+            ObjectHelper.requireNonNull(disposable, "Disposable item is null");
+            if (this.disposed) {
+                return false;
+            }
+            synchronized (this) {
+                if (this.disposed) {
+                    return false;
+                }
+                OpenHashSet openHashSet = this.resources;
+                if (openHashSet != null && openHashSet.remove(disposable)) {
+                    return true;
+                }
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // io.reactivex.internal.disposables.DisposableContainer
+    public boolean remove(Disposable disposable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, disposable)) == null) {
+            if (delete(disposable)) {
+                disposable.dispose();
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

@@ -14,6 +14,13 @@ public class AdEmbeddedTailFrameView extends AdBaseTailFrameView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.nadcore.player.tail.AdBaseTailFrameView
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0618 : invokeV.intValue;
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AdEmbeddedTailFrameView(Context context) {
         this(context, null);
@@ -32,27 +39,6 @@ public class AdEmbeddedTailFrameView extends AdBaseTailFrameView {
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-    }
-
-    @Override // com.baidu.nadcore.player.tail.AdBaseTailFrameView
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0618 : invokeV.intValue;
-    }
-
-    @Override // com.baidu.nadcore.player.tail.AdBaseTailFrameView
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.g();
-            this.c.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0602a8));
-            this.d.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060295));
-            this.e.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060295));
-            this.d.setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e03));
-            this.e.setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e03));
-            this.k.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060872));
         }
     }
 
@@ -95,6 +81,20 @@ public class AdEmbeddedTailFrameView extends AdBaseTailFrameView {
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
+        }
+    }
+
+    @Override // com.baidu.nadcore.player.tail.AdBaseTailFrameView
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.g();
+            this.c.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0602a8));
+            this.d.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060295));
+            this.e.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060295));
+            this.d.setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e14));
+            this.e.setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e14));
+            this.k.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060872));
         }
     }
 }

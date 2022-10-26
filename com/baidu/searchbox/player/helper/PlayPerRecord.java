@@ -1,6 +1,5 @@
 package com.baidu.searchbox.player.helper;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,11 +14,11 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class PlayPerRecord {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<PerRecord> sRecords;
+    public static final List sRecords;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class PerRecord {
+    public class PerRecord {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long duration;
@@ -53,7 +52,10 @@ public class PlayPerRecord {
         public long getDuration() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.duration : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.duration;
+            }
+            return invokeV.longValue;
         }
 
         public String toString() {
@@ -103,7 +105,7 @@ public class PlayPerRecord {
         }
     }
 
-    public static synchronized void putRecord(@NonNull PerRecord perRecord) {
+    public static synchronized void putRecord(PerRecord perRecord) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, perRecord) == null) {
             synchronized (PlayPerRecord.class) {

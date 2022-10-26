@@ -2,7 +2,6 @@ package com.bumptech.glide.load.engine;
 
 import android.os.Build;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import androidx.core.util.Pools;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
@@ -37,32 +36,33 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes7.dex */
-public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Runnable, Comparable<DecodeJob<?>>, FactoryPools.Poolable {
+public class DecodeJob implements DataFetcherGenerator.FetcherReadyCallback, Runnable, Comparable, FactoryPools.Poolable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DecodeJob";
     public transient /* synthetic */ FieldHolder $fh;
-    public Callback<R> callback;
+    public Callback callback;
     public Key currentAttemptingKey;
     public Object currentData;
     public DataSource currentDataSource;
-    public DataFetcher<?> currentFetcher;
+    public DataFetcher currentFetcher;
     public volatile DataFetcherGenerator currentGenerator;
     public Key currentSourceKey;
     public Thread currentThread;
-    public final DecodeHelper<R> decodeHelper;
-    public final DeferredEncodeManager<?> deferredEncodeManager;
+    public final DecodeHelper decodeHelper;
+    public final DeferredEncodeManager deferredEncodeManager;
     public final DiskCacheProvider diskCacheProvider;
     public DiskCacheStrategy diskCacheStrategy;
     public GlideContext glideContext;
     public int height;
     public volatile boolean isCallbackNotified;
     public volatile boolean isCancelled;
+    public boolean isLoadingFromAlternateCacheKey;
     public EngineKey loadKey;
     public Object model;
     public boolean onlyRetrieveFromCache;
     public Options options;
     public int order;
-    public final Pools.Pool<DecodeJob<?>> pool;
+    public final Pools.Pool pool;
     public Priority priority;
     public final ReleaseManager releaseManager;
     public RunReason runReason;
@@ -70,12 +70,26 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
     public Stage stage;
     public long startFetchTime;
     public final StateVerifier stateVerifier;
-    public final List<Throwable> throwables;
+    public final List throwables;
     public int width;
+
+    /* loaded from: classes7.dex */
+    public interface Callback {
+        void onLoadFailed(GlideException glideException);
+
+        void onResourceReady(Resource resource, DataSource dataSource, boolean z);
+
+        void reschedule(DecodeJob decodeJob);
+    }
+
+    /* loaded from: classes7.dex */
+    public interface DiskCacheProvider {
+        DiskCache getDiskCache();
+    }
 
     /* renamed from: com.bumptech.glide.load.engine.DecodeJob$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$bumptech$glide$load$EncodeStrategy;
         public static final /* synthetic */ int[] $SwitchMap$com$bumptech$glide$load$engine$DecodeJob$RunReason;
         public static final /* synthetic */ int[] $SwitchMap$com$bumptech$glide$load$engine$DecodeJob$Stage;
@@ -145,16 +159,7 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
     }
 
     /* loaded from: classes7.dex */
-    public interface Callback<R> {
-        void onLoadFailed(GlideException glideException);
-
-        void onResourceReady(Resource<R> resource, DataSource dataSource);
-
-        void reschedule(DecodeJob<?> decodeJob);
-    }
-
-    /* loaded from: classes7.dex */
-    public final class DecodeCallback<Z> implements DecodePath.DecodeCallback<Z> {
+    public final class DecodeCallback implements DecodePath.DecodeCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final DataSource dataSource;
@@ -180,21 +185,23 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
         }
 
         @Override // com.bumptech.glide.load.engine.DecodePath.DecodeCallback
-        @NonNull
-        public Resource<Z> onResourceDecoded(@NonNull Resource<Z> resource) {
+        public Resource onResourceDecoded(Resource resource) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, resource)) == null) ? this.this$0.onResourceDecoded(this.dataSource, resource) : (Resource) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, resource)) == null) {
+                return this.this$0.onResourceDecoded(this.dataSource, resource);
+            }
+            return (Resource) invokeL.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class DeferredEncodeManager<Z> {
+    public class DeferredEncodeManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public ResourceEncoder<Z> encoder;
+        public ResourceEncoder encoder;
         public Key key;
-        public LockedResource<Z> toEncode;
+        public LockedResource toEncode;
 
         public DeferredEncodeManager() {
             Interceptable interceptable = $ic;
@@ -219,6 +226,18 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
             }
         }
 
+        public boolean hasResourceToEncode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                if (this.toEncode != null) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
         public void encode(DiskCacheProvider diskCacheProvider, Options options) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, diskCacheProvider, options) == null) {
@@ -232,16 +251,7 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
             }
         }
 
-        public boolean hasResourceToEncode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.toEncode != null : invokeV.booleanValue;
-        }
-
-        /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: com.bumptech.glide.load.ResourceEncoder<X> */
-        /* JADX DEBUG: Multi-variable search result rejected for r7v0, resolved type: com.bumptech.glide.load.engine.LockedResource<X> */
-        /* JADX WARN: Multi-variable type inference failed */
-        public <X> void init(Key key, ResourceEncoder<X> resourceEncoder, LockedResource<X> lockedResource) {
+        public void init(Key key, ResourceEncoder resourceEncoder, LockedResource lockedResource) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048579, this, key, resourceEncoder, lockedResource) == null) {
                 this.key = key;
@@ -252,12 +262,7 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
     }
 
     /* loaded from: classes7.dex */
-    public interface DiskCacheProvider {
-        DiskCache getDiskCache();
-    }
-
-    /* loaded from: classes7.dex */
-    public static class ReleaseManager {
+    public class ReleaseManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean isEncodeComplete;
@@ -276,12 +281,6 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-        }
-
-        private boolean isComplete(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(65537, this, z)) == null) ? (this.isFailed || z || this.isEncodeComplete) && this.isReleased : invokeZ.booleanValue;
         }
 
         public synchronized boolean onEncodeComplete() {
@@ -312,6 +311,29 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
             return invokeV.booleanValue;
         }
 
+        public synchronized void reset() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                synchronized (this) {
+                    this.isEncodeComplete = false;
+                    this.isReleased = false;
+                    this.isFailed = false;
+                }
+            }
+        }
+
+        private boolean isComplete(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(65537, this, z)) == null) {
+                if ((this.isFailed || z || this.isEncodeComplete) && this.isReleased) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeZ.booleanValue;
+        }
+
         public synchronized boolean release(boolean z) {
             InterceptResult invokeZ;
             boolean isComplete;
@@ -325,22 +347,11 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
             }
             return invokeZ.booleanValue;
         }
-
-        public synchronized void reset() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                synchronized (this) {
-                    this.isEncodeComplete = false;
-                    this.isReleased = false;
-                    this.isFailed = false;
-                }
-            }
-        }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class RunReason {
+    public final class RunReason {
         public static final /* synthetic */ RunReason[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RunReason DECODE_DATA;
@@ -390,19 +401,25 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
         public static RunReason valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (RunReason) Enum.valueOf(RunReason.class, str) : (RunReason) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (RunReason) Enum.valueOf(RunReason.class, str);
+            }
+            return (RunReason) invokeL.objValue;
         }
 
         public static RunReason[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RunReason[]) $VALUES.clone() : (RunReason[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (RunReason[]) $VALUES.clone();
+            }
+            return (RunReason[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class Stage {
+    public final class Stage {
         public static final /* synthetic */ Stage[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Stage DATA_CACHE;
@@ -458,17 +475,23 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
         public static Stage valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Stage) Enum.valueOf(Stage.class, str) : (Stage) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (Stage) Enum.valueOf(Stage.class, str);
+            }
+            return (Stage) invokeL.objValue;
         }
 
         public static Stage[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Stage[]) $VALUES.clone() : (Stage[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (Stage[]) $VALUES.clone();
+            }
+            return (Stage[]) invokeV.objValue;
         }
     }
 
-    public DecodeJob(DiskCacheProvider diskCacheProvider, Pools.Pool<DecodeJob<?>> pool) {
+    public DecodeJob(DiskCacheProvider diskCacheProvider, Pools.Pool pool) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -483,25 +506,25 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
                 return;
             }
         }
-        this.decodeHelper = new DecodeHelper<>();
+        this.decodeHelper = new DecodeHelper();
         this.throwables = new ArrayList();
         this.stateVerifier = StateVerifier.newInstance();
-        this.deferredEncodeManager = new DeferredEncodeManager<>();
+        this.deferredEncodeManager = new DeferredEncodeManager();
         this.releaseManager = new ReleaseManager();
         this.diskCacheProvider = diskCacheProvider;
         this.pool = pool;
     }
 
-    private <Data> Resource<R> decodeFromData(DataFetcher<?> dataFetcher, Data data, DataSource dataSource) throws GlideException {
+    private Resource decodeFromData(DataFetcher dataFetcher, Object obj, DataSource dataSource) throws GlideException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, dataFetcher, data, dataSource)) == null) {
-            if (data == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, dataFetcher, obj, dataSource)) == null) {
+            if (obj == null) {
                 return null;
             }
             try {
                 long logTime = LogTime.getLogTime();
-                Resource<R> decodeFromFetcher = decodeFromFetcher(data, dataSource);
+                Resource decodeFromFetcher = decodeFromFetcher(obj, dataSource);
                 if (Log.isLoggable(TAG, 2)) {
                     logWithTimeAndKey("Decoded result " + decodeFromFetcher, logTime);
                 }
@@ -513,11 +536,50 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
         return (Resource) invokeLLL.objValue;
     }
 
-    /* JADX DEBUG: Type inference failed for r0v3. Raw type applied. Possible types: com.bumptech.glide.load.engine.LoadPath<Data, ?, R>, com.bumptech.glide.load.engine.LoadPath<Data, ResourceType, R> */
-    private <Data> Resource<R> decodeFromFetcher(Data data, DataSource dataSource) throws GlideException {
+    /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: com.bumptech.glide.load.engine.LockedResource */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: com.bumptech.glide.load.engine.LockedResource */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v5, resolved type: com.bumptech.glide.load.engine.LockedResource */
+    /* JADX WARN: Multi-variable type inference failed */
+    private void notifyEncodeAndRelease(Resource resource, DataSource dataSource, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(65547, this, resource, dataSource, z) == null) {
+            if (resource instanceof Initializable) {
+                ((Initializable) resource).initialize();
+            }
+            LockedResource lockedResource = 0;
+            if (this.deferredEncodeManager.hasResourceToEncode()) {
+                resource = LockedResource.obtain(resource);
+                lockedResource = resource;
+            }
+            notifyComplete(resource, dataSource, z);
+            this.stage = Stage.ENCODE;
+            try {
+                if (this.deferredEncodeManager.hasResourceToEncode()) {
+                    this.deferredEncodeManager.encode(this.diskCacheProvider, this.options);
+                }
+                onEncodeComplete();
+            } finally {
+                if (lockedResource != 0) {
+                    lockedResource.unlock();
+                }
+            }
+        }
+    }
+
+    private Resource decodeFromFetcher(Object obj, DataSource dataSource) throws GlideException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, data, dataSource)) == null) ? runLoadPath(data, dataSource, (LoadPath<Data, ?, R>) this.decodeHelper.getLoadPath(data.getClass())) : (Resource) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, obj, dataSource)) == null) {
+            return runLoadPath(obj, dataSource, this.decodeHelper.getLoadPath(obj.getClass()));
+        }
+        return (Resource) invokeLL.objValue;
+    }
+
+    private void logWithTimeAndKey(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(65544, this, str, j) == null) {
+            logWithTimeAndKey(str, j, null);
+        }
     }
 
     private void decodeFromRetrievedData() {
@@ -527,7 +589,7 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
                 long j = this.startFetchTime;
                 logWithTimeAndKey("Retrieved data", j, "data: " + this.currentData + ", cache key: " + this.currentSourceKey + ", fetcher: " + this.currentFetcher);
             }
-            Resource<R> resource = null;
+            Resource resource = null;
             try {
                 resource = decodeFromData(this.currentFetcher, this.currentData, this.currentDataSource);
             } catch (GlideException e) {
@@ -535,9 +597,37 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
                 this.throwables.add(e);
             }
             if (resource != null) {
-                notifyEncodeAndRelease(resource, this.currentDataSource);
+                notifyEncodeAndRelease(resource, this.currentDataSource, this.isLoadingFromAlternateCacheKey);
             } else {
                 runGenerators();
+            }
+        }
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            GlideTrace.beginSectionFormat("DecodeJob#run(model=%s)", this.model);
+            DataFetcher dataFetcher = this.currentFetcher;
+            try {
+                try {
+                    if (this.isCancelled) {
+                        notifyFailed();
+                        if (dataFetcher != null) {
+                            dataFetcher.cleanup();
+                        }
+                        GlideTrace.endSection();
+                        return;
+                    }
+                    runWrapped();
+                    if (dataFetcher != null) {
+                        dataFetcher.cleanup();
+                    }
+                    GlideTrace.endSection();
+                } catch (CallbackException e) {
+                    throw e;
+                }
             }
         }
     }
@@ -562,123 +652,6 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
             return new ResourceCacheGenerator(this.decodeHelper, this);
         }
         return (DataFetcherGenerator) invokeV.objValue;
-    }
-
-    private Stage getNextStage(Stage stage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, stage)) == null) {
-            int i = AnonymousClass1.$SwitchMap$com$bumptech$glide$load$engine$DecodeJob$Stage[stage.ordinal()];
-            if (i == 1) {
-                return this.diskCacheStrategy.decodeCachedData() ? Stage.DATA_CACHE : getNextStage(Stage.DATA_CACHE);
-            } else if (i == 2) {
-                return this.onlyRetrieveFromCache ? Stage.FINISHED : Stage.SOURCE;
-            } else if (i == 3 || i == 4) {
-                return Stage.FINISHED;
-            } else {
-                if (i == 5) {
-                    return this.diskCacheStrategy.decodeCachedResource() ? Stage.RESOURCE_CACHE : getNextStage(Stage.RESOURCE_CACHE);
-                }
-                throw new IllegalArgumentException("Unrecognized stage: " + stage);
-            }
-        }
-        return (Stage) invokeL.objValue;
-    }
-
-    @NonNull
-    private Options getOptionsWithHardwareConfig(DataSource dataSource) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, dataSource)) == null) {
-            Options options = this.options;
-            if (Build.VERSION.SDK_INT < 26) {
-                return options;
-            }
-            boolean z = dataSource == DataSource.RESOURCE_DISK_CACHE || this.decodeHelper.isScaleOnlyOrNoTransform();
-            Boolean bool = (Boolean) options.get(Downsampler.ALLOW_HARDWARE_CONFIG);
-            if (bool == null || (bool.booleanValue() && !z)) {
-                Options options2 = new Options();
-                options2.putAll(this.options);
-                options2.set(Downsampler.ALLOW_HARDWARE_CONFIG, Boolean.valueOf(z));
-                return options2;
-            }
-            return options;
-        }
-        return (Options) invokeL.objValue;
-    }
-
-    private int getPriority() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? this.priority.ordinal() : invokeV.intValue;
-    }
-
-    private void logWithTimeAndKey(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65544, this, str, j) == null) {
-            logWithTimeAndKey(str, j, null);
-        }
-    }
-
-    private void notifyComplete(Resource<R> resource, DataSource dataSource) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, this, resource, dataSource) == null) {
-            setNotifiedOrThrow();
-            this.callback.onResourceReady(resource, dataSource);
-        }
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: com.bumptech.glide.load.engine.LockedResource */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: com.bumptech.glide.load.engine.LockedResource */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v5, resolved type: com.bumptech.glide.load.engine.LockedResource */
-    /* JADX WARN: Multi-variable type inference failed */
-    private void notifyEncodeAndRelease(Resource<R> resource, DataSource dataSource) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, this, resource, dataSource) == null) {
-            if (resource instanceof Initializable) {
-                ((Initializable) resource).initialize();
-            }
-            LockedResource lockedResource = 0;
-            if (this.deferredEncodeManager.hasResourceToEncode()) {
-                resource = LockedResource.obtain(resource);
-                lockedResource = resource;
-            }
-            notifyComplete(resource, dataSource);
-            this.stage = Stage.ENCODE;
-            try {
-                if (this.deferredEncodeManager.hasResourceToEncode()) {
-                    this.deferredEncodeManager.encode(this.diskCacheProvider, this.options);
-                }
-                onEncodeComplete();
-            } finally {
-                if (lockedResource != 0) {
-                    lockedResource.unlock();
-                }
-            }
-        }
-    }
-
-    private void notifyFailed() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
-            setNotifiedOrThrow();
-            this.callback.onLoadFailed(new GlideException("Failed to load resource", new ArrayList(this.throwables)));
-            onLoadFailed();
-        }
-    }
-
-    private void onEncodeComplete() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65549, this) == null) && this.releaseManager.onEncodeComplete()) {
-            releaseInternal();
-        }
-    }
-
-    private void onLoadFailed() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65550, this) == null) && this.releaseManager.onFailed()) {
-            releaseInternal();
-        }
     }
 
     private void releaseInternal() {
@@ -729,48 +702,113 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
         }
     }
 
-    private <Data, ResourceType> Resource<R> runLoadPath(Data data, DataSource dataSource, LoadPath<Data, ResourceType, R> loadPath) throws GlideException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65553, this, data, dataSource, loadPath)) == null) {
-            Options optionsWithHardwareConfig = getOptionsWithHardwareConfig(dataSource);
-            DataRewinder<Data> rewinder = this.glideContext.getRegistry().getRewinder(data);
-            try {
-                return loadPath.load(rewinder, optionsWithHardwareConfig, this.width, this.height, new DecodeCallback(this, dataSource));
-            } finally {
-                rewinder.cleanup();
-            }
-        }
-        return (Resource) invokeLLL.objValue;
-    }
-
     private void runWrapped() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65554, this) == null) {
             int i = AnonymousClass1.$SwitchMap$com$bumptech$glide$load$engine$DecodeJob$RunReason[this.runReason.ordinal()];
-            if (i == 1) {
-                this.stage = getNextStage(Stage.INITIALIZE);
-                this.currentGenerator = getNextGenerator();
+            if (i != 1) {
+                if (i != 2) {
+                    if (i == 3) {
+                        decodeFromRetrievedData();
+                        return;
+                    }
+                    throw new IllegalStateException("Unrecognized run reason: " + this.runReason);
+                }
                 runGenerators();
-            } else if (i == 2) {
-                runGenerators();
-            } else if (i == 3) {
-                decodeFromRetrievedData();
-            } else {
-                throw new IllegalStateException("Unrecognized run reason: " + this.runReason);
+                return;
             }
+            this.stage = getNextStage(Stage.INITIALIZE);
+            this.currentGenerator = getNextGenerator();
+            runGenerators();
         }
     }
 
-    private void setNotifiedOrThrow() {
+    private Stage getNextStage(Stage stage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65555, this) == null) {
-            this.stateVerifier.throwIfRecycled();
-            if (!this.isCallbackNotified) {
-                this.isCallbackNotified = true;
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, stage)) == null) {
+            int i = AnonymousClass1.$SwitchMap$com$bumptech$glide$load$engine$DecodeJob$Stage[stage.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3 && i != 4) {
+                        if (i == 5) {
+                            if (this.diskCacheStrategy.decodeCachedResource()) {
+                                return Stage.RESOURCE_CACHE;
+                            }
+                            return getNextStage(Stage.RESOURCE_CACHE);
+                        }
+                        throw new IllegalArgumentException("Unrecognized stage: " + stage);
+                    }
+                    return Stage.FINISHED;
+                } else if (this.onlyRetrieveFromCache) {
+                    return Stage.FINISHED;
+                } else {
+                    return Stage.SOURCE;
+                }
+            } else if (this.diskCacheStrategy.decodeCachedData()) {
+                return Stage.DATA_CACHE;
+            } else {
+                return getNextStage(Stage.DATA_CACHE);
             }
-            throw new IllegalStateException("Already notified");
+        }
+        return (Stage) invokeL.objValue;
+    }
+
+    private Options getOptionsWithHardwareConfig(DataSource dataSource) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, dataSource)) == null) {
+            Options options = this.options;
+            if (Build.VERSION.SDK_INT < 26) {
+                return options;
+            }
+            if (dataSource != DataSource.RESOURCE_DISK_CACHE && !this.decodeHelper.isScaleOnlyOrNoTransform()) {
+                z = false;
+            } else {
+                z = true;
+            }
+            Boolean bool = (Boolean) options.get(Downsampler.ALLOW_HARDWARE_CONFIG);
+            if (bool != null && (!bool.booleanValue() || z)) {
+                return options;
+            }
+            Options options2 = new Options();
+            options2.putAll(this.options);
+            options2.set(Downsampler.ALLOW_HARDWARE_CONFIG, Boolean.valueOf(z));
+            return options2;
+        }
+        return (Options) invokeL.objValue;
+    }
+
+    private int getPriority() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
+            return this.priority.ordinal();
+        }
+        return invokeV.intValue;
+    }
+
+    private void notifyFailed() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
+            setNotifiedOrThrow();
+            this.callback.onLoadFailed(new GlideException("Failed to load resource", new ArrayList(this.throwables)));
+            onLoadFailed();
+        }
+    }
+
+    private void onEncodeComplete() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65549, this) == null) && this.releaseManager.onEncodeComplete()) {
+            releaseInternal();
+        }
+    }
+
+    private void onLoadFailed() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65550, this) == null) && this.releaseManager.onFailed()) {
+            releaseInternal();
         }
     }
 
@@ -786,131 +824,13 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
     }
 
     @Override // com.bumptech.glide.util.pool.FactoryPools.Poolable
-    @NonNull
     public StateVerifier getVerifier() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.stateVerifier : (StateVerifier) invokeV.objValue;
-    }
-
-    public DecodeJob<R> init(GlideContext glideContext, Object obj, EngineKey engineKey, Key key, int i, int i2, Class<?> cls, Class<R> cls2, Priority priority, DiskCacheStrategy diskCacheStrategy, Map<Class<?>, Transformation<?>> map, boolean z, boolean z2, boolean z3, Options options, Callback<R> callback, int i3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{glideContext, obj, engineKey, key, Integer.valueOf(i), Integer.valueOf(i2), cls, cls2, priority, diskCacheStrategy, map, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), options, callback, Integer.valueOf(i3)})) == null) {
-            this.decodeHelper.init(glideContext, obj, key, i, i2, diskCacheStrategy, cls, cls2, priority, options, map, z, z2, this.diskCacheProvider);
-            this.glideContext = glideContext;
-            this.signature = key;
-            this.priority = priority;
-            this.loadKey = engineKey;
-            this.width = i;
-            this.height = i2;
-            this.diskCacheStrategy = diskCacheStrategy;
-            this.onlyRetrieveFromCache = z3;
-            this.options = options;
-            this.callback = callback;
-            this.order = i3;
-            this.runReason = RunReason.INITIALIZE;
-            this.model = obj;
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.stateVerifier;
         }
-        return (DecodeJob) invokeCommon.objValue;
-    }
-
-    @Override // com.bumptech.glide.load.engine.DataFetcherGenerator.FetcherReadyCallback
-    public void onDataFetcherFailed(Key key, Exception exc, DataFetcher<?> dataFetcher, DataSource dataSource) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048581, this, key, exc, dataFetcher, dataSource) == null) {
-            dataFetcher.cleanup();
-            GlideException glideException = new GlideException("Fetching data failed", exc);
-            glideException.setLoggingDetails(key, dataSource, dataFetcher.getDataClass());
-            this.throwables.add(glideException);
-            if (Thread.currentThread() != this.currentThread) {
-                this.runReason = RunReason.SWITCH_TO_SOURCE_SERVICE;
-                this.callback.reschedule(this);
-                return;
-            }
-            runGenerators();
-        }
-    }
-
-    @Override // com.bumptech.glide.load.engine.DataFetcherGenerator.FetcherReadyCallback
-    public void onDataFetcherReady(Key key, Object obj, DataFetcher<?> dataFetcher, DataSource dataSource, Key key2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048582, this, key, obj, dataFetcher, dataSource, key2) == null) {
-            this.currentSourceKey = key;
-            this.currentData = obj;
-            this.currentFetcher = dataFetcher;
-            this.currentDataSource = dataSource;
-            this.currentAttemptingKey = key2;
-            if (Thread.currentThread() != this.currentThread) {
-                this.runReason = RunReason.DECODE_DATA;
-                this.callback.reschedule(this);
-                return;
-            }
-            GlideTrace.beginSection("DecodeJob.decodeFromRetrievedData");
-            try {
-                decodeFromRetrievedData();
-            } finally {
-                GlideTrace.endSection();
-            }
-        }
-    }
-
-    @NonNull
-    public <Z> Resource<Z> onResourceDecoded(DataSource dataSource, @NonNull Resource<Z> resource) {
-        InterceptResult invokeLL;
-        Resource<Z> resource2;
-        Transformation<Z> transformation;
-        EncodeStrategy encodeStrategy;
-        Key dataCacheKey;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, dataSource, resource)) == null) {
-            Class<?> cls = resource.get().getClass();
-            ResourceEncoder<Z> resourceEncoder = null;
-            if (dataSource != DataSource.RESOURCE_DISK_CACHE) {
-                Transformation<Z> transformation2 = this.decodeHelper.getTransformation(cls);
-                transformation = transformation2;
-                resource2 = transformation2.transform(this.glideContext, resource, this.width, this.height);
-            } else {
-                resource2 = resource;
-                transformation = null;
-            }
-            if (!resource.equals(resource2)) {
-                resource.recycle();
-            }
-            if (this.decodeHelper.isResourceEncoderAvailable(resource2)) {
-                resourceEncoder = this.decodeHelper.getResultEncoder(resource2);
-                encodeStrategy = resourceEncoder.getEncodeStrategy(this.options);
-            } else {
-                encodeStrategy = EncodeStrategy.NONE;
-            }
-            ResourceEncoder resourceEncoder2 = resourceEncoder;
-            if (this.diskCacheStrategy.isResourceCacheable(!this.decodeHelper.isSourceKey(this.currentSourceKey), dataSource, encodeStrategy)) {
-                if (resourceEncoder2 != null) {
-                    int i = AnonymousClass1.$SwitchMap$com$bumptech$glide$load$EncodeStrategy[encodeStrategy.ordinal()];
-                    if (i == 1) {
-                        dataCacheKey = new DataCacheKey(this.currentSourceKey, this.signature);
-                    } else if (i == 2) {
-                        dataCacheKey = new ResourceCacheKey(this.decodeHelper.getArrayPool(), this.currentSourceKey, this.signature, this.width, this.height, transformation, cls, this.options);
-                    } else {
-                        throw new IllegalArgumentException("Unknown strategy: " + encodeStrategy);
-                    }
-                    LockedResource obtain = LockedResource.obtain(resource2);
-                    this.deferredEncodeManager.init(dataCacheKey, resourceEncoder2, obtain);
-                    return obtain;
-                }
-                throw new Registry.NoResultEncoderAvailableException(resource2.get().getClass());
-            }
-            return resource2;
-        }
-        return (Resource) invokeLL.objValue;
-    }
-
-    public void release(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && this.releaseManager.release(z)) {
-            releaseInternal();
-        }
+        return (StateVerifier) invokeV.objValue;
     }
 
     @Override // com.bumptech.glide.load.engine.DataFetcherGenerator.FetcherReadyCallback
@@ -922,60 +842,15 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
         }
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, INVOKE, INVOKE] complete} */
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x0022, code lost:
-        if (r1 != null) goto L15;
-     */
-    @Override // java.lang.Runnable
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048586, this) != null) {
-            return;
-        }
-        GlideTrace.beginSectionFormat("DecodeJob#run(model=%s)", this.model);
-        DataFetcher<?> dataFetcher = this.currentFetcher;
-        try {
-            if (this.isCancelled) {
-                notifyFailed();
-                return;
-            }
-            runWrapped();
-        } catch (Throwable th) {
-            try {
-                if (Log.isLoggable(TAG, 3)) {
-                    Log.d(TAG, "DecodeJob threw unexpectedly, isCancelled: " + this.isCancelled + ", stage: " + this.stage, th);
-                }
-                if (this.stage != Stage.ENCODE) {
-                    this.throwables.add(th);
-                    notifyFailed();
-                }
-                if (this.isCancelled) {
-                    if (dataFetcher != null) {
-                        dataFetcher.cleanup();
-                    }
-                    GlideTrace.endSection();
-                    return;
-                }
-                throw th;
-            } finally {
-                if (dataFetcher != null) {
-                    dataFetcher.cleanup();
-                }
-                GlideTrace.endSection();
-            }
-        }
-    }
-
     public boolean willDecodeFromCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             Stage nextStage = getNextStage(Stage.INITIALIZE);
-            return nextStage == Stage.RESOURCE_CACHE || nextStage == Stage.DATA_CACHE;
+            if (nextStage != Stage.RESOURCE_CACHE && nextStage != Stage.DATA_CACHE) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
     }
@@ -1002,15 +877,185 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
         }
     }
 
+    private void notifyComplete(Resource resource, DataSource dataSource, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(65546, this, resource, dataSource, z) == null) {
+            setNotifiedOrThrow();
+            this.callback.onResourceReady(resource, dataSource, z);
+        }
+    }
+
+    private Resource runLoadPath(Object obj, DataSource dataSource, LoadPath loadPath) throws GlideException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65553, this, obj, dataSource, loadPath)) == null) {
+            Options optionsWithHardwareConfig = getOptionsWithHardwareConfig(dataSource);
+            DataRewinder rewinder = this.glideContext.getRegistry().getRewinder(obj);
+            try {
+                return loadPath.load(rewinder, optionsWithHardwareConfig, this.width, this.height, new DecodeCallback(this, dataSource));
+            } finally {
+                rewinder.cleanup();
+            }
+        }
+        return (Resource) invokeLLL.objValue;
+    }
+
+    private void setNotifiedOrThrow() {
+        Throwable th;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65555, this) == null) {
+            this.stateVerifier.throwIfRecycled();
+            if (this.isCallbackNotified) {
+                if (this.throwables.isEmpty()) {
+                    th = null;
+                } else {
+                    List list = this.throwables;
+                    th = (Throwable) list.get(list.size() - 1);
+                }
+                throw new IllegalStateException("Already notified", th);
+            }
+            this.isCallbackNotified = true;
+        }
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
-    public int compareTo(@NonNull DecodeJob<?> decodeJob) {
+    public int compareTo(DecodeJob decodeJob) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, decodeJob)) == null) {
             int priority = getPriority() - decodeJob.getPriority();
-            return priority == 0 ? this.order - decodeJob.order : priority;
+            if (priority == 0) {
+                return this.order - decodeJob.order;
+            }
+            return priority;
         }
         return invokeL.intValue;
+    }
+
+    public void release(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && this.releaseManager.release(z)) {
+            releaseInternal();
+        }
+    }
+
+    public DecodeJob init(GlideContext glideContext, Object obj, EngineKey engineKey, Key key, int i, int i2, Class cls, Class cls2, Priority priority, DiskCacheStrategy diskCacheStrategy, Map map, boolean z, boolean z2, boolean z3, Options options, Callback callback, int i3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{glideContext, obj, engineKey, key, Integer.valueOf(i), Integer.valueOf(i2), cls, cls2, priority, diskCacheStrategy, map, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), options, callback, Integer.valueOf(i3)})) == null) {
+            this.decodeHelper.init(glideContext, obj, key, i, i2, diskCacheStrategy, cls, cls2, priority, options, map, z, z2, this.diskCacheProvider);
+            this.glideContext = glideContext;
+            this.signature = key;
+            this.priority = priority;
+            this.loadKey = engineKey;
+            this.width = i;
+            this.height = i2;
+            this.diskCacheStrategy = diskCacheStrategy;
+            this.onlyRetrieveFromCache = z3;
+            this.options = options;
+            this.callback = callback;
+            this.order = i3;
+            this.runReason = RunReason.INITIALIZE;
+            this.model = obj;
+            return this;
+        }
+        return (DecodeJob) invokeCommon.objValue;
+    }
+
+    @Override // com.bumptech.glide.load.engine.DataFetcherGenerator.FetcherReadyCallback
+    public void onDataFetcherFailed(Key key, Exception exc, DataFetcher dataFetcher, DataSource dataSource) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048581, this, key, exc, dataFetcher, dataSource) == null) {
+            dataFetcher.cleanup();
+            GlideException glideException = new GlideException("Fetching data failed", exc);
+            glideException.setLoggingDetails(key, dataSource, dataFetcher.getDataClass());
+            this.throwables.add(glideException);
+            if (Thread.currentThread() != this.currentThread) {
+                this.runReason = RunReason.SWITCH_TO_SOURCE_SERVICE;
+                this.callback.reschedule(this);
+                return;
+            }
+            runGenerators();
+        }
+    }
+
+    @Override // com.bumptech.glide.load.engine.DataFetcherGenerator.FetcherReadyCallback
+    public void onDataFetcherReady(Key key, Object obj, DataFetcher dataFetcher, DataSource dataSource, Key key2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048582, this, key, obj, dataFetcher, dataSource, key2) == null) {
+            this.currentSourceKey = key;
+            this.currentData = obj;
+            this.currentFetcher = dataFetcher;
+            this.currentDataSource = dataSource;
+            this.currentAttemptingKey = key2;
+            boolean z = false;
+            if (key != this.decodeHelper.getCacheKeys().get(0)) {
+                z = true;
+            }
+            this.isLoadingFromAlternateCacheKey = z;
+            if (Thread.currentThread() != this.currentThread) {
+                this.runReason = RunReason.DECODE_DATA;
+                this.callback.reschedule(this);
+                return;
+            }
+            GlideTrace.beginSection("DecodeJob.decodeFromRetrievedData");
+            try {
+                decodeFromRetrievedData();
+            } finally {
+                GlideTrace.endSection();
+            }
+        }
+    }
+
+    public Resource onResourceDecoded(DataSource dataSource, Resource resource) {
+        InterceptResult invokeLL;
+        Resource resource2;
+        Transformation transformation;
+        EncodeStrategy encodeStrategy;
+        Key dataCacheKey;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, dataSource, resource)) == null) {
+            Class<?> cls = resource.get().getClass();
+            ResourceEncoder resourceEncoder = null;
+            if (dataSource != DataSource.RESOURCE_DISK_CACHE) {
+                Transformation transformation2 = this.decodeHelper.getTransformation(cls);
+                transformation = transformation2;
+                resource2 = transformation2.transform(this.glideContext, resource, this.width, this.height);
+            } else {
+                resource2 = resource;
+                transformation = null;
+            }
+            if (!resource.equals(resource2)) {
+                resource.recycle();
+            }
+            if (this.decodeHelper.isResourceEncoderAvailable(resource2)) {
+                resourceEncoder = this.decodeHelper.getResultEncoder(resource2);
+                encodeStrategy = resourceEncoder.getEncodeStrategy(this.options);
+            } else {
+                encodeStrategy = EncodeStrategy.NONE;
+            }
+            ResourceEncoder resourceEncoder2 = resourceEncoder;
+            if (this.diskCacheStrategy.isResourceCacheable(!this.decodeHelper.isSourceKey(this.currentSourceKey), dataSource, encodeStrategy)) {
+                if (resourceEncoder2 != null) {
+                    int i = AnonymousClass1.$SwitchMap$com$bumptech$glide$load$EncodeStrategy[encodeStrategy.ordinal()];
+                    if (i != 1) {
+                        if (i == 2) {
+                            dataCacheKey = new ResourceCacheKey(this.decodeHelper.getArrayPool(), this.currentSourceKey, this.signature, this.width, this.height, transformation, cls, this.options);
+                        } else {
+                            throw new IllegalArgumentException("Unknown strategy: " + encodeStrategy);
+                        }
+                    } else {
+                        dataCacheKey = new DataCacheKey(this.currentSourceKey, this.signature);
+                    }
+                    LockedResource obtain = LockedResource.obtain(resource2);
+                    this.deferredEncodeManager.init(dataCacheKey, resourceEncoder2, obtain);
+                    return obtain;
+                }
+                throw new Registry.NoResultEncoderAvailableException(resource2.get().getClass());
+            }
+            return resource2;
+        }
+        return (Resource) invokeLL.objValue;
     }
 }

@@ -12,7 +12,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<c> kC;
+    public static final List kC;
     public transient /* synthetic */ FieldHolder $fh;
     public Object kD;
     public g kE;
@@ -74,11 +74,11 @@ public final class c {
             synchronized (kC) {
                 int size = kC.size();
                 if (size > 0) {
-                    c remove = kC.remove(size - 1);
-                    remove.kD = obj;
-                    remove.kE = gVar;
-                    remove.kF = null;
-                    return remove;
+                    c cVar = (c) kC.remove(size - 1);
+                    cVar.kD = obj;
+                    cVar.kE = gVar;
+                    cVar.kF = null;
+                    return cVar;
                 }
                 return new c(obj, gVar);
             }

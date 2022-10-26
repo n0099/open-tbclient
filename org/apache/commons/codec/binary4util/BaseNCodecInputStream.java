@@ -1,6 +1,5 @@
 package org.apache.commons.codec.binary4util;
 
-import android.annotation.SuppressLint;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,7 +10,6 @@ import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import org.apache.commons.codec.binary4util.BaseNCodec;
-@SuppressLint({"BDThrowableCheck"})
 /* loaded from: classes8.dex */
 public class BaseNCodecInputStream extends FilterInputStream {
     public static /* synthetic */ Interceptable $ic;
@@ -20,6 +18,16 @@ public class BaseNCodecInputStream extends FilterInputStream {
     public final BaseNCodec.Context context;
     public final boolean doEncode;
     public final byte[] singleByte;
+
+    @Override // java.io.FilterInputStream, java.io.InputStream
+    public boolean markSupported() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BaseNCodecInputStream(InputStream inputStream, BaseNCodec baseNCodec, boolean z) {
@@ -49,26 +57,10 @@ public class BaseNCodecInputStream extends FilterInputStream {
     public int available() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !this.context.eof ? 1 : 0 : invokeV.intValue;
-    }
-
-    @Override // java.io.FilterInputStream, java.io.InputStream
-    public synchronized void mark(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            synchronized (this) {
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return !this.context.eof ? 1 : 0;
         }
-    }
-
-    @Override // java.io.FilterInputStream, java.io.InputStream
-    public boolean markSupported() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
@@ -82,7 +74,10 @@ public class BaseNCodecInputStream extends FilterInputStream {
             }
             if (read > 0) {
                 byte b = this.singleByte[0];
-                return b < 0 ? b + 256 : b;
+                if (b < 0) {
+                    return b + 256;
+                }
+                return b;
             }
             return -1;
         }
@@ -100,56 +95,71 @@ public class BaseNCodecInputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public long skip(long j) throws IOException {
-        InterceptResult invokeJ;
-        int read;
+    public synchronized void mark(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
-            if (j < 0) {
-                throw new IllegalArgumentException("Negative skip length: " + j);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            synchronized (this) {
             }
-            byte[] bArr = new byte[512];
-            long j2 = j;
-            while (j2 > 0 && (read = read(bArr, 0, (int) Math.min(512, j2))) != -1) {
-                j2 -= read;
-            }
-            return j - j2;
         }
-        return invokeJ.longValue;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public int read(byte[] bArr, int i, int i2) throws IOException {
         InterceptResult invokeLII;
+        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, bArr, i, i2)) == null) {
             if (bArr != null) {
                 if (i >= 0 && i2 >= 0) {
-                    if (i > bArr.length || i + i2 > bArr.length) {
-                        throw new IndexOutOfBoundsException();
-                    }
-                    if (i2 == 0) {
-                        return 0;
-                    }
-                    int i3 = 0;
-                    while (i3 == 0) {
-                        if (!this.baseNCodec.hasData(this.context)) {
-                            byte[] bArr2 = new byte[this.doEncode ? 4096 : 8192];
-                            int read = ((FilterInputStream) this).in.read(bArr2);
-                            if (this.doEncode) {
-                                this.baseNCodec.encode(bArr2, 0, read, this.context);
-                            } else {
-                                this.baseNCodec.decode(bArr2, 0, read, this.context);
-                            }
+                    if (i <= bArr.length && i + i2 <= bArr.length) {
+                        if (i2 == 0) {
+                            return 0;
                         }
-                        i3 = this.baseNCodec.readResults(bArr, i, i2, this.context);
+                        int i4 = 0;
+                        while (i4 == 0) {
+                            if (!this.baseNCodec.hasData(this.context)) {
+                                if (this.doEncode) {
+                                    i3 = 4096;
+                                } else {
+                                    i3 = 8192;
+                                }
+                                byte[] bArr2 = new byte[i3];
+                                int read = ((FilterInputStream) this).in.read(bArr2);
+                                if (this.doEncode) {
+                                    this.baseNCodec.encode(bArr2, 0, read, this.context);
+                                } else {
+                                    this.baseNCodec.decode(bArr2, 0, read, this.context);
+                                }
+                            }
+                            i4 = this.baseNCodec.readResults(bArr, i, i2, this.context);
+                        }
+                        return i4;
                     }
-                    return i3;
+                    throw new IndexOutOfBoundsException();
                 }
                 throw new IndexOutOfBoundsException();
             }
             throw null;
         }
         return invokeLII.intValue;
+    }
+
+    @Override // java.io.FilterInputStream, java.io.InputStream
+    public long skip(long j) throws IOException {
+        InterceptResult invokeJ;
+        int read;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
+            if (j >= 0) {
+                byte[] bArr = new byte[512];
+                long j2 = j;
+                while (j2 > 0 && (read = read(bArr, 0, (int) Math.min(512, j2))) != -1) {
+                    j2 -= read;
+                }
+                return j - j2;
+            }
+            throw new IllegalArgumentException("Negative skip length: " + j);
+        }
+        return invokeJ.longValue;
     }
 }

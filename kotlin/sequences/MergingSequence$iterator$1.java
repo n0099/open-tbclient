@@ -12,6 +12,11 @@ public final class MergingSequence$iterator$1 implements Iterator<V>, KMappedMar
     public final Iterator<T2> iterator2;
     public final /* synthetic */ MergingSequence this$0;
 
+    @Override // java.util.Iterator
+    public void remove() {
+        throw new UnsupportedOperationException("Operation is not supported for read-only collection");
+    }
+
     /* JADX DEBUG: Incorrect args count in method signature: ()V */
     public MergingSequence$iterator$1(MergingSequence mergingSequence) {
         Sequence sequence;
@@ -33,7 +38,10 @@ public final class MergingSequence$iterator$1 implements Iterator<V>, KMappedMar
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.iterator1.hasNext() && this.iterator2.hasNext();
+        if (this.iterator1.hasNext() && this.iterator2.hasNext()) {
+            return true;
+        }
+        return false;
     }
 
     /* JADX WARN: Type inference failed for: r0v2, types: [V, java.lang.Object] */
@@ -42,10 +50,5 @@ public final class MergingSequence$iterator$1 implements Iterator<V>, KMappedMar
         Function2 function2;
         function2 = this.this$0.transform;
         return function2.invoke(this.iterator1.next(), this.iterator2.next());
-    }
-
-    @Override // java.util.Iterator
-    public void remove() {
-        throw new UnsupportedOperationException("Operation is not supported for read-only collection");
     }
 }

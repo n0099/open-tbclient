@@ -21,7 +21,7 @@ public class WeiboParameters {
     public transient /* synthetic */ FieldHolder $fh;
     public String mAnonymousCookie;
     public String mAppKey;
-    public LinkedHashMap<String, Object> mParams;
+    public LinkedHashMap mParams;
 
     public WeiboParameters(String str) {
         Interceptable interceptable = $ic;
@@ -38,144 +38,8 @@ public class WeiboParameters {
                 return;
             }
         }
-        this.mParams = new LinkedHashMap<>();
+        this.mParams = new LinkedHashMap();
         this.mAppKey = str;
-    }
-
-    @Deprecated
-    public void add(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            this.mParams.put(str, str2);
-        }
-    }
-
-    public boolean containsKey(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.mParams.containsKey(str) : invokeL.booleanValue;
-    }
-
-    public boolean containsValue(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? this.mParams.containsValue(str) : invokeL.booleanValue;
-    }
-
-    public String encodeUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            boolean z = true;
-            for (String str : this.mParams.keySet()) {
-                if (z) {
-                    z = false;
-                } else {
-                    sb.append("&");
-                }
-                Object obj = this.mParams.get(str);
-                if (obj instanceof String) {
-                    String str2 = (String) obj;
-                    if (!TextUtils.isEmpty(str2)) {
-                        try {
-                            sb.append(URLEncoder.encode(str, "UTF-8") + "=" + URLEncoder.encode(str2, "UTF-8"));
-                        } catch (UnsupportedEncodingException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-            }
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public Object get(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) ? this.mParams.get(str) : invokeL.objValue;
-    }
-
-    public String getAnonymousCookie() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mAnonymousCookie : (String) invokeV.objValue;
-    }
-
-    public String getAppKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mAppKey : (String) invokeV.objValue;
-    }
-
-    public LinkedHashMap<String, Object> getParams() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mParams : (LinkedHashMap) invokeV.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:7:0x0014  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean hasBinaryData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            for (String str : this.mParams.keySet()) {
-                Object obj = this.mParams.get(str);
-                if ((obj instanceof ByteArrayOutputStream) || (obj instanceof Bitmap)) {
-                    return true;
-                }
-                while (r0.hasNext()) {
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public Set<String> keySet() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mParams.keySet() : (Set) invokeV.objValue;
-    }
-
-    public void put(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048593, this, str, str2) == null) {
-            this.mParams.put(str, str2);
-        }
-    }
-
-    public void remove(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048594, this, str) == null) && this.mParams.containsKey(str)) {
-            this.mParams.remove(str);
-            LinkedHashMap<String, Object> linkedHashMap = this.mParams;
-            linkedHashMap.remove(linkedHashMap.get(str));
-        }
-    }
-
-    public void setAnonymousCookie(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
-            this.mAnonymousCookie = str;
-        }
-    }
-
-    public void setParams(LinkedHashMap<String, Object> linkedHashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, linkedHashMap) == null) {
-            this.mParams = linkedHashMap;
-        }
-    }
-
-    public int size() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.mParams.size() : invokeV.intValue;
     }
 
     @Deprecated
@@ -223,10 +87,170 @@ public class WeiboParameters {
         }
     }
 
+    @Deprecated
+    public void add(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+            this.mParams.put(str, str2);
+        }
+    }
+
     public void put(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048592, this, str, obj) == null) {
             this.mParams.put(str, obj.toString());
+        }
+    }
+
+    public boolean containsKey(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return this.mParams.containsKey(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean containsValue(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            return this.mParams.containsValue(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public Object get(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            return this.mParams.get(str);
+        }
+        return invokeL.objValue;
+    }
+
+    public void remove(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048594, this, str) == null) && this.mParams.containsKey(str)) {
+            this.mParams.remove(str);
+            LinkedHashMap linkedHashMap = this.mParams;
+            linkedHashMap.remove(linkedHashMap.get(str));
+        }
+    }
+
+    public void setAnonymousCookie(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
+            this.mAnonymousCookie = str;
+        }
+    }
+
+    public void setParams(LinkedHashMap linkedHashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, linkedHashMap) == null) {
+            this.mParams = linkedHashMap;
+        }
+    }
+
+    public String encodeUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            boolean z = true;
+            for (String str : this.mParams.keySet()) {
+                if (z) {
+                    z = false;
+                } else {
+                    sb.append("&");
+                }
+                Object obj = this.mParams.get(str);
+                if (obj instanceof String) {
+                    String str2 = (String) obj;
+                    if (!TextUtils.isEmpty(str2)) {
+                        try {
+                            sb.append(URLEncoder.encode(str, "UTF-8") + "=" + URLEncoder.encode(str2, "UTF-8"));
+                        } catch (UnsupportedEncodingException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getAnonymousCookie() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mAnonymousCookie;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getAppKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mAppKey;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public LinkedHashMap getParams() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mParams;
+        }
+        return (LinkedHashMap) invokeV.objValue;
+    }
+
+    public Set keySet() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.mParams.keySet();
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    public int size() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return this.mParams.size();
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:7:0x0014  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean hasBinaryData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            for (String str : this.mParams.keySet()) {
+                Object obj = this.mParams.get(str);
+                if ((obj instanceof ByteArrayOutputStream) || (obj instanceof Bitmap)) {
+                    return true;
+                }
+                while (r0.hasNext()) {
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void put(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048593, this, str, str2) == null) {
+            this.mParams.put(str, str2);
         }
     }
 }

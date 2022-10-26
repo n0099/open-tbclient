@@ -10,6 +10,13 @@ public class CreateBarTipSwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.rf
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "wallet_binding_tips" : (String) invokeV.objValue;
+    }
+
     public CreateBarTipSwitch() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -22,12 +29,5 @@ public class CreateBarTipSwitch extends BaseNormalSwitch {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.qf
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "wallet_binding_tips" : (String) invokeV.objValue;
     }
 }

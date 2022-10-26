@@ -6,10 +6,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.tieba.gt4;
-import com.baidu.tieba.jf;
-import com.baidu.tieba.mu4;
+import com.baidu.tieba.it4;
+import com.baidu.tieba.kf;
 import com.baidu.tieba.myAttentionAndFans.PersonListModel;
+import com.baidu.tieba.ou4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import org.json.JSONObject;
 public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gt4 data;
+    public it4 data;
     public int mErrCode;
     public String mErrMsg;
     public PersonListModel mModel;
@@ -47,6 +47,36 @@ public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
         this.mErrMsg = "";
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
+    public void afterDispatchInBackGround(int i, byte[] bArr) {
+        PersonListModel personListModel;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
+            super.afterDispatchInBackGround(i, (int) bArr);
+            if (getError() != 0 || (personListModel = this.mModel) == null) {
+                return;
+            }
+            boolean z = true;
+            if (personListModel.H() == 1 && (getOrginalMessage() instanceof HttpMessage)) {
+                BdUniqueId tag = ((HttpMessage) getOrginalMessage()).getTag();
+                z = (tag == null || !tag.equals(PersonListModel.FOLLOWME)) ? false : false;
+                String str2 = new String(bArr);
+                ou4.f();
+                kf g = ou4.g("tb.my_pages");
+                if (g != null) {
+                    if (z) {
+                        str = "personal_followme";
+                    } else {
+                        str = "personal_myfollow";
+                    }
+                    g.e(str + "_" + this.mModel.getId(), str2, 604800000L);
+                }
+            }
+        }
+    }
+
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         Interceptable interceptable = $ic;
@@ -56,59 +86,44 @@ public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
             if (statusCode == 200 && error == 0) {
                 this.mErrCode = jSONObject.optInt("error_code");
                 this.mErrMsg = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
-                gt4 gt4Var = new gt4();
-                this.data = gt4Var;
-                gt4Var.c(jSONObject);
+                it4 it4Var = new it4();
+                this.data = it4Var;
+                it4Var.c(jSONObject);
             }
         }
     }
 
-    public gt4 getData() {
+    public it4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.data : (gt4) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.data;
+        }
+        return (it4) invokeV.objValue;
     }
 
     public String getErrMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mErrMsg : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mErrMsg;
+        }
+        return (String) invokeV.objValue;
     }
 
     public int getErrNo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mErrCode : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mErrCode;
+        }
+        return invokeV.intValue;
     }
 
     public void setModel(PersonListModel personListModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, personListModel) == null) {
             this.mModel = personListModel;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i, byte[] bArr) {
-        PersonListModel personListModel;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
-            super.afterDispatchInBackGround(i, (int) bArr);
-            if (getError() == 0 && (personListModel = this.mModel) != null) {
-                boolean z = true;
-                if (personListModel.H() == 1 && (getOrginalMessage() instanceof HttpMessage)) {
-                    BdUniqueId tag = ((HttpMessage) getOrginalMessage()).getTag();
-                    z = (tag == null || !tag.equals(PersonListModel.FOLLOWME)) ? false : false;
-                    String str = new String(bArr);
-                    mu4.f();
-                    jf<String> g = mu4.g("tb.my_pages");
-                    if (g != null) {
-                        String str2 = z ? "personal_followme" : "personal_myfollow";
-                        g.e(str2 + "_" + this.mModel.getId(), str, 604800000L);
-                    }
-                }
-            }
         }
     }
 }

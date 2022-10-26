@@ -57,14 +57,19 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
     public int y;
 
     /* loaded from: classes3.dex */
-    public static class SavedState extends View.BaseSavedState {
+    public interface c {
+        int a(int i);
+    }
+
+    /* loaded from: classes3.dex */
+    public class SavedState extends View.BaseSavedState {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator<SavedState> CREATOR;
+        public static final Parcelable.Creator CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public int currentPosition;
 
         /* loaded from: classes3.dex */
-        public static class a implements Parcelable.Creator<SavedState> {
+        public final class a implements Parcelable.Creator {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -88,7 +93,10 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
             public SavedState createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new SavedState(parcel, null) : (SavedState) invokeL.objValue;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                    return new SavedState(parcel, null);
+                }
+                return (SavedState) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -97,7 +105,10 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
             public SavedState[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new SavedState[i] : (SavedState[]) invokeI.objValue;
+                if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                    return new SavedState[i];
+                }
+                return (SavedState[]) invokeI.objValue;
             }
         }
 
@@ -115,6 +126,27 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
                 }
             }
             CREATOR = new a();
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SavedState(Parcel parcel) {
+            super(parcel);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {parcel};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Parcel) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.currentPosition = parcel.readInt();
         }
 
         public /* synthetic */ SavedState(Parcel parcel, a aVar) {
@@ -148,27 +180,6 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
                     return;
                 }
             }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SavedState(Parcel parcel) {
-            super(parcel);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {parcel};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Parcel) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.currentPosition = parcel.readInt();
         }
     }
 
@@ -246,11 +257,6 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
     }
 
     /* loaded from: classes3.dex */
-    public interface c {
-        int a(int i);
-    }
-
-    /* loaded from: classes3.dex */
     public class d implements ViewPager.OnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -275,9 +281,25 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageSelected(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+                ViewPager.OnPageChangeListener onPageChangeListener = this.a.d;
+                if (onPageChangeListener != null) {
+                    onPageChangeListener.onPageSelected(i);
+                }
+                this.a.p();
+            }
+        }
+
+        public /* synthetic */ d(CommonPagerSlidingTabStrip commonPagerSlidingTabStrip, a aVar) {
+            this(commonPagerSlidingTabStrip);
+        }
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || this.a.e.getChildCount() == 0) {
+            if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || this.a.e.getChildCount() == 0) {
                 return;
             }
             if (i == 0) {
@@ -293,7 +315,7 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i, float f, int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) || this.a.e.getChildCount() == 0) {
+            if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) != null) || this.a.e.getChildCount() == 0) {
                 return;
             }
             this.a.h = i;
@@ -305,22 +327,6 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
             if (onPageChangeListener != null) {
                 onPageChangeListener.onPageScrolled(i, f, i2);
             }
-        }
-
-        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageSelected(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                ViewPager.OnPageChangeListener onPageChangeListener = this.a.d;
-                if (onPageChangeListener != null) {
-                    onPageChangeListener.onPageSelected(i);
-                }
-                this.a.p();
-            }
-        }
-
-        public /* synthetic */ d(CommonPagerSlidingTabStrip commonPagerSlidingTabStrip, a aVar) {
-            this(commonPagerSlidingTabStrip);
         }
     }
 
@@ -342,209 +348,6 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-    }
-
-    public final void h(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            ImageButton imageButton = new ImageButton(getContext());
-            imageButton.setImageResource(i2);
-            i(i, imageButton);
-        }
-    }
-
-    public final void i(int i, View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, view2) == null) {
-            view2.setFocusable(true);
-            view2.setOnClickListener(new b(this, i));
-            view2.setPadding(this.p, this.q, this.r, this.s);
-            this.e.addView(view2, i, this.k ? this.b : this.a);
-        }
-    }
-
-    public final void j(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
-            TextView textView = new TextView(getContext());
-            textView.setText(str);
-            textView.setGravity(17);
-            textView.setSingleLine();
-            i(i, textView);
-        }
-    }
-
-    public void k(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9)}) == null) {
-            this.u = i;
-            this.p = i2;
-            this.q = i3;
-            this.r = i4;
-            this.s = i5;
-            this.o = i6;
-            this.t = i7;
-            this.m = i8;
-            this.l = i9;
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            setFillViewport(true);
-            setWillNotDraw(false);
-            LinearLayout linearLayout = new LinearLayout(getContext());
-            this.e = linearLayout;
-            linearLayout.setOrientation(0);
-            this.e.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            addView(this.e);
-            Paint paint = new Paint();
-            this.j = paint;
-            paint.setAntiAlias(true);
-            this.j.setStyle(Paint.Style.FILL);
-            this.a = new LinearLayout.LayoutParams(-2, -1);
-            this.b = new LinearLayout.LayoutParams(0, -1, 1.0f);
-        }
-    }
-
-    public void m() {
-        ViewPager viewPager;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (viewPager = this.f) == null || viewPager.getAdapter() == null || this.f.getAdapter().getCount() == 0) {
-            return;
-        }
-        this.e.removeAllViews();
-        this.g = this.f.getAdapter().getCount();
-        for (int i = 0; i < this.g; i++) {
-            if (this.f.getAdapter() instanceof c) {
-                h(i, ((c) this.f.getAdapter()).a(i));
-            } else {
-                j(i, this.f.getAdapter().getPageTitle(i).toString());
-            }
-        }
-        p();
-        getViewTreeObserver().addOnGlobalLayoutListener(new a(this));
-    }
-
-    public void n(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.l = SkinManager.getColor(i, this.l);
-            this.m = SkinManager.getColor(i, this.m);
-            p();
-        }
-    }
-
-    public final void o(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) || this.g == 0) {
-            return;
-        }
-        int left = this.e.getChildAt(i).getLeft() + i2;
-        if (i > 0 || i2 > 0) {
-            left -= this.n;
-        }
-        if (left != this.x) {
-            this.x = left;
-            scrollTo(left, 0);
-        }
-    }
-
-    @Override // android.view.View
-    public void onDraw(Canvas canvas) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, canvas) == null) {
-            super.onDraw(canvas);
-            if (isInEditMode() || this.g == 0 || this.e.getChildCount() <= 1) {
-                return;
-            }
-            int height = getHeight();
-            this.j.setColor(this.l);
-            View childAt = this.e.getChildAt(this.h);
-            float left = childAt.getLeft();
-            float right = childAt.getRight();
-            if (this.i > 0.0f && (i = this.h) < this.g - 1) {
-                View childAt2 = this.e.getChildAt(i + 1);
-                float f = this.i;
-                left = (childAt2.getLeft() * f) + ((1.0f - f) * left);
-                right = (childAt2.getRight() * f) + ((1.0f - f) * right);
-            }
-            float f2 = right;
-            float f3 = left;
-            float f4 = f2 - f3;
-            int i2 = this.t;
-            if (f4 < i2) {
-                canvas.drawRect(f3, height - this.o, f2, height, this.j);
-            } else {
-                canvas.drawRect(f3 + ((f4 - i2) / 2.0f), height - this.o, f2 - ((f4 - i2) / 2.0f), height, this.j);
-            }
-        }
-    }
-
-    @Override // android.widget.HorizontalScrollView, android.view.View
-    public void onRestoreInstanceState(Parcelable parcelable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, parcelable) == null) {
-            SavedState savedState = (SavedState) parcelable;
-            super.onRestoreInstanceState(savedState.getSuperState());
-            this.h = savedState.currentPosition;
-            requestLayout();
-        }
-    }
-
-    @Override // android.widget.HorizontalScrollView, android.view.View
-    public Parcelable onSaveInstanceState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            SavedState savedState = new SavedState(super.onSaveInstanceState());
-            savedState.currentPosition = this.h;
-            return savedState;
-        }
-        return (Parcelable) invokeV.objValue;
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            for (int i = 0; i < this.g; i++) {
-                View childAt = this.e.getChildAt(i);
-                if (childAt != null) {
-                    childAt.setBackgroundResource(this.y);
-                    if (childAt instanceof TextView) {
-                        TextView textView = (TextView) childAt;
-                        textView.setTextSize(0, this.u);
-                        textView.setTypeface(this.v, this.w);
-                        if (i == this.f.getCurrentItem()) {
-                            textView.setTextColor(this.l);
-                        } else {
-                            textView.setTextColor(this.m);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, onPageChangeListener) == null) {
-            this.d = onPageChangeListener;
-        }
-    }
-
-    public void setViewPager(ViewPager viewPager) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, viewPager) == null) {
-            this.f = viewPager;
-            if (viewPager.getAdapter() == null) {
-                return;
-            }
-            viewPager.setOnPageChangeListener(this.c);
-            m();
         }
     }
 
@@ -605,7 +408,216 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
         this.v = null;
         this.w = 0;
         this.x = 0;
-        this.y = R.drawable.obfuscated_res_0x7f080e86;
+        this.y = R.drawable.obfuscated_res_0x7f080e97;
         l();
+    }
+
+    public void n(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.l = SkinManager.getColor(i, this.l);
+            this.m = SkinManager.getColor(i, this.m);
+            p();
+        }
+    }
+
+    @Override // android.widget.HorizontalScrollView, android.view.View
+    public void onRestoreInstanceState(Parcelable parcelable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, parcelable) == null) {
+            SavedState savedState = (SavedState) parcelable;
+            super.onRestoreInstanceState(savedState.getSuperState());
+            this.h = savedState.currentPosition;
+            requestLayout();
+        }
+    }
+
+    public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, onPageChangeListener) == null) {
+            this.d = onPageChangeListener;
+        }
+    }
+
+    public void setViewPager(ViewPager viewPager) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, viewPager) == null) {
+            this.f = viewPager;
+            if (viewPager.getAdapter() == null) {
+                return;
+            }
+            viewPager.setOnPageChangeListener(this.c);
+            m();
+        }
+    }
+
+    public final void h(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            ImageButton imageButton = new ImageButton(getContext());
+            imageButton.setImageResource(i2);
+            i(i, imageButton);
+        }
+    }
+
+    public final void j(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
+            TextView textView = new TextView(getContext());
+            textView.setText(str);
+            textView.setGravity(17);
+            textView.setSingleLine();
+            i(i, textView);
+        }
+    }
+
+    public final void o(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeII(1048583, this, i, i2) != null) || this.g == 0) {
+            return;
+        }
+        int left = this.e.getChildAt(i).getLeft() + i2;
+        if (i > 0 || i2 > 0) {
+            left -= this.n;
+        }
+        if (left != this.x) {
+            this.x = left;
+            scrollTo(left, 0);
+        }
+    }
+
+    public final void i(int i, View view2) {
+        LinearLayout.LayoutParams layoutParams;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, view2) == null) {
+            view2.setFocusable(true);
+            view2.setOnClickListener(new b(this, i));
+            view2.setPadding(this.p, this.q, this.r, this.s);
+            LinearLayout linearLayout = this.e;
+            if (this.k) {
+                layoutParams = this.b;
+            } else {
+                layoutParams = this.a;
+            }
+            linearLayout.addView(view2, i, layoutParams);
+        }
+    }
+
+    public void k(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9)}) == null) {
+            this.u = i;
+            this.p = i2;
+            this.q = i3;
+            this.r = i4;
+            this.s = i5;
+            this.o = i6;
+            this.t = i7;
+            this.m = i8;
+            this.l = i9;
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            setFillViewport(true);
+            setWillNotDraw(false);
+            LinearLayout linearLayout = new LinearLayout(getContext());
+            this.e = linearLayout;
+            linearLayout.setOrientation(0);
+            this.e.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            addView(this.e);
+            Paint paint = new Paint();
+            this.j = paint;
+            paint.setAntiAlias(true);
+            this.j.setStyle(Paint.Style.FILL);
+            this.a = new LinearLayout.LayoutParams(-2, -1);
+            this.b = new LinearLayout.LayoutParams(0, -1, 1.0f);
+        }
+    }
+
+    public final void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            for (int i = 0; i < this.g; i++) {
+                View childAt = this.e.getChildAt(i);
+                if (childAt != null) {
+                    childAt.setBackgroundResource(this.y);
+                    if (childAt instanceof TextView) {
+                        TextView textView = (TextView) childAt;
+                        textView.setTextSize(0, this.u);
+                        textView.setTypeface(this.v, this.w);
+                        if (i == this.f.getCurrentItem()) {
+                            textView.setTextColor(this.l);
+                        } else {
+                            textView.setTextColor(this.m);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void m() {
+        ViewPager viewPager;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (viewPager = this.f) != null && viewPager.getAdapter() != null && this.f.getAdapter().getCount() != 0) {
+            this.e.removeAllViews();
+            this.g = this.f.getAdapter().getCount();
+            for (int i = 0; i < this.g; i++) {
+                if (this.f.getAdapter() instanceof c) {
+                    h(i, ((c) this.f.getAdapter()).a(i));
+                } else {
+                    j(i, this.f.getAdapter().getPageTitle(i).toString());
+                }
+            }
+            p();
+            getViewTreeObserver().addOnGlobalLayoutListener(new a(this));
+        }
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, canvas) == null) {
+            super.onDraw(canvas);
+            if (isInEditMode() || this.g == 0 || this.e.getChildCount() <= 1) {
+                return;
+            }
+            int height = getHeight();
+            this.j.setColor(this.l);
+            View childAt = this.e.getChildAt(this.h);
+            float left = childAt.getLeft();
+            float right = childAt.getRight();
+            if (this.i > 0.0f && (i = this.h) < this.g - 1) {
+                View childAt2 = this.e.getChildAt(i + 1);
+                float f = this.i;
+                left = (childAt2.getLeft() * f) + ((1.0f - f) * left);
+                right = (childAt2.getRight() * f) + ((1.0f - f) * right);
+            }
+            float f2 = right;
+            float f3 = left;
+            float f4 = f2 - f3;
+            int i2 = this.t;
+            if (f4 < i2) {
+                canvas.drawRect(f3, height - this.o, f2, height, this.j);
+            } else {
+                canvas.drawRect(f3 + ((f4 - i2) / 2.0f), height - this.o, f2 - ((f4 - i2) / 2.0f), height, this.j);
+            }
+        }
+    }
+
+    @Override // android.widget.HorizontalScrollView, android.view.View
+    public Parcelable onSaveInstanceState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            SavedState savedState = new SavedState(super.onSaveInstanceState());
+            savedState.currentPosition = this.h;
+            return savedState;
+        }
+        return (Parcelable) invokeV.objValue;
     }
 }

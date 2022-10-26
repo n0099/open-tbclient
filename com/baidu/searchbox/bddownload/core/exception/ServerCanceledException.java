@@ -36,6 +36,9 @@ public class ServerCanceledException extends IOException {
     public int getResponseCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.responseCode : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.responseCode;
+        }
+        return invokeV.intValue;
     }
 }

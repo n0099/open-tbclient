@@ -29,36 +29,6 @@ public class NoOpPoolStatsTracker implements PoolStatsTracker {
         }
     }
 
-    public NoOpPoolStatsTracker() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static synchronized NoOpPoolStatsTracker getInstance() {
-        InterceptResult invokeV;
-        NoOpPoolStatsTracker noOpPoolStatsTracker;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (NoOpPoolStatsTracker.class) {
-                if (sInstance == null) {
-                    sInstance = new NoOpPoolStatsTracker();
-                }
-                noOpPoolStatsTracker = sInstance;
-            }
-            return noOpPoolStatsTracker;
-        }
-        return (NoOpPoolStatsTracker) invokeV.objValue;
-    }
-
     @Override // com.facebook.imagepipeline.memory.PoolStatsTracker
     public void onAlloc(int i) {
         Interceptable interceptable = $ic;
@@ -106,5 +76,35 @@ public class NoOpPoolStatsTracker implements PoolStatsTracker {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, basePool) == null) {
         }
+    }
+
+    public NoOpPoolStatsTracker() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static synchronized NoOpPoolStatsTracker getInstance() {
+        InterceptResult invokeV;
+        NoOpPoolStatsTracker noOpPoolStatsTracker;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (NoOpPoolStatsTracker.class) {
+                if (sInstance == null) {
+                    sInstance = new NoOpPoolStatsTracker();
+                }
+                noOpPoolStatsTracker = sInstance;
+            }
+            return noOpPoolStatsTracker;
+        }
+        return (NoOpPoolStatsTracker) invokeV.objValue;
     }
 }

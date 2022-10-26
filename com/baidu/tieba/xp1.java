@@ -1,7 +1,8 @@
 package com.baidu.tieba;
+
+import android.app.Activity;
+import android.content.Intent;
 /* loaded from: classes6.dex */
 public interface xp1 {
-    void a(n22 n22Var);
-
-    void b(n22 n22Var);
+    void onActivityResult(Activity activity, int i, int i2, Intent intent);
 }

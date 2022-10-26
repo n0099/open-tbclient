@@ -11,15 +11,13 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii0;
-import com.baidu.tieba.np0;
-import com.baidu.tieba.oj0;
-import com.baidu.tieba.sk0;
+import com.baidu.tieba.ji0;
+import com.baidu.tieba.op0;
+import com.baidu.tieba.pj0;
+import com.baidu.tieba.tk0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -68,34 +66,35 @@ public class AdDownloadDlgView extends RelativeLayout {
         public void onClick(View view2) {
             String str;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (this.a.getTag() instanceof np0)) {
-                np0 np0Var = (np0) this.a.getTag();
-                int id = view2.getId();
-                if (id == R.id.obfuscated_res_0x7f0915e6) {
-                    np0.b bVar = np0Var.g;
-                    if (bVar != null) {
-                        str = bVar.b;
-                    }
-                    str = "";
-                } else {
-                    if (id == R.id.obfuscated_res_0x7f0915e5) {
-                        np0.a aVar = np0Var.h;
-                        if (aVar != null) {
-                            str = aVar.b;
-                        }
-                    } else if (id == R.id.obfuscated_res_0x7f0915e2 && !TextUtils.isEmpty(np0Var.d)) {
-                        this.a.d(np0Var.d);
-                        return;
-                    }
-                    str = "";
-                }
-                ii0.c(oj0.a().a(str), this.a.getContext());
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !(this.a.getTag() instanceof op0)) {
+                return;
             }
+            op0 op0Var = (op0) this.a.getTag();
+            int id = view2.getId();
+            if (id == R.id.obfuscated_res_0x7f0915d8) {
+                op0.b bVar = op0Var.g;
+                if (bVar != null) {
+                    str = bVar.b;
+                }
+                str = "";
+            } else {
+                if (id == R.id.obfuscated_res_0x7f0915d7) {
+                    op0.a aVar = op0Var.h;
+                    if (aVar != null) {
+                        str = aVar.b;
+                    }
+                } else if (id == R.id.obfuscated_res_0x7f0915d4 && !TextUtils.isEmpty(op0Var.d)) {
+                    this.a.d(op0Var.d);
+                    return;
+                }
+                str = "";
+            }
+            ji0.c(pj0.a().a(str), this.a.getContext());
         }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AdDownloadDlgView(@NonNull Context context) {
+    public AdDownloadDlgView(Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -115,31 +114,59 @@ public class AdDownloadDlgView extends RelativeLayout {
         }
     }
 
-    public void b(sk0 sk0Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public AdDownloadDlgView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sk0Var) == null) {
-            if (sk0Var != null && sk0Var.b != null) {
-                this.i.setText(sk0Var.c);
-                this.i.setVisibility(sk0Var.a != 2 ? 0 : 8);
-                np0 np0Var = sk0Var.b;
-                setTag(np0Var);
-                this.b.g(np0Var.b);
-                this.c.setText(np0Var.c);
-                this.d.setText(np0Var.i);
-                this.e.setText(np0Var.d);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.k = new a(this);
+        c(context);
+    }
+
+    public void b(tk0 tk0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, tk0Var) == null) {
+            int i = 8;
+            if (tk0Var != null && tk0Var.b != null) {
+                this.i.setText(tk0Var.c);
+                TextView textView = this.i;
+                if (tk0Var.a != 2) {
+                    i = 0;
+                }
+                textView.setVisibility(i);
+                op0 op0Var = tk0Var.b;
+                setTag(op0Var);
+                this.b.g(op0Var.b);
+                this.c.setText(op0Var.c);
+                this.d.setText(op0Var.i);
+                this.e.setText(op0Var.d);
                 this.e.setOnClickListener(this.k);
-                this.f.setText(np0Var.f);
-                np0.b bVar = np0Var.g;
+                this.f.setText(op0Var.f);
+                op0.b bVar = op0Var.g;
                 if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(bVar.a)) {
                     this.g.setText(bVar.a);
                     this.g.setOnClickListener(this.k);
                 }
-                np0.a aVar = np0Var.h;
-                if (aVar == null || TextUtils.isEmpty(aVar.b) || TextUtils.isEmpty(aVar.a)) {
+                op0.a aVar = op0Var.h;
+                if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(aVar.a)) {
+                    this.h.setText(aVar.a);
+                    this.h.setOnClickListener(this.k);
                     return;
                 }
-                this.h.setText(aVar.a);
-                this.h.setOnClickListener(this.k);
                 return;
             }
             setVisibility(8);
@@ -150,26 +177,26 @@ public class AdDownloadDlgView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05e9, this);
-            this.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0915e0);
-            this.b = (AdImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0915e4);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915dd);
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915de);
-            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915e2);
-            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915df);
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915e6);
-            this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915e5);
-            this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915e9);
-            this.j = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0915e1);
+            this.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0915d2);
+            this.b = (AdImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0915d6);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915cf);
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915d0);
+            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915d4);
+            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915d1);
+            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915d8);
+            this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915d7);
+            this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915db);
+            this.j = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0915d3);
         }
     }
 
     public final void d(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || TextUtils.isEmpty(str)) {
             return;
         }
         View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05ea, (ViewGroup) null);
-        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915dc)).setText(str);
+        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915ce)).setText(str);
         Toast toast = new Toast(getContext());
         toast.setGravity(81, 0, (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070554));
         toast.setView(inflate);
@@ -191,28 +218,5 @@ public class AdDownloadDlgView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
             this.a.setOnClickListener(onClickListener);
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AdDownloadDlgView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.k = new a(this);
-        c(context);
     }
 }

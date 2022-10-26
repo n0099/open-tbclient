@@ -9,9 +9,8 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SpecHotTopicHelper;
-import com.baidu.tieba.Cdo;
-import com.baidu.tieba.nf8;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.qs4;
+import com.baidu.tieba.xf8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,8 +31,8 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BannerListData bannerListData;
-    public ArrayList<Cdo> threadList;
-    public HashMap<String, MetaData> userMap;
+    public ArrayList threadList;
+    public HashMap userMap;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LoadMoreHttpResponseMessage(int i) {
@@ -55,18 +54,6 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
         }
     }
 
-    public BannerListData getBannerListData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.bannerListData : (BannerListData) invokeV.objValue;
-    }
-
-    public ArrayList<Cdo> getThreadList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.threadList : (ArrayList) invokeV.objValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
@@ -77,14 +64,14 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             ThreadListResIdl threadListResIdl = (ThreadListResIdl) new Wire(new Class[0]).parseFrom(bArr, ThreadListResIdl.class);
-            if (threadListResIdl == null || (error = threadListResIdl.error) == null) {
-                return;
-            }
-            setError(error.errorno.intValue());
-            setErrorString(threadListResIdl.error.usermsg);
-            if (getError() == 0 && (dataRes = threadListResIdl.data) != null) {
+            if (threadListResIdl != null && (error = threadListResIdl.error) != null) {
+                setError(error.errorno.intValue());
+                setErrorString(threadListResIdl.error.usermsg);
+                if (getError() != 0 || (dataRes = threadListResIdl.data) == null) {
+                    return;
+                }
                 if (ListUtils.getCount(dataRes.user_list) > 0) {
-                    this.userMap = new HashMap<>();
+                    this.userMap = new HashMap();
                     List<User> list = threadListResIdl.data.user_list;
                     if (list != null) {
                         for (int i2 = 0; i2 < list.size(); i2++) {
@@ -99,17 +86,17 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                 }
                 long j = 0;
                 Message<?> orginalMessage2 = getOrginalMessage();
-                if (orginalMessage2 == null || !(orginalMessage2.getExtra() instanceof LoadMoreRequestMessage)) {
-                    z = false;
-                } else {
+                if (orginalMessage2 != null && (orginalMessage2.getExtra() instanceof LoadMoreRequestMessage)) {
                     LoadMoreRequestMessage loadMoreRequestMessage = (LoadMoreRequestMessage) orginalMessage2.getExtra();
                     boolean isBrandForum = loadMoreRequestMessage.isBrandForum();
                     long forumId = loadMoreRequestMessage.getForumId();
                     z = isBrandForum;
                     j = forumId;
+                } else {
+                    z = false;
                 }
                 if (ListUtils.getCount(threadListResIdl.data.thread_list) > 0) {
-                    this.threadList = new ArrayList<>();
+                    this.threadList = new ArrayList();
                     List<ThreadInfo> list2 = threadListResIdl.data.thread_list;
                     if (list2 != null) {
                         ArrayList arrayList = new ArrayList();
@@ -122,31 +109,48 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                             threadData.parser_title();
                             threadData.isFromBrandForum = z;
                             if (!TextUtils.isEmpty(threadData.getLegoCard())) {
-                                os4 os4Var = new os4();
-                                os4Var.h(threadData.getLegoCard());
-                                this.threadList.add(os4Var);
+                                qs4 qs4Var = new qs4();
+                                qs4Var.h(threadData.getLegoCard());
+                                this.threadList.add(qs4Var);
                             } else {
                                 this.threadList.add(threadData);
-                                JSONObject b = nf8.b(threadInfo);
+                                JSONObject b = xf8.b(threadInfo);
                                 if (b != null) {
                                     arrayList.add(b);
                                 }
                             }
                         }
-                        nf8.f().h("FRS", arrayList);
+                        xf8.f().h("FRS", arrayList);
                     }
                 }
                 this.bannerListData = null;
-                if (threadListResIdl.data.banner_list == null || (orginalMessage = getOrginalMessage()) == null || orginalMessage.getExtra() == null || !(orginalMessage.getExtra() instanceof LoadMoreRequestMessage)) {
-                    return;
-                }
-                LoadMoreRequestMessage loadMoreRequestMessage2 = (LoadMoreRequestMessage) orginalMessage.getExtra();
-                if (loadMoreRequestMessage2.getPageType() == 1 || loadMoreRequestMessage2.getPageType() == 2 || loadMoreRequestMessage2.getPageType() == 3) {
-                    BannerListData bannerListData = new BannerListData();
-                    this.bannerListData = bannerListData;
-                    bannerListData.parserProtobuf(threadListResIdl.data.banner_list);
+                if (threadListResIdl.data.banner_list != null && (orginalMessage = getOrginalMessage()) != null && orginalMessage.getExtra() != null && (orginalMessage.getExtra() instanceof LoadMoreRequestMessage)) {
+                    LoadMoreRequestMessage loadMoreRequestMessage2 = (LoadMoreRequestMessage) orginalMessage.getExtra();
+                    if (loadMoreRequestMessage2.getPageType() == 1 || loadMoreRequestMessage2.getPageType() == 2 || loadMoreRequestMessage2.getPageType() == 3) {
+                        BannerListData bannerListData = new BannerListData();
+                        this.bannerListData = bannerListData;
+                        bannerListData.parserProtobuf(threadListResIdl.data.banner_list);
+                    }
                 }
             }
         }
+    }
+
+    public BannerListData getBannerListData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.bannerListData;
+        }
+        return (BannerListData) invokeV.objValue;
+    }
+
+    public ArrayList getThreadList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.threadList;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 }

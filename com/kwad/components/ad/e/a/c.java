@@ -11,7 +11,7 @@ import org.json.JSONObject;
 public final class c extends com.kwad.components.ad.e.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Integer> bv;
+    public List bv;
     public volatile boolean bw;
 
     public c() {
@@ -35,7 +35,7 @@ public final class c extends com.kwad.components.ad.e.kwai.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(65542, this, j) == null) {
             int ceil = (int) Math.ceil(((float) j) / 1000.0f);
-            List<Integer> list = this.bv;
+            List list = this.bv;
             if (list == null || list.isEmpty()) {
                 return;
             }

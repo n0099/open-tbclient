@@ -1,6 +1,5 @@
 package com.google.android.gms.common;
 
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,11 +13,30 @@ import java.util.List;
 public final class zzx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public String zza;
     public long zzb;
-    public zzag<byte[]> zzc;
-    public zzag<byte[]> zzd;
+    public zzag zzc;
+    public zzag zzd;
+
+    public final zzx zza(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            this.zzb = j;
+            return this;
+        }
+        return (zzx) invokeJ.objValue;
+    }
+
+    public final zzx zzd(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            this.zza = str;
+            return this;
+        }
+        return (zzx) invokeL.objValue;
+    }
 
     public zzx() {
         Interceptable interceptable = $ic;
@@ -39,17 +57,7 @@ public final class zzx {
         this.zzd = zzag.zzl();
     }
 
-    public final zzx zza(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            this.zzb = j;
-            return this;
-        }
-        return (zzx) invokeJ.objValue;
-    }
-
-    public final zzx zzb(List<byte[]> list) {
+    public final zzx zzb(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
@@ -60,22 +68,12 @@ public final class zzx {
         return (zzx) invokeL.objValue;
     }
 
-    public final zzx zzc(List<byte[]> list) {
+    public final zzx zzc(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
             Preconditions.checkNotNull(list);
             this.zzc = zzag.zzk(list);
-            return this;
-        }
-        return (zzx) invokeL.objValue;
-    }
-
-    public final zzx zzd(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.zza = str;
             return this;
         }
         return (zzx) invokeL.objValue;

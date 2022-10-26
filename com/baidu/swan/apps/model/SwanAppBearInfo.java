@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.process.SwanAppIPCData;
-import com.baidu.tieba.vj1;
+import com.baidu.tieba.wj1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +26,7 @@ public class SwanAppBearInfo extends SwanAppIPCData {
     public static final String BEAR_NAME = "name";
     public static final String BEAR_URL = "url";
     public static final String BEAR_VIP_TYPE = "v_type";
-    public static final Parcelable.Creator<SwanAppBearInfo> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final boolean DEBUG;
     public transient /* synthetic */ FieldHolder $fh;
     public String bearDesc;
@@ -36,8 +36,18 @@ public class SwanAppBearInfo extends SwanAppIPCData {
     public String bearName;
     public String bearVipType;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes2.dex */
-    public static class a implements Parcelable.Creator<SwanAppBearInfo> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -61,7 +71,10 @@ public class SwanAppBearInfo extends SwanAppIPCData {
         public SwanAppBearInfo createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new SwanAppBearInfo(parcel, null) : (SwanAppBearInfo) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new SwanAppBearInfo(parcel, null);
+            }
+            return (SwanAppBearInfo) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,7 +83,10 @@ public class SwanAppBearInfo extends SwanAppIPCData {
         public SwanAppBearInfo[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new SwanAppBearInfo[i] : (SwanAppBearInfo[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new SwanAppBearInfo[i];
+            }
+            return (SwanAppBearInfo[]) invokeI.objValue;
         }
     }
 
@@ -87,41 +103,8 @@ public class SwanAppBearInfo extends SwanAppIPCData {
                 return;
             }
         }
-        DEBUG = vj1.a;
+        DEBUG = wj1.a;
         CREATOR = new a();
-    }
-
-    public /* synthetic */ SwanAppBearInfo(Parcel parcel, a aVar) {
-        this(parcel);
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !TextUtils.isEmpty(this.bearId) : invokeV.booleanValue;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
-            parcel.writeString(this.bearId);
-            parcel.writeString(this.bearName);
-            parcel.writeString(this.bearLogo);
-            parcel.writeString(this.bearHomeUrl);
-            parcel.writeString(this.bearDesc);
-            parcel.writeString(this.bearVipType);
-        }
     }
 
     public SwanAppBearInfo() {
@@ -143,6 +126,15 @@ public class SwanAppBearInfo extends SwanAppIPCData {
         this.bearHomeUrl = "";
         this.bearDesc = "";
         this.bearVipType = "";
+    }
+
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return !TextUtils.isEmpty(this.bearId);
+        }
+        return invokeV.booleanValue;
     }
 
     public SwanAppBearInfo(Parcel parcel) {
@@ -174,6 +166,23 @@ public class SwanAppBearInfo extends SwanAppIPCData {
         this.bearVipType = parcel.readString();
     }
 
+    public /* synthetic */ SwanAppBearInfo(Parcel parcel, a aVar) {
+        this(parcel);
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
+            parcel.writeString(this.bearId);
+            parcel.writeString(this.bearName);
+            parcel.writeString(this.bearLogo);
+            parcel.writeString(this.bearHomeUrl);
+            parcel.writeString(this.bearDesc);
+            parcel.writeString(this.bearVipType);
+        }
+    }
+
     public SwanAppBearInfo(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -195,20 +204,19 @@ public class SwanAppBearInfo extends SwanAppIPCData {
         this.bearHomeUrl = "";
         this.bearDesc = "";
         this.bearVipType = "";
-        if (TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            this.bearId = jSONObject.optString(BEAR_ID);
-            this.bearDesc = jSONObject.optString("sign");
-            this.bearHomeUrl = jSONObject.optString("url");
-            this.bearLogo = jSONObject.optString("avatar");
-            this.bearName = jSONObject.optString("name");
-            this.bearVipType = jSONObject.optString(BEAR_VIP_TYPE);
-        } catch (JSONException e) {
-            if (DEBUG) {
-                e.printStackTrace();
+        if (!TextUtils.isEmpty(str)) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                this.bearId = jSONObject.optString(BEAR_ID);
+                this.bearDesc = jSONObject.optString("sign");
+                this.bearHomeUrl = jSONObject.optString("url");
+                this.bearLogo = jSONObject.optString("avatar");
+                this.bearName = jSONObject.optString("name");
+                this.bearVipType = jSONObject.optString(BEAR_VIP_TYPE);
+            } catch (JSONException e) {
+                if (DEBUG) {
+                    e.printStackTrace();
+                }
             }
         }
     }

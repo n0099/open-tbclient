@@ -17,9 +17,8 @@ public final class ArraysKt___ArraysKt$withIndex$5 extends Lambda implements Fun
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Return type fixed from 'java.util.Iterator<java.lang.Long>' to match base method */
     @Override // kotlin.jvm.functions.Function0
-    public final Iterator<? extends Long> invoke() {
+    public final Iterator<Long> invoke() {
         return ArrayIteratorsKt.iterator(this.$this_withIndex);
     }
 }

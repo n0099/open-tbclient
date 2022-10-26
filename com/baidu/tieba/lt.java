@@ -1,15 +1,17 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.framework.ui.toast.ToastViewData;
-import com.baidu.tieba.kt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public abstract class lt<VM extends kt<? extends ToastViewData>> implements et<ToastViewData, VM> {
+public class lt implements gt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final it a;
 
     public lt() {
         Interceptable interceptable = $ic;
@@ -21,7 +23,25 @@ public abstract class lt<VM extends kt<? extends ToastViewData>> implements et<T
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = new it();
+    }
+
+    public ht a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (ht) invokeV.objValue;
+    }
+
+    public void b(ToastViewData toastViewData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, toastViewData) == null) {
+            this.a.o(toastViewData);
         }
     }
 }

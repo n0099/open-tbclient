@@ -5,9 +5,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class OnSelectionChangedListener<S> {
+public abstract class OnSelectionChangedListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public void onIncompleteSelectionChanged() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    public abstract void onSelectionChanged(Object obj);
 
     public OnSelectionChangedListener() {
         Interceptable interceptable = $ic;
@@ -22,12 +30,4 @@ public abstract class OnSelectionChangedListener<S> {
             }
         }
     }
-
-    public void onIncompleteSelectionChanged() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    public abstract void onSelectionChanged(S s);
 }

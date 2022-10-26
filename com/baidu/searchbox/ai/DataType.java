@@ -21,7 +21,7 @@ public final class DataType {
     public static final DataType INT64;
     public static final DataType STRING;
     public static final DataType UINT8;
-    public static HashMap<Class<?>, DataType> classDataTypes;
+    public static HashMap classDataTypes;
     public transient /* synthetic */ FieldHolder $fh;
     public final int value;
 
@@ -47,7 +47,7 @@ public final class DataType {
         DataType dataType = new DataType("BOOL", 6, 7);
         BOOL = dataType;
         $VALUES = new DataType[]{FLOAT, DOUBLE, INT32, INT64, UINT8, STRING, dataType};
-        HashMap<Class<?>, DataType> hashMap = new HashMap<>();
+        HashMap hashMap = new HashMap();
         classDataTypes = hashMap;
         hashMap.put(Integer.TYPE, INT32);
         classDataTypes.put(Integer.class, INT32);
@@ -92,7 +92,7 @@ public final class DataType {
             while (cls.isArray()) {
                 cls = cls.getComponentType();
             }
-            DataType dataType = classDataTypes.get(cls);
+            DataType dataType = (DataType) classDataTypes.get(cls);
             if (dataType != null) {
                 return dataType;
             }
@@ -104,18 +104,27 @@ public final class DataType {
     public static DataType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (DataType) Enum.valueOf(DataType.class, str) : (DataType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (DataType) Enum.valueOf(DataType.class, str);
+        }
+        return (DataType) invokeL.objValue;
     }
 
     public static DataType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (DataType[]) $VALUES.clone() : (DataType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return (DataType[]) $VALUES.clone();
+        }
+        return (DataType[]) invokeV.objValue;
     }
 
     public int value() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.value;
+        }
+        return invokeV.intValue;
     }
 }

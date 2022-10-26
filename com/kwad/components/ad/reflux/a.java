@@ -1,6 +1,5 @@
 package com.kwad.components.ad.reflux;
 
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,13 +13,13 @@ import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes7.dex */
 public final class a extends com.kwad.sdk.core.download.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int itemType;
-    @Nullable
     public b kW;
     public int kX;
     public String kY;
@@ -32,17 +31,17 @@ public final class a extends com.kwad.sdk.core.download.kwai.a {
     public int le;
     public int lf;
     public int lg;
-    public InterfaceC0539a lh;
+    public InterfaceC0535a lh;
     public c mApkDownloadHelper;
     public String title;
 
     /* renamed from: com.kwad.components.ad.reflux.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC0539a {
+    public interface InterfaceC0535a {
         void eF();
     }
 
-    public a(@Nullable b bVar) {
+    public a(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -83,7 +82,7 @@ public final class a extends com.kwad.sdk.core.download.kwai.a {
         return (a) invokeL.objValue;
     }
 
-    public static List<a> b(List<b> list, List<c> list2) {
+    public static List b(List list, List list2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, list, list2)) == null) {
@@ -94,9 +93,10 @@ public final class a extends com.kwad.sdk.core.download.kwai.a {
                 }
                 arrayList = new ArrayList();
                 int i = 0;
-                for (b bVar : list) {
-                    a a = a(bVar);
-                    a.setApkDownloadHelper(list2.get(i));
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    a a = a((b) it.next());
+                    a.setApkDownloadHelper((c) list2.get(i));
                     a.le = i;
                     arrayList.add(a);
                     i++;
@@ -108,12 +108,12 @@ public final class a extends com.kwad.sdk.core.download.kwai.a {
     }
 
     private void eU() {
-        InterfaceC0539a interfaceC0539a;
+        InterfaceC0535a interfaceC0535a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (interfaceC0539a = this.lh) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (interfaceC0535a = this.lh) == null) {
             return;
         }
-        interfaceC0539a.eF();
+        interfaceC0535a.eF();
     }
 
     private void setApkDownloadHelper(c cVar) {
@@ -130,10 +130,10 @@ public final class a extends com.kwad.sdk.core.download.kwai.a {
         }
     }
 
-    public final void a(InterfaceC0539a interfaceC0539a) {
+    public final void a(InterfaceC0535a interfaceC0535a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0539a) == null) {
-            this.lh = interfaceC0539a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0535a) == null) {
+            this.lh = interfaceC0535a;
         }
     }
 

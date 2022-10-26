@@ -1,6 +1,5 @@
 package com.baidu.ufosdk.hybrid.base;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
@@ -13,12 +12,12 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ufosdk.R;
 import com.baidu.ufosdk.p1;
 /* loaded from: classes6.dex */
 public class FeedbackTitleBar extends LinearLayout {
@@ -53,30 +52,7 @@ public class FeedbackTitleBar extends LinearLayout {
         a();
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.common_titlebar_layout, (ViewGroup) this, true);
-            this.b = (RelativeLayout) inflate.findViewById(R.id.titlebar_content);
-            this.c = (LinearLayout) inflate.findViewById(R.id.navi_back_layout);
-            ImageView imageView = (ImageView) inflate.findViewById(R.id.navi_back_image);
-            TextView textView = (TextView) inflate.findViewById(R.id.navi_back_text);
-            this.d = (TextView) inflate.findViewById(R.id.navi_title);
-            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.navi_extend_layout);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.navi_extend_btn);
-            this.e = textView2;
-            textView2.setTextColor(p1.a(-10066330, -5262406, -10066330, -10066330));
-            ImageView imageView2 = (ImageView) inflate.findViewById(R.id.navi_extend_hint);
-            inflate.findViewById(R.id.navi_divider);
-            this.f = (ProgressBar) inflate.findViewById(R.id.common_progressbar);
-            setBackgroundColor(-65536);
-            setGravity(16);
-            setOrientation(0);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @SuppressLint({"CustomViewStyleable"})
     public FeedbackTitleBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
@@ -96,7 +72,7 @@ public class FeedbackTitleBar extends LinearLayout {
             }
         }
         this.a = context;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.ufosdk.R.styleable.UFOTitleBar);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.UFOTitleBar);
         CharSequence text = obtainStyledAttributes.getText(1);
         obtainStyledAttributes.recycle();
         a();
@@ -113,5 +89,27 @@ public class FeedbackTitleBar extends LinearLayout {
             return this;
         }
         return (FeedbackTitleBar) invokeL.objValue;
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            View inflate = LayoutInflater.from(this.a).inflate(com.baidu.tieba.R.layout.common_titlebar_layout, (ViewGroup) this, true);
+            this.b = (RelativeLayout) inflate.findViewById(com.baidu.tieba.R.id.titlebar_content);
+            this.c = (LinearLayout) inflate.findViewById(com.baidu.tieba.R.id.navi_back_layout);
+            ImageView imageView = (ImageView) inflate.findViewById(com.baidu.tieba.R.id.navi_back_image);
+            TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.R.id.navi_back_text);
+            this.d = (TextView) inflate.findViewById(com.baidu.tieba.R.id.navi_title);
+            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(com.baidu.tieba.R.id.navi_extend_layout);
+            TextView textView2 = (TextView) inflate.findViewById(com.baidu.tieba.R.id.navi_extend_btn);
+            this.e = textView2;
+            textView2.setTextColor(p1.a(-10066330, -5262406, -10066330, -10066330));
+            ImageView imageView2 = (ImageView) inflate.findViewById(com.baidu.tieba.R.id.navi_extend_hint);
+            inflate.findViewById(com.baidu.tieba.R.id.navi_divider);
+            this.f = (ProgressBar) inflate.findViewById(com.baidu.tieba.R.id.common_progressbar);
+            setBackgroundColor(-65536);
+            setGravity(16);
+            setOrientation(0);
+        }
     }
 }

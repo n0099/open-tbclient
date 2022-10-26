@@ -9,6 +9,8 @@ public abstract class PluginBaseDelegation extends ActivityDelegation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract String getPluginPackageName();
+
     public PluginBaseDelegation() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -22,6 +24,4 @@ public abstract class PluginBaseDelegation extends ActivityDelegation {
             }
         }
     }
-
-    public abstract String getPluginPackageName();
 }

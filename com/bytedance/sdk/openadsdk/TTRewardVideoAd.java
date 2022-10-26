@@ -40,7 +40,7 @@ public interface TTRewardVideoAd extends TTClientBidding {
 
     int getInteractionType();
 
-    Map<String, Object> getMediaExtraInfo();
+    Map getMediaExtraInfo();
 
     int getRewardVideoAdType();
 

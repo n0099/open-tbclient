@@ -25,10 +25,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.schemeaction.SchemeActionHelper;
-import com.baidu.tieba.aq4;
-import com.baidu.tieba.aw4;
+import com.baidu.tieba.bq4;
+import com.baidu.tieba.cw4;
+import com.baidu.tieba.gw4;
 import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.wv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +38,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
+public class YunPushProxyActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -97,161 +97,203 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
     */
     public void onCreate(Bundle bundle) {
         String str;
+        String str2;
+        String str3;
         int i;
-        int optInt;
         int i2;
         int i3;
         int i4;
-        String str2;
-        String str3;
         int i5;
         int i6;
+        String str4;
+        String str5;
         int i7;
         int i8;
-        Matcher matcher;
         int i9;
+        int i10;
+        Matcher matcher;
+        int i11;
+        int i12;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_MID_ACTIVITY_ONCREATE_START_STAMP_KEY);
-            wv4.u(this);
+            cw4.u(this);
             super.onCreate(bundle);
             try {
                 Intent intent = getIntent();
                 if (intent != null) {
                     String uri = intent.getData().toString();
-                    wv4.s(uri, false);
+                    cw4.s(uri, false);
                     if (uri.contains("tbyunpushnotifybody=")) {
                         JSONObject jSONObject = new JSONObject(uri.substring(uri.indexOf("tbyunpushnotifybody=") + 20));
-                        String string = !jSONObject.isNull("task_id") ? jSONObject.getString("task_id") : "";
-                        String string2 = !jSONObject.isNull("service_id") ? jSONObject.getString("service_id") : "";
+                        if (jSONObject.isNull("task_id")) {
+                            str = "";
+                        } else {
+                            str = jSONObject.getString("task_id");
+                        }
+                        if (jSONObject.isNull("service_id")) {
+                            str2 = "";
+                        } else {
+                            str2 = jSONObject.getString("service_id");
+                        }
                         if (!jSONObject.isNull("jump_scheme")) {
-                            str = jSONObject.getString("jump_scheme");
-                            if (Uri.parse(str).isOpaque()) {
-                                if (aq4.e()) {
-                                    throw new IllegalStateException(str + "：scheme 格式非法");
+                            str3 = jSONObject.getString("jump_scheme");
+                            if (Uri.parse(str3).isOpaque()) {
+                                if (bq4.e()) {
+                                    throw new IllegalStateException(str3 + "：scheme 格式非法");
                                 }
                             }
-                            if (!StringUtils.isNull(str)) {
-                                if (!str.equals(UrlSchemaHelper.JUMP_TO_CHAT) && !str.startsWith(UrlSchemaHelper.SCHEMA_FANS_PAGE)) {
-                                    if (str.contains(UrlSchemaHelper.GOTO_OFFICIAL_CHAT)) {
+                            if (!StringUtils.isNull(str3)) {
+                                if (!str3.equals(UrlSchemaHelper.JUMP_TO_CHAT) && !str3.startsWith(UrlSchemaHelper.SCHEMA_FANS_PAGE)) {
+                                    if (str3.contains(UrlSchemaHelper.GOTO_OFFICIAL_CHAT)) {
                                         i = 2;
-                                    } else if (str.contains(UrlSchemaHelper.GOTO_PERSONAL_CHAT)) {
+                                    } else if (str3.contains(UrlSchemaHelper.GOTO_PERSONAL_CHAT)) {
                                         i = 3;
-                                    } else if (str.startsWith(UrlSchemaHelper.SCHEMA_REPLY_ME)) {
+                                    } else if (str3.startsWith(UrlSchemaHelper.SCHEMA_REPLY_ME)) {
                                         i = 10;
-                                    } else if (str.startsWith(UrlSchemaHelper.SCHEMA_AGREE_ME)) {
+                                    } else if (str3.startsWith(UrlSchemaHelper.SCHEMA_AGREE_ME)) {
                                         i = 11;
-                                    } else if (str.startsWith(UrlSchemaHelper.SCHEMA_AT_ME)) {
+                                    } else if (str3.startsWith(UrlSchemaHelper.SCHEMA_AT_ME)) {
                                         i = 12;
-                                    } else if (str.startsWith("flt://SignTogetherPage")) {
+                                    } else if (str3.startsWith("flt://SignTogetherPage")) {
                                         i = 14;
                                     }
-                                    optInt = jSONObject.isNull(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION) ? jSONObject.optInt(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION) : 0;
-                                    int i10 = i;
-                                    String string3 = jSONObject.isNull(MainTabActivityConfig.PUSH_DES_PAGE) ? null : jSONObject.getString(MainTabActivityConfig.PUSH_DES_PAGE);
-                                    if (optInt != 1) {
-                                        i3 = i10;
-                                        i4 = 2;
-                                        i2 = 2;
+                                    String str6 = null;
+                                    if (jSONObject.isNull(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION)) {
+                                        i2 = jSONObject.optInt(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION);
                                     } else {
-                                        i2 = 2;
-                                        i3 = i10;
-                                        i4 = optInt == 2 ? 1 : 0;
+                                        i2 = 0;
                                     }
-                                    int i11 = optInt != i2 ? 1 : 0;
-                                    if (str == null) {
-                                        str2 = string3;
-                                        if (str.contains("type=interaction")) {
-                                            i9 = 2;
-                                        } else if (str.contains("type=recommend")) {
-                                            i9 = 3;
-                                        } else if (str.contains("type=attention-bazhu")) {
-                                            i9 = 4;
-                                        } else {
-                                            i9 = str.contains("type=attention-common") ? 5 : 1;
-                                        }
-                                        if (str.contains("force_jump=frs")) {
-                                            str3 = "pid";
-                                            i7 = 6;
-                                        } else {
-                                            str3 = "pid";
-                                            i7 = str.contains("force_jump=maintab") ? 1 : 0;
-                                        }
-                                        int i12 = i9;
-                                        i5 = optInt;
-                                        i6 = i12;
+                                    if (!jSONObject.isNull(MainTabActivityConfig.PUSH_DES_PAGE)) {
+                                        str6 = jSONObject.getString(MainTabActivityConfig.PUSH_DES_PAGE);
+                                    }
+                                    int i13 = i;
+                                    String str7 = str6;
+                                    if (i2 != 1) {
+                                        i4 = i13;
+                                        i5 = 2;
+                                        i3 = 2;
                                     } else {
-                                        str2 = string3;
-                                        str3 = "pid";
-                                        i5 = optInt;
+                                        i3 = 2;
+                                        i4 = i13;
+                                        if (i2 == 2) {
+                                            i5 = 1;
+                                        } else {
+                                            i5 = 0;
+                                        }
+                                    }
+                                    if (i2 != i3) {
                                         i6 = 1;
-                                        i7 = 0;
-                                    }
-                                    StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.PUSH_CCLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", 2).param("task_id", string).param("service_id", string2).param("shoubai_cuid", TbadkCoreApplication.getInst().getCuidGalaxy2()).param(TiebaStatic.Params.OBJ_TO, str).param("obj_locate", i4).param("obj_param1", i11).param(TiebaStatic.Params.OBJ_PARAM2, i7).param(TiebaStatic.Params.OBJ_PARAM3, i6).param("hdid", TbadkCoreApplication.getInst().getHdid()).param("obj_id", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_ISHOST, 1);
-                                    if (TextUtils.isEmpty(str) && str.contains("HotThreadList")) {
-                                        i8 = 6;
                                     } else {
-                                        if ((!TextUtils.isEmpty(str) || !str.contains("HotInteraction")) && (TextUtils.isEmpty(str) || !str.contains("frs?kw="))) {
-                                            if (TextUtils.isEmpty(str) && str.contains("collect")) {
-                                                i8 = 8;
-                                            } else if (TextUtils.isEmpty(str) && str.contains("push_type=question_answer_invite")) {
-                                                i8 = 15;
+                                        i6 = 0;
+                                    }
+                                    if (str3 == null) {
+                                        str4 = str7;
+                                        if (str3.contains("type=interaction")) {
+                                            i12 = 2;
+                                        } else if (str3.contains("type=recommend")) {
+                                            i12 = 3;
+                                        } else if (str3.contains("type=attention-bazhu")) {
+                                            i12 = 4;
+                                        } else if (str3.contains("type=attention-common")) {
+                                            i12 = 5;
+                                        } else {
+                                            i12 = 1;
+                                        }
+                                        if (str3.contains("force_jump=frs")) {
+                                            str5 = "pid";
+                                            i9 = 6;
+                                        } else {
+                                            str5 = "pid";
+                                            if (str3.contains("force_jump=maintab")) {
+                                                i9 = 1;
                                             } else {
-                                                i8 = (TextUtils.isEmpty(str) && str.contains("push_type=answer_top")) ? 16 : i3;
+                                                i9 = 0;
                                             }
                                         }
-                                        i8 = 7;
+                                        int i14 = i12;
+                                        i7 = i2;
+                                        i8 = i14;
+                                    } else {
+                                        str4 = str7;
+                                        str5 = "pid";
+                                        i7 = i2;
+                                        i8 = 1;
+                                        i9 = 0;
                                     }
-                                    param.param("obj_source", i8);
-                                    matcher = Pattern.compile(UrlSchemaHelper.PB_URL).matcher(str);
+                                    StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.PUSH_CCLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", 2).param("task_id", str).param("service_id", str2).param("shoubai_cuid", TbadkCoreApplication.getInst().getCuidGalaxy2()).param(TiebaStatic.Params.OBJ_TO, str3).param("obj_locate", i5).param("obj_param1", i6).param(TiebaStatic.Params.OBJ_PARAM2, i9).param(TiebaStatic.Params.OBJ_PARAM3, i8).param("hdid", TbadkCoreApplication.getInst().getHdid()).param("obj_id", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_ISHOST, 1);
+                                    if (TextUtils.isEmpty(str3) && str3.contains("HotThreadList")) {
+                                        i10 = 6;
+                                    } else {
+                                        if ((!TextUtils.isEmpty(str3) || !str3.contains("HotInteraction")) && (TextUtils.isEmpty(str3) || !str3.contains("frs?kw="))) {
+                                            if (TextUtils.isEmpty(str3) && str3.contains("collect")) {
+                                                i10 = 8;
+                                            } else if (TextUtils.isEmpty(str3) && str3.contains("push_type=question_answer_invite")) {
+                                                i10 = 15;
+                                            } else if (TextUtils.isEmpty(str3) && str3.contains("push_type=answer_top")) {
+                                                i10 = 16;
+                                            } else {
+                                                i10 = i4;
+                                            }
+                                        }
+                                        i10 = 7;
+                                    }
+                                    param.param("obj_source", i10);
+                                    matcher = Pattern.compile(UrlSchemaHelper.PB_URL).matcher(str3);
                                     if (matcher.find()) {
                                         param.addParam("tid", matcher.group(1));
                                     }
                                     TiebaStatic.log(param);
-                                    TiebaStatic.log(new StatisticItem("PushOptCount").param("obj_param1", !aw4.a().d() ? 1 : 2));
-                                    if (!TextUtils.isEmpty(str)) {
+                                    StatisticItem statisticItem = new StatisticItem("PushOptCount");
+                                    if (!gw4.a().d()) {
+                                        i11 = 1;
+                                    } else {
+                                        i11 = 2;
+                                    }
+                                    TiebaStatic.log(statisticItem.param("obj_param1", i11));
+                                    if (!TextUtils.isEmpty(str3)) {
                                         try {
-                                            str = Uri.parse(str).buildUpon().appendQueryParameter("from_yunpush", "1").build().toString();
+                                            str3 = Uri.parse(str3).buildUpon().appendQueryParameter("from_yunpush", "1").build().toString();
                                         } catch (Exception e) {
                                             BdLog.e(e);
                                         }
-                                        if (aw4.a().d()) {
-                                            aw4.a().i(2);
+                                        if (gw4.a().d()) {
+                                            gw4.a().i(2);
                                         }
-                                        if (z1(str)) {
-                                            int i13 = -1;
-                                            if (str.startsWith(UrlSchemaHelper.SCHEMA_REPLY_ME)) {
+                                        if (y1(str3)) {
+                                            int i15 = -1;
+                                            if (str3.startsWith(UrlSchemaHelper.SCHEMA_REPLY_ME)) {
                                                 StatisticItem param2 = new StatisticItem(TbadkCoreStatisticKey.KEY_MSG_REPLY_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId());
                                                 try {
-                                                    Uri parse = Uri.parse(str);
+                                                    Uri parse = Uri.parse(str3);
                                                     String queryParameter = parse.getQueryParameter("fid");
                                                     String queryParameter2 = parse.getQueryParameter("tid");
-                                                    String str4 = str3;
-                                                    String queryParameter3 = parse.getQueryParameter(str4);
+                                                    String str8 = str5;
+                                                    String queryParameter3 = parse.getQueryParameter(str8);
                                                     param2.param("fid", queryParameter);
-                                                    param2.param(str4, queryParameter3);
+                                                    param2.param(str8, queryParameter3);
                                                     param2.param("tid", queryParameter2);
                                                 } catch (Exception e2) {
                                                     BdLog.e(e2);
                                                 }
                                                 TiebaStatic.log(param2);
-                                                i13 = 3;
+                                                i15 = 3;
                                             }
                                             MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(this);
-                                            mainTabActivityConfig.setTargetScheme(str);
-                                            mainTabActivityConfig.setPushFollowUpAction(i5);
-                                            mainTabActivityConfig.setPushDesPage(str2);
-                                            mainTabActivityConfig.setBottomTab(i13);
+                                            mainTabActivityConfig.setTargetScheme(str3);
+                                            mainTabActivityConfig.setPushFollowUpAction(i7);
+                                            mainTabActivityConfig.setPushDesPage(str4);
+                                            mainTabActivityConfig.setBottomTab(i15);
                                             MessageManager.getInstance().sendMessage(new CustomMessage(2015002, mainTabActivityConfig));
                                         } else {
-                                            GrowthStatsUtil.statisticChannel("push", str);
+                                            GrowthStatsUtil.statisticChannel("push", str3);
                                             Class.forName("com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic");
-                                            UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{str, UrlManager.YUN_PUSH_TAG});
+                                            UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{str3, UrlManager.YUN_PUSH_TAG});
                                         }
-                                        if (str.contains("ForumGradePage")) {
+                                        if (str3.contains("ForumGradePage")) {
                                             StatisticItem param3 = new StatisticItem("c13782").param("uid", TbadkCoreApplication.getCurrentAccountId());
                                             try {
-                                                Uri parse2 = Uri.parse(str);
+                                                Uri parse2 = Uri.parse(str3);
                                                 String queryParameter4 = parse2.getQueryParameter("forum_id");
                                                 String queryParameter5 = parse2.getQueryParameter("obj_type");
                                                 param3.param("fid", queryParameter4);
@@ -261,119 +303,140 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                                             }
                                             TiebaStatic.log(param3);
                                         }
-                                        if (str.contains("unidispatch/hotuserrank")) {
+                                        if (str3.contains("unidispatch/hotuserrank")) {
                                             TiebaStatic.log(new StatisticItem("c13662").param("uid", TbadkCoreApplication.getCurrentAccountId()));
                                         }
-                                        if (str.contains("weeklygodview")) {
+                                        if (str3.contains("weeklygodview")) {
                                             TiebaStatic.log(new StatisticItem("c13691").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_source", 2));
                                         }
-                                        if (str.contains(PbModel.UNIDISPATCH_PB)) {
-                                            Uri parse3 = Uri.parse(str);
+                                        if (str3.contains(PbModel.UNIDISPATCH_PB)) {
+                                            Uri parse3 = Uri.parse(str3);
                                             String queryParameter6 = parse3.getQueryParameter("obj_param1");
                                             String queryParameter7 = parse3.getQueryParameter("tid");
-                                            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_FROM_OUTSIDE);
+                                            StatisticItem statisticItem2 = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_FROM_OUTSIDE);
                                             if (BdUniDispatchSchemeController.PARAM_VIDEO.equals(queryParameter6) || "2".equals(queryParameter6)) {
-                                                statisticItem.param("obj_source", 1);
-                                                statisticItem.param("tid", queryParameter7);
-                                                TiebaStatic.log(statisticItem);
+                                                statisticItem2.param("obj_source", 1);
+                                                statisticItem2.param("tid", queryParameter7);
+                                                TiebaStatic.log(statisticItem2);
                                             }
                                         }
                                     }
                                 }
                                 i = 1;
+                                String str62 = null;
                                 if (jSONObject.isNull(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION)) {
                                 }
-                                int i102 = i;
-                                String string32 = jSONObject.isNull(MainTabActivityConfig.PUSH_DES_PAGE) ? null : jSONObject.getString(MainTabActivityConfig.PUSH_DES_PAGE);
-                                if (optInt != 1) {
+                                if (!jSONObject.isNull(MainTabActivityConfig.PUSH_DES_PAGE)) {
                                 }
-                                if (optInt != i2) {
+                                int i132 = i;
+                                String str72 = str62;
+                                if (i2 != 1) {
                                 }
-                                if (str == null) {
+                                if (i2 != i3) {
                                 }
-                                StatisticItem param4 = new StatisticItem(TbadkCoreStatisticKey.PUSH_CCLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", 2).param("task_id", string).param("service_id", string2).param("shoubai_cuid", TbadkCoreApplication.getInst().getCuidGalaxy2()).param(TiebaStatic.Params.OBJ_TO, str).param("obj_locate", i4).param("obj_param1", i11).param(TiebaStatic.Params.OBJ_PARAM2, i7).param(TiebaStatic.Params.OBJ_PARAM3, i6).param("hdid", TbadkCoreApplication.getInst().getHdid()).param("obj_id", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_ISHOST, 1);
-                                if (TextUtils.isEmpty(str)) {
+                                if (str3 == null) {
                                 }
-                                if (!TextUtils.isEmpty(str)) {
+                                StatisticItem param4 = new StatisticItem(TbadkCoreStatisticKey.PUSH_CCLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", 2).param("task_id", str).param("service_id", str2).param("shoubai_cuid", TbadkCoreApplication.getInst().getCuidGalaxy2()).param(TiebaStatic.Params.OBJ_TO, str3).param("obj_locate", i5).param("obj_param1", i6).param(TiebaStatic.Params.OBJ_PARAM2, i9).param(TiebaStatic.Params.OBJ_PARAM3, i8).param("hdid", TbadkCoreApplication.getInst().getHdid()).param("obj_id", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_ISHOST, 1);
+                                if (TextUtils.isEmpty(str3)) {
                                 }
-                                if (TextUtils.isEmpty(str)) {
+                                if (!TextUtils.isEmpty(str3)) {
                                 }
-                                if (TextUtils.isEmpty(str)) {
+                                if (TextUtils.isEmpty(str3)) {
                                 }
-                                if (TextUtils.isEmpty(str)) {
+                                if (TextUtils.isEmpty(str3)) {
                                 }
-                                param4.param("obj_source", i8);
-                                matcher = Pattern.compile(UrlSchemaHelper.PB_URL).matcher(str);
+                                if (TextUtils.isEmpty(str3)) {
+                                }
+                                i10 = i4;
+                                param4.param("obj_source", i10);
+                                matcher = Pattern.compile(UrlSchemaHelper.PB_URL).matcher(str3);
                                 if (matcher.find()) {
                                 }
                                 TiebaStatic.log(param4);
-                                TiebaStatic.log(new StatisticItem("PushOptCount").param("obj_param1", !aw4.a().d() ? 1 : 2));
-                                if (!TextUtils.isEmpty(str)) {
+                                StatisticItem statisticItem3 = new StatisticItem("PushOptCount");
+                                if (!gw4.a().d()) {
+                                }
+                                TiebaStatic.log(statisticItem3.param("obj_param1", i11));
+                                if (!TextUtils.isEmpty(str3)) {
                                 }
                             }
                             i = 0;
+                            String str622 = null;
                             if (jSONObject.isNull(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION)) {
                             }
-                            int i1022 = i;
-                            String string322 = jSONObject.isNull(MainTabActivityConfig.PUSH_DES_PAGE) ? null : jSONObject.getString(MainTabActivityConfig.PUSH_DES_PAGE);
-                            if (optInt != 1) {
+                            if (!jSONObject.isNull(MainTabActivityConfig.PUSH_DES_PAGE)) {
                             }
-                            if (optInt != i2) {
+                            int i1322 = i;
+                            String str722 = str622;
+                            if (i2 != 1) {
                             }
-                            if (str == null) {
+                            if (i2 != i3) {
                             }
-                            StatisticItem param42 = new StatisticItem(TbadkCoreStatisticKey.PUSH_CCLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", 2).param("task_id", string).param("service_id", string2).param("shoubai_cuid", TbadkCoreApplication.getInst().getCuidGalaxy2()).param(TiebaStatic.Params.OBJ_TO, str).param("obj_locate", i4).param("obj_param1", i11).param(TiebaStatic.Params.OBJ_PARAM2, i7).param(TiebaStatic.Params.OBJ_PARAM3, i6).param("hdid", TbadkCoreApplication.getInst().getHdid()).param("obj_id", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_ISHOST, 1);
-                            if (TextUtils.isEmpty(str)) {
+                            if (str3 == null) {
                             }
-                            if (!TextUtils.isEmpty(str)) {
+                            StatisticItem param42 = new StatisticItem(TbadkCoreStatisticKey.PUSH_CCLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", 2).param("task_id", str).param("service_id", str2).param("shoubai_cuid", TbadkCoreApplication.getInst().getCuidGalaxy2()).param(TiebaStatic.Params.OBJ_TO, str3).param("obj_locate", i5).param("obj_param1", i6).param(TiebaStatic.Params.OBJ_PARAM2, i9).param(TiebaStatic.Params.OBJ_PARAM3, i8).param("hdid", TbadkCoreApplication.getInst().getHdid()).param("obj_id", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_ISHOST, 1);
+                            if (TextUtils.isEmpty(str3)) {
                             }
-                            if (TextUtils.isEmpty(str)) {
+                            if (!TextUtils.isEmpty(str3)) {
                             }
-                            if (TextUtils.isEmpty(str)) {
+                            if (TextUtils.isEmpty(str3)) {
                             }
-                            if (TextUtils.isEmpty(str)) {
+                            if (TextUtils.isEmpty(str3)) {
                             }
-                            param42.param("obj_source", i8);
-                            matcher = Pattern.compile(UrlSchemaHelper.PB_URL).matcher(str);
+                            if (TextUtils.isEmpty(str3)) {
+                            }
+                            i10 = i4;
+                            param42.param("obj_source", i10);
+                            matcher = Pattern.compile(UrlSchemaHelper.PB_URL).matcher(str3);
                             if (matcher.find()) {
                             }
                             TiebaStatic.log(param42);
-                            TiebaStatic.log(new StatisticItem("PushOptCount").param("obj_param1", !aw4.a().d() ? 1 : 2));
-                            if (!TextUtils.isEmpty(str)) {
+                            StatisticItem statisticItem32 = new StatisticItem("PushOptCount");
+                            if (!gw4.a().d()) {
+                            }
+                            TiebaStatic.log(statisticItem32.param("obj_param1", i11));
+                            if (!TextUtils.isEmpty(str3)) {
                             }
                         }
-                        str = "";
-                        if (!StringUtils.isNull(str)) {
+                        str3 = "";
+                        if (!StringUtils.isNull(str3)) {
                         }
                         i = 0;
+                        String str6222 = null;
                         if (jSONObject.isNull(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION)) {
                         }
-                        int i10222 = i;
-                        String string3222 = jSONObject.isNull(MainTabActivityConfig.PUSH_DES_PAGE) ? null : jSONObject.getString(MainTabActivityConfig.PUSH_DES_PAGE);
-                        if (optInt != 1) {
+                        if (!jSONObject.isNull(MainTabActivityConfig.PUSH_DES_PAGE)) {
                         }
-                        if (optInt != i2) {
+                        int i13222 = i;
+                        String str7222 = str6222;
+                        if (i2 != 1) {
                         }
-                        if (str == null) {
+                        if (i2 != i3) {
                         }
-                        StatisticItem param422 = new StatisticItem(TbadkCoreStatisticKey.PUSH_CCLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", 2).param("task_id", string).param("service_id", string2).param("shoubai_cuid", TbadkCoreApplication.getInst().getCuidGalaxy2()).param(TiebaStatic.Params.OBJ_TO, str).param("obj_locate", i4).param("obj_param1", i11).param(TiebaStatic.Params.OBJ_PARAM2, i7).param(TiebaStatic.Params.OBJ_PARAM3, i6).param("hdid", TbadkCoreApplication.getInst().getHdid()).param("obj_id", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_ISHOST, 1);
-                        if (TextUtils.isEmpty(str)) {
+                        if (str3 == null) {
                         }
-                        if (!TextUtils.isEmpty(str)) {
+                        StatisticItem param422 = new StatisticItem(TbadkCoreStatisticKey.PUSH_CCLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", 2).param("task_id", str).param("service_id", str2).param("shoubai_cuid", TbadkCoreApplication.getInst().getCuidGalaxy2()).param(TiebaStatic.Params.OBJ_TO, str3).param("obj_locate", i5).param("obj_param1", i6).param(TiebaStatic.Params.OBJ_PARAM2, i9).param(TiebaStatic.Params.OBJ_PARAM3, i8).param("hdid", TbadkCoreApplication.getInst().getHdid()).param("obj_id", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_ISHOST, 1);
+                        if (TextUtils.isEmpty(str3)) {
                         }
-                        if (TextUtils.isEmpty(str)) {
+                        if (!TextUtils.isEmpty(str3)) {
                         }
-                        if (TextUtils.isEmpty(str)) {
+                        if (TextUtils.isEmpty(str3)) {
                         }
-                        if (TextUtils.isEmpty(str)) {
+                        if (TextUtils.isEmpty(str3)) {
                         }
-                        param422.param("obj_source", i8);
-                        matcher = Pattern.compile(UrlSchemaHelper.PB_URL).matcher(str);
+                        if (TextUtils.isEmpty(str3)) {
+                        }
+                        i10 = i4;
+                        param422.param("obj_source", i10);
+                        matcher = Pattern.compile(UrlSchemaHelper.PB_URL).matcher(str3);
                         if (matcher.find()) {
                         }
                         TiebaStatic.log(param422);
-                        TiebaStatic.log(new StatisticItem("PushOptCount").param("obj_param1", !aw4.a().d() ? 1 : 2));
-                        if (!TextUtils.isEmpty(str)) {
+                        StatisticItem statisticItem322 = new StatisticItem("PushOptCount");
+                        if (!gw4.a().d()) {
+                        }
+                        TiebaStatic.log(statisticItem322.param("obj_param1", i11));
+                        if (!TextUtils.isEmpty(str3)) {
                         }
                     }
                 }
@@ -387,7 +450,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
         }
     }
 
-    public final boolean z1(String str) {
+    public final boolean y1(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
@@ -397,7 +460,10 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
             if (Pattern.compile("http[s]?://tieba.baidu.com/p").matcher(str).find()) {
                 return false;
             }
-            return str.contains(UrlSchemaHelper.HTTP_JUMP_TOPIC_DETAIL) || str.startsWith(UrlSchemaHelper.SCHEMA_TB_FLUTTER) || str.startsWith(UrlSchemaHelper.SCHEMA_LIVE_SDK) || str.startsWith(UrlSchemaHelper.SCHEMA_CHUSHOU_LIVE_SDK) || str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SWAN) || str.contains("achievement=");
+            if (str.contains(UrlSchemaHelper.HTTP_JUMP_TOPIC_DETAIL) || str.startsWith(UrlSchemaHelper.SCHEMA_TB_FLUTTER) || str.startsWith(UrlSchemaHelper.SCHEMA_LIVE_SDK) || str.startsWith(UrlSchemaHelper.SCHEMA_CHUSHOU_LIVE_SDK) || str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SWAN) || str.contains("achievement=")) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }

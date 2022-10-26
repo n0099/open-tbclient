@@ -29,30 +29,6 @@ public final class TaskMeterData implements ITaskModelData {
     public final TaskUIData ui;
     public final int uiType;
 
-    /* loaded from: classes.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-    }
-
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -86,25 +62,6 @@ public final class TaskMeterData implements ITaskModelData {
                 return;
             }
         }
-    }
-
-    public TaskMeterData(int i, TaskUIData taskUIData) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), taskUIData};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.uiType = i;
-        this.ui = taskUIData;
     }
 
     public static /* synthetic */ TaskMeterData copy$default(TaskMeterData taskMeterData, int i, TaskUIData taskUIData, int i2, Object obj) {
@@ -152,18 +109,6 @@ public final class TaskMeterData implements ITaskModelData {
         return invokeL.booleanValue;
     }
 
-    public final TaskUIData getUi() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.ui : (TaskUIData) invokeV.objValue;
-    }
-
-    public final int getUiType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.uiType : invokeV.intValue;
-    }
-
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -175,11 +120,106 @@ public final class TaskMeterData implements ITaskModelData {
         return invokeV.intValue;
     }
 
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return "TaskMeterData(uiType=" + this.uiType + ", ui=" + this.ui + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+    }
+
+    public TaskMeterData(int i, TaskUIData taskUIData) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), taskUIData};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.uiType = i;
+        this.ui = taskUIData;
+    }
+
+    public /* synthetic */ TaskMeterData(int i, TaskUIData taskUIData, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        int i3;
+        TaskMeterData taskMeterData;
+        TaskUIData taskUIData2;
+        if ((i2 & 1) != 0) {
+            i3 = -1;
+        } else {
+            i3 = i;
+        }
+        if ((i2 & 2) != 0) {
+            taskUIData2 = new TaskUIData(null, null, 0, null, null, null, null, null, null, 0, null, null, 4095, null);
+            taskMeterData = this;
+        } else {
+            taskMeterData = this;
+            taskUIData2 = taskUIData;
+        }
+        new TaskMeterData(i3, taskUIData2);
+    }
+
+    public final TaskUIData getUi() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.ui;
+        }
+        return (TaskUIData) invokeV.objValue;
+    }
+
+    public final int getUiType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.uiType;
+        }
+        return invokeV.intValue;
+    }
+
     @Override // com.baidu.bdtask.model.ITaskModelData
     public boolean isEmpty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.uiType == -1 || this.ui.isEmpty() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (this.uiType != -1 && !this.ui.isEmpty()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.bdtask.model.ITaskModelData
@@ -195,33 +235,13 @@ public final class TaskMeterData implements ITaskModelData {
         return (JSONObject) invokeV.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return "TaskMeterData(uiType=" + this.uiType + ", ui=" + this.ui + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public /* synthetic */ TaskMeterData(int i, TaskUIData taskUIData, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        TaskMeterData taskMeterData;
-        TaskUIData taskUIData2;
-        int i3 = (i2 & 1) != 0 ? -1 : i;
-        if ((i2 & 2) != 0) {
-            taskUIData2 = new TaskUIData(null, null, 0, null, null, null, null, null, null, 0, null, null, 4095, null);
-            taskMeterData = this;
-        } else {
-            taskMeterData = this;
-            taskUIData2 = taskUIData;
-        }
-        new TaskMeterData(i3, taskUIData2);
-    }
-
     @Override // com.baidu.bdtask.model.ITaskModelData
     public TaskMeterData deepCopy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new TaskMeterData(this.uiType, this.ui.deepCopy()) : (TaskMeterData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return new TaskMeterData(this.uiType, this.ui.deepCopy());
+        }
+        return (TaskMeterData) invokeV.objValue;
     }
 }

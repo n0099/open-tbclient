@@ -30,7 +30,19 @@ public final class RecorderManagerStaticAutoGenerateUrlCollectorImpl implements 
     }
 
     @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
-    public Map<String, String> getCmdRouterMap() {
+    public Map getConfigRouterMap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("com.baidu.audiorecorder.lib.voice.RecorderManagerStatic", new ArrayList());
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
+    public Map getCmdRouterMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -42,18 +54,6 @@ public final class RecorderManagerStaticAutoGenerateUrlCollectorImpl implements 
             hashMap.put("2001291", "com.baidu.audiorecorder.lib.voice.RecorderManagerStatic");
             hashMap.put("2001274", "com.baidu.audiorecorder.lib.voice.RecorderManagerStatic");
             hashMap.put("2001272", "com.baidu.audiorecorder.lib.voice.RecorderManagerStatic");
-            return hashMap;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
-    public Map<String, ArrayList<String>> getConfigRouterMap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("com.baidu.audiorecorder.lib.voice.RecorderManagerStatic", new ArrayList());
             return hashMap;
         }
         return (Map) invokeV.objValue;

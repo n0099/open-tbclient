@@ -9,32 +9,32 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class a {
-    public final List<com.meizu.cloud.pushsdk.c.a.b> a;
+    public final List a;
     public final long b;
     public final String c;
 
     /* renamed from: com.meizu.cloud.pushsdk.c.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static abstract class AbstractC0641a<T extends AbstractC0641a<T>> {
-        public List<com.meizu.cloud.pushsdk.c.a.b> a = new LinkedList();
+    public abstract class AbstractC0637a {
+        public List a = new LinkedList();
         public long b = System.currentTimeMillis();
         public String c = e.b();
 
-        public abstract T a();
+        public abstract AbstractC0637a a();
 
-        public T a(long j) {
+        public AbstractC0637a a(long j) {
             this.b = j;
             return a();
         }
     }
 
-    public a(AbstractC0641a<?> abstractC0641a) {
-        d.a(abstractC0641a.a);
-        d.a(abstractC0641a.c);
-        d.a(!abstractC0641a.c.isEmpty(), "eventId cannot be empty");
-        this.a = abstractC0641a.a;
-        this.b = abstractC0641a.b;
-        this.c = abstractC0641a.c;
+    public a(AbstractC0637a abstractC0637a) {
+        d.a(abstractC0637a.a);
+        d.a(abstractC0637a.c);
+        d.a(!abstractC0637a.c.isEmpty(), "eventId cannot be empty");
+        this.a = abstractC0637a.a;
+        this.b = abstractC0637a.b;
+        this.c = abstractC0637a.c;
     }
 
     public c a(c cVar) {
@@ -43,7 +43,7 @@ public class a {
         return cVar;
     }
 
-    public List<com.meizu.cloud.pushsdk.c.a.b> a() {
+    public List a() {
         return new ArrayList(this.a);
     }
 

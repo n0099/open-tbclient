@@ -17,23 +17,6 @@ public class a {
     public a() {
     }
 
-    public JSONObject a() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("mDownloadId", this.a);
-            jSONObject.put("mAdId", this.b);
-            jSONObject.put("mExtValue", this.c);
-            jSONObject.put("mPackageName", this.d);
-            jSONObject.put("mAppName", this.e);
-            jSONObject.put("mLogExtra", this.f);
-            jSONObject.put("mFileName", this.g);
-            jSONObject.put("mTimeStamp", this.h);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return jSONObject;
-    }
-
     public a(long j, long j2, long j3, String str, String str2, String str3, String str4) {
         this.a = j;
         this.b = j2;
@@ -63,5 +46,22 @@ public class a {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public JSONObject a() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("mDownloadId", this.a);
+            jSONObject.put("mAdId", this.b);
+            jSONObject.put("mExtValue", this.c);
+            jSONObject.put("mPackageName", this.d);
+            jSONObject.put("mAppName", this.e);
+            jSONObject.put("mLogExtra", this.f);
+            jSONObject.put("mFileName", this.g);
+            jSONObject.put("mTimeStamp", this.h);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return jSONObject;
     }
 }

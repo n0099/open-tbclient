@@ -13,9 +13,9 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.view.KeyEventDealContainerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.ih;
-import com.baidu.tieba.yp4;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.jh;
+import com.baidu.tieba.zp4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,209 +34,6 @@ public class MorePopupWindow extends PopupWindow {
     public int mShowLeftCenterXOff;
     public int mShowRightTopXOff;
     public int mWindowHeight;
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MorePopupWindow(Activity activity, View view2, View view3, Drawable drawable, KeyEventDealContainerView.a aVar) {
-        super(activity);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, view2, view3, drawable, aVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mShowRightTopXOff = 0;
-        this.mShowLeftCenterXOff = 0;
-        this.mWindowHeight = 0;
-        this.mHostView = null;
-        this.mContainer = null;
-        this.mContentView = null;
-        this.mPadding_10 = 0;
-        this.mIsIntercepted = false;
-        this.mHostView = view3;
-        init(activity, view2, drawable, aVar);
-    }
-
-    private void applaySkin(yp4 yp4Var, int i, Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(65539, this, yp4Var, i, drawable) == null) || this.mContentView == null) {
-            return;
-        }
-        setBackgroundDrawable(drawable);
-        yp4Var.l(i == 1);
-        try {
-            yp4Var.k(this.mContentView);
-        } catch (IllegalArgumentException e) {
-            BdLog.e(e.toString());
-        }
-    }
-
-    private void init(Activity activity, View view2, Drawable drawable, KeyEventDealContainerView.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, activity, view2, drawable, aVar) == null) {
-            this.mActivity = activity;
-            this.mContentView = view2;
-            KeyEventDealContainerView keyEventDealContainerView = new KeyEventDealContainerView(activity, this.mContentView, aVar);
-            this.mContainer = keyEventDealContainerView;
-            setContentView(keyEventDealContainerView);
-            setOutsideTouchable(true);
-            setFocusable(true);
-            setBackgroundDrawable(drawable);
-            refresh();
-        }
-    }
-
-    @Override // android.widget.PopupWindow
-    public View getContentView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mContentView : (View) invokeV.objValue;
-    }
-
-    public boolean getIsIntercepted() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mIsIntercepted : invokeV.booleanValue;
-    }
-
-    public void onChangeSkinType(BaseActivity baseActivity, int i, Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, baseActivity, i, drawable) == null) {
-            applaySkin(baseActivity.getLayoutMode(), i, drawable);
-        }
-    }
-
-    public void reLayoutWidth() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.mContentView.measure(0, 0);
-            int measuredWidth = this.mContentView.getMeasuredWidth();
-            this.mShowLeftCenterXOff = -(this.mPadding_10 + measuredWidth);
-            setWidth(measuredWidth);
-        }
-    }
-
-    public void refresh() {
-        View view2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (view2 = this.mContentView) == null || this.mActivity == null) {
-            return;
-        }
-        view2.measure(0, 0);
-        int measuredWidth = this.mContentView.getMeasuredWidth();
-        int measuredHeight = this.mContentView.getMeasuredHeight();
-        setWidth(measuredWidth);
-        int dimension = measuredHeight + ((int) this.mActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070224));
-        this.mWindowHeight = dimension;
-        setHeight(dimension);
-        int[] q = ej.q(this.mActivity);
-        if (q != null && q.length > 1 && q[0] > measuredWidth) {
-            this.mShowRightTopXOff = q[0] - measuredWidth;
-        }
-        this.mPadding_10 = 0;
-        this.mShowLeftCenterXOff = -(measuredWidth + 0);
-    }
-
-    public void setIsIntercepted(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.mIsIntercepted = z;
-        }
-    }
-
-    public void setWidthAsWidthOfDeviceScreen(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
-            int k = ej.k(context);
-            this.mContentView.getLayoutParams().width = k;
-            setWidth(k);
-        }
-    }
-
-    public void setWindowHeight(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            setHeight(i);
-        }
-    }
-
-    public void showWindowInCustomPosition(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) {
-            if (isShowing()) {
-                ih.d(this, this.mActivity);
-                return;
-            }
-            View view2 = this.mHostView;
-            if (view2 == null) {
-                return;
-            }
-            ih.l(this, view2, i, i2);
-        }
-    }
-
-    public void showWindowInLeftCenterOfHost(View view2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048587, this, view2, z) == null) {
-            setAnimationStyle(R.style.obfuscated_res_0x7f1003d8);
-            setFocusable(z);
-            int i = this.mShowLeftCenterXOff;
-            int i2 = this.mWindowHeight;
-            ih.l(this, view2, i, (-i2) + ((i2 - view2.getHeight()) / 2));
-        }
-    }
-
-    public void showWindowInRightBottomOfHost() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            if (isShowing()) {
-                ih.d(this, this.mActivity);
-                return;
-            }
-            View view2 = this.mHostView;
-            if (view2 == null) {
-                return;
-            }
-            ih.l(this, view2, this.mShowRightTopXOff, 0);
-        }
-    }
-
-    public void onChangeSkinType(BaseFragmentActivity baseFragmentActivity, int i, Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048579, this, baseFragmentActivity, i, drawable) == null) {
-            applaySkin(baseFragmentActivity.getLayoutMode(), i, drawable);
-        }
-    }
-
-    public void onChangeSkinType(yp4 yp4Var, int i, Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, yp4Var, i, drawable) == null) {
-            applaySkin(yp4Var, i, drawable);
-        }
-    }
-
-    public void showWindowInRightBottomOfHost(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            if (isShowing()) {
-                ih.d(this, this.mActivity);
-                return;
-            }
-            View view2 = this.mHostView;
-            if (view2 == null) {
-                return;
-            }
-            ih.l(this, view2, this.mShowRightTopXOff - i, 0);
-        }
-    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MorePopupWindow(Activity activity, View view2, Drawable drawable, KeyEventDealContainerView.a aVar) {
@@ -268,6 +65,36 @@ public class MorePopupWindow extends PopupWindow {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public MorePopupWindow(Activity activity, View view2, View view3, Drawable drawable, KeyEventDealContainerView.a aVar) {
+        super(activity);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, view2, view3, drawable, aVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mShowRightTopXOff = 0;
+        this.mShowLeftCenterXOff = 0;
+        this.mWindowHeight = 0;
+        this.mHostView = null;
+        this.mContainer = null;
+        this.mContentView = null;
+        this.mPadding_10 = 0;
+        this.mIsIntercepted = false;
+        this.mHostView = view3;
+        init(activity, view2, drawable, aVar);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MorePopupWindow(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
@@ -294,5 +121,186 @@ public class MorePopupWindow extends PopupWindow {
         this.mContentView = null;
         this.mPadding_10 = 0;
         this.mIsIntercepted = false;
+    }
+
+    private void applaySkin(zp4 zp4Var, int i, Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLIL(65539, this, zp4Var, i, drawable) == null) && this.mContentView != null) {
+            setBackgroundDrawable(drawable);
+            boolean z = true;
+            if (i != 1) {
+                z = false;
+            }
+            zp4Var.l(z);
+            try {
+                zp4Var.k(this.mContentView);
+            } catch (IllegalArgumentException e) {
+                BdLog.e(e.toString());
+            }
+        }
+    }
+
+    public void onChangeSkinType(BaseActivity baseActivity, int i, Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, baseActivity, i, drawable) == null) {
+            applaySkin(baseActivity.getLayoutMode(), i, drawable);
+        }
+    }
+
+    private void init(Activity activity, View view2, Drawable drawable, KeyEventDealContainerView.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, activity, view2, drawable, aVar) == null) {
+            this.mActivity = activity;
+            this.mContentView = view2;
+            KeyEventDealContainerView keyEventDealContainerView = new KeyEventDealContainerView(activity, this.mContentView, aVar);
+            this.mContainer = keyEventDealContainerView;
+            setContentView(keyEventDealContainerView);
+            setOutsideTouchable(true);
+            setFocusable(true);
+            setBackgroundDrawable(drawable);
+            refresh();
+        }
+    }
+
+    @Override // android.widget.PopupWindow
+    public View getContentView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mContentView;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public boolean getIsIntercepted() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mIsIntercepted;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void reLayoutWidth() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.mContentView.measure(0, 0);
+            int measuredWidth = this.mContentView.getMeasuredWidth();
+            this.mShowLeftCenterXOff = -(this.mPadding_10 + measuredWidth);
+            setWidth(measuredWidth);
+        }
+    }
+
+    public void showWindowInRightBottomOfHost() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            if (isShowing()) {
+                jh.d(this, this.mActivity);
+                return;
+            }
+            View view2 = this.mHostView;
+            if (view2 == null) {
+                return;
+            }
+            jh.l(this, view2, this.mShowRightTopXOff, 0);
+        }
+    }
+
+    public void onChangeSkinType(BaseFragmentActivity baseFragmentActivity, int i, Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048579, this, baseFragmentActivity, i, drawable) == null) {
+            applaySkin(baseFragmentActivity.getLayoutMode(), i, drawable);
+        }
+    }
+
+    public void onChangeSkinType(zp4 zp4Var, int i, Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, zp4Var, i, drawable) == null) {
+            applaySkin(zp4Var, i, drawable);
+        }
+    }
+
+    public void refresh() {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (view2 = this.mContentView) != null && this.mActivity != null) {
+            view2.measure(0, 0);
+            int measuredWidth = this.mContentView.getMeasuredWidth();
+            int measuredHeight = this.mContentView.getMeasuredHeight();
+            setWidth(measuredWidth);
+            int dimension = measuredHeight + ((int) this.mActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070224));
+            this.mWindowHeight = dimension;
+            setHeight(dimension);
+            int[] q = fj.q(this.mActivity);
+            if (q != null && q.length > 1 && q[0] > measuredWidth) {
+                this.mShowRightTopXOff = q[0] - measuredWidth;
+            }
+            this.mPadding_10 = 0;
+            this.mShowLeftCenterXOff = -(measuredWidth + 0);
+        }
+    }
+
+    public void setIsIntercepted(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.mIsIntercepted = z;
+        }
+    }
+
+    public void setWidthAsWidthOfDeviceScreen(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
+            int k = fj.k(context);
+            this.mContentView.getLayoutParams().width = k;
+            setWidth(k);
+        }
+    }
+
+    public void setWindowHeight(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            setHeight(i);
+        }
+    }
+
+    public void showWindowInRightBottomOfHost(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            if (isShowing()) {
+                jh.d(this, this.mActivity);
+                return;
+            }
+            View view2 = this.mHostView;
+            if (view2 == null) {
+                return;
+            }
+            jh.l(this, view2, this.mShowRightTopXOff - i, 0);
+        }
+    }
+
+    public void showWindowInCustomPosition(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) {
+            if (isShowing()) {
+                jh.d(this, this.mActivity);
+                return;
+            }
+            View view2 = this.mHostView;
+            if (view2 == null) {
+                return;
+            }
+            jh.l(this, view2, i, i2);
+        }
+    }
+
+    public void showWindowInLeftCenterOfHost(View view2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048587, this, view2, z) == null) {
+            setAnimationStyle(R.style.obfuscated_res_0x7f1003d9);
+            setFocusable(z);
+            int i = this.mShowLeftCenterXOff;
+            int i2 = this.mWindowHeight;
+            jh.l(this, view2, i, (-i2) + ((i2 - view2.getHeight()) / 2));
+        }
     }
 }

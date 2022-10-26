@@ -64,37 +64,12 @@ public class Act implements IAct {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            {
-                super(r9, r10);
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {r9, Integer.valueOf(r10)};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        Object[] objArr2 = newInitContext.callArgs;
-                        super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-            }
-
             @Override // com.yy.hiidostatis.defs.obj.Act, java.lang.Enum
             public String toString() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? "mbsdkinstall" : (String) invokeV.objValue;
             }
-        };
-        MBSDK_RUN = new Act("MBSDK_RUN", 1) { // from class: com.yy.hiidostatis.defs.obj.Act.2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -116,6 +91,10 @@ public class Act implements IAct {
                     }
                 }
             }
+        };
+        MBSDK_RUN = new Act("MBSDK_RUN", 1) { // from class: com.yy.hiidostatis.defs.obj.Act.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             @Override // com.yy.hiidostatis.defs.obj.Act, java.lang.Enum
             public String toString() {
@@ -123,10 +102,6 @@ public class Act implements IAct {
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? "mbsdkrun" : (String) invokeV.objValue;
             }
-        };
-        MBSDK_ACTION = new Act("MBSDK_ACTION", 2) { // from class: com.yy.hiidostatis.defs.obj.Act.3
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -148,6 +123,10 @@ public class Act implements IAct {
                     }
                 }
             }
+        };
+        MBSDK_ACTION = new Act("MBSDK_ACTION", 2) { // from class: com.yy.hiidostatis.defs.obj.Act.3
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             @Override // com.yy.hiidostatis.defs.obj.Act, java.lang.Enum
             public String toString() {
@@ -155,10 +134,6 @@ public class Act implements IAct {
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? "mbsdkaction" : (String) invokeV.objValue;
             }
-        };
-        MBSDK_ERROR = new Act("MBSDK_ERROR", 3) { // from class: com.yy.hiidostatis.defs.obj.Act.4
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -180,6 +155,10 @@ public class Act implements IAct {
                     }
                 }
             }
+        };
+        MBSDK_ERROR = new Act("MBSDK_ERROR", 3) { // from class: com.yy.hiidostatis.defs.obj.Act.4
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             @Override // com.yy.hiidostatis.defs.obj.Act, java.lang.Enum
             public String toString() {
@@ -187,10 +166,6 @@ public class Act implements IAct {
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? "mbsdkerror" : (String) invokeV.objValue;
             }
-        };
-        MBSDK_DO = new Act("MBSDK_DO", 4) { // from class: com.yy.hiidostatis.defs.obj.Act.5
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -212,6 +187,10 @@ public class Act implements IAct {
                     }
                 }
             }
+        };
+        MBSDK_DO = new Act("MBSDK_DO", 4) { // from class: com.yy.hiidostatis.defs.obj.Act.5
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             @Override // com.yy.hiidostatis.defs.obj.Act, java.lang.Enum
             public String toString() {
@@ -219,10 +198,6 @@ public class Act implements IAct {
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? "mbsdkdo" : (String) invokeV.objValue;
             }
-        };
-        MBSDK_DO5 = new Act("MBSDK_DO5", 5) { // from class: com.yy.hiidostatis.defs.obj.Act.6
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -244,6 +219,10 @@ public class Act implements IAct {
                     }
                 }
             }
+        };
+        MBSDK_DO5 = new Act("MBSDK_DO5", 5) { // from class: com.yy.hiidostatis.defs.obj.Act.6
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             @Override // com.yy.hiidostatis.defs.obj.Act, java.lang.Enum
             public String toString() {
@@ -251,10 +230,6 @@ public class Act implements IAct {
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? "mbsdkdo5" : (String) invokeV.objValue;
             }
-        };
-        MBSDK_DO1 = new Act("MBSDK_DO1", 6) { // from class: com.yy.hiidostatis.defs.obj.Act.7
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -276,6 +251,10 @@ public class Act implements IAct {
                     }
                 }
             }
+        };
+        MBSDK_DO1 = new Act("MBSDK_DO1", 6) { // from class: com.yy.hiidostatis.defs.obj.Act.7
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             @Override // com.yy.hiidostatis.defs.obj.Act, java.lang.Enum
             public String toString() {
@@ -283,10 +262,6 @@ public class Act implements IAct {
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? "mbsdkdo1" : (String) invokeV.objValue;
             }
-        };
-        MBSDK_LOGIN = new Act("MBSDK_LOGIN", 7) { // from class: com.yy.hiidostatis.defs.obj.Act.8
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -308,6 +283,10 @@ public class Act implements IAct {
                     }
                 }
             }
+        };
+        MBSDK_LOGIN = new Act("MBSDK_LOGIN", 7) { // from class: com.yy.hiidostatis.defs.obj.Act.8
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             @Override // com.yy.hiidostatis.defs.obj.Act, java.lang.Enum
             public String toString() {
@@ -315,10 +294,6 @@ public class Act implements IAct {
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? "mbsdklogin" : (String) invokeV.objValue;
             }
-        };
-        MBSDK_REG = new Act("MBSDK_REG", 8) { // from class: com.yy.hiidostatis.defs.obj.Act.9
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -340,6 +315,10 @@ public class Act implements IAct {
                     }
                 }
             }
+        };
+        MBSDK_REG = new Act("MBSDK_REG", 8) { // from class: com.yy.hiidostatis.defs.obj.Act.9
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             @Override // com.yy.hiidostatis.defs.obj.Act, java.lang.Enum
             public String toString() {
@@ -347,10 +326,6 @@ public class Act implements IAct {
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? "mbsdkreg" : (String) invokeV.objValue;
             }
-        };
-        MBSDK_REPORT = new Act("MBSDK_REPORT", 9) { // from class: com.yy.hiidostatis.defs.obj.Act.10
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -372,6 +347,10 @@ public class Act implements IAct {
                     }
                 }
             }
+        };
+        MBSDK_REPORT = new Act("MBSDK_REPORT", 9) { // from class: com.yy.hiidostatis.defs.obj.Act.10
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             @Override // com.yy.hiidostatis.defs.obj.Act, java.lang.Enum
             public String toString() {
@@ -379,10 +358,6 @@ public class Act implements IAct {
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? "mbsdkreport" : (String) invokeV.objValue;
             }
-        };
-        MBSDK_CRASH = new Act("MBSDK_CRASH", 10) { // from class: com.yy.hiidostatis.defs.obj.Act.11
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -404,6 +379,10 @@ public class Act implements IAct {
                     }
                 }
             }
+        };
+        MBSDK_CRASH = new Act("MBSDK_CRASH", 10) { // from class: com.yy.hiidostatis.defs.obj.Act.11
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             @Override // com.yy.hiidostatis.defs.obj.Act, java.lang.Enum
             public String toString() {
@@ -411,10 +390,6 @@ public class Act implements IAct {
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? "mbsdkcrash" : (String) invokeV.objValue;
             }
-        };
-        MBSDK_SUCCESS = new Act("MBSDK_SUCCESS", 11) { // from class: com.yy.hiidostatis.defs.obj.Act.12
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -436,6 +411,10 @@ public class Act implements IAct {
                     }
                 }
             }
+        };
+        MBSDK_SUCCESS = new Act("MBSDK_SUCCESS", 11) { // from class: com.yy.hiidostatis.defs.obj.Act.12
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             @Override // com.yy.hiidostatis.defs.obj.Act, java.lang.Enum
             public String toString() {
@@ -443,10 +422,6 @@ public class Act implements IAct {
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? "mbsdksuccess" : (String) invokeV.objValue;
             }
-        };
-        MBSDK_FAILURE = new Act("MBSDK_FAILURE", 12) { // from class: com.yy.hiidostatis.defs.obj.Act.13
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -468,6 +443,10 @@ public class Act implements IAct {
                     }
                 }
             }
+        };
+        MBSDK_FAILURE = new Act("MBSDK_FAILURE", 12) { // from class: com.yy.hiidostatis.defs.obj.Act.13
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             @Override // com.yy.hiidostatis.defs.obj.Act, java.lang.Enum
             public String toString() {
@@ -475,10 +454,6 @@ public class Act implements IAct {
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? "mbsdkfailure" : (String) invokeV.objValue;
             }
-        };
-        MBSDK_APPLIST = new Act("MBSDK_APPLIST", 13) { // from class: com.yy.hiidostatis.defs.obj.Act.14
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -500,6 +475,10 @@ public class Act implements IAct {
                     }
                 }
             }
+        };
+        MBSDK_APPLIST = new Act("MBSDK_APPLIST", 13) { // from class: com.yy.hiidostatis.defs.obj.Act.14
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             @Override // com.yy.hiidostatis.defs.obj.Act, java.lang.Enum
             public String toString() {
@@ -507,10 +486,6 @@ public class Act implements IAct {
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? "mbsdkapplist" : (String) invokeV.objValue;
             }
-        };
-        MBSDK_SDKLIST = new Act("MBSDK_SDKLIST", 14) { // from class: com.yy.hiidostatis.defs.obj.Act.15
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -532,6 +507,10 @@ public class Act implements IAct {
                     }
                 }
             }
+        };
+        MBSDK_SDKLIST = new Act("MBSDK_SDKLIST", 14) { // from class: com.yy.hiidostatis.defs.obj.Act.15
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             @Override // com.yy.hiidostatis.defs.obj.Act, java.lang.Enum
             public String toString() {
@@ -539,10 +518,6 @@ public class Act implements IAct {
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? "mbsdksdklist" : (String) invokeV.objValue;
             }
-        };
-        MBSDK_SDKDEVICE = new Act("MBSDK_SDKDEVICE", 15) { // from class: com.yy.hiidostatis.defs.obj.Act.16
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -564,6 +539,10 @@ public class Act implements IAct {
                     }
                 }
             }
+        };
+        MBSDK_SDKDEVICE = new Act("MBSDK_SDKDEVICE", 15) { // from class: com.yy.hiidostatis.defs.obj.Act.16
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             @Override // com.yy.hiidostatis.defs.obj.Act, java.lang.Enum
             public String toString() {
@@ -571,10 +550,6 @@ public class Act implements IAct {
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? "mbsdkdevice" : (String) invokeV.objValue;
             }
-        };
-        MBSDK_LAUNCH = new Act("MBSDK_LAUNCH", 16) { // from class: com.yy.hiidostatis.defs.obj.Act.17
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -596,6 +571,10 @@ public class Act implements IAct {
                     }
                 }
             }
+        };
+        MBSDK_LAUNCH = new Act("MBSDK_LAUNCH", 16) { // from class: com.yy.hiidostatis.defs.obj.Act.17
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             @Override // com.yy.hiidostatis.defs.obj.Act, java.lang.Enum
             public String toString() {
@@ -603,10 +582,6 @@ public class Act implements IAct {
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? "mbsdklaunch" : (String) invokeV.objValue;
             }
-        };
-        MBSDK_PAGE = new Act("MBSDK_PAGE", 17) { // from class: com.yy.hiidostatis.defs.obj.Act.18
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -628,6 +603,10 @@ public class Act implements IAct {
                     }
                 }
             }
+        };
+        MBSDK_PAGE = new Act("MBSDK_PAGE", 17) { // from class: com.yy.hiidostatis.defs.obj.Act.18
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             @Override // com.yy.hiidostatis.defs.obj.Act, java.lang.Enum
             public String toString() {
@@ -635,10 +614,6 @@ public class Act implements IAct {
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? "mbsdkpage" : (String) invokeV.objValue;
             }
-        };
-        MBSDK_EVENT = new Act("MBSDK_EVENT", 18) { // from class: com.yy.hiidostatis.defs.obj.Act.19
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -660,6 +635,10 @@ public class Act implements IAct {
                     }
                 }
             }
+        };
+        MBSDK_EVENT = new Act("MBSDK_EVENT", 18) { // from class: com.yy.hiidostatis.defs.obj.Act.19
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             @Override // com.yy.hiidostatis.defs.obj.Act, java.lang.Enum
             public String toString() {
@@ -667,10 +646,6 @@ public class Act implements IAct {
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? "mbsdkevent" : (String) invokeV.objValue;
             }
-        };
-        MBSDK_PUSH = new Act("MBSDK_PUSH", 19) { // from class: com.yy.hiidostatis.defs.obj.Act.20
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -692,6 +667,10 @@ public class Act implements IAct {
                     }
                 }
             }
+        };
+        MBSDK_PUSH = new Act("MBSDK_PUSH", 19) { // from class: com.yy.hiidostatis.defs.obj.Act.20
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             @Override // com.yy.hiidostatis.defs.obj.Act, java.lang.Enum
             public String toString() {
@@ -699,10 +678,6 @@ public class Act implements IAct {
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? "mbsdkpush" : (String) invokeV.objValue;
             }
-        };
-        MBSDK_FBACK = new Act("MBSDK_FBACK", 20) { // from class: com.yy.hiidostatis.defs.obj.Act.21
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -724,6 +699,10 @@ public class Act implements IAct {
                     }
                 }
             }
+        };
+        MBSDK_FBACK = new Act("MBSDK_FBACK", 20) { // from class: com.yy.hiidostatis.defs.obj.Act.21
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             @Override // com.yy.hiidostatis.defs.obj.Act, java.lang.Enum
             public String toString() {
@@ -731,10 +710,6 @@ public class Act implements IAct {
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? "mbsdkfback" : (String) invokeV.objValue;
             }
-        };
-        MBSDK_LOCATION = new Act("MBSDK_LOCATION", 21) { // from class: com.yy.hiidostatis.defs.obj.Act.22
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -756,6 +731,10 @@ public class Act implements IAct {
                     }
                 }
             }
+        };
+        MBSDK_LOCATION = new Act("MBSDK_LOCATION", 21) { // from class: com.yy.hiidostatis.defs.obj.Act.22
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             @Override // com.yy.hiidostatis.defs.obj.Act, java.lang.Enum
             public String toString() {
@@ -763,10 +742,6 @@ public class Act implements IAct {
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? "mbsdklocation" : (String) invokeV.objValue;
             }
-        };
-        MBSDK_RECENT_APPLIST = new Act("MBSDK_RECENT_APPLIST", 22) { // from class: com.yy.hiidostatis.defs.obj.Act.23
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -788,6 +763,10 @@ public class Act implements IAct {
                     }
                 }
             }
+        };
+        MBSDK_RECENT_APPLIST = new Act("MBSDK_RECENT_APPLIST", 22) { // from class: com.yy.hiidostatis.defs.obj.Act.23
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             @Override // com.yy.hiidostatis.defs.obj.Act, java.lang.Enum
             public String toString() {
@@ -795,10 +774,6 @@ public class Act implements IAct {
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? "mbsdkrecentapplist" : (String) invokeV.objValue;
             }
-        };
-        MBSDK_PAGE_STATE = new Act("MBSDK_PAGE_STATE", 23) { // from class: com.yy.hiidostatis.defs.obj.Act.24
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -820,6 +795,10 @@ public class Act implements IAct {
                     }
                 }
             }
+        };
+        MBSDK_PAGE_STATE = new Act("MBSDK_PAGE_STATE", 23) { // from class: com.yy.hiidostatis.defs.obj.Act.24
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             @Override // com.yy.hiidostatis.defs.obj.Act, java.lang.Enum
             public String toString() {
@@ -827,10 +806,6 @@ public class Act implements IAct {
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? "mbsdkpagestate" : (String) invokeV.objValue;
             }
-        };
-        MBSDK_GZIP_BATCH = new Act("MBSDK_GZIP_BATCH", 24) { // from class: com.yy.hiidostatis.defs.obj.Act.25
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -852,6 +827,10 @@ public class Act implements IAct {
                     }
                 }
             }
+        };
+        MBSDK_GZIP_BATCH = new Act("MBSDK_GZIP_BATCH", 24) { // from class: com.yy.hiidostatis.defs.obj.Act.25
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             @Override // com.yy.hiidostatis.defs.obj.Act, java.lang.Enum
             public String toString() {
@@ -859,10 +838,6 @@ public class Act implements IAct {
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? "mbsdkgzipbatch" : (String) invokeV.objValue;
             }
-        };
-        MBSDK_USER_ACTION = new Act("MBSDK_USER_ACTION", 25) { // from class: com.yy.hiidostatis.defs.obj.Act.26
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -884,6 +859,10 @@ public class Act implements IAct {
                     }
                 }
             }
+        };
+        MBSDK_USER_ACTION = new Act("MBSDK_USER_ACTION", 25) { // from class: com.yy.hiidostatis.defs.obj.Act.26
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             @Override // com.yy.hiidostatis.defs.obj.Act, java.lang.Enum
             public String toString() {
@@ -891,10 +870,6 @@ public class Act implements IAct {
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? "mbsdkuseraction" : (String) invokeV.objValue;
             }
-        };
-        MBSDK_APPSFLYER = new Act("MBSDK_APPSFLYER", 26) { // from class: com.yy.hiidostatis.defs.obj.Act.27
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -916,6 +891,10 @@ public class Act implements IAct {
                     }
                 }
             }
+        };
+        MBSDK_APPSFLYER = new Act("MBSDK_APPSFLYER", 26) { // from class: com.yy.hiidostatis.defs.obj.Act.27
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             @Override // com.yy.hiidostatis.defs.obj.Act, java.lang.Enum
             public String toString() {
@@ -923,10 +902,6 @@ public class Act implements IAct {
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? "mbsdkappsflyer" : (String) invokeV.objValue;
             }
-        };
-        MBSDK_SHARE = new Act("MBSDK_SHARE", 27) { // from class: com.yy.hiidostatis.defs.obj.Act.28
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -948,6 +923,10 @@ public class Act implements IAct {
                     }
                 }
             }
+        };
+        MBSDK_SHARE = new Act("MBSDK_SHARE", 27) { // from class: com.yy.hiidostatis.defs.obj.Act.28
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             @Override // com.yy.hiidostatis.defs.obj.Act, java.lang.Enum
             public String toString() {
@@ -955,10 +934,6 @@ public class Act implements IAct {
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? "mbsdkshare" : (String) invokeV.objValue;
             }
-        };
-        MBSDK_URL_SCHEME = new Act("MBSDK_URL_SCHEME", 28) { // from class: com.yy.hiidostatis.defs.obj.Act.29
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -980,6 +955,10 @@ public class Act implements IAct {
                     }
                 }
             }
+        };
+        MBSDK_URL_SCHEME = new Act("MBSDK_URL_SCHEME", 28) { // from class: com.yy.hiidostatis.defs.obj.Act.29
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             @Override // com.yy.hiidostatis.defs.obj.Act, java.lang.Enum
             public String toString() {
@@ -987,10 +966,6 @@ public class Act implements IAct {
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? "mbsdkurlscheme" : (String) invokeV.objValue;
             }
-        };
-        Act act = new Act("MBSDK_IM", 29) { // from class: com.yy.hiidostatis.defs.obj.Act.30
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -1012,12 +987,37 @@ public class Act implements IAct {
                     }
                 }
             }
+        };
+        Act act = new Act("MBSDK_IM", 29) { // from class: com.yy.hiidostatis.defs.obj.Act.30
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
             @Override // com.yy.hiidostatis.defs.obj.Act, java.lang.Enum
             public String toString() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? "mbsdkim" : (String) invokeV.objValue;
+            }
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            {
+                super(r9, r10);
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {r9, Integer.valueOf(r10)};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        Object[] objArr2 = newInitContext.callArgs;
+                        super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
             }
         };
         MBSDK_IM = act;
@@ -1046,19 +1046,28 @@ public class Act implements IAct {
     public static Act valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (Act) Enum.valueOf(Act.class, str) : (Act) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (Act) Enum.valueOf(Act.class, str);
+        }
+        return (Act) invokeL.objValue;
     }
 
     public static Act[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (Act[]) $VALUES.clone() : (Act[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return (Act[]) $VALUES.clone();
+        }
+        return (Act[]) invokeV.objValue;
     }
 
     @Override // java.lang.Enum
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? super.toString().replaceAll("_", "").toLowerCase() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return super.toString().replaceAll("_", "").toLowerCase();
+        }
+        return (String) invokeV.objValue;
     }
 }

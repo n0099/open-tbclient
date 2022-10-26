@@ -1,13 +1,12 @@
 package com.baidu.yalog;
 
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class Logger {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ASSERT = 7;
@@ -17,6 +16,14 @@ public abstract class Logger {
     public static final int VERBOSE = 2;
     public static final int WARN = 5;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract void executeRunnable(Runnable runnable);
+
+    public abstract void flush(boolean z);
+
+    public abstract void log(String str, int i, String str2, String str3);
+
+    public abstract void logSync(String str, int i, String str2, String str3);
 
     public Logger() {
         Interceptable interceptable = $ic;
@@ -46,20 +53,12 @@ public abstract class Logger {
         }
     }
 
-    public abstract void executeRunnable(@NonNull Runnable runnable);
-
-    public abstract void flush(boolean z);
-
     public void i(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, str3) == null) {
             log(str, 4, str2, str3);
         }
     }
-
-    public abstract void log(String str, int i, String str2, String str3);
-
-    public abstract void logSync(String str, int i, String str2, String str3);
 
     public void v(String str, String str2, String str3) {
         Interceptable interceptable = $ic;

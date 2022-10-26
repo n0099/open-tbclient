@@ -16,6 +16,13 @@ public class WebMessageAdapter implements WebMessageBoundaryInterface {
     public transient /* synthetic */ FieldHolder $fh;
     public WebMessageCompat mWebMessageCompat;
 
+    @Override // org.chromium.support_lib_boundary.FeatureFlagHolderBoundaryInterface
+    public String[] getSupportedFeatures() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new String[0] : (String[]) invokeV.objValue;
+    }
+
     public WebMessageAdapter(WebMessageCompat webMessageCompat) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -50,14 +57,20 @@ public class WebMessageAdapter implements WebMessageBoundaryInterface {
     public static WebMessageCompat webMessageCompatFromBoundaryInterface(WebMessageBoundaryInterface webMessageBoundaryInterface) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, webMessageBoundaryInterface)) == null) ? new WebMessageCompat(webMessageBoundaryInterface.getData(), toWebMessagePortCompats(webMessageBoundaryInterface.getPorts())) : (WebMessageCompat) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, webMessageBoundaryInterface)) == null) {
+            return new WebMessageCompat(webMessageBoundaryInterface.getData(), toWebMessagePortCompats(webMessageBoundaryInterface.getPorts()));
+        }
+        return (WebMessageCompat) invokeL.objValue;
     }
 
     @Override // org.chromium.support_lib_boundary.WebMessageBoundaryInterface
     public String getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mWebMessageCompat.getData() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mWebMessageCompat.getData();
+        }
+        return (String) invokeV.objValue;
     }
 
     @Override // org.chromium.support_lib_boundary.WebMessageBoundaryInterface
@@ -76,12 +89,5 @@ public class WebMessageAdapter implements WebMessageBoundaryInterface {
             return invocationHandlerArr;
         }
         return (InvocationHandler[]) invokeV.objValue;
-    }
-
-    @Override // org.chromium.support_lib_boundary.FeatureFlagHolderBoundaryInterface
-    public String[] getSupportedFeatures() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new String[0] : (String[]) invokeV.objValue;
     }
 }

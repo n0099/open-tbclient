@@ -1,6 +1,5 @@
 package com.baidu.mobstat;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
@@ -19,10 +18,11 @@ import java.util.Set;
 /* loaded from: classes2.dex */
 public class ActivityLifeObserver {
     public static /* synthetic */ Interceptable $ic;
-    public static final ActivityLifeObserver b;
+    public static final ActivityLifeObserver c;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public Set<IActivityLifeCallback> c;
+    public Application.ActivityLifecycleCallbacks b;
+    public Set d;
 
     /* loaded from: classes2.dex */
     public interface IActivityLifeCallback {
@@ -54,7 +54,7 @@ public class ActivityLifeObserver {
                 return;
             }
         }
-        b = new ActivityLifeObserver();
+        c = new ActivityLifeObserver();
     }
 
     public ActivityLifeObserver() {
@@ -70,154 +70,157 @@ public class ActivityLifeObserver {
                 return;
             }
         }
-        this.c = new LinkedHashSet();
+        this.d = new LinkedHashSet();
     }
 
     public static ActivityLifeObserver instance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b : (ActivityLifeObserver) invokeV.objValue;
-    }
-
-    public void addObserver(IActivityLifeCallback iActivityLifeCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, iActivityLifeCallback) == null) {
-            synchronized (this.c) {
-                this.c.add(iActivityLifeCallback);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return c;
         }
+        return (ActivityLifeObserver) invokeV.objValue;
     }
 
     public void clearObservers() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this.c) {
-                this.c.clear();
+            synchronized (this.d) {
+                this.d.clear();
             }
         }
     }
 
-    @TargetApi(14)
+    public void addObserver(IActivityLifeCallback iActivityLifeCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, iActivityLifeCallback) == null) {
+            synchronized (this.d) {
+                this.d.add(iActivityLifeCallback);
+            }
+        }
+    }
+
     public void doRegister(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            this.b = new Application.ActivityLifecycleCallbacks(this) { // from class: com.baidu.mobstat.ActivityLifeObserver.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ ActivityLifeObserver a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = this;
+                }
+
+                @Override // android.app.Application.ActivityLifecycleCallbacks
+                public void onActivityCreated(Activity activity, Bundle bundle) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, activity, bundle) == null) {
+                        synchronized (this.a.d) {
+                            for (IActivityLifeCallback iActivityLifeCallback : this.a.d) {
+                                iActivityLifeCallback.onActivityCreated(activity, bundle);
+                            }
+                        }
+                    }
+                }
+
+                @Override // android.app.Application.ActivityLifecycleCallbacks
+                public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(1048580, this, activity, bundle) == null) {
+                        synchronized (this.a.d) {
+                            for (IActivityLifeCallback iActivityLifeCallback : this.a.d) {
+                                iActivityLifeCallback.onActivitySaveInstanceState(activity, bundle);
+                            }
+                        }
+                    }
+                }
+
+                @Override // android.app.Application.ActivityLifecycleCallbacks
+                public void onActivityDestroyed(Activity activity) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+                        synchronized (this.a.d) {
+                            for (IActivityLifeCallback iActivityLifeCallback : this.a.d) {
+                                iActivityLifeCallback.onActivityDestroyed(activity);
+                            }
+                        }
+                    }
+                }
+
+                @Override // android.app.Application.ActivityLifecycleCallbacks
+                public void onActivityPaused(Activity activity) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+                        synchronized (this.a.d) {
+                            for (IActivityLifeCallback iActivityLifeCallback : this.a.d) {
+                                iActivityLifeCallback.onActivityPaused(activity);
+                            }
+                        }
+                    }
+                }
+
+                @Override // android.app.Application.ActivityLifecycleCallbacks
+                public void onActivityResumed(Activity activity) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048579, this, activity) == null) {
+                        synchronized (this.a.d) {
+                            for (IActivityLifeCallback iActivityLifeCallback : this.a.d) {
+                                iActivityLifeCallback.onActivityResumed(activity);
+                            }
+                        }
+                    }
+                }
+
+                @Override // android.app.Application.ActivityLifecycleCallbacks
+                public void onActivityStarted(Activity activity) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048581, this, activity) == null) {
+                        synchronized (this.a.d) {
+                            for (IActivityLifeCallback iActivityLifeCallback : this.a.d) {
+                                iActivityLifeCallback.onActivityStarted(activity);
+                            }
+                        }
+                    }
+                }
+
+                @Override // android.app.Application.ActivityLifecycleCallbacks
+                public void onActivityStopped(Activity activity) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048582, this, activity) == null) {
+                        synchronized (this.a.d) {
+                            for (IActivityLifeCallback iActivityLifeCallback : this.a.d) {
+                                iActivityLifeCallback.onActivityStopped(activity);
+                            }
+                        }
+                    }
+                }
+            };
             try {
-                ((Application) context.getApplicationContext()).registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks(this) { // from class: com.baidu.mobstat.ActivityLifeObserver.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ ActivityLifeObserver a;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.a = this;
-                    }
-
-                    @Override // android.app.Application.ActivityLifecycleCallbacks
-                    public void onActivityCreated(Activity activity, Bundle bundle) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLL(1048576, this, activity, bundle) == null) {
-                            synchronized (this.a.c) {
-                                for (IActivityLifeCallback iActivityLifeCallback : this.a.c) {
-                                    iActivityLifeCallback.onActivityCreated(activity, bundle);
-                                }
-                            }
-                        }
-                    }
-
-                    @Override // android.app.Application.ActivityLifecycleCallbacks
-                    public void onActivityDestroyed(Activity activity) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-                            synchronized (this.a.c) {
-                                for (IActivityLifeCallback iActivityLifeCallback : this.a.c) {
-                                    iActivityLifeCallback.onActivityDestroyed(activity);
-                                }
-                            }
-                        }
-                    }
-
-                    @Override // android.app.Application.ActivityLifecycleCallbacks
-                    public void onActivityPaused(Activity activity) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-                            synchronized (this.a.c) {
-                                for (IActivityLifeCallback iActivityLifeCallback : this.a.c) {
-                                    iActivityLifeCallback.onActivityPaused(activity);
-                                }
-                            }
-                        }
-                    }
-
-                    @Override // android.app.Application.ActivityLifecycleCallbacks
-                    public void onActivityResumed(Activity activity) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048579, this, activity) == null) {
-                            synchronized (this.a.c) {
-                                for (IActivityLifeCallback iActivityLifeCallback : this.a.c) {
-                                    iActivityLifeCallback.onActivityResumed(activity);
-                                }
-                            }
-                        }
-                    }
-
-                    @Override // android.app.Application.ActivityLifecycleCallbacks
-                    public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLL(1048580, this, activity, bundle) == null) {
-                            synchronized (this.a.c) {
-                                for (IActivityLifeCallback iActivityLifeCallback : this.a.c) {
-                                    iActivityLifeCallback.onActivitySaveInstanceState(activity, bundle);
-                                }
-                            }
-                        }
-                    }
-
-                    @Override // android.app.Application.ActivityLifecycleCallbacks
-                    public void onActivityStarted(Activity activity) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048581, this, activity) == null) {
-                            synchronized (this.a.c) {
-                                for (IActivityLifeCallback iActivityLifeCallback : this.a.c) {
-                                    iActivityLifeCallback.onActivityStarted(activity);
-                                }
-                            }
-                        }
-                    }
-
-                    @Override // android.app.Application.ActivityLifecycleCallbacks
-                    public void onActivityStopped(Activity activity) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048582, this, activity) == null) {
-                            synchronized (this.a.c) {
-                                for (IActivityLifeCallback iActivityLifeCallback : this.a.c) {
-                                    iActivityLifeCallback.onActivityStopped(activity);
-                                }
-                            }
-                        }
-                    }
-                });
+                ((Application) context.getApplicationContext()).registerActivityLifecycleCallbacks(this.b);
             } catch (Exception unused) {
-                bc.c().a("registerActivityLifecycleCallbacks encounter exception");
+                bb.c().a("registerActivityLifecycleCallbacks encounter exception");
             }
         }
     }
 
     public void registerActivityLifeCallback(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, context) == null) || this.a || Build.VERSION.SDK_INT < 14) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, context) != null) || this.a || Build.VERSION.SDK_INT < 14) {
             return;
         }
         doRegister(context);
@@ -227,8 +230,19 @@ public class ActivityLifeObserver {
     public void removeObserver(IActivityLifeCallback iActivityLifeCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, iActivityLifeCallback) == null) {
-            synchronized (this.c) {
-                this.c.remove(iActivityLifeCallback);
+            synchronized (this.d) {
+                this.d.remove(iActivityLifeCallback);
+            }
+        }
+    }
+
+    public void unRegister(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
+            try {
+                ((Application) context.getApplicationContext()).unregisterActivityLifecycleCallbacks(this.b);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

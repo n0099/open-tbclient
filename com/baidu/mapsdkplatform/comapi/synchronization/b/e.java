@@ -40,7 +40,7 @@ public class e extends Handler {
     public Marker f;
     public Marker g;
     public Marker h;
-    public List<Polyline> i;
+    public List i;
 
     static {
         InterceptResult invokeClinit;
@@ -91,17 +91,17 @@ public class e extends Handler {
         }
     }
 
-    private void a(BitmapDescriptor bitmapDescriptor, int i, List<HistoryTraceData.HistoryTracePoint> list) {
+    private void a(BitmapDescriptor bitmapDescriptor, int i, List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65539, this, bitmapDescriptor, i, list) == null) {
-            List<List<LatLng>> b2 = b(list);
+            List b2 = b(list);
             if (b2 == null || b2.isEmpty()) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "Calculate sub section points error");
                 return;
             }
             b();
             for (int i2 = 0; i2 < b2.size(); i2++) {
-                List<LatLng> list2 = b2.get(i2);
+                List list2 = (List) b2.get(i2);
                 if (list2 != null && !list2.isEmpty()) {
                     if (list2.size() < 2) {
                         String str = a;
@@ -161,16 +161,16 @@ public class e extends Handler {
             }
             a(historyTraceData.getOrderStartPosition());
             b(historyTraceData.getOrderEndPosition());
-            List<HistoryTraceData.HistoryTracePoint> pointsList = historyTraceData.getPointsList();
+            List pointsList = historyTraceData.getPointsList();
             if (pointsList != null && !pointsList.isEmpty()) {
-                c(pointsList.get(0).getPoint());
+                c(((HistoryTraceData.HistoryTracePoint) pointsList.get(0)).getPoint());
             }
             a(pointsList);
             c();
         }
     }
 
-    private void a(List<HistoryTraceData.HistoryTracePoint> list) {
+    private void a(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, this, list) == null) {
             if (!this.c.isShowRoutePlan()) {
@@ -198,7 +198,7 @@ public class e extends Handler {
         }
     }
 
-    private List<List<LatLng>> b(List<HistoryTraceData.HistoryTracePoint> list) {
+    private List b(List list) {
         InterceptResult invokeL;
         String str;
         String str2;
@@ -212,8 +212,8 @@ public class e extends Handler {
                 CopyOnWriteArrayList copyOnWriteArrayList = new CopyOnWriteArrayList();
                 ArrayList arrayList = new ArrayList();
                 for (int i = 0; i < list.size() - 1; i++) {
-                    HistoryTraceData.HistoryTracePoint historyTracePoint2 = list.get(i);
-                    if (historyTracePoint2 != null && (historyTracePoint = list.get(i + 1)) != null) {
+                    HistoryTraceData.HistoryTracePoint historyTracePoint2 = (HistoryTraceData.HistoryTracePoint) list.get(i);
+                    if (historyTracePoint2 != null && (historyTracePoint = (HistoryTraceData.HistoryTracePoint) list.get(i + 1)) != null) {
                         arrayList.add(historyTracePoint2.getPoint());
                         if (historyTracePoint.getLocationTime() - historyTracePoint2.getLocationTime() > 300) {
                             ArrayList arrayList2 = new ArrayList();
@@ -224,7 +224,7 @@ public class e extends Handler {
                     }
                 }
                 if (!arrayList.isEmpty()) {
-                    arrayList.add(list.get(list.size() - 1).getPoint());
+                    arrayList.add(((HistoryTraceData.HistoryTracePoint) list.get(list.size() - 1)).getPoint());
                     copyOnWriteArrayList.add(arrayList);
                 }
                 return copyOnWriteArrayList;
@@ -241,7 +241,7 @@ public class e extends Handler {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            List<Polyline> list = this.i;
+            List list = this.i;
             if (list != null && !list.isEmpty()) {
                 this.i.clear();
             }
@@ -251,13 +251,13 @@ public class e extends Handler {
         }
     }
 
-    private void b(BitmapDescriptor bitmapDescriptor, int i, List<HistoryTraceData.HistoryTracePoint> list) {
+    private void b(BitmapDescriptor bitmapDescriptor, int i, List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65546, this, bitmapDescriptor, i, list) == null) {
             ArrayList arrayList = new ArrayList();
             for (int i2 = 0; i2 < list.size(); i2++) {
                 if (list.get(i2) != null) {
-                    arrayList.add(list.get(i2).getPoint());
+                    arrayList.add(((HistoryTraceData.HistoryTracePoint) list.get(i2)).getPoint());
                 }
             }
             PolylineOptions zIndex = new PolylineOptions().width(i).points(arrayList).dottedLine(true).customTexture(bitmapDescriptor).zIndex(4);
@@ -302,13 +302,13 @@ public class e extends Handler {
             if (marker3 != null) {
                 builder.include(marker3.getPosition());
             }
-            List<Polyline> list = this.i;
+            List list = this.i;
             if (list != null && !list.isEmpty()) {
                 for (int i = 0; i < this.i.size(); i++) {
-                    Polyline polyline = this.i.get(i);
+                    Polyline polyline = (Polyline) this.i.get(i);
                     if (polyline != null && polyline.getPoints() != null && !polyline.getPoints().isEmpty()) {
                         for (int i2 = 0; i2 < polyline.getPoints().size(); i2++) {
-                            builder.include(polyline.getPoints().get(i2));
+                            builder.include((LatLng) polyline.getPoints().get(i2));
                         }
                     }
                 }
@@ -361,7 +361,7 @@ public class e extends Handler {
                 marker3.remove();
                 this.h = null;
             }
-            List<Polyline> list = this.i;
+            List list = this.i;
             if (list != null && !list.isEmpty()) {
                 this.i.clear();
                 this.i = null;

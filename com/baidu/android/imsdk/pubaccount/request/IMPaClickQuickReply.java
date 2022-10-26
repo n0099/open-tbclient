@@ -29,6 +29,30 @@ public class IMPaClickQuickReply extends PaBaseHttpRequest {
     public long mPaid;
     public long mVersionId;
 
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getMethod() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "POST" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public boolean shouldAbort() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public IMPaClickQuickReply(Context context, long j, String str, long j2, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -51,13 +75,6 @@ public class IMPaClickQuickReply extends PaBaseHttpRequest {
         this.mKey = str2;
     }
 
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
-    }
-
     @Override // com.baidu.android.imsdk.pubaccount.request.PaBaseHttpRequest, com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public String getHost() {
         InterceptResult invokeV;
@@ -69,13 +86,6 @@ public class IMPaClickQuickReply extends PaBaseHttpRequest {
             return getHostUrl() + "rest/2.0/im/custom_menu?method=button_act";
         }
         return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getMethod() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "POST" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -119,10 +129,9 @@ public class IMPaClickQuickReply extends PaBaseHttpRequest {
     public void onFailure(int i, byte[] bArr, Throwable th) {
         IClickPaQuickReplyListener iClickPaQuickReplyListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeILL(1048580, this, i, bArr, th) == null) || (iClickPaQuickReplyListener = (IClickPaQuickReplyListener) ListenerManager.getInstance().removeListener(this.mKey)) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeILL(1048580, this, i, bArr, th) == null) && (iClickPaQuickReplyListener = (IClickPaQuickReplyListener) ListenerManager.getInstance().removeListener(this.mKey)) != null) {
+            iClickPaQuickReplyListener.onClickQuickReply(i);
         }
-        iClickPaQuickReplyListener.onClickQuickReply(i);
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
@@ -148,15 +157,5 @@ public class IMPaClickQuickReply extends PaBaseHttpRequest {
                 iClickPaQuickReplyListener.onClickQuickReply(i2);
             }
         }
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public boolean shouldAbort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

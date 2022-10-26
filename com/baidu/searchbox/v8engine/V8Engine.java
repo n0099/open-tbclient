@@ -22,7 +22,7 @@ import com.baidu.searchbox.v8engine.thread.V8DefaultThreadPolicy;
 import com.baidu.searchbox.v8engine.thread.V8ExecuteCallback;
 import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.smallgame.sdk.Log;
-import com.baidu.tieba.gh1;
+import com.baidu.tieba.hh1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +31,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,7 +38,6 @@ import java.util.Iterator;
 import java.util.Vector;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONArray;
-@NotProguard
 /* loaded from: classes2.dex */
 public class V8Engine implements JSRuntime {
     public static /* synthetic */ Interceptable $ic = null;
@@ -81,7 +79,7 @@ public class V8Engine implements JSRuntime {
     public static Context sAppContext;
     public static Method sClearCrashKeyMethod;
     public static final long sEngineDestroyed = 0;
-    public static HashMap<Long, V8Engine> sEngines;
+    public static HashMap sEngines;
     public static Method sSetCrashKeyValueMethod;
     public static int sWorkerID;
     public transient /* synthetic */ FieldHolder $fh;
@@ -89,7 +87,7 @@ public class V8Engine implements JSRuntime {
     public String mBuildInV8BinPath;
     public V8EngineConfiguration.CodeCacheSetting mCodeCacheSetting;
     public ComponentCallbacks2 mComponentCallbacks2;
-    public ArrayList<V8EngineConsole> mConsoles;
+    public ArrayList mConsoles;
     public CustomJsCodeCacheHandler mCustomJsCodeCacheHandler;
     public String mDecodeBdfile;
     public File mDiskCodeCachePathFile;
@@ -97,7 +95,7 @@ public class V8Engine implements JSRuntime {
     public String mExternalV8BinPath;
     public V8FileSystemDelegatePolicy mFileSystemDelegatePolicy;
     public float mFramesInterval;
-    public ArrayList<V8StatusListener> mHandlers;
+    public ArrayList mHandlers;
     public String mInitBasePath;
     public String mInitJsPath;
     public InspectorNativeChannel mInspectorChannel;
@@ -117,7 +115,7 @@ public class V8Engine implements JSRuntime {
     public PerformanceJsonBean mPerformanceJsonBean;
     public volatile boolean mReady;
     public volatile boolean mSetMemSetMemMemoryEnable;
-    public Vector<Runnable> mSuspendableTasks;
+    public Vector mSuspendableTasks;
     public V8ThreadDelegatePolicy mThreadDelegatePolicy;
     public String mThreadName;
     public V8Timer mTimer;
@@ -132,9 +130,96 @@ public class V8Engine implements JSRuntime {
         void onV8ExceptionCallBack(V8ExceptionInfo v8ExceptionInfo);
     }
 
-    @NotProguard
     /* loaded from: classes2.dex */
-    public static class MemoryInfo {
+    public interface V8EngineConsole {
+        void onDebugConsole(String str);
+
+        void onErrorConsole(String str);
+
+        void onInfoConsole(String str);
+
+        void onLogConsole(String str);
+
+        void onTraceConsole(String str);
+
+        void onWarnConsole(String str);
+    }
+
+    /* loaded from: classes2.dex */
+    public interface V8StatusListener {
+        void onPause();
+
+        void onReady();
+
+        void onResume();
+    }
+
+    /* loaded from: classes2.dex */
+    public interface WorkerFactory {
+        V8Engine onCreateWorker();
+    }
+
+    private native void addJavascriptInterfaceImpl(long j, Object obj, String str, Class cls, boolean z);
+
+    public static native void nativeDeleteJsReleaser(long j, long j2, boolean z);
+
+    private native JsSerializeValue nativeDeserialize(long j, byte[] bArr, int i, boolean z);
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public native void nativeDestroyOpenDataContext(long j);
+
+    public static native long nativeGetChannelFunctionTable();
+
+    public static native int nativeGetVersionCode();
+
+    public static native String nativeGetVersionName();
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public native void nativeInitGlobalV8NetFunctionTable(long j, long j2);
+
+    private native void nativeOnReady(long j);
+
+    private native byte[] nativeSerialize(long j, JsSerializeValue jsSerializeValue, boolean z);
+
+    private native void nativeSetBdFileRealPath(long j, String str);
+
+    private native boolean nativeSetCodeCacheSetting(long j, String str, String str2, int i, String[] strArr, int i2, long j2);
+
+    private native int nativeSetCustomJsCodeCacheHandler(long j, Object obj);
+
+    private native int nativeSetJavaNetRequest(long j, Object obj);
+
+    private native void nativeSetMainPackageBasePath(long j, String str);
+
+    private native void nativeSetMemSetMemoryEnable(long j, boolean z);
+
+    private native void nativeSetUserAgent(long j, String str);
+
+    public static native void nativeSetV8GCPressureLevel(long j, int i);
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public native void nativeThrowJSException(long j, int i, String str, boolean z);
+
+    public static native String nativeToColorRGBA(String str);
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public native void pumpNativeMessageLoop(long j, long j2);
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public native void removeJavascriptInterfaceImpl(long j, String str, boolean z);
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public native void require(long j, String str, String str2, boolean z, boolean z2);
+
+    private native String runScript(long j, String str, String str2, boolean z);
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public native void v8EngineDestroy(long j);
+
+    private native long v8EngineInit();
+
+    /* loaded from: classes2.dex */
+    public class MemoryInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @V8JavascriptField
@@ -183,35 +268,6 @@ public class V8Engine implements JSRuntime {
         }
     }
 
-    /* loaded from: classes2.dex */
-    public interface V8EngineConsole {
-        void onDebugConsole(String str);
-
-        void onErrorConsole(String str);
-
-        void onInfoConsole(String str);
-
-        void onLogConsole(String str);
-
-        void onTraceConsole(String str);
-
-        void onWarnConsole(String str);
-    }
-
-    /* loaded from: classes2.dex */
-    public interface V8StatusListener {
-        void onPause();
-
-        void onReady();
-
-        void onResume();
-    }
-
-    /* loaded from: classes2.dex */
-    public interface WorkerFactory {
-        V8Engine onCreateWorker();
-    }
-
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -225,7 +281,7 @@ public class V8Engine implements JSRuntime {
                 return;
             }
         }
-        sEngines = new HashMap<>();
+        sEngines = new HashMap();
         sSetCrashKeyValueMethod = null;
         sClearCrashKeyMethod = null;
         regiestMessageChannelForT7();
@@ -234,6 +290,55 @@ public class V8Engine implements JSRuntime {
         APP_DEBUG = false;
         mSurfaceViewWidth = 0;
         mSurfaceViewHeight = 0;
+    }
+
+    private boolean checkVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65565, this)) == null) {
+            Log.w(TAG, "[mario] version: 1.3.6.1 nativeVersion: " + nativeGetVersionName());
+            if ("1.3.6.1".equals(nativeGetVersionName()) && 1 == nativeGetVersionCode()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    private String getBuildInV8BinPath() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65573, this)) == null) {
+            if (this.mBuildInV8BinPath == null) {
+                this.mBuildInV8BinPath = getAppContext().getApplicationInfo().nativeLibraryDir + File.separator + "libcom.baidu.zeus.so";
+            }
+            return this.mBuildInV8BinPath;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void regiestMessageChannelForT7() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65610, null) == null) {
+            try {
+                Class.forName("com.baidu.webkit.internal.ApisInteractWithMario").getDeclaredMethod("setMessageChannalFunctoinTable", Long.TYPE).invoke(null, Long.valueOf(nativeGetChannelFunctionTable()));
+            } catch (Throwable th) {
+                Log.e(TAG, th.getMessage());
+            }
+        }
+    }
+
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
+            this.mPaused = false;
+            if (this.mHandlers != null) {
+                for (V8StatusListener v8StatusListener : new ArrayList(this.mHandlers)) {
+                    v8StatusListener.onResume();
+                }
+            }
+            postSuspendableTasks();
+        }
     }
 
     public V8Engine(Context context, String str, String str2, V8ThreadDelegatePolicy v8ThreadDelegatePolicy, Object obj, Object obj2) {
@@ -269,115 +374,6 @@ public class V8Engine implements JSRuntime {
         initialize(context, str, str2, v8ThreadDelegatePolicy, obj, obj2);
     }
 
-    private native void addJavascriptInterfaceImpl(long j, Object obj, String str, Class cls, boolean z);
-
-    private void addPossiblyUnsafeJavascriptInterface(Object obj, String str, Class<? extends Annotation> cls, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65562, this, new Object[]{obj, str, cls, Boolean.valueOf(z)}) == null) {
-            if (obj != null && this.mNativeV8Engine != 0) {
-                if (!this.mIsDestroyed.get()) {
-                    addJavascriptInterfaceImpl(this.mNativeV8Engine, obj, str, null, z);
-                    return;
-                } else {
-                    Log.w(TAG, "addPossiblyUnsafeJavascriptInterface fail. please start engine before execute js task");
-                    return;
-                }
-            }
-            Log.i(TAG, "addPossiblyUnsafeJavascriptInterface object is null or mNativeV8Engine is null");
-        }
-    }
-
-    private int checkBeforeInvokeNativeMethod(boolean z, boolean z2, Object... objArr) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65563, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), objArr})) == null) {
-            if (z) {
-                if (objArr == null) {
-                    return 3;
-                }
-                for (Object obj : objArr) {
-                    if (obj == null) {
-                        return 4;
-                    }
-                }
-            }
-            if (this.mNativeV8Engine == 0 || this.mIsDestroyed.get()) {
-                return 5;
-            }
-            if (z2) {
-                if (this.mThreadDelegatePolicy.getThread() == null) {
-                    return 2;
-                }
-                if (this.mThreadDelegatePolicy.getThread() != null && this.mThreadDelegatePolicy.getThread() != Thread.currentThread()) {
-                    return 2;
-                }
-            }
-            return 0;
-        }
-        return invokeCommon.intValue;
-    }
-
-    public static void checkValid(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65564, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            long id = Thread.currentThread().getId();
-            if (j2 == 0 || j2 == id) {
-                if (j == 0) {
-                    throw new IllegalStateException("v8 engine has been destroyed!");
-                }
-                return;
-            }
-            throw new IllegalStateException("javascript or v8 methods must run on v8 thread, current thread id = " + id + ", expect thread id = " + j2);
-        }
-    }
-
-    private boolean checkVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65565, this)) == null) {
-            Log.w(TAG, "[mario] version: 1.3.6.1 nativeVersion: " + nativeGetVersionName());
-            return "1.3.6.1".equals(nativeGetVersionName()) && 1 == nativeGetVersionCode();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void clearCrashKey(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65566, null, str) == null) {
-            try {
-                if (sClearCrashKeyMethod == null) {
-                    sClearCrashKeyMethod = Class.forName("com.baidu.webkit.internal.ApisInteractWithMario").getDeclaredMethod("clearCrashKey", String.class);
-                }
-                sClearCrashKeyMethod.invoke(null, str);
-            } catch (Throwable th) {
-                Log.e(TAG, th.getMessage());
-            }
-        }
-    }
-
-    private void delegateRunnable(Runnable runnable, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65567, this, runnable, z) == null) {
-            V8ThreadDelegatePolicy v8ThreadDelegatePolicy = this.mThreadDelegatePolicy;
-            if (v8ThreadDelegatePolicy == null) {
-                Log.e(TAG, "delegate runnable failed. please init thread delegate policy");
-            } else if (v8ThreadDelegatePolicy.getThread() != Thread.currentThread()) {
-                if (z) {
-                    this.mThreadDelegatePolicy.doDelegateRunnableDirectly(runnable);
-                } else {
-                    this.mThreadDelegatePolicy.doDelegateRunnable(runnable);
-                }
-            } else {
-                checkValid(this.mNativeV8Engine, this.mV8ThreadId);
-                try {
-                    runnable.run();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
     private void delegateRunnableAsync(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65568, this, runnable) == null) {
@@ -388,101 +384,6 @@ public class V8Engine implements JSRuntime {
                 Log.w(TAG, "Execute delegateRunnableAsync failed. mThreadDelegatePolicy is null");
             }
         }
-    }
-
-    public static void dumpJavaStackTraceToLogcat(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65570, null, str) == null) {
-            StackTraceElement[] stackTraceElementArr = Thread.getAllStackTraces().get(Thread.currentThread());
-            Log.w(str, "================Java StackTrace================");
-            if (stackTraceElementArr != null) {
-                for (StackTraceElement stackTraceElement : stackTraceElementArr) {
-                    Log.w(str, stackTraceElement.toString());
-                }
-            }
-            Log.w(str, "================Java StackTrace================");
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void evaluateJavascriptImpl(String str, ValueCallback<String> valueCallback, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65571, this, new Object[]{str, valueCallback, str2, Boolean.valueOf(z)}) == null) {
-            if (this.mIsDestroyed.get()) {
-                Log.w(TAG, "v8engine has been destroyed or not init. please init firstly.");
-                return;
-            }
-            checkValid(this.mNativeV8Engine, this.mV8ThreadId);
-            String runScript = runScript(this.mNativeV8Engine, str, str2, z);
-            if (valueCallback != null) {
-                valueCallback.onReceiveValue(runScript);
-            }
-        }
-    }
-
-    public static Context getAppContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) ? sAppContext : (Context) invokeV.objValue;
-    }
-
-    private String getBuildInV8BinPath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65573, this)) == null) {
-            if (this.mBuildInV8BinPath == null) {
-                this.mBuildInV8BinPath = getAppContext().getApplicationInfo().nativeLibraryDir + File.separator + "libcom.baidu.zeus.so";
-            }
-            return this.mBuildInV8BinPath;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static V8Engine getInstance(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65575, null, j)) == null) {
-            synchronized (sEngines) {
-                V8Engine v8Engine = sEngines.get(Long.valueOf(j));
-                if (v8Engine == null || v8Engine.mIsDestroyed.get()) {
-                    return null;
-                }
-                return v8Engine;
-            }
-        }
-        return (V8Engine) invokeJ.objValue;
-    }
-
-    private final MemoryInfo getMemoryInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65576, this)) == null) {
-            Debug.MemoryInfo memoryInfo = new Debug.MemoryInfo();
-            Debug.getMemoryInfo(memoryInfo);
-            MemoryInfo memoryInfo2 = new MemoryInfo();
-            memoryInfo2.nativePss = memoryInfo.nativePss;
-            memoryInfo2.nativePrivateDirty = memoryInfo.nativePrivateDirty;
-            memoryInfo2.dalvikPss = memoryInfo.dalvikPss;
-            memoryInfo2.dalvikPrivateDirty = memoryInfo.dalvikPrivateDirty;
-            memoryInfo2.totalPss = memoryInfo.getTotalPss();
-            memoryInfo2.totalPrivateDirty = memoryInfo.getTotalPrivateDirty();
-            memoryInfo2.otherPss = memoryInfo.otherPss;
-            memoryInfo2.otherPrivateDirty = memoryInfo.otherPrivateDirty;
-            if (Build.VERSION.SDK_INT > 23) {
-                try {
-                    memoryInfo2.summaryJavaHeap = Integer.parseInt(memoryInfo.getMemoryStat("summary.java-heap"));
-                    memoryInfo2.summaryNativeHeap = Integer.parseInt(memoryInfo.getMemoryStat("summary.native-heap"));
-                    memoryInfo2.summaryStack = Integer.parseInt(memoryInfo.getMemoryStat("summary.stack"));
-                    memoryInfo2.summaryGraphics = Integer.parseInt(memoryInfo.getMemoryStat("summary.graphics"));
-                    memoryInfo2.summaryPrivateOther = Integer.parseInt(memoryInfo.getMemoryStat("summary.private-other"));
-                    memoryInfo2.summaryTotalPss = Integer.parseInt(memoryInfo.getMemoryStat("summary.total-pss"));
-                    memoryInfo2.summaryTotalSwap = Integer.parseInt(memoryInfo.getMemoryStat("summary.total-swap"));
-                } catch (Throwable unused) {
-                }
-            }
-            return memoryInfo2;
-        }
-        return (MemoryInfo) invokeV.objValue;
     }
 
     private String getTrimPath(String str) {
@@ -501,373 +402,56 @@ public class V8Engine implements JSRuntime {
         return (String) invokeL.objValue;
     }
 
-    private AssetManager getV8BinAssetManager() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65578, this)) == null) {
-            if (this.mV8BinAssetManager == null) {
-                try {
-                    String str = this.mExternalV8BinPath;
-                    if (str == null) {
-                        str = getBuildInV8BinPath();
-                    }
-                    if (str != null && gh1.b(str)) {
-                        this.mV8BinAssetManager = (AssetManager) AssetManager.class.newInstance();
-                        AssetManager.class.getDeclaredMethod(ALTERNATIVE_ADD_ASSET_PATH_METHOD, String.class).invoke(this.mV8BinAssetManager, str);
-                    }
-                    Log.i(TAG, "can't find v8bin'AssetManager, path = " + str);
-                    return null;
-                } catch (Throwable unused) {
-                    Log.w(TAG, "can not find T7 assetManager, use appContext assetManager to find bin file");
-                }
-            }
-            return this.mV8BinAssetManager;
-        }
-        return (AssetManager) invokeV.objValue;
-    }
-
-    private void initialize(Context context, String str, String str2, V8ThreadDelegatePolicy v8ThreadDelegatePolicy, Object obj, Object obj2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65579, this, new Object[]{context, str, str2, v8ThreadDelegatePolicy, obj, obj2}) == null) {
-            Context applicationContext = context.getApplicationContext();
-            sAppContext = applicationContext;
-            if (applicationContext != null) {
-                ApplicationInfo applicationInfo = applicationContext.getApplicationInfo();
-                if (applicationInfo != null) {
-                    APP_DEBUG = (applicationInfo.flags & 2) != 0;
-                }
-                DiskCodeCacheManager.clearAllOldDiskCodeCacheResources(context, "app_mario");
-                DiskCodeCacheManager.clearAllOldDiskCodeCacheResources(context, DiskCodeCacheManager.OLD_DISK_CODE_CACHE_PACKAGE_WEBVIEW_NAME);
-            }
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                this.mInitBasePath = str;
-                this.mInitJsPath = str2;
-                this.mV8ExceptionInfo = new V8ExceptionInfo();
-                this.mJavaBoundObjectManager = new JavaBoundObjectManager();
-                this.mTimer = new V8Timer();
-                this.mAssetManager = context.getAssets();
-                this.mPerformanceJsonBean = new PerformanceJsonBean();
-                this.mNativeV8Engine = v8EngineInit();
-                this.mIsDestroyed.set(false);
-                addJavascriptInterface(new BindingBenchmark(this), "jBenchmark");
-                ComponentCallbacks2 componentCallbacks2 = new ComponentCallbacks2(this) { // from class: com.baidu.searchbox.v8engine.V8Engine.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ V8Engine this$0;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                    }
-
-                    @Override // android.content.ComponentCallbacks
-                    public void onConfigurationChanged(Configuration configuration) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, configuration) == null) {
-                        }
-                    }
-
-                    @Override // android.content.ComponentCallbacks
-                    public void onLowMemory() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        }
-                    }
-
-                    @Override // android.content.ComponentCallbacks2
-                    public void onTrimMemory(int i) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                            if (!this.this$0.isReady()) {
-                                Log.w(V8Engine.TAG, "onTrimMemory failed. V8Engine is not ready.");
-                            } else {
-                                this.this$0.postOnJSThread(new Runnable(this, i) { // from class: com.baidu.searchbox.v8engine.V8Engine.1.1
-                                    public static /* synthetic */ Interceptable $ic;
-                                    public transient /* synthetic */ FieldHolder $fh;
-                                    public final /* synthetic */ AnonymousClass1 this$1;
-                                    public final /* synthetic */ int val$level;
-
-                                    {
-                                        Interceptable interceptable3 = $ic;
-                                        if (interceptable3 != null) {
-                                            InitContext newInitContext = TitanRuntime.newInitContext();
-                                            newInitContext.initArgs = r2;
-                                            Object[] objArr = {this, Integer.valueOf(i)};
-                                            interceptable3.invokeUnInit(65536, newInitContext);
-                                            int i2 = newInitContext.flag;
-                                            if ((i2 & 1) != 0) {
-                                                int i3 = i2 & 2;
-                                                newInitContext.thisArg = this;
-                                                interceptable3.invokeInitBody(65536, newInitContext);
-                                                return;
-                                            }
-                                        }
-                                        this.this$1 = this;
-                                        this.val$level = i;
-                                    }
-
-                                    @Override // java.lang.Runnable
-                                    public void run() {
-                                        Interceptable interceptable3 = $ic;
-                                        if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                            V8Engine.nativeSetV8GCPressureLevel(this.this$1.this$0.mNativeV8Engine, this.val$level < 15 ? 1 : 2);
-                                        }
-                                    }
-                                });
-                            }
-                        }
-                    }
-                };
-                this.mComponentCallbacks2 = componentCallbacks2;
-                Context context2 = sAppContext;
-                if (context2 != null) {
-                    context2.registerComponentCallbacks(componentCallbacks2);
-                }
-                synchronized (sEngines) {
-                    sEngines.put(Long.valueOf(this.mNativeV8Engine), this);
-                }
-                if (v8ThreadDelegatePolicy == null) {
-                    v8ThreadDelegatePolicy = new V8DefaultThreadPolicy(this);
-                }
-                this.mThreadDelegatePolicy = v8ThreadDelegatePolicy;
-                this.mMainGlobalObject = obj;
-                this.mOpenGlobalObject = obj2;
-                V8NetFunctionTable.addOnCronetThreadInitializedListener(new ValueCallback<Long>(this) { // from class: com.baidu.searchbox.v8engine.V8Engine.2
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ V8Engine this$0;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                    }
-
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // android.webkit.ValueCallback
-                    public void onReceiveValue(Long l) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, l) == null) {
-                            Log.i(V8Engine.TAG, "[mario-request] nativeInitGlobalV8NetFunctionTable: value = " + l);
-                            V8Engine v8Engine = this.this$0;
-                            v8Engine.nativeInitGlobalV8NetFunctionTable(v8Engine.mNativeV8Engine, l.longValue());
-                        }
-                    }
-                });
-                return;
-            }
-            throw new RuntimeException("basePath and path must not be null.");
-        }
-    }
-
-    public static boolean isDebug() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65580, null)) == null) ? APP_DEBUG : invokeV.booleanValue;
-    }
-
-    public static native void nativeDeleteJsReleaser(long j, long j2, boolean z);
-
-    private native JsSerializeValue nativeDeserialize(long j, byte[] bArr, int i, boolean z);
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public native void nativeDestroyOpenDataContext(long j);
-
-    public static native long nativeGetChannelFunctionTable();
-
-    public static native int nativeGetVersionCode();
-
-    public static native String nativeGetVersionName();
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public native void nativeInitGlobalV8NetFunctionTable(long j, long j2);
-
-    private native void nativeOnReady(long j);
-
-    private native byte[] nativeSerialize(long j, JsSerializeValue jsSerializeValue, boolean z);
-
-    private native void nativeSetBdFileRealPath(long j, String str);
-
-    private native boolean nativeSetCodeCacheSetting(long j, String str, String str2, int i, String[] strArr, int i2, long j2);
-
-    private native int nativeSetCustomJsCodeCacheHandler(long j, Object obj);
-
-    private native int nativeSetJavaNetRequest(long j, Object obj);
-
-    private native void nativeSetMainPackageBasePath(long j, String str);
-
-    private native void nativeSetMemSetMemoryEnable(long j, boolean z);
-
-    private native void nativeSetUserAgent(long j, String str);
-
-    public static native void nativeSetV8GCPressureLevel(long j, int i);
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public native void nativeThrowJSException(long j, int i, String str, boolean z);
-
-    public static native String nativeToColorRGBA(String str);
-
     private void onDebugConsole(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65600, this, str) == null) || this.mConsoles == null) {
-            return;
-        }
-        for (V8EngineConsole v8EngineConsole : new ArrayList(this.mConsoles)) {
-            v8EngineConsole.onDebugConsole(str);
+        if ((interceptable == null || interceptable.invokeL(65600, this, str) == null) && this.mConsoles != null) {
+            for (V8EngineConsole v8EngineConsole : new ArrayList(this.mConsoles)) {
+                v8EngineConsole.onDebugConsole(str);
+            }
         }
     }
 
     private void onErrorConsole(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65601, this, str) == null) || this.mConsoles == null) {
-            return;
-        }
-        for (V8EngineConsole v8EngineConsole : new ArrayList(this.mConsoles)) {
-            v8EngineConsole.onErrorConsole(str);
+        if ((interceptable == null || interceptable.invokeL(65601, this, str) == null) && this.mConsoles != null) {
+            for (V8EngineConsole v8EngineConsole : new ArrayList(this.mConsoles)) {
+                v8EngineConsole.onErrorConsole(str);
+            }
         }
     }
 
     private void onInfoConsole(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65602, this, str) == null) || this.mConsoles == null) {
-            return;
-        }
-        for (V8EngineConsole v8EngineConsole : new ArrayList(this.mConsoles)) {
-            v8EngineConsole.onInfoConsole(str);
-        }
-    }
-
-    private void onJsCodeCacheFinished(String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65603, this, str, str2, z) == null) {
-            try {
-                if (this.mJsCodeCacheCallback != null) {
-                    this.mJsCodeCacheCallback.onJsCodeCacheFinished(new JsCodeCacheResult(str, str2, z));
-                } else if (this.mJSCacheCallback != null) {
-                    this.mJSCacheCallback.onCacheResult(new V8EngineConfiguration.CacheInfo(str2, z));
-                }
-            } catch (Throwable th) {
-                Log.w(TAG, "onJsCodeCacheFinished invoke failed. please check the exception message.", th);
+        if ((interceptable == null || interceptable.invokeL(65602, this, str) == null) && this.mConsoles != null) {
+            for (V8EngineConsole v8EngineConsole : new ArrayList(this.mConsoles)) {
+                v8EngineConsole.onInfoConsole(str);
             }
         }
     }
 
     private void onLogConsole(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65604, this, str) == null) || this.mConsoles == null) {
-            return;
-        }
-        for (V8EngineConsole v8EngineConsole : new ArrayList(this.mConsoles)) {
-            v8EngineConsole.onLogConsole(str);
-        }
-    }
-
-    private void onReady() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65605, this) == null) {
-            this.mReady = true;
-            if (this.mHandlers != null) {
-                for (V8StatusListener v8StatusListener : new ArrayList(this.mHandlers)) {
-                    v8StatusListener.onReady();
-                }
+        if ((interceptable == null || interceptable.invokeL(65604, this, str) == null) && this.mConsoles != null) {
+            for (V8EngineConsole v8EngineConsole : new ArrayList(this.mConsoles)) {
+                v8EngineConsole.onLogConsole(str);
             }
         }
     }
 
     private void onTraceConsole(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65606, this, str) == null) || this.mConsoles == null) {
-            return;
-        }
-        for (V8EngineConsole v8EngineConsole : new ArrayList(this.mConsoles)) {
-            v8EngineConsole.onTraceConsole(str);
+        if ((interceptable == null || interceptable.invokeL(65606, this, str) == null) && this.mConsoles != null) {
+            for (V8EngineConsole v8EngineConsole : new ArrayList(this.mConsoles)) {
+                v8EngineConsole.onTraceConsole(str);
+            }
         }
     }
 
     private void onWarnConsole(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65607, this, str) == null) || this.mConsoles == null) {
-            return;
-        }
-        for (V8EngineConsole v8EngineConsole : new ArrayList(this.mConsoles)) {
-            v8EngineConsole.onWarnConsole(str);
-        }
-    }
-
-    private synchronized void postSuspendableTasks() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65608, this) == null) {
-            synchronized (this) {
-                if (this.mSuspendableTasks != null && !this.mSuspendableTasks.isEmpty() && !this.mIsDestroyed.get()) {
-                    Iterator<Runnable> it = this.mSuspendableTasks.iterator();
-                    while (it.hasNext()) {
-                        delegateRunnableAsync(it.next());
-                    }
-                    this.mSuspendableTasks.clear();
-                    return;
-                }
-                Log.w(TAG, "postSuspendableTasks failed. mSuspendableTasks = " + this.mSuspendableTasks + ", mIsDestroyed = " + this.mIsDestroyed.get());
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public native void pumpNativeMessageLoop(long j, long j2);
-
-    public static void regiestMessageChannelForT7() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65610, null) == null) {
-            try {
-                Class.forName("com.baidu.webkit.internal.ApisInteractWithMario").getDeclaredMethod("setMessageChannalFunctoinTable", Long.TYPE).invoke(null, Long.valueOf(nativeGetChannelFunctionTable()));
-            } catch (Throwable th) {
-                Log.e(TAG, th.getMessage());
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public native void removeJavascriptInterfaceImpl(long j, String str, boolean z);
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public native void require(long j, String str, String str2, boolean z, boolean z2);
-
-    private native String runScript(long j, String str, String str2, boolean z);
-
-    public static void setCrashKeyValue(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65615, null, str, str2) == null) {
-            try {
-                if (sSetCrashKeyValueMethod == null) {
-                    sSetCrashKeyValueMethod = Class.forName("com.baidu.webkit.internal.ApisInteractWithMario").getDeclaredMethod("setCrashKeyValue", String.class, String.class);
-                }
-                sSetCrashKeyValueMethod.invoke(null, str, str2);
-            } catch (Throwable th) {
-                Log.e(TAG, th.getMessage());
+        if ((interceptable == null || interceptable.invokeL(65607, this, str) == null) && this.mConsoles != null) {
+            for (V8EngineConsole v8EngineConsole : new ArrayList(this.mConsoles)) {
+                v8EngineConsole.onWarnConsole(str);
             }
         }
     }
@@ -875,26 +459,10 @@ public class V8Engine implements JSRuntime {
     public static String toColorRGBA(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65616, null, str)) == null) ? nativeToColorRGBA(str) : (String) invokeL.objValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public native void v8EngineDestroy(long j);
-
-    private native long v8EngineInit();
-
-    public void addJavascriptInterface(Object obj, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, obj, str) == null) {
-            addPossiblyUnsafeJavascriptInterface(obj, str, JavascriptInterface.class, true);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65616, null, str)) == null) {
+            return nativeToColorRGBA(str);
         }
-    }
-
-    public void addJavascriptInterfaceForOpenData(Object obj, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, str) == null) {
-            addPossiblyUnsafeJavascriptInterface(obj, str, JavascriptInterface.class, false);
-        }
+        return (String) invokeL.objValue;
     }
 
     public synchronized void addStatusHandler(V8StatusListener v8StatusListener) {
@@ -906,7 +474,7 @@ public class V8Engine implements JSRuntime {
                     return;
                 }
                 if (this.mHandlers == null) {
-                    this.mHandlers = new ArrayList<>(1);
+                    this.mHandlers = new ArrayList(1);
                 }
                 this.mHandlers.add(v8StatusListener);
             }
@@ -918,7 +486,7 @@ public class V8Engine implements JSRuntime {
         if (interceptable == null || interceptable.invokeL(1048579, this, v8EngineConsole) == null) {
             synchronized (this) {
                 if (this.mConsoles == null) {
-                    this.mConsoles = new ArrayList<>(1);
+                    this.mConsoles = new ArrayList(1);
                 }
                 this.mConsoles.add(v8EngineConsole);
             }
@@ -933,50 +501,12 @@ public class V8Engine implements JSRuntime {
                 return false;
             }
             File file = this.mDiskCodeCachePathFile;
-            if (file == null || !file.exists()) {
-                return true;
+            if (file != null && file.exists()) {
+                return DiskCodeCacheManager.clearDiskCodeCache(this.mDiskCodeCachePathFile.getAbsolutePath(), str);
             }
-            return DiskCodeCacheManager.clearDiskCodeCache(this.mDiskCodeCachePathFile.getAbsolutePath(), str);
+            return true;
         }
         return invokeL.booleanValue;
-    }
-
-    public long createWorkerV8Engine(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
-            Log.e("V8", "!!!!!createWorkerV8Engine, mWorkerFactoryDelegate =  " + this.mWorkerFactoryDelegate);
-            WorkerFactory workerFactory = this.mWorkerFactoryDelegate;
-            if (workerFactory != null) {
-                V8Engine onCreateWorker = workerFactory.onCreateWorker();
-                onCreateWorker.setIsWorker(true);
-                StringBuilder sb = new StringBuilder();
-                sb.append("MarioWT");
-                int i = sWorkerID;
-                sWorkerID = i + 1;
-                sb.append(i);
-                onCreateWorker.setThreadName(sb.toString());
-                onCreateWorker.startEngine();
-                return onCreateWorker.nativePtr();
-            }
-            Log.e("V8", "ERROR!!!!! no mWorkerFactoryDelegate");
-            return 0L;
-        }
-        return invokeJ.longValue;
-    }
-
-    public JsSerializeValue deserialize(byte[] bArr, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048582, this, bArr, z)) == null) {
-            if (bArr != null && bArr.length != 0 && !this.mIsDestroyed.get()) {
-                checkValid(this.mNativeV8Engine, this.mV8ThreadId);
-                return nativeDeserialize(this.mNativeV8Engine, bArr, bArr.length, z);
-            }
-            Log.w(TAG, "deserialize fail. please start engine before execute js task");
-            return null;
-        }
-        return (JsSerializeValue) invokeLZ.objValue;
     }
 
     public void destroyEngine(V8ExecuteCallback v8ExecuteCallback) {
@@ -1054,225 +584,6 @@ public class V8Engine implements JSRuntime {
         }
     }
 
-    public void destroyOpenDataContext() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            runOnJSThread(new Runnable(this) { // from class: com.baidu.searchbox.v8engine.V8Engine.12
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ V8Engine this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (!this.this$0.mIsDestroyed.get()) {
-                            V8Engine v8Engine = this.this$0;
-                            v8Engine.nativeDestroyOpenDataContext(v8Engine.mNativeV8Engine);
-                            return;
-                        }
-                        Log.w(V8Engine.TAG, "destroyOpenDataContext fail. please start engine before execute js task");
-                    }
-                }
-            });
-        }
-    }
-
-    public void destroyWorkerV8Engine() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            destroyEngine(null);
-        }
-    }
-
-    public void evaluateJavascript(String str, ValueCallback<String> valueCallback, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048586, this, str, valueCallback, str2) == null) {
-            runOnJSThread(new Runnable(this, str2, str, valueCallback) { // from class: com.baidu.searchbox.v8engine.V8Engine.13
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ V8Engine this$0;
-                public final /* synthetic */ String val$js;
-                public final /* synthetic */ ValueCallback val$resultCallback;
-                public final /* synthetic */ String val$tagName;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str2, str, valueCallback};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$tagName = str2;
-                    this.val$js = str;
-                    this.val$resultCallback = valueCallback;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.this$0.evaluateJavascriptImpl(this.val$js, this.val$resultCallback, this.val$tagName, true);
-                    }
-                }
-
-                @NotProguard
-                public String toString() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                        return "evaluateJavascript-" + this.val$tagName;
-                    }
-                    return (String) invokeV.objValue;
-                }
-            });
-        }
-    }
-
-    public void evaluateJavascriptForOpenData(String str, ValueCallback<String> valueCallback, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048587, this, str, valueCallback, str2) == null) {
-            runOnJSThread(new Runnable(this, str2, str, valueCallback) { // from class: com.baidu.searchbox.v8engine.V8Engine.14
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ V8Engine this$0;
-                public final /* synthetic */ String val$js;
-                public final /* synthetic */ ValueCallback val$resultCallback;
-                public final /* synthetic */ String val$tagName;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str2, str, valueCallback};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$tagName = str2;
-                    this.val$js = str;
-                    this.val$resultCallback = valueCallback;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.this$0.evaluateJavascriptImpl(this.val$js, this.val$resultCallback, this.val$tagName, false);
-                    }
-                }
-
-                @NotProguard
-                public String toString() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                        return "evaluateJavascriptForOpenData-" + this.val$tagName;
-                    }
-                    return (String) invokeV.objValue;
-                }
-            });
-        }
-    }
-
-    public AssetManager getAssetManager() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mAssetManager : (AssetManager) invokeV.objValue;
-    }
-
-    public String getBdFileRealPath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mDecodeBdfile : (String) invokeV.objValue;
-    }
-
-    public V8FileSystemDelegatePolicy getFileSystemDelegatePolicy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mFileSystemDelegatePolicy : (V8FileSystemDelegatePolicy) invokeV.objValue;
-    }
-
-    public String getInitBasePath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mInitBasePath : (String) invokeV.objValue;
-    }
-
-    public InspectorNativeClient getInspectorNativeClient() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.mInspectorNativeClient : (InspectorNativeClient) invokeV.objValue;
-    }
-
-    public String getMainPackageBasePath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mMainPackageBasePath : (String) invokeV.objValue;
-    }
-
-    public NetRequest getNetRequest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.mNetRequest : (NetRequest) invokeV.objValue;
-    }
-
-    public Object getOpenGlobalObject() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.mOpenGlobalObject : invokeV.objValue;
-    }
-
-    public JSONArray getPerformanceJson() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            PerformanceJsonBean performanceJsonBean = this.mPerformanceJsonBean;
-            return performanceJsonBean == null ? new JSONArray() : performanceJsonBean.toJSONArray();
-        }
-        return (JSONArray) invokeV.objValue;
-    }
-
-    public PerformanceJsonBean getPerformanceJsonBean() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.mPerformanceJsonBean : (PerformanceJsonBean) invokeV.objValue;
-    }
-
     public InspectorNativeClient initInspector(InspectorNativeChannel inspectorNativeChannel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -1284,122 +595,6 @@ public class V8Engine implements JSRuntime {
         return (InspectorNativeClient) invokeL.objValue;
     }
 
-    public void initializeV8() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            Log.i(TAG, "[V8Dispose] Initializing V8Engine");
-            this.mV8ThreadId = Thread.currentThread().getId();
-            V8NativeInit.initialize(this.mNativeV8Engine, this.mAssetManager, getV8BinAssetManager(), this.mTimer, this.mMainGlobalObject, this.mV8ThreadId);
-        }
-    }
-
-    public boolean isDestroyed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.mIsDestroyed.get() : invokeV.booleanValue;
-    }
-
-    public synchronized boolean isPaused() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            synchronized (this) {
-                z = this.mPaused;
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isReady() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.mReady : invokeV.booleanValue;
-    }
-
-    public boolean isWorker() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.mIsWorker : invokeV.booleanValue;
-    }
-
-    public float minFramesInterval() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.mFramesInterval : invokeV.floatValue;
-    }
-
-    public long nativePtr() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.mNativeV8Engine : invokeV.longValue;
-    }
-
-    @NotProguard
-    public synchronized void onConsoleCallBack(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048606, this, i, str) == null) {
-            synchronized (this) {
-                switch (i) {
-                    case 1:
-                        onLogConsole(str);
-                        break;
-                    case 2:
-                        onDebugConsole(str);
-                        break;
-                    case 3:
-                        onInfoConsole(str);
-                        break;
-                    case 4:
-                        onErrorConsole(str);
-                        break;
-                    case 5:
-                        onWarnConsole(str);
-                        break;
-                    case 6:
-                        onTraceConsole(str);
-                        break;
-                }
-            }
-        }
-    }
-
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
-            this.mPaused = true;
-            if (this.mHandlers != null) {
-                for (V8StatusListener v8StatusListener : new ArrayList(this.mHandlers)) {
-                    v8StatusListener.onPause();
-                }
-            }
-        }
-    }
-
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
-            this.mPaused = false;
-            if (this.mHandlers != null) {
-                for (V8StatusListener v8StatusListener : new ArrayList(this.mHandlers)) {
-                    v8StatusListener.onResume();
-                }
-            }
-            postSuspendableTasks();
-        }
-    }
-
-    @NotProguard
-    public void onV8ExceptionCallBack(String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048609, this, str, str2, str3, str4) == null) || this.mExceptionDelegate == null) {
-            return;
-        }
-        this.mV8ExceptionInfo.reset(System.currentTimeMillis(), str, str2, str3, str4);
-        this.mExceptionDelegate.onV8ExceptionCallBack(this.mV8ExceptionInfo);
-    }
-
     @Override // com.baidu.searchbox.v8engine.JSRuntime
     public void postOnJSThread(Runnable runnable) {
         Interceptable interceptable = $ic;
@@ -1408,71 +603,6 @@ public class V8Engine implements JSRuntime {
                 delegateRunnableAsync(runnable);
             } else {
                 Log.w(TAG, "postOnJsThread fail. please start engine before execute js task");
-            }
-        }
-    }
-
-    public void postSuspendableTaskOnJSThread(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048612, this, runnable) == null) {
-            if (this.mIsDestroyed.get()) {
-                Log.w(TAG, "postOnJsThread fail. please start engine before execute js task");
-                return;
-            }
-            synchronized (this) {
-                if (this.mPaused) {
-                    if (this.mSuspendableTasks == null) {
-                        this.mSuspendableTasks = new Vector<>(1);
-                    }
-                    this.mSuspendableTasks.add(runnable);
-                    return;
-                }
-                delegateRunnableAsync(runnable);
-            }
-        }
-    }
-
-    @NotProguard
-    public void pumpMessageLoop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
-            try {
-                postOnJSThread(new Runnable(this) { // from class: com.baidu.searchbox.v8engine.V8Engine.4
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ V8Engine this$0;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.mIsDestroyed.get()) {
-                            return;
-                        }
-                        V8Engine.checkValid(this.this$0.mNativeV8Engine, this.this$0.mV8ThreadId);
-                        V8Engine v8Engine = this.this$0;
-                        v8Engine.pumpNativeMessageLoop(v8Engine.mNativeV8Engine, 0L);
-                    }
-                });
-            } catch (Throwable th) {
-                android.util.Log.e(TAG, "", th);
             }
         }
     }
@@ -1589,6 +719,210 @@ public class V8Engine implements JSRuntime {
         }
     }
 
+    @Override // com.baidu.searchbox.v8engine.JSRuntime
+    public void runOnJSThread(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048621, this, runnable) == null) {
+            if (!this.mIsDestroyed.get()) {
+                delegateRunnable(runnable, false);
+            } else {
+                Log.w(TAG, "runOnJSThread fail. please start engine before execute js task");
+            }
+        }
+    }
+
+    @Override // com.baidu.searchbox.v8engine.JSRuntime
+    public void runOnJSThreadDirectly(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048622, this, runnable) == null) {
+            if (!this.mIsDestroyed.get()) {
+                delegateRunnable(runnable, true);
+            } else {
+                Log.w(TAG, "runOnJSThreadDirectly fail. please start engine before execute js task");
+            }
+        }
+    }
+
+    public void setBdFileRealPath(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048624, this, str) == null) {
+            String trimPath = getTrimPath(str);
+            if (trimPath == null) {
+                Log.e(TAG, "bdfile path is empy");
+            } else if (!this.mDecodeBdfile.equals(trimPath)) {
+                this.mDecodeBdfile = trimPath;
+                nativeSetBdFileRealPath(this.mNativeV8Engine, trimPath);
+            }
+        }
+    }
+
+    @Deprecated
+    public void setCodeCacheSetting(V8EngineConfiguration.CodeCacheSetting codeCacheSetting) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048625, this, codeCacheSetting) == null) {
+            useCodeCacheSetting(codeCacheSetting);
+        }
+    }
+
+    public void setExternalV8BinFilesPath(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048627, this, str) == null) {
+            String str2 = null;
+            if (str == null) {
+                this.mExternalV8BinPath = null;
+                return;
+            }
+            String trim = str.trim();
+            if (!TextUtils.isEmpty(trim)) {
+                str2 = trim;
+            }
+            this.mExternalV8BinPath = str2;
+        }
+    }
+
+    public void setFileSystemDelegatePolicy(V8FileSystemDelegatePolicy v8FileSystemDelegatePolicy) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048628, this, v8FileSystemDelegatePolicy) == null) {
+            this.mFileSystemDelegatePolicy = v8FileSystemDelegatePolicy;
+        }
+    }
+
+    public void setInspectorChannel(InspectorNativeChannel inspectorNativeChannel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048629, this, inspectorNativeChannel) == null) {
+            this.mInspectorChannel = inspectorNativeChannel;
+        }
+    }
+
+    public void setIsWorker(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048630, this, z) == null) {
+            this.mIsWorker = z;
+        }
+    }
+
+    @Deprecated
+    public void setJSCacheCallback(V8EngineConfiguration.JSCacheCallback jSCacheCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048631, this, jSCacheCallback) == null) {
+            this.mJSCacheCallback = jSCacheCallback;
+        }
+    }
+
+    public void setJavaScriptExceptionDelegate(JavaScriptExceptionDelegate javaScriptExceptionDelegate) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048633, this, javaScriptExceptionDelegate) == null) {
+            this.mExceptionDelegate = javaScriptExceptionDelegate;
+        }
+    }
+
+    public void setJsCodeCacheCallback(JsCodeCacheCallback jsCodeCacheCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048634, this, jsCodeCacheCallback) == null) {
+            this.mJsCodeCacheCallback = jsCodeCacheCallback;
+        }
+    }
+
+    public void setMainPackageBasePath(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048635, this, str) == null) {
+            String trimPath = getTrimPath(str);
+            if (trimPath == null) {
+                Log.e(TAG, "mainPacakge path is empty");
+            } else if (!this.mMainPackageBasePath.equals(trimPath)) {
+                this.mMainPackageBasePath = trimPath;
+                nativeSetMainPackageBasePath(this.mNativeV8Engine, trimPath);
+            }
+        }
+    }
+
+    public boolean setNetRequest(NetRequest netRequest) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048637, this, netRequest)) == null) {
+            if (setJavaNetRequest(netRequest) == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setPreferredFramesPerSecond(short s) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048638, this, new Object[]{Short.valueOf(s)}) == null) && s > 0 && s <= 60) {
+            this.mFramesInterval = (float) (1000 / s);
+        }
+    }
+
+    public void setThreadName(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048639, this, str) == null) {
+            this.mThreadName = str;
+        }
+    }
+
+    public void setUserAgent(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048640, this, str) == null) && !TextUtils.equals(str, this.mUserAgent)) {
+            this.mUserAgent = str;
+            nativeSetUserAgent(this.mNativeV8Engine, str);
+        }
+    }
+
+    public void setWorkerFactoryDelegate(WorkerFactory workerFactory) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048641, this, workerFactory) == null) {
+            this.mWorkerFactoryDelegate = workerFactory;
+        }
+    }
+
+    private void delegateRunnableAsync(Runnable runnable, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(65569, this, runnable, j) == null) {
+            V8ThreadDelegatePolicy v8ThreadDelegatePolicy = this.mThreadDelegatePolicy;
+            if (v8ThreadDelegatePolicy != null) {
+                v8ThreadDelegatePolicy.doDelegateRunnable(runnable, j);
+            } else {
+                Log.w(TAG, "Execute delegateRunnableAsync failed. mThreadDelegatePolicy is null");
+            }
+        }
+    }
+
+    public static void runOnJSThread(long j, Runnable runnable) {
+        V8Engine v8Engine;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJL(65613, null, j, runnable) == null) && (v8Engine = getInstance(j)) != null) {
+            v8Engine.runOnJSThread(runnable);
+        }
+    }
+
+    public void addJavascriptInterface(Object obj, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, obj, str) == null) {
+            addPossiblyUnsafeJavascriptInterface(obj, str, JavascriptInterface.class, true);
+        }
+    }
+
+    public void addJavascriptInterfaceForOpenData(Object obj, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, str) == null) {
+            addPossiblyUnsafeJavascriptInterface(obj, str, JavascriptInterface.class, false);
+        }
+    }
+
+    @Override // com.baidu.searchbox.v8engine.JSRuntime
+    public void postOnJSThread(Runnable runnable, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048611, this, runnable, j) == null) {
+            if (!this.mIsDestroyed.get()) {
+                delegateRunnableAsync(runnable, j);
+            } else {
+                Log.w(TAG, "postOnJsThread fail. please start engine before execute js task");
+            }
+        }
+    }
+
     public void requireJSFile(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048619, this, str, str2) == null) {
@@ -1681,30 +1015,6 @@ public class V8Engine implements JSRuntime {
         }
     }
 
-    @Override // com.baidu.searchbox.v8engine.JSRuntime
-    public void runOnJSThread(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048621, this, runnable) == null) {
-            if (!this.mIsDestroyed.get()) {
-                delegateRunnable(runnable, false);
-            } else {
-                Log.w(TAG, "runOnJSThread fail. please start engine before execute js task");
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.v8engine.JSRuntime
-    public void runOnJSThreadDirectly(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048622, this, runnable) == null) {
-            if (!this.mIsDestroyed.get()) {
-                delegateRunnable(runnable, true);
-            } else {
-                Log.w(TAG, "runOnJSThreadDirectly fail. please start engine before execute js task");
-            }
-        }
-    }
-
     public byte[] serialize(JsSerializeValue jsSerializeValue, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
@@ -1717,245 +1027,6 @@ public class V8Engine implements JSRuntime {
             return nativeSerialize(this.mNativeV8Engine, jsSerializeValue, z);
         }
         return (byte[]) invokeLZ.objValue;
-    }
-
-    public void setBdFileRealPath(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048624, this, str) == null) {
-            String trimPath = getTrimPath(str);
-            if (trimPath == null) {
-                Log.e(TAG, "bdfile path is empy");
-            } else if (this.mDecodeBdfile.equals(trimPath)) {
-            } else {
-                this.mDecodeBdfile = trimPath;
-                nativeSetBdFileRealPath(this.mNativeV8Engine, trimPath);
-            }
-        }
-    }
-
-    @Deprecated
-    public void setCodeCacheSetting(V8EngineConfiguration.CodeCacheSetting codeCacheSetting) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048625, this, codeCacheSetting) == null) {
-            useCodeCacheSetting(codeCacheSetting);
-        }
-    }
-
-    public int setCustomJsCodeCacheHandler(CustomJsCodeCacheHandler customJsCodeCacheHandler) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048626, this, customJsCodeCacheHandler)) == null) {
-            int checkBeforeInvokeNativeMethod = checkBeforeInvokeNativeMethod(true, false, customJsCodeCacheHandler);
-            if (checkBeforeInvokeNativeMethod == 0 && (checkBeforeInvokeNativeMethod = nativeSetCustomJsCodeCacheHandler(this.mNativeV8Engine, customJsCodeCacheHandler)) == 0) {
-                this.mCustomJsCodeCacheHandler = customJsCodeCacheHandler;
-            }
-            if (checkBeforeInvokeNativeMethod != 0) {
-                Log.w(TAG, "setCustomJsCodeCacheHandler调用失败, 错误码: " + checkBeforeInvokeNativeMethod);
-            }
-            return checkBeforeInvokeNativeMethod;
-        }
-        return invokeL.intValue;
-    }
-
-    public void setExternalV8BinFilesPath(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048627, this, str) == null) {
-            if (str == null) {
-                this.mExternalV8BinPath = null;
-                return;
-            }
-            String trim = str.trim();
-            this.mExternalV8BinPath = TextUtils.isEmpty(trim) ? null : trim;
-        }
-    }
-
-    public void setFileSystemDelegatePolicy(V8FileSystemDelegatePolicy v8FileSystemDelegatePolicy) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048628, this, v8FileSystemDelegatePolicy) == null) {
-            this.mFileSystemDelegatePolicy = v8FileSystemDelegatePolicy;
-        }
-    }
-
-    public void setInspectorChannel(InspectorNativeChannel inspectorNativeChannel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048629, this, inspectorNativeChannel) == null) {
-            this.mInspectorChannel = inspectorNativeChannel;
-        }
-    }
-
-    public void setIsWorker(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048630, this, z) == null) {
-            this.mIsWorker = z;
-        }
-    }
-
-    @Deprecated
-    public void setJSCacheCallback(V8EngineConfiguration.JSCacheCallback jSCacheCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048631, this, jSCacheCallback) == null) {
-            this.mJSCacheCallback = jSCacheCallback;
-        }
-    }
-
-    public int setJavaNetRequest(NetRequest netRequest) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048632, this, netRequest)) == null) {
-            if (netRequest == null) {
-                i = 2;
-            } else if (this.mNativeV8Engine == 0 || this.mIsDestroyed.get()) {
-                i = 512;
-            } else if (this.mThreadDelegatePolicy.getThread() == null || !(this.mThreadDelegatePolicy.getThread() == null || this.mThreadDelegatePolicy.getThread() == Thread.currentThread())) {
-                i = 256;
-            } else {
-                int nativeSetJavaNetRequest = nativeSetJavaNetRequest(this.mNativeV8Engine, netRequest);
-                if (nativeSetJavaNetRequest == 0) {
-                    this.mNetRequest = netRequest;
-                    netRequest.bindV8Engine(this);
-                }
-                i = nativeSetJavaNetRequest;
-            }
-            if (i != 0) {
-                Log.w(TAG, "[mario-request] setJavaNetRequest调用失败, 错误码: " + i);
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    public void setJavaScriptExceptionDelegate(JavaScriptExceptionDelegate javaScriptExceptionDelegate) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048633, this, javaScriptExceptionDelegate) == null) {
-            this.mExceptionDelegate = javaScriptExceptionDelegate;
-        }
-    }
-
-    public void setJsCodeCacheCallback(JsCodeCacheCallback jsCodeCacheCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048634, this, jsCodeCacheCallback) == null) {
-            this.mJsCodeCacheCallback = jsCodeCacheCallback;
-        }
-    }
-
-    public void setMainPackageBasePath(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048635, this, str) == null) {
-            String trimPath = getTrimPath(str);
-            if (trimPath == null) {
-                Log.e(TAG, "mainPacakge path is empty");
-            } else if (this.mMainPackageBasePath.equals(trimPath)) {
-            } else {
-                this.mMainPackageBasePath = trimPath;
-                nativeSetMainPackageBasePath(this.mNativeV8Engine, trimPath);
-            }
-        }
-    }
-
-    public void setMemSetMemoryEnable(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048636, this, z) == null) {
-            Log.i(TAG, "[V8Dispose] Set MemSetMemory enable = " + z);
-            boolean z2 = false;
-            if (z) {
-                String[] strArr = {"MI 6X", "MI 6X MIKU", "REDMI NOTE 5", "REDMI NOTE 7", "V1814A", "V1814T", "V1816A", "V1816T", "VIVO X21", "VIVO X21A", "VIVO X21UD", "VIVO X21UD A", "VIVO Z3X"};
-                int i = 0;
-                while (true) {
-                    if (i >= 13) {
-                        break;
-                    } else if (strArr[i].equals(Build.MODEL.toUpperCase())) {
-                        z2 = true;
-                        break;
-                    } else {
-                        i++;
-                    }
-                }
-                this.mSetMemSetMemMemoryEnable = z2;
-                return;
-            }
-            this.mSetMemSetMemMemoryEnable = false;
-        }
-    }
-
-    public boolean setNetRequest(NetRequest netRequest) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048637, this, netRequest)) == null) ? setJavaNetRequest(netRequest) == 0 : invokeL.booleanValue;
-    }
-
-    public void setPreferredFramesPerSecond(short s) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048638, this, new Object[]{Short.valueOf(s)}) == null) || s <= 0 || s > 60) {
-            return;
-        }
-        this.mFramesInterval = (float) (1000 / s);
-    }
-
-    public void setThreadName(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048639, this, str) == null) {
-            this.mThreadName = str;
-        }
-    }
-
-    public void setUserAgent(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048640, this, str) == null) || TextUtils.equals(str, this.mUserAgent)) {
-            return;
-        }
-        this.mUserAgent = str;
-        nativeSetUserAgent(this.mNativeV8Engine, str);
-    }
-
-    public void setWorkerFactoryDelegate(WorkerFactory workerFactory) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048641, this, workerFactory) == null) {
-            this.mWorkerFactoryDelegate = workerFactory;
-        }
-    }
-
-    public synchronized void startEngine() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048642, this) == null) {
-            synchronized (this) {
-                if (this.mThreadDelegatePolicy != null) {
-                    this.mThreadDelegatePolicy.startV8Engine(this);
-                } else {
-                    Log.w(TAG, "startV8Engine failed. please init thread delegate policy before");
-                }
-            }
-        }
-    }
-
-    public void startEngineInternal() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048643, this) == null) {
-            Log.i(TAG, "[V8Dispose][mario] java version = 1.3.6.1, nativeVersion = " + nativeGetVersionName());
-            try {
-            } catch (Exception e) {
-                Log.e(TAG, Log.getStackTraceString(e));
-            }
-            if (!checkVersion()) {
-                throw new Exception("[mario] java version and native version dismatch  version: 1.3.6.1 nativeVersion: " + nativeGetVersionName());
-            }
-            this.mTimer.initialize(this, new Handler(Looper.getMainLooper()));
-            nativeSetMemSetMemoryEnable(this.mNativeV8Engine, this.mSetMemSetMemMemoryEnable);
-            initializeV8();
-            InspectorNativeChannel inspectorNativeChannel = this.mInspectorChannel;
-            if (inspectorNativeChannel != null) {
-                initInspector(inspectorNativeChannel);
-            }
-            require(this.mNativeV8Engine, this.mInitBasePath, this.mInitJsPath, true, true);
-            nativeOnReady(this.mNativeV8Engine);
-            onReady();
-        }
-    }
-
-    public String threadName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) ? this.mThreadName : (String) invokeV.objValue;
     }
 
     public void throwJSException(JSExceptionType jSExceptionType, String str) {
@@ -2044,46 +1115,681 @@ public class V8Engine implements JSRuntime {
         }
     }
 
-    public boolean useCodeCacheSetting(V8EngineConfiguration.CodeCacheSetting codeCacheSetting) {
-        InterceptResult invokeL;
+    public void evaluateJavascript(String str, ValueCallback valueCallback, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048647, this, codeCacheSetting)) == null) {
-            Context appContext = getAppContext();
-            if (appContext == null) {
-                Log.w(TAG, "[CodeCache] SetCodeCacheSetting failed. Context is null");
-                return false;
-            } else if (!DiskCodeCacheManager.isCodeCacheSettingValid(appContext, codeCacheSetting)) {
-                Log.w(TAG, "[CodeCache] CodeCacheSetting is invalid.");
-                return false;
-            } else {
-                File createDiskCodeCacheDirectory = DiskCodeCacheManager.createDiskCodeCacheDirectory(appContext, null);
-                this.mDiskCodeCachePathFile = createDiskCodeCacheDirectory;
-                if (createDiskCodeCacheDirectory == null) {
-                    Log.w(TAG, "[CodeCache] Create disk code cache directory failed.");
-                    return false;
+        if (interceptable == null || interceptable.invokeLLL(1048586, this, str, valueCallback, str2) == null) {
+            runOnJSThread(new Runnable(this, str2, str, valueCallback) { // from class: com.baidu.searchbox.v8engine.V8Engine.13
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ V8Engine this$0;
+                public final /* synthetic */ String val$js;
+                public final /* synthetic */ ValueCallback val$resultCallback;
+                public final /* synthetic */ String val$tagName;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, str2, str, valueCallback};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$tagName = str2;
+                    this.val$js = str;
+                    this.val$resultCallback = valueCallback;
                 }
-                String[] strArr = new String[codeCacheSetting.pathList.size()];
-                codeCacheSetting.pathList.toArray(strArr);
-                boolean nativeSetCodeCacheSetting = nativeSetCodeCacheSetting(this.mNativeV8Engine, codeCacheSetting.id, this.mDiskCodeCachePathFile.getAbsolutePath(), codeCacheSetting.maxCount, strArr, codeCacheSetting.sizeLimit, codeCacheSetting.diskCodeCacheSizeThreshold);
-                if (!nativeSetCodeCacheSetting) {
-                    Log.w(TAG, "[CodeCache] NativeSetCodeCacheSetting failed.");
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                        return;
+                    }
+                    this.this$0.evaluateJavascriptImpl(this.val$js, this.val$resultCallback, this.val$tagName, true);
                 }
-                return nativeSetCodeCacheSetting;
+
+                public String toString() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                        return "evaluateJavascript-" + this.val$tagName;
+                    }
+                    return (String) invokeV.objValue;
+                }
+            });
+        }
+    }
+
+    public void evaluateJavascriptForOpenData(String str, ValueCallback valueCallback, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048587, this, str, valueCallback, str2) == null) {
+            runOnJSThread(new Runnable(this, str2, str, valueCallback) { // from class: com.baidu.searchbox.v8engine.V8Engine.14
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ V8Engine this$0;
+                public final /* synthetic */ String val$js;
+                public final /* synthetic */ ValueCallback val$resultCallback;
+                public final /* synthetic */ String val$tagName;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, str2, str, valueCallback};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$tagName = str2;
+                    this.val$js = str;
+                    this.val$resultCallback = valueCallback;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
+                        return;
+                    }
+                    this.this$0.evaluateJavascriptImpl(this.val$js, this.val$resultCallback, this.val$tagName, false);
+                }
+
+                public String toString() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                        return "evaluateJavascriptForOpenData-" + this.val$tagName;
+                    }
+                    return (String) invokeV.objValue;
+                }
+            });
+        }
+    }
+
+    public void onV8ExceptionCallBack(String str, String str2, String str3, String str4) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(1048609, this, str, str2, str3, str4) == null) && this.mExceptionDelegate != null) {
+            this.mV8ExceptionInfo.reset(System.currentTimeMillis(), str, str2, str3, str4);
+            this.mExceptionDelegate.onV8ExceptionCallBack(this.mV8ExceptionInfo);
+        }
+    }
+
+    public static Context getAppContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) {
+            return sAppContext;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public static boolean isDebug() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65580, null)) == null) {
+            return APP_DEBUG;
+        }
+        return invokeV.booleanValue;
+    }
+
+    private void onReady() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65605, this) == null) {
+            this.mReady = true;
+            if (this.mHandlers != null) {
+                for (V8StatusListener v8StatusListener : new ArrayList(this.mHandlers)) {
+                    v8StatusListener.onReady();
+                }
             }
         }
-        return invokeL.booleanValue;
+    }
+
+    public void destroyOpenDataContext() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            runOnJSThread(new Runnable(this) { // from class: com.baidu.searchbox.v8engine.V8Engine.12
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ V8Engine this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        if (!this.this$0.mIsDestroyed.get()) {
+                            V8Engine v8Engine = this.this$0;
+                            v8Engine.nativeDestroyOpenDataContext(v8Engine.mNativeV8Engine);
+                            return;
+                        }
+                        Log.w(V8Engine.TAG, "destroyOpenDataContext fail. please start engine before execute js task");
+                    }
+                }
+            });
+        }
+    }
+
+    public void destroyWorkerV8Engine() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            destroyEngine(null);
+        }
+    }
+
+    public AssetManager getAssetManager() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.mAssetManager;
+        }
+        return (AssetManager) invokeV.objValue;
+    }
+
+    public String getBdFileRealPath() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.mDecodeBdfile;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public V8FileSystemDelegatePolicy getFileSystemDelegatePolicy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.mFileSystemDelegatePolicy;
+        }
+        return (V8FileSystemDelegatePolicy) invokeV.objValue;
+    }
+
+    public String getInitBasePath() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.mInitBasePath;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public InspectorNativeClient getInspectorNativeClient() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.mInspectorNativeClient;
+        }
+        return (InspectorNativeClient) invokeV.objValue;
+    }
+
+    public String getMainPackageBasePath() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.mMainPackageBasePath;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public NetRequest getNetRequest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.mNetRequest;
+        }
+        return (NetRequest) invokeV.objValue;
+    }
+
+    public Object getOpenGlobalObject() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.mOpenGlobalObject;
+        }
+        return invokeV.objValue;
+    }
+
+    public JSONArray getPerformanceJson() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            PerformanceJsonBean performanceJsonBean = this.mPerformanceJsonBean;
+            if (performanceJsonBean == null) {
+                return new JSONArray();
+            }
+            return performanceJsonBean.toJSONArray();
+        }
+        return (JSONArray) invokeV.objValue;
+    }
+
+    public PerformanceJsonBean getPerformanceJsonBean() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return this.mPerformanceJsonBean;
+        }
+        return (PerformanceJsonBean) invokeV.objValue;
+    }
+
+    public void initializeV8() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+            Log.i(TAG, "[V8Dispose] Initializing V8Engine");
+            this.mV8ThreadId = Thread.currentThread().getId();
+            V8NativeInit.initialize(this.mNativeV8Engine, this.mAssetManager, getV8BinAssetManager(), this.mTimer, this.mMainGlobalObject, this.mV8ThreadId);
+        }
+    }
+
+    public boolean isDestroyed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return this.mIsDestroyed.get();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public synchronized boolean isPaused() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            synchronized (this) {
+                z = this.mPaused;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isReady() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return this.mReady;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isWorker() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            return this.mIsWorker;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public float minFramesInterval() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            return this.mFramesInterval;
+        }
+        return invokeV.floatValue;
+    }
+
+    public long nativePtr() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            return this.mNativeV8Engine;
+        }
+        return invokeV.longValue;
+    }
+
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
+            this.mPaused = true;
+            if (this.mHandlers != null) {
+                for (V8StatusListener v8StatusListener : new ArrayList(this.mHandlers)) {
+                    v8StatusListener.onPause();
+                }
+            }
+        }
+    }
+
+    public void pumpMessageLoop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
+            try {
+                postOnJSThread(new Runnable(this) { // from class: com.baidu.searchbox.v8engine.V8Engine.4
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ V8Engine this$0;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Interceptable interceptable2 = $ic;
+                        if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && !this.this$0.mIsDestroyed.get()) {
+                            V8Engine.checkValid(this.this$0.mNativeV8Engine, this.this$0.mV8ThreadId);
+                            V8Engine v8Engine = this.this$0;
+                            v8Engine.pumpNativeMessageLoop(v8Engine.mNativeV8Engine, 0L);
+                        }
+                    }
+                });
+            } catch (Throwable th) {
+                android.util.Log.e(TAG, "", th);
+            }
+        }
+    }
+
+    public synchronized void startEngine() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048642, this) == null) {
+            synchronized (this) {
+                if (this.mThreadDelegatePolicy != null) {
+                    this.mThreadDelegatePolicy.startV8Engine(this);
+                } else {
+                    Log.w(TAG, "startV8Engine failed. please init thread delegate policy before");
+                }
+            }
+        }
+    }
+
+    public String threadName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) {
+            return this.mThreadName;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String userAgent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048648, this)) == null) ? this.mUserAgent : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048648, this)) == null) {
+            return this.mUserAgent;
+        }
+        return (String) invokeV.objValue;
     }
 
-    @NotProguard
+    private void addPossiblyUnsafeJavascriptInterface(Object obj, String str, Class cls, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65562, this, new Object[]{obj, str, cls, Boolean.valueOf(z)}) == null) {
+            if (obj != null && this.mNativeV8Engine != 0) {
+                if (!this.mIsDestroyed.get()) {
+                    addJavascriptInterfaceImpl(this.mNativeV8Engine, obj, str, null, z);
+                    return;
+                } else {
+                    Log.w(TAG, "addPossiblyUnsafeJavascriptInterface fail. please start engine before execute js task");
+                    return;
+                }
+            }
+            Log.i(TAG, "addPossiblyUnsafeJavascriptInterface object is null or mNativeV8Engine is null");
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void evaluateJavascriptImpl(String str, ValueCallback valueCallback, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65571, this, new Object[]{str, valueCallback, str2, Boolean.valueOf(z)}) == null) {
+            if (this.mIsDestroyed.get()) {
+                Log.w(TAG, "v8engine has been destroyed or not init. please init firstly.");
+                return;
+            }
+            checkValid(this.mNativeV8Engine, this.mV8ThreadId);
+            String runScript = runScript(this.mNativeV8Engine, str, str2, z);
+            if (valueCallback != null) {
+                valueCallback.onReceiveValue(runScript);
+            }
+        }
+    }
+
+    private int checkBeforeInvokeNativeMethod(boolean z, boolean z2, Object... objArr) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65563, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), objArr})) == null) {
+            if (z) {
+                if (objArr == null) {
+                    return 3;
+                }
+                for (Object obj : objArr) {
+                    if (obj == null) {
+                        return 4;
+                    }
+                }
+            }
+            if (this.mNativeV8Engine != 0 && !this.mIsDestroyed.get()) {
+                if (z2) {
+                    if (this.mThreadDelegatePolicy.getThread() != null) {
+                        if (this.mThreadDelegatePolicy.getThread() != null && this.mThreadDelegatePolicy.getThread() != Thread.currentThread()) {
+                            return 2;
+                        }
+                    } else {
+                        return 2;
+                    }
+                }
+                return 0;
+            }
+            return 5;
+        }
+        return invokeCommon.intValue;
+    }
+
+    public static void checkValid(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65564, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            long id = Thread.currentThread().getId();
+            if (j2 != 0 && j2 != id) {
+                throw new IllegalStateException("javascript or v8 methods must run on v8 thread, current thread id = " + id + ", expect thread id = " + j2);
+            } else if (j != 0) {
+            } else {
+                throw new IllegalStateException("v8 engine has been destroyed!");
+            }
+        }
+    }
+
+    public static void clearCrashKey(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65566, null, str) == null) {
+            try {
+                if (sClearCrashKeyMethod == null) {
+                    sClearCrashKeyMethod = Class.forName("com.baidu.webkit.internal.ApisInteractWithMario").getDeclaredMethod("clearCrashKey", String.class);
+                }
+                sClearCrashKeyMethod.invoke(null, str);
+            } catch (Throwable th) {
+                Log.e(TAG, th.getMessage());
+            }
+        }
+    }
+
+    public static void dumpJavaStackTraceToLogcat(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65570, null, str) == null) {
+            StackTraceElement[] stackTraceElementArr = Thread.getAllStackTraces().get(Thread.currentThread());
+            Log.w(str, "================Java StackTrace================");
+            if (stackTraceElementArr != null) {
+                for (StackTraceElement stackTraceElement : stackTraceElementArr) {
+                    Log.w(str, stackTraceElement.toString());
+                }
+            }
+            Log.w(str, "================Java StackTrace================");
+        }
+    }
+
+    public static V8Engine getInstance(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65575, null, j)) == null) {
+            synchronized (sEngines) {
+                V8Engine v8Engine = (V8Engine) sEngines.get(Long.valueOf(j));
+                if (v8Engine != null && !v8Engine.mIsDestroyed.get()) {
+                    return v8Engine;
+                }
+                return null;
+            }
+        }
+        return (V8Engine) invokeJ.objValue;
+    }
+
+    public void postSuspendableTaskOnJSThread(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048612, this, runnable) == null) {
+            if (this.mIsDestroyed.get()) {
+                Log.w(TAG, "postOnJsThread fail. please start engine before execute js task");
+                return;
+            }
+            synchronized (this) {
+                if (this.mPaused) {
+                    if (this.mSuspendableTasks == null) {
+                        this.mSuspendableTasks = new Vector(1);
+                    }
+                    this.mSuspendableTasks.add(runnable);
+                    return;
+                }
+                delegateRunnableAsync(runnable);
+            }
+        }
+    }
+
+    public int setCustomJsCodeCacheHandler(CustomJsCodeCacheHandler customJsCodeCacheHandler) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048626, this, customJsCodeCacheHandler)) == null) {
+            int checkBeforeInvokeNativeMethod = checkBeforeInvokeNativeMethod(true, false, customJsCodeCacheHandler);
+            if (checkBeforeInvokeNativeMethod == 0 && (checkBeforeInvokeNativeMethod = nativeSetCustomJsCodeCacheHandler(this.mNativeV8Engine, customJsCodeCacheHandler)) == 0) {
+                this.mCustomJsCodeCacheHandler = customJsCodeCacheHandler;
+            }
+            if (checkBeforeInvokeNativeMethod != 0) {
+                Log.w(TAG, "setCustomJsCodeCacheHandler调用失败, 错误码: " + checkBeforeInvokeNativeMethod);
+            }
+            return checkBeforeInvokeNativeMethod;
+        }
+        return invokeL.intValue;
+    }
+
+    private void delegateRunnable(Runnable runnable, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65567, this, runnable, z) == null) {
+            V8ThreadDelegatePolicy v8ThreadDelegatePolicy = this.mThreadDelegatePolicy;
+            if (v8ThreadDelegatePolicy == null) {
+                Log.e(TAG, "delegate runnable failed. please init thread delegate policy");
+            } else if (v8ThreadDelegatePolicy.getThread() == Thread.currentThread()) {
+                checkValid(this.mNativeV8Engine, this.mV8ThreadId);
+                try {
+                    runnable.run();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else if (z) {
+                this.mThreadDelegatePolicy.doDelegateRunnableDirectly(runnable);
+            } else {
+                this.mThreadDelegatePolicy.doDelegateRunnable(runnable);
+            }
+        }
+    }
+
+    public static void setCrashKeyValue(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65615, null, str, str2) == null) {
+            try {
+                if (sSetCrashKeyValueMethod == null) {
+                    sSetCrashKeyValueMethod = Class.forName("com.baidu.webkit.internal.ApisInteractWithMario").getDeclaredMethod("setCrashKeyValue", String.class, String.class);
+                }
+                sSetCrashKeyValueMethod.invoke(null, str, str2);
+            } catch (Throwable th) {
+                Log.e(TAG, th.getMessage());
+            }
+        }
+    }
+
+    public JsSerializeValue deserialize(byte[] bArr, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048582, this, bArr, z)) == null) {
+            if (bArr != null && bArr.length != 0 && !this.mIsDestroyed.get()) {
+                checkValid(this.mNativeV8Engine, this.mV8ThreadId);
+                return nativeDeserialize(this.mNativeV8Engine, bArr, bArr.length, z);
+            }
+            Log.w(TAG, "deserialize fail. please start engine before execute js task");
+            return null;
+        }
+        return (JsSerializeValue) invokeLZ.objValue;
+    }
+
+    public synchronized void onConsoleCallBack(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048606, this, i, str) == null) {
+            synchronized (this) {
+                switch (i) {
+                    case 1:
+                        onLogConsole(str);
+                        break;
+                    case 2:
+                        onDebugConsole(str);
+                        break;
+                    case 3:
+                        onInfoConsole(str);
+                        break;
+                    case 4:
+                        onErrorConsole(str);
+                        break;
+                    case 5:
+                        onWarnConsole(str);
+                        break;
+                    case 6:
+                        onTraceConsole(str);
+                        break;
+                }
+            }
+        }
+    }
+
     public void pumpMessageLoop(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || j <= 0) {
+        if ((interceptable != null && interceptable.invokeCommon(1048614, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) != null) || j <= 0) {
             return;
         }
         try {
@@ -2115,49 +1821,15 @@ public class V8Engine implements JSRuntime {
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.mIsDestroyed.get()) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && !this.this$0.mIsDestroyed.get()) {
+                        V8Engine.checkValid(this.this$0.mNativeV8Engine, this.this$0.mV8ThreadId);
+                        V8Engine v8Engine = this.this$0;
+                        v8Engine.pumpNativeMessageLoop(v8Engine.mNativeV8Engine, this.val$id);
                     }
-                    V8Engine.checkValid(this.this$0.mNativeV8Engine, this.this$0.mV8ThreadId);
-                    V8Engine v8Engine = this.this$0;
-                    v8Engine.pumpNativeMessageLoop(v8Engine.mNativeV8Engine, this.val$id);
                 }
             }, j2);
         } catch (Throwable th) {
             android.util.Log.e(TAG, "", th);
-        }
-    }
-
-    private void delegateRunnableAsync(Runnable runnable, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65569, this, runnable, j) == null) {
-            V8ThreadDelegatePolicy v8ThreadDelegatePolicy = this.mThreadDelegatePolicy;
-            if (v8ThreadDelegatePolicy != null) {
-                v8ThreadDelegatePolicy.doDelegateRunnable(runnable, j);
-            } else {
-                Log.w(TAG, "Execute delegateRunnableAsync failed. mThreadDelegatePolicy is null");
-            }
-        }
-    }
-
-    public static void runOnJSThread(long j, Runnable runnable) {
-        V8Engine v8Engine;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJL(65613, null, j, runnable) == null) || (v8Engine = getInstance(j)) == null) {
-            return;
-        }
-        v8Engine.runOnJSThread(runnable);
-    }
-
-    @Override // com.baidu.searchbox.v8engine.JSRuntime
-    public void postOnJSThread(Runnable runnable, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048611, this, runnable, j) == null) {
-            if (!this.mIsDestroyed.get()) {
-                delegateRunnableAsync(runnable, j);
-            } else {
-                Log.w(TAG, "postOnJsThread fail. please start engine before execute js task");
-            }
         }
     }
 
@@ -2168,12 +1840,12 @@ public class V8Engine implements JSRuntime {
         if (interceptable == null || (invokeV = interceptable.invokeV(65574, null)) == null) {
             long id = Thread.currentThread().getId();
             synchronized (sEngines) {
-                Iterator<V8Engine> it = sEngines.values().iterator();
+                Iterator it = sEngines.values().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
-                    v8Engine = it.next();
+                    v8Engine = (V8Engine) it.next();
                     if (v8Engine != null && v8Engine.mV8ThreadId == id) {
                         if (!v8Engine.mIsDestroyed.get()) {
                         }
@@ -2184,5 +1856,399 @@ public class V8Engine implements JSRuntime {
             return v8Engine;
         }
         return (V8Engine) invokeV.objValue;
+    }
+
+    private final MemoryInfo getMemoryInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65576, this)) == null) {
+            Debug.MemoryInfo memoryInfo = new Debug.MemoryInfo();
+            Debug.getMemoryInfo(memoryInfo);
+            MemoryInfo memoryInfo2 = new MemoryInfo();
+            memoryInfo2.nativePss = memoryInfo.nativePss;
+            memoryInfo2.nativePrivateDirty = memoryInfo.nativePrivateDirty;
+            memoryInfo2.dalvikPss = memoryInfo.dalvikPss;
+            memoryInfo2.dalvikPrivateDirty = memoryInfo.dalvikPrivateDirty;
+            memoryInfo2.totalPss = memoryInfo.getTotalPss();
+            memoryInfo2.totalPrivateDirty = memoryInfo.getTotalPrivateDirty();
+            memoryInfo2.otherPss = memoryInfo.otherPss;
+            memoryInfo2.otherPrivateDirty = memoryInfo.otherPrivateDirty;
+            if (Build.VERSION.SDK_INT > 23) {
+                try {
+                    memoryInfo2.summaryJavaHeap = Integer.parseInt(memoryInfo.getMemoryStat("summary.java-heap"));
+                    memoryInfo2.summaryNativeHeap = Integer.parseInt(memoryInfo.getMemoryStat("summary.native-heap"));
+                    memoryInfo2.summaryStack = Integer.parseInt(memoryInfo.getMemoryStat("summary.stack"));
+                    memoryInfo2.summaryGraphics = Integer.parseInt(memoryInfo.getMemoryStat("summary.graphics"));
+                    memoryInfo2.summaryPrivateOther = Integer.parseInt(memoryInfo.getMemoryStat("summary.private-other"));
+                    memoryInfo2.summaryTotalPss = Integer.parseInt(memoryInfo.getMemoryStat("summary.total-pss"));
+                    memoryInfo2.summaryTotalSwap = Integer.parseInt(memoryInfo.getMemoryStat("summary.total-swap"));
+                } catch (Throwable unused) {
+                }
+            }
+            return memoryInfo2;
+        }
+        return (MemoryInfo) invokeV.objValue;
+    }
+
+    private AssetManager getV8BinAssetManager() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65578, this)) == null) {
+            if (this.mV8BinAssetManager == null) {
+                try {
+                    String str = this.mExternalV8BinPath;
+                    if (str == null) {
+                        str = getBuildInV8BinPath();
+                    }
+                    if (str != null && hh1.b(str)) {
+                        this.mV8BinAssetManager = (AssetManager) AssetManager.class.newInstance();
+                        AssetManager.class.getDeclaredMethod(ALTERNATIVE_ADD_ASSET_PATH_METHOD, String.class).invoke(this.mV8BinAssetManager, str);
+                    }
+                    Log.i(TAG, "can't find v8bin'AssetManager, path = " + str);
+                    return null;
+                } catch (Throwable unused) {
+                    Log.w(TAG, "can not find T7 assetManager, use appContext assetManager to find bin file");
+                }
+            }
+            return this.mV8BinAssetManager;
+        }
+        return (AssetManager) invokeV.objValue;
+    }
+
+    private synchronized void postSuspendableTasks() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65608, this) == null) {
+            synchronized (this) {
+                if (this.mSuspendableTasks != null && !this.mSuspendableTasks.isEmpty() && !this.mIsDestroyed.get()) {
+                    Iterator it = this.mSuspendableTasks.iterator();
+                    while (it.hasNext()) {
+                        delegateRunnableAsync((Runnable) it.next());
+                    }
+                    this.mSuspendableTasks.clear();
+                    return;
+                }
+                Log.w(TAG, "postSuspendableTasks failed. mSuspendableTasks = " + this.mSuspendableTasks + ", mIsDestroyed = " + this.mIsDestroyed.get());
+            }
+        }
+    }
+
+    public void startEngineInternal() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048643, this) == null) {
+            Log.i(TAG, "[V8Dispose][mario] java version = 1.3.6.1, nativeVersion = " + nativeGetVersionName());
+            try {
+            } catch (Exception e) {
+                Log.e(TAG, Log.getStackTraceString(e));
+            }
+            if (!checkVersion()) {
+                throw new Exception("[mario] java version and native version dismatch  version: 1.3.6.1 nativeVersion: " + nativeGetVersionName());
+            }
+            this.mTimer.initialize(this, new Handler(Looper.getMainLooper()));
+            nativeSetMemSetMemoryEnable(this.mNativeV8Engine, this.mSetMemSetMemMemoryEnable);
+            initializeV8();
+            InspectorNativeChannel inspectorNativeChannel = this.mInspectorChannel;
+            if (inspectorNativeChannel != null) {
+                initInspector(inspectorNativeChannel);
+            }
+            require(this.mNativeV8Engine, this.mInitBasePath, this.mInitJsPath, true, true);
+            nativeOnReady(this.mNativeV8Engine);
+            onReady();
+        }
+    }
+
+    private void initialize(Context context, String str, String str2, V8ThreadDelegatePolicy v8ThreadDelegatePolicy, Object obj, Object obj2) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65579, this, new Object[]{context, str, str2, v8ThreadDelegatePolicy, obj, obj2}) == null) {
+            Context applicationContext = context.getApplicationContext();
+            sAppContext = applicationContext;
+            if (applicationContext != null) {
+                ApplicationInfo applicationInfo = applicationContext.getApplicationInfo();
+                if (applicationInfo != null) {
+                    if ((applicationInfo.flags & 2) != 0) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    APP_DEBUG = z;
+                }
+                DiskCodeCacheManager.clearAllOldDiskCodeCacheResources(context, "app_mario");
+                DiskCodeCacheManager.clearAllOldDiskCodeCacheResources(context, DiskCodeCacheManager.OLD_DISK_CODE_CACHE_PACKAGE_WEBVIEW_NAME);
+            }
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                this.mInitBasePath = str;
+                this.mInitJsPath = str2;
+                this.mV8ExceptionInfo = new V8ExceptionInfo();
+                this.mJavaBoundObjectManager = new JavaBoundObjectManager();
+                this.mTimer = new V8Timer();
+                this.mAssetManager = context.getAssets();
+                this.mPerformanceJsonBean = new PerformanceJsonBean();
+                this.mNativeV8Engine = v8EngineInit();
+                this.mIsDestroyed.set(false);
+                addJavascriptInterface(new BindingBenchmark(this), "jBenchmark");
+                ComponentCallbacks2 componentCallbacks2 = new ComponentCallbacks2(this) { // from class: com.baidu.searchbox.v8engine.V8Engine.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ V8Engine this$0;
+
+                    @Override // android.content.ComponentCallbacks
+                    public void onConfigurationChanged(Configuration configuration) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, configuration) == null) {
+                        }
+                    }
+
+                    @Override // android.content.ComponentCallbacks
+                    public void onLowMemory() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                        }
+                    }
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                    }
+
+                    @Override // android.content.ComponentCallbacks2
+                    public void onTrimMemory(int i) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+                            if (!this.this$0.isReady()) {
+                                Log.w(V8Engine.TAG, "onTrimMemory failed. V8Engine is not ready.");
+                            } else {
+                                this.this$0.postOnJSThread(new Runnable(this, i) { // from class: com.baidu.searchbox.v8engine.V8Engine.1.1
+                                    public static /* synthetic */ Interceptable $ic;
+                                    public transient /* synthetic */ FieldHolder $fh;
+                                    public final /* synthetic */ AnonymousClass1 this$1;
+                                    public final /* synthetic */ int val$level;
+
+                                    {
+                                        Interceptable interceptable3 = $ic;
+                                        if (interceptable3 != null) {
+                                            InitContext newInitContext = TitanRuntime.newInitContext();
+                                            newInitContext.initArgs = r2;
+                                            Object[] objArr = {this, Integer.valueOf(i)};
+                                            interceptable3.invokeUnInit(65536, newInitContext);
+                                            int i2 = newInitContext.flag;
+                                            if ((i2 & 1) != 0) {
+                                                int i3 = i2 & 2;
+                                                newInitContext.thisArg = this;
+                                                interceptable3.invokeInitBody(65536, newInitContext);
+                                                return;
+                                            }
+                                        }
+                                        this.this$1 = this;
+                                        this.val$level = i;
+                                    }
+
+                                    @Override // java.lang.Runnable
+                                    public void run() {
+                                        int i2;
+                                        Interceptable interceptable3 = $ic;
+                                        if (interceptable3 != null && interceptable3.invokeV(1048576, this) != null) {
+                                            return;
+                                        }
+                                        long j = this.this$1.this$0.mNativeV8Engine;
+                                        if (this.val$level < 15) {
+                                            i2 = 1;
+                                        } else {
+                                            i2 = 2;
+                                        }
+                                        V8Engine.nativeSetV8GCPressureLevel(j, i2);
+                                    }
+                                });
+                            }
+                        }
+                    }
+                };
+                this.mComponentCallbacks2 = componentCallbacks2;
+                Context context2 = sAppContext;
+                if (context2 != null) {
+                    context2.registerComponentCallbacks(componentCallbacks2);
+                }
+                synchronized (sEngines) {
+                    sEngines.put(Long.valueOf(this.mNativeV8Engine), this);
+                }
+                if (v8ThreadDelegatePolicy == null) {
+                    v8ThreadDelegatePolicy = new V8DefaultThreadPolicy(this);
+                }
+                this.mThreadDelegatePolicy = v8ThreadDelegatePolicy;
+                this.mMainGlobalObject = obj;
+                this.mOpenGlobalObject = obj2;
+                V8NetFunctionTable.addOnCronetThreadInitializedListener(new ValueCallback(this) { // from class: com.baidu.searchbox.v8engine.V8Engine.2
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ V8Engine this$0;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                    }
+
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // android.webkit.ValueCallback
+                    public void onReceiveValue(Long l) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, l) == null) {
+                            Log.i(V8Engine.TAG, "[mario-request] nativeInitGlobalV8NetFunctionTable: value = " + l);
+                            V8Engine v8Engine = this.this$0;
+                            v8Engine.nativeInitGlobalV8NetFunctionTable(v8Engine.mNativeV8Engine, l.longValue());
+                        }
+                    }
+                });
+                return;
+            }
+            throw new RuntimeException("basePath and path must not be null.");
+        }
+    }
+
+    private void onJsCodeCacheFinished(String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(65603, this, str, str2, z) == null) {
+            try {
+                if (this.mJsCodeCacheCallback != null) {
+                    this.mJsCodeCacheCallback.onJsCodeCacheFinished(new JsCodeCacheResult(str, str2, z));
+                } else if (this.mJSCacheCallback != null) {
+                    this.mJSCacheCallback.onCacheResult(new V8EngineConfiguration.CacheInfo(str2, z));
+                }
+            } catch (Throwable th) {
+                Log.w(TAG, "onJsCodeCacheFinished invoke failed. please check the exception message.", th);
+            }
+        }
+    }
+
+    public long createWorkerV8Engine(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+            Log.e("V8", "!!!!!createWorkerV8Engine, mWorkerFactoryDelegate =  " + this.mWorkerFactoryDelegate);
+            WorkerFactory workerFactory = this.mWorkerFactoryDelegate;
+            if (workerFactory != null) {
+                V8Engine onCreateWorker = workerFactory.onCreateWorker();
+                onCreateWorker.setIsWorker(true);
+                StringBuilder sb = new StringBuilder();
+                sb.append("MarioWT");
+                int i = sWorkerID;
+                sWorkerID = i + 1;
+                sb.append(i);
+                onCreateWorker.setThreadName(sb.toString());
+                onCreateWorker.startEngine();
+                return onCreateWorker.nativePtr();
+            }
+            Log.e("V8", "ERROR!!!!! no mWorkerFactoryDelegate");
+            return 0L;
+        }
+        return invokeJ.longValue;
+    }
+
+    public void setMemSetMemoryEnable(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048636, this, z) == null) {
+            Log.i(TAG, "[V8Dispose] Set MemSetMemory enable = " + z);
+            boolean z2 = false;
+            if (z) {
+                String[] strArr = {"MI 6X", "MI 6X MIKU", "REDMI NOTE 5", "REDMI NOTE 7", "V1814A", "V1814T", "V1816A", "V1816T", "VIVO X21", "VIVO X21A", "VIVO X21UD", "VIVO X21UD A", "VIVO Z3X"};
+                int i = 0;
+                while (true) {
+                    if (i >= 13) {
+                        break;
+                    } else if (strArr[i].equals(Build.MODEL.toUpperCase())) {
+                        z2 = true;
+                        break;
+                    } else {
+                        i++;
+                    }
+                }
+                this.mSetMemSetMemMemoryEnable = z2;
+                return;
+            }
+            this.mSetMemSetMemMemoryEnable = false;
+        }
+    }
+
+    public int setJavaNetRequest(NetRequest netRequest) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048632, this, netRequest)) == null) {
+            if (netRequest == null) {
+                i = 2;
+            } else if (this.mNativeV8Engine != 0 && !this.mIsDestroyed.get()) {
+                if (this.mThreadDelegatePolicy.getThread() != null && (this.mThreadDelegatePolicy.getThread() == null || this.mThreadDelegatePolicy.getThread() == Thread.currentThread())) {
+                    int nativeSetJavaNetRequest = nativeSetJavaNetRequest(this.mNativeV8Engine, netRequest);
+                    if (nativeSetJavaNetRequest == 0) {
+                        this.mNetRequest = netRequest;
+                        netRequest.bindV8Engine(this);
+                    }
+                    i = nativeSetJavaNetRequest;
+                } else {
+                    i = 256;
+                }
+            } else {
+                i = 512;
+            }
+            if (i != 0) {
+                Log.w(TAG, "[mario-request] setJavaNetRequest调用失败, 错误码: " + i);
+            }
+            return i;
+        }
+        return invokeL.intValue;
+    }
+
+    public boolean useCodeCacheSetting(V8EngineConfiguration.CodeCacheSetting codeCacheSetting) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048647, this, codeCacheSetting)) == null) {
+            Context appContext = getAppContext();
+            if (appContext == null) {
+                Log.w(TAG, "[CodeCache] SetCodeCacheSetting failed. Context is null");
+                return false;
+            } else if (!DiskCodeCacheManager.isCodeCacheSettingValid(appContext, codeCacheSetting)) {
+                Log.w(TAG, "[CodeCache] CodeCacheSetting is invalid.");
+                return false;
+            } else {
+                File createDiskCodeCacheDirectory = DiskCodeCacheManager.createDiskCodeCacheDirectory(appContext, null);
+                this.mDiskCodeCachePathFile = createDiskCodeCacheDirectory;
+                if (createDiskCodeCacheDirectory == null) {
+                    Log.w(TAG, "[CodeCache] Create disk code cache directory failed.");
+                    return false;
+                }
+                String[] strArr = new String[codeCacheSetting.pathList.size()];
+                codeCacheSetting.pathList.toArray(strArr);
+                boolean nativeSetCodeCacheSetting = nativeSetCodeCacheSetting(this.mNativeV8Engine, codeCacheSetting.id, this.mDiskCodeCachePathFile.getAbsolutePath(), codeCacheSetting.maxCount, strArr, codeCacheSetting.sizeLimit, codeCacheSetting.diskCodeCacheSizeThreshold);
+                if (!nativeSetCodeCacheSetting) {
+                    Log.w(TAG, "[CodeCache] NativeSetCodeCacheSetting failed.");
+                }
+                return nativeSetCodeCacheSetting;
+            }
+        }
+        return invokeL.booleanValue;
     }
 }

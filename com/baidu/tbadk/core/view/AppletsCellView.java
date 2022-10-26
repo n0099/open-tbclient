@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.mr5;
-import com.baidu.tieba.yo4;
+import com.baidu.tieba.fj;
+import com.baidu.tieba.tr5;
+import com.baidu.tieba.zo4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -67,17 +67,16 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
         @Override // com.baidu.tbadk.widget.TbImageView.g
         public void a(String str, boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) || z) {
-                return;
+            if ((interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) && !z) {
+                this.a.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f97);
             }
-            this.a.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f86);
         }
 
         @Override // com.baidu.tbadk.widget.TbImageView.g
         public void onCancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f86);
+                this.a.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f97);
             }
         }
     }
@@ -102,114 +101,6 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
         }
         this.a = 3;
         b(context);
-    }
-
-    public final void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0122, (ViewGroup) this, true);
-            this.b = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f0902ae);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0902b0);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0902ad);
-            this.e = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0902af);
-            this.f = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f0902b1);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0902b2);
-            this.b.setIsRound(true);
-            this.b.setIsPreDrawBorder(true);
-            this.b.setDrawBorder(true);
-            this.b.setBorderWidth(ej.f(context, R.dimen.tbds1));
-            this.b.setDefaultResource(R.color.CAM_X0205);
-            this.b.setRadius(ej.f(context, R.dimen.obfuscated_res_0x7f070266));
-            ViewGroup.LayoutParams layoutParams = this.e.getLayoutParams();
-            layoutParams.height = ((ej.k(getContext()) - ej.f(getContext(), R.dimen.tbds130)) * 9) / 16;
-            this.e.setLayoutParams(layoutParams);
-            this.e.setConrers(15);
-            setOnClickListener(this);
-            this.f.setIsRound(true);
-            this.f.setDrawBorder(false);
-            c();
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = TbadkCoreApplication.getInst().getSkinType();
-            SkinManager.setBackgroundResource(this, R.drawable.applets_cell_bg);
-            this.b.setBorderColor(SkinManager.getColor(R.color.CAM_X0201));
-            this.b.setSkinType(this.a);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
-            this.e.setSkinType(this.a);
-            this.f.setImageDrawable(SkinManager.getDrawable(R.drawable.icon_avatar_smallapp_tie));
-            this.f.setBorderColor(SkinManager.getColor(R.color.CAM_X0201));
-            this.f.setSkinType(this.a);
-            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0109);
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        SmartApp smartApp;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) || (smartApp = this.h) == null) {
-            return;
-        }
-        if (!mr5.b(smartApp.id, smartApp.link, "1191003900000000", smartApp.is_game)) {
-            if (StringUtils.isNull(this.h.h5_url)) {
-                return;
-            }
-            yo4.o(getContext(), this.h.h5_url);
-        }
-        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("fid", this.j).param("tid", this.k).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_name", this.h.name).param("obj_id", this.h.swan_app_id.longValue()).param("obj_source", this.i).param("obj_param1", this.h.is_game.intValue()));
-    }
-
-    public void setData(SmartApp smartApp) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, smartApp) == null) {
-            if (smartApp == null) {
-                setVisibility(8);
-                return;
-            }
-            setVisibility(0);
-            this.h = smartApp;
-            this.b.K(smartApp.avatar, 10, false);
-            this.c.setText(smartApp.name);
-            if (StringUtils.isNull(smartApp._abstract, true)) {
-                this.d.setVisibility(8);
-            } else {
-                this.d.setVisibility(0);
-                this.d.setText(smartApp._abstract);
-            }
-            if (StringUtils.isNull(smartApp.pic, true)) {
-                this.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f86);
-                return;
-            }
-            this.e.setEvent(new a(this));
-            this.e.K(smartApp.pic, 10, false);
-        }
-    }
-
-    public void setForumId(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.j = str;
-        }
-    }
-
-    public void setFrom(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.i = str;
-        }
-    }
-
-    public void setThreadId(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.k = str;
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -256,5 +147,113 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
         }
         this.a = 3;
         b(context);
+    }
+
+    public void setForumId(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.j = str;
+        }
+    }
+
+    public void setFrom(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.i = str;
+        }
+    }
+
+    public void setThreadId(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.k = str;
+        }
+    }
+
+    public final void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            setOrientation(1);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0122, (ViewGroup) this, true);
+            this.b = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f0902ae);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0902b0);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0902ad);
+            this.e = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0902af);
+            this.f = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f0902b1);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0902b2);
+            this.b.setIsRound(true);
+            this.b.setIsPreDrawBorder(true);
+            this.b.setDrawBorder(true);
+            this.b.setBorderWidth(fj.f(context, R.dimen.tbds1));
+            this.b.setDefaultResource(R.color.CAM_X0205);
+            this.b.setRadius(fj.f(context, R.dimen.obfuscated_res_0x7f070266));
+            ViewGroup.LayoutParams layoutParams = this.e.getLayoutParams();
+            layoutParams.height = ((fj.k(getContext()) - fj.f(getContext(), R.dimen.tbds130)) * 9) / 16;
+            this.e.setLayoutParams(layoutParams);
+            this.e.setConrers(15);
+            setOnClickListener(this);
+            this.f.setIsRound(true);
+            this.f.setDrawBorder(false);
+            c();
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a = TbadkCoreApplication.getInst().getSkinType();
+            SkinManager.setBackgroundResource(this, R.drawable.applets_cell_bg);
+            this.b.setBorderColor(SkinManager.getColor(R.color.CAM_X0201));
+            this.b.setSkinType(this.a);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
+            this.e.setSkinType(this.a);
+            this.f.setImageDrawable(SkinManager.getDrawable(R.drawable.icon_avatar_smallapp_tie));
+            this.f.setBorderColor(SkinManager.getColor(R.color.CAM_X0201));
+            this.f.setSkinType(this.a);
+            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0109);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        SmartApp smartApp;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) != null) || (smartApp = this.h) == null) {
+            return;
+        }
+        if (!tr5.b(smartApp.id, smartApp.link, "1191003900000000", smartApp.is_game)) {
+            if (StringUtils.isNull(this.h.h5_url)) {
+                return;
+            }
+            zo4.o(getContext(), this.h.h5_url);
+        }
+        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("fid", this.j).param("tid", this.k).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_name", this.h.name).param("obj_id", this.h.swan_app_id.longValue()).param("obj_source", this.i).param("obj_param1", this.h.is_game.intValue()));
+    }
+
+    public void setData(SmartApp smartApp) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, smartApp) == null) {
+            if (smartApp == null) {
+                setVisibility(8);
+                return;
+            }
+            setVisibility(0);
+            this.h = smartApp;
+            this.b.L(smartApp.avatar, 10, false);
+            this.c.setText(smartApp.name);
+            if (StringUtils.isNull(smartApp._abstract, true)) {
+                this.d.setVisibility(8);
+            } else {
+                this.d.setVisibility(0);
+                this.d.setText(smartApp._abstract);
+            }
+            if (StringUtils.isNull(smartApp.pic, true)) {
+                this.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f97);
+                return;
+            }
+            this.e.setEvent(new a(this));
+            this.e.L(smartApp.pic, 10, false);
+        }
     }
 }

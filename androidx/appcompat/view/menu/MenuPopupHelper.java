@@ -9,11 +9,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ListView;
 import android.widget.PopupWindow;
-import androidx.annotation.AttrRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
-import androidx.annotation.StyleRes;
 import androidx.appcompat.view.menu.MenuPresenter;
 import androidx.core.view.GravityCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -25,7 +20,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class MenuPopupHelper implements MenuHelper {
     public static /* synthetic */ Interceptable $ic = null;
@@ -45,7 +39,7 @@ public class MenuPopupHelper implements MenuHelper {
     public MenuPresenter.Callback mPresenterCallback;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder) {
+    public MenuPopupHelper(Context context, MenuBuilder menuBuilder) {
         this(context, menuBuilder, null, false, R.attr.obfuscated_res_0x7f040560, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -65,176 +59,8 @@ public class MenuPopupHelper implements MenuHelper {
         }
     }
 
-    @NonNull
-    private MenuPopup createPopup() {
-        InterceptResult invokeV;
-        MenuPopup standardMenuPopup;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            Display defaultDisplay = ((WindowManager) this.mContext.getSystemService("window")).getDefaultDisplay();
-            Point point = new Point();
-            if (Build.VERSION.SDK_INT >= 17) {
-                defaultDisplay.getRealSize(point);
-            } else {
-                defaultDisplay.getSize(point);
-            }
-            if (Math.min(point.x, point.y) >= this.mContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700a1)) {
-                standardMenuPopup = new CascadingMenuPopup(this.mContext, this.mAnchorView, this.mPopupStyleAttr, this.mPopupStyleRes, this.mOverflowOnly);
-            } else {
-                standardMenuPopup = new StandardMenuPopup(this.mContext, this.mMenu, this.mAnchorView, this.mPopupStyleAttr, this.mPopupStyleRes, this.mOverflowOnly);
-            }
-            standardMenuPopup.addMenu(this.mMenu);
-            standardMenuPopup.setOnDismissListener(this.mInternalOnDismissListener);
-            standardMenuPopup.setAnchorView(this.mAnchorView);
-            standardMenuPopup.setCallback(this.mPresenterCallback);
-            standardMenuPopup.setForceShowIcon(this.mForceShowIcon);
-            standardMenuPopup.setGravity(this.mDropDownGravity);
-            return standardMenuPopup;
-        }
-        return (MenuPopup) invokeV.objValue;
-    }
-
-    private void showPopup(int i, int i2, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            MenuPopup popup = getPopup();
-            popup.setShowTitle(z2);
-            if (z) {
-                if ((GravityCompat.getAbsoluteGravity(this.mDropDownGravity, ViewCompat.getLayoutDirection(this.mAnchorView)) & 7) == 5) {
-                    i -= this.mAnchorView.getWidth();
-                }
-                popup.setHorizontalOffset(i);
-                popup.setVerticalOffset(i2);
-                int i3 = (int) ((this.mContext.getResources().getDisplayMetrics().density * 48.0f) / 2.0f);
-                popup.setEpicenterBounds(new Rect(i - i3, i2 - i3, i + i3, i2 + i3));
-            }
-            popup.show();
-        }
-    }
-
-    @Override // androidx.appcompat.view.menu.MenuHelper
-    public void dismiss() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && isShowing()) {
-            this.mPopup.dismiss();
-        }
-    }
-
-    public int getGravity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDropDownGravity : invokeV.intValue;
-    }
-
-    public ListView getListView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? getPopup().getListView() : (ListView) invokeV.objValue;
-    }
-
-    @NonNull
-    public MenuPopup getPopup() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.mPopup == null) {
-                this.mPopup = createPopup();
-            }
-            return this.mPopup;
-        }
-        return (MenuPopup) invokeV.objValue;
-    }
-
-    public boolean isShowing() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            MenuPopup menuPopup = this.mPopup;
-            return menuPopup != null && menuPopup.isShowing();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void onDismiss() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.mPopup = null;
-            PopupWindow.OnDismissListener onDismissListener = this.mOnDismissListener;
-            if (onDismissListener != null) {
-                onDismissListener.onDismiss();
-            }
-        }
-    }
-
-    public void setAnchorView(@NonNull View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
-            this.mAnchorView = view2;
-        }
-    }
-
-    public void setForceShowIcon(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.mForceShowIcon = z;
-            MenuPopup menuPopup = this.mPopup;
-            if (menuPopup != null) {
-                menuPopup.setForceShowIcon(z);
-            }
-        }
-    }
-
-    public void setGravity(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.mDropDownGravity = i;
-        }
-    }
-
-    public void setOnDismissListener(@Nullable PopupWindow.OnDismissListener onDismissListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, onDismissListener) == null) {
-            this.mOnDismissListener = onDismissListener;
-        }
-    }
-
-    @Override // androidx.appcompat.view.menu.MenuHelper
-    public void setPresenterCallback(@Nullable MenuPresenter.Callback callback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, callback) == null) {
-            this.mPresenterCallback = callback;
-            MenuPopup menuPopup = this.mPopup;
-            if (menuPopup != null) {
-                menuPopup.setCallback(callback);
-            }
-        }
-    }
-
-    public void show() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && !tryShow()) {
-            throw new IllegalStateException("MenuPopupHelper cannot be used without an anchor");
-        }
-    }
-
-    public boolean tryShow() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (isShowing()) {
-                return true;
-            }
-            if (this.mAnchorView == null) {
-                return false;
-            }
-            showPopup(0, 0, false, false);
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder, @NonNull View view2) {
+    public MenuPopupHelper(Context context, MenuBuilder menuBuilder, View view2) {
         this(context, menuBuilder, view2, false, R.attr.obfuscated_res_0x7f040560, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -255,7 +81,7 @@ public class MenuPopupHelper implements MenuHelper {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder, @NonNull View view2, boolean z, @AttrRes int i) {
+    public MenuPopupHelper(Context context, MenuBuilder menuBuilder, View view2, boolean z, int i) {
         this(context, menuBuilder, view2, z, i, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -275,14 +101,7 @@ public class MenuPopupHelper implements MenuHelper {
         }
     }
 
-    public void show(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(1048588, this, i, i2) == null) && !tryShow(i, i2)) {
-            throw new IllegalStateException("MenuPopupHelper cannot be used without an anchor");
-        }
-    }
-
-    public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder, @NonNull View view2, boolean z, @AttrRes int i, @StyleRes int i2) {
+    public MenuPopupHelper(Context context, MenuBuilder menuBuilder, View view2, boolean z, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -335,6 +154,196 @@ public class MenuPopupHelper implements MenuHelper {
         this.mOverflowOnly = z;
         this.mPopupStyleAttr = i;
         this.mPopupStyleRes = i2;
+    }
+
+    private MenuPopup createPopup() {
+        InterceptResult invokeV;
+        boolean z;
+        MenuPopup standardMenuPopup;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+            Display defaultDisplay = ((WindowManager) this.mContext.getSystemService("window")).getDefaultDisplay();
+            Point point = new Point();
+            if (Build.VERSION.SDK_INT >= 17) {
+                defaultDisplay.getRealSize(point);
+            } else {
+                defaultDisplay.getSize(point);
+            }
+            if (Math.min(point.x, point.y) >= this.mContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700a1)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                standardMenuPopup = new CascadingMenuPopup(this.mContext, this.mAnchorView, this.mPopupStyleAttr, this.mPopupStyleRes, this.mOverflowOnly);
+            } else {
+                standardMenuPopup = new StandardMenuPopup(this.mContext, this.mMenu, this.mAnchorView, this.mPopupStyleAttr, this.mPopupStyleRes, this.mOverflowOnly);
+            }
+            standardMenuPopup.addMenu(this.mMenu);
+            standardMenuPopup.setOnDismissListener(this.mInternalOnDismissListener);
+            standardMenuPopup.setAnchorView(this.mAnchorView);
+            standardMenuPopup.setCallback(this.mPresenterCallback);
+            standardMenuPopup.setForceShowIcon(this.mForceShowIcon);
+            standardMenuPopup.setGravity(this.mDropDownGravity);
+            return standardMenuPopup;
+        }
+        return (MenuPopup) invokeV.objValue;
+    }
+
+    private void showPopup(int i, int i2, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            MenuPopup popup = getPopup();
+            popup.setShowTitle(z2);
+            if (z) {
+                if ((GravityCompat.getAbsoluteGravity(this.mDropDownGravity, ViewCompat.getLayoutDirection(this.mAnchorView)) & 7) == 5) {
+                    i -= this.mAnchorView.getWidth();
+                }
+                popup.setHorizontalOffset(i);
+                popup.setVerticalOffset(i2);
+                int i3 = (int) ((this.mContext.getResources().getDisplayMetrics().density * 48.0f) / 2.0f);
+                popup.setEpicenterBounds(new Rect(i - i3, i2 - i3, i + i3, i2 + i3));
+            }
+            popup.show();
+        }
+    }
+
+    @Override // androidx.appcompat.view.menu.MenuHelper
+    public void dismiss() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && isShowing()) {
+            this.mPopup.dismiss();
+        }
+    }
+
+    public int getGravity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mDropDownGravity;
+        }
+        return invokeV.intValue;
+    }
+
+    public ListView getListView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return getPopup().getListView();
+        }
+        return (ListView) invokeV.objValue;
+    }
+
+    public MenuPopup getPopup() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.mPopup == null) {
+                this.mPopup = createPopup();
+            }
+            return this.mPopup;
+        }
+        return (MenuPopup) invokeV.objValue;
+    }
+
+    public boolean isShowing() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            MenuPopup menuPopup = this.mPopup;
+            if (menuPopup != null && menuPopup.isShowing()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void onDismiss() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.mPopup = null;
+            PopupWindow.OnDismissListener onDismissListener = this.mOnDismissListener;
+            if (onDismissListener != null) {
+                onDismissListener.onDismiss();
+            }
+        }
+    }
+
+    public void show() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048587, this) != null) || tryShow()) {
+            return;
+        }
+        throw new IllegalStateException("MenuPopupHelper cannot be used without an anchor");
+    }
+
+    public boolean tryShow() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if (isShowing()) {
+                return true;
+            }
+            if (this.mAnchorView == null) {
+                return false;
+            }
+            showPopup(0, 0, false, false);
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void setAnchorView(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
+            this.mAnchorView = view2;
+        }
+    }
+
+    public void setForceShowIcon(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.mForceShowIcon = z;
+            MenuPopup menuPopup = this.mPopup;
+            if (menuPopup != null) {
+                menuPopup.setForceShowIcon(z);
+            }
+        }
+    }
+
+    public void setGravity(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.mDropDownGravity = i;
+        }
+    }
+
+    public void setOnDismissListener(PopupWindow.OnDismissListener onDismissListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, onDismissListener) == null) {
+            this.mOnDismissListener = onDismissListener;
+        }
+    }
+
+    @Override // androidx.appcompat.view.menu.MenuHelper
+    public void setPresenterCallback(MenuPresenter.Callback callback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, callback) == null) {
+            this.mPresenterCallback = callback;
+            MenuPopup menuPopup = this.mPopup;
+            if (menuPopup != null) {
+                menuPopup.setCallback(callback);
+            }
+        }
+    }
+
+    public void show(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeII(1048588, this, i, i2) != null) || tryShow(i, i2)) {
+            return;
+        }
+        throw new IllegalStateException("MenuPopupHelper cannot be used without an anchor");
     }
 
     public boolean tryShow(int i, int i2) {

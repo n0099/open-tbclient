@@ -13,20 +13,36 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public interface OpenDeviceIdentifierService extends IInterface {
+    String getOaid() throws RemoteException;
+
+    boolean isOaidTrackLimited() throws RemoteException;
 
     /* loaded from: classes8.dex */
-    public static abstract class Stub extends Binder implements OpenDeviceIdentifierService {
+    public abstract class Stub extends Binder implements OpenDeviceIdentifierService {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.uodis.opendevice.aidl.OpenDeviceIdentifierService";
         public static final int TRANSACTION_getOaid = 1;
         public static final int TRANSACTION_isOaidTrackLimited = 2;
         public transient /* synthetic */ FieldHolder $fh;
 
+        @Override // android.os.IInterface
+        public IBinder asBinder() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (IBinder) invokeV.objValue;
+        }
+
         /* loaded from: classes8.dex */
-        public static class Proxy implements OpenDeviceIdentifierService {
+        public class Proxy implements OpenDeviceIdentifierService {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder mRemote;
+
+            public String getInterfaceDescriptor() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "com.uodis.opendevice.aidl.OpenDeviceIdentifierService" : (String) invokeV.objValue;
+            }
 
             public Proxy(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -50,13 +66,10 @@ public interface OpenDeviceIdentifierService extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mRemote : (IBinder) invokeV.objValue;
-            }
-
-            public String getInterfaceDescriptor() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "com.uodis.opendevice.aidl.OpenDeviceIdentifierService" : (String) invokeV.objValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    return this.mRemote;
+                }
+                return (IBinder) invokeV.objValue;
             }
 
             @Override // com.uodis.opendevice.aidl.OpenDeviceIdentifierService
@@ -88,9 +101,13 @@ public interface OpenDeviceIdentifierService extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
+                        boolean z = false;
                         this.mRemote.transact(2, obtain, obtain2, 0);
                         obtain2.readException();
-                        return obtain2.readInt() != 0;
+                        if (obtain2.readInt() != 0) {
+                            z = true;
+                        }
+                        return z;
                     } finally {
                         obtain2.recycle();
                         obtain.recycle();
@@ -132,43 +149,32 @@ public interface OpenDeviceIdentifierService extends IInterface {
             return (OpenDeviceIdentifierService) invokeL.objValue;
         }
 
-        @Override // android.os.IInterface
-        public IBinder asBinder() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (IBinder) invokeV.objValue;
-        }
-
         @Override // android.os.Binder
         public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), parcel, parcel2, Integer.valueOf(i2)})) == null) {
-                if (i == 1) {
-                    parcel.enforceInterface("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
-                    String oaid = getOaid();
-                    parcel2.writeNoException();
-                    parcel2.writeString(oaid);
-                    return true;
-                } else if (i != 2) {
-                    if (i != 1598968902) {
-                        return super.onTransact(i, parcel, parcel2, i2);
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 1598968902) {
+                            return super.onTransact(i, parcel, parcel2, i2);
+                        }
+                        parcel2.writeString("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
+                        return true;
                     }
-                    parcel2.writeString("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
-                    return true;
-                } else {
                     parcel.enforceInterface("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
                     boolean isOaidTrackLimited = isOaidTrackLimited();
                     parcel2.writeNoException();
                     parcel2.writeInt(isOaidTrackLimited ? 1 : 0);
                     return true;
                 }
+                parcel.enforceInterface("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
+                String oaid = getOaid();
+                parcel2.writeNoException();
+                parcel2.writeString(oaid);
+                return true;
             }
             return invokeCommon.booleanValue;
         }
     }
-
-    String getOaid() throws RemoteException;
-
-    boolean isOaidTrackLimited() throws RemoteException;
 }

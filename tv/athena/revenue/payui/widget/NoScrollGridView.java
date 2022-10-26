@@ -6,8 +6,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.GridView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.l2a;
-import com.baidu.tieba.x4a;
+import com.baidu.tieba.d3a;
+import com.baidu.tieba.p5a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -36,27 +36,6 @@ public class NoScrollGridView extends GridView {
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-    }
-
-    public final void a(Context context, AttributeSet attributeSet) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, l2a.PayUi_NoScrollGridView);
-            int integer = obtainStyledAttributes.getInteger(0, 536870911);
-            this.a = integer;
-            if (integer != 536870911) {
-                this.a = x4a.a(integer);
-            }
-            obtainStyledAttributes.recycle();
-        }
-    }
-
-    @Override // android.widget.GridView, android.widget.AbsListView, android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            super.onMeasure(i, View.MeasureSpec.makeMeasureSpec(this.a, Integer.MIN_VALUE));
         }
     }
 
@@ -102,5 +81,26 @@ public class NoScrollGridView extends GridView {
         }
         this.a = 536870911;
         a(context, attributeSet);
+    }
+
+    public final void a(Context context, AttributeSet attributeSet) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d3a.PayUi_NoScrollGridView);
+            int integer = obtainStyledAttributes.getInteger(0, 536870911);
+            this.a = integer;
+            if (integer != 536870911) {
+                this.a = p5a.a(integer);
+            }
+            obtainStyledAttributes.recycle();
+        }
+    }
+
+    @Override // android.widget.GridView, android.widget.AbsListView, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            super.onMeasure(i, View.MeasureSpec.makeMeasureSpec(this.a, Integer.MIN_VALUE));
+        }
     }
 }

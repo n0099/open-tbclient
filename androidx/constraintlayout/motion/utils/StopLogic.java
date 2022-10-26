@@ -43,6 +43,19 @@ public class StopLogic extends MotionInterpolator {
         this.mBackwards = false;
     }
 
+    @Override // androidx.constraintlayout.motion.widget.MotionInterpolator
+    public float getVelocity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.mBackwards) {
+                return -getVelocity(this.mLastPosition);
+            }
+            return getVelocity(this.mLastPosition);
+        }
+        return invokeV.floatValue;
+    }
+
     private float calcY(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
@@ -177,10 +190,15 @@ public class StopLogic extends MotionInterpolator {
     }
 
     public void config(float f, float f2, float f3, float f4, float f5, float f6) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)}) == null) {
             this.mStartPosition = f;
-            boolean z = f > f2;
+            if (f > f2) {
+                z = true;
+            } else {
+                z = false;
+            }
             this.mBackwards = z;
             if (z) {
                 setup(-f3, f - f2, f5, f6, f4);
@@ -191,12 +209,18 @@ public class StopLogic extends MotionInterpolator {
     }
 
     public void debug(String str, String str2, float f) {
+        String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Float.valueOf(f)}) == null) {
             Log.v(str, str2 + " ===== " + this.mType);
             StringBuilder sb = new StringBuilder();
             sb.append(str2);
-            sb.append(this.mBackwards ? "backwards" : "forward ");
+            if (this.mBackwards) {
+                str3 = "backwards";
+            } else {
+                str3 = "forward ";
+            }
+            sb.append(str3);
             sb.append(" time = ");
             sb.append(f);
             sb.append("  stages ");
@@ -240,7 +264,10 @@ public class StopLogic extends MotionInterpolator {
         if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f)) == null) {
             float calcY = calcY(f);
             this.mLastPosition = f;
-            return this.mBackwards ? this.mStartPosition - calcY : this.mStartPosition + calcY;
+            if (this.mBackwards) {
+                return this.mStartPosition - calcY;
+            }
+            return this.mStartPosition + calcY;
         }
         return invokeF.floatValue;
     }
@@ -276,12 +303,5 @@ public class StopLogic extends MotionInterpolator {
             }
         }
         return invokeF.floatValue;
-    }
-
-    @Override // androidx.constraintlayout.motion.widget.MotionInterpolator
-    public float getVelocity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mBackwards ? -getVelocity(this.mLastPosition) : getVelocity(this.mLastPosition) : invokeV.floatValue;
     }
 }

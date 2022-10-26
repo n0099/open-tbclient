@@ -30,7 +30,21 @@ public final class LogoActivityStaticAutoGenerateUrlCollectorImpl implements ICm
     }
 
     @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
-    public Map<String, String> getCmdRouterMap() {
+    public Map getConfigRouterMap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            HashMap hashMap = new HashMap();
+            ArrayList arrayList = new ArrayList();
+            arrayList.add("LogoActivityConfig");
+            hashMap.put("com.baidu.tieba.LogoActivityStatic", arrayList);
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
+    public Map getCmdRouterMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -41,20 +55,6 @@ public final class LogoActivityStaticAutoGenerateUrlCollectorImpl implements ICm
             hashMap.put("2016520", "com.baidu.tieba.LogoActivityStatic");
             hashMap.put("2016522", "com.baidu.tieba.LogoActivityStatic");
             hashMap.put("2016523", "com.baidu.tieba.LogoActivityStatic");
-            return hashMap;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
-    public Map<String, ArrayList<String>> getConfigRouterMap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            HashMap hashMap = new HashMap();
-            ArrayList arrayList = new ArrayList();
-            arrayList.add("LogoActivityConfig");
-            hashMap.put("com.baidu.tieba.LogoActivityStatic", arrayList);
             return hashMap;
         }
         return (Map) invokeV.objValue;

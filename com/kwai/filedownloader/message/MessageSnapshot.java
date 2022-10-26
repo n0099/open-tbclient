@@ -16,13 +16,13 @@ import com.kwai.filedownloader.message.h;
 /* loaded from: classes8.dex */
 public abstract class MessageSnapshot implements Parcelable, c {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<MessageSnapshot> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean avS;
     public final int id;
 
     /* loaded from: classes8.dex */
-    public static class NoFieldException extends IllegalStateException {
+    public class NoFieldException extends IllegalStateException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -53,7 +53,7 @@ public abstract class MessageSnapshot implements Parcelable, c {
     }
 
     /* loaded from: classes8.dex */
-    public static class b extends MessageSnapshot {
+    public final class b extends MessageSnapshot {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -121,7 +121,7 @@ public abstract class MessageSnapshot implements Parcelable, c {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<MessageSnapshot>() { // from class: com.kwai.filedownloader.message.MessageSnapshot.1
+        CREATOR = new Parcelable.Creator() { // from class: com.kwai.filedownloader.message.MessageSnapshot.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -159,7 +159,7 @@ public abstract class MessageSnapshot implements Parcelable, c {
                 } else if (readByte == -3) {
                     jVar = z ? new d.b(parcel) : new h.b(parcel);
                 } else if (readByte == -1) {
-                    jVar = z ? new d.C0629d(parcel) : new h.d(parcel);
+                    jVar = z ? new d.C0625d(parcel) : new h.d(parcel);
                 } else if (readByte == 1) {
                     jVar = z ? new d.f(parcel) : new h.f(parcel);
                 } else if (readByte == 2) {
@@ -167,7 +167,7 @@ public abstract class MessageSnapshot implements Parcelable, c {
                 } else if (readByte == 3) {
                     jVar = z ? new d.g(parcel) : new h.g(parcel);
                 } else if (readByte == 5) {
-                    jVar = z ? new d.h(parcel) : new h.C0630h(parcel);
+                    jVar = z ? new d.h(parcel) : new h.C0626h(parcel);
                 } else if (readByte != 6) {
                     messageSnapshot = null;
                     if (messageSnapshot == null) {
@@ -189,15 +189,13 @@ public abstract class MessageSnapshot implements Parcelable, c {
                 return (interceptable2 == null || (invokeI = interceptable2.invokeI(65538, null, i)) == null) ? new MessageSnapshot[i] : (MessageSnapshot[]) invokeI.objValue;
             }
 
-            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
             @Override // android.os.Parcelable.Creator
-            public final /* synthetic */ MessageSnapshot createFromParcel(Parcel parcel) {
+            public final /* synthetic */ Object createFromParcel(Parcel parcel) {
                 return a(parcel);
             }
 
-            /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
             @Override // android.os.Parcelable.Creator
-            public final /* synthetic */ MessageSnapshot[] newArray(int i) {
+            public final /* synthetic */ Object[] newArray(int i) {
                 return ct(i);
             }
         };

@@ -63,18 +63,30 @@ public final class TaskState {
     public static TaskState valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (TaskState) Enum.valueOf(TaskState.class, str) : (TaskState) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (TaskState) Enum.valueOf(TaskState.class, str);
+        }
+        return (TaskState) invokeL.objValue;
     }
 
     public static TaskState[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TaskState[]) $VALUES.clone() : (TaskState[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (TaskState[]) $VALUES.clone();
+        }
+        return (TaskState[]) invokeV.objValue;
     }
 
     public boolean isCallbackAvailable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mCode < FINISHED.mCode : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.mCode < FINISHED.mCode) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

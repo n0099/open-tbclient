@@ -29,7 +29,7 @@ public final class PayMethodFactory {
 
     /* renamed from: com.yy.mobile.framework.revenuesdk.payservice.PayMethodFactory$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$yy$mobile$framework$revenuesdk$payapi$PayType;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -140,6 +140,15 @@ public final class PayMethodFactory {
         return (IPayMethod) invokeV.objValue;
     }
 
+    public static PayMethodFactory[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return (PayMethodFactory[]) $VALUES.clone();
+        }
+        return (PayMethodFactory[]) invokeV.objValue;
+    }
+
     private void initPayMethod() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
@@ -150,18 +159,6 @@ public final class PayMethodFactory {
                 RLog.error("AppPayServiceImpl", "init PayMethod error.clazz = " + this.clazz, e);
             }
         }
-    }
-
-    public static PayMethodFactory valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? (PayMethodFactory) Enum.valueOf(PayMethodFactory.class, str) : (PayMethodFactory) invokeL.objValue;
-    }
-
-    public static PayMethodFactory[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? (PayMethodFactory[]) $VALUES.clone() : (PayMethodFactory[]) invokeV.objValue;
     }
 
     public static IPayMethod valueOf(PayType payType) {
@@ -192,5 +189,14 @@ public final class PayMethodFactory {
             }
         }
         return (IPayMethod) invokeL.objValue;
+    }
+
+    public static PayMethodFactory valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            return (PayMethodFactory) Enum.valueOf(PayMethodFactory.class, str);
+        }
+        return (PayMethodFactory) invokeL.objValue;
     }
 }

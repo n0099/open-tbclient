@@ -66,13 +66,22 @@ public final class RouteSelector {
         public List<Route> getAll() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ArrayList(this.routes) : (List) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new ArrayList(this.routes);
+            }
+            return (List) invokeV.objValue;
         }
 
         public boolean hasNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.nextRouteIndex < this.routes.size() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.nextRouteIndex < this.routes.size()) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
 
         public Route next() {
@@ -132,7 +141,25 @@ public final class RouteSelector {
     private boolean hasNextProxy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.nextProxyIndex < this.proxies.size() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            if (this.nextProxyIndex < this.proxies.size()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean hasNext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!hasNextProxy() && this.postponedRoutes.isEmpty()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     private Proxy nextProxy() throws IOException {
@@ -193,13 +220,19 @@ public final class RouteSelector {
     }
 
     private void resetNextProxy(HttpUrl httpUrl, Proxy proxy) {
+        List<Proxy> immutableList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, this, httpUrl, proxy) == null) {
             if (proxy != null) {
                 this.proxies = Collections.singletonList(proxy);
             } else {
                 List<Proxy> select = this.address.proxySelector().select(httpUrl.uri());
-                this.proxies = (select == null || select.isEmpty()) ? Util.immutableList(Proxy.NO_PROXY) : Util.immutableList(select);
+                if (select != null && !select.isEmpty()) {
+                    immutableList = Util.immutableList(select);
+                } else {
+                    immutableList = Util.immutableList(Proxy.NO_PROXY);
+                }
+                this.proxies = immutableList;
             }
             this.nextProxyIndex = 0;
         }
@@ -213,12 +246,6 @@ public final class RouteSelector {
             }
             this.routeDatabase.failed(route);
         }
-    }
-
-    public boolean hasNext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? hasNextProxy() || !this.postponedRoutes.isEmpty() : invokeV.booleanValue;
     }
 
     public Selection next() throws IOException {

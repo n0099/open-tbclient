@@ -1,6 +1,5 @@
 package com.baidu.tieba.play;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -9,16 +8,13 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
 import android.widget.SeekBar;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ol8;
-import com.baidu.tieba.pp8;
+import com.baidu.tieba.vl8;
+import com.baidu.tieba.wp8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes5.dex */
 public class LinearVideoLoadingSeekBar extends SeekBar {
     public static /* synthetic */ Interceptable $ic;
@@ -87,37 +83,54 @@ public class LinearVideoLoadingSeekBar extends SeekBar {
         }
     }
 
-    public final void b(Canvas canvas) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public LinearVideoLoadingSeekBar(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            int width = getWidth();
-            int height = getHeight();
-            int paddingTop = getPaddingTop();
-            int paddingBottom = getPaddingBottom();
-            Paint paint = new Paint();
-            paint.setStyle(Paint.Style.FILL_AND_STROKE);
-            paint.setAntiAlias(true);
-            int i = this.a + (width / 30);
-            this.a = i;
-            if (i >= width) {
-                this.a = 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            paint.setColor(ol8.a(this.d, width == 0 ? 1.0f : Math.max(255 - ((this.a * 255) / width), 30) / 255.0f));
-            paint.setStrokeWidth(this.b);
-            float f = width / 2.0f;
-            int i2 = this.a;
-            float f2 = ((height - paddingBottom) + paddingTop) / 2.0f;
-            canvas.drawLine(f - (i2 / 2.0f), f2, f + (i2 / 2.0f), f2, paint);
         }
     }
 
-    @Override // android.widget.ProgressBar, android.view.View
-    public void onDetachedFromWindow() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public LinearVideoLoadingSeekBar(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.onDetachedFromWindow();
-            this.e.removeCallbacksAndMessages(null);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
+        this.a = 0;
+        this.b = 1;
+        this.c = false;
+        this.e = new a(this);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, wp8.LinearVideoLoadingSeekBar);
+        this.d = obtainStyledAttributes.getColor(1, -16777216);
+        this.b = obtainStyledAttributes.getDimensionPixelSize(0, this.b);
+        obtainStyledAttributes.recycle();
     }
 
     @Override // android.widget.AbsSeekBar, android.widget.ProgressBar, android.view.View
@@ -145,53 +158,42 @@ public class LinearVideoLoadingSeekBar extends SeekBar {
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LinearVideoLoadingSeekBar(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
+    public final void b(Canvas canvas) {
+        float max;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+            int width = getWidth();
+            int height = getHeight();
+            int paddingTop = getPaddingTop();
+            int paddingBottom = getPaddingBottom();
+            Paint paint = new Paint();
+            paint.setStyle(Paint.Style.FILL_AND_STROKE);
+            paint.setAntiAlias(true);
+            int i = this.a + (width / 30);
+            this.a = i;
+            if (i >= width) {
+                this.a = 0;
             }
+            if (width == 0) {
+                max = 1.0f;
+            } else {
+                max = Math.max(255 - ((this.a * 255) / width), 30) / 255.0f;
+            }
+            paint.setColor(vl8.a(this.d, max));
+            paint.setStrokeWidth(this.b);
+            float f = width / 2.0f;
+            int i2 = this.a;
+            float f2 = ((height - paddingBottom) + paddingTop) / 2.0f;
+            canvas.drawLine(f - (i2 / 2.0f), f2, f + (i2 / 2.0f), f2, paint);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LinearVideoLoadingSeekBar(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    @Override // android.widget.ProgressBar, android.view.View
+    public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.onDetachedFromWindow();
+            this.e.removeCallbacksAndMessages(null);
         }
-        this.a = 0;
-        this.b = 1;
-        this.c = false;
-        this.e = new a(this);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, pp8.LinearVideoLoadingSeekBar);
-        this.d = obtainStyledAttributes.getColor(1, -16777216);
-        this.b = obtainStyledAttributes.getDimensionPixelSize(0, this.b);
-        obtainStyledAttributes.recycle();
     }
 }

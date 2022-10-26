@@ -7,7 +7,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import android.util.SparseIntArray;
-import androidx.annotation.RestrictTo;
 import androidx.collection.ArrayMap;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -18,7 +17,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
 import java.lang.reflect.Method;
-@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
 public class VersionedParcelParcel extends VersionedParcel {
     public static /* synthetic */ Interceptable $ic = null;
@@ -55,49 +53,70 @@ public class VersionedParcelParcel extends VersionedParcel {
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public VersionedParcelParcel(Parcel parcel, int i, int i2, String str, ArrayMap<String, Method> arrayMap, ArrayMap<String, Method> arrayMap2, ArrayMap<String, Class> arrayMap3) {
+        super(arrayMap, arrayMap2, arrayMap3);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel, Integer.valueOf(i), Integer.valueOf(i2), str, arrayMap, arrayMap2, arrayMap3};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((ArrayMap) objArr2[0], (ArrayMap) objArr2[1], (ArrayMap) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mPositionLookup = new SparseIntArray();
+        this.mCurrentField = -1;
+        this.mNextRead = 0;
+        this.mFieldId = -1;
+        this.mParcel = parcel;
+        this.mOffset = i;
+        this.mEnd = i2;
+        this.mNextRead = i;
+        this.mPrefix = str;
+    }
+
     @Override // androidx.versionedparcelable.VersionedParcel
     public void closeField() {
         int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (i = this.mCurrentField) < 0) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (i = this.mCurrentField) >= 0) {
+            int i2 = this.mPositionLookup.get(i);
+            int dataPosition = this.mParcel.dataPosition();
+            this.mParcel.setDataPosition(i2);
+            this.mParcel.writeInt(dataPosition - i2);
+            this.mParcel.setDataPosition(dataPosition);
         }
-        int i2 = this.mPositionLookup.get(i);
-        int dataPosition = this.mParcel.dataPosition();
-        this.mParcel.setDataPosition(i2);
-        this.mParcel.writeInt(dataPosition - i2);
-        this.mParcel.setDataPosition(dataPosition);
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public VersionedParcel createSubParcel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Parcel parcel = this.mParcel;
-            int dataPosition = parcel.dataPosition();
-            int i = this.mNextRead;
-            if (i == this.mOffset) {
-                i = this.mEnd;
-            }
-            int i2 = i;
-            return new VersionedParcelParcel(parcel, dataPosition, i2, this.mPrefix + GlideException.IndentedAppendable.INDENT, this.mReadCache, this.mWriteCache, this.mParcelizerCache);
-        }
-        return (VersionedParcel) invokeV.objValue;
     }
 
     @Override // androidx.versionedparcelable.VersionedParcel
     public boolean readBoolean() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mParcel.readInt() != 0 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.mParcel.readInt() != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // androidx.versionedparcelable.VersionedParcel
     public Bundle readBundle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mParcel.readBundle(VersionedParcelParcel.class.getClassLoader()) : (Bundle) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mParcel.readBundle(VersionedParcelParcel.class.getClassLoader());
+        }
+        return (Bundle) invokeV.objValue;
     }
 
     @Override // androidx.versionedparcelable.VersionedParcel
@@ -120,14 +139,97 @@ public class VersionedParcelParcel extends VersionedParcel {
     public CharSequence readCharSequence() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(this.mParcel) : (CharSequence) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(this.mParcel);
+        }
+        return (CharSequence) invokeV.objValue;
     }
 
     @Override // androidx.versionedparcelable.VersionedParcel
     public double readDouble() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mParcel.readDouble() : invokeV.doubleValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mParcel.readDouble();
+        }
+        return invokeV.doubleValue;
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public float readFloat() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mParcel.readFloat();
+        }
+        return invokeV.floatValue;
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public int readInt() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mParcel.readInt();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public long readLong() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mParcel.readLong();
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public <T extends Parcelable> T readParcelable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return (T) this.mParcel.readParcelable(VersionedParcelParcel.class.getClassLoader());
+        }
+        return (T) invokeV.objValue;
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public String readString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.mParcel.readString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public IBinder readStrongBinder() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.mParcel.readStrongBinder();
+        }
+        return (IBinder) invokeV.objValue;
+    }
+
+    @Override // androidx.versionedparcelable.VersionedParcel
+    public VersionedParcel createSubParcel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Parcel parcel = this.mParcel;
+            int dataPosition = parcel.dataPosition();
+            int i = this.mNextRead;
+            if (i == this.mOffset) {
+                i = this.mEnd;
+            }
+            int i2 = i;
+            return new VersionedParcelParcel(parcel, dataPosition, i2, this.mPrefix + GlideException.IndentedAppendable.INDENT, this.mReadCache, this.mWriteCache, this.mParcelizerCache);
+        }
+        return (VersionedParcel) invokeV.objValue;
     }
 
     @Override // androidx.versionedparcelable.VersionedParcel
@@ -148,51 +250,12 @@ public class VersionedParcelParcel extends VersionedParcel {
                 this.mFieldId = this.mParcel.readInt();
                 this.mNextRead += readInt;
             }
-            return this.mFieldId == i;
+            if (this.mFieldId == i) {
+                return true;
+            }
+            return false;
         }
         return invokeI.booleanValue;
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public float readFloat() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mParcel.readFloat() : invokeV.floatValue;
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public int readInt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mParcel.readInt() : invokeV.intValue;
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public long readLong() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mParcel.readLong() : invokeV.longValue;
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public <T extends Parcelable> T readParcelable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? (T) this.mParcel.readParcelable(VersionedParcelParcel.class.getClassLoader()) : (T) invokeV.objValue;
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public String readString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mParcel.readString() : (String) invokeV.objValue;
-    }
-
-    @Override // androidx.versionedparcelable.VersionedParcel
-    public IBinder readStrongBinder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mParcel.readStrongBinder() : (IBinder) invokeV.objValue;
     }
 
     @Override // androidx.versionedparcelable.VersionedParcel
@@ -306,36 +369,6 @@ public class VersionedParcelParcel extends VersionedParcel {
         if (interceptable == null || interceptable.invokeL(1048603, this, iInterface) == null) {
             this.mParcel.writeStrongInterface(iInterface);
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VersionedParcelParcel(Parcel parcel, int i, int i2, String str, ArrayMap<String, Method> arrayMap, ArrayMap<String, Method> arrayMap2, ArrayMap<String, Class> arrayMap3) {
-        super(arrayMap, arrayMap2, arrayMap3);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel, Integer.valueOf(i), Integer.valueOf(i2), str, arrayMap, arrayMap2, arrayMap3};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((ArrayMap) objArr2[0], (ArrayMap) objArr2[1], (ArrayMap) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mPositionLookup = new SparseIntArray();
-        this.mCurrentField = -1;
-        this.mNextRead = 0;
-        this.mFieldId = -1;
-        this.mParcel = parcel;
-        this.mOffset = i;
-        this.mEnd = i2;
-        this.mNextRead = i;
-        this.mPrefix = str;
     }
 
     @Override // androidx.versionedparcelable.VersionedParcel

@@ -73,6 +73,13 @@ public class StuckDataCalculator {
         this.stuckInterval = i;
     }
 
+    public void setStuckEventListener(SLIReportInterface sLIReportInterface) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sLIReportInterface) == null) {
+            this.mStuckEvent = sLIReportInterface;
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void reportStuckData() {
         SLIReportInterface sLIReportInterface;
@@ -87,6 +94,15 @@ public class StuckDataCalculator {
         }
     }
 
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.frameStartTime = 0L;
+            this.stuckTimer.removeCallbacks(this.stuckRunnable);
+            this.mStuckEvent = null;
+        }
+    }
+
     public void calculateStuck() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -98,22 +114,6 @@ public class StuckDataCalculator {
             }
             this.stuckTimer.postDelayed(this.stuckRunnable, 5000L);
             this.frameStartTime = System.currentTimeMillis();
-        }
-    }
-
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.frameStartTime = 0L;
-            this.stuckTimer.removeCallbacks(this.stuckRunnable);
-            this.mStuckEvent = null;
-        }
-    }
-
-    public void setStuckEventListener(SLIReportInterface sLIReportInterface) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sLIReportInterface) == null) {
-            this.mStuckEvent = sLIReportInterface;
         }
     }
 }

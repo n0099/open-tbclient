@@ -20,6 +20,7 @@ public final class ByteArrayDataSource implements DataSource {
     public Uri uri;
 
     public ByteArrayDataSource(byte[] bArr) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -35,7 +36,12 @@ public final class ByteArrayDataSource implements DataSource {
             }
         }
         Assertions.checkNotNull(bArr);
-        Assertions.checkArgument(bArr.length > 0);
+        if (bArr.length > 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        Assertions.checkArgument(z);
         this.data = bArr;
     }
 
@@ -51,7 +57,10 @@ public final class ByteArrayDataSource implements DataSource {
     public Uri getUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.uri : (Uri) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.uri;
+        }
+        return (Uri) invokeV.objValue;
     }
 
     @Override // com.google.android.exoplayer2.upstream.DataSource
@@ -68,10 +77,10 @@ public final class ByteArrayDataSource implements DataSource {
             }
             int i = (int) j2;
             this.bytesRemaining = i;
-            if (i <= 0 || this.readPosition + i > this.data.length) {
-                throw new IOException("Unsatisfiable range: [" + this.readPosition + StringUtil.ARRAY_ELEMENT_SEPARATOR + dataSpec.length + "], length: " + this.data.length);
+            if (i > 0 && this.readPosition + i <= this.data.length) {
+                return i;
             }
-            return i;
+            throw new IOException("Unsatisfiable range: [" + this.readPosition + StringUtil.ARRAY_ELEMENT_SEPARATOR + dataSpec.length + "], length: " + this.data.length);
         }
         return invokeL.longValue;
     }

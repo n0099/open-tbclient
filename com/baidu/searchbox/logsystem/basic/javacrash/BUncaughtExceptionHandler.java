@@ -4,14 +4,11 @@ import android.content.Context;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.searchbox.aperf.param.CommonUtils;
 import com.baidu.searchbox.aperf.runtime.AperfRuntime;
 import com.baidu.searchbox.logsystem.basic.util.SnapshotUtil;
-import com.baidu.searchbox.logsystem.javacrash.ProcessExceptionListener;
 import com.baidu.searchbox.logsystem.javacrash.UncaughtExceptionHandler;
 import com.baidu.searchbox.logsystem.logsys.LogExtra;
 import com.baidu.searchbox.logsystem.logsys.LogFile;
@@ -20,12 +17,11 @@ import com.baidu.searchbox.logsystem.logsys.LogType;
 import com.baidu.searchbox.logsystem.logsys.SnapshotConstant;
 import com.baidu.searchbox.logsystem.logsys.eventscene.EventObject;
 import com.baidu.searchbox.logsystem.logsys.eventscene.handler.ForwardingProcessEventSceneHandler;
-import com.baidu.searchbox.logsystem.logsys.eventscene.snapshot.ProcessSnapshotType;
 import com.baidu.searchbox.logsystem.util.LLog;
 import com.baidu.searchbox.logsystem.util.Utility;
 import com.baidu.searchbox.track.Track;
 import com.baidu.searchbox.track.ui.TrackUI;
-import com.baidu.tieba.ue1;
+import com.baidu.tieba.ve1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,8 +41,45 @@ public abstract class BUncaughtExceptionHandler extends UncaughtExceptionHandler
     public long mProcessLaunchTime;
     public final String mProcessName;
 
+    public abstract ForwardingProcessEventSceneHandler getForwardingHandler();
+
+    public void onAttachExtra(Context context, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, jSONObject) == null) {
+        }
+    }
+
+    public void onDisasterRecovery(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
+        }
+    }
+
+    public abstract void onReport(Context context, String str, File file, LogExtra logExtra);
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public BUncaughtExceptionHandler(Context context) {
+        this(context, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (List) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BUncaughtExceptionHandler(@NonNull Context context, @Nullable List<ProcessExceptionListener> list) {
+    public BUncaughtExceptionHandler(Context context, List list) {
         super(list);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -66,10 +99,10 @@ public abstract class BUncaughtExceptionHandler extends UncaughtExceptionHandler
         this.mProcessLaunchTime = System.currentTimeMillis();
         Context applicationContext = context.getApplicationContext();
         this.mContext = applicationContext != null ? applicationContext : context;
-        this.mProcessName = ue1.b();
+        this.mProcessName = ve1.b();
     }
 
-    private LogExtra createLogExtra(@NonNull Thread thread) {
+    private LogExtra createLogExtra(Thread thread) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, thread)) == null) {
@@ -101,32 +134,19 @@ public abstract class BUncaughtExceptionHandler extends UncaughtExceptionHandler
         return (LogExtra) invokeL.objValue;
     }
 
-    public abstract ForwardingProcessEventSceneHandler getForwardingHandler();
-
     public String getProcessName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mProcessName : (String) invokeV.objValue;
-    }
-
-    public void onAttachExtra(@NonNull Context context, @NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, jSONObject) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mProcessName;
         }
+        return (String) invokeV.objValue;
     }
-
-    public void onDisasterRecovery(@NonNull Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-        }
-    }
-
-    public abstract void onReport(@NonNull Context context, @NonNull String str, @Nullable File file, @Nullable LogExtra logExtra);
 
     @Override // com.baidu.searchbox.logsystem.javacrash.UncaughtExceptionHandler
-    public void processException(@NonNull Thread thread, @NonNull Throwable th) {
+    public void processException(Thread thread, Throwable th) {
         HashSet hashSet;
-        Set<LogFile> obtainProcessSnapShots;
+        Set obtainProcessSnapShots;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, thread, th) == null) {
             File obtainFileDirWithProcessName = LogPipelineSingleton.obtainFileDirWithProcessName(this.mProcessName);
@@ -143,11 +163,11 @@ public abstract class BUncaughtExceptionHandler extends UncaughtExceptionHandler
             if (forwardingHandler != null) {
                 hashSet = new HashSet(5);
                 EventObject eventObject = new EventObject(LogType.JAVA_CRASH, sb);
-                Set<ProcessSnapshotType> requireGeneralSnapshots = forwardingHandler.requireGeneralSnapshots(this.mContext, eventObject);
+                Set requireGeneralSnapshots = forwardingHandler.requireGeneralSnapshots(this.mContext, eventObject);
                 if (requireGeneralSnapshots != null && requireGeneralSnapshots.size() > 0 && (obtainProcessSnapShots = SnapshotUtil.obtainProcessSnapShots(this.mContext, requireGeneralSnapshots, obtainFileDirWithProcessName, this.mProcessName, createLogExtra)) != null && obtainProcessSnapShots.size() > 0) {
                     hashSet.addAll(obtainProcessSnapShots);
                 }
-                Set<LogFile> customizedSnapshots = forwardingHandler.getCustomizedSnapshots(this.mContext, obtainFileDirWithProcessName, eventObject);
+                Set customizedSnapshots = forwardingHandler.getCustomizedSnapshots(this.mContext, obtainFileDirWithProcessName, eventObject);
                 if (customizedSnapshots != null && customizedSnapshots.size() > 0) {
                     hashSet.addAll(customizedSnapshots);
                 }
@@ -182,27 +202,6 @@ public abstract class BUncaughtExceptionHandler extends UncaughtExceptionHandler
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
             this.mProcessLaunchTime = j;
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BUncaughtExceptionHandler(@NonNull Context context) {
-        this(context, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (List) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
         }
     }
 }

@@ -35,25 +35,43 @@ public class h implements f {
     public void a(boolean z) {
         VideoView videoView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (videoView = this.a.i) == null) {
-            return;
-        }
-        if (!z) {
+        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (videoView = this.a.i) != null) {
+            if (z) {
+                videoView.start();
+                this.a.a();
+                return;
+            }
             videoView.pause();
-            return;
         }
-        videoView.start();
-        this.a.a();
+    }
+
+    @Override // com.win.opensdk.PBListener
+    public void onFail(PBError pBError) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, pBError) == null) {
+            if (pBError == PBError.PID_INVALID) {
+                PBDrawVideoListener pBDrawVideoListener = this.a.d;
+                if (pBDrawVideoListener != null) {
+                    pBDrawVideoListener.onFail(PBError.NO_FILL);
+                    return;
+                }
+                return;
+            }
+            PBDrawVideo pBDrawVideo = this.a;
+            PBDrawVideoListener pBDrawVideoListener2 = pBDrawVideo.d;
+            if (pBDrawVideoListener2 != null && !pBDrawVideo.f) {
+                pBDrawVideoListener2.onFail(PBError.NO_FILL);
+            }
+        }
     }
 
     @Override // com.win.opensdk.PBListener
     public void onClicked() {
         PBDrawVideoListener pBDrawVideoListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (pBDrawVideoListener = this.a.d) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (pBDrawVideoListener = this.a.d) != null) {
+            pBDrawVideoListener.onClicked();
         }
-        pBDrawVideoListener.onClicked();
     }
 
     @Override // com.win.opensdk.f
@@ -73,44 +91,41 @@ public class h implements f {
     }
 
     @Override // com.win.opensdk.PBListener
-    public void onFail(PBError pBError) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, pBError) == null) {
-            if (pBError == PBError.PID_INVALID) {
-                PBDrawVideoListener pBDrawVideoListener = this.a.d;
-                if (pBDrawVideoListener != null) {
-                    pBDrawVideoListener.onFail(PBError.NO_FILL);
-                    return;
-                }
-                return;
-            }
-            PBDrawVideo pBDrawVideo = this.a;
-            PBDrawVideoListener pBDrawVideoListener2 = pBDrawVideo.d;
-            if (pBDrawVideoListener2 == null || pBDrawVideo.f) {
-                return;
-            }
-            pBDrawVideoListener2.onFail(PBError.NO_FILL);
-        }
-    }
-
-    @Override // com.win.opensdk.PBListener
     public void onLoaded() {
+        boolean z;
+        long j;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             c0 c0Var = this.a.c.a;
             if (c0Var != null && c0Var.b()) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
                 PBDrawVideo pBDrawVideo = this.a;
                 Context context = pBDrawVideo.a;
                 c0 c0Var2 = pBDrawVideo.c.a;
-                Z1.b(context, (c0Var2 == null || !c0Var2.b()) ? 0L : c0Var2.c.getLo_timeout());
+                if (c0Var2 != null && c0Var2.b()) {
+                    j = c0Var2.c.getLo_timeout();
+                } else {
+                    j = 0;
+                }
+                Z1.b(context, j);
                 c0 c0Var3 = this.a.c.a;
-                String str = "";
-                if (((c0Var3 == null || !c0Var3.b()) ? "" : c0Var3.c.getLoad_type()).equals("video")) {
+                String str2 = "";
+                if (c0Var3 == null || !c0Var3.b()) {
+                    str = "";
+                } else {
+                    str = c0Var3.c.getLoad_type();
+                }
+                if (str.equals("video")) {
                     c0 c0Var4 = this.a.c.a;
                     if (c0Var4 != null && c0Var4.b()) {
-                        str = c0Var4.c.getLoad();
+                        str2 = c0Var4.c.getLoad();
                     }
-                    this.a.a(str);
+                    this.a.a(str2);
                     return;
                 }
                 PBDrawVideoListener pBDrawVideoListener = this.a.d;

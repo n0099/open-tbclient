@@ -47,6 +47,27 @@ public abstract class BaseApi {
     public c b;
     public QQToken c;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-2044540083, "Lcom/tencent/connect/common/BaseApi;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-2044540083, "Lcom/tencent/connect/common/BaseApi;");
+        }
+    }
+
+    public void releaseResource() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        }
+    }
+
     /* loaded from: classes8.dex */
     public class TempRequestListener implements IRequestListener {
         public static /* synthetic */ Interceptable $ic;
@@ -214,19 +235,56 @@ public abstract class BaseApi {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-2044540083, "Lcom/tencent/connect/common/BaseApi;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public BaseApi(QQToken qQToken) {
+        this(null, qQToken);
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {qQToken};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((c) objArr2[0], (QQToken) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-2044540083, "Lcom/tencent/connect/common/BaseApi;");
+    }
+
+    public String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            Bundle a = a();
+            StringBuilder sb = new StringBuilder();
+            if (!TextUtils.isEmpty(str)) {
+                a.putString("need_version", str);
+            }
+            sb.append("https://openmobile.qq.com/oauth2.0/m_jump_by_version?");
+            sb.append(HttpUtils.encodeUrl(a));
+            return sb.toString();
         }
+        return (String) invokeL.objValue;
+    }
+
+    public Intent c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            Intent intent = new Intent();
+            Intent b = b(str);
+            if (b == null || b.getComponent() == null) {
+                return null;
+            }
+            intent.setClassName(b.getComponent().getPackageName(), "com.tencent.open.agent.AgentActivity");
+            return intent;
+        }
+        return (Intent) invokeL.objValue;
     }
 
     public BaseApi(c cVar, QQToken qQToken) {
@@ -246,6 +304,28 @@ public abstract class BaseApi {
         }
         this.b = cVar;
         this.c = qQToken;
+    }
+
+    private Intent a(Activity activity, Intent intent, Map map) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, this, activity, intent, map)) == null) {
+            Intent intent2 = new Intent(activity.getApplicationContext(), AssistActivity.class);
+            intent2.putExtra("is_login", true);
+            intent2.putExtra(AssistActivity.EXTRA_INTENT, intent);
+            if (map == null) {
+                return intent2;
+            }
+            try {
+                if (map.containsKey(Constants.KEY_RESTORE_LANDSCAPE)) {
+                    intent2.putExtra(Constants.KEY_RESTORE_LANDSCAPE, ((Boolean) map.get(Constants.KEY_RESTORE_LANDSCAPE)).booleanValue());
+                }
+            } catch (Exception e) {
+                SLog.e("openSDK_LOG.BaseApi", "Exception", e);
+            }
+            return intent2;
+        }
+        return (Intent) invokeLLL.objValue;
     }
 
     public Bundle a() {
@@ -306,62 +386,59 @@ public abstract class BaseApi {
         return (Bundle) invokeV.objValue;
     }
 
-    public Intent c(String str) {
+    public void a(Activity activity, int i, Intent intent, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, Integer.valueOf(i), intent, Boolean.valueOf(z)}) == null) {
+            Intent intent2 = new Intent(activity.getApplicationContext(), AssistActivity.class);
+            if (z) {
+                intent2.putExtra("is_qq_mobile_share", true);
+            }
+            intent2.putExtra(AssistActivity.EXTRA_INTENT, intent);
+            activity.startActivityForResult(intent2, i);
+        }
+    }
+
+    public void a(Activity activity, Intent intent, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048579, this, activity, intent, i) == null) {
+            a(activity, intent, i, (Map) null);
+        }
+    }
+
+    public void a(Activity activity, Intent intent, int i, Map map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLIL(1048580, this, activity, intent, i, map) == null) {
+            intent.putExtra(Constants.KEY_REQUEST_CODE, i);
+            activity.startActivityForResult(a(activity, intent, map), i);
+        }
+    }
+
+    public void a(Activity activity, Bundle bundle, IUiListener iUiListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, activity, bundle, iUiListener) == null) {
+            SLog.i("openSDK_LOG.BaseApi", "--handleDownloadLastestQQ");
+            new TDialog(activity, "", "https://login.imgcache.qq.com/ptlogin/static/qzsjump.html?" + HttpUtils.encodeUrl(bundle), null, this.c).show();
+        }
+    }
+
+    public void a(Fragment fragment, Intent intent, int i, Map map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLIL(1048582, this, fragment, intent, i, map) == null) {
+            intent.putExtra(Constants.KEY_REQUEST_CODE, i);
+            fragment.startActivityForResult(a(fragment.getActivity(), intent, map), i);
+        }
+    }
+
+    public boolean a(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            Intent intent = new Intent();
-            Intent b = b(str);
-            if (b == null || b.getComponent() == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, intent)) == null) {
+            if (intent != null) {
+                return i.a(f.a(), intent);
             }
-            intent.setClassName(b.getComponent().getPackageName(), "com.tencent.open.agent.AgentActivity");
-            return intent;
+            return false;
         }
-        return (Intent) invokeL.objValue;
-    }
-
-    public void releaseResource() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BaseApi(QQToken qQToken) {
-        this(null, qQToken);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {qQToken};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((c) objArr2[0], (QQToken) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            Bundle a = a();
-            StringBuilder sb = new StringBuilder();
-            if (!TextUtils.isEmpty(str)) {
-                a.putString("need_version", str);
-            }
-            sb.append("https://openmobile.qq.com/oauth2.0/m_jump_by_version?");
-            sb.append(HttpUtils.encodeUrl(a));
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
     public Intent b(String str) {
@@ -390,82 +467,5 @@ public abstract class BaseApi {
             return null;
         }
         return (Intent) invokeL.objValue;
-    }
-
-    private Intent a(Activity activity, Intent intent, Map<String, Object> map) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, this, activity, intent, map)) == null) {
-            Intent intent2 = new Intent(activity.getApplicationContext(), AssistActivity.class);
-            intent2.putExtra("is_login", true);
-            intent2.putExtra(AssistActivity.EXTRA_INTENT, intent);
-            if (map == null) {
-                return intent2;
-            }
-            try {
-                if (map.containsKey(Constants.KEY_RESTORE_LANDSCAPE)) {
-                    intent2.putExtra(Constants.KEY_RESTORE_LANDSCAPE, ((Boolean) map.get(Constants.KEY_RESTORE_LANDSCAPE)).booleanValue());
-                }
-            } catch (Exception e) {
-                SLog.e("openSDK_LOG.BaseApi", "Exception", e);
-            }
-            return intent2;
-        }
-        return (Intent) invokeLLL.objValue;
-    }
-
-    public void a(Activity activity, int i, Intent intent, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, Integer.valueOf(i), intent, Boolean.valueOf(z)}) == null) {
-            Intent intent2 = new Intent(activity.getApplicationContext(), AssistActivity.class);
-            if (z) {
-                intent2.putExtra("is_qq_mobile_share", true);
-            }
-            intent2.putExtra(AssistActivity.EXTRA_INTENT, intent);
-            activity.startActivityForResult(intent2, i);
-        }
-    }
-
-    public void a(Activity activity, Intent intent, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048579, this, activity, intent, i) == null) {
-            a(activity, intent, i, (Map<String, Object>) null);
-        }
-    }
-
-    public void a(Activity activity, Intent intent, int i, Map<String, Object> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048580, this, activity, intent, i, map) == null) {
-            intent.putExtra(Constants.KEY_REQUEST_CODE, i);
-            activity.startActivityForResult(a(activity, intent, map), i);
-        }
-    }
-
-    public void a(Fragment fragment, Intent intent, int i, Map<String, Object> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048582, this, fragment, intent, i, map) == null) {
-            intent.putExtra(Constants.KEY_REQUEST_CODE, i);
-            fragment.startActivityForResult(a(fragment.getActivity(), intent, map), i);
-        }
-    }
-
-    public boolean a(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, intent)) == null) {
-            if (intent != null) {
-                return i.a(f.a(), intent);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void a(Activity activity, Bundle bundle, IUiListener iUiListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, activity, bundle, iUiListener) == null) {
-            SLog.i("openSDK_LOG.BaseApi", "--handleDownloadLastestQQ");
-            new TDialog(activity, "", "https://login.imgcache.qq.com/ptlogin/static/qzsjump.html?" + HttpUtils.encodeUrl(bundle), null, this.c).show();
-        }
     }
 }

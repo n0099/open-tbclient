@@ -80,36 +80,37 @@ public class Md5 {
     public static String toMd5(InputStream inputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, inputStream)) != null) {
-            return (String) invokeL.objValue;
-        }
-        String str = null;
-        if (inputStream == null) {
-            return null;
-        }
-        try {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, inputStream)) == null) {
+            String str = null;
+            if (inputStream == null) {
+                return null;
+            }
             try {
-                byte[] bArr = new byte[1024];
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                while (true) {
-                    int read = inputStream.read(bArr);
-                    if (read <= 0) {
-                        break;
-                    }
-                    messageDigest.update(bArr, 0, read);
-                }
-                str = toHexString(messageDigest.digest());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } catch (Throwable th) {
-            if (inputStream != null) {
                 try {
-                    inputStream.close();
-                } catch (Exception unused) {
+                    byte[] bArr = new byte[1024];
+                    MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                    while (true) {
+                        int read = inputStream.read(bArr);
+                        if (read <= 0) {
+                            break;
+                        }
+                        messageDigest.update(bArr, 0, read);
+                    }
+                    str = toHexString(messageDigest.digest());
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
+            } catch (Throwable th) {
+                if (inputStream != null) {
+                    try {
+                        inputStream.close();
+                    } catch (Exception unused) {
+                    }
+                }
+                throw th;
             }
-            throw th;
+        } else {
+            return (String) invokeL.objValue;
         }
     }
 }

@@ -48,7 +48,7 @@ public class b {
         }
     }
 
-    public static c<Bitmap> a(k kVar, int i, int i2, Bitmap.Config config, ImageView.ScaleType scaleType) {
+    public static c a(k kVar, int i, int i2, Bitmap.Config config, ImageView.ScaleType scaleType) {
         Bitmap bitmap;
         byte[] bArr = new byte[0];
         try {

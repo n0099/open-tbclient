@@ -13,6 +13,11 @@ public final class DropWhileSequence$iterator$1 implements Iterator<T>, KMappedM
     public T nextItem;
     public final /* synthetic */ DropWhileSequence this$0;
 
+    @Override // java.util.Iterator
+    public void remove() {
+        throw new UnsupportedOperationException("Operation is not supported for read-only collection");
+    }
+
     /* JADX DEBUG: Incorrect args count in method signature: ()V */
     public DropWhileSequence$iterator$1(DropWhileSequence dropWhileSequence) {
         Sequence sequence;
@@ -22,6 +27,16 @@ public final class DropWhileSequence$iterator$1 implements Iterator<T>, KMappedM
         this.dropState = -1;
     }
 
+    public final void setDropState(int i) {
+        this.dropState = i;
+    }
+
+    public final void setNextItem(T t) {
+        this.nextItem = t;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: kotlin.jvm.functions.Function1 */
+    /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v4, types: [T, java.lang.Object] */
     private final void drop() {
         Function1 function1;
@@ -54,7 +69,10 @@ public final class DropWhileSequence$iterator$1 implements Iterator<T>, KMappedM
         if (this.dropState == -1) {
             drop();
         }
-        return this.dropState == 1 || this.iterator.hasNext();
+        if (this.dropState == 1 || this.iterator.hasNext()) {
+            return true;
+        }
+        return false;
     }
 
     /* JADX WARN: Type inference failed for: r0v3, types: [T, java.lang.Object] */
@@ -70,18 +88,5 @@ public final class DropWhileSequence$iterator$1 implements Iterator<T>, KMappedM
             return t;
         }
         return this.iterator.next();
-    }
-
-    @Override // java.util.Iterator
-    public void remove() {
-        throw new UnsupportedOperationException("Operation is not supported for read-only collection");
-    }
-
-    public final void setDropState(int i) {
-        this.dropState = i;
-    }
-
-    public final void setNextItem(T t) {
-        this.nextItem = t;
     }
 }

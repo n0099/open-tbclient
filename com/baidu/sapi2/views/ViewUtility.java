@@ -33,7 +33,7 @@ public class ViewUtility implements NoProguard {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class a implements View.OnTouchListener {
+    public final class a implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ float a;
@@ -95,6 +95,7 @@ public class ViewUtility implements NoProguard {
 
     public static boolean a(Activity activity, boolean z) {
         InterceptResult invokeLZ;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, activity, z)) == null) {
             try {
@@ -103,9 +104,14 @@ public class ViewUtility implements NoProguard {
                 Field declaredField2 = WindowManager.LayoutParams.class.getDeclaredField("meizuFlags");
                 declaredField.setAccessible(true);
                 declaredField2.setAccessible(true);
-                int i = declaredField.getInt(null);
-                int i2 = declaredField2.getInt(attributes);
-                declaredField2.setInt(attributes, z ? i2 | i : (~i) & i2);
+                int i2 = declaredField.getInt(null);
+                int i3 = declaredField2.getInt(attributes);
+                if (z) {
+                    i = i3 | i2;
+                } else {
+                    i = (~i2) & i3;
+                }
+                declaredField2.setInt(attributes, i);
                 activity.getWindow().setAttributes(attributes);
                 return true;
             } catch (Throwable unused) {
@@ -117,6 +123,7 @@ public class ViewUtility implements NoProguard {
 
     public static boolean b(Activity activity, boolean z) {
         InterceptResult invokeLZ;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, activity, z)) == null) {
             Window window = activity.getWindow();
@@ -126,12 +133,17 @@ public class ViewUtility implements NoProguard {
             Class<?> cls = activity.getWindow().getClass();
             try {
                 Class<?> cls2 = Class.forName("android.view.MiuiWindowManager$LayoutParams");
-                int i = cls2.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE").getInt(cls2);
+                int i2 = cls2.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE").getInt(cls2);
                 Method method = cls.getMethod("setExtraFlags", Integer.TYPE, Integer.TYPE);
                 Window window2 = activity.getWindow();
                 Object[] objArr = new Object[2];
-                objArr[0] = Integer.valueOf(z ? i : 0);
-                objArr[1] = Integer.valueOf(i);
+                if (z) {
+                    i = i2;
+                } else {
+                    i = 0;
+                }
+                objArr[0] = Integer.valueOf(i);
+                objArr[1] = Integer.valueOf(i2);
                 method.invoke(window2, objArr);
                 return true;
             } catch (Throwable unused) {
@@ -139,25 +151,6 @@ public class ViewUtility implements NoProguard {
             }
         }
         return invokeLZ.booleanValue;
-    }
-
-    public static void dismissDialog(Activity activity, Dialog dialog) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, activity, dialog) == null) {
-            if (activity != null) {
-                if (dialog == null || activity.isFinishing() || !dialog.isShowing()) {
-                    return;
-                }
-                try {
-                    dialog.dismiss();
-                    return;
-                } catch (Exception e) {
-                    Log.e(e);
-                    return;
-                }
-            }
-            throw new IllegalArgumentException("Activity must not be null");
-        }
     }
 
     /* JADX WARN: Removed duplicated region for block: B:19:0x0036 A[Catch: Exception -> 0x007f, TryCatch #0 {Exception -> 0x007f, blocks: (B:7:0x000b, B:17:0x002f, B:19:0x0036, B:20:0x003f, B:21:0x0043, B:23:0x0049, B:24:0x004c, B:27:0x0063, B:28:0x006d), top: B:36:0x000b }] */
@@ -171,7 +164,7 @@ public class ViewUtility implements NoProguard {
     public static void enableStatusBarTint(Activity activity, int i) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, i) == null) || Build.VERSION.SDK_INT < 21) {
+        if ((interceptable != null && interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, i) != null) || Build.VERSION.SDK_INT < 21) {
             return;
         }
         try {
@@ -221,28 +214,45 @@ public class ViewUtility implements NoProguard {
         }
     }
 
+    public static void dismissDialog(Activity activity, Dialog dialog) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, activity, dialog) == null) {
+            if (activity != null) {
+                if (dialog != null && !activity.isFinishing() && dialog.isShowing()) {
+                    try {
+                        dialog.dismiss();
+                        return;
+                    } catch (Exception e) {
+                        Log.e(e);
+                        return;
+                    }
+                }
+                return;
+            }
+            throw new IllegalArgumentException("Activity must not be null");
+        }
+    }
+
     public static void enlargedOtherView(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65541, null, view2, i) == null) || view2 == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLI(65541, null, view2, i) == null) && view2 != null) {
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            layoutParams.width = (int) ((layoutParams.width * i) / 100.0f);
+            layoutParams.height = (int) ((layoutParams.height * i) / 100.0f);
+            view2.setLayoutParams(layoutParams);
         }
-        ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
-        layoutParams.width = (int) ((layoutParams.width * i) / 100.0f);
-        layoutParams.height = (int) ((layoutParams.height * i) / 100.0f);
-        view2.setLayoutParams(layoutParams);
     }
 
     public static void enlargedTextView(TextView textView, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65542, null, textView, i) == null) || textView == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLI(65542, null, textView, i) == null) && textView != null) {
+            textView.setTextSize(0, (textView.getTextSize() * i) / 100.0f);
         }
-        textView.setTextSize(0, (textView.getTextSize() * i) / 100.0f);
     }
 
     public static void enlargedViews(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65543, null, view2, i) == null) || view2 == null) {
+        if ((interceptable != null && interceptable.invokeLI(65543, null, view2, i) != null) || view2 == null) {
             return;
         }
         if (view2 instanceof Button) {
@@ -252,6 +262,21 @@ public class ViewUtility implements NoProguard {
         } else {
             enlargedOtherView(view2, i);
         }
+    }
+
+    public static void setOnClickListener(View view2, View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65546, null, view2, onClickListener) == null) && view2 != null && onClickListener != null) {
+            view2.setOnClickListener(onClickListener);
+        }
+    }
+
+    public static void setViewClickAlpha(View view2, float f) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLF(65550, null, view2, f) != null) || view2 == null) {
+            return;
+        }
+        view2.setOnTouchListener(new a(f));
     }
 
     public static int getStatusBarHeight(Context context) {
@@ -278,78 +303,66 @@ public class ViewUtility implements NoProguard {
         }
     }
 
-    public static void setOnClickListener(View view2, View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65546, null, view2, onClickListener) == null) || view2 == null || onClickListener == null) {
-            return;
-        }
-        view2.setOnClickListener(onClickListener);
-    }
-
     public static void setOrientationToUndefined(Activity activity) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65547, null, activity) == null) && Build.VERSION.SDK_INT == 26) {
-            try {
-                Field declaredField = Activity.class.getDeclaredField("mActivityInfo");
-                declaredField.setAccessible(true);
-                ((ActivityInfo) declaredField.get(activity)).screenOrientation = -1;
-                declaredField.setAccessible(false);
-            } catch (Throwable th) {
-                Log.e(th);
-            }
+        if ((interceptable != null && interceptable.invokeL(65547, null, activity) != null) || Build.VERSION.SDK_INT != 26) {
+            return;
+        }
+        try {
+            Field declaredField = Activity.class.getDeclaredField("mActivityInfo");
+            declaredField.setAccessible(true);
+            ((ActivityInfo) declaredField.get(activity)).screenOrientation = -1;
+            declaredField.setAccessible(false);
+        } catch (Throwable th) {
+            Log.e(th);
         }
     }
 
     public static void setRootViewFitsSystemWindows(Activity activity, boolean z) {
         ViewGroup viewGroup;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65548, null, activity, z) == null) || Build.VERSION.SDK_INT < 19) {
-            return;
+        if ((interceptable == null || interceptable.invokeLZ(65548, null, activity, z) == null) && Build.VERSION.SDK_INT >= 19) {
+            ViewGroup viewGroup2 = (ViewGroup) activity.findViewById(16908290);
+            if (viewGroup2.getChildCount() > 0 && (viewGroup = (ViewGroup) viewGroup2.getChildAt(0)) != null) {
+                viewGroup.setFitsSystemWindows(z);
+            }
         }
-        ViewGroup viewGroup2 = (ViewGroup) activity.findViewById(16908290);
-        if (viewGroup2.getChildCount() <= 0 || (viewGroup = (ViewGroup) viewGroup2.getChildAt(0)) == null) {
-            return;
-        }
-        viewGroup.setFitsSystemWindows(z);
     }
 
     public static void setTranslucentStatus(Activity activity) {
         int i;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, null, activity) == null) {
             int i2 = Build.VERSION.SDK_INT;
-            if (i2 < 21) {
-                if (i2 >= 19) {
-                    Window window = activity.getWindow();
-                    WindowManager.LayoutParams attributes = window.getAttributes();
-                    attributes.flags |= CodedInputStream.DEFAULT_SIZE_LIMIT;
-                    window.setAttributes(attributes);
-                    return;
+            if (i2 >= 21) {
+                Window window = activity.getWindow();
+                View decorView = window.getDecorView();
+                if (Build.VERSION.SDK_INT >= 23) {
+                    boolean z2 = SapiAccountManager.getInstance().getConfignation().isNightMode;
+                    boolean z3 = SapiAccountManager.getInstance().getConfignation().isDarkMode;
+                    if (!z2 && !z3) {
+                        z = false;
+                    } else {
+                        z = true;
+                    }
+                    if (!z) {
+                        i = 9472;
+                        decorView.setSystemUiVisibility(i);
+                        window.addFlags(Integer.MIN_VALUE);
+                        window.setStatusBarColor(0);
+                    }
                 }
-                return;
+                i = 1280;
+                decorView.setSystemUiVisibility(i);
+                window.addFlags(Integer.MIN_VALUE);
+                window.setStatusBarColor(0);
+            } else if (i2 >= 19) {
+                Window window2 = activity.getWindow();
+                WindowManager.LayoutParams attributes = window2.getAttributes();
+                attributes.flags |= CodedInputStream.DEFAULT_SIZE_LIMIT;
+                window2.setAttributes(attributes);
             }
-            Window window2 = activity.getWindow();
-            View decorView = window2.getDecorView();
-            if (Build.VERSION.SDK_INT >= 23) {
-                if (!(SapiAccountManager.getInstance().getConfignation().isNightMode || SapiAccountManager.getInstance().getConfignation().isDarkMode)) {
-                    i = 9472;
-                    decorView.setSystemUiVisibility(i);
-                    window2.addFlags(Integer.MIN_VALUE);
-                    window2.setStatusBarColor(0);
-                }
-            }
-            i = 1280;
-            decorView.setSystemUiVisibility(i);
-            window2.addFlags(Integer.MIN_VALUE);
-            window2.setStatusBarColor(0);
         }
-    }
-
-    public static void setViewClickAlpha(View view2, float f) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLF(65550, null, view2, f) == null) || view2 == null) {
-            return;
-        }
-        view2.setOnTouchListener(new a(f));
     }
 }

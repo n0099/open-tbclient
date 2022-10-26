@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.my4;
+import com.baidu.tieba.sy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -81,35 +81,6 @@ public class DownloadManagerNotLoginLayout extends LinearLayout {
         b(context);
     }
 
-    public final void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d023a, (ViewGroup) this, true);
-            this.a = context;
-            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090836);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090837);
-            this.d = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f090835);
-            my4 my4Var = new my4();
-            this.d.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f03f1));
-            this.d.setTextSize(R.dimen.T_X06);
-            this.d.setTextHorizontalCenter(true);
-            this.d.setConfig(my4Var);
-            this.d.setOnClickListener(new a(this));
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setImageResource(this.b, R.drawable.new_pic_emotion_09);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0107);
-            TBSpecificationBtn tBSpecificationBtn = this.d;
-            if (tBSpecificationBtn != null) {
-                tBSpecificationBtn.k();
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DownloadManagerNotLoginLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -152,5 +123,34 @@ public class DownloadManagerNotLoginLayout extends LinearLayout {
             }
         }
         b(context);
+    }
+
+    public final void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0239, (ViewGroup) this, true);
+            this.a = context;
+            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09083f);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090840);
+            this.d = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f09083e);
+            sy4 sy4Var = new sy4();
+            this.d.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f03f8));
+            this.d.setTextSize(R.dimen.T_X06);
+            this.d.setTextHorizontalCenter(true);
+            this.d.setConfig(sy4Var);
+            this.d.setOnClickListener(new a(this));
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SkinManager.setImageResource(this.b, R.drawable.new_pic_emotion_09);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0107);
+            TBSpecificationBtn tBSpecificationBtn = this.d;
+            if (tBSpecificationBtn != null) {
+                tBSpecificationBtn.k();
+            }
+        }
     }
 }

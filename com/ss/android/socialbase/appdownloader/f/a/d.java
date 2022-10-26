@@ -12,37 +12,6 @@ public class d {
     public d() {
     }
 
-    public final void a(InputStream inputStream, boolean z) {
-        this.a = inputStream;
-        this.b = z;
-        this.c = 0;
-    }
-
-    public final int b() throws IOException {
-        return a(4);
-    }
-
-    public final void c(int i) throws IOException {
-        if (i > 0) {
-            long j = i;
-            long skip = this.a.skip(j);
-            this.c = (int) (this.c + skip);
-            if (skip != j) {
-                throw new EOFException();
-            }
-        }
-    }
-
-    public d(InputStream inputStream, boolean z) {
-        a(inputStream, z);
-    }
-
-    public final int[] b(int i) throws IOException {
-        int[] iArr = new int[i];
-        a(iArr, 0, i);
-        return iArr;
-    }
-
     public final void a() {
         InputStream inputStream = this.a;
         if (inputStream != null) {
@@ -54,8 +23,22 @@ public class d {
         }
     }
 
+    public final int b() throws IOException {
+        return a(4);
+    }
+
     public final void c() throws IOException {
         c(4);
+    }
+
+    public d(InputStream inputStream, boolean z) {
+        a(inputStream, z);
+    }
+
+    public final void a(InputStream inputStream, boolean z) {
+        this.a = inputStream;
+        this.b = z;
+        this.c = 0;
     }
 
     public final int a(int i) throws IOException {
@@ -64,11 +47,12 @@ public class d {
             if (this.b) {
                 for (int i3 = (i - 1) * 8; i3 >= 0; i3 -= 8) {
                     int read = this.a.read();
-                    if (read == -1) {
+                    if (read != -1) {
+                        this.c++;
+                        i2 |= read << i3;
+                    } else {
                         throw new EOFException();
                     }
-                    this.c++;
-                    i2 |= read << i3;
                 }
                 return i2;
             }
@@ -76,12 +60,13 @@ public class d {
             int i5 = 0;
             while (i2 != i4) {
                 int read2 = this.a.read();
-                if (read2 == -1) {
+                if (read2 != -1) {
+                    this.c++;
+                    i5 |= read2 << i2;
+                    i2 += 8;
+                } else {
                     throw new EOFException();
                 }
-                this.c++;
-                i5 |= read2 << i2;
-                i2 += 8;
             }
             return i5;
         }
@@ -93,6 +78,23 @@ public class d {
             iArr[i] = b();
             i2--;
             i++;
+        }
+    }
+
+    public final int[] b(int i) throws IOException {
+        int[] iArr = new int[i];
+        a(iArr, 0, i);
+        return iArr;
+    }
+
+    public final void c(int i) throws IOException {
+        if (i > 0) {
+            long j = i;
+            long skip = this.a.skip(j);
+            this.c = (int) (this.c + skip);
+            if (skip != j) {
+                throw new EOFException();
+            }
         }
     }
 }

@@ -21,7 +21,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.constants.Constants;
-import com.tencent.connect.common.Constants;
 import com.tencent.open.log.SLog;
 import com.tencent.open.utils.HttpUtils;
 import com.tencent.open.utils.j;
@@ -33,7 +32,6 @@ import java.net.SocketTimeoutException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import java.util.TimeZone;
@@ -55,8 +53,8 @@ public class g {
     public static g a;
     public transient /* synthetic */ FieldHolder $fh;
     public Random b;
-    public List<Serializable> c;
-    public List<Serializable> d;
+    public List c;
+    public List d;
     public HandlerThread e;
     public Handler f;
     public Executor g;
@@ -86,49 +84,50 @@ public class g {
             this.e = handlerThread;
             handlerThread.start();
         }
-        if (!this.e.isAlive() || this.e.getLooper() == null) {
-            return;
+        if (this.e.isAlive() && this.e.getLooper() != null) {
+            this.f = new Handler(this, this.e.getLooper()) { // from class: com.tencent.open.a.g.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ g a;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(r8);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext2 = TitanRuntime.newInitContext();
+                        newInitContext2.initArgs = objArr;
+                        Object[] objArr = {this, r8};
+                        interceptable2.invokeUnInit(65536, newInitContext2);
+                        int i3 = newInitContext2.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
+                            super((Looper) newInitContext2.callArgs[0]);
+                            newInitContext2.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext2);
+                            return;
+                        }
+                    }
+                    this.a = this;
+                }
+
+                @Override // android.os.Handler
+                public void handleMessage(Message message) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) {
+                        int i3 = message.what;
+                        if (i3 != 1000) {
+                            if (i3 == 1001) {
+                                this.a.e();
+                            }
+                        } else {
+                            this.a.b();
+                        }
+                        super.handleMessage(message);
+                    }
+                }
+            };
         }
-        this.f = new Handler(this, this.e.getLooper()) { // from class: com.tencent.open.a.g.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ g a;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            {
-                super(r8);
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = objArr;
-                    Object[] objArr = {this, r8};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        super((Looper) newInitContext2.callArgs[0]);
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.a = this;
-            }
-
-            @Override // android.os.Handler
-            public void handleMessage(Message message) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) {
-                    int i3 = message.what;
-                    if (i3 == 1000) {
-                        this.a.b();
-                    } else if (i3 == 1001) {
-                        this.a.e();
-                    }
-                    super.handleMessage(message);
-                }
-            }
-        };
     }
 
     public static synchronized g a() {
@@ -302,11 +301,11 @@ public class g {
                         if (r7 != 0) goto Lb4
                         com.tencent.open.a.f r1 = com.tencent.open.a.f.a()     // Catch: java.lang.Exception -> Lbc
                         com.tencent.open.a.g r2 = r14.a     // Catch: java.lang.Exception -> Lbc
-                        java.util.List<java.io.Serializable> r2 = r2.c     // Catch: java.lang.Exception -> Lbc
+                        java.util.List r2 = r2.c     // Catch: java.lang.Exception -> Lbc
                         r1.a(r0, r2)     // Catch: java.lang.Exception -> Lbc
                     Lb4:
                         com.tencent.open.a.g r0 = r14.a     // Catch: java.lang.Exception -> Lbc
-                        java.util.List<java.io.Serializable> r0 = r0.c     // Catch: java.lang.Exception -> Lbc
+                        java.util.List r0 = r0.c     // Catch: java.lang.Exception -> Lbc
                         r0.clear()     // Catch: java.lang.Exception -> Lbc
                         goto Lc2
                     Lbc:
@@ -326,102 +325,6 @@ public class g {
                 }
             });
         }
-    }
-
-    public Bundle c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.c.size() == 0) {
-                return null;
-            }
-            b bVar = (b) this.c.get(0);
-            if (bVar == null) {
-                SLog.d("openSDK_LOG.ReportManager", "-->prepareCgiData, the 0th cgireportitem is null.");
-                return null;
-            }
-            String str = bVar.a.get("appid");
-            List<Serializable> a2 = f.a().a("report_cgi");
-            if (a2 != null) {
-                this.c.addAll(a2);
-            }
-            SLog.d("openSDK_LOG.ReportManager", "-->prepareCgiData, mCgiList size: " + this.c.size());
-            if (this.c.size() == 0) {
-                return null;
-            }
-            Bundle bundle = new Bundle();
-            try {
-                bundle.putString("appid", str);
-                bundle.putString("releaseversion", Constants.SDK_VERSION_REPORT);
-                bundle.putString(Config.DEVICE_PART, Build.DEVICE);
-                bundle.putString("qua", Constants.SDK_QUA);
-                bundle.putString("key", "apn,frequency,commandid,resultcode,tmcost,reqsize,rspsize,detail,touin,deviceinfo");
-                for (int i = 0; i < this.c.size(); i++) {
-                    b bVar2 = (b) this.c.get(i);
-                    bundle.putString(i + SkinManager.nightSufix, bVar2.a.get("apn"));
-                    bundle.putString(i + SkinManager.darkSuffix, bVar2.a.get("frequency"));
-                    bundle.putString(i + "_3", bVar2.a.get("commandid"));
-                    bundle.putString(i + "_4", bVar2.a.get("resultCode"));
-                    bundle.putString(i + "_5", bVar2.a.get("timeCost"));
-                    bundle.putString(i + "_6", bVar2.a.get("reqSize"));
-                    bundle.putString(i + "_7", bVar2.a.get("rspSize"));
-                    bundle.putString(i + "_8", bVar2.a.get("detail"));
-                    bundle.putString(i + "_9", bVar2.a.get("uin"));
-                    bundle.putString(i + "_10", c.e(com.tencent.open.utils.f.a()) + "&" + bVar2.a.get(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO));
-                }
-                SLog.v("openSDK_LOG.ReportManager", "-->prepareCgiData, end. params: " + bundle.toString());
-                return bundle;
-            } catch (Exception e) {
-                SLog.e("openSDK_LOG.ReportManager", "-->prepareCgiData, exception.", e);
-                return null;
-            }
-        }
-        return (Bundle) invokeV.objValue;
-    }
-
-    public Bundle d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            List<Serializable> a2 = f.a().a("report_via");
-            if (a2 != null) {
-                this.d.addAll(a2);
-            }
-            SLog.d("openSDK_LOG.ReportManager", "-->prepareViaData, mViaList size: " + this.d.size());
-            if (this.d.size() == 0) {
-                return null;
-            }
-            JSONArray jSONArray = new JSONArray();
-            Iterator<Serializable> it = this.d.iterator();
-            while (it.hasNext()) {
-                JSONObject jSONObject = new JSONObject();
-                b bVar = (b) it.next();
-                for (String str : bVar.a.keySet()) {
-                    try {
-                        String str2 = bVar.a.get(str);
-                        if (str2 == null) {
-                            str2 = "";
-                        }
-                        jSONObject.put(str, str2);
-                    } catch (JSONException e) {
-                        SLog.e("openSDK_LOG.ReportManager", "-->prepareViaData, put bundle to json array exception", e);
-                    }
-                }
-                jSONArray.put(jSONObject);
-            }
-            SLog.v("openSDK_LOG.ReportManager", "-->prepareViaData, JSONArray array: " + jSONArray.toString());
-            Bundle bundle = new Bundle();
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("data", jSONArray);
-                bundle.putString("data", jSONObject2.toString());
-                return bundle;
-            } catch (JSONException e2) {
-                SLog.e("openSDK_LOG.ReportManager", "-->prepareViaData, put bundle to json array exception", e2);
-                return null;
-            }
-        }
-        return (Bundle) invokeV.objValue;
     }
 
     public void e() {
@@ -572,277 +475,6 @@ public class g {
         }
     }
 
-    public void a(Bundle bundle, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle, str, z) == null) || bundle == null) {
-            return;
-        }
-        SLog.v("openSDK_LOG.ReportManager", "-->reportVia, bundle: " + bundle.toString());
-        if (a("report_via", str) || z) {
-            this.g.execute(new Runnable(this, bundle, z) { // from class: com.tencent.open.a.g.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ Bundle a;
-                public final /* synthetic */ boolean b;
-                public final /* synthetic */ g c;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, bundle, Boolean.valueOf(z)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.c = this;
-                    this.a = bundle;
-                    this.b = z;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        try {
-                            String k = l.k(c.b(com.tencent.open.utils.f.a()));
-                            String k2 = l.k(c.c(com.tencent.open.utils.f.a()));
-                            String k3 = l.k(c.a());
-                            String k4 = l.k(c.d(com.tencent.open.utils.f.a()));
-                            Bundle bundle2 = new Bundle();
-                            bundle2.putString("uin", com.tencent.connect.common.Constants.DEFAULT_UIN);
-                            bundle2.putString("imei", k);
-                            bundle2.putString(BaseStatisContent.IMSI, k2);
-                            bundle2.putString(HttpRequest.ANDROID_ID, k4);
-                            bundle2.putString("mac", k3);
-                            bundle2.putString(com.tencent.connect.common.Constants.PARAM_PLATFORM, "1");
-                            bundle2.putString("os_ver", Build.VERSION.RELEASE);
-                            bundle2.putString(CriusAttrConstants.POSITION, "");
-                            bundle2.putString("network", a.a(com.tencent.open.utils.f.a()));
-                            bundle2.putString("language", c.b());
-                            bundle2.putString("resolution", c.a(com.tencent.open.utils.f.a()));
-                            bundle2.putString("apn", a.b(com.tencent.open.utils.f.a()));
-                            bundle2.putString("model_name", Build.MODEL);
-                            bundle2.putString(BaseStatisContent.TIMEZONE, TimeZone.getDefault().getID());
-                            bundle2.putString("sdk_ver", com.tencent.connect.common.Constants.SDK_VERSION);
-                            bundle2.putString("qz_ver", l.d(com.tencent.open.utils.f.a(), com.tencent.connect.common.Constants.PACKAGE_QZONE));
-                            bundle2.putString("qq_ver", l.c(com.tencent.open.utils.f.a(), "com.tencent.mobileqq"));
-                            bundle2.putString("qua", l.e(com.tencent.open.utils.f.a(), com.tencent.open.utils.f.b()));
-                            bundle2.putString("packagename", com.tencent.open.utils.f.b());
-                            bundle2.putString("app_ver", l.d(com.tencent.open.utils.f.a(), com.tencent.open.utils.f.b()));
-                            if (this.a != null) {
-                                bundle2.putAll(this.a);
-                            }
-                            this.c.d.add(new b(bundle2));
-                            int size = this.c.d.size();
-                            int a2 = com.tencent.open.utils.g.a(com.tencent.open.utils.f.a(), (String) null).a("Agent_ReportTimeInterval");
-                            if (a2 == 0) {
-                                a2 = 10000;
-                            }
-                            if (!this.c.a("report_via", size) && !this.b) {
-                                if (this.c.f.hasMessages(1001)) {
-                                    return;
-                                }
-                                Message obtain = Message.obtain();
-                                obtain.what = 1001;
-                                this.c.f.sendMessageDelayed(obtain, a2);
-                                return;
-                            }
-                            this.c.e();
-                            this.c.f.removeMessages(1001);
-                        } catch (Exception e) {
-                            SLog.e("openSDK_LOG.ReportManager", "--> reporVia, exception in sub thread.", e);
-                        }
-                    }
-                }
-            });
-        }
-    }
-
-    public void a(String str, long j, long j2, long j3, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i)}) == null) {
-            a(str, j, j2, j3, i, "", false);
-        }
-    }
-
-    public void a(String str, long j, long j2, long j3, int i, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
-            SLog.v("openSDK_LOG.ReportManager", "-->reportCgi, command: " + str + " | startTime: " + j + " | reqSize:" + j2 + " | rspSize: " + j3 + " | responseCode: " + i + " | detail: " + str2);
-            if (a("report_cgi", "" + i) || z) {
-                this.h.execute(new Runnable(this, j, str, str2, i, j2, j3, z) { // from class: com.tencent.open.a.g.3
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ long a;
-                    public final /* synthetic */ String b;
-                    public final /* synthetic */ String c;
-                    public final /* synthetic */ int d;
-                    public final /* synthetic */ long e;
-                    public final /* synthetic */ long f;
-                    public final /* synthetic */ boolean g;
-                    public final /* synthetic */ g h;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r3;
-                            Object[] objArr = {this, Long.valueOf(j), str, str2, Integer.valueOf(i), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.h = this;
-                        this.a = j;
-                        this.b = str;
-                        this.c = str2;
-                        this.d = i;
-                        this.e = j2;
-                        this.f = j3;
-                        this.g = z;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            try {
-                                long elapsedRealtime = SystemClock.elapsedRealtime() - this.a;
-                                Bundle bundle = new Bundle();
-                                String a2 = a.a(com.tencent.open.utils.f.a());
-                                bundle.putString("apn", a2);
-                                bundle.putString("appid", "1000067");
-                                bundle.putString("commandid", this.b);
-                                bundle.putString("detail", this.c);
-                                StringBuilder sb = new StringBuilder();
-                                sb.append("network=");
-                                sb.append(a2);
-                                sb.append('&');
-                                sb.append("sdcard=");
-                                int i2 = 1;
-                                sb.append(Environment.getExternalStorageState().equals("mounted") ? 1 : 0);
-                                sb.append('&');
-                                sb.append("wifi=");
-                                sb.append(a.e(com.tencent.open.utils.f.a()));
-                                bundle.putString(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, sb.toString());
-                                int a3 = 100 / this.h.a(this.d);
-                                if (a3 > 0) {
-                                    i2 = a3 > 100 ? 100 : a3;
-                                }
-                                bundle.putString("frequency", i2 + "");
-                                bundle.putString("reqSize", this.e + "");
-                                bundle.putString("resultCode", this.d + "");
-                                bundle.putString("rspSize", this.f + "");
-                                bundle.putString("timeCost", elapsedRealtime + "");
-                                bundle.putString("uin", com.tencent.connect.common.Constants.DEFAULT_UIN);
-                                this.h.c.add(new b(bundle));
-                                int size = this.h.c.size();
-                                int a4 = com.tencent.open.utils.g.a(com.tencent.open.utils.f.a(), (String) null).a("Agent_ReportTimeInterval");
-                                if (a4 == 0) {
-                                    a4 = 10000;
-                                }
-                                if (!this.h.a("report_cgi", size) && !this.g) {
-                                    if (!this.h.f.hasMessages(1000)) {
-                                        Message obtain = Message.obtain();
-                                        obtain.what = 1000;
-                                        this.h.f.sendMessageDelayed(obtain, a4);
-                                    }
-                                }
-                                this.h.b();
-                                this.h.f.removeMessages(1000);
-                            } catch (Exception e) {
-                                SLog.e("openSDK_LOG.ReportManager", "--> reportCGI, exception in sub thread.", e);
-                            }
-                        }
-                    }
-                });
-            }
-        }
-    }
-
-    public boolean a(String str, String str2) {
-        InterceptResult invokeLL;
-        int a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
-            SLog.d("openSDK_LOG.ReportManager", "-->availableFrequency, report: " + str + " | ext: " + str2);
-            boolean z = false;
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            int i = 100;
-            if (str.equals("report_cgi")) {
-                try {
-                    a2 = a(Integer.parseInt(str2));
-                    if (this.b.nextInt(100) < a2) {
-                        z = true;
-                    }
-                } catch (Exception unused) {
-                    return false;
-                }
-            } else {
-                if (str.equals("report_via")) {
-                    a2 = e.a(str2);
-                    if (this.b.nextInt(100) < a2) {
-                        i = a2;
-                        z = true;
-                    }
-                }
-                SLog.d("openSDK_LOG.ReportManager", "-->availableFrequency, result: " + z + " | frequency: " + i);
-                return z;
-            }
-            i = a2;
-            SLog.d("openSDK_LOG.ReportManager", "-->availableFrequency, result: " + z + " | frequency: " + i);
-            return z;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x0038, code lost:
-        if (r0 == 0) goto L8;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:7:0x001d, code lost:
-        if (r0 == 0) goto L8;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:9:0x0020, code lost:
-        r1 = r0;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean a(String str, int i) {
-        InterceptResult invokeLI;
-        int a2;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLI = interceptable.invokeLI(1048581, this, str, i)) != null) {
-            return invokeLI.booleanValue;
-        }
-        int i2 = 5;
-        if (str.equals("report_cgi")) {
-            a2 = com.tencent.open.utils.g.a(com.tencent.open.utils.f.a(), (String) null).a("Common_CGIReportMaxcount");
-        } else {
-            if (str.equals("report_via")) {
-                a2 = com.tencent.open.utils.g.a(com.tencent.open.utils.f.a(), (String) null).a("Agent_ReportBatchCount");
-            } else {
-                i2 = 0;
-            }
-            SLog.d("openSDK_LOG.ReportManager", "-->availableCount, report: " + str + " | dataSize: " + i + " | maxcount: " + i2);
-            return i >= i2;
-        }
-    }
-
     public int a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -861,6 +493,218 @@ public class g {
             return a3;
         }
         return invokeI.intValue;
+    }
+
+    public void a(Bundle bundle, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLZ(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle, str, z) != null) || bundle == null) {
+            return;
+        }
+        SLog.v("openSDK_LOG.ReportManager", "-->reportVia, bundle: " + bundle.toString());
+        if (!a("report_via", str) && !z) {
+            return;
+        }
+        this.g.execute(new Runnable(this, bundle, z) { // from class: com.tencent.open.a.g.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ Bundle a;
+            public final /* synthetic */ boolean b;
+            public final /* synthetic */ g c;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this, bundle, Boolean.valueOf(z)};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.c = this;
+                this.a = bundle;
+                this.b = z;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    try {
+                        String k = l.k(c.b(com.tencent.open.utils.f.a()));
+                        String k2 = l.k(c.c(com.tencent.open.utils.f.a()));
+                        String k3 = l.k(c.a());
+                        String k4 = l.k(c.d(com.tencent.open.utils.f.a()));
+                        Bundle bundle2 = new Bundle();
+                        bundle2.putString("uin", com.tencent.connect.common.Constants.DEFAULT_UIN);
+                        bundle2.putString("imei", k);
+                        bundle2.putString(BaseStatisContent.IMSI, k2);
+                        bundle2.putString(HttpRequest.ANDROID_ID, k4);
+                        bundle2.putString("mac", k3);
+                        bundle2.putString(com.tencent.connect.common.Constants.PARAM_PLATFORM, "1");
+                        bundle2.putString("os_ver", Build.VERSION.RELEASE);
+                        bundle2.putString(CriusAttrConstants.POSITION, "");
+                        bundle2.putString("network", a.a(com.tencent.open.utils.f.a()));
+                        bundle2.putString("language", c.b());
+                        bundle2.putString("resolution", c.a(com.tencent.open.utils.f.a()));
+                        bundle2.putString("apn", a.b(com.tencent.open.utils.f.a()));
+                        bundle2.putString("model_name", Build.MODEL);
+                        bundle2.putString(BaseStatisContent.TIMEZONE, TimeZone.getDefault().getID());
+                        bundle2.putString("sdk_ver", com.tencent.connect.common.Constants.SDK_VERSION);
+                        bundle2.putString("qz_ver", l.d(com.tencent.open.utils.f.a(), com.tencent.connect.common.Constants.PACKAGE_QZONE));
+                        bundle2.putString("qq_ver", l.c(com.tencent.open.utils.f.a(), "com.tencent.mobileqq"));
+                        bundle2.putString("qua", l.e(com.tencent.open.utils.f.a(), com.tencent.open.utils.f.b()));
+                        bundle2.putString("packagename", com.tencent.open.utils.f.b());
+                        bundle2.putString("app_ver", l.d(com.tencent.open.utils.f.a(), com.tencent.open.utils.f.b()));
+                        if (this.a != null) {
+                            bundle2.putAll(this.a);
+                        }
+                        this.c.d.add(new b(bundle2));
+                        int size = this.c.d.size();
+                        int a2 = com.tencent.open.utils.g.a(com.tencent.open.utils.f.a(), (String) null).a("Agent_ReportTimeInterval");
+                        if (a2 == 0) {
+                            a2 = 10000;
+                        }
+                        if (!this.c.a("report_via", size) && !this.b) {
+                            if (!this.c.f.hasMessages(1001)) {
+                                Message obtain = Message.obtain();
+                                obtain.what = 1001;
+                                this.c.f.sendMessageDelayed(obtain, a2);
+                                return;
+                            }
+                            return;
+                        }
+                        this.c.e();
+                        this.c.f.removeMessages(1001);
+                    } catch (Exception e) {
+                        SLog.e("openSDK_LOG.ReportManager", "--> reporVia, exception in sub thread.", e);
+                    }
+                }
+            }
+        });
+    }
+
+    public void a(String str, long j, long j2, long j3, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i)}) == null) {
+            a(str, j, j2, j3, i, "", false);
+        }
+    }
+
+    public void a(String str, long j, long j2, long j3, int i, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
+            SLog.v("openSDK_LOG.ReportManager", "-->reportCgi, command: " + str + " | startTime: " + j + " | reqSize:" + j2 + " | rspSize: " + j3 + " | responseCode: " + i + " | detail: " + str2);
+            if (!a("report_cgi", "" + i) && !z) {
+                return;
+            }
+            this.h.execute(new Runnable(this, j, str, str2, i, j2, j3, z) { // from class: com.tencent.open.a.g.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ long a;
+                public final /* synthetic */ String b;
+                public final /* synthetic */ String c;
+                public final /* synthetic */ int d;
+                public final /* synthetic */ long e;
+                public final /* synthetic */ long f;
+                public final /* synthetic */ boolean g;
+                public final /* synthetic */ g h;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r3;
+                        Object[] objArr = {this, Long.valueOf(j), str, str2, Integer.valueOf(i), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.h = this;
+                    this.a = j;
+                    this.b = str;
+                    this.c = str2;
+                    this.d = i;
+                    this.e = j2;
+                    this.f = j3;
+                    this.g = z;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    int i2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        try {
+                            long elapsedRealtime = SystemClock.elapsedRealtime() - this.a;
+                            Bundle bundle = new Bundle();
+                            String a2 = a.a(com.tencent.open.utils.f.a());
+                            bundle.putString("apn", a2);
+                            bundle.putString("appid", "1000067");
+                            bundle.putString("commandid", this.b);
+                            bundle.putString("detail", this.c);
+                            StringBuilder sb = new StringBuilder();
+                            sb.append("network=");
+                            sb.append(a2);
+                            sb.append('&');
+                            sb.append("sdcard=");
+                            int i3 = 1;
+                            if (Environment.getExternalStorageState().equals("mounted")) {
+                                i2 = 1;
+                            } else {
+                                i2 = 0;
+                            }
+                            sb.append(i2);
+                            sb.append('&');
+                            sb.append("wifi=");
+                            sb.append(a.e(com.tencent.open.utils.f.a()));
+                            bundle.putString(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, sb.toString());
+                            int a3 = 100 / this.h.a(this.d);
+                            if (a3 > 0) {
+                                if (a3 > 100) {
+                                    i3 = 100;
+                                } else {
+                                    i3 = a3;
+                                }
+                            }
+                            bundle.putString("frequency", i3 + "");
+                            bundle.putString("reqSize", this.e + "");
+                            bundle.putString("resultCode", this.d + "");
+                            bundle.putString("rspSize", this.f + "");
+                            bundle.putString("timeCost", elapsedRealtime + "");
+                            bundle.putString("uin", com.tencent.connect.common.Constants.DEFAULT_UIN);
+                            this.h.c.add(new b(bundle));
+                            int size = this.h.c.size();
+                            int a4 = com.tencent.open.utils.g.a(com.tencent.open.utils.f.a(), (String) null).a("Agent_ReportTimeInterval");
+                            if (a4 == 0) {
+                                a4 = 10000;
+                            }
+                            if (!this.h.a("report_cgi", size) && !this.g) {
+                                if (!this.h.f.hasMessages(1000)) {
+                                    Message obtain = Message.obtain();
+                                    obtain.what = 1000;
+                                    this.h.f.sendMessageDelayed(obtain, a4);
+                                }
+                            }
+                            this.h.b();
+                            this.h.f.removeMessages(1000);
+                        } catch (Exception e) {
+                            SLog.e("openSDK_LOG.ReportManager", "--> reportCGI, exception in sub thread.", e);
+                        }
+                    }
+                }
+            });
+        }
     }
 
     public void a(String str, String str2, Bundle bundle, boolean z) {
@@ -909,74 +753,114 @@ public class g {
                     HttpUriRequest httpUriRequest;
                     HttpResponse httpResponse;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
-                        return;
-                    }
-                    try {
-                        if (this.a == null) {
-                            SLog.e("openSDK_LOG.ReportManager", "-->httpRequest, params is null!");
-                            return;
-                        }
-                        int a2 = e.a();
-                        if (a2 == 0) {
-                            a2 = 3;
-                        }
-                        SLog.d("openSDK_LOG.ReportManager", "-->httpRequest, retryCount: " + a2);
-                        HttpResponse httpResponse2 = null;
-                        HttpClient httpClient = HttpUtils.getHttpClient(com.tencent.open.utils.f.a(), null, this.b);
-                        String encodeUrl = HttpUtils.encodeUrl(this.a);
-                        if (this.c) {
-                            encodeUrl = URLEncoder.encode(encodeUrl);
-                        }
-                        if (this.d.toUpperCase().equals("GET")) {
-                            StringBuffer stringBuffer = new StringBuffer(this.b);
-                            stringBuffer.append(encodeUrl);
-                            httpUriRequest = new HttpGet(stringBuffer.toString());
-                        } else if (this.d.toUpperCase().equals("POST")) {
-                            HttpPost httpPost = new HttpPost(this.b);
-                            httpPost.setEntity(new ByteArrayEntity(l.i(encodeUrl)));
-                            httpUriRequest = httpPost;
-                        } else {
-                            SLog.e("openSDK_LOG.ReportManager", "-->httpRequest unkonw request method return.");
-                            return;
-                        }
-                        httpUriRequest.addHeader("Accept-Encoding", "gzip");
-                        httpUriRequest.addHeader("Content-Type", "application/x-www-form-urlencoded");
-                        int i = 0;
-                        boolean z2 = false;
-                        do {
-                            i++;
-                            try {
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        try {
+                            if (this.a == null) {
+                                SLog.e("openSDK_LOG.ReportManager", "-->httpRequest, params is null!");
+                                return;
+                            }
+                            int a2 = e.a();
+                            if (a2 == 0) {
+                                a2 = 3;
+                            }
+                            SLog.d("openSDK_LOG.ReportManager", "-->httpRequest, retryCount: " + a2);
+                            HttpResponse httpResponse2 = null;
+                            HttpClient httpClient = HttpUtils.getHttpClient(com.tencent.open.utils.f.a(), null, this.b);
+                            String encodeUrl = HttpUtils.encodeUrl(this.a);
+                            if (this.c) {
+                                encodeUrl = URLEncoder.encode(encodeUrl);
+                            }
+                            if (this.d.toUpperCase().equals("GET")) {
+                                StringBuffer stringBuffer = new StringBuffer(this.b);
+                                stringBuffer.append(encodeUrl);
+                                httpUriRequest = new HttpGet(stringBuffer.toString());
+                            } else if (this.d.toUpperCase().equals("POST")) {
+                                HttpPost httpPost = new HttpPost(this.b);
+                                httpPost.setEntity(new ByteArrayEntity(l.i(encodeUrl)));
+                                httpUriRequest = httpPost;
+                            } else {
+                                SLog.e("openSDK_LOG.ReportManager", "-->httpRequest unkonw request method return.");
+                                return;
+                            }
+                            httpUriRequest.addHeader("Accept-Encoding", "gzip");
+                            httpUriRequest.addHeader("Content-Type", "application/x-www-form-urlencoded");
+                            int i = 0;
+                            boolean z2 = false;
+                            do {
+                                i++;
                                 try {
-                                    httpResponse = httpClient.execute(httpUriRequest);
                                     try {
-                                        int statusCode = httpResponse.getStatusLine().getStatusCode();
-                                        SLog.d("openSDK_LOG.ReportManager", "-->httpRequest, statusCode: " + statusCode);
-                                        if (statusCode != 200) {
-                                            SLog.d("openSDK_LOG.ReportManager", "-->ReportCenter httpRequest : HttpStatuscode != 200");
-                                        } else {
-                                            try {
-                                                SLog.d("openSDK_LOG.ReportManager", "-->ReportCenter httpRequest Thread success");
-                                                z2 = true;
-                                            } catch (SocketTimeoutException e) {
-                                                e = e;
-                                                z2 = true;
+                                        httpResponse = httpClient.execute(httpUriRequest);
+                                        try {
+                                            int statusCode = httpResponse.getStatusLine().getStatusCode();
+                                            SLog.d("openSDK_LOG.ReportManager", "-->httpRequest, statusCode: " + statusCode);
+                                            if (statusCode != 200) {
+                                                SLog.d("openSDK_LOG.ReportManager", "-->ReportCenter httpRequest : HttpStatuscode != 200");
+                                            } else {
                                                 try {
-                                                    SLog.e("openSDK_LOG.ReportManager", "-->ReportCenter httpRequest SocketTimeoutException:", e);
+                                                    SLog.d("openSDK_LOG.ReportManager", "-->ReportCenter httpRequest Thread success");
+                                                    z2 = true;
+                                                } catch (SocketTimeoutException e) {
+                                                    e = e;
+                                                    z2 = true;
+                                                    try {
+                                                        SLog.e("openSDK_LOG.ReportManager", "-->ReportCenter httpRequest SocketTimeoutException:", e);
+                                                        if (httpResponse != null) {
+                                                            try {
+                                                                HttpEntity entity = httpResponse.getEntity();
+                                                                if (entity != null) {
+                                                                    entity.consumeContent();
+                                                                    continue;
+                                                                } else {
+                                                                    continue;
+                                                                }
+                                                            } catch (Exception e2) {
+                                                                e = e2;
+                                                                SLog.e("openSDK_LOG.ReportManager", "-->ReportCenter httpRequest consumeContent Exception:", e);
+                                                                continue;
+                                                                if (i >= a2) {
+                                                                }
+                                                            }
+                                                        } else {
+                                                            continue;
+                                                        }
+                                                        if (i >= a2) {
+                                                        }
+                                                    } catch (Throwable th) {
+                                                        th = th;
+                                                        httpResponse2 = httpResponse;
+                                                        if (httpResponse2 != null) {
+                                                            try {
+                                                                HttpEntity entity2 = httpResponse2.getEntity();
+                                                                if (entity2 != null) {
+                                                                    entity2.consumeContent();
+                                                                }
+                                                            } catch (Exception e3) {
+                                                                SLog.e("openSDK_LOG.ReportManager", "-->ReportCenter httpRequest consumeContent Exception:", e3);
+                                                            }
+                                                        }
+                                                        throw th;
+                                                    }
+                                                } catch (ConnectTimeoutException e4) {
+                                                    e = e4;
+                                                    z2 = true;
+                                                    SLog.e("openSDK_LOG.ReportManager", "-->ReportCenter httpRequest ConnectTimeoutException:", e);
                                                     if (httpResponse != null) {
                                                         try {
-                                                            HttpEntity entity = httpResponse.getEntity();
-                                                            if (entity != null) {
-                                                                entity.consumeContent();
+                                                            HttpEntity entity3 = httpResponse.getEntity();
+                                                            if (entity3 != null) {
+                                                                entity3.consumeContent();
                                                                 continue;
                                                             } else {
                                                                 continue;
                                                             }
-                                                        } catch (Exception e2) {
-                                                            e = e2;
+                                                        } catch (Exception e5) {
+                                                            e = e5;
                                                             SLog.e("openSDK_LOG.ReportManager", "-->ReportCenter httpRequest consumeContent Exception:", e);
                                                             continue;
                                                             if (i >= a2) {
+                                                                if (!z2) {
+                                                                }
                                                             }
                                                         }
                                                     } else {
@@ -984,121 +868,250 @@ public class g {
                                                     }
                                                     if (i >= a2) {
                                                     }
-                                                } catch (Throwable th) {
-                                                    th = th;
+                                                } catch (Exception e6) {
+                                                    e = e6;
                                                     httpResponse2 = httpResponse;
+                                                    z2 = true;
+                                                    SLog.e("openSDK_LOG.ReportManager", "-->ReportCenter httpRequest Exception:", e);
                                                     if (httpResponse2 != null) {
                                                         try {
-                                                            HttpEntity entity2 = httpResponse2.getEntity();
-                                                            if (entity2 != null) {
-                                                                entity2.consumeContent();
+                                                            HttpEntity entity4 = httpResponse2.getEntity();
+                                                            if (entity4 != null) {
+                                                                entity4.consumeContent();
                                                             }
-                                                        } catch (Exception e3) {
-                                                            SLog.e("openSDK_LOG.ReportManager", "-->ReportCenter httpRequest consumeContent Exception:", e3);
-                                                        }
-                                                    }
-                                                    throw th;
-                                                }
-                                            } catch (ConnectTimeoutException e4) {
-                                                e = e4;
-                                                z2 = true;
-                                                SLog.e("openSDK_LOG.ReportManager", "-->ReportCenter httpRequest ConnectTimeoutException:", e);
-                                                if (httpResponse != null) {
-                                                    try {
-                                                        HttpEntity entity3 = httpResponse.getEntity();
-                                                        if (entity3 != null) {
-                                                            entity3.consumeContent();
-                                                            continue;
-                                                        } else {
-                                                            continue;
-                                                        }
-                                                    } catch (Exception e5) {
-                                                        e = e5;
-                                                        SLog.e("openSDK_LOG.ReportManager", "-->ReportCenter httpRequest consumeContent Exception:", e);
-                                                        continue;
-                                                        if (i >= a2) {
+                                                        } catch (Exception e7) {
+                                                            e = e7;
+                                                            SLog.e("openSDK_LOG.ReportManager", "-->ReportCenter httpRequest consumeContent Exception:", e);
                                                             if (!z2) {
                                                             }
                                                         }
                                                     }
-                                                } else {
-                                                    continue;
-                                                }
-                                                if (i >= a2) {
-                                                }
-                                            } catch (Exception e6) {
-                                                e = e6;
-                                                httpResponse2 = httpResponse;
-                                                z2 = true;
-                                                SLog.e("openSDK_LOG.ReportManager", "-->ReportCenter httpRequest Exception:", e);
-                                                if (httpResponse2 != null) {
-                                                    try {
-                                                        HttpEntity entity4 = httpResponse2.getEntity();
-                                                        if (entity4 != null) {
-                                                            entity4.consumeContent();
-                                                        }
-                                                    } catch (Exception e7) {
-                                                        e = e7;
-                                                        SLog.e("openSDK_LOG.ReportManager", "-->ReportCenter httpRequest consumeContent Exception:", e);
-                                                        if (!z2) {
-                                                        }
+                                                    if (!z2) {
                                                     }
                                                 }
-                                                if (!z2) {
+                                            }
+                                            if (httpResponse != null) {
+                                                try {
+                                                    HttpEntity entity5 = httpResponse.getEntity();
+                                                    if (entity5 != null) {
+                                                        entity5.consumeContent();
+                                                    }
+                                                } catch (Exception e8) {
+                                                    e = e8;
+                                                    SLog.e("openSDK_LOG.ReportManager", "-->ReportCenter httpRequest consumeContent Exception:", e);
+                                                    if (!z2) {
+                                                    }
                                                 }
                                             }
+                                        } catch (SocketTimeoutException e9) {
+                                            e = e9;
+                                        } catch (ConnectTimeoutException e10) {
+                                            e = e10;
+                                        } catch (Exception e11) {
+                                            e = e11;
+                                            httpResponse2 = httpResponse;
                                         }
-                                        if (httpResponse != null) {
-                                            try {
-                                                HttpEntity entity5 = httpResponse.getEntity();
-                                                if (entity5 != null) {
-                                                    entity5.consumeContent();
-                                                }
-                                            } catch (Exception e8) {
-                                                e = e8;
-                                                SLog.e("openSDK_LOG.ReportManager", "-->ReportCenter httpRequest consumeContent Exception:", e);
-                                                if (!z2) {
-                                                }
-                                            }
+                                    } catch (Throwable th2) {
+                                        th = th2;
+                                        if (httpResponse2 != null) {
                                         }
-                                    } catch (SocketTimeoutException e9) {
-                                        e = e9;
-                                    } catch (ConnectTimeoutException e10) {
-                                        e = e10;
-                                    } catch (Exception e11) {
-                                        e = e11;
-                                        httpResponse2 = httpResponse;
+                                        throw th;
                                     }
-                                } catch (Throwable th2) {
-                                    th = th2;
-                                    if (httpResponse2 != null) {
-                                    }
-                                    throw th;
+                                } catch (SocketTimeoutException e12) {
+                                    e = e12;
+                                    httpResponse = null;
+                                } catch (ConnectTimeoutException e13) {
+                                    e = e13;
+                                    httpResponse = null;
+                                } catch (Exception e14) {
+                                    e = e14;
                                 }
-                            } catch (SocketTimeoutException e12) {
-                                e = e12;
-                                httpResponse = null;
-                            } catch (ConnectTimeoutException e13) {
-                                e = e13;
-                                httpResponse = null;
-                            } catch (Exception e14) {
-                                e = e14;
-                            }
+                                if (!z2) {
+                                    SLog.d("openSDK_LOG.ReportManager", "-->ReportCenter httpRequest Thread request success");
+                                    return;
+                                } else {
+                                    SLog.d("openSDK_LOG.ReportManager", "-->ReportCenter httpRequest Thread request failed");
+                                    return;
+                                }
+                            } while (i >= a2);
                             if (!z2) {
-                                SLog.d("openSDK_LOG.ReportManager", "-->ReportCenter httpRequest Thread request success");
-                                return;
-                            } else {
-                                SLog.d("openSDK_LOG.ReportManager", "-->ReportCenter httpRequest Thread request failed");
-                                return;
                             }
-                        } while (i >= a2);
-                        if (!z2) {
+                        } catch (Exception e15) {
+                            SLog.e("openSDK_LOG.ReportManager", "-->httpRequest, exception in serial executor:", e15);
                         }
-                    } catch (Exception e15) {
-                        SLog.e("openSDK_LOG.ReportManager", "-->httpRequest, exception in serial executor:", e15);
                     }
                 }
             });
         }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x0038, code lost:
+        if (r0 == 0) goto L8;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:7:0x001d, code lost:
+        if (r0 == 0) goto L8;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:9:0x0020, code lost:
+        r1 = r0;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean a(String str, int i) {
+        InterceptResult invokeLI;
+        int a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) {
+            int i2 = 5;
+            if (str.equals("report_cgi")) {
+                a2 = com.tencent.open.utils.g.a(com.tencent.open.utils.f.a(), (String) null).a("Common_CGIReportMaxcount");
+            } else {
+                if (str.equals("report_via")) {
+                    a2 = com.tencent.open.utils.g.a(com.tencent.open.utils.f.a(), (String) null).a("Agent_ReportBatchCount");
+                } else {
+                    i2 = 0;
+                }
+                SLog.d("openSDK_LOG.ReportManager", "-->availableCount, report: " + str + " | dataSize: " + i + " | maxcount: " + i2);
+                if (i < i2) {
+                    return false;
+                }
+                return true;
+            }
+        } else {
+            return invokeLI.booleanValue;
+        }
+    }
+
+    public boolean a(String str, String str2) {
+        InterceptResult invokeLL;
+        int a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
+            SLog.d("openSDK_LOG.ReportManager", "-->availableFrequency, report: " + str + " | ext: " + str2);
+            boolean z = false;
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            int i = 100;
+            if (str.equals("report_cgi")) {
+                try {
+                    a2 = a(Integer.parseInt(str2));
+                    if (this.b.nextInt(100) < a2) {
+                        z = true;
+                    }
+                } catch (Exception unused) {
+                    return false;
+                }
+            } else {
+                if (str.equals("report_via")) {
+                    a2 = e.a(str2);
+                    if (this.b.nextInt(100) < a2) {
+                        i = a2;
+                        z = true;
+                    }
+                }
+                SLog.d("openSDK_LOG.ReportManager", "-->availableFrequency, result: " + z + " | frequency: " + i);
+                return z;
+            }
+            i = a2;
+            SLog.d("openSDK_LOG.ReportManager", "-->availableFrequency, result: " + z + " | frequency: " + i);
+            return z;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public Bundle c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.c.size() == 0) {
+                return null;
+            }
+            b bVar = (b) this.c.get(0);
+            if (bVar == null) {
+                SLog.d("openSDK_LOG.ReportManager", "-->prepareCgiData, the 0th cgireportitem is null.");
+                return null;
+            }
+            String str = (String) bVar.a.get("appid");
+            List a2 = f.a().a("report_cgi");
+            if (a2 != null) {
+                this.c.addAll(a2);
+            }
+            SLog.d("openSDK_LOG.ReportManager", "-->prepareCgiData, mCgiList size: " + this.c.size());
+            if (this.c.size() == 0) {
+                return null;
+            }
+            Bundle bundle = new Bundle();
+            try {
+                bundle.putString("appid", str);
+                bundle.putString("releaseversion", com.tencent.connect.common.Constants.SDK_VERSION_REPORT);
+                bundle.putString(Config.DEVICE_PART, Build.DEVICE);
+                bundle.putString("qua", com.tencent.connect.common.Constants.SDK_QUA);
+                bundle.putString("key", "apn,frequency,commandid,resultcode,tmcost,reqsize,rspsize,detail,touin,deviceinfo");
+                for (int i = 0; i < this.c.size(); i++) {
+                    b bVar2 = (b) this.c.get(i);
+                    bundle.putString(i + SkinManager.nightSufix, (String) bVar2.a.get("apn"));
+                    bundle.putString(i + SkinManager.darkSuffix, (String) bVar2.a.get("frequency"));
+                    bundle.putString(i + "_3", (String) bVar2.a.get("commandid"));
+                    bundle.putString(i + "_4", (String) bVar2.a.get("resultCode"));
+                    bundle.putString(i + "_5", (String) bVar2.a.get("timeCost"));
+                    bundle.putString(i + "_6", (String) bVar2.a.get("reqSize"));
+                    bundle.putString(i + "_7", (String) bVar2.a.get("rspSize"));
+                    bundle.putString(i + "_8", (String) bVar2.a.get("detail"));
+                    bundle.putString(i + "_9", (String) bVar2.a.get("uin"));
+                    bundle.putString(i + "_10", c.e(com.tencent.open.utils.f.a()) + "&" + ((String) bVar2.a.get(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO)));
+                }
+                SLog.v("openSDK_LOG.ReportManager", "-->prepareCgiData, end. params: " + bundle.toString());
+                return bundle;
+            } catch (Exception e) {
+                SLog.e("openSDK_LOG.ReportManager", "-->prepareCgiData, exception.", e);
+                return null;
+            }
+        }
+        return (Bundle) invokeV.objValue;
+    }
+
+    public Bundle d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            List a2 = f.a().a("report_via");
+            if (a2 != null) {
+                this.d.addAll(a2);
+            }
+            SLog.d("openSDK_LOG.ReportManager", "-->prepareViaData, mViaList size: " + this.d.size());
+            if (this.d.size() == 0) {
+                return null;
+            }
+            JSONArray jSONArray = new JSONArray();
+            for (Serializable serializable : this.d) {
+                JSONObject jSONObject = new JSONObject();
+                b bVar = (b) serializable;
+                for (String str : bVar.a.keySet()) {
+                    try {
+                        String str2 = (String) bVar.a.get(str);
+                        if (str2 == null) {
+                            str2 = "";
+                        }
+                        jSONObject.put(str, str2);
+                    } catch (JSONException e) {
+                        SLog.e("openSDK_LOG.ReportManager", "-->prepareViaData, put bundle to json array exception", e);
+                    }
+                }
+                jSONArray.put(jSONObject);
+            }
+            SLog.v("openSDK_LOG.ReportManager", "-->prepareViaData, JSONArray array: " + jSONArray.toString());
+            Bundle bundle = new Bundle();
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("data", jSONArray);
+                bundle.putString("data", jSONObject2.toString());
+                return bundle;
+            } catch (JSONException e2) {
+                SLog.e("openSDK_LOG.ReportManager", "-->prepareViaData, put bundle to json array exception", e2);
+                return null;
+            }
+        }
+        return (Bundle) invokeV.objValue;
     }
 }

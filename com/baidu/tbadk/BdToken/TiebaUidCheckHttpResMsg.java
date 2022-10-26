@@ -37,12 +37,6 @@ public class TiebaUidCheckHttpResMsg extends HttpResponsedMessage {
         }
     }
 
-    public UserData getUserData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mUserData : (UserData) invokeV.objValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
@@ -50,15 +44,23 @@ public class TiebaUidCheckHttpResMsg extends HttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             try {
                 GetUserByTiebaUidResIdl getUserByTiebaUidResIdl = (GetUserByTiebaUidResIdl) new Wire(new Class[0]).parseFrom(bArr, GetUserByTiebaUidResIdl.class);
-                if (getUserByTiebaUidResIdl == null || getUserByTiebaUidResIdl.data == null) {
-                    return;
+                if (getUserByTiebaUidResIdl != null && getUserByTiebaUidResIdl.data != null) {
+                    UserData userData = new UserData();
+                    this.mUserData = userData;
+                    userData.parserProtobuf(getUserByTiebaUidResIdl.data.user);
                 }
-                UserData userData = new UserData();
-                this.mUserData = userData;
-                userData.parserProtobuf(getUserByTiebaUidResIdl.data.user);
             } catch (Throwable th) {
                 BdLog.e(th);
             }
         }
+    }
+
+    public UserData getUserData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mUserData;
+        }
+        return (UserData) invokeV.objValue;
     }
 }

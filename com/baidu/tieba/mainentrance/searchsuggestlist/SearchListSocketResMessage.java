@@ -1,6 +1,5 @@
 package com.baidu.tieba.mainentrance.searchsuggestlist;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,16 +9,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
-import tbclient.ForumInfo;
 import tbclient.SearchSug.DataRes;
 import tbclient.SearchSug.SearchSugResIdl;
 /* loaded from: classes5.dex */
 public class SearchListSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ForumInfo> forums;
+    public List forums;
     public DataRes suggestData;
-    public List<String> suggests;
+    public List suggests;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SearchListSocketResMessage() {
@@ -43,7 +41,6 @@ public class SearchListSocketResMessage extends SocketResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;

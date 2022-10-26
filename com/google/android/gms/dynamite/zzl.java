@@ -44,11 +44,13 @@ public final class zzl implements DynamiteModule.VersionPolicy {
                 selectionResult.remoteVersion = zzb;
             }
             int i2 = selectionResult.localVersion;
-            if (i2 != 0) {
+            if (i2 == 0) {
+                if (zzb == 0) {
+                    selectionResult.selection = 0;
+                    return selectionResult;
+                }
+            } else {
                 i = i2;
-            } else if (zzb == 0) {
-                selectionResult.selection = 0;
-                return selectionResult;
             }
             if (zzb >= i) {
                 selectionResult.selection = 1;

@@ -37,6 +37,24 @@ public class ViewBoundsCheck {
     public final Callback mCallback;
 
     /* loaded from: classes.dex */
+    public interface Callback {
+        View getChildAt(int i);
+
+        int getChildEnd(View view2);
+
+        int getChildStart(View view2);
+
+        int getParentEnd();
+
+        int getParentStart();
+    }
+
+    @Retention(RetentionPolicy.SOURCE)
+    /* loaded from: classes.dex */
+    public @interface ViewBounds {
+    }
+
+    /* loaded from: classes.dex */
     public static class BoundFlags {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -45,6 +63,18 @@ public class ViewBoundsCheck {
         public int mChildStart;
         public int mRvEnd;
         public int mRvStart;
+
+        public int compare(int i, int i2) {
+            InterceptResult invokeII;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) {
+                if (i > i2) {
+                    return 1;
+                }
+                return i == i2 ? 2 : 4;
+            }
+            return invokeII.intValue;
+        }
 
         public BoundFlags() {
             Interceptable interceptable = $ic;
@@ -62,6 +92,13 @@ public class ViewBoundsCheck {
             this.mBoundFlags = 0;
         }
 
+        public void resetFlags() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.mBoundFlags = 0;
+            }
+        }
+
         public void addFlags(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -74,40 +111,24 @@ public class ViewBoundsCheck {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 int i = this.mBoundFlags;
-                if ((i & 7) == 0 || (i & (compare(this.mChildStart, this.mRvStart) << 0)) != 0) {
-                    int i2 = this.mBoundFlags;
-                    if ((i2 & 112) == 0 || (i2 & (compare(this.mChildStart, this.mRvEnd) << 4)) != 0) {
-                        int i3 = this.mBoundFlags;
-                        if ((i3 & 1792) == 0 || (i3 & (compare(this.mChildEnd, this.mRvStart) << 8)) != 0) {
-                            int i4 = this.mBoundFlags;
-                            return (i4 & 28672) == 0 || (i4 & (compare(this.mChildEnd, this.mRvEnd) << 12)) != 0;
-                        }
-                        return false;
-                    }
+                if ((i & 7) != 0 && (i & (compare(this.mChildStart, this.mRvStart) << 0)) == 0) {
                     return false;
                 }
-                return false;
+                int i2 = this.mBoundFlags;
+                if ((i2 & 112) != 0 && (i2 & (compare(this.mChildStart, this.mRvEnd) << 4)) == 0) {
+                    return false;
+                }
+                int i3 = this.mBoundFlags;
+                if ((i3 & 1792) != 0 && (i3 & (compare(this.mChildEnd, this.mRvStart) << 8)) == 0) {
+                    return false;
+                }
+                int i4 = this.mBoundFlags;
+                if ((i4 & 28672) != 0 && (i4 & (compare(this.mChildEnd, this.mRvEnd) << 12)) == 0) {
+                    return false;
+                }
+                return true;
             }
             return invokeV.booleanValue;
-        }
-
-        public int compare(int i, int i2) {
-            InterceptResult invokeII;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) {
-                if (i > i2) {
-                    return 1;
-                }
-                return i == i2 ? 2 : 4;
-            }
-            return invokeII.intValue;
-        }
-
-        public void resetFlags() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.mBoundFlags = 0;
-            }
         }
 
         public void setBounds(int i, int i2, int i3, int i4) {
@@ -119,24 +140,6 @@ public class ViewBoundsCheck {
                 this.mChildEnd = i4;
             }
         }
-    }
-
-    /* loaded from: classes.dex */
-    public interface Callback {
-        View getChildAt(int i);
-
-        int getChildEnd(View view2);
-
-        int getChildStart(View view2);
-
-        int getParentEnd();
-
-        int getParentStart();
-    }
-
-    @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes.dex */
-    public @interface ViewBounds {
     }
 
     public ViewBoundsCheck(Callback callback) {
@@ -160,11 +163,16 @@ public class ViewBoundsCheck {
 
     public View findOneViewWithinBoundFlags(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
+        int i5;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i, i2, i3, i4)) == null) {
             int parentStart = this.mCallback.getParentStart();
             int parentEnd = this.mCallback.getParentEnd();
-            int i5 = i2 > i ? 1 : -1;
+            if (i2 > i) {
+                i5 = 1;
+            } else {
+                i5 = -1;
+            }
             View view2 = null;
             while (i != i2) {
                 View childAt = this.mCallback.getChildAt(i);

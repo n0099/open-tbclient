@@ -1,12 +1,11 @@
 package com.kwad.sdk.glide.framesequence;
 
 import android.graphics.Bitmap;
-import androidx.annotation.Nullable;
 import java.io.InputStream;
 import java.io.Serializable;
 import java.nio.ByteBuffer;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class FrameSequence implements Serializable {
     public static final AtomicBoolean ISLOADED = new AtomicBoolean(false);
     public int mDefaultLoopCount;
@@ -16,8 +15,8 @@ public class FrameSequence implements Serializable {
     public boolean mOpaque;
     public int mWidth;
 
-    /* loaded from: classes8.dex */
-    public static class State implements Serializable {
+    /* loaded from: classes7.dex */
+    public class State implements Serializable {
         public long mNativeState;
 
         public State(long j) {
@@ -65,7 +64,6 @@ public class FrameSequence implements Serializable {
         this.mDefaultLoopCount = i4;
     }
 
-    @Nullable
     public static FrameSequence decodeByteArray(byte[] bArr) {
         if (ISLOADED.get()) {
             return decodeByteArray(bArr, 0, bArr.length);
@@ -73,7 +71,6 @@ public class FrameSequence implements Serializable {
         return null;
     }
 
-    @Nullable
     public static FrameSequence decodeByteArray(byte[] bArr, int i, int i2) {
         if (ISLOADED.get()) {
             if (bArr != null) {
@@ -87,7 +84,6 @@ public class FrameSequence implements Serializable {
         return null;
     }
 
-    @Nullable
     public static FrameSequence decodeByteBuffer(ByteBuffer byteBuffer) {
         if (ISLOADED.get()) {
             if (byteBuffer != null) {
@@ -104,7 +100,6 @@ public class FrameSequence implements Serializable {
         return null;
     }
 
-    @Nullable
     public static FrameSequence decodeStream(InputStream inputStream) {
         if (ISLOADED.get()) {
             if (inputStream != null) {

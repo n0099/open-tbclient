@@ -3,7 +3,6 @@ package com.ss.android.downloadlib.addownload.compliance;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Pair;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -20,19 +19,53 @@ public class AppDetailInfoActivity extends Activity {
     public RecyclerView d;
     public long e;
     public long f;
-    public List<Pair<String, String>> g;
+    public List g;
 
     /* loaded from: classes8.dex */
-    public class a extends RecyclerView.Adapter<Object> {
+    public class a extends RecyclerView.Adapter {
         public a() {
         }
     }
 
+    private boolean a() {
+        this.e = getIntent().getLongExtra("app_info_id", 0L);
+        com.ss.android.downloadlib.addownload.b.b a2 = c.a().a(this.e);
+        if (a2 == null) {
+            return false;
+        }
+        this.f = a2.b;
+        this.g = a2.h;
+        return true;
+    }
+
+    @Override // android.app.Activity
+    public void onBackPressed() {
+        e.a("lp_app_detail_click_close", this.f);
+        super.onBackPressed();
+    }
+
+    @Override // android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        setContentView(R.layout.obfuscated_res_0x7f0d08a2);
+        if (a()) {
+            b();
+        } else {
+            com.ss.android.socialbase.appdownloader.c.a((Activity) this);
+        }
+    }
+
+    public static void a(Activity activity, long j) {
+        Intent intent = new Intent(activity, AppDetailInfoActivity.class);
+        intent.putExtra("app_info_id", j);
+        activity.startActivity(intent);
+    }
+
     private void b() {
-        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091004);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092393);
-        this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0918d2);
-        this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913f7);
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ff8);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09237e);
+        this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0918c5);
+        this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913e8);
         if (this.g.isEmpty()) {
             this.d.setVisibility(8);
             this.b.setVisibility(0);
@@ -58,39 +91,5 @@ public class AppDetailInfoActivity extends Activity {
                 com.ss.android.socialbase.appdownloader.c.a(b.a().b());
             }
         });
-    }
-
-    @Override // android.app.Activity
-    public void onBackPressed() {
-        e.a("lp_app_detail_click_close", this.f);
-        super.onBackPressed();
-    }
-
-    @Override // android.app.Activity
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        setContentView(R.layout.obfuscated_res_0x7f0d08a1);
-        if (a()) {
-            b();
-        } else {
-            com.ss.android.socialbase.appdownloader.c.a((Activity) this);
-        }
-    }
-
-    public static void a(Activity activity, long j) {
-        Intent intent = new Intent(activity, AppDetailInfoActivity.class);
-        intent.putExtra("app_info_id", j);
-        activity.startActivity(intent);
-    }
-
-    private boolean a() {
-        this.e = getIntent().getLongExtra("app_info_id", 0L);
-        com.ss.android.downloadlib.addownload.b.b a2 = c.a().a(this.e);
-        if (a2 == null) {
-            return false;
-        }
-        this.f = a2.b;
-        this.g = a2.h;
-        return true;
     }
 }

@@ -4,8 +4,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,7 +53,7 @@ public class ActionBarAppPortraitForLive extends LinearLayout implements c {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ActionBarAppPortraitForLive(Context context, @Nullable AttributeSet attributeSet) {
+    public ActionBarAppPortraitForLive(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -76,7 +74,7 @@ public class ActionBarAppPortraitForLive extends LinearLayout implements c {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ActionBarAppPortraitForLive(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public ActionBarAppPortraitForLive(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -101,7 +99,7 @@ public class ActionBarAppPortraitForLive extends LinearLayout implements c {
     public void b(View view2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65541, this, view2, z) == null) {
-            com.kwad.components.core.c.a.a.a(new a.C0570a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(true).l(this.nM.eF.getPlayDuration()).ae(view2 == this.dk ? 1 : 2).a(new a.b(this, z) { // from class: com.kwad.components.ad.reward.widget.actionbar.ActionBarAppPortraitForLive.2
+            com.kwad.components.core.c.a.a.a(new a.C0566a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(true).l(this.nM.eF.getPlayDuration()).ae(view2 == this.dk ? 1 : 2).a(new a.b(this, z) { // from class: com.kwad.components.ad.reward.widget.actionbar.ActionBarAppPortraitForLive.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ boolean rl;
@@ -141,12 +139,12 @@ public class ActionBarAppPortraitForLive extends LinearLayout implements c {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d047b, this);
-            this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f091161);
+            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0478, this);
+            this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f091155);
         }
     }
 
-    public final void a(@NonNull k kVar, @NonNull AdTemplate adTemplate, @Nullable com.kwad.components.core.c.a.c cVar, a aVar) {
+    public final void a(k kVar, AdTemplate adTemplate, com.kwad.components.core.c.a.c cVar, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, kVar, adTemplate, cVar, aVar) == null) {
             this.nM = kVar;

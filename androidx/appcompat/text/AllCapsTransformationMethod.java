@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.text.method.TransformationMethod;
 import android.view.View;
-import androidx.annotation.RestrictTo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,12 +11,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class AllCapsTransformationMethod implements TransformationMethod {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Locale mLocale;
+
+    @Override // android.text.method.TransformationMethod
+    public void onFocusChanged(View view2, CharSequence charSequence, boolean z, int i, Rect rect) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, charSequence, Boolean.valueOf(z), Integer.valueOf(i), rect}) == null) {
+        }
+    }
 
     public AllCapsTransformationMethod(Context context) {
         Interceptable interceptable = $ic;
@@ -48,12 +53,5 @@ public class AllCapsTransformationMethod implements TransformationMethod {
             return null;
         }
         return (CharSequence) invokeLL.objValue;
-    }
-
-    @Override // android.text.method.TransformationMethod
-    public void onFocusChanged(View view2, CharSequence charSequence, boolean z, int i, Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, charSequence, Boolean.valueOf(z), Integer.valueOf(i), rect}) == null) {
-        }
     }
 }

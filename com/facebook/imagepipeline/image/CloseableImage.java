@@ -20,7 +20,23 @@ public abstract class CloseableImage implements Closeable, ImageInfo, HasImageMe
     public static final String TAG = "CloseableImage";
     public static final String[] mImageExtrasList;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, Object> mExtras;
+    public Map mExtras;
+
+    @Override // java.io.Closeable, java.lang.AutoCloseable
+    public abstract void close();
+
+    public abstract int getSizeInBytes();
+
+    public abstract boolean isClosed();
+
+    public boolean isStateful() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -54,12 +70,30 @@ public abstract class CloseableImage implements Closeable, ImageInfo, HasImageMe
         this.mExtras = new HashMap();
     }
 
-    @Override // java.io.Closeable, java.lang.AutoCloseable
-    public abstract void close();
+    @Override // com.facebook.imagepipeline.image.HasImageMetadata
+    @Nonnull
+    public Map getExtras() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mExtras;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @Override // com.facebook.imagepipeline.image.ImageInfo
+    public QualityInfo getQualityInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return ImmutableQualityInfo.FULL_QUALITY;
+        }
+        return (QualityInfo) invokeV.objValue;
+    }
 
     public void finalize() throws Throwable {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || isClosed()) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || isClosed()) {
             return;
         }
         FLog.w(TAG, "finalize: %s %x still open.", getClass().getSimpleName(), Integer.valueOf(System.identityHashCode(this)));
@@ -70,38 +104,10 @@ public abstract class CloseableImage implements Closeable, ImageInfo, HasImageMe
         }
     }
 
-    @Override // com.facebook.imagepipeline.image.HasImageMetadata
-    @Nonnull
-    public Map<String, Object> getExtras() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mExtras : (Map) invokeV.objValue;
-    }
-
-    @Override // com.facebook.imagepipeline.image.ImageInfo
-    public QualityInfo getQualityInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ImmutableQualityInfo.FULL_QUALITY : (QualityInfo) invokeV.objValue;
-    }
-
-    public abstract int getSizeInBytes();
-
-    public abstract boolean isClosed();
-
-    public boolean isStateful() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void setImageExtras(Map<String, Object> map) {
+    public void setImageExtras(Map map) {
         String[] strArr;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, map) == null) || map == null) {
+        if ((interceptable != null && interceptable.invokeL(1048583, this, map) != null) || map == null) {
             return;
         }
         for (String str : mImageExtrasList) {

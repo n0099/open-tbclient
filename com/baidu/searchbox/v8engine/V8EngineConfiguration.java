@@ -13,7 +13,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-@NotProguard
 /* loaded from: classes2.dex */
 public class V8EngineConfiguration {
     public static /* synthetic */ Interceptable $ic;
@@ -27,12 +26,18 @@ public class V8EngineConfiguration {
     public Object mMainGlobalObject;
     public Object mOpenGlobalObject;
     public String mUserAgent;
-    public List<V8Engine.V8EngineConsole> mV8EngineConsoles;
-    public List<V8Engine.V8StatusListener> mV8StatusListeners;
+    public List mV8EngineConsoles;
+    public List mV8StatusListeners;
     public V8ThreadDelegatePolicy mV8ThreadDelegatePolicy;
 
+    @Deprecated
     /* loaded from: classes2.dex */
-    public static class CacheInfo {
+    public interface JSCacheCallback {
+        void onCacheResult(CacheInfo cacheInfo);
+    }
+
+    /* loaded from: classes2.dex */
+    public class CacheInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean cached;
@@ -59,13 +64,13 @@ public class V8EngineConfiguration {
     }
 
     /* loaded from: classes2.dex */
-    public static class CodeCacheSetting {
+    public class CodeCacheSetting {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long diskCodeCacheSizeThreshold;
         public String id;
         public int maxCount;
-        public ArrayList<String> pathList;
+        public ArrayList pathList;
         public int sizeLimit;
 
         public CodeCacheSetting() {
@@ -85,12 +90,6 @@ public class V8EngineConfiguration {
         }
     }
 
-    @Deprecated
-    /* loaded from: classes2.dex */
-    public interface JSCacheCallback {
-        void onCacheResult(CacheInfo cacheInfo);
-    }
-
     public V8EngineConfiguration() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -108,9 +107,117 @@ public class V8EngineConfiguration {
         this.mV8StatusListeners = new ArrayList();
     }
 
+    public String getBasePath() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mBasePath;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mContext;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public String getDecodeBdFile() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mDecodeBdFile;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public V8FileSystemDelegatePolicy getFileSystemDelegatePolicy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mFileSystemDelegatePolicy;
+        }
+        return (V8FileSystemDelegatePolicy) invokeV.objValue;
+    }
+
+    public V8Engine.JavaScriptExceptionDelegate getJavaScriptExceptionDelegate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mJavaScriptExceptionDelegate;
+        }
+        return (V8Engine.JavaScriptExceptionDelegate) invokeV.objValue;
+    }
+
+    public String getJsPath() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mJsPath;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Object getMainGlobalObject() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mMainGlobalObject;
+        }
+        return invokeV.objValue;
+    }
+
+    public Object getOpenGlobalObject() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mOpenGlobalObject;
+        }
+        return invokeV.objValue;
+    }
+
+    public String getUserAgent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mUserAgent;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public List getV8EngineConsoles() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mV8EngineConsoles;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public List getV8StatusListeners() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.mV8StatusListeners;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public V8ThreadDelegatePolicy getV8ThreadDelegatePolicy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.mV8ThreadDelegatePolicy;
+        }
+        return (V8ThreadDelegatePolicy) invokeV.objValue;
+    }
+
     public void addV8EngineConsole(V8Engine.V8EngineConsole v8EngineConsole) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, v8EngineConsole) == null) || v8EngineConsole == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, v8EngineConsole) != null) || v8EngineConsole == null) {
             return;
         }
         this.mV8EngineConsoles.add(v8EngineConsole);
@@ -118,82 +225,10 @@ public class V8EngineConfiguration {
 
     public void addV8StatusListener(V8Engine.V8StatusListener v8StatusListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v8StatusListener) == null) || v8StatusListener == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v8StatusListener) != null) || v8StatusListener == null) {
             return;
         }
         this.mV8StatusListeners.add(v8StatusListener);
-    }
-
-    public String getBasePath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mBasePath : (String) invokeV.objValue;
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mContext : (Context) invokeV.objValue;
-    }
-
-    public String getDecodeBdFile() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mDecodeBdFile : (String) invokeV.objValue;
-    }
-
-    public V8FileSystemDelegatePolicy getFileSystemDelegatePolicy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mFileSystemDelegatePolicy : (V8FileSystemDelegatePolicy) invokeV.objValue;
-    }
-
-    public V8Engine.JavaScriptExceptionDelegate getJavaScriptExceptionDelegate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mJavaScriptExceptionDelegate : (V8Engine.JavaScriptExceptionDelegate) invokeV.objValue;
-    }
-
-    public String getJsPath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mJsPath : (String) invokeV.objValue;
-    }
-
-    public Object getMainGlobalObject() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mMainGlobalObject : invokeV.objValue;
-    }
-
-    public Object getOpenGlobalObject() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mOpenGlobalObject : invokeV.objValue;
-    }
-
-    public String getUserAgent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mUserAgent : (String) invokeV.objValue;
-    }
-
-    public List<V8Engine.V8EngineConsole> getV8EngineConsoles() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mV8EngineConsoles : (List) invokeV.objValue;
-    }
-
-    public List<V8Engine.V8StatusListener> getV8StatusListeners() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mV8StatusListeners : (List) invokeV.objValue;
-    }
-
-    public V8ThreadDelegatePolicy getV8ThreadDelegatePolicy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mV8ThreadDelegatePolicy : (V8ThreadDelegatePolicy) invokeV.objValue;
     }
 
     public void setBasePath(String str) {
@@ -259,7 +294,7 @@ public class V8EngineConfiguration {
         }
     }
 
-    public void setV8EngineConsoles(List<V8Engine.V8EngineConsole> list) {
+    public void setV8EngineConsoles(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, list) == null) {
             this.mV8EngineConsoles = list;

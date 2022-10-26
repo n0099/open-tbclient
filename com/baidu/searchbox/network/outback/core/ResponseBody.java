@@ -1,6 +1,5 @@
 package com.baidu.searchbox.network.outback.core;
 
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.network.outback.core.internal.Util;
@@ -24,17 +23,21 @@ public abstract class ResponseBody implements Closeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_BUFFER_SIZE = 8192;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public Reader reader;
 
+    public abstract long contentLength();
+
+    public abstract MediaType contentType();
+
+    public abstract InputStream inputStream();
+
     /* loaded from: classes2.dex */
-    public static final class BomAwareReader extends Reader {
+    public final class BomAwareReader extends Reader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final BufferedInputStream bis;
         public final Charset charset;
         public boolean closed;
-        @Nullable
         public Reader delegate;
 
         public BomAwareReader(InputStream inputStream, Charset charset) {
@@ -113,58 +116,21 @@ public abstract class ResponseBody implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             MediaType contentType = contentType();
-            return contentType != null ? contentType.charset(Util.UTF_8) : Util.UTF_8;
+            if (contentType != null) {
+                return contentType.charset(Util.UTF_8);
+            }
+            return Util.UTF_8;
         }
         return (Charset) invokeV.objValue;
-    }
-
-    public static ResponseBody create(@Nullable MediaType mediaType, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, mediaType, str)) == null) {
-            Charset charset = Util.UTF_8;
-            if (mediaType != null && (charset = mediaType.charset()) == null) {
-                charset = Util.UTF_8;
-                mediaType = MediaType.parse(mediaType + "; charset=utf-8");
-            }
-            return create(mediaType, str.getBytes(charset));
-        }
-        return (ResponseBody) invokeLL.objValue;
     }
 
     public final InputStream byteStream() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? inputStream() : (InputStream) invokeV.objValue;
-    }
-
-    public final byte[] bytes() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
-            return (byte[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return inputStream();
         }
-        long contentLength = contentLength();
-        if (contentLength <= 2147483647L) {
-            InputStream inputStream = inputStream();
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            try {
-                byte[] bArr = new byte[8192];
-                while (true) {
-                    int read = inputStream.read(bArr);
-                    if (read > 0) {
-                        byteArrayOutputStream.write(bArr, 0, read);
-                    } else {
-                        return byteArrayOutputStream.toByteArray();
-                    }
-                }
-            } finally {
-                Util.closeQuietly(inputStream);
-                Util.closeQuietly(byteArrayOutputStream);
-            }
-        } else {
-            throw new IOException("Cannot buffer entire body for content length: " + contentLength);
-        }
+        return (InputStream) invokeV.objValue;
     }
 
     public final Reader charStream() {
@@ -172,12 +138,12 @@ public abstract class ResponseBody implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             Reader reader = this.reader;
-            if (reader != null) {
-                return reader;
+            if (reader == null) {
+                BomAwareReader bomAwareReader = new BomAwareReader(inputStream(), charset());
+                this.reader = bomAwareReader;
+                return bomAwareReader;
             }
-            BomAwareReader bomAwareReader = new BomAwareReader(inputStream(), charset());
-            this.reader = bomAwareReader;
-            return bomAwareReader;
+            return reader;
         }
         return (Reader) invokeV.objValue;
     }
@@ -190,13 +156,6 @@ public abstract class ResponseBody implements Closeable {
         }
     }
 
-    public abstract long contentLength();
-
-    @Nullable
-    public abstract MediaType contentType();
-
-    public abstract InputStream inputStream();
-
     public final String string() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -207,13 +166,7 @@ public abstract class ResponseBody implements Closeable {
         return (String) invokeV.objValue;
     }
 
-    public static ResponseBody create(@Nullable MediaType mediaType, byte[] bArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, mediaType, bArr)) == null) ? create(mediaType, bArr.length, new ByteArrayInputStream(bArr)) : (ResponseBody) invokeLL.objValue;
-    }
-
-    public static ResponseBody create(@Nullable MediaType mediaType, long j, InputStream inputStream) {
+    public static ResponseBody create(MediaType mediaType, long j, InputStream inputStream) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{mediaType, Long.valueOf(j), inputStream})) == null) {
@@ -249,27 +202,88 @@ public abstract class ResponseBody implements Closeable {
                     public long contentLength() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.val$contentLength : invokeV.longValue;
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                            return this.val$contentLength;
+                        }
+                        return invokeV.longValue;
                     }
 
                     @Override // com.baidu.searchbox.network.outback.core.ResponseBody
-                    @Nullable
                     public MediaType contentType() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.val$contentType : (MediaType) invokeV.objValue;
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                            return this.val$contentType;
+                        }
+                        return (MediaType) invokeV.objValue;
                     }
 
                     @Override // com.baidu.searchbox.network.outback.core.ResponseBody
                     public InputStream inputStream() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.val$inputStream : (InputStream) invokeV.objValue;
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                            return this.val$inputStream;
+                        }
+                        return (InputStream) invokeV.objValue;
                     }
                 };
             }
             throw new NullPointerException("source == null");
         }
         return (ResponseBody) invokeCommon.objValue;
+    }
+
+    public static ResponseBody create(MediaType mediaType, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, mediaType, str)) == null) {
+            Charset charset = Util.UTF_8;
+            if (mediaType != null && (charset = mediaType.charset()) == null) {
+                charset = Util.UTF_8;
+                mediaType = MediaType.parse(mediaType + "; charset=utf-8");
+            }
+            return create(mediaType, str.getBytes(charset));
+        }
+        return (ResponseBody) invokeLL.objValue;
+    }
+
+    public static ResponseBody create(MediaType mediaType, byte[] bArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, mediaType, bArr)) == null) {
+            return create(mediaType, bArr.length, new ByteArrayInputStream(bArr));
+        }
+        return (ResponseBody) invokeLL.objValue;
+    }
+
+    public final byte[] bytes() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            long contentLength = contentLength();
+            if (contentLength <= 2147483647L) {
+                InputStream inputStream = inputStream();
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                try {
+                    byte[] bArr = new byte[8192];
+                    while (true) {
+                        int read = inputStream.read(bArr);
+                        if (read > 0) {
+                            byteArrayOutputStream.write(bArr, 0, read);
+                        } else {
+                            return byteArrayOutputStream.toByteArray();
+                        }
+                    }
+                } finally {
+                    Util.closeQuietly(inputStream);
+                    Util.closeQuietly(byteArrayOutputStream);
+                }
+            } else {
+                throw new IOException("Cannot buffer entire body for content length: " + contentLength);
+            }
+        } else {
+            return (byte[]) invokeV.objValue;
+        }
     }
 }

@@ -3,21 +3,20 @@ package com.baidu.tieba.imMessageCenter.im.chat;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
-import androidx.annotation.RequiresApi;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.retrieve.util.FileMetaUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.di5;
-import com.baidu.tieba.hi5;
-import com.baidu.tieba.ih5;
+import com.baidu.tieba.da7;
+import com.baidu.tieba.eh;
+import com.baidu.tieba.ii5;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
-import com.baidu.tieba.v97;
-import com.baidu.tieba.zf8;
+import com.baidu.tieba.jg8;
+import com.baidu.tieba.mi5;
+import com.baidu.tieba.oh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,12 +28,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class SelectPrivateMsgPageDispatcher implements zf8 {
+public class SelectPrivateMsgPageDispatcher implements jg8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public class a extends di5<ImMessageCenterPojo> {
+    public class a extends ii5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -58,17 +57,20 @@ public class SelectPrivateMsgPageDispatcher implements zf8 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.di5
+        @Override // com.baidu.tieba.ii5
         /* renamed from: a */
         public ImMessageCenterPojo doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? v97.f().i(this.a) : (ImMessageCenterPojo) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return da7.f().i(this.a);
+            }
+            return (ImMessageCenterPojo) invokeV.objValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b implements ih5<ImMessageCenterPojo> {
+    public class b implements oh5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -94,13 +96,13 @@ public class SelectPrivateMsgPageDispatcher implements zf8 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ih5
+        @Override // com.baidu.tieba.oh5
         /* renamed from: a */
         public void onReturnDataInUI(ImMessageCenterPojo imMessageCenterPojo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, imMessageCenterPojo) == null) {
                 if (imMessageCenterPojo != null) {
-                    PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(TbadkCoreApplication.getInst().getCurrentActivity(), dh.g(imMessageCenterPojo.getGid(), 0L), imMessageCenterPojo.getGroup_name(), imMessageCenterPojo.getNameShow(), this.a, 0);
+                    PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(TbadkCoreApplication.getInst().getCurrentActivity(), eh.g(imMessageCenterPojo.getGid(), 0L), imMessageCenterPojo.getGroup_name(), imMessageCenterPojo.getNameShow(), this.a, 0);
                     personalChatActivityConfig.setRequestCode(12019);
                     personalChatActivityConfig.setIntentAction(IntentAction.ActivityForResult);
                     personalChatActivityConfig.setIsReportSelect(true);
@@ -132,27 +134,29 @@ public class SelectPrivateMsgPageDispatcher implements zf8 {
         }
     }
 
-    @Override // com.baidu.tieba.zf8
-    @RequiresApi(api = 19)
+    @Override // com.baidu.tieba.jg8
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) || jSONObject == null || context == null) {
-            return;
-        }
-        JSONArray optJSONArray = jSONObject.optJSONArray("msgArray");
-        String optString = jSONObject.optString("portrait");
-        ArrayList arrayList = new ArrayList();
-        if (optJSONArray != null) {
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                try {
-                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                    String optString2 = jSONObject2.optString("reportContent");
-                    arrayList.add(new ReportPrivateMsgData(jSONObject2.optString("msgId"), TextUtils.isEmpty(optString2) ? null : new String(Base64.decode(optString2, 2), StandardCharsets.UTF_8), jSONObject2.optString(FileMetaUtil.CREATE_TIME)));
-                } catch (JSONException e) {
-                    e.printStackTrace();
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
+            JSONArray optJSONArray = jSONObject.optJSONArray("msgArray");
+            String optString = jSONObject.optString("portrait");
+            ArrayList arrayList = new ArrayList();
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    try {
+                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
+                        String optString2 = jSONObject2.optString("reportContent");
+                        String str = null;
+                        if (!TextUtils.isEmpty(optString2)) {
+                            str = new String(Base64.decode(optString2, 2), StandardCharsets.UTF_8);
+                        }
+                        arrayList.add(new ReportPrivateMsgData(jSONObject2.optString("msgId"), str, jSONObject2.optString(FileMetaUtil.CREATE_TIME)));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
+            mi5.c(new a(this, optString), new b(this, optString, arrayList));
         }
-        hi5.c(new a(this, optString), new b(this, optString, arrayList));
     }
 }

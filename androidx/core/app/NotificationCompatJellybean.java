@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
 import android.util.SparseArray;
-import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 import androidx.core.graphics.drawable.IconCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -24,7 +23,6 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-@RequiresApi(16)
 /* loaded from: classes.dex */
 public class NotificationCompatJellybean {
     public static /* synthetic */ Interceptable $ic = null;
@@ -106,6 +104,26 @@ public class NotificationCompatJellybean {
         return (SparseArray) invokeL.objValue;
     }
 
+    public static Object[] getActionObjectsLocked(Notification notification) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, notification)) == null) {
+            synchronized (sActionsLock) {
+                if (!ensureActionReflectionReadyLocked()) {
+                    return null;
+                }
+                try {
+                    return (Object[]) sActionsField.get(notification);
+                } catch (IllegalAccessException e) {
+                    Log.e(TAG, "Unable to access notification actions", e);
+                    sActionsAccessFailed = true;
+                    return null;
+                }
+            }
+        }
+        return (Object[]) invokeL.objValue;
+    }
+
     public static boolean ensureActionReflectionReadyLocked() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -168,8 +186,43 @@ public class NotificationCompatJellybean {
         return (RemoteInput[]) invokeL.objValue;
     }
 
+    public static int getActionCount(Notification notification) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, notification)) == null) {
+            synchronized (sActionsLock) {
+                Object[] actionObjectsLocked = getActionObjectsLocked(notification);
+                if (actionObjectsLocked != null) {
+                    i = actionObjectsLocked.length;
+                } else {
+                    i = 0;
+                }
+            }
+            return i;
+        }
+        return invokeL.intValue;
+    }
+
+    public static Bundle[] toBundleArray(RemoteInput[] remoteInputArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, remoteInputArr)) == null) {
+            if (remoteInputArr == null) {
+                return null;
+            }
+            Bundle[] bundleArr = new Bundle[remoteInputArr.length];
+            for (int i = 0; i < remoteInputArr.length; i++) {
+                bundleArr[i] = toBundle(remoteInputArr[i]);
+            }
+            return bundleArr;
+        }
+        return (Bundle[]) invokeL.objValue;
+    }
+
     public static NotificationCompat.Action getAction(Notification notification, int i) {
         InterceptResult invokeLI;
+        Bundle bundle;
         SparseArray sparseParcelableArray;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, notification, i)) == null) {
@@ -180,7 +233,12 @@ public class NotificationCompatJellybean {
                         if (actionObjectsLocked != null) {
                             Object obj = actionObjectsLocked[i];
                             Bundle extras = getExtras(notification);
-                            return readAction(sActionIconField.getInt(obj), (CharSequence) sActionTitleField.get(obj), (PendingIntent) sActionIntentField.get(obj), (extras == null || (sparseParcelableArray = extras.getSparseParcelableArray(NotificationCompatExtras.EXTRA_ACTION_EXTRAS)) == null) ? null : (Bundle) sparseParcelableArray.get(i));
+                            if (extras != null && (sparseParcelableArray = extras.getSparseParcelableArray(NotificationCompatExtras.EXTRA_ACTION_EXTRAS)) != null) {
+                                bundle = (Bundle) sparseParcelableArray.get(i);
+                            } else {
+                                bundle = null;
+                            }
+                            return readAction(sActionIconField.getInt(obj), (CharSequence) sActionTitleField.get(obj), (PendingIntent) sActionIntentField.get(obj), bundle);
                         }
                     } catch (IllegalAccessException e) {
                         Log.e(TAG, "Unable to access notification actions", e);
@@ -195,73 +253,36 @@ public class NotificationCompatJellybean {
         return (NotificationCompat.Action) invokeLI.objValue;
     }
 
-    public static int getActionCount(Notification notification) {
-        InterceptResult invokeL;
-        int length;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, notification)) == null) {
-            synchronized (sActionsLock) {
-                Object[] actionObjectsLocked = getActionObjectsLocked(notification);
-                length = actionObjectsLocked != null ? actionObjectsLocked.length : 0;
-            }
-            return length;
-        }
-        return invokeL.intValue;
-    }
-
     public static NotificationCompat.Action getActionFromBundle(Bundle bundle) {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bundle)) == null) {
             Bundle bundle2 = bundle.getBundle("extras");
-            return new NotificationCompat.Action(bundle.getInt("icon"), bundle.getCharSequence("title"), (PendingIntent) bundle.getParcelable(KEY_ACTION_INTENT), bundle.getBundle("extras"), fromBundleArray(getBundleArrayFromBundle(bundle, KEY_REMOTE_INPUTS)), fromBundleArray(getBundleArrayFromBundle(bundle, KEY_DATA_ONLY_REMOTE_INPUTS)), bundle2 != null ? bundle2.getBoolean(EXTRA_ALLOW_GENERATED_REPLIES, false) : false, bundle.getInt(KEY_SEMANTIC_ACTION), bundle.getBoolean(KEY_SHOWS_USER_INTERFACE), false);
+            if (bundle2 != null) {
+                z = bundle2.getBoolean(EXTRA_ALLOW_GENERATED_REPLIES, false);
+            } else {
+                z = false;
+            }
+            return new NotificationCompat.Action(bundle.getInt("icon"), bundle.getCharSequence("title"), (PendingIntent) bundle.getParcelable(KEY_ACTION_INTENT), bundle.getBundle("extras"), fromBundleArray(getBundleArrayFromBundle(bundle, KEY_REMOTE_INPUTS)), fromBundleArray(getBundleArrayFromBundle(bundle, KEY_DATA_ONLY_REMOTE_INPUTS)), z, bundle.getInt(KEY_SEMANTIC_ACTION), bundle.getBoolean(KEY_SHOWS_USER_INTERFACE), false);
         }
         return (NotificationCompat.Action) invokeL.objValue;
     }
 
-    public static Object[] getActionObjectsLocked(Notification notification) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, notification)) == null) {
-            synchronized (sActionsLock) {
-                if (ensureActionReflectionReadyLocked()) {
-                    try {
-                        return (Object[]) sActionsField.get(notification);
-                    } catch (IllegalAccessException e) {
-                        Log.e(TAG, "Unable to access notification actions", e);
-                        sActionsAccessFailed = true;
-                        return null;
-                    }
-                }
-                return null;
-            }
-        }
-        return (Object[]) invokeL.objValue;
-    }
-
-    public static Bundle[] getBundleArrayFromBundle(Bundle bundle, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, bundle, str)) == null) {
-            Parcelable[] parcelableArray = bundle.getParcelableArray(str);
-            if (!(parcelableArray instanceof Bundle[]) && parcelableArray != null) {
-                Bundle[] bundleArr = (Bundle[]) Arrays.copyOf(parcelableArray, parcelableArray.length, Bundle[].class);
-                bundle.putParcelableArray(str, bundleArr);
-                return bundleArr;
-            }
-            return (Bundle[]) parcelableArray;
-        }
-        return (Bundle[]) invokeLL.objValue;
-    }
-
     public static Bundle getBundleForAction(NotificationCompat.Action action) {
         InterceptResult invokeL;
+        int i;
         Bundle bundle;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, action)) == null) {
             Bundle bundle2 = new Bundle();
             IconCompat iconCompat = action.getIconCompat();
-            bundle2.putInt("icon", iconCompat != null ? iconCompat.getResId() : 0);
+            if (iconCompat != null) {
+                i = iconCompat.getResId();
+            } else {
+                i = 0;
+            }
+            bundle2.putInt("icon", i);
             bundle2.putCharSequence("title", action.getTitle());
             bundle2.putParcelable(KEY_ACTION_INTENT, action.getActionIntent());
             if (action.getExtras() != null) {
@@ -318,27 +339,6 @@ public class NotificationCompatJellybean {
         return (Bundle) invokeL.objValue;
     }
 
-    public static NotificationCompat.Action readAction(int i, CharSequence charSequence, PendingIntent pendingIntent, Bundle bundle) {
-        InterceptResult invokeCommon;
-        RemoteInput[] remoteInputArr;
-        RemoteInput[] remoteInputArr2;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{Integer.valueOf(i), charSequence, pendingIntent, bundle})) == null) {
-            if (bundle != null) {
-                remoteInputArr = fromBundleArray(getBundleArrayFromBundle(bundle, NotificationCompatExtras.EXTRA_REMOTE_INPUTS));
-                remoteInputArr2 = fromBundleArray(getBundleArrayFromBundle(bundle, EXTRA_DATA_ONLY_REMOTE_INPUTS));
-                z = bundle.getBoolean(EXTRA_ALLOW_GENERATED_REPLIES);
-            } else {
-                remoteInputArr = null;
-                remoteInputArr2 = null;
-                z = false;
-            }
-            return new NotificationCompat.Action(i, charSequence, pendingIntent, bundle, remoteInputArr, remoteInputArr2, z, 0, true, false);
-        }
-        return (NotificationCompat.Action) invokeCommon.objValue;
-    }
-
     public static Bundle toBundle(RemoteInput remoteInput) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -362,28 +362,54 @@ public class NotificationCompatJellybean {
         return (Bundle) invokeL.objValue;
     }
 
-    public static Bundle[] toBundleArray(RemoteInput[] remoteInputArr) {
-        InterceptResult invokeL;
+    public static Bundle[] getBundleArrayFromBundle(Bundle bundle, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, remoteInputArr)) == null) {
-            if (remoteInputArr == null) {
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, bundle, str)) == null) {
+            Parcelable[] parcelableArray = bundle.getParcelableArray(str);
+            if (!(parcelableArray instanceof Bundle[]) && parcelableArray != null) {
+                Bundle[] bundleArr = (Bundle[]) Arrays.copyOf(parcelableArray, parcelableArray.length, Bundle[].class);
+                bundle.putParcelableArray(str, bundleArr);
+                return bundleArr;
             }
-            Bundle[] bundleArr = new Bundle[remoteInputArr.length];
-            for (int i = 0; i < remoteInputArr.length; i++) {
-                bundleArr[i] = toBundle(remoteInputArr[i]);
-            }
-            return bundleArr;
+            return (Bundle[]) parcelableArray;
         }
-        return (Bundle[]) invokeL.objValue;
+        return (Bundle[]) invokeLL.objValue;
+    }
+
+    public static NotificationCompat.Action readAction(int i, CharSequence charSequence, PendingIntent pendingIntent, Bundle bundle) {
+        InterceptResult invokeCommon;
+        RemoteInput[] remoteInputArr;
+        RemoteInput[] remoteInputArr2;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{Integer.valueOf(i), charSequence, pendingIntent, bundle})) == null) {
+            if (bundle != null) {
+                remoteInputArr = fromBundleArray(getBundleArrayFromBundle(bundle, NotificationCompatExtras.EXTRA_REMOTE_INPUTS));
+                remoteInputArr2 = fromBundleArray(getBundleArrayFromBundle(bundle, EXTRA_DATA_ONLY_REMOTE_INPUTS));
+                z = bundle.getBoolean(EXTRA_ALLOW_GENERATED_REPLIES);
+            } else {
+                remoteInputArr = null;
+                remoteInputArr2 = null;
+                z = false;
+            }
+            return new NotificationCompat.Action(i, charSequence, pendingIntent, bundle, remoteInputArr, remoteInputArr2, z, 0, true, false);
+        }
+        return (NotificationCompat.Action) invokeCommon.objValue;
     }
 
     public static Bundle writeActionAndGetExtras(Notification.Builder builder, NotificationCompat.Action action) {
         InterceptResult invokeLL;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, builder, action)) == null) {
             IconCompat iconCompat = action.getIconCompat();
-            builder.addAction(iconCompat != null ? iconCompat.getResId() : 0, action.getTitle(), action.getActionIntent());
+            if (iconCompat != null) {
+                i = iconCompat.getResId();
+            } else {
+                i = 0;
+            }
+            builder.addAction(i, action.getTitle(), action.getActionIntent());
             Bundle bundle = new Bundle(action.getExtras());
             if (action.getRemoteInputs() != null) {
                 bundle.putParcelableArray(NotificationCompatExtras.EXTRA_REMOTE_INPUTS, toBundleArray(action.getRemoteInputs()));

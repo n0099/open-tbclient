@@ -21,7 +21,7 @@ public class AnimatedDrawableFrameInfo {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class BlendOperation {
+    public final class BlendOperation {
         public static final /* synthetic */ BlendOperation[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final BlendOperation BLEND_WITH_PREVIOUS;
@@ -69,19 +69,25 @@ public class AnimatedDrawableFrameInfo {
         public static BlendOperation valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (BlendOperation) Enum.valueOf(BlendOperation.class, str) : (BlendOperation) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (BlendOperation) Enum.valueOf(BlendOperation.class, str);
+            }
+            return (BlendOperation) invokeL.objValue;
         }
 
         public static BlendOperation[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (BlendOperation[]) $VALUES.clone() : (BlendOperation[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (BlendOperation[]) $VALUES.clone();
+            }
+            return (BlendOperation[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public static final class DisposalMethod {
+    public final class DisposalMethod {
         public static final /* synthetic */ DisposalMethod[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final DisposalMethod DISPOSE_DO_NOT;
@@ -131,13 +137,19 @@ public class AnimatedDrawableFrameInfo {
         public static DisposalMethod valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (DisposalMethod) Enum.valueOf(DisposalMethod.class, str) : (DisposalMethod) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (DisposalMethod) Enum.valueOf(DisposalMethod.class, str);
+            }
+            return (DisposalMethod) invokeL.objValue;
         }
 
         public static DisposalMethod[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (DisposalMethod[]) $VALUES.clone() : (DisposalMethod[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (DisposalMethod[]) $VALUES.clone();
+            }
+            return (DisposalMethod[]) invokeV.objValue;
         }
     }
 

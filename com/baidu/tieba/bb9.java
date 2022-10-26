@@ -1,63 +1,68 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.JsonWriter;
+import android.content.SharedPreferences;
+import com.baidu.android.util.KVStorageFactory;
+import com.baidu.android.util.sp.SharedPrefsWrapper;
+import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.IOException;
-import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class bb9 {
+public class bb9 extends SharedPrefsWrapper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(JsonWriter jsonWriter, Object obj) throws IOException {
-        Object opt;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, jsonWriter, obj) == null) {
-            if (obj != null && obj != JSONObject.NULL) {
-                if (obj instanceof JSONArray) {
-                    JSONArray jSONArray = (JSONArray) obj;
-                    jsonWriter.beginArray();
-                    int length = jSONArray.length();
-                    for (int i = 0; i < length; i++) {
-                        Object opt2 = jSONArray.opt(i);
-                        if (opt2 != null) {
-                            a(jsonWriter, opt2);
-                        }
-                    }
-                    jsonWriter.endArray();
-                    return;
-                } else if (obj instanceof JSONObject) {
-                    JSONObject jSONObject = (JSONObject) obj;
-                    jsonWriter.beginObject();
-                    Iterator<String> keys = jSONObject.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        if (!TextUtils.isEmpty(next) && (opt = jSONObject.opt(next)) != null) {
-                            jsonWriter.name(next);
-                            a(jsonWriter, opt);
-                        }
-                    }
-                    jsonWriter.endObject();
-                    return;
-                } else if (obj instanceof Number) {
-                    jsonWriter.value((Number) obj);
-                    return;
-                } else if (obj instanceof String) {
-                    jsonWriter.value((String) obj);
-                    return;
-                } else if (obj instanceof Boolean) {
-                    jsonWriter.value(((Boolean) obj).booleanValue());
-                    return;
-                } else {
-                    jsonWriter.value(obj.toString());
+    /* loaded from: classes3.dex */
+    public final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final bb9 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-924350509, "Lcom/baidu/tieba/bb9$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-924350509, "Lcom/baidu/tieba/bb9$a;");
                     return;
                 }
             }
-            jsonWriter.nullValue();
+            a = new bb9();
         }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bb9() {
+        super(KVStorageFactory.getSharedPreferences(UBCCloudControlProcessor.SP_UBC_FILE_NAME));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((SharedPreferences) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public static bb9 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a;
+        }
+        return (bb9) invokeV.objValue;
     }
 }

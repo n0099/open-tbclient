@@ -1,6 +1,5 @@
 package com.baidu.location.c;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.location.GnssStatus;
 import android.location.GpsSatellite;
@@ -51,8 +50,8 @@ public class e {
     public int F;
     public long H;
     public long I;
-    public ArrayList<ArrayList<Float>> J;
-    public ArrayList<ArrayList<Float>> K;
+    public ArrayList J;
+    public ArrayList K;
     public Context d;
     public LocationManager e;
     public Location f;
@@ -73,7 +72,6 @@ public class e {
     public long y;
     public double z;
 
-    @TargetApi(24)
     /* loaded from: classes2.dex */
     public class a extends GnssStatus.Callback {
         public static /* synthetic */ Interceptable $ic;
@@ -523,8 +521,8 @@ public class e {
         this.D = null;
         this.H = 0L;
         this.I = 0L;
-        this.J = new ArrayList<>();
-        this.K = new ArrayList<>();
+        this.J = new ArrayList();
+        this.K = new ArrayList();
         if (Build.VERSION.SDK_INT >= 24) {
             try {
                 Class.forName("android.location.GnssStatus");
@@ -774,21 +772,21 @@ public class e {
             if (this.J.size() > 32 || this.J.size() == 0) {
                 return sb.toString();
             }
-            Iterator<ArrayList<Float>> it = this.J.iterator();
+            Iterator it = this.J.iterator();
             boolean z = true;
             while (it.hasNext()) {
-                ArrayList<Float> next = it.next();
-                if (next.size() == 6) {
+                ArrayList arrayList = (ArrayList) it.next();
+                if (arrayList.size() == 6) {
                     if (z) {
                         z = false;
                     } else {
                         sb.append("|");
                     }
-                    sb.append(String.format("%.1f;", next.get(0)));
-                    sb.append(String.format("%.1f;", next.get(1)));
-                    sb.append(String.format("%.0f;", next.get(2)));
-                    sb.append(String.format("%.0f;", next.get(3)));
-                    sb.append(String.format("%.0f", next.get(4)));
+                    sb.append(String.format("%.1f;", arrayList.get(0)));
+                    sb.append(String.format("%.1f;", arrayList.get(1)));
+                    sb.append(String.format("%.0f;", arrayList.get(2)));
+                    sb.append(String.format("%.0f;", arrayList.get(3)));
+                    sb.append(String.format("%.0f", arrayList.get(4)));
                 }
             }
             return sb.toString();
@@ -805,22 +803,22 @@ public class e {
             if (this.K.size() == 0) {
                 return sb.toString();
             }
-            Iterator<ArrayList<Float>> it = this.K.iterator();
+            Iterator it = this.K.iterator();
             boolean z = true;
             while (it.hasNext()) {
-                ArrayList<Float> next = it.next();
-                if (next.size() == 6) {
+                ArrayList arrayList = (ArrayList) it.next();
+                if (arrayList.size() == 6) {
                     if (z) {
                         z = false;
                     } else {
                         sb.append("|");
                     }
-                    sb.append(String.format("%.1f;", next.get(0)));
-                    sb.append(String.format("%.1f;", next.get(1)));
-                    sb.append(String.format("%.0f;", next.get(2)));
-                    sb.append(String.format("%.0f;", next.get(3)));
-                    sb.append(String.format("%.0f", next.get(4)));
-                    sb.append(String.format("%.0f", next.get(5)));
+                    sb.append(String.format("%.1f;", arrayList.get(0)));
+                    sb.append(String.format("%.1f;", arrayList.get(1)));
+                    sb.append(String.format("%.0f;", arrayList.get(2)));
+                    sb.append(String.format("%.0f;", arrayList.get(3)));
+                    sb.append(String.format("%.0f", arrayList.get(4)));
+                    sb.append(String.format("%.0f", arrayList.get(5)));
                 }
             }
             return sb.toString();

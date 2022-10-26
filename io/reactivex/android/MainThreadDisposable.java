@@ -16,6 +16,8 @@ public abstract class MainThreadDisposable implements Disposable {
     public transient /* synthetic */ FieldHolder $fh;
     public final AtomicBoolean unsubscribed;
 
+    public abstract void onDispose();
+
     public MainThreadDisposable() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -32,9 +34,19 @@ public abstract class MainThreadDisposable implements Disposable {
         this.unsubscribed = new AtomicBoolean();
     }
 
+    @Override // io.reactivex.disposables.Disposable
+    public final boolean isDisposed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.unsubscribed.get();
+        }
+        return invokeV.booleanValue;
+    }
+
     public static void verifyMainThread() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || Looper.myLooper() == Looper.getMainLooper()) {
+        if ((interceptable != null && interceptable.invokeV(65537, null) != null) || Looper.myLooper() == Looper.getMainLooper()) {
             return;
         }
         throw new IllegalStateException("Expected to be called on the main thread but was " + Thread.currentThread().getName());
@@ -81,13 +93,4 @@ public abstract class MainThreadDisposable implements Disposable {
             }
         }
     }
-
-    @Override // io.reactivex.disposables.Disposable
-    public final boolean isDisposed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.unsubscribed.get() : invokeV.booleanValue;
-    }
-
-    public abstract void onDispose();
 }

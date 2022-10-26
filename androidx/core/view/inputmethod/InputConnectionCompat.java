@@ -10,8 +10,6 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputConnectionWrapper;
 import android.view.inputmethod.InputContentInfo;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,9 +55,15 @@ public final class InputConnectionCompat {
         }
     }
 
-    public static boolean commitContent(@NonNull InputConnection inputConnection, @NonNull EditorInfo editorInfo, @NonNull InputContentInfoCompat inputContentInfoCompat, int i, @Nullable Bundle bundle) {
+    public static boolean commitContent(InputConnection inputConnection, EditorInfo editorInfo, InputContentInfoCompat inputContentInfoCompat, int i, Bundle bundle) {
         InterceptResult invokeCommon;
         boolean z;
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        String str5;
+        String str6;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{inputConnection, editorInfo, inputContentInfoCompat, Integer.valueOf(i), bundle})) == null) {
             ClipDescription description = inputContentInfoCompat.getDescription();
@@ -68,41 +72,73 @@ public final class InputConnectionCompat {
             boolean z2 = false;
             int i2 = 0;
             while (true) {
-                if (i2 >= length) {
+                if (i2 < length) {
+                    if (description.hasMimeType(contentMimeTypes[i2])) {
+                        z = true;
+                        break;
+                    }
+                    i2++;
+                } else {
                     z = false;
                     break;
-                } else if (description.hasMimeType(contentMimeTypes[i2])) {
-                    z = true;
-                    break;
-                } else {
-                    i2++;
                 }
             }
-            if (z) {
-                if (Build.VERSION.SDK_INT >= 25) {
-                    return inputConnection.commitContent((InputContentInfo) inputContentInfoCompat.unwrap(), i, bundle);
-                }
-                int protocol = EditorInfoCompat.getProtocol(editorInfo);
-                if (protocol == 2) {
-                    z2 = true;
-                } else if (protocol != 3 && protocol != 4) {
+            if (!z) {
+                return false;
+            }
+            if (Build.VERSION.SDK_INT >= 25) {
+                return inputConnection.commitContent((InputContentInfo) inputContentInfoCompat.unwrap(), i, bundle);
+            }
+            int protocol = EditorInfoCompat.getProtocol(editorInfo);
+            if (protocol != 2) {
+                if (protocol != 3 && protocol != 4) {
                     return false;
                 }
-                Bundle bundle2 = new Bundle();
-                bundle2.putParcelable(z2 ? COMMIT_CONTENT_CONTENT_URI_INTEROP_KEY : COMMIT_CONTENT_CONTENT_URI_KEY, inputContentInfoCompat.getContentUri());
-                bundle2.putParcelable(z2 ? COMMIT_CONTENT_DESCRIPTION_INTEROP_KEY : COMMIT_CONTENT_DESCRIPTION_KEY, inputContentInfoCompat.getDescription());
-                bundle2.putParcelable(z2 ? COMMIT_CONTENT_LINK_URI_INTEROP_KEY : COMMIT_CONTENT_LINK_URI_KEY, inputContentInfoCompat.getLinkUri());
-                bundle2.putInt(z2 ? COMMIT_CONTENT_FLAGS_INTEROP_KEY : COMMIT_CONTENT_FLAGS_KEY, i);
-                bundle2.putParcelable(z2 ? COMMIT_CONTENT_OPTS_INTEROP_KEY : COMMIT_CONTENT_OPTS_KEY, bundle);
-                return inputConnection.performPrivateCommand(z2 ? COMMIT_CONTENT_INTEROP_ACTION : COMMIT_CONTENT_ACTION, bundle2);
+            } else {
+                z2 = true;
             }
-            return false;
+            Bundle bundle2 = new Bundle();
+            if (z2) {
+                str = COMMIT_CONTENT_CONTENT_URI_INTEROP_KEY;
+            } else {
+                str = COMMIT_CONTENT_CONTENT_URI_KEY;
+            }
+            bundle2.putParcelable(str, inputContentInfoCompat.getContentUri());
+            if (z2) {
+                str2 = COMMIT_CONTENT_DESCRIPTION_INTEROP_KEY;
+            } else {
+                str2 = COMMIT_CONTENT_DESCRIPTION_KEY;
+            }
+            bundle2.putParcelable(str2, inputContentInfoCompat.getDescription());
+            if (z2) {
+                str3 = COMMIT_CONTENT_LINK_URI_INTEROP_KEY;
+            } else {
+                str3 = COMMIT_CONTENT_LINK_URI_KEY;
+            }
+            bundle2.putParcelable(str3, inputContentInfoCompat.getLinkUri());
+            if (z2) {
+                str4 = COMMIT_CONTENT_FLAGS_INTEROP_KEY;
+            } else {
+                str4 = COMMIT_CONTENT_FLAGS_KEY;
+            }
+            bundle2.putInt(str4, i);
+            if (z2) {
+                str5 = COMMIT_CONTENT_OPTS_INTEROP_KEY;
+            } else {
+                str5 = COMMIT_CONTENT_OPTS_KEY;
+            }
+            bundle2.putParcelable(str5, bundle);
+            if (z2) {
+                str6 = COMMIT_CONTENT_INTEROP_ACTION;
+            } else {
+                str6 = COMMIT_CONTENT_ACTION;
+            }
+            return inputConnection.performPrivateCommand(str6, bundle2);
         }
         return invokeCommon.booleanValue;
     }
 
-    @NonNull
-    public static InputConnection createWrapper(@NonNull InputConnection inputConnection, @NonNull EditorInfo editorInfo, @NonNull OnCommitContentListener onCommitContentListener) {
+    public static InputConnection createWrapper(InputConnection inputConnection, EditorInfo editorInfo, OnCommitContentListener onCommitContentListener) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, inputConnection, editorInfo, onCommitContentListener)) == null) {
@@ -151,7 +187,10 @@ public final class InputConnectionCompat {
                                 }
                             };
                         }
-                        return EditorInfoCompat.getContentMimeTypes(editorInfo).length == 0 ? inputConnection : new InputConnectionWrapper(inputConnection, false, onCommitContentListener) { // from class: androidx.core.view.inputmethod.InputConnectionCompat.2
+                        if (EditorInfoCompat.getContentMimeTypes(editorInfo).length == 0) {
+                            return inputConnection;
+                        }
+                        return new InputConnectionWrapper(inputConnection, false, onCommitContentListener) { // from class: androidx.core.view.inputmethod.InputConnectionCompat.2
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ OnCommitContentListener val$listener;
@@ -207,54 +246,91 @@ public final class InputConnectionCompat {
     /* JADX DEBUG: Multi-variable search result rejected for r2v5, resolved type: android.os.ResultReceiver */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v2 */
-    /* JADX WARN: Type inference failed for: r0v5, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r0v5, types: [boolean, int] */
     /* JADX WARN: Type inference failed for: r0v7 */
     /* JADX WARN: Type inference failed for: r0v8 */
-    public static boolean handlePerformPrivateCommand(@Nullable String str, @NonNull Bundle bundle, @NonNull OnCommitContentListener onCommitContentListener) {
+    public static boolean handlePerformPrivateCommand(String str, Bundle bundle, OnCommitContentListener onCommitContentListener) {
         InterceptResult invokeLLL;
         boolean z;
+        String str2;
         ResultReceiver resultReceiver;
+        String str3;
+        String str4;
+        String str5;
+        String str6;
+        String str7;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65539, null, str, bundle, onCommitContentListener)) != null) {
-            return invokeLLL.booleanValue;
-        }
-        ?? r0 = 0;
-        r0 = 0;
-        if (bundle == null) {
-            return false;
-        }
-        if (TextUtils.equals(COMMIT_CONTENT_ACTION, str)) {
-            z = false;
-        } else if (!TextUtils.equals(COMMIT_CONTENT_INTEROP_ACTION, str)) {
-            return false;
-        } else {
-            z = true;
-        }
-        try {
-            resultReceiver = (ResultReceiver) bundle.getParcelable(z ? COMMIT_CONTENT_RESULT_INTEROP_RECEIVER_KEY : COMMIT_CONTENT_RESULT_RECEIVER_KEY);
-            try {
-                Uri uri = (Uri) bundle.getParcelable(z ? COMMIT_CONTENT_CONTENT_URI_INTEROP_KEY : COMMIT_CONTENT_CONTENT_URI_KEY);
-                ClipDescription clipDescription = (ClipDescription) bundle.getParcelable(z ? COMMIT_CONTENT_DESCRIPTION_INTEROP_KEY : COMMIT_CONTENT_DESCRIPTION_KEY);
-                Uri uri2 = (Uri) bundle.getParcelable(z ? COMMIT_CONTENT_LINK_URI_INTEROP_KEY : COMMIT_CONTENT_LINK_URI_KEY);
-                int i = bundle.getInt(z ? COMMIT_CONTENT_FLAGS_INTEROP_KEY : COMMIT_CONTENT_FLAGS_KEY);
-                Bundle bundle2 = (Bundle) bundle.getParcelable(z ? COMMIT_CONTENT_OPTS_INTEROP_KEY : COMMIT_CONTENT_OPTS_KEY);
-                if (uri != null && clipDescription != null) {
-                    r0 = onCommitContentListener.onCommitContent(new InputContentInfoCompat(uri, clipDescription, uri2), i, bundle2);
-                }
-                if (resultReceiver != 0) {
-                    resultReceiver.send(r0, null);
-                }
-                return r0;
-            } catch (Throwable th) {
-                th = th;
-                if (resultReceiver != 0) {
-                    resultReceiver.send(0, null);
-                }
-                throw th;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, bundle, onCommitContentListener)) == null) {
+            ?? r0 = 0;
+            r0 = 0;
+            if (bundle == null) {
+                return false;
             }
-        } catch (Throwable th2) {
-            th = th2;
-            resultReceiver = 0;
+            if (TextUtils.equals(COMMIT_CONTENT_ACTION, str)) {
+                z = false;
+            } else if (!TextUtils.equals(COMMIT_CONTENT_INTEROP_ACTION, str)) {
+                return false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                str2 = COMMIT_CONTENT_RESULT_INTEROP_RECEIVER_KEY;
+            } else {
+                str2 = COMMIT_CONTENT_RESULT_RECEIVER_KEY;
+            }
+            try {
+                resultReceiver = (ResultReceiver) bundle.getParcelable(str2);
+                if (z) {
+                    str3 = COMMIT_CONTENT_CONTENT_URI_INTEROP_KEY;
+                } else {
+                    str3 = COMMIT_CONTENT_CONTENT_URI_KEY;
+                }
+                try {
+                    Uri uri = (Uri) bundle.getParcelable(str3);
+                    if (z) {
+                        str4 = COMMIT_CONTENT_DESCRIPTION_INTEROP_KEY;
+                    } else {
+                        str4 = COMMIT_CONTENT_DESCRIPTION_KEY;
+                    }
+                    ClipDescription clipDescription = (ClipDescription) bundle.getParcelable(str4);
+                    if (z) {
+                        str5 = COMMIT_CONTENT_LINK_URI_INTEROP_KEY;
+                    } else {
+                        str5 = COMMIT_CONTENT_LINK_URI_KEY;
+                    }
+                    Uri uri2 = (Uri) bundle.getParcelable(str5);
+                    if (z) {
+                        str6 = COMMIT_CONTENT_FLAGS_INTEROP_KEY;
+                    } else {
+                        str6 = COMMIT_CONTENT_FLAGS_KEY;
+                    }
+                    int i = bundle.getInt(str6);
+                    if (z) {
+                        str7 = COMMIT_CONTENT_OPTS_INTEROP_KEY;
+                    } else {
+                        str7 = COMMIT_CONTENT_OPTS_KEY;
+                    }
+                    Bundle bundle2 = (Bundle) bundle.getParcelable(str7);
+                    if (uri != null && clipDescription != null) {
+                        r0 = onCommitContentListener.onCommitContent(new InputContentInfoCompat(uri, clipDescription, uri2), i, bundle2);
+                    }
+                    if (resultReceiver != 0) {
+                        resultReceiver.send(r0, null);
+                    }
+                    return r0;
+                } catch (Throwable th) {
+                    th = th;
+                    if (resultReceiver != 0) {
+                        resultReceiver.send(0, null);
+                    }
+                    throw th;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                resultReceiver = 0;
+            }
+        } else {
+            return invokeLLL.booleanValue;
         }
     }
 }

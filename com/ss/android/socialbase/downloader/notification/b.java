@@ -18,9 +18,13 @@ public class b {
     public static volatile b c;
     public static final Object e = new Object();
     public final long a = 1000;
-    public final Map<Integer, Long> b = new HashMap();
-    public final Set<String> d = new HashSet();
-    public final SparseArray<a> f = new SparseArray<>();
+    public final Map b = new HashMap();
+    public final Set d = new HashSet();
+    public final SparseArray f = new SparseArray();
+
+    public static boolean b(int i) {
+        return i == 1 || i == 3;
+    }
 
     public static b a() {
         if (c == null) {
@@ -33,12 +37,28 @@ public class b {
         return c;
     }
 
-    public static boolean b(int i) {
-        return i == 1 || i == 3;
+    public SparseArray b() {
+        SparseArray sparseArray;
+        synchronized (this.f) {
+            sparseArray = this.f;
+        }
+        return sparseArray;
     }
 
     public static boolean c(DownloadInfo downloadInfo) {
-        return downloadInfo.isDownloadOverStatus() && b(downloadInfo.getNotificationVisibility());
+        if (downloadInfo.isDownloadOverStatus() && b(downloadInfo.getNotificationVisibility())) {
+            return true;
+        }
+        return false;
+    }
+
+    public void a(int i) {
+        DownloadInfo downloadInfo = Downloader.getInstance(c.N()).getDownloadInfo(i);
+        if (downloadInfo == null) {
+            return;
+        }
+        a(downloadInfo);
+        b(downloadInfo);
     }
 
     public void b(DownloadInfo downloadInfo) {
@@ -53,7 +73,7 @@ public class b {
             return null;
         }
         synchronized (this.f) {
-            aVar = this.f.get(i);
+            aVar = (a) this.f.get(i);
             if (aVar != null) {
                 this.f.remove(i);
                 com.ss.android.socialbase.downloader.c.a.a("removeNotificationId " + i);
@@ -68,7 +88,7 @@ public class b {
             return null;
         }
         synchronized (this.f) {
-            aVar = this.f.get(i);
+            aVar = (a) this.f.get(i);
         }
         return aVar;
     }
@@ -80,36 +100,30 @@ public class b {
         }
     }
 
-    public void c(int i) {
+    public void a(int i, int i2, Notification notification) {
         Context N = c.N();
-        if (N == null || i == 0) {
-            return;
+        if (N != null && i != 0 && notification != null) {
+            if (i2 == 4) {
+                synchronized (this.b) {
+                    Long l = (Long) this.b.get(Integer.valueOf(i));
+                    long currentTimeMillis = System.currentTimeMillis();
+                    if (l != null && Math.abs(currentTimeMillis - l.longValue()) < 1000) {
+                        return;
+                    }
+                    this.b.put(Integer.valueOf(i), Long.valueOf(currentTimeMillis));
+                }
+            }
+            try {
+                Intent intent = new Intent(N, DownloadNotificationService.class);
+                intent.setAction("android.ss.intent.action.DOWNLOAD_NOTIFICATION_NOTIFY");
+                intent.putExtra("DOWNLOAD_NOTIFICATION_EXTRA_STATUS", i2);
+                intent.putExtra("DOWNLOAD_NOTIFICATION_BUNDLE_EXTRA_ID", i);
+                intent.putExtra("DOWNLOAD_NOTIFICATION_BUNDLE_EXTRA", notification);
+                N.startService(intent);
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
         }
-        try {
-            Intent intent = new Intent(N, DownloadNotificationService.class);
-            intent.setAction("android.ss.intent.action.DOWNLOAD_NOTIFICATION_CANCEL");
-            intent.putExtra("DOWNLOAD_NOTIFICATION_BUNDLE_EXTRA_ID", i);
-            N.startService(intent);
-        } catch (Throwable th) {
-            th.printStackTrace();
-        }
-    }
-
-    public SparseArray<a> b() {
-        SparseArray<a> sparseArray;
-        synchronized (this.f) {
-            sparseArray = this.f;
-        }
-        return sparseArray;
-    }
-
-    public void a(int i) {
-        DownloadInfo downloadInfo = Downloader.getInstance(c.N()).getDownloadInfo(i);
-        if (downloadInfo == null) {
-            return;
-        }
-        a(downloadInfo);
-        b(downloadInfo);
     }
 
     public void a(DownloadInfo downloadInfo) {
@@ -124,30 +138,17 @@ public class b {
         }
     }
 
-    public void a(int i, int i2, Notification notification) {
+    public void c(int i) {
         Context N = c.N();
-        if (N == null || i == 0 || notification == null) {
-            return;
-        }
-        if (i2 == 4) {
-            synchronized (this.b) {
-                Long l = this.b.get(Integer.valueOf(i));
-                long currentTimeMillis = System.currentTimeMillis();
-                if (l != null && Math.abs(currentTimeMillis - l.longValue()) < 1000) {
-                    return;
-                }
-                this.b.put(Integer.valueOf(i), Long.valueOf(currentTimeMillis));
+        if (N != null && i != 0) {
+            try {
+                Intent intent = new Intent(N, DownloadNotificationService.class);
+                intent.setAction("android.ss.intent.action.DOWNLOAD_NOTIFICATION_CANCEL");
+                intent.putExtra("DOWNLOAD_NOTIFICATION_BUNDLE_EXTRA_ID", i);
+                N.startService(intent);
+            } catch (Throwable th) {
+                th.printStackTrace();
             }
-        }
-        try {
-            Intent intent = new Intent(N, DownloadNotificationService.class);
-            intent.setAction("android.ss.intent.action.DOWNLOAD_NOTIFICATION_NOTIFY");
-            intent.putExtra("DOWNLOAD_NOTIFICATION_EXTRA_STATUS", i2);
-            intent.putExtra("DOWNLOAD_NOTIFICATION_BUNDLE_EXTRA_ID", i);
-            intent.putExtra("DOWNLOAD_NOTIFICATION_BUNDLE_EXTRA", notification);
-            N.startService(intent);
-        } catch (Throwable th) {
-            th.printStackTrace();
         }
     }
 

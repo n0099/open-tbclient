@@ -15,7 +15,7 @@ import org.json.JSONObject;
 public class GetHotWordsMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> mData;
+    public List mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetHotWordsMessage(int i) {
@@ -37,7 +37,7 @@ public class GetHotWordsMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    private List<String> parseHotWordsData(JSONObject jSONObject) {
+    private List parseHotWordsData(JSONObject jSONObject) {
         InterceptResult invokeL;
         String[] split;
         Interceptable interceptable = $ic;
@@ -60,16 +60,18 @@ public class GetHotWordsMessage extends JsonHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             int statusCode = getStatusCode();
             int error = getError();
-            if (statusCode != 200 || error < 0 || jSONObject == null) {
-                return;
+            if (statusCode == 200 && error >= 0 && jSONObject != null) {
+                this.mData = parseHotWordsData(jSONObject.optJSONObject("data"));
             }
-            this.mData = parseHotWordsData(jSONObject.optJSONObject("data"));
         }
     }
 
-    public List<String> getData() {
+    public List getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mData;
+        }
+        return (List) invokeV.objValue;
     }
 }

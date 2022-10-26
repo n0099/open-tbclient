@@ -17,8 +17,18 @@ public abstract class Timeline {
     public static final Timeline EMPTY;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract int getIndexOfPeriod(Object obj);
+
+    public abstract Period getPeriod(int i, Period period, boolean z);
+
+    public abstract int getPeriodCount();
+
+    public abstract Window getWindow(int i, Window window, boolean z, long j);
+
+    public abstract int getWindowCount();
+
     /* loaded from: classes7.dex */
-    public static final class Period {
+    public final class Period {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int[] adCounts;
@@ -47,22 +57,6 @@ public abstract class Timeline {
             }
         }
 
-        public int getAdCountInAdGroup(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.adCounts[i] : invokeI.intValue;
-        }
-
-        public long getAdDurationUs(int i, int i2) {
-            InterceptResult invokeII;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
-                long[][] jArr = this.adDurationsUs;
-                return i2 >= jArr[i].length ? C.TIME_UNSET : jArr[i][i2];
-            }
-            return invokeII.longValue;
-        }
-
         public int getAdGroupCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -74,6 +68,116 @@ public abstract class Timeline {
                 return jArr.length;
             }
             return invokeV.intValue;
+        }
+
+        public long getAdResumePositionUs() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return this.adResumePositionUs;
+            }
+            return invokeV.longValue;
+        }
+
+        public long getDurationMs() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return C.usToMs(this.durationUs);
+            }
+            return invokeV.longValue;
+        }
+
+        public long getDurationUs() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                return this.durationUs;
+            }
+            return invokeV.longValue;
+        }
+
+        public long getPositionInWindowMs() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                return C.usToMs(this.positionInWindowUs);
+            }
+            return invokeV.longValue;
+        }
+
+        public long getPositionInWindowUs() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+                return this.positionInWindowUs;
+            }
+            return invokeV.longValue;
+        }
+
+        public int getAdCountInAdGroup(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                return this.adCounts[i];
+            }
+            return invokeI.intValue;
+        }
+
+        public long getAdGroupTimeUs(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+                return this.adGroupTimesUs[i];
+            }
+            return invokeI.longValue;
+        }
+
+        public int getPlayedAdCount(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+                return this.adsPlayedCounts[i];
+            }
+            return invokeI.intValue;
+        }
+
+        public boolean hasPlayedAdGroup(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+                int[] iArr = this.adCounts;
+                if (iArr[i] != -1 && this.adsPlayedCounts[i] == iArr[i]) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeI.booleanValue;
+        }
+
+        public long getAdDurationUs(int i, int i2) {
+            InterceptResult invokeII;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
+                long[][] jArr = this.adDurationsUs;
+                if (i2 >= jArr[i].length) {
+                    return C.TIME_UNSET;
+                }
+                return jArr[i][i2];
+            }
+            return invokeII.longValue;
+        }
+
+        public boolean isAdAvailable(int i, int i2) {
+            InterceptResult invokeII;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeII = interceptable.invokeII(1048589, this, i, i2)) == null) {
+                if (i2 < this.adsLoadedCounts[i]) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeII.booleanValue;
         }
 
         public int getAdGroupIndexAfterPositionUs(long j) {
@@ -91,10 +195,10 @@ public abstract class Timeline {
                     }
                     i++;
                 }
-                if (i < this.adGroupTimesUs.length) {
-                    return i;
+                if (i >= this.adGroupTimesUs.length) {
+                    return -1;
                 }
-                return -1;
+                return i;
             }
             return invokeJ.intValue;
         }
@@ -123,68 +227,13 @@ public abstract class Timeline {
             return invokeJ.intValue;
         }
 
-        public long getAdGroupTimeUs(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? this.adGroupTimesUs[i] : invokeI.longValue;
-        }
-
-        public long getAdResumePositionUs() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.adResumePositionUs : invokeV.longValue;
-        }
-
-        public long getDurationMs() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? C.usToMs(this.durationUs) : invokeV.longValue;
-        }
-
-        public long getDurationUs() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.durationUs : invokeV.longValue;
-        }
-
-        public int getPlayedAdCount(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) ? this.adsPlayedCounts[i] : invokeI.intValue;
-        }
-
-        public long getPositionInWindowMs() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? C.usToMs(this.positionInWindowUs) : invokeV.longValue;
-        }
-
-        public long getPositionInWindowUs() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.positionInWindowUs : invokeV.longValue;
-        }
-
-        public boolean hasPlayedAdGroup(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
-                int[] iArr = this.adCounts;
-                return iArr[i] != -1 && this.adsPlayedCounts[i] == iArr[i];
-            }
-            return invokeI.booleanValue;
-        }
-
-        public boolean isAdAvailable(int i, int i2) {
-            InterceptResult invokeII;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeII = interceptable.invokeII(1048589, this, i, i2)) == null) ? i2 < this.adsLoadedCounts[i] : invokeII.booleanValue;
-        }
-
         public Period set(Object obj, Object obj2, int i, long j, long j2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{obj, obj2, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)})) == null) ? set(obj, obj2, i, j, j2, null, null, null, null, null, C.TIME_UNSET) : (Period) invokeCommon.objValue;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{obj, obj2, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)})) == null) {
+                return set(obj, obj2, i, j, j2, null, null, null, null, null, C.TIME_UNSET);
+            }
+            return (Period) invokeCommon.objValue;
         }
 
         public Period set(Object obj, Object obj2, int i, long j, long j2, long[] jArr, int[] iArr, int[] iArr2, int[] iArr3, long[][] jArr2, long j3) {
@@ -209,7 +258,7 @@ public abstract class Timeline {
     }
 
     /* loaded from: classes7.dex */
-    public static final class Window {
+    public final class Window {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long defaultPositionUs;
@@ -240,37 +289,55 @@ public abstract class Timeline {
         public long getDefaultPositionMs() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? C.usToMs(this.defaultPositionUs) : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return C.usToMs(this.defaultPositionUs);
+            }
+            return invokeV.longValue;
         }
 
         public long getDefaultPositionUs() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.defaultPositionUs : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.defaultPositionUs;
+            }
+            return invokeV.longValue;
         }
 
         public long getDurationMs() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? C.usToMs(this.durationUs) : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return C.usToMs(this.durationUs);
+            }
+            return invokeV.longValue;
         }
 
         public long getDurationUs() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.durationUs : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.durationUs;
+            }
+            return invokeV.longValue;
         }
 
         public long getPositionInFirstPeriodMs() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? C.usToMs(this.positionInFirstPeriodUs) : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return C.usToMs(this.positionInFirstPeriodUs);
+            }
+            return invokeV.longValue;
         }
 
         public long getPositionInFirstPeriodUs() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.positionInFirstPeriodUs : invokeV.longValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.positionInFirstPeriodUs;
+            }
+            return invokeV.longValue;
         }
 
         public Window set(Object obj, long j, long j2, boolean z, boolean z2, long j3, long j4, int i, int i2, long j5) {
@@ -310,6 +377,36 @@ public abstract class Timeline {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
+            @Override // com.google.android.exoplayer2.Timeline
+            public int getIndexOfPeriod(Object obj) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, obj)) == null) {
+                    return -1;
+                }
+                return invokeL.intValue;
+            }
+
+            @Override // com.google.android.exoplayer2.Timeline
+            public int getPeriodCount() {
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                    return 0;
+                }
+                return invokeV.intValue;
+            }
+
+            @Override // com.google.android.exoplayer2.Timeline
+            public int getWindowCount() {
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048580, this)) == null) {
+                    return 0;
+                }
+                return invokeV.intValue;
+            }
+
             {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null) {
@@ -325,16 +422,6 @@ public abstract class Timeline {
             }
 
             @Override // com.google.android.exoplayer2.Timeline
-            public int getIndexOfPeriod(Object obj) {
-                InterceptResult invokeL;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, obj)) == null) {
-                    return -1;
-                }
-                return invokeL.intValue;
-            }
-
-            @Override // com.google.android.exoplayer2.Timeline
             public Period getPeriod(int i, Period period, boolean z) {
                 InterceptResult invokeCommon;
                 Interceptable interceptable2 = $ic;
@@ -345,16 +432,6 @@ public abstract class Timeline {
             }
 
             @Override // com.google.android.exoplayer2.Timeline
-            public int getPeriodCount() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                    return 0;
-                }
-                return invokeV.intValue;
-            }
-
-            @Override // com.google.android.exoplayer2.Timeline
             public Window getWindow(int i, Window window, boolean z, long j) {
                 InterceptResult invokeCommon;
                 Interceptable interceptable2 = $ic;
@@ -362,16 +439,6 @@ public abstract class Timeline {
                     throw new IndexOutOfBoundsException();
                 }
                 return (Window) invokeCommon.objValue;
-            }
-
-            @Override // com.google.android.exoplayer2.Timeline
-            public int getWindowCount() {
-                InterceptResult invokeV;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048580, this)) == null) {
-                    return 0;
-                }
-                return invokeV.intValue;
             }
         };
     }
@@ -390,13 +457,29 @@ public abstract class Timeline {
         }
     }
 
+    public final boolean isEmpty() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            if (getWindowCount() == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public int getFirstWindowIndex(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) ? isEmpty() ? -1 : 0 : invokeZ.intValue;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            if (isEmpty()) {
+                return -1;
+            }
+            return 0;
+        }
+        return invokeZ.intValue;
     }
-
-    public abstract int getIndexOfPeriod(Object obj);
 
     public int getLastWindowIndex(boolean z) {
         InterceptResult invokeZ;
@@ -431,18 +514,45 @@ public abstract class Timeline {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (i2 == 0) {
-                if (i == getLastWindowIndex(z)) {
-                    return -1;
+            if (i2 != 0) {
+                if (i2 != 1) {
+                    if (i2 == 2) {
+                        if (i == getLastWindowIndex(z)) {
+                            return getFirstWindowIndex(z);
+                        }
+                        return i + 1;
+                    }
+                    throw new IllegalStateException();
                 }
-                return i + 1;
-            } else if (i2 != 1) {
-                if (i2 == 2) {
-                    return i == getLastWindowIndex(z) ? getFirstWindowIndex(z) : i + 1;
-                }
-                throw new IllegalStateException();
-            } else {
                 return i;
+            } else if (i == getLastWindowIndex(z)) {
+                return -1;
+            } else {
+                return i + 1;
+            }
+        }
+        return invokeCommon.intValue;
+    }
+
+    public int getPreviousWindowIndex(int i, int i2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            if (i2 != 0) {
+                if (i2 != 1) {
+                    if (i2 == 2) {
+                        if (i == getFirstWindowIndex(z)) {
+                            return getLastWindowIndex(z);
+                        }
+                        return i - 1;
+                    }
+                    throw new IllegalStateException();
+                }
+                return i;
+            } else if (i == getFirstWindowIndex(z)) {
+                return -1;
+            } else {
+                return i - 1;
             }
         }
         return invokeCommon.intValue;
@@ -451,63 +561,31 @@ public abstract class Timeline {
     public final Period getPeriod(int i, Period period) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, period)) == null) ? getPeriod(i, period, false) : (Period) invokeIL.objValue;
-    }
-
-    public abstract Period getPeriod(int i, Period period, boolean z);
-
-    public abstract int getPeriodCount();
-
-    public final Pair<Integer, Long> getPeriodPosition(Window window, Period period, int i, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{window, period, Integer.valueOf(i), Long.valueOf(j)})) == null) ? getPeriodPosition(window, period, i, j, 0L) : (Pair) invokeCommon.objValue;
-    }
-
-    public int getPreviousWindowIndex(int i, int i2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (i2 == 0) {
-                if (i == getFirstWindowIndex(z)) {
-                    return -1;
-                }
-                return i - 1;
-            } else if (i2 != 1) {
-                if (i2 == 2) {
-                    return i == getFirstWindowIndex(z) ? getLastWindowIndex(z) : i - 1;
-                }
-                throw new IllegalStateException();
-            } else {
-                return i;
-            }
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, period)) == null) {
+            return getPeriod(i, period, false);
         }
-        return invokeCommon.intValue;
+        return (Period) invokeIL.objValue;
     }
 
     public final Window getWindow(int i, Window window) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048587, this, i, window)) == null) ? getWindow(i, window, false) : (Window) invokeIL.objValue;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048587, this, i, window)) == null) {
+            return getWindow(i, window, false);
+        }
+        return (Window) invokeIL.objValue;
     }
 
-    public abstract Window getWindow(int i, Window window, boolean z, long j);
-
-    public abstract int getWindowCount();
-
-    public final boolean isEmpty() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? getWindowCount() == 0 : invokeV.booleanValue;
-    }
-
-    public final boolean isLastPeriod(int i, Period period, Window window, int i2, boolean z) {
+    public final Pair getPeriodPosition(Window window, Period period, int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i), period, window, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) ? getNextPeriodIndex(i, period, window, i2, z) == -1 : invokeCommon.booleanValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{window, period, Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            return getPeriodPosition(window, period, i, j, 0L);
+        }
+        return (Pair) invokeCommon.objValue;
     }
 
-    public final Pair<Integer, Long> getPeriodPosition(Window window, Period period, int i, long j, long j2) {
+    public final Pair getPeriodPosition(Window window, Period period, int i, long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{window, period, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)})) == null) {
@@ -535,6 +613,21 @@ public abstract class Timeline {
     public final Window getWindow(int i, Window window, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), window, Boolean.valueOf(z)})) == null) ? getWindow(i, window, z, 0L) : (Window) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), window, Boolean.valueOf(z)})) == null) {
+            return getWindow(i, window, z, 0L);
+        }
+        return (Window) invokeCommon.objValue;
+    }
+
+    public final boolean isLastPeriod(int i, Period period, Window window, int i2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i), period, window, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            if (getNextPeriodIndex(i, period, window, i2, z) == -1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeCommon.booleanValue;
     }
 }

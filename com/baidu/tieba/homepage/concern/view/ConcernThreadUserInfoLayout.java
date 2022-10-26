@@ -37,38 +37,6 @@ public class ConcernThreadUserInfoLayout extends ThreadUserInfoLayout {
         }
     }
 
-    @Override // com.baidu.tbadk.core.view.ThreadUserInfoLayout
-    public boolean j(ThreadData threadData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, threadData)) == null) {
-            if (super.j(threadData)) {
-                this.e.setVisibility(8);
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.core.view.ThreadUserInfoLayout
-    public void s(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) == null) {
-            if (threadData != null && !StringUtils.isNull(threadData.getRecomReason())) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.i.getLayoutParams();
-                if (layoutParams != null && layoutParams.bottomMargin != 0) {
-                    layoutParams.bottomMargin = 0;
-                    this.i.setLayoutParams(layoutParams);
-                }
-                this.i.setText(threadData.getRecomReason());
-                this.i.setVisibility(0);
-                return;
-            }
-            this.i.setVisibility(8);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConcernThreadUserInfoLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -108,6 +76,38 @@ public class ConcernThreadUserInfoLayout extends ThreadUserInfoLayout {
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.view.ThreadUserInfoLayout
+    public boolean j(ThreadData threadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, threadData)) == null) {
+            if (super.j(threadData)) {
+                this.e.setVisibility(8);
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.core.view.ThreadUserInfoLayout
+    public void s(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) == null) {
+            if (threadData != null && !StringUtils.isNull(threadData.getRecomReason())) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.i.getLayoutParams();
+                if (layoutParams != null && layoutParams.bottomMargin != 0) {
+                    layoutParams.bottomMargin = 0;
+                    this.i.setLayoutParams(layoutParams);
+                }
+                this.i.setText(threadData.getRecomReason());
+                this.i.setVisibility(0);
+                return;
+            }
+            this.i.setVisibility(8);
         }
     }
 }

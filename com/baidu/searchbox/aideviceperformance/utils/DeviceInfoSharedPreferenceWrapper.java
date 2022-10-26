@@ -16,13 +16,13 @@ public class DeviceInfoSharedPreferenceWrapper extends UniKV {
 
     /* renamed from: com.baidu.searchbox.aideviceperformance.utils.DeviceInfoSharedPreferenceWrapper$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public static class Holder {
+    public class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final DeviceInfoSharedPreferenceWrapper INSTANCE;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,16 +58,6 @@ public class DeviceInfoSharedPreferenceWrapper extends UniKV {
         }
     }
 
-    public /* synthetic */ DeviceInfoSharedPreferenceWrapper(AnonymousClass1 anonymousClass1) {
-        this();
-    }
-
-    public static DeviceInfoSharedPreferenceWrapper getInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Holder.INSTANCE : (DeviceInfoSharedPreferenceWrapper) invokeV.objValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DeviceInfoSharedPreferenceWrapper() {
         super(SP_FILE_DEFAULT);
@@ -84,5 +74,18 @@ public class DeviceInfoSharedPreferenceWrapper extends UniKV {
                 return;
             }
         }
+    }
+
+    public static DeviceInfoSharedPreferenceWrapper getInstance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return Holder.INSTANCE;
+        }
+        return (DeviceInfoSharedPreferenceWrapper) invokeV.objValue;
+    }
+
+    public /* synthetic */ DeviceInfoSharedPreferenceWrapper(AnonymousClass1 anonymousClass1) {
+        this();
     }
 }

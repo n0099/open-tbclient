@@ -22,7 +22,7 @@ public class ZeusJsBridge {
     public static final String REMOVE_CLOUD_SETTINGS_VALUE = "flyflownative_remove";
     public static final String TAG = "jsapi";
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, IJsAbility> mJsAbilityMap;
+    public HashMap mJsAbilityMap;
     public WebView mWebView;
 
     public ZeusJsBridge(WebView webView) {
@@ -66,7 +66,7 @@ public class ZeusJsBridge {
             if (this.mWebView == null) {
                 return;
             }
-            IJsAbility iJsAbility = this.mJsAbilityMap.get(str);
+            IJsAbility iJsAbility = (IJsAbility) this.mJsAbilityMap.get(str);
             if (iJsAbility != null) {
                 iJsAbility.jsExec(this.mWebView, str2, str3, str4);
                 return;
@@ -80,13 +80,13 @@ public class ZeusJsBridge {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, str, str2, str3, str4)) == null) {
-            IJsAbility iJsAbility = this.mJsAbilityMap.get(str);
+            IJsAbility iJsAbility = (IJsAbility) this.mJsAbilityMap.get(str);
             return (iJsAbility == null || !(iJsAbility instanceof IJsAbilityExt)) ? "" : ((IJsAbilityExt) iJsAbility).jsExecWithResult(str2, str3, str4);
         }
         return (String) invokeLLLL.objValue;
     }
 
-    public HashMap<String, IJsAbility> getJsAbilities() {
+    public HashMap getJsAbilities() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mJsAbilityMap : (HashMap) invokeV.objValue;

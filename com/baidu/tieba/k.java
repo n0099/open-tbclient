@@ -16,6 +16,30 @@ public class k extends p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.tieba.p
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 206;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.p
+    public void j(l lVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, lVar) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.p
+    public void l(l lVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, lVar) == null) {
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(j jVar, l lVar, f.a aVar) {
         super(jVar, lVar, aVar);
@@ -50,7 +74,7 @@ public class k extends p {
     }
 
     @Override // com.baidu.tieba.p
-    public Map<String, String> b(l lVar) {
+    public Map b(l lVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar)) == null) {
@@ -64,33 +88,12 @@ public class k extends p {
     }
 
     @Override // com.baidu.tieba.p
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 206;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.p
-    public void j(l lVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, lVar) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.p
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? k.class.getSimpleName() : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.p
-    public void l(l lVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, lVar) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return k.class.getSimpleName();
         }
+        return (String) invokeV.objValue;
     }
 }

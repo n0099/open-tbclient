@@ -82,23 +82,27 @@ public class N0 {
         InterceptResult invokeL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) != null) {
-            return invokeL.booleanValue;
-        }
-        if (view2 == null || !view2.isShown()) {
-            return false;
-        }
-        Rect rect = new Rect();
-        if (view2.getGlobalVisibleRect(rect) && this.d != null) {
-            if (rect.width() >= this.d.getSper() * view2.getMeasuredWidth()) {
-                if (rect.height() >= this.d.getSper() * view2.getMeasuredHeight()) {
-                    z = false;
-                    return z;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
+            if (view2 == null || !view2.isShown()) {
+                return false;
+            }
+            Rect rect = new Rect();
+            if (view2.getGlobalVisibleRect(rect) && this.d != null) {
+                if (rect.width() >= this.d.getSper() * view2.getMeasuredWidth()) {
+                    if (rect.height() >= this.d.getSper() * view2.getMeasuredHeight()) {
+                        z = false;
+                        if (!z) {
+                            return false;
+                        }
+                        return true;
+                    }
                 }
             }
-        }
-        z = true;
-        if (z) {
+            z = true;
+            if (!z) {
+            }
+        } else {
+            return invokeL.booleanValue;
         }
     }
 }

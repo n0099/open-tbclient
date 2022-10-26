@@ -1,8 +1,6 @@
 package androidx.customview.widget;
 
 import android.graphics.Rect;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,15 +16,21 @@ public class FocusStrategy {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public interface BoundsAdapter<T> {
-        void obtainBounds(T t, Rect rect);
+    public interface BoundsAdapter {
+        void obtainBounds(Object obj, Rect rect);
     }
 
     /* loaded from: classes.dex */
-    public interface CollectionAdapter<T, V> {
-        V get(T t, int i);
+    public interface CollectionAdapter {
+        Object get(Object obj, int i);
 
-        int size(T t);
+        int size(Object obj);
+    }
+
+    public static int getWeightedDistanceFor(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65543, null, i, i2)) == null) ? (i * 13 * i) + (i2 * i2) : invokeII.intValue;
     }
 
     /* loaded from: classes.dex */
@@ -79,9 +83,15 @@ public class FocusStrategy {
                 int i3 = rect.left;
                 int i4 = rect2.left;
                 if (i3 < i4) {
-                    return this.mIsLayoutRtl ? 1 : -1;
+                    if (!this.mIsLayoutRtl) {
+                        return -1;
+                    }
+                    return 1;
                 } else if (i3 > i4) {
-                    return this.mIsLayoutRtl ? -1 : 1;
+                    if (this.mIsLayoutRtl) {
+                        return -1;
+                    }
+                    return 1;
                 } else {
                     int i5 = rect.bottom;
                     int i6 = rect2.bottom;
@@ -94,9 +104,15 @@ public class FocusStrategy {
                     int i7 = rect.right;
                     int i8 = rect2.right;
                     if (i7 < i8) {
-                        return this.mIsLayoutRtl ? 1 : -1;
+                        if (!this.mIsLayoutRtl) {
+                            return -1;
+                        }
+                        return 1;
                     } else if (i7 > i8) {
-                        return this.mIsLayoutRtl ? -1 : 1;
+                        if (this.mIsLayoutRtl) {
+                            return -1;
+                        }
+                        return 1;
                     } else {
                         return 0;
                     }
@@ -120,7 +136,7 @@ public class FocusStrategy {
         }
     }
 
-    public static boolean beamBeats(int i, @NonNull Rect rect, @NonNull Rect rect2, @NonNull Rect rect3) {
+    public static boolean beamBeats(int i, Rect rect, Rect rect2, Rect rect3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), rect, rect2, rect3})) == null) {
@@ -128,12 +144,33 @@ public class FocusStrategy {
             if (beamsOverlap(i, rect, rect3) || !beamsOverlap) {
                 return false;
             }
-            return !isToDirectionOf(i, rect, rect3) || i == 17 || i == 66 || majorAxisDistance(i, rect, rect2) < majorAxisDistanceToFarEdge(i, rect, rect3);
+            if (isToDirectionOf(i, rect, rect3) && i != 17 && i != 66 && majorAxisDistance(i, rect, rect2) >= majorAxisDistanceToFarEdge(i, rect, rect3)) {
+                return false;
+            }
+            return true;
         }
         return invokeCommon.booleanValue;
     }
 
-    public static boolean beamsOverlap(int i, @NonNull Rect rect, @NonNull Rect rect2) {
+    public static boolean isBetterCandidate(int i, Rect rect, Rect rect2, Rect rect3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i), rect, rect2, rect3})) == null) {
+            if (!isCandidate(rect, rect2, i)) {
+                return false;
+            }
+            if (!isCandidate(rect, rect3, i) || beamBeats(i, rect, rect2, rect3)) {
+                return true;
+            }
+            if (beamBeats(i, rect, rect3, rect2) || getWeightedDistanceFor(majorAxisDistance(i, rect, rect2), minorAxisDistance(i, rect, rect2)) >= getWeightedDistanceFor(majorAxisDistance(i, rect, rect3), minorAxisDistance(i, rect, rect3))) {
+                return false;
+            }
+            return true;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static boolean beamsOverlap(int i, Rect rect, Rect rect2) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(65538, null, i, rect, rect2)) == null) {
@@ -145,39 +182,103 @@ public class FocusStrategy {
                         }
                     }
                 }
-                return rect2.right >= rect.left && rect2.left <= rect.right;
+                if (rect2.right >= rect.left && rect2.left <= rect.right) {
+                    return true;
+                }
+                return false;
             }
-            return rect2.bottom >= rect.top && rect2.top <= rect.bottom;
+            if (rect2.bottom >= rect.top && rect2.top <= rect.bottom) {
+                return true;
+            }
+            return false;
         }
         return invokeILL.booleanValue;
     }
 
-    public static <L, T> T findNextFocusInAbsoluteDirection(@NonNull L l, @NonNull CollectionAdapter<L, T> collectionAdapter, @NonNull BoundsAdapter<T> boundsAdapter, @Nullable T t, @NonNull Rect rect, int i) {
+    public static boolean isToDirectionOf(int i, Rect rect, Rect rect2) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65546, null, i, rect, rect2)) == null) {
+            if (i != 17) {
+                if (i != 33) {
+                    if (i != 66) {
+                        if (i == 130) {
+                            if (rect.bottom <= rect2.top) {
+                                return true;
+                            }
+                            return false;
+                        }
+                        throw new IllegalArgumentException("direction must be one of {FOCUS_UP, FOCUS_DOWN, FOCUS_LEFT, FOCUS_RIGHT}.");
+                    } else if (rect.right <= rect2.left) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } else if (rect.top >= rect2.bottom) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else if (rect.left >= rect2.right) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return invokeILL.booleanValue;
+    }
+
+    public static int minorAxisDistance(int i, Rect rect, Rect rect2) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65551, null, i, rect, rect2)) == null) {
+            if (i != 17) {
+                if (i != 33) {
+                    if (i != 66) {
+                        if (i != 130) {
+                            throw new IllegalArgumentException("direction must be one of {FOCUS_UP, FOCUS_DOWN, FOCUS_LEFT, FOCUS_RIGHT}.");
+                        }
+                    }
+                }
+                return Math.abs((rect.left + (rect.width() / 2)) - (rect2.left + (rect2.width() / 2)));
+            }
+            return Math.abs((rect.top + (rect.height() / 2)) - (rect2.top + (rect2.height() / 2)));
+        }
+        return invokeILL.intValue;
+    }
+
+    public static <L, T> T findNextFocusInAbsoluteDirection(L l, CollectionAdapter<L, T> collectionAdapter, BoundsAdapter<T> boundsAdapter, T t, Rect rect, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{l, collectionAdapter, boundsAdapter, t, rect, Integer.valueOf(i)})) == null) {
             Rect rect2 = new Rect(rect);
-            if (i == 17) {
-                rect2.offset(rect.width() + 1, 0);
-            } else if (i == 33) {
-                rect2.offset(0, rect.height() + 1);
-            } else if (i == 66) {
-                rect2.offset(-(rect.width() + 1), 0);
-            } else if (i == 130) {
-                rect2.offset(0, -(rect.height() + 1));
+            if (i != 17) {
+                if (i != 33) {
+                    if (i != 66) {
+                        if (i == 130) {
+                            rect2.offset(0, -(rect.height() + 1));
+                        } else {
+                            throw new IllegalArgumentException("direction must be one of {FOCUS_UP, FOCUS_DOWN, FOCUS_LEFT, FOCUS_RIGHT}.");
+                        }
+                    } else {
+                        rect2.offset(-(rect.width() + 1), 0);
+                    }
+                } else {
+                    rect2.offset(0, rect.height() + 1);
+                }
             } else {
-                throw new IllegalArgumentException("direction must be one of {FOCUS_UP, FOCUS_DOWN, FOCUS_LEFT, FOCUS_RIGHT}.");
+                rect2.offset(rect.width() + 1, 0);
             }
             T t2 = null;
             int size = collectionAdapter.size(l);
             Rect rect3 = new Rect();
             for (int i2 = 0; i2 < size; i2++) {
-                T t3 = collectionAdapter.get(l, i2);
-                if (t3 != t) {
-                    boundsAdapter.obtainBounds(t3, rect3);
+                Object obj = collectionAdapter.get(l, i2);
+                if (obj != t) {
+                    boundsAdapter.obtainBounds(obj, rect3);
                     if (isBetterCandidate(i, rect, rect3, rect2)) {
                         rect2.set(rect3);
-                        t2 = t3;
+                        t2 = (T) obj;
                     }
                 }
             }
@@ -186,7 +287,7 @@ public class FocusStrategy {
         return (T) invokeCommon.objValue;
     }
 
-    public static <L, T> T findNextFocusInRelativeDirection(@NonNull L l, @NonNull CollectionAdapter<L, T> collectionAdapter, @NonNull BoundsAdapter<T> boundsAdapter, @Nullable T t, int i, boolean z, boolean z2) {
+    public static <L, T> T findNextFocusInRelativeDirection(L l, CollectionAdapter<L, T> collectionAdapter, BoundsAdapter<T> boundsAdapter, T t, int i, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{l, collectionAdapter, boundsAdapter, t, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
@@ -209,184 +310,169 @@ public class FocusStrategy {
 
     public static <T> T getNextFocusable(T t, ArrayList<T> arrayList, boolean z) {
         InterceptResult invokeLLZ;
+        int lastIndexOf;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65541, null, t, arrayList, z)) == null) {
             int size = arrayList.size();
-            int lastIndexOf = (t == null ? -1 : arrayList.lastIndexOf(t)) + 1;
-            if (lastIndexOf < size) {
-                return arrayList.get(lastIndexOf);
+            if (t == null) {
+                lastIndexOf = -1;
+            } else {
+                lastIndexOf = arrayList.lastIndexOf(t);
             }
-            if (!z || size <= 0) {
-                return null;
+            int i = lastIndexOf + 1;
+            if (i < size) {
+                return arrayList.get(i);
             }
-            return arrayList.get(0);
+            if (z && size > 0) {
+                return arrayList.get(0);
+            }
+            return null;
         }
         return (T) invokeLLZ.objValue;
     }
 
     public static <T> T getPreviousFocusable(T t, ArrayList<T> arrayList, boolean z) {
         InterceptResult invokeLLZ;
+        int indexOf;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65542, null, t, arrayList, z)) == null) {
             int size = arrayList.size();
-            int indexOf = (t == null ? size : arrayList.indexOf(t)) - 1;
-            if (indexOf >= 0) {
-                return arrayList.get(indexOf);
+            if (t == null) {
+                indexOf = size;
+            } else {
+                indexOf = arrayList.indexOf(t);
             }
-            if (!z || size <= 0) {
-                return null;
+            int i = indexOf - 1;
+            if (i >= 0) {
+                return arrayList.get(i);
             }
-            return arrayList.get(size - 1);
+            if (z && size > 0) {
+                return arrayList.get(size - 1);
+            }
+            return null;
         }
         return (T) invokeLLZ.objValue;
     }
 
-    public static int getWeightedDistanceFor(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65543, null, i, i2)) == null) ? (i * 13 * i) + (i2 * i2) : invokeII.intValue;
-    }
-
-    public static boolean isBetterCandidate(int i, @NonNull Rect rect, @NonNull Rect rect2, @NonNull Rect rect3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i), rect, rect2, rect3})) == null) {
-            if (isCandidate(rect, rect2, i)) {
-                if (isCandidate(rect, rect3, i) && !beamBeats(i, rect, rect2, rect3)) {
-                    return !beamBeats(i, rect, rect3, rect2) && getWeightedDistanceFor(majorAxisDistance(i, rect, rect2), minorAxisDistance(i, rect, rect2)) < getWeightedDistanceFor(majorAxisDistance(i, rect, rect3), minorAxisDistance(i, rect, rect3));
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public static boolean isCandidate(@NonNull Rect rect, @NonNull Rect rect2, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65545, null, rect, rect2, i)) == null) {
-            if (i == 17) {
-                int i2 = rect.right;
-                int i3 = rect2.right;
-                return (i2 > i3 || rect.left >= i3) && rect.left > rect2.left;
-            } else if (i == 33) {
-                int i4 = rect.bottom;
-                int i5 = rect2.bottom;
-                return (i4 > i5 || rect.top >= i5) && rect.top > rect2.top;
-            } else if (i == 66) {
-                int i6 = rect.left;
-                int i7 = rect2.left;
-                return (i6 < i7 || rect.right <= i7) && rect.right < rect2.right;
-            } else if (i == 130) {
-                int i8 = rect.top;
-                int i9 = rect2.top;
-                return (i8 < i9 || rect.bottom <= i9) && rect.bottom < rect2.bottom;
-            } else {
-                throw new IllegalArgumentException("direction must be one of {FOCUS_UP, FOCUS_DOWN, FOCUS_LEFT, FOCUS_RIGHT}.");
-            }
-        }
-        return invokeLLI.booleanValue;
-    }
-
-    public static boolean isToDirectionOf(int i, @NonNull Rect rect, @NonNull Rect rect2) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65546, null, i, rect, rect2)) == null) {
-            if (i == 17) {
-                return rect.left >= rect2.right;
-            } else if (i == 33) {
-                return rect.top >= rect2.bottom;
-            } else if (i == 66) {
-                return rect.right <= rect2.left;
-            } else if (i == 130) {
-                return rect.bottom <= rect2.top;
-            } else {
-                throw new IllegalArgumentException("direction must be one of {FOCUS_UP, FOCUS_DOWN, FOCUS_LEFT, FOCUS_RIGHT}.");
-            }
-        }
-        return invokeILL.booleanValue;
-    }
-
-    public static int majorAxisDistance(int i, @NonNull Rect rect, @NonNull Rect rect2) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeILL = interceptable.invokeILL(65547, null, i, rect, rect2)) == null) ? Math.max(0, majorAxisDistanceRaw(i, rect, rect2)) : invokeILL.intValue;
-    }
-
-    public static int majorAxisDistanceRaw(int i, @NonNull Rect rect, @NonNull Rect rect2) {
+    public static int majorAxisDistanceRaw(int i, Rect rect, Rect rect2) {
         InterceptResult invokeILL;
         int i2;
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(65548, null, i, rect, rect2)) == null) {
-            if (i == 17) {
+            if (i != 17) {
+                if (i != 33) {
+                    if (i != 66) {
+                        if (i == 130) {
+                            i2 = rect2.top;
+                            i3 = rect.bottom;
+                        } else {
+                            throw new IllegalArgumentException("direction must be one of {FOCUS_UP, FOCUS_DOWN, FOCUS_LEFT, FOCUS_RIGHT}.");
+                        }
+                    } else {
+                        i2 = rect2.left;
+                        i3 = rect.right;
+                    }
+                } else {
+                    i2 = rect.top;
+                    i3 = rect2.bottom;
+                }
+            } else {
                 i2 = rect.left;
                 i3 = rect2.right;
-            } else if (i == 33) {
-                i2 = rect.top;
-                i3 = rect2.bottom;
-            } else if (i == 66) {
-                i2 = rect2.left;
-                i3 = rect.right;
-            } else if (i == 130) {
-                i2 = rect2.top;
-                i3 = rect.bottom;
-            } else {
-                throw new IllegalArgumentException("direction must be one of {FOCUS_UP, FOCUS_DOWN, FOCUS_LEFT, FOCUS_RIGHT}.");
             }
             return i2 - i3;
         }
         return invokeILL.intValue;
     }
 
-    public static int majorAxisDistanceToFarEdge(int i, @NonNull Rect rect, @NonNull Rect rect2) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeILL = interceptable.invokeILL(65549, null, i, rect, rect2)) == null) ? Math.max(1, majorAxisDistanceToFarEdgeRaw(i, rect, rect2)) : invokeILL.intValue;
-    }
-
-    public static int majorAxisDistanceToFarEdgeRaw(int i, @NonNull Rect rect, @NonNull Rect rect2) {
+    public static int majorAxisDistanceToFarEdgeRaw(int i, Rect rect, Rect rect2) {
         InterceptResult invokeILL;
         int i2;
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(65550, null, i, rect, rect2)) == null) {
-            if (i == 17) {
+            if (i != 17) {
+                if (i != 33) {
+                    if (i != 66) {
+                        if (i == 130) {
+                            i2 = rect2.bottom;
+                            i3 = rect.bottom;
+                        } else {
+                            throw new IllegalArgumentException("direction must be one of {FOCUS_UP, FOCUS_DOWN, FOCUS_LEFT, FOCUS_RIGHT}.");
+                        }
+                    } else {
+                        i2 = rect2.right;
+                        i3 = rect.right;
+                    }
+                } else {
+                    i2 = rect.top;
+                    i3 = rect2.top;
+                }
+            } else {
                 i2 = rect.left;
                 i3 = rect2.left;
-            } else if (i == 33) {
-                i2 = rect.top;
-                i3 = rect2.top;
-            } else if (i == 66) {
-                i2 = rect2.right;
-                i3 = rect.right;
-            } else if (i == 130) {
-                i2 = rect2.bottom;
-                i3 = rect.bottom;
-            } else {
-                throw new IllegalArgumentException("direction must be one of {FOCUS_UP, FOCUS_DOWN, FOCUS_LEFT, FOCUS_RIGHT}.");
             }
             return i2 - i3;
         }
         return invokeILL.intValue;
     }
 
-    public static int minorAxisDistance(int i, @NonNull Rect rect, @NonNull Rect rect2) {
-        InterceptResult invokeILL;
+    public static boolean isCandidate(Rect rect, Rect rect2, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65551, null, i, rect, rect2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65545, null, rect, rect2, i)) == null) {
             if (i != 17) {
                 if (i != 33) {
                     if (i != 66) {
-                        if (i != 130) {
-                            throw new IllegalArgumentException("direction must be one of {FOCUS_UP, FOCUS_DOWN, FOCUS_LEFT, FOCUS_RIGHT}.");
+                        if (i == 130) {
+                            int i2 = rect.top;
+                            int i3 = rect2.top;
+                            if ((i2 < i3 || rect.bottom <= i3) && rect.bottom < rect2.bottom) {
+                                return true;
+                            }
+                            return false;
                         }
+                        throw new IllegalArgumentException("direction must be one of {FOCUS_UP, FOCUS_DOWN, FOCUS_LEFT, FOCUS_RIGHT}.");
                     }
+                    int i4 = rect.left;
+                    int i5 = rect2.left;
+                    if ((i4 < i5 || rect.right <= i5) && rect.right < rect2.right) {
+                        return true;
+                    }
+                    return false;
                 }
-                return Math.abs((rect.left + (rect.width() / 2)) - (rect2.left + (rect2.width() / 2)));
+                int i6 = rect.bottom;
+                int i7 = rect2.bottom;
+                if ((i6 > i7 || rect.top >= i7) && rect.top > rect2.top) {
+                    return true;
+                }
+                return false;
             }
-            return Math.abs((rect.top + (rect.height() / 2)) - (rect2.top + (rect2.height() / 2)));
+            int i8 = rect.right;
+            int i9 = rect2.right;
+            if ((i8 > i9 || rect.left >= i9) && rect.left > rect2.left) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLLI.booleanValue;
+    }
+
+    public static int majorAxisDistance(int i, Rect rect, Rect rect2) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65547, null, i, rect, rect2)) == null) {
+            return Math.max(0, majorAxisDistanceRaw(i, rect, rect2));
+        }
+        return invokeILL.intValue;
+    }
+
+    public static int majorAxisDistanceToFarEdge(int i, Rect rect, Rect rect2) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65549, null, i, rect, rect2)) == null) {
+            return Math.max(1, majorAxisDistanceToFarEdgeRaw(i, rect, rect2));
         }
         return invokeILL.intValue;
     }

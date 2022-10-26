@@ -1,6 +1,5 @@
 package com.baidu.tieba.setting.usermutelist;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,10 +38,8 @@ public class UserMuteQuerySocketResponsedMessage extends SocketResponsedMessage 
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
-    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
-        DataRes dataRes;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
             UserMuteQueryResIdl userMuteQueryResIdl = (UserMuteQueryResIdl) new Wire(new Class[0]).parseFrom(bArr, UserMuteQueryResIdl.class);
@@ -51,7 +48,11 @@ public class UserMuteQuerySocketResponsedMessage extends SocketResponsedMessage 
                 setError(error.errorno.intValue());
                 setErrorString(userMuteQueryResIdl.error.usermsg);
             }
-            if (getError() == 0 && (dataRes = userMuteQueryResIdl.data) != null) {
+            if (getError() != 0) {
+                return userMuteQueryResIdl;
+            }
+            DataRes dataRes = userMuteQueryResIdl.data;
+            if (dataRes != null) {
                 this.mResult = dataRes;
             }
             return userMuteQueryResIdl;
@@ -62,6 +63,9 @@ public class UserMuteQuerySocketResponsedMessage extends SocketResponsedMessage 
     public DataRes getResult() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mResult : (DataRes) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mResult;
+        }
+        return (DataRes) invokeV.objValue;
     }
 }

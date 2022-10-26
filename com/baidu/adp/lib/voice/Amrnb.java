@@ -2,8 +2,8 @@ package com.baidu.adp.lib.voice;
 
 import com.baidu.adp.lib.voice.AmrEncoder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bj;
 import com.baidu.tieba.cj;
+import com.baidu.tieba.dj;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +19,7 @@ public class Amrnb {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public static class a extends cj {
+    public final class a extends dj {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -37,7 +37,7 @@ public class Amrnb {
             }
         }
 
-        @Override // com.baidu.tieba.cj
+        @Override // com.baidu.tieba.dj
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -59,7 +59,7 @@ public class Amrnb {
                 return;
             }
         }
-        bLoadLibrary = bj.d().i("amr-codec", 2, new a());
+        bLoadLibrary = cj.d().i("amr-codec", 2, new a());
     }
 
     public Amrnb() {
@@ -96,20 +96,6 @@ public class Amrnb {
         return (Amrnb) invokeV.objValue;
     }
 
-    public void decoderDecode(long j, byte[] bArr, short[] sArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), bArr, sArr}) == null) && bLoadLibrary) {
-            AmrDecoder.decode(j, bArr, sArr);
-        }
-    }
-
-    public void decoderDeinit(long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && bLoadLibrary) {
-            AmrDecoder.exit(j);
-        }
-    }
-
     public long decoderInit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -129,6 +115,20 @@ public class Amrnb {
         }
     }
 
+    public void encoderInit() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && bLoadLibrary) {
+            AmrEncoder.init(0);
+        }
+    }
+
+    public void decoderDecode(long j, byte[] bArr, short[] sArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), bArr, sArr}) == null) && bLoadLibrary) {
+            AmrDecoder.decode(j, bArr, sArr);
+        }
+    }
+
     public int encoderEncode(int i, short[] sArr, byte[] bArr) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
@@ -141,10 +141,10 @@ public class Amrnb {
         return invokeILL.intValue;
     }
 
-    public void encoderInit() {
+    public void decoderDeinit(long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && bLoadLibrary) {
-            AmrEncoder.init(0);
+        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && bLoadLibrary) {
+            AmrDecoder.exit(j);
         }
     }
 }

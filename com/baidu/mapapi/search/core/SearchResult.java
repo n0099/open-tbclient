@@ -19,7 +19,7 @@ public class SearchResult implements Parcelable {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class ERRORNO {
+    public final class ERRORNO {
         public static final /* synthetic */ ERRORNO[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ERRORNO AMBIGUOUS_KEYWORD;

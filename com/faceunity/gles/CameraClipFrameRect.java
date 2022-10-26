@@ -38,6 +38,12 @@ public class CameraClipFrameRect {
     public int muMVPMatrixLoc;
     public int muTexMatrixLoc;
 
+    public void release(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+        }
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -135,12 +141,6 @@ public class CameraClipFrameRect {
             GLES20.glDisableVertexAttribArray(this.maTextureCoordLoc);
             GLES20.glBindTexture(36197, 0);
             GLES20.glUseProgram(0);
-        }
-    }
-
-    public void release(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
         }
     }
 }

@@ -1,74 +1,84 @@
 package com.baidu.mobstat;
 
 import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class u {
+public class u implements a {
     public static /* synthetic */ Interceptable $ic;
-    public static a a;
     public transient /* synthetic */ FieldHolder $fh;
+    public x a;
 
-    /* JADX WARN: Removed duplicated region for block: B:20:0x003e A[Catch: all -> 0x005c, TryCatch #1 {, blocks: (B:6:0x0007, B:8:0x0014, B:10:0x001c, B:11:0x0025, B:17:0x0034, B:20:0x003e, B:21:0x004c), top: B:33:0x0007 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static synchronized a a(Context context) {
-        InterceptResult invokeL;
-        a aVar;
-        a aVar2;
-        Exception e;
-        Class<?> a2;
+    public u() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            synchronized (u.class) {
-                bb.c().a("getBPStretegyController begin");
-                aVar = a;
-                if (aVar == null) {
-                    try {
-                        a2 = x.a(context, "com.baidu.bottom.remote.BPStretegyController2");
-                    } catch (Exception e2) {
-                        aVar2 = aVar;
-                        e = e2;
-                    }
-                    if (a2 != null) {
-                        aVar2 = new w(a2.newInstance());
-                        try {
-                            bb.c().a("Get BPStretegyController load remote class v2");
-                        } catch (Exception e3) {
-                            e = e3;
-                            bb.c().a(e);
-                            aVar = aVar2;
-                            if (aVar == null) {
-                            }
-                            a = aVar;
-                            x.a(context, aVar);
-                            bb.c().a("getBPStretegyController end");
-                            return aVar;
-                        }
-                        aVar = aVar2;
-                    }
-                }
-                if (aVar == null) {
-                    aVar = new v();
-                    bb.c().a("Get BPStretegyController load local class");
-                }
-                a = aVar;
-                x.a(context, aVar);
-                bb.c().a("getBPStretegyController end");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return aVar;
         }
-        return (a) invokeL.objValue;
+        this.a = x.a;
     }
 
-    public static synchronized void a() {
+    @Override // com.baidu.mobstat.a
+    public void a(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            synchronized (u.class) {
-                a = null;
-            }
+        if (interceptable == null || interceptable.invokeLJ(1048576, this, context, j) == null) {
+            this.a.a(context, j);
         }
+    }
+
+    @Override // com.baidu.mobstat.a
+    public void b(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, context, str) == null) {
+            this.a.b(context, str);
+        }
+    }
+
+    @Override // com.baidu.mobstat.a
+    public void a(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str) == null) {
+            this.a.a(context, str);
+        }
+    }
+
+    @Override // com.baidu.mobstat.a
+    public void a(Context context, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, jSONObject) == null) {
+            this.a.a(context, jSONObject);
+        }
+    }
+
+    @Override // com.baidu.mobstat.a
+    public boolean a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            return this.a.a(context);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.mobstat.a
+    public boolean b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
+            return this.a.b(context);
+        }
+        return invokeL.booleanValue;
     }
 }

@@ -46,6 +46,15 @@ public class MiniUniqueId {
         this.mId = 0;
     }
 
+    public int getId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mId;
+        }
+        return invokeV.intValue;
+    }
+
     public static synchronized MiniUniqueId gen() {
         InterceptResult invokeV;
         MiniUniqueId miniUniqueId;
@@ -62,11 +71,5 @@ public class MiniUniqueId {
             return miniUniqueId;
         }
         return (MiniUniqueId) invokeV.objValue;
-    }
-
-    public int getId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mId : invokeV.intValue;
     }
 }

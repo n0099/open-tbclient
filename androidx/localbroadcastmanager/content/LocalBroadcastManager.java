@@ -9,7 +9,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -185,8 +184,7 @@ public final class LocalBroadcastManager {
         };
     }
 
-    @NonNull
-    public static LocalBroadcastManager getInstance(@NonNull Context context) {
+    public static LocalBroadcastManager getInstance(Context context) {
         InterceptResult invokeL;
         LocalBroadcastManager localBroadcastManager;
         Interceptable interceptable = $ic;
@@ -200,6 +198,13 @@ public final class LocalBroadcastManager {
             return localBroadcastManager;
         }
         return (LocalBroadcastManager) invokeL.objValue;
+    }
+
+    public void sendBroadcastSync(Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, intent) == null) && sendBroadcast(intent)) {
+            executePendingBroadcasts();
+        }
     }
 
     public void executePendingBroadcasts() {
@@ -232,7 +237,7 @@ public final class LocalBroadcastManager {
         }
     }
 
-    public void registerReceiver(@NonNull BroadcastReceiver broadcastReceiver, @NonNull IntentFilter intentFilter) {
+    public void registerReceiver(BroadcastReceiver broadcastReceiver, IntentFilter intentFilter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, broadcastReceiver, intentFilter) == null) {
             synchronized (this.mReceivers) {
@@ -256,13 +261,15 @@ public final class LocalBroadcastManager {
         }
     }
 
-    public boolean sendBroadcast(@NonNull Intent intent) {
+    public boolean sendBroadcast(Intent intent) {
         InterceptResult invokeL;
+        boolean z;
         int i;
         String str;
         ArrayList arrayList;
         ArrayList<ReceiverRecord> arrayList2;
         String str2;
+        String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent)) == null) {
             synchronized (this.mReceivers) {
@@ -271,7 +278,11 @@ public final class LocalBroadcastManager {
                 Uri data = intent.getData();
                 String scheme = intent.getScheme();
                 Set<String> categories = intent.getCategories();
-                boolean z = (intent.getFlags() & 8) != 0;
+                if ((intent.getFlags() & 8) != 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
                 if (z) {
                     Log.v(TAG, "Resolving type " + resolveTypeIfNeeded + " scheme " + scheme + " of intent " + intent);
                 }
@@ -307,7 +318,11 @@ public final class LocalBroadcastManager {
                                 if (z) {
                                     Log.v(TAG, "  Filter matched!  match=0x" + Integer.toHexString(match));
                                 }
-                                arrayList4 = arrayList == null ? new ArrayList() : arrayList;
+                                if (arrayList == null) {
+                                    arrayList4 = new ArrayList();
+                                } else {
+                                    arrayList4 = arrayList;
+                                }
                                 arrayList4.add(receiverRecord);
                                 receiverRecord.broadcasting = true;
                                 i2 = i + 1;
@@ -315,7 +330,24 @@ public final class LocalBroadcastManager {
                                 arrayList3 = arrayList2;
                                 resolveTypeIfNeeded = str2;
                             } else if (z) {
-                                Log.v(TAG, "  Filter did not match: " + (match != -4 ? match != -3 ? match != -2 ? match != -1 ? "unknown reason" : "type" : "data" : "action" : "category"));
+                                if (match != -4) {
+                                    if (match != -3) {
+                                        if (match != -2) {
+                                            if (match != -1) {
+                                                str3 = "unknown reason";
+                                            } else {
+                                                str3 = "type";
+                                            }
+                                        } else {
+                                            str3 = "data";
+                                        }
+                                    } else {
+                                        str3 = "action";
+                                    }
+                                } else {
+                                    str3 = "category";
+                                }
+                                Log.v(TAG, "  Filter did not match: " + str3);
                             }
                         }
                         arrayList4 = arrayList;
@@ -342,14 +374,7 @@ public final class LocalBroadcastManager {
         return invokeL.booleanValue;
     }
 
-    public void sendBroadcastSync(@NonNull Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, intent) == null) && sendBroadcast(intent)) {
-            executePendingBroadcasts();
-        }
-    }
-
-    public void unregisterReceiver(@NonNull BroadcastReceiver broadcastReceiver) {
+    public void unregisterReceiver(BroadcastReceiver broadcastReceiver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, broadcastReceiver) == null) {
             synchronized (this.mReceivers) {

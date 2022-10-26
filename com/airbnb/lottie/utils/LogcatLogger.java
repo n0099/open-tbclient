@@ -7,18 +7,11 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class LogcatLogger implements LottieLogger {
-    public static final Set<String> loggedMessages = new HashSet();
+    public static final Set loggedMessages = new HashSet();
 
     @Override // com.airbnb.lottie.LottieLogger
     public void debug(String str) {
         debug(str, null);
-    }
-
-    @Override // com.airbnb.lottie.LottieLogger
-    public void error(String str, Throwable th) {
-        if (L.DBG) {
-            Log.d(L.TAG, str, th);
-        }
     }
 
     @Override // com.airbnb.lottie.LottieLogger
@@ -28,6 +21,13 @@ public class LogcatLogger implements LottieLogger {
 
     @Override // com.airbnb.lottie.LottieLogger
     public void debug(String str, Throwable th) {
+        if (L.DBG) {
+            Log.d(L.TAG, str, th);
+        }
+    }
+
+    @Override // com.airbnb.lottie.LottieLogger
+    public void error(String str, Throwable th) {
         if (L.DBG) {
             Log.d(L.TAG, str, th);
         }

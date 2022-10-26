@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Flowable;
 import io.reactivex.MaybeObserver;
 import io.reactivex.MaybeSource;
-import io.reactivex.annotations.Nullable;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.functions.ObjectHelper;
@@ -27,13 +26,27 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 import org.reactivestreams.Subscriber;
 /* loaded from: classes8.dex */
-public final class MaybeMergeArray<T> extends Flowable<T> {
+public final class MaybeMergeArray extends Flowable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MaybeSource<? extends T>[] sources;
+    public final MaybeSource[] sources;
 
     /* loaded from: classes8.dex */
-    public static final class ClqSimpleQueue<T> extends ConcurrentLinkedQueue<T> implements SimpleQueueWithConsumerIndex<T> {
+    public interface SimpleQueueWithConsumerIndex extends SimpleQueue {
+        int consumerIndex();
+
+        void drop();
+
+        Object peek();
+
+        @Override // java.util.Queue, io.reactivex.internal.operators.maybe.MaybeMergeArray.SimpleQueueWithConsumerIndex, io.reactivex.internal.fuseable.SimpleQueue
+        Object poll();
+
+        int producerIndex();
+    }
+
+    /* loaded from: classes8.dex */
+    public final class ClqSimpleQueue extends ConcurrentLinkedQueue implements SimpleQueueWithConsumerIndex {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4025173261791142821L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +73,10 @@ public final class MaybeMergeArray<T> extends Flowable<T> {
         public int consumerIndex() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.consumerIndex : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.consumerIndex;
+            }
+            return invokeV.intValue;
         }
 
         @Override // io.reactivex.internal.operators.maybe.MaybeMergeArray.SimpleQueueWithConsumerIndex
@@ -71,66 +87,68 @@ public final class MaybeMergeArray<T> extends Flowable<T> {
             }
         }
 
-        @Override // io.reactivex.internal.fuseable.SimpleQueue
-        public boolean offer(T t, T t2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, t, t2)) == null) {
-                throw new UnsupportedOperationException();
-            }
-            return invokeLL.booleanValue;
-        }
-
         @Override // java.util.concurrent.ConcurrentLinkedQueue, java.util.Queue, io.reactivex.internal.operators.maybe.MaybeMergeArray.SimpleQueueWithConsumerIndex, io.reactivex.internal.fuseable.SimpleQueue
-        @Nullable
-        public T poll() {
+        public Object poll() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                T t = (T) super.poll();
-                if (t != null) {
+                Object poll = super.poll();
+                if (poll != null) {
                     this.consumerIndex++;
                 }
-                return t;
+                return poll;
             }
-            return (T) invokeV.objValue;
+            return invokeV.objValue;
         }
 
         @Override // io.reactivex.internal.operators.maybe.MaybeMergeArray.SimpleQueueWithConsumerIndex
         public int producerIndex() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.producerIndex.get() : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.producerIndex.get();
+            }
+            return invokeV.intValue;
         }
 
         @Override // java.util.concurrent.ConcurrentLinkedQueue, java.util.Queue, io.reactivex.internal.fuseable.SimpleQueue
-        public boolean offer(T t) {
+        public boolean offer(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
                 this.producerIndex.getAndIncrement();
-                return super.offer(t);
+                return super.offer(obj);
             }
             return invokeL.booleanValue;
+        }
+
+        @Override // io.reactivex.internal.fuseable.SimpleQueue
+        public boolean offer(Object obj, Object obj2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, obj, obj2)) == null) {
+                throw new UnsupportedOperationException();
+            }
+            return invokeLL.booleanValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class MergeMaybeObserver<T> extends BasicIntQueueSubscription<T> implements MaybeObserver<T> {
+    public final class MergeMaybeObserver extends BasicIntQueueSubscription implements MaybeObserver {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -660395290758764731L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super T> actual;
+        public final Subscriber actual;
         public volatile boolean cancelled;
         public long consumed;
         public final AtomicThrowable error;
         public boolean outputFused;
-        public final SimpleQueueWithConsumerIndex<Object> queue;
+        public final SimpleQueueWithConsumerIndex queue;
         public final AtomicLong requested;
         public final CompositeDisposable set;
         public final int sourceCount;
 
-        public MergeMaybeObserver(Subscriber<? super T> subscriber, int i, SimpleQueueWithConsumerIndex<Object> simpleQueueWithConsumerIndex) {
+        public MergeMaybeObserver(Subscriber subscriber, int i, SimpleQueueWithConsumerIndex simpleQueueWithConsumerIndex) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -156,13 +174,12 @@ public final class MaybeMergeArray<T> extends Flowable<T> {
         @Override // org.reactivestreams.Subscription
         public void cancel() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.cancelled) {
-                return;
-            }
-            this.cancelled = true;
-            this.set.dispose();
-            if (getAndIncrement() == 0) {
-                this.queue.clear();
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.cancelled) {
+                this.cancelled = true;
+                this.set.dispose();
+                if (getAndIncrement() == 0) {
+                    this.queue.clear();
+                }
             }
         }
 
@@ -176,29 +193,77 @@ public final class MaybeMergeArray<T> extends Flowable<T> {
 
         public void drain() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && getAndIncrement() == 0) {
-                if (this.outputFused) {
-                    drainFused();
-                } else {
-                    drainNormal();
-                }
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || getAndIncrement() != 0) {
+                return;
+            }
+            if (this.outputFused) {
+                drainFused();
+            } else {
+                drainNormal();
             }
         }
 
+        public boolean isCancelled() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.cancelled;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // io.reactivex.internal.fuseable.SimpleQueue
+        public boolean isEmpty() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return this.queue.isEmpty();
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // io.reactivex.MaybeObserver
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+                this.queue.offer(NotificationLite.COMPLETE);
+                drain();
+            }
+        }
+
+        @Override // io.reactivex.internal.fuseable.SimpleQueue
+        public Object poll() throws Exception {
+            Object poll;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+                do {
+                    poll = this.queue.poll();
+                } while (poll == NotificationLite.COMPLETE);
+                return poll;
+            }
+            return invokeV.objValue;
+        }
+
         public void drainFused() {
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                Subscriber<? super T> subscriber = this.actual;
-                SimpleQueueWithConsumerIndex<Object> simpleQueueWithConsumerIndex = this.queue;
+                Subscriber subscriber = this.actual;
+                SimpleQueueWithConsumerIndex simpleQueueWithConsumerIndex = this.queue;
                 int i = 1;
                 while (!this.cancelled) {
-                    Throwable th = this.error.get();
+                    Throwable th = (Throwable) this.error.get();
                     if (th != null) {
                         simpleQueueWithConsumerIndex.clear();
                         subscriber.onError(th);
                         return;
                     }
-                    boolean z = simpleQueueWithConsumerIndex.producerIndex() == this.sourceCount;
+                    if (simpleQueueWithConsumerIndex.producerIndex() == this.sourceCount) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
                     if (!simpleQueueWithConsumerIndex.isEmpty()) {
                         subscriber.onNext(null);
                     }
@@ -219,7 +284,7 @@ public final class MaybeMergeArray<T> extends Flowable<T> {
             if (r7 != 0) goto L39;
          */
         /* JADX WARN: Code restructure failed: missing block: B:28:0x005c, code lost:
-            if (r10.error.get() == null) goto L26;
+            if (((java.lang.Throwable) r10.error.get()) == null) goto L26;
          */
         /* JADX WARN: Code restructure failed: missing block: B:29:0x005e, code lost:
             r1.clear();
@@ -253,8 +318,8 @@ public final class MaybeMergeArray<T> extends Flowable<T> {
         public void drainNormal() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                Subscriber<? super T> subscriber = this.actual;
-                SimpleQueueWithConsumerIndex<Object> simpleQueueWithConsumerIndex = this.queue;
+                Subscriber subscriber = this.actual;
+                SimpleQueueWithConsumerIndex simpleQueueWithConsumerIndex = this.queue;
                 long j = this.consumed;
                 int i = 1;
                 do {
@@ -266,7 +331,7 @@ public final class MaybeMergeArray<T> extends Flowable<T> {
                         } else if (this.cancelled) {
                             simpleQueueWithConsumerIndex.clear();
                             return;
-                        } else if (this.error.get() != null) {
+                        } else if (((Throwable) this.error.get()) != null) {
                             simpleQueueWithConsumerIndex.clear();
                             subscriber.onError(this.error.terminate());
                             return;
@@ -284,28 +349,6 @@ public final class MaybeMergeArray<T> extends Flowable<T> {
                         }
                     }
                 } while (i != 0);
-            }
-        }
-
-        public boolean isCancelled() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.cancelled : invokeV.booleanValue;
-        }
-
-        @Override // io.reactivex.internal.fuseable.SimpleQueue
-        public boolean isEmpty() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.queue.isEmpty() : invokeV.booleanValue;
-        }
-
-        @Override // io.reactivex.MaybeObserver
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                this.queue.offer(NotificationLite.COMPLETE);
-                drain();
             }
         }
 
@@ -332,27 +375,12 @@ public final class MaybeMergeArray<T> extends Flowable<T> {
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(T t) {
+        public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048586, this, t) == null) {
-                this.queue.offer(t);
+            if (interceptable == null || interceptable.invokeL(1048586, this, obj) == null) {
+                this.queue.offer(obj);
                 drain();
             }
-        }
-
-        @Override // io.reactivex.internal.fuseable.SimpleQueue
-        @Nullable
-        public T poll() throws Exception {
-            T t;
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-                do {
-                    t = (T) this.queue.poll();
-                } while (t == NotificationLite.COMPLETE);
-                return t;
-            }
-            return (T) invokeV.objValue;
         }
 
         @Override // org.reactivestreams.Subscription
@@ -380,64 +408,7 @@ public final class MaybeMergeArray<T> extends Flowable<T> {
     }
 
     /* loaded from: classes8.dex */
-    public interface SimpleQueueWithConsumerIndex<T> extends SimpleQueue<T> {
-        int consumerIndex();
-
-        void drop();
-
-        T peek();
-
-        @Override // java.util.Queue, io.reactivex.internal.operators.maybe.MaybeMergeArray.SimpleQueueWithConsumerIndex, io.reactivex.internal.fuseable.SimpleQueue
-        @Nullable
-        T poll();
-
-        int producerIndex();
-    }
-
-    public MaybeMergeArray(MaybeSource<? extends T>[] maybeSourceArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {maybeSourceArr};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.sources = maybeSourceArr;
-    }
-
-    @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super T> subscriber) {
-        SimpleQueueWithConsumerIndex clqSimpleQueue;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
-            MaybeSource[] maybeSourceArr = this.sources;
-            int length = maybeSourceArr.length;
-            if (length <= Flowable.bufferSize()) {
-                clqSimpleQueue = new MpscFillOnceSimpleQueue(length);
-            } else {
-                clqSimpleQueue = new ClqSimpleQueue();
-            }
-            MergeMaybeObserver mergeMaybeObserver = new MergeMaybeObserver(subscriber, length, clqSimpleQueue);
-            subscriber.onSubscribe(mergeMaybeObserver);
-            AtomicThrowable atomicThrowable = mergeMaybeObserver.error;
-            for (MaybeSource maybeSource : maybeSourceArr) {
-                if (mergeMaybeObserver.isCancelled() || atomicThrowable.get() != null) {
-                    return;
-                }
-                maybeSource.subscribe(mergeMaybeObserver);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class MpscFillOnceSimpleQueue<T> extends AtomicReferenceArray<T> implements SimpleQueueWithConsumerIndex<T> {
+    public final class MpscFillOnceSimpleQueue extends AtomicReferenceArray implements SimpleQueueWithConsumerIndex {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7969063454040569579L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -478,7 +449,10 @@ public final class MaybeMergeArray<T> extends Flowable<T> {
         public int consumerIndex() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.consumerIndex : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.consumerIndex;
+            }
+            return invokeV.intValue;
         }
 
         @Override // io.reactivex.internal.operators.maybe.MaybeMergeArray.SimpleQueueWithConsumerIndex
@@ -495,27 +469,17 @@ public final class MaybeMergeArray<T> extends Flowable<T> {
         public boolean isEmpty() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.consumerIndex == producerIndex() : invokeV.booleanValue;
-        }
-
-        @Override // io.reactivex.internal.fuseable.SimpleQueue
-        public boolean offer(T t) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, t)) == null) {
-                ObjectHelper.requireNonNull(t, "value is null");
-                int andIncrement = this.producerIndex.getAndIncrement();
-                if (andIncrement < length()) {
-                    lazySet(andIncrement, t);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (this.consumerIndex == producerIndex()) {
                     return true;
                 }
                 return false;
             }
-            return invokeL.booleanValue;
+            return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.internal.operators.maybe.MaybeMergeArray.SimpleQueueWithConsumerIndex
-        public T peek() {
+        public Object peek() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -525,12 +489,11 @@ public final class MaybeMergeArray<T> extends Flowable<T> {
                 }
                 return get(i);
             }
-            return (T) invokeV.objValue;
+            return invokeV.objValue;
         }
 
         @Override // io.reactivex.internal.operators.maybe.MaybeMergeArray.SimpleQueueWithConsumerIndex, java.util.Queue, io.reactivex.internal.fuseable.SimpleQueue
-        @Nullable
-        public T poll() {
+        public Object poll() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -540,33 +503,95 @@ public final class MaybeMergeArray<T> extends Flowable<T> {
                 }
                 AtomicInteger atomicInteger = this.producerIndex;
                 do {
-                    T t = get(i);
-                    if (t != null) {
+                    Object obj = get(i);
+                    if (obj != null) {
                         this.consumerIndex = i + 1;
                         lazySet(i, null);
-                        return t;
+                        return obj;
                     }
                 } while (atomicInteger.get() != i);
                 return null;
             }
-            return (T) invokeV.objValue;
+            return invokeV.objValue;
         }
 
         @Override // io.reactivex.internal.operators.maybe.MaybeMergeArray.SimpleQueueWithConsumerIndex
         public int producerIndex() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.producerIndex.get() : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                return this.producerIndex.get();
+            }
+            return invokeV.intValue;
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
-        public boolean offer(T t, T t2) {
+        public boolean offer(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+                ObjectHelper.requireNonNull(obj, "value is null");
+                int andIncrement = this.producerIndex.getAndIncrement();
+                if (andIncrement < length()) {
+                    lazySet(andIncrement, obj);
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // io.reactivex.internal.fuseable.SimpleQueue
+        public boolean offer(Object obj, Object obj2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, t, t2)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, obj, obj2)) == null) {
                 throw new UnsupportedOperationException();
             }
             return invokeLL.booleanValue;
+        }
+    }
+
+    public MaybeMergeArray(MaybeSource[] maybeSourceArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {maybeSourceArr};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.sources = maybeSourceArr;
+    }
+
+    @Override // io.reactivex.Flowable
+    public void subscribeActual(Subscriber subscriber) {
+        SimpleQueueWithConsumerIndex clqSimpleQueue;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
+            MaybeSource[] maybeSourceArr = this.sources;
+            int length = maybeSourceArr.length;
+            if (length <= Flowable.bufferSize()) {
+                clqSimpleQueue = new MpscFillOnceSimpleQueue(length);
+            } else {
+                clqSimpleQueue = new ClqSimpleQueue();
+            }
+            MergeMaybeObserver mergeMaybeObserver = new MergeMaybeObserver(subscriber, length, clqSimpleQueue);
+            subscriber.onSubscribe(mergeMaybeObserver);
+            AtomicThrowable atomicThrowable = mergeMaybeObserver.error;
+            for (MaybeSource maybeSource : maybeSourceArr) {
+                if (!mergeMaybeObserver.isCancelled() && atomicThrowable.get() == null) {
+                    maybeSource.subscribe(mergeMaybeObserver);
+                } else {
+                    return;
+                }
+            }
         }
     }
 }

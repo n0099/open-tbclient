@@ -1,6 +1,5 @@
 package com.baidu.webkit.sdk.system;
 
-import android.annotation.TargetApi;
 import android.net.Uri;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.PermissionRequest;
-@TargetApi(21)
 /* loaded from: classes6.dex */
 public final class PermissionRequestImpl extends PermissionRequest {
     public static /* synthetic */ Interceptable $ic;

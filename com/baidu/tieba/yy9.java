@@ -1,232 +1,118 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.xx9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import rx.exceptions.OnErrorThrowable;
 /* loaded from: classes6.dex */
-public final class yy9 implements hx9 {
+public final class yy9 implements xx9.a {
     public static /* synthetic */ Interceptable $ic;
-    public static final hx9 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public hx9 b;
-    public boolean c;
-    public long d;
-    public long e;
-    public hx9 f;
+    public final xx9 a;
+    public final py9 b;
 
     /* loaded from: classes6.dex */
-    public static class a implements hx9 {
+    public final class a extends dy9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final dy9 e;
+        public final py9 f;
+        public boolean g;
 
-        public a() {
+        public a(dy9 dy9Var, py9 py9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dy9Var, py9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = dy9Var;
+            this.f = py9Var;
+        }
+
+        @Override // com.baidu.tieba.dy9
+        public void f(zx9 zx9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, zx9Var) == null) {
+                this.e.f(zx9Var);
+            }
+        }
+
+        @Override // com.baidu.tieba.yx9
+        public void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
+                if (this.g) {
+                    e2a.j(th);
+                    return;
+                }
+                this.g = true;
+                this.e.onError(th);
+            }
+        }
+
+        @Override // com.baidu.tieba.yx9
+        public void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+                try {
+                    this.e.onNext(this.f.call(obj));
+                } catch (Throwable th) {
+                    jy9.e(th);
+                    unsubscribe();
+                    onError(OnErrorThrowable.addValueAsLastCause(th, obj));
                 }
             }
         }
 
-        @Override // com.baidu.tieba.hx9
-        public void request(long j) {
+        @Override // com.baidu.tieba.yx9
+        public void onCompleted() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948346640, "Lcom/baidu/tieba/yy9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948346640, "Lcom/baidu/tieba/yy9;");
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.g) {
                 return;
             }
+            this.e.onCompleted();
         }
-        g = new a();
     }
 
-    public yy9() {
+    public yy9(xx9 xx9Var, py9 py9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {xx9Var, py9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-            return;
-        }
-        while (true) {
-            synchronized (this) {
-                long j = this.d;
-                long j2 = this.e;
-                hx9 hx9Var = this.f;
-                int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-                if (i == 0 && j2 == 0 && hx9Var == null) {
-                    this.c = false;
-                    return;
-                }
-                this.d = 0L;
-                this.e = 0L;
-                this.f = null;
-                long j3 = this.a;
-                if (j3 != Long.MAX_VALUE) {
-                    long j4 = j3 + j;
-                    if (j4 < 0 || j4 == Long.MAX_VALUE) {
-                        this.a = Long.MAX_VALUE;
-                        j3 = Long.MAX_VALUE;
-                    } else {
-                        j3 = j4 - j2;
-                        if (j3 >= 0) {
-                            this.a = j3;
-                        } else {
-                            throw new IllegalStateException("more produced than requested");
-                        }
-                    }
-                }
-                if (hx9Var != null) {
-                    if (hx9Var == g) {
-                        this.b = null;
-                    } else {
-                        this.b = hx9Var;
-                        hx9Var.request(j3);
-                    }
-                } else {
-                    hx9 hx9Var2 = this.b;
-                    if (hx9Var2 != null && i != 0) {
-                        hx9Var2.request(j);
-                    }
-                }
-            }
-        }
-    }
-
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public void b(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            if (j > 0) {
-                synchronized (this) {
-                    if (this.c) {
-                        this.e += j;
-                        return;
-                    }
-                    this.c = true;
-                    try {
-                        long j2 = this.a;
-                        if (j2 != Long.MAX_VALUE) {
-                            long j3 = j2 - j;
-                            if (j3 >= 0) {
-                                this.a = j3;
-                            } else {
-                                throw new IllegalStateException("more items arrived than were requested");
-                            }
-                        }
-                        a();
-                        return;
-                    } catch (Throwable th) {
-                        synchronized (this) {
-                            this.c = false;
-                            throw th;
-                        }
-                    }
-                }
-            }
-            throw new IllegalArgumentException("n > 0 required");
-        }
-    }
-
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public void c(hx9 hx9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hx9Var) == null) {
-            synchronized (this) {
-                if (this.c) {
-                    if (hx9Var == null) {
-                        hx9Var = g;
-                    }
-                    this.f = hx9Var;
-                    return;
-                }
-                this.c = true;
-                try {
-                    this.b = hx9Var;
-                    if (hx9Var != null) {
-                        hx9Var.request(this.a);
-                    }
-                    a();
-                } catch (Throwable th) {
-                    synchronized (this) {
-                        this.c = false;
-                        throw th;
-                    }
-                }
-            }
-        }
-    }
-
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    @Override // com.baidu.tieba.hx9
-    public void request(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-            if (i < 0) {
-                throw new IllegalArgumentException("n >= 0 required");
-            }
-            if (i == 0) {
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            synchronized (this) {
-                if (this.c) {
-                    this.d += j;
-                    return;
-                }
-                this.c = true;
-                try {
-                    long j2 = this.a + j;
-                    if (j2 < 0) {
-                        j2 = Long.MAX_VALUE;
-                    }
-                    this.a = j2;
-                    hx9 hx9Var = this.b;
-                    if (hx9Var != null) {
-                        hx9Var.request(j);
-                    }
-                    a();
-                } catch (Throwable th) {
-                    synchronized (this) {
-                        this.c = false;
-                        throw th;
-                    }
-                }
-            }
+        }
+        this.a = xx9Var;
+        this.b = py9Var;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.xx9.a, com.baidu.tieba.ly9
+    public void call(dy9 dy9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, dy9Var) == null) {
+            a aVar = new a(dy9Var, this.b);
+            dy9Var.b(aVar);
+            this.a.B(aVar);
         }
     }
 }

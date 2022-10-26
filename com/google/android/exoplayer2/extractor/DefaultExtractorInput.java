@@ -45,6 +45,44 @@ public final class DefaultExtractorInput implements ExtractorInput {
         SCRATCH_SPACE = new byte[4096];
     }
 
+    @Override // com.google.android.exoplayer2.extractor.ExtractorInput
+    public long getLength() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.streamLength;
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.google.android.exoplayer2.extractor.ExtractorInput
+    public long getPeekPosition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.position + this.peekBufferPosition;
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.google.android.exoplayer2.extractor.ExtractorInput
+    public long getPosition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.position;
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.google.android.exoplayer2.extractor.ExtractorInput
+    public void resetPeekPosition() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.peekBufferPosition = 0;
+        }
+    }
+
     public DefaultExtractorInput(DataSource dataSource, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -68,10 +106,9 @@ public final class DefaultExtractorInput implements ExtractorInput {
 
     private void commitBytesRead(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65538, this, i) == null) || i == -1) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(65538, this, i) == null) && i != -1) {
+            this.position += i;
         }
-        this.position += i;
     }
 
     private void ensureSpaceForPeek(int i) {
@@ -82,6 +119,64 @@ public final class DefaultExtractorInput implements ExtractorInput {
             if (i2 > bArr.length) {
                 this.peekBuffer = Arrays.copyOf(this.peekBuffer, Util.constrainValue(bArr.length * 2, 65536 + i2, i2 + 524288));
             }
+        }
+    }
+
+    private int skipFromPeekBuffer(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i)) == null) {
+            int min = Math.min(this.peekBufferLength, i);
+            updatePeekBuffer(min);
+            return min;
+        }
+        return invokeI.intValue;
+    }
+
+    private void updatePeekBuffer(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65543, this, i) == null) {
+            int i2 = this.peekBufferLength - i;
+            this.peekBufferLength = i2;
+            this.peekBufferPosition = 0;
+            byte[] bArr = this.peekBuffer;
+            if (i2 < bArr.length - 524288) {
+                bArr = new byte[i2 + 65536];
+            }
+            System.arraycopy(this.peekBuffer, i, bArr, 0, this.peekBufferLength);
+            this.peekBuffer = bArr;
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.extractor.ExtractorInput
+    public void advancePeekPosition(int i) throws IOException, InterruptedException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            advancePeekPosition(i, false);
+        }
+    }
+
+    @Override // com.google.android.exoplayer2.extractor.ExtractorInput
+    public int skip(int i) throws IOException, InterruptedException {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+            int skipFromPeekBuffer = skipFromPeekBuffer(i);
+            if (skipFromPeekBuffer == 0) {
+                byte[] bArr = SCRATCH_SPACE;
+                skipFromPeekBuffer = readFromDataSource(bArr, 0, Math.min(i, bArr.length), 0, true);
+            }
+            commitBytesRead(skipFromPeekBuffer);
+            return skipFromPeekBuffer;
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // com.google.android.exoplayer2.extractor.ExtractorInput
+    public void skipFully(int i) throws IOException, InterruptedException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            skipFully(i, false);
         }
     }
 
@@ -120,29 +215,34 @@ public final class DefaultExtractorInput implements ExtractorInput {
         return invokeLII.intValue;
     }
 
-    private int skipFromPeekBuffer(int i) {
-        InterceptResult invokeI;
+    @Override // com.google.android.exoplayer2.extractor.ExtractorInput
+    public void peekFully(byte[] bArr, int i, int i2) throws IOException, InterruptedException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i)) == null) {
-            int min = Math.min(this.peekBufferLength, i);
-            updatePeekBuffer(min);
-            return min;
+        if (interceptable == null || interceptable.invokeLII(1048581, this, bArr, i, i2) == null) {
+            peekFully(bArr, i, i2, false);
         }
-        return invokeI.intValue;
     }
 
-    private void updatePeekBuffer(int i) {
+    @Override // com.google.android.exoplayer2.extractor.ExtractorInput
+    public int read(byte[] bArr, int i, int i2) throws IOException, InterruptedException {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65543, this, i) == null) {
-            int i2 = this.peekBufferLength - i;
-            this.peekBufferLength = i2;
-            this.peekBufferPosition = 0;
-            byte[] bArr = this.peekBuffer;
-            if (i2 < bArr.length - 524288) {
-                bArr = new byte[i2 + 65536];
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048583, this, bArr, i, i2)) == null) {
+            int readFromPeekBuffer = readFromPeekBuffer(bArr, i, i2);
+            if (readFromPeekBuffer == 0) {
+                readFromPeekBuffer = readFromDataSource(bArr, i, i2, 0, true);
             }
-            System.arraycopy(this.peekBuffer, i, bArr, 0, this.peekBufferLength);
-            this.peekBuffer = bArr;
+            commitBytesRead(readFromPeekBuffer);
+            return readFromPeekBuffer;
+        }
+        return invokeLII.intValue;
+    }
+
+    @Override // com.google.android.exoplayer2.extractor.ExtractorInput
+    public void readFully(byte[] bArr, int i, int i2) throws IOException, InterruptedException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr, i, i2) == null) {
+            readFully(bArr, i, i2, false);
         }
     }
 
@@ -168,33 +268,17 @@ public final class DefaultExtractorInput implements ExtractorInput {
     }
 
     @Override // com.google.android.exoplayer2.extractor.ExtractorInput
-    public long getLength() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.streamLength : invokeV.longValue;
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.ExtractorInput
-    public long getPeekPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.position + this.peekBufferPosition : invokeV.longValue;
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.ExtractorInput
-    public long getPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.position : invokeV.longValue;
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.ExtractorInput
-    public boolean peekFully(byte[] bArr, int i, int i2, boolean z) throws IOException, InterruptedException {
+    public boolean skipFully(int i, boolean z) throws IOException, InterruptedException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (advancePeekPosition(i2, z)) {
-                System.arraycopy(this.peekBuffer, this.peekBufferPosition - i2, bArr, i, i2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            int skipFromPeekBuffer = skipFromPeekBuffer(i);
+            while (skipFromPeekBuffer < i && skipFromPeekBuffer != -1) {
+                byte[] bArr = SCRATCH_SPACE;
+                skipFromPeekBuffer = readFromDataSource(bArr, -skipFromPeekBuffer, Math.min(i, bArr.length + skipFromPeekBuffer), skipFromPeekBuffer, z);
+            }
+            commitBytesRead(skipFromPeekBuffer);
+            if (skipFromPeekBuffer != -1) {
                 return true;
             }
             return false;
@@ -203,18 +287,17 @@ public final class DefaultExtractorInput implements ExtractorInput {
     }
 
     @Override // com.google.android.exoplayer2.extractor.ExtractorInput
-    public int read(byte[] bArr, int i, int i2) throws IOException, InterruptedException {
-        InterceptResult invokeLII;
+    public boolean peekFully(byte[] bArr, int i, int i2, boolean z) throws IOException, InterruptedException {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048583, this, bArr, i, i2)) == null) {
-            int readFromPeekBuffer = readFromPeekBuffer(bArr, i, i2);
-            if (readFromPeekBuffer == 0) {
-                readFromPeekBuffer = readFromDataSource(bArr, i, i2, 0, true);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            if (!advancePeekPosition(i2, z)) {
+                return false;
             }
-            commitBytesRead(readFromPeekBuffer);
-            return readFromPeekBuffer;
+            System.arraycopy(this.peekBuffer, this.peekBufferPosition - i2, bArr, i, i2);
+            return true;
         }
-        return invokeLII.intValue;
+        return invokeCommon.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.extractor.ExtractorInput
@@ -227,90 +310,27 @@ public final class DefaultExtractorInput implements ExtractorInput {
                 readFromPeekBuffer = readFromDataSource(bArr, i, i2, readFromPeekBuffer, z);
             }
             commitBytesRead(readFromPeekBuffer);
-            return readFromPeekBuffer != -1;
+            if (readFromPeekBuffer != -1) {
+                return true;
+            }
+            return false;
         }
         return invokeCommon.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.extractor.ExtractorInput
-    public void resetPeekPosition() {
+    public void setRetryPosition(long j, Throwable th) throws Throwable {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.peekBufferPosition = 0;
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.ExtractorInput
-    public <E extends Throwable> void setRetryPosition(long j, E e) throws Throwable {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048587, this, j, e) == null) {
-            Assertions.checkArgument(j >= 0);
+        if (interceptable == null || interceptable.invokeJL(1048587, this, j, th) == null) {
+            if (j >= 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Assertions.checkArgument(z);
             this.position = j;
-            throw e;
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.ExtractorInput
-    public int skip(int i) throws IOException, InterruptedException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
-            int skipFromPeekBuffer = skipFromPeekBuffer(i);
-            if (skipFromPeekBuffer == 0) {
-                byte[] bArr = SCRATCH_SPACE;
-                skipFromPeekBuffer = readFromDataSource(bArr, 0, Math.min(i, bArr.length), 0, true);
-            }
-            commitBytesRead(skipFromPeekBuffer);
-            return skipFromPeekBuffer;
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.ExtractorInput
-    public boolean skipFully(int i, boolean z) throws IOException, InterruptedException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            int skipFromPeekBuffer = skipFromPeekBuffer(i);
-            while (skipFromPeekBuffer < i && skipFromPeekBuffer != -1) {
-                byte[] bArr = SCRATCH_SPACE;
-                skipFromPeekBuffer = readFromDataSource(bArr, -skipFromPeekBuffer, Math.min(i, bArr.length + skipFromPeekBuffer), skipFromPeekBuffer, z);
-            }
-            commitBytesRead(skipFromPeekBuffer);
-            return skipFromPeekBuffer != -1;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.ExtractorInput
-    public void peekFully(byte[] bArr, int i, int i2) throws IOException, InterruptedException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048581, this, bArr, i, i2) == null) {
-            peekFully(bArr, i, i2, false);
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.ExtractorInput
-    public void readFully(byte[] bArr, int i, int i2) throws IOException, InterruptedException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr, i, i2) == null) {
-            readFully(bArr, i, i2, false);
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.ExtractorInput
-    public void advancePeekPosition(int i) throws IOException, InterruptedException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            advancePeekPosition(i, false);
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.extractor.ExtractorInput
-    public void skipFully(int i) throws IOException, InterruptedException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            skipFully(i, false);
+            throw th;
         }
     }
 }

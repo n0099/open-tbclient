@@ -29,11 +29,11 @@ public class ARPMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public Handler mHandler;
     public boolean mIsInitNative;
-    public List<ArCallback> mMsgHandlers;
+    public List mMsgHandlers;
     public HandlerThread mThread;
 
     /* loaded from: classes.dex */
-    public static class ArCallback {
+    public class ArCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public MessageHandler mHandler;
@@ -62,15 +62,15 @@ public class ARPMessage {
     }
 
     /* loaded from: classes.dex */
-    public static class ArMessage {
+    public class ArMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public HashMap<String, Object> mData;
+        public HashMap mData;
         public int mMessageID;
         public int mMessageType;
         public int mResMessageID;
 
-        public ArMessage(int i, int i2, HashMap<String, Object> hashMap, int i3) {
+        public ArMessage(int i, int i2, HashMap hashMap, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -94,7 +94,7 @@ public class ARPMessage {
 
     /* loaded from: classes.dex */
     public interface MessageHandler {
-        void handleMessage(int i, int i2, HashMap<String, Object> hashMap);
+        void handleMessage(int i, int i2, HashMap hashMap);
     }
 
     static {
@@ -205,7 +205,7 @@ public class ARPMessage {
         }
     }
 
-    public static void receiveMsgFromEngine(Object obj, int i, int i2, HashMap<String, Object> hashMap, int i3) {
+    public static void receiveMsgFromEngine(Object obj, int i, int i2, HashMap hashMap, int i3) {
         ARPMessage aRPMessage;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{obj, Integer.valueOf(i), Integer.valueOf(i2), hashMap, Integer.valueOf(i3)}) == null) || (aRPMessage = (ARPMessage) ((WeakReference) obj).get()) == null) {
@@ -214,7 +214,7 @@ public class ARPMessage {
         aRPMessage.receiveMsgFromEngine(i, i2, hashMap, i3);
     }
 
-    private void sendMessageImpl(int i, int i2, HashMap<String, Object> hashMap, int i3) {
+    private void sendMessageImpl(int i, int i2, HashMap hashMap, int i3) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), hashMap, Integer.valueOf(i3)}) == null) && ARPEngine.getInstance().isEngineCanAccess()) {
             if (-1 == i2) {
@@ -224,7 +224,7 @@ public class ARPMessage {
         }
     }
 
-    private void sendMessageImpl(int i, HashMap<String, Object> hashMap, int i2) {
+    private void sendMessageImpl(int i, HashMap hashMap, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{Integer.valueOf(i), hashMap, Integer.valueOf(i2)}) == null) {
             sendMessageImpl(i, -1, hashMap, i2);
@@ -237,7 +237,7 @@ public class ARPMessage {
 
     public native void nativeSetup(Object obj);
 
-    public void receiveMsgFromEngine(int i, int i2, HashMap<String, Object> hashMap, int i3) {
+    public void receiveMsgFromEngine(int i, int i2, HashMap hashMap, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), hashMap, Integer.valueOf(i3)}) == null) {
             Log.d("ARPMessage", "receiveMsgFromEngine :" + i);
@@ -381,21 +381,21 @@ public class ARPMessage {
         if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        HashMap<String, Object> hashMap = new HashMap<>();
+        HashMap hashMap = new HashMap();
         hashMap.put(ARPMessageType.ARPMessageParamKeys.MAP_NPC_KEY_NAME, str);
         sendMessage(2001, hashMap);
     }
 
-    public void sendMessage(int i, HashMap<String, Object> hashMap) {
+    public void sendMessage(int i, HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, hashMap) == null) {
             sendMessageImpl(i, hashMap, -1);
         }
     }
 
-    public native void sendMessageToEngine(int i, int i2, HashMap<String, Object> hashMap, int i3);
+    public native void sendMessageToEngine(int i, int i2, HashMap hashMap, int i3);
 
-    public void sendResponseMessage(int i, HashMap<String, Object> hashMap, int i2) {
+    public void sendResponseMessage(int i, HashMap hashMap, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), hashMap, Integer.valueOf(i2)}) == null) {
             sendMessageImpl(i, hashMap, i2);
@@ -405,7 +405,7 @@ public class ARPMessage {
     public void setModelVirtualColor(int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            HashMap<String, Object> hashMap = new HashMap<>();
+            HashMap hashMap = new HashMap();
             hashMap.put(ARPMessageType.ARPMessageParamKeys.MODEL_COLOR_KEY, Integer.valueOf(i));
             if (!z) {
                 hashMap.put(ARPMessageType.ARPMessageParamKeys.MODEL_TYPE_KEY, 1);

@@ -29,6 +29,9 @@ public final class FrameworkSQLiteOpenHelperFactory implements SupportSQLiteOpen
     public SupportSQLiteOpenHelper create(SupportSQLiteOpenHelper.Configuration configuration) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, configuration)) == null) ? new FrameworkSQLiteOpenHelper(configuration.context, configuration.name, configuration.callback) : (SupportSQLiteOpenHelper) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, configuration)) == null) {
+            return new FrameworkSQLiteOpenHelper(configuration.context, configuration.name, configuration.callback);
+        }
+        return (SupportSQLiteOpenHelper) invokeL.objValue;
     }
 }

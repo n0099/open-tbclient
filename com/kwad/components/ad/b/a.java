@@ -1,9 +1,6 @@
 package com.kwad.components.ad.b;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -21,7 +18,7 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(@Nullable AdTemplate adTemplate) {
+    public static boolean a(AdTemplate adTemplate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, adTemplate)) == null) {
@@ -34,11 +31,10 @@ public final class a {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:27:0x007b  */
-    @WorkerThread
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean a(@NonNull AdTemplate adTemplate, boolean z) {
+    public static boolean a(AdTemplate adTemplate, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, adTemplate, z)) == null) {
@@ -64,10 +60,10 @@ public final class a {
                 r4 = ad != null ? ad.length() : 0L;
                 adTemplate.mDownloadType = 2;
             } else if (sc > 0) {
-                a.C0612a c0612a = new a.C0612a();
+                a.C0608a c0608a = new a.C0608a();
                 int i = sc * 1024;
-                boolean a2 = com.kwad.sdk.core.videocache.b.a.bC(KsAdSDKImpl.get().getContext()).a(A, i, c0612a);
-                str = c0612a.Qd;
+                boolean a2 = com.kwad.sdk.core.videocache.b.a.bC(KsAdSDKImpl.get().getContext()).a(A, i, c0608a);
+                str = c0608a.Qd;
                 adTemplate.mDownloadType = 3;
                 adTemplate.mDownloadSize = i;
                 z2 = a2;

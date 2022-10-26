@@ -17,7 +17,7 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class HistoryTraceData implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator<HistoryTraceData> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public double b;
@@ -26,13 +26,13 @@ public class HistoryTraceData implements Parcelable {
     public LatLng e;
     public LatLng f;
     public SyncCoordinateConverter.CoordType g;
-    public List<HistoryTracePoint> h;
+    public List h;
     public int i;
 
     /* loaded from: classes2.dex */
-    public static class HistoryTracePoint implements Parcelable {
+    public class HistoryTracePoint implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator<HistoryTracePoint> CREATOR;
+        public static final Parcelable.Creator CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public LatLng a;
         public long b;
@@ -251,7 +251,7 @@ public class HistoryTraceData implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : (LatLng) invokeV.objValue;
     }
 
-    public List<HistoryTracePoint> getPointsList() {
+    public List getPointsList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.h : (List) invokeV.objValue;
@@ -311,7 +311,7 @@ public class HistoryTraceData implements Parcelable {
         }
     }
 
-    public void setPointsList(List<HistoryTracePoint> list) {
+    public void setPointsList(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, list) == null) {
             this.h = list;
@@ -349,11 +349,11 @@ public class HistoryTraceData implements Parcelable {
             stringBuffer.append(this.e);
             stringBuffer.append("; OrderEndPosition = ");
             stringBuffer.append(this.f);
-            List<HistoryTracePoint> list = this.h;
+            List list = this.h;
             if (list != null && !list.isEmpty()) {
                 stringBuffer.append("\n#History Trace Points Info BEGIN# \n");
                 for (int i = 0; i < this.h.size(); i++) {
-                    HistoryTracePoint historyTracePoint = this.h.get(i);
+                    HistoryTracePoint historyTracePoint = (HistoryTracePoint) this.h.get(i);
                     if (historyTracePoint != null) {
                         stringBuffer.append("The ");
                         stringBuffer.append(i);

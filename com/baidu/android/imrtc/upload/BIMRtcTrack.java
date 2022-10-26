@@ -19,7 +19,7 @@ public class BIMRtcTrack {
 
     /* renamed from: com.baidu.android.imrtc.upload.BIMRtcTrack$2  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass2 {
+    public /* synthetic */ class AnonymousClass2 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$android$imsdk$upload$action$pb$IMPushPb$ActionType;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public class BIMRtcTrack {
     }
 
     /* loaded from: classes.dex */
-    public static final class RequestBuilder {
+    public final class RequestBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int REQUEST_BIM_RTC = 501210;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,13 +89,6 @@ public class BIMRtcTrack {
                 return this;
             }
             return (RequestBuilder) invokeJ.objValue;
-        }
-
-        public void build() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                BIMRtcTrack.reportTracker(this.context, IMPushPb.ActionType.REQUEST, this.request);
-            }
         }
 
         public RequestBuilder errorCode(long j) {
@@ -156,6 +149,13 @@ public class BIMRtcTrack {
                 return this;
             }
             return (RequestBuilder) invokeJ.objValue;
+        }
+
+        public void build() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                BIMRtcTrack.reportTracker(this.context, IMPushPb.ActionType.REQUEST, this.request);
+            }
         }
     }
 

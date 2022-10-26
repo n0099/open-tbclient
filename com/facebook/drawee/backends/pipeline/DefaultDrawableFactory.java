@@ -23,6 +23,16 @@ public class DefaultDrawableFactory implements DrawableFactory {
     public final DrawableFactory mAnimatedDrawableFactory;
     public final Resources mResources;
 
+    @Override // com.facebook.imagepipeline.drawable.DrawableFactory
+    public boolean supportsImageType(CloseableImage closeableImage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, closeableImage)) == null) {
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
     public DefaultDrawableFactory(Resources resources, @Nullable DrawableFactory drawableFactory) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -45,13 +55,25 @@ public class DefaultDrawableFactory implements DrawableFactory {
     public static boolean hasTransformableExifOrientation(CloseableStaticBitmap closeableStaticBitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, closeableStaticBitmap)) == null) ? (closeableStaticBitmap.getExifOrientation() == 1 || closeableStaticBitmap.getExifOrientation() == 0) ? false : true : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, closeableStaticBitmap)) == null) {
+            if (closeableStaticBitmap.getExifOrientation() != 1 && closeableStaticBitmap.getExifOrientation() != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean hasTransformableRotationAngle(CloseableStaticBitmap closeableStaticBitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, closeableStaticBitmap)) == null) ? (closeableStaticBitmap.getRotationAngle() == 0 || closeableStaticBitmap.getRotationAngle() == -1) ? false : true : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, closeableStaticBitmap)) == null) {
+            if (closeableStaticBitmap.getRotationAngle() != 0 && closeableStaticBitmap.getRotationAngle() != -1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, IF] complete} */
@@ -68,14 +90,14 @@ public class DefaultDrawableFactory implements DrawableFactory {
                 if (closeableImage instanceof CloseableStaticBitmap) {
                     CloseableStaticBitmap closeableStaticBitmap = (CloseableStaticBitmap) closeableImage;
                     BitmapDrawable bitmapDrawable = new BitmapDrawable(this.mResources, closeableStaticBitmap.getUnderlyingBitmap());
-                    if (hasTransformableRotationAngle(closeableStaticBitmap) || hasTransformableExifOrientation(closeableStaticBitmap)) {
-                        OrientedDrawable orientedDrawable = new OrientedDrawable(bitmapDrawable, closeableStaticBitmap.getRotationAngle(), closeableStaticBitmap.getExifOrientation());
-                        if (FrescoSystrace.isTracing()) {
-                            FrescoSystrace.endSection();
-                        }
-                        return orientedDrawable;
+                    if (!hasTransformableRotationAngle(closeableStaticBitmap) && !hasTransformableExifOrientation(closeableStaticBitmap)) {
+                        return bitmapDrawable;
                     }
-                    return bitmapDrawable;
+                    OrientedDrawable orientedDrawable = new OrientedDrawable(bitmapDrawable, closeableStaticBitmap.getRotationAngle(), closeableStaticBitmap.getExifOrientation());
+                    if (FrescoSystrace.isTracing()) {
+                        FrescoSystrace.endSection();
+                    }
+                    return orientedDrawable;
                 } else if (this.mAnimatedDrawableFactory != null && this.mAnimatedDrawableFactory.supportsImageType(closeableImage)) {
                     Drawable createDrawable = this.mAnimatedDrawableFactory.createDrawable(closeableImage);
                     if (FrescoSystrace.isTracing()) {
@@ -95,15 +117,5 @@ public class DefaultDrawableFactory implements DrawableFactory {
             }
         }
         return (Drawable) invokeL.objValue;
-    }
-
-    @Override // com.facebook.imagepipeline.drawable.DrawableFactory
-    public boolean supportsImageType(CloseableImage closeableImage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, closeableImage)) == null) {
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 }

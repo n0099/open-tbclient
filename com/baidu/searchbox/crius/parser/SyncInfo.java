@@ -1,7 +1,6 @@
 package com.baidu.searchbox.crius.parser;
 
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,12 +17,12 @@ public class SyncInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String action;
-    public ArrayList<Filter> filters;
+    public ArrayList filters;
     public String valueCriusMap;
     public String valuePath;
 
     /* loaded from: classes2.dex */
-    public static class Filter {
+    public class Filter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String filterPath;
@@ -43,6 +42,27 @@ public class SyncInfo {
             }
         }
 
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return Objects.hash(this.filterPath, this.filterValue);
+            }
+            return invokeV.intValue;
+        }
+
+        public boolean isValid() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                if (!TextUtils.isEmpty(this.filterPath) && !TextUtils.isEmpty(this.filterValue)) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
         public boolean equals(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -54,26 +74,17 @@ public class SyncInfo {
                     return false;
                 }
                 Filter filter = (Filter) obj;
-                return Objects.equals(this.filterPath, filter.filterPath) && Objects.equals(this.filterValue, filter.filterValue);
+                if (Objects.equals(this.filterPath, filter.filterPath) && Objects.equals(this.filterValue, filter.filterValue)) {
+                    return true;
+                }
+                return false;
             }
             return invokeL.booleanValue;
         }
 
-        public int hashCode() {
-            InterceptResult invokeV;
+        public void parse(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Objects.hash(this.filterPath, this.filterValue) : invokeV.intValue;
-        }
-
-        public boolean isValid() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (TextUtils.isEmpty(this.filterPath) || TextUtils.isEmpty(this.filterValue)) ? false : true : invokeV.booleanValue;
-        }
-
-        public void parse(@Nullable JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
+            if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
                 return;
             }
             this.filterPath = jSONObject.optString("filter_path");
@@ -95,8 +106,28 @@ public class SyncInfo {
         }
     }
 
-    @Nullable
-    public static SyncInfo parse(@Nullable JSONObject jSONObject) {
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return Objects.hash(this.action, this.valuePath, this.valueCriusMap, this.filters);
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean isDataValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!TextUtils.isEmpty(this.action) && !TextUtils.isEmpty(this.valuePath)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static SyncInfo parse(JSONObject jSONObject) {
         InterceptResult invokeL;
         JSONArray optJSONArray;
         Interceptable interceptable = $ic;
@@ -109,7 +140,7 @@ public class SyncInfo {
             syncInfo.valuePath = jSONObject.optString("value_path");
             syncInfo.valueCriusMap = jSONObject.optString("value_crius_map");
             if (jSONObject.has("filters") && (optJSONArray = jSONObject.optJSONArray("filters")) != null && optJSONArray.length() > 0) {
-                syncInfo.filters = new ArrayList<>(optJSONArray.length());
+                syncInfo.filters = new ArrayList(optJSONArray.length());
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     Filter filter = new Filter();
                     try {
@@ -136,20 +167,11 @@ public class SyncInfo {
                 return false;
             }
             SyncInfo syncInfo = (SyncInfo) obj;
-            return this.action.equals(syncInfo.action) && this.valuePath.equals(syncInfo.valuePath) && Objects.equals(this.valueCriusMap, syncInfo.valueCriusMap) && Objects.equals(this.filters, syncInfo.filters);
+            if (this.action.equals(syncInfo.action) && this.valuePath.equals(syncInfo.valuePath) && Objects.equals(this.valueCriusMap, syncInfo.valueCriusMap) && Objects.equals(this.filters, syncInfo.filters)) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Objects.hash(this.action, this.valuePath, this.valueCriusMap, this.filters) : invokeV.intValue;
-    }
-
-    public boolean isDataValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (TextUtils.isEmpty(this.action) || TextUtils.isEmpty(this.valuePath)) ? false : true : invokeV.booleanValue;
     }
 }

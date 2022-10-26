@@ -10,6 +10,11 @@ import kotlin.jvm.internal.markers.KMappedMarker;
 public final class AbstractMap$values$1$iterator$1 implements Iterator<V>, KMappedMarker {
     public final /* synthetic */ Iterator $entryIterator;
 
+    @Override // java.util.Iterator
+    public void remove() {
+        throw new UnsupportedOperationException("Operation is not supported for read-only collection");
+    }
+
     public AbstractMap$values$1$iterator$1(Iterator it) {
         this.$entryIterator = it;
     }
@@ -23,10 +28,5 @@ public final class AbstractMap$values$1$iterator$1 implements Iterator<V>, KMapp
     @Override // java.util.Iterator
     public V next() {
         return ((Map.Entry) this.$entryIterator.next()).getValue();
-    }
-
-    @Override // java.util.Iterator
-    public void remove() {
-        throw new UnsupportedOperationException("Operation is not supported for read-only collection");
     }
 }

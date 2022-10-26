@@ -8,7 +8,6 @@ import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -93,7 +92,6 @@ public class DpNetworkUtils {
         return (String) invokeL.objValue;
     }
 
-    @Keep
     public static NetworkInfo getNetWorkInfo(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -113,7 +111,6 @@ public class DpNetworkUtils {
         return (NetworkInfo) invokeL.objValue;
     }
 
-    @Keep
     public static int getNetworkConnectType(NetworkInfo networkInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -153,7 +150,6 @@ public class DpNetworkUtils {
         return invokeL.intValue;
     }
 
-    @Keep
     public static String getNetworkStatisticsData(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

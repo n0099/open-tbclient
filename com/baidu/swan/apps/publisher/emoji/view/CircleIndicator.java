@@ -6,11 +6,10 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
-import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.x03;
+import com.baidu.tieba.y03;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -61,24 +60,24 @@ public class CircleIndicator extends View {
         public void onPageScrollStateChanged(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                x03.g(this.a.getContext().getApplicationContext()).k();
+                y03.g(this.a.getContext().getApplicationContext()).k();
             }
-        }
-
-        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrolled(int i, float f, int i2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) || f <= 0.0f) {
-                return;
-            }
-            this.a.f(i, f);
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                this.a.b = i;
+            if (interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) {
+                return;
+            }
+            this.a.b = i;
+        }
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrolled(int i, float f, int i2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) && f > 0.0f) {
+                this.a.f(i, f);
             }
         }
     }
@@ -104,33 +103,6 @@ public class CircleIndicator extends View {
         }
     }
 
-    public final void b(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            this.h.setColor(this.k);
-            for (int i = 0; i < this.a; i++) {
-                int i2 = this.d;
-                canvas.drawCircle(this.f + (this.c * i), i2, i2, this.h);
-            }
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int count = this.j.getAdapter().getCount();
-            this.a = count;
-            if (count <= 0) {
-                return;
-            }
-            int i = this.i;
-            int i2 = this.c;
-            this.f = (i - ((count - 1) * i2)) / 2;
-            this.d = i2 / 5;
-            invalidate();
-        }
-    }
-
     public final void d(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
@@ -140,66 +112,22 @@ public class CircleIndicator extends View {
         }
     }
 
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Paint paint = new Paint();
-            this.h = paint;
-            paint.setAntiAlias(true);
-            this.k = getResources().getColor(R.color.obfuscated_res_0x7f060aa7);
-            this.l = getResources().getColor(R.color.obfuscated_res_0x7f060aa8);
-            this.c = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070106);
-        }
-    }
-
-    public void f(int i, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
-            this.g = (int) (this.c * (f + i));
-            invalidate();
-        }
-    }
-
-    @Override // android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
-            super.onDraw(canvas);
-            b(canvas);
-            d(canvas);
-        }
-    }
-
-    @Override // android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048582, this, i, i2, i3, i4) == null) {
-            super.onSizeChanged(i, i2, i3, i4);
-            this.i = i;
-            int i5 = this.c;
-            this.f = (i - ((this.a - 1) * i5)) / 2;
-            this.d = i5 / 5;
-            this.e = i5;
-        }
-    }
-
     public void setViewPager(ViewPager viewPager) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, viewPager) == null) {
             this.j = viewPager;
-            if (viewPager == null || viewPager.getAdapter() == null) {
-                return;
+            if (viewPager != null && viewPager.getAdapter() != null) {
+                c();
+                this.j.removeOnPageChangeListener(this.m);
+                this.j.addOnPageChangeListener(this.m);
+                this.j.getCurrentItem();
+                invalidate();
             }
-            c();
-            this.j.removeOnPageChangeListener(this.m);
-            this.j.addOnPageChangeListener(this.m);
-            this.j.getCurrentItem();
-            invalidate();
         }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CircleIndicator(Context context, @Nullable AttributeSet attributeSet) {
+    public CircleIndicator(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -220,7 +148,7 @@ public class CircleIndicator extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CircleIndicator(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public CircleIndicator(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -242,5 +170,75 @@ public class CircleIndicator extends View {
         this.g = 0;
         this.m = new a(this);
         e();
+    }
+
+    public void f(int i, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            this.g = (int) (this.c * (f + i));
+            invalidate();
+        }
+    }
+
+    public final void b(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+            this.h.setColor(this.k);
+            for (int i = 0; i < this.a; i++) {
+                int i2 = this.d;
+                canvas.drawCircle(this.f + (this.c * i), i2, i2, this.h);
+            }
+        }
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
+            super.onDraw(canvas);
+            b(canvas);
+            d(canvas);
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            int count = this.j.getAdapter().getCount();
+            this.a = count;
+            if (count <= 0) {
+                return;
+            }
+            int i = this.i;
+            int i2 = this.c;
+            this.f = (i - ((count - 1) * i2)) / 2;
+            this.d = i2 / 5;
+            invalidate();
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            Paint paint = new Paint();
+            this.h = paint;
+            paint.setAntiAlias(true);
+            this.k = getResources().getColor(R.color.obfuscated_res_0x7f060aa7);
+            this.l = getResources().getColor(R.color.obfuscated_res_0x7f060aa8);
+            this.c = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070106);
+        }
+    }
+
+    @Override // android.view.View
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048582, this, i, i2, i3, i4) == null) {
+            super.onSizeChanged(i, i2, i3, i4);
+            this.i = i;
+            int i5 = this.c;
+            this.f = (i - ((this.a - 1) * i5)) / 2;
+            this.d = i5 / 5;
+            this.e = i5;
+        }
     }
 }

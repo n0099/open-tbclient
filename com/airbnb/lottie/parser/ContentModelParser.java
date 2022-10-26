@@ -1,6 +1,5 @@
 package com.airbnb.lottie.parser;
 
-import androidx.annotation.Nullable;
 import com.airbnb.lottie.LottieComposition;
 import com.airbnb.lottie.model.content.ContentModel;
 import com.airbnb.lottie.parser.moshi.JsonReader;
@@ -19,7 +18,6 @@ public class ContentModelParser {
     /* JADX WARN: Code restructure failed: missing block: B:42:0x0094, code lost:
         if (r2.equals("gs") != false) goto L24;
      */
-    @Nullable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -31,19 +29,22 @@ public class ContentModelParser {
         int i = 2;
         while (true) {
             contentModel = null;
-            if (!jsonReader.hasNext()) {
+            if (jsonReader.hasNext()) {
+                int selectName = jsonReader.selectName(NAMES);
+                if (selectName != 0) {
+                    if (selectName != 1) {
+                        jsonReader.skipName();
+                        jsonReader.skipValue();
+                    } else {
+                        i = jsonReader.nextInt();
+                    }
+                } else {
+                    str = jsonReader.nextString();
+                    break;
+                }
+            } else {
                 str = null;
                 break;
-            }
-            int selectName = jsonReader.selectName(NAMES);
-            if (selectName == 0) {
-                str = jsonReader.nextString();
-                break;
-            } else if (selectName != 1) {
-                jsonReader.skipName();
-                jsonReader.skipValue();
-            } else {
-                i = jsonReader.nextInt();
             }
         }
         if (str == null) {

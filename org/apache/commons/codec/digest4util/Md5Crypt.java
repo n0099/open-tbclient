@@ -1,6 +1,5 @@
 package org.apache.commons.codec.digest4util;
 
-import android.annotation.SuppressLint;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -35,11 +34,11 @@ public class Md5Crypt {
         }
     }
 
-    public static String apr1Crypt(byte[] bArr) {
+    public static String apr1Crypt(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            return apr1Crypt(bArr, APR1_PREFIX + B64.getRandomSalt(8));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return apr1Crypt(str.getBytes(Charsets.UTF_8));
         }
         return (String) invokeL.objValue;
     }
@@ -49,6 +48,33 @@ public class Md5Crypt {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
             return md5Crypt(bArr, MD5_PREFIX + B64.getRandomSalt(8));
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String apr1Crypt(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            return apr1Crypt(str.getBytes(Charsets.UTF_8), str2);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String md5Crypt(byte[] bArr, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, bArr, str)) == null) {
+            return md5Crypt(bArr, str, MD5_PREFIX);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String apr1Crypt(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            return apr1Crypt(bArr, APR1_PREFIX + B64.getRandomSalt(8));
         }
         return (String) invokeL.objValue;
     }
@@ -65,13 +91,6 @@ public class Md5Crypt {
         return (String) invokeLL.objValue;
     }
 
-    public static String md5Crypt(byte[] bArr, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, bArr, str)) == null) ? md5Crypt(bArr, str, MD5_PREFIX) : (String) invokeLL.objValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
     public static String md5Crypt(byte[] bArr, String str, String str2) {
         InterceptResult invokeLLL;
         String group;
@@ -156,17 +175,5 @@ public class Md5Crypt {
             return sb.toString();
         }
         return (String) invokeLLL.objValue;
-    }
-
-    public static String apr1Crypt(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? apr1Crypt(str.getBytes(Charsets.UTF_8)) : (String) invokeL.objValue;
-    }
-
-    public static String apr1Crypt(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) ? apr1Crypt(str.getBytes(Charsets.UTF_8), str2) : (String) invokeLL.objValue;
     }
 }

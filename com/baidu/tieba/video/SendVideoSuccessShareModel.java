@@ -25,8 +25,18 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
     public HttpMessageListener a;
 
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     /* loaded from: classes6.dex */
-    public static class SendVideoSuccessShareOriginalThreadInfoResponse extends JsonHttpResponsedMessage {
+    public class SendVideoSuccessShareOriginalThreadInfoResponse extends JsonHttpResponsedMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public OriginalThreadInfo threadInfo;
@@ -58,25 +68,27 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
                 super.decodeLogicInBackGround(i, jSONObject);
                 int statusCode = getStatusCode();
                 int error = getError();
-                if (statusCode != 200 || error < 0 || jSONObject == null) {
-                    return;
+                if (statusCode == 200 && error >= 0 && jSONObject != null) {
+                    this.threadInfo = new OriginalThreadInfo();
+                    String optString = jSONObject.optString("title");
+                    String optString2 = jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
+                    String optString3 = jSONObject.optString("video_id");
+                    OriginalThreadInfo originalThreadInfo = this.threadInfo;
+                    originalThreadInfo.c = optString2;
+                    originalThreadInfo.a = 3;
+                    originalThreadInfo.b = optString;
+                    originalThreadInfo.l = optString3;
                 }
-                this.threadInfo = new OriginalThreadInfo();
-                String optString = jSONObject.optString("title");
-                String optString2 = jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
-                String optString3 = jSONObject.optString("video_id");
-                OriginalThreadInfo originalThreadInfo = this.threadInfo;
-                originalThreadInfo.c = optString2;
-                originalThreadInfo.a = 3;
-                originalThreadInfo.b = optString;
-                originalThreadInfo.l = optString3;
             }
         }
 
         public OriginalThreadInfo getThreadInfo() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.threadInfo : (OriginalThreadInfo) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.threadInfo;
+            }
+            return (OriginalThreadInfo) invokeV.objValue;
         }
     }
 
@@ -113,10 +125,9 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003384 && (httpResponsedMessage instanceof SendVideoSuccessShareOriginalThreadInfoResponse)) {
                 SendVideoSuccessShareOriginalThreadInfoResponse sendVideoSuccessShareOriginalThreadInfoResponse = (SendVideoSuccessShareOriginalThreadInfoResponse) httpResponsedMessage;
-                if (sendVideoSuccessShareOriginalThreadInfoResponse.threadInfo == null || this.a.mLoadDataCallBack == null) {
-                    return;
+                if (sendVideoSuccessShareOriginalThreadInfoResponse.threadInfo != null && this.a.mLoadDataCallBack != null) {
+                    this.a.mLoadDataCallBack.c(sendVideoSuccessShareOriginalThreadInfoResponse.getThreadInfo());
                 }
-                this.a.mLoadDataCallBack.c(sendVideoSuccessShareOriginalThreadInfoResponse.getThreadInfo());
             }
         }
     }
@@ -157,16 +168,6 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             MessageManager.getInstance().unRegisterListener(this.a);
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;

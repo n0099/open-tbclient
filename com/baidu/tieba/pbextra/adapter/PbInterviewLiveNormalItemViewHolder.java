@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.tieba.pb.view.PbGiftListView;
 import com.baidu.tieba.tbadkCore.FrsPraiseView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,6 +25,13 @@ public class PbInterviewLiveNormalItemViewHolder extends TypeAdapter.ViewHolder 
     public PbGiftListView d;
     public FrsPraiseView e;
     public ImageView f;
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbInterviewLiveNormalItemViewHolder(View view2, boolean z, boolean z2, int i, boolean z3) {
@@ -44,32 +51,25 @@ public class PbInterviewLiveNormalItemViewHolder extends TypeAdapter.ViewHolder 
                 return;
             }
         }
-        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f6b);
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f5f);
         this.a = tbImageView;
         tbImageView.setSupportNoImage(true);
         this.a.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.a.setOnClickListener(this);
         this.a.setInterceptOnClick(true);
         this.a.setDefaultResource(R.drawable.icon_click);
-        this.b = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f091c1e);
-        this.c = view2.findViewById(R.id.obfuscated_res_0x7f091834);
-        this.e = (FrsPraiseView) view2.findViewById(R.id.obfuscated_res_0x7f091835);
-        this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091833);
-        this.d = (PbGiftListView) view2.findViewById(R.id.obfuscated_res_0x7f090cb3);
+        this.b = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f091c1a);
+        this.c = view2.findViewById(R.id.obfuscated_res_0x7f091826);
+        this.e = (FrsPraiseView) view2.findViewById(R.id.obfuscated_res_0x7f091827);
+        this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091825);
+        this.d = (PbGiftListView) view2.findViewById(R.id.obfuscated_res_0x7f090cbd);
         this.b.getLayoutStrategy().t();
         this.b.getLayoutStrategy().k(true);
-        int min = Math.min(((((ej.k(TbadkCoreApplication.getInst()) - view2.getPaddingLeft()) - view2.getPaddingRight()) - this.b.getPaddingLeft()) - this.b.getPaddingRight()) - ((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f070253)), i);
+        int min = Math.min(((((fj.k(TbadkCoreApplication.getInst()) - view2.getPaddingLeft()) - view2.getPaddingRight()) - this.b.getPaddingLeft()) - this.b.getPaddingRight()) - ((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f070253)), i);
         this.b.getLayoutStrategy().q(min);
         this.b.getLayoutStrategy().p((int) (min * 1.618f));
         this.b.setTextSize(TbConfig.getContentSize());
         this.b.setDisplayImage(z2, false);
-        this.b.setVoiceViewRes(R.layout.obfuscated_res_0x7f0d0905);
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-        }
+        this.b.setVoiceViewRes(R.layout.obfuscated_res_0x7f0d0906);
     }
 }

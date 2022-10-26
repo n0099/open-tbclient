@@ -1,8 +1,5 @@
 package androidx.webkit;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.webkit.internal.TracingControllerImpl;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,6 +14,12 @@ import java.util.concurrent.Executor;
 public abstract class TracingController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract boolean isTracing();
+
+    public abstract void start(TracingConfig tracingConfig);
+
+    public abstract boolean stop(OutputStream outputStream, Executor executor);
 
     /* loaded from: classes.dex */
     public static class LAZY_HOLDER {
@@ -55,7 +58,6 @@ public abstract class TracingController {
         }
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public TracingController() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -70,16 +72,12 @@ public abstract class TracingController {
         }
     }
 
-    @NonNull
     public static TracingController getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? LAZY_HOLDER.INSTANCE : (TracingController) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return LAZY_HOLDER.INSTANCE;
+        }
+        return (TracingController) invokeV.objValue;
     }
-
-    public abstract boolean isTracing();
-
-    public abstract void start(@NonNull TracingConfig tracingConfig);
-
-    public abstract boolean stop(@Nullable OutputStream outputStream, @NonNull Executor executor);
 }

@@ -8,7 +8,7 @@ import java.util.List;
 public interface IMultiMediaDataSourceView extends SurfaceTexture.OnFrameAvailableListener, GLSurfaceView.Renderer, IVLogLifeProtocol, OnMultiMediaCaptureCallback, OnPreRunnableTask {
     void addCoverStickerData(MultiMediaData multiMediaData);
 
-    void addCoverStickerDataList(List<MultiMediaData> list);
+    void addCoverStickerDataList(List list);
 
     void cancelStickerSelected();
 
@@ -16,7 +16,7 @@ public interface IMultiMediaDataSourceView extends SurfaceTexture.OnFrameAvailab
 
     void deleteStickerData(MultiMediaData multiMediaData, String str);
 
-    List<MultiMediaData> getCoverStickerDataList();
+    List getCoverStickerDataList();
 
     void moveBoundsCheckEnabled(boolean z);
 

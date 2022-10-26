@@ -1,6 +1,5 @@
 package com.google.android.exoplayer2.source.hls.playlist;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -30,7 +29,7 @@ public final class HlsMediaPlaylist extends HlsPlaylist {
     public final Segment initializationSegment;
     public final int mediaSequence;
     public final int playlistType;
-    public final List<Segment> segments;
+    public final List segments;
     public final long startOffsetUs;
     public final long startTimeUs;
     public final long targetDurationUs;
@@ -42,7 +41,7 @@ public final class HlsMediaPlaylist extends HlsPlaylist {
     }
 
     /* loaded from: classes7.dex */
-    public static final class Segment implements Comparable<Long> {
+    public final class Segment implements Comparable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long byterangeLength;
@@ -53,27 +52,6 @@ public final class HlsMediaPlaylist extends HlsPlaylist {
         public final int relativeDiscontinuitySequence;
         public final long relativeStartTimeUs;
         public final String url;
-
-        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public Segment(String str, long j, long j2) {
-            this(str, 0L, -1, C.TIME_UNSET, null, null, j, j2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r3;
-                Object[] objArr = {str, Long.valueOf(j), Long.valueOf(j2)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    this((String) objArr2[0], ((Long) objArr2[1]).longValue(), ((Integer) objArr2[2]).intValue(), ((Long) objArr2[3]).longValue(), (String) objArr2[4], (String) objArr2[5], ((Long) objArr2[6]).longValue(), ((Long) objArr2[7]).longValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-        }
 
         public Segment(String str, long j, int i, long j2, String str2, String str3, long j3, long j4) {
             Interceptable interceptable = $ic;
@@ -100,23 +78,47 @@ public final class HlsMediaPlaylist extends HlsPlaylist {
             this.byterangeLength = j4;
         }
 
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+        public Segment(String str, long j, long j2) {
+            this(str, 0L, -1, C.TIME_UNSET, null, null, j, j2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r3;
+                Object[] objArr = {str, Long.valueOf(j), Long.valueOf(j2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    this((String) objArr2[0], ((Long) objArr2[1]).longValue(), ((Integer) objArr2[2]).intValue(), ((Long) objArr2[3]).longValue(), (String) objArr2[4], (String) objArr2[5], ((Long) objArr2[6]).longValue(), ((Long) objArr2[7]).longValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.lang.Comparable
-        public int compareTo(@NonNull Long l) {
+        public int compareTo(Long l) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, l)) == null) {
                 if (this.relativeStartTimeUs > l.longValue()) {
                     return 1;
                 }
-                return this.relativeStartTimeUs < l.longValue() ? -1 : 0;
+                if (this.relativeStartTimeUs < l.longValue()) {
+                    return -1;
+                }
+                return 0;
             }
             return invokeL.intValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HlsMediaPlaylist(int i, String str, List<String> list, long j, long j2, boolean z, int i2, int i3, int i4, long j3, boolean z2, boolean z3, boolean z4, DrmInitData drmInitData, Segment segment, List<Segment> list2) {
+    public HlsMediaPlaylist(int i, String str, List list, long j, long j2, boolean z, int i2, int i3, int i4, long j3, boolean z2, boolean z3, boolean z4, DrmInitData drmInitData, Segment segment, List list2) {
         super(str, list);
         long j4;
         Interceptable interceptable = $ic;
@@ -149,15 +151,17 @@ public final class HlsMediaPlaylist extends HlsPlaylist {
         this.initializationSegment = segment;
         this.segments = Collections.unmodifiableList(list2);
         if (!list2.isEmpty()) {
-            Segment segment2 = list2.get(list2.size() - 1);
+            Segment segment2 = (Segment) list2.get(list2.size() - 1);
             this.durationUs = segment2.relativeStartTimeUs + segment2.durationUs;
         } else {
             this.durationUs = 0L;
         }
         if (j == C.TIME_UNSET) {
             j4 = -9223372036854775807L;
+        } else if (j >= 0) {
+            j4 = j;
         } else {
-            j4 = j >= 0 ? j : this.durationUs + j;
+            j4 = this.durationUs + j;
         }
         this.startOffsetUs = j4;
     }
@@ -165,19 +169,31 @@ public final class HlsMediaPlaylist extends HlsPlaylist {
     public HlsMediaPlaylist copyWith(long j, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) ? new HlsMediaPlaylist(this.playlistType, this.baseUri, this.tags, this.startOffsetUs, j, true, i, this.mediaSequence, this.version, this.targetDurationUs, this.hasIndependentSegmentsTag, this.hasEndTag, this.hasProgramDateTime, this.drmInitData, this.initializationSegment, this.segments) : (HlsMediaPlaylist) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) {
+            return new HlsMediaPlaylist(this.playlistType, this.baseUri, this.tags, this.startOffsetUs, j, true, i, this.mediaSequence, this.version, this.targetDurationUs, this.hasIndependentSegmentsTag, this.hasEndTag, this.hasProgramDateTime, this.drmInitData, this.initializationSegment, this.segments);
+        }
+        return (HlsMediaPlaylist) invokeCommon.objValue;
     }
 
     public HlsMediaPlaylist copyWithEndTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.hasEndTag ? this : new HlsMediaPlaylist(this.playlistType, this.baseUri, this.tags, this.startOffsetUs, this.startTimeUs, this.hasDiscontinuitySequence, this.discontinuitySequence, this.mediaSequence, this.version, this.targetDurationUs, this.hasIndependentSegmentsTag, true, this.hasProgramDateTime, this.drmInitData, this.initializationSegment, this.segments) : (HlsMediaPlaylist) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.hasEndTag) {
+                return this;
+            }
+            return new HlsMediaPlaylist(this.playlistType, this.baseUri, this.tags, this.startOffsetUs, this.startTimeUs, this.hasDiscontinuitySequence, this.discontinuitySequence, this.mediaSequence, this.version, this.targetDurationUs, this.hasIndependentSegmentsTag, true, this.hasProgramDateTime, this.drmInitData, this.initializationSegment, this.segments);
+        }
+        return (HlsMediaPlaylist) invokeV.objValue;
     }
 
     public long getEndTimeUs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.startTimeUs + this.durationUs : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.startTimeUs + this.durationUs;
+        }
+        return invokeV.longValue;
     }
 
     public boolean isNewerThan(HlsMediaPlaylist hlsMediaPlaylist) {
@@ -194,10 +210,13 @@ public final class HlsMediaPlaylist extends HlsPlaylist {
             }
             int size = this.segments.size();
             int size2 = hlsMediaPlaylist.segments.size();
-            if (size <= size2) {
-                return size == size2 && this.hasEndTag && !hlsMediaPlaylist.hasEndTag;
+            if (size > size2) {
+                return true;
             }
-            return true;
+            if (size == size2 && this.hasEndTag && !hlsMediaPlaylist.hasEndTag) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }

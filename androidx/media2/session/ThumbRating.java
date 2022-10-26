@@ -31,54 +31,32 @@ public final class ThumbRating implements Rating {
         this.mIsRated = false;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj instanceof ThumbRating) {
-                ThumbRating thumbRating = (ThumbRating) obj;
-                return this.mThumbUp == thumbRating.mThumbUp && this.mIsRated == thumbRating.mIsRated;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ObjectsCompat.hash(Boolean.valueOf(this.mIsRated), Boolean.valueOf(this.mThumbUp)) : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return ObjectsCompat.hash(Boolean.valueOf(this.mIsRated), Boolean.valueOf(this.mThumbUp));
+        }
+        return invokeV.intValue;
     }
 
     @Override // androidx.media2.common.Rating
     public boolean isRated() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mIsRated : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mIsRated;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isThumbUp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mThumbUp : invokeV.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("ThumbRating: ");
-            if (this.mIsRated) {
-                str = "isThumbUp=" + this.mThumbUp;
-            } else {
-                str = "unrated";
-            }
-            sb.append(str);
-            return sb.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mThumbUp;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
     public ThumbRating(boolean z) {
@@ -98,5 +76,39 @@ public final class ThumbRating implements Rating {
         }
         this.mThumbUp = z;
         this.mIsRated = true;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (!(obj instanceof ThumbRating)) {
+                return false;
+            }
+            ThumbRating thumbRating = (ThumbRating) obj;
+            if (this.mThumbUp != thumbRating.mThumbUp || this.mIsRated != thumbRating.mIsRated) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("ThumbRating: ");
+            if (this.mIsRated) {
+                str = "isThumbUp=" + this.mThumbUp;
+            } else {
+                str = "unrated";
+            }
+            sb.append(str);
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

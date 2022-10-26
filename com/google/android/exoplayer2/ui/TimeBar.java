@@ -1,6 +1,4 @@
 package com.google.android.exoplayer2.ui;
-
-import androidx.annotation.Nullable;
 /* loaded from: classes7.dex */
 public interface TimeBar {
 
@@ -17,7 +15,7 @@ public interface TimeBar {
 
     void removeListener(OnScrubListener onScrubListener);
 
-    void setAdGroupTimesMs(@Nullable long[] jArr, @Nullable boolean[] zArr, int i);
+    void setAdGroupTimesMs(long[] jArr, boolean[] zArr, int i);
 
     void setBufferedPosition(long j);
 

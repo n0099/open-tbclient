@@ -68,7 +68,10 @@ public class DefaultPreference {
     public static Preference getPreference() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? getInstance().preference : (Preference) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return getInstance().preference;
+        }
+        return (Preference) invokeV.objValue;
     }
 
     public static void setPrefName(String str) {

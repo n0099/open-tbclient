@@ -61,8 +61,8 @@ public final class LocationClient implements c.a {
     public Messenger g;
     public a h;
     public final Messenger i;
-    public ArrayList<BDLocationListener> j;
-    public ArrayList<BDAbstractLocationListener> k;
+    public ArrayList j;
+    public ArrayList k;
     public BDLocation l;
     public boolean m;
     public boolean n;
@@ -80,10 +80,10 @@ public final class LocationClient implements c.a {
     public Boolean z;
 
     /* loaded from: classes2.dex */
-    public static class a extends Handler {
+    public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<LocationClient> a;
+        public final WeakReference a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(Looper looper, LocationClient locationClient) {
@@ -103,14 +103,14 @@ public final class LocationClient implements c.a {
                     return;
                 }
             }
-            this.a = new WeakReference<>(locationClient);
+            this.a = new WeakReference(locationClient);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             LocationClient locationClient;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || (locationClient = this.a.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || (locationClient = (LocationClient) this.a.get()) == null) {
                 return;
             }
             int i = message.what;
@@ -410,18 +410,18 @@ public final class LocationClient implements c.a {
                 this.l.setCoorType(this.c.coorType);
             }
             if (this.m || ((this.c.location_change_notify && this.l.getLocType() == 61) || this.l.getLocType() == 66 || this.l.getLocType() == 67 || this.w || this.l.getLocType() == 161)) {
-                ArrayList<BDLocationListener> arrayList = this.j;
+                ArrayList arrayList = this.j;
                 if (arrayList != null) {
-                    Iterator<BDLocationListener> it = arrayList.iterator();
+                    Iterator it = arrayList.iterator();
                     while (it.hasNext()) {
-                        it.next().onReceiveLocation(this.l);
+                        ((BDLocationListener) it.next()).onReceiveLocation(this.l);
                     }
                 }
-                ArrayList<BDAbstractLocationListener> arrayList2 = this.k;
+                ArrayList arrayList2 = this.k;
                 if (arrayList2 != null) {
-                    Iterator<BDAbstractLocationListener> it2 = arrayList2.iterator();
+                    Iterator it2 = arrayList2.iterator();
                     while (it2.hasNext()) {
-                        it2.next().onReceiveLocation(this.l);
+                        ((BDAbstractLocationListener) it2.next()).onReceiveLocation(this.l);
                     }
                 }
                 if (this.l.getLocType() == 66 || this.l.getLocType() == 67) {
@@ -527,18 +527,18 @@ public final class LocationClient implements c.a {
         if (!this.E && bDLocation.getLocType() == 161) {
             this.D = true;
         }
-        ArrayList<BDLocationListener> arrayList = this.j;
+        ArrayList arrayList = this.j;
         if (arrayList != null) {
-            Iterator<BDLocationListener> it = arrayList.iterator();
+            Iterator it = arrayList.iterator();
             while (it.hasNext()) {
-                it.next().onReceiveLocation(bDLocation);
+                ((BDLocationListener) it.next()).onReceiveLocation(bDLocation);
             }
         }
-        ArrayList<BDAbstractLocationListener> arrayList2 = this.k;
+        ArrayList arrayList2 = this.k;
         if (arrayList2 != null) {
-            Iterator<BDAbstractLocationListener> it2 = arrayList2.iterator();
+            Iterator it2 = arrayList2.iterator();
             while (it2.hasNext()) {
-                it2.next().onReceiveLocation(bDLocation);
+                ((BDAbstractLocationListener) it2.next()).onReceiveLocation(bDLocation);
             }
         }
     }
@@ -607,7 +607,7 @@ public final class LocationClient implements c.a {
         }
         BDLocationListener bDLocationListener = (BDLocationListener) obj;
         if (this.j == null) {
-            this.j = new ArrayList<>();
+            this.j = new ArrayList();
         }
         if (this.j.contains(bDLocationListener)) {
             return;
@@ -662,7 +662,7 @@ public final class LocationClient implements c.a {
         }
         BDAbstractLocationListener bDAbstractLocationListener = (BDAbstractLocationListener) obj;
         if (this.k == null) {
-            this.k = new ArrayList<>();
+            this.k = new ArrayList();
         }
         if (this.k.contains(bDAbstractLocationListener)) {
             return;
@@ -712,7 +712,7 @@ public final class LocationClient implements c.a {
             return;
         }
         BDAbstractLocationListener bDAbstractLocationListener = (BDAbstractLocationListener) obj;
-        ArrayList<BDAbstractLocationListener> arrayList = this.k;
+        ArrayList arrayList = this.k;
         if (arrayList == null || !arrayList.contains(bDAbstractLocationListener)) {
             return;
         }
@@ -727,7 +727,7 @@ public final class LocationClient implements c.a {
             return;
         }
         BDLocationListener bDLocationListener = (BDLocationListener) obj;
-        ArrayList<BDLocationListener> arrayList = this.j;
+        ArrayList arrayList = this.j;
         if (arrayList == null || !arrayList.contains(bDLocationListener)) {
             return;
         }
@@ -890,13 +890,13 @@ public final class LocationClient implements c.a {
 
     public int requestLocation() {
         InterceptResult invokeV;
-        ArrayList<BDAbstractLocationListener> arrayList;
+        ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             if (this.g == null || this.i == null) {
                 return 1;
             }
-            ArrayList<BDLocationListener> arrayList2 = this.j;
+            ArrayList arrayList2 = this.j;
             if ((arrayList2 == null || arrayList2.size() < 1) && ((arrayList = this.k) == null || arrayList.size() < 1)) {
                 return 2;
             }

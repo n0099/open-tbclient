@@ -1,6 +1,5 @@
 package com.baidu.pass.face.platform.model;
 
-import android.graphics.Point;
 import android.graphics.Rect;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -29,7 +28,7 @@ public class FaceExtInfo {
     public static int nComponents = 9;
     public static int[] nPoints;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, Point[]> facePointMap;
+    public HashMap facePointMap;
     public float mAngle;
     public float mBluriness;
     public float mCenterX;

@@ -8,15 +8,6 @@ import kotlinx.coroutines.EventLoopImplBase;
 public abstract class EventLoopImplPlatform extends EventLoop {
     public abstract Thread getThread();
 
-    public final void reschedule(long j, EventLoopImplBase.DelayedTask delayedTask) {
-        if (DebugKt.getASSERTIONS_ENABLED()) {
-            if (!(this != DefaultExecutor.INSTANCE)) {
-                throw new AssertionError();
-            }
-        }
-        DefaultExecutor.INSTANCE.schedule(j, delayedTask);
-    }
-
     public final void unpark() {
         Thread thread = getThread();
         if (Thread.currentThread() != thread) {
@@ -27,5 +18,20 @@ public abstract class EventLoopImplPlatform extends EventLoop {
                 LockSupport.unpark(thread);
             }
         }
+    }
+
+    public final void reschedule(long j, EventLoopImplBase.DelayedTask delayedTask) {
+        boolean z;
+        if (DebugKt.getASSERTIONS_ENABLED()) {
+            if (this != DefaultExecutor.INSTANCE) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z) {
+                throw new AssertionError();
+            }
+        }
+        DefaultExecutor.INSTANCE.schedule(j, delayedTask);
     }
 }

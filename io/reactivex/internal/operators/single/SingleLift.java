@@ -12,13 +12,13 @@ import io.reactivex.exceptions.Exceptions;
 import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.internal.functions.ObjectHelper;
 /* loaded from: classes8.dex */
-public final class SingleLift<T, R> extends Single<R> {
+public final class SingleLift extends Single {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SingleOperator<? extends R, ? super T> onLift;
-    public final SingleSource<T> source;
+    public final SingleOperator onLift;
+    public final SingleSource source;
 
-    public SingleLift(SingleSource<T> singleSource, SingleOperator<? extends R, ? super T> singleOperator) {
+    public SingleLift(SingleSource singleSource, SingleOperator singleOperator) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -38,7 +38,7 @@ public final class SingleLift<T, R> extends Single<R> {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver<? super R> singleObserver) {
+    public void subscribeActual(SingleObserver singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             try {

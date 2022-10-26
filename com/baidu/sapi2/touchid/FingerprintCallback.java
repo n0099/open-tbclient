@@ -9,6 +9,12 @@ public abstract class FingerprintCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public void onCall(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        }
+    }
+
     public FingerprintCallback() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -20,12 +26,6 @@ public abstract class FingerprintCallback {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    public void onCall(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 }

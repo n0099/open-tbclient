@@ -28,7 +28,7 @@ public class PermissionCheck {
     public static final String d = "PermissionCheck";
     public static Context e = null;
     public static String f = null;
-    public static Hashtable<String, String> g = null;
+    public static Hashtable g = null;
     public static LBSAuthManager h = null;
     public static LBSAuthManagerListener i = null;
     public static c j = null;
@@ -36,7 +36,7 @@ public class PermissionCheck {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class a implements LBSAuthManagerListener {
+    public class a implements LBSAuthManagerListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -102,7 +102,7 @@ public class PermissionCheck {
     }
 
     /* loaded from: classes2.dex */
-    public static class b {
+    public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -203,7 +203,7 @@ public class PermissionCheck {
                 f = applicationInfo.metaData.getString("com.baidu.lbsapi.API_KEY");
             }
             if (g == null) {
-                g = new Hashtable<>();
+                g = new Hashtable();
             }
             if (h == null) {
                 h = LBSAuthManager.getInstance(e);

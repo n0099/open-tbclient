@@ -53,32 +53,14 @@ public class q {
         return (String) invokeL.objValue;
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    public static void a(com.cmic.sso.sdk.a aVar, String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? UUID.randomUUID().toString().replaceAll("-", "") : (String) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? d().replace("-", "") : (String) invokeV.objValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? UUID.randomUUID().toString() : (String) invokeV.objValue;
-    }
-
-    public static void c(com.cmic.sso.sdk.a aVar, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, aVar, str) == null) {
-            if (TextUtils.isEmpty(aVar.b("interfaceElasped", ""))) {
-                aVar.a("interfaceElasped", str);
+        if (interceptable == null || interceptable.invokeLL(65538, null, aVar, str) == null) {
+            if (TextUtils.isEmpty(aVar.b("interfaceType", ""))) {
+                aVar.a("interfaceType", str);
                 return;
             }
-            aVar.a("interfaceElasped", aVar.b("interfaceElasped") + ParamableElem.DIVIDE_PARAM + str);
+            aVar.a("interfaceType", aVar.b("interfaceType") + ParamableElem.DIVIDE_PARAM + str);
         }
     }
 
@@ -93,6 +75,29 @@ public class q {
         }
     }
 
+    public static void c(com.cmic.sso.sdk.a aVar, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65544, null, aVar, str) == null) {
+            if (TextUtils.isEmpty(aVar.b("interfaceElasped", ""))) {
+                aVar.a("interfaceElasped", str);
+                return;
+            }
+            aVar.a("interfaceElasped", aVar.b("interfaceElasped") + ParamableElem.DIVIDE_PARAM + str);
+        }
+    }
+
+    public static boolean a(com.cmic.sso.sdk.a.a aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, aVar)) == null) {
+            if (k.a("logCloseTime", 0L) + (aVar.l() * 60 * 60 * 1000) >= System.currentTimeMillis()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
     public static byte[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -104,20 +109,30 @@ public class q {
         return (byte[]) invokeV.objValue;
     }
 
-    public static void a(com.cmic.sso.sdk.a aVar, String str) {
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, aVar, str) == null) {
-            if (TextUtils.isEmpty(aVar.b("interfaceType", ""))) {
-                aVar.a("interfaceType", str);
-                return;
-            }
-            aVar.a("interfaceType", aVar.b("interfaceType") + ParamableElem.DIVIDE_PARAM + str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return UUID.randomUUID().toString().replaceAll("-", "");
         }
+        return (String) invokeV.objValue;
     }
 
-    public static boolean a(com.cmic.sso.sdk.a.a aVar) {
-        InterceptResult invokeL;
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, aVar)) == null) ? k.a("logCloseTime", 0L) + ((long) (((aVar.l() * 60) * 60) * 1000)) >= System.currentTimeMillis() : invokeL.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return d().replace("-", "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return UUID.randomUUID().toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

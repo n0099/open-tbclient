@@ -37,6 +37,25 @@ public class CloseableAnimatedImage extends CloseableImage {
         }
     }
 
+    public CloseableAnimatedImage(AnimatedImageResult animatedImageResult, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {animatedImageResult, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mImageResult = animatedImageResult;
+        this.mIsStateful = z;
+    }
+
     @Override // com.facebook.imagepipeline.image.CloseableImage, java.io.Closeable, java.lang.AutoCloseable
     public void close() {
         Interceptable interceptable = $ic;
@@ -59,7 +78,11 @@ public class CloseableAnimatedImage extends CloseableImage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                height = isClosed() ? 0 : this.mImageResult.getImage().getHeight();
+                if (isClosed()) {
+                    height = 0;
+                } else {
+                    height = this.mImageResult.getImage().getHeight();
+                }
             }
             return height;
         }
@@ -73,7 +96,11 @@ public class CloseableAnimatedImage extends CloseableImage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
-                image = isClosed() ? null : this.mImageResult.getImage();
+                if (isClosed()) {
+                    image = null;
+                } else {
+                    image = this.mImageResult.getImage();
+                }
             }
             return image;
         }
@@ -100,7 +127,11 @@ public class CloseableAnimatedImage extends CloseableImage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this) {
-                sizeInBytes = isClosed() ? 0 : this.mImageResult.getImage().getSizeInBytes();
+                if (isClosed()) {
+                    sizeInBytes = 0;
+                } else {
+                    sizeInBytes = this.mImageResult.getImage().getSizeInBytes();
+                }
             }
             return sizeInBytes;
         }
@@ -114,7 +145,11 @@ public class CloseableAnimatedImage extends CloseableImage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (this) {
-                width = isClosed() ? 0 : this.mImageResult.getImage().getWidth();
+                if (isClosed()) {
+                    width = 0;
+                } else {
+                    width = this.mImageResult.getImage().getWidth();
+                }
             }
             return width;
         }
@@ -128,7 +163,11 @@ public class CloseableAnimatedImage extends CloseableImage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             synchronized (this) {
-                z = this.mImageResult == null;
+                if (this.mImageResult == null) {
+                    z = true;
+                } else {
+                    z = false;
+                }
             }
             return z;
         }
@@ -139,25 +178,9 @@ public class CloseableAnimatedImage extends CloseableImage {
     public boolean isStateful() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mIsStateful : invokeV.booleanValue;
-    }
-
-    public CloseableAnimatedImage(AnimatedImageResult animatedImageResult, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {animatedImageResult, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mIsStateful;
         }
-        this.mImageResult = animatedImageResult;
-        this.mIsStateful = z;
+        return invokeV.booleanValue;
     }
 }

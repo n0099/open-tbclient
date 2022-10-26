@@ -16,12 +16,12 @@ public final class AvcConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int height;
-    public final List<byte[]> initializationData;
+    public final List initializationData;
     public final int nalUnitLengthFieldLength;
     public final float pixelWidthAspectRatio;
     public final int width;
 
-    public AvcConfig(List<byte[]> list, int i, int i2, int i3, float f) {
+    public AvcConfig(List list, int i, int i2, int i3, float f) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

@@ -40,13 +40,19 @@ public class ListPartsRequest extends GenericUploadRequest {
     public int getMaxParts() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.maxParts : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.maxParts;
+        }
+        return invokeV.intValue;
     }
 
     public int getPartNumberMarker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.partNumberMarker : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.partNumberMarker;
+        }
+        return invokeV.intValue;
     }
 
     public void setMaxParts(int i) {

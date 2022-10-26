@@ -11,6 +11,30 @@ public class NoAspectBoundException extends RuntimeException {
     public transient /* synthetic */ FieldHolder $fh;
     public Throwable cause;
 
+    public NoAspectBoundException() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // java.lang.Throwable
+    public Throwable getCause() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.cause;
+        }
+        return (Throwable) invokeV.objValue;
+    }
+
     /* JADX WARN: Illegal instructions before constructor call */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -41,26 +65,5 @@ public class NoAspectBoundException extends RuntimeException {
             str = stringBuffer.toString();
         }
         this.cause = th;
-    }
-
-    @Override // java.lang.Throwable
-    public Throwable getCause() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.cause : (Throwable) invokeV.objValue;
-    }
-
-    public NoAspectBoundException() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
     }
 }

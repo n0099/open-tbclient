@@ -152,16 +152,16 @@ public class HttpAuthHeader {
         return invokeV.booleanValue;
     }
 
-    public void setPassword(String str) {
+    public void setProxy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             throw new RuntimeException("Stub!");
         }
     }
 
-    public void setProxy() {
+    public void setPassword(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
             throw new RuntimeException("Stub!");
         }
     }

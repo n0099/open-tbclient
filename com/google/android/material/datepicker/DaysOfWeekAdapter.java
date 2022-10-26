@@ -1,14 +1,11 @@
 package com.google.android.material.datepicker;
 
-import android.annotation.SuppressLint;
 import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -26,13 +23,23 @@ public class DaysOfWeekAdapter extends BaseAdapter {
     public static final int CALENDAR_DAY_STYLE;
     public static final int NARROW_FORMAT = 4;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
     public final Calendar calendar;
     public final int daysInWeek;
     public final int firstDayOfWeek;
 
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
     static {
         InterceptResult invokeClinit;
+        int i;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
         if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-207743915, "Lcom/google/android/material/datepicker/DaysOfWeekAdapter;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
@@ -44,7 +51,22 @@ public class DaysOfWeekAdapter extends BaseAdapter {
                 return;
             }
         }
-        CALENDAR_DAY_STYLE = Build.VERSION.SDK_INT >= 26 ? 4 : 1;
+        if (Build.VERSION.SDK_INT >= 26) {
+            i = 4;
+        } else {
+            i = 1;
+        }
+        CALENDAR_DAY_STYLE = i;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.daysInWeek;
+        }
+        return invokeV.intValue;
     }
 
     public DaysOfWeekAdapter() {
@@ -72,50 +94,16 @@ public class DaysOfWeekAdapter extends BaseAdapter {
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i)) == null) {
             int i2 = i + this.firstDayOfWeek;
             int i3 = this.daysInWeek;
-            return i2 > i3 ? i2 - i3 : i2;
+            if (i2 > i3) {
+                return i2 - i3;
+            }
+            return i2;
         }
         return invokeI.intValue;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.daysInWeek : invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.Adapter
-    @Nullable
-    @SuppressLint({"WrongConstant"})
-    public View getView(int i, @Nullable View view2, @NonNull ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
-            TextView textView = (TextView) view2;
-            if (view2 == null) {
-                textView = (TextView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d05b0, viewGroup, false);
-            }
-            this.calendar.set(7, positionToDayOfWeek(i));
-            textView.setText(this.calendar.getDisplayName(7, CALENDAR_DAY_STYLE, Locale.getDefault()));
-            textView.setContentDescription(String.format(viewGroup.getContext().getString(R.string.obfuscated_res_0x7f0f0b25), this.calendar.getDisplayName(7, 2, Locale.getDefault())));
-            return textView;
-        }
-        return (View) invokeILL.objValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    @Nullable
     public Integer getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -126,5 +114,22 @@ public class DaysOfWeekAdapter extends BaseAdapter {
             return Integer.valueOf(positionToDayOfWeek(i));
         }
         return (Integer) invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
+            TextView textView = (TextView) view2;
+            if (view2 == null) {
+                textView = (TextView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d05b0, viewGroup, false);
+            }
+            this.calendar.set(7, positionToDayOfWeek(i));
+            textView.setText(this.calendar.getDisplayName(7, CALENDAR_DAY_STYLE, Locale.getDefault()));
+            textView.setContentDescription(String.format(viewGroup.getContext().getString(R.string.obfuscated_res_0x7f0f0b34), this.calendar.getDisplayName(7, 2, Locale.getDefault())));
+            return textView;
+        }
+        return (View) invokeILL.objValue;
     }
 }

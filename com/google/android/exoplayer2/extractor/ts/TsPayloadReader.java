@@ -17,7 +17,20 @@ import java.util.List;
 public interface TsPayloadReader {
 
     /* loaded from: classes7.dex */
-    public static final class DvbSubtitleInfo {
+    public interface Factory {
+        SparseArray createInitialPayloadReaders();
+
+        TsPayloadReader createPayloadReader(int i, EsInfo esInfo);
+    }
+
+    void consume(ParsableByteArray parsableByteArray, boolean z) throws ParserException;
+
+    void init(TimestampAdjuster timestampAdjuster, ExtractorOutput extractorOutput, TrackIdGenerator trackIdGenerator);
+
+    void seek();
+
+    /* loaded from: classes7.dex */
+    public final class DvbSubtitleInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final byte[] initializationData;
@@ -46,16 +59,16 @@ public interface TsPayloadReader {
     }
 
     /* loaded from: classes7.dex */
-    public static final class EsInfo {
+    public final class EsInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final byte[] descriptorBytes;
-        public final List<DvbSubtitleInfo> dvbSubtitleInfos;
+        public final List dvbSubtitleInfos;
         public final String language;
         public final int streamType;
 
-        public EsInfo(int i, String str, List<DvbSubtitleInfo> list, byte[] bArr) {
-            List<DvbSubtitleInfo> unmodifiableList;
+        public EsInfo(int i, String str, List list, byte[] bArr) {
+            List unmodifiableList;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -83,14 +96,7 @@ public interface TsPayloadReader {
     }
 
     /* loaded from: classes7.dex */
-    public interface Factory {
-        SparseArray<TsPayloadReader> createInitialPayloadReaders();
-
-        TsPayloadReader createPayloadReader(int i, EsInfo esInfo);
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class TrackIdGenerator {
+    public final class TrackIdGenerator {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ID_UNSET = Integer.MIN_VALUE;
         public transient /* synthetic */ FieldHolder $fh;
@@ -121,42 +127,6 @@ public interface TsPayloadReader {
             }
         }
 
-        private void maybeThrowUninitializedError() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(65538, this) == null) && this.trackId == Integer.MIN_VALUE) {
-                throw new IllegalStateException("generateNewId() must be called before retrieving ids.");
-            }
-        }
-
-        public void generateNewId() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i = this.trackId;
-                this.trackId = i == Integer.MIN_VALUE ? this.firstTrackId : i + this.trackIdIncrement;
-                this.formatId = this.formatIdPrefix + this.trackId;
-            }
-        }
-
-        public String getFormatId() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                maybeThrowUninitializedError();
-                return this.formatId;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public int getTrackId() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                maybeThrowUninitializedError();
-                return this.trackId;
-            }
-            return invokeV.intValue;
-        }
-
         public TrackIdGenerator(int i, int i2, int i3) {
             String str;
             Interceptable interceptable = $ic;
@@ -183,11 +153,48 @@ public interface TsPayloadReader {
             this.trackIdIncrement = i3;
             this.trackId = Integer.MIN_VALUE;
         }
+
+        private void maybeThrowUninitializedError() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(65538, this) != null) || this.trackId != Integer.MIN_VALUE) {
+                return;
+            }
+            throw new IllegalStateException("generateNewId() must be called before retrieving ids.");
+        }
+
+        public void generateNewId() {
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int i2 = this.trackId;
+                if (i2 == Integer.MIN_VALUE) {
+                    i = this.firstTrackId;
+                } else {
+                    i = i2 + this.trackIdIncrement;
+                }
+                this.trackId = i;
+                this.formatId = this.formatIdPrefix + this.trackId;
+            }
+        }
+
+        public String getFormatId() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                maybeThrowUninitializedError();
+                return this.formatId;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public int getTrackId() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                maybeThrowUninitializedError();
+                return this.trackId;
+            }
+            return invokeV.intValue;
+        }
     }
-
-    void consume(ParsableByteArray parsableByteArray, boolean z) throws ParserException;
-
-    void init(TimestampAdjuster timestampAdjuster, ExtractorOutput extractorOutput, TrackIdGenerator trackIdGenerator);
-
-    void seek();
 }

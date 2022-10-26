@@ -34,9 +34,8 @@ public class VideoWorkListActivityConfig extends IntentConfig {
 
     public void addType(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || getIntent() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && getIntent() != null) {
+            getIntent().putExtra("type", str);
         }
-        getIntent().putExtra("type", str);
     }
 }

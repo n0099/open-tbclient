@@ -2,22 +2,21 @@ package com.kwad.sdk.core.config.item;
 
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public abstract class b<T> {
-    public T VA;
-    public T Vz;
+public abstract class b {
+    public Object VA;
+    public Object Vz;
     public String mKey;
 
-    public b(String str, T t) {
-        this(str, t, t);
+    public b(String str, Object obj) {
+        this(str, obj, obj);
     }
 
-    public b(String str, T t, T t2) {
+    public b(String str, Object obj, Object obj2) {
         this.mKey = str;
-        this.VA = t;
-        this.Vz = t2;
+        this.VA = obj;
+        this.Vz = obj2;
         com.kwad.sdk.core.config.b.a(this);
     }
 
@@ -39,16 +38,15 @@ public abstract class b<T> {
         return this.mKey;
     }
 
-    @Nullable
-    public T getValue() {
+    public Object getValue() {
         return this.VA;
     }
 
-    public final void setValue(T t) {
-        this.VA = t;
+    public final void setValue(Object obj) {
+        this.VA = obj;
     }
 
-    public final T sx() {
+    public final Object sx() {
         return this.Vz;
     }
 }

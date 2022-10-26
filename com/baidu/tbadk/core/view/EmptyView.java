@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.fj;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -37,48 +37,6 @@ public class EmptyView extends View {
         }
         this.a = 0;
         this.b = 0;
-    }
-
-    @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            super.onMeasure(i, i2);
-            int i3 = this.b;
-            if (i3 == 0) {
-                setMeasuredDimension(i & LockFreeTaskQueueCore.MAX_CAPACITY_MASK, this.a);
-            } else if (this.a == 0) {
-                setMeasuredDimension(i3, i2 & LockFreeTaskQueueCore.MAX_CAPACITY_MASK);
-            }
-        }
-    }
-
-    public void setHeightDip(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a = ej.d(getContext(), i);
-        }
-    }
-
-    public void setHeightPx(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    public void setWidthDip(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.b = ej.d(getContext(), i);
-        }
-    }
-
-    public void setWidthPx(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.b = i;
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -125,5 +83,47 @@ public class EmptyView extends View {
         }
         this.a = 0;
         this.b = 0;
+    }
+
+    @Override // android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            int i3 = this.b;
+            if (i3 == 0) {
+                setMeasuredDimension(i & LockFreeTaskQueueCore.MAX_CAPACITY_MASK, this.a);
+            } else if (this.a == 0) {
+                setMeasuredDimension(i3, i2 & LockFreeTaskQueueCore.MAX_CAPACITY_MASK);
+            }
+        }
+    }
+
+    public void setHeightDip(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a = fj.d(getContext(), i);
+        }
+    }
+
+    public void setHeightPx(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public void setWidthDip(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.b = fj.d(getContext(), i);
+        }
+    }
+
+    public void setWidthPx(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.b = i;
+        }
     }
 }

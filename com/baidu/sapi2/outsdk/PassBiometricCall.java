@@ -33,14 +33,21 @@ public class PassBiometricCall {
     }
 
     public void initPassBioSDK(SapiConfiguration sapiConfiguration) {
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, sapiConfiguration) == null) {
             PassBiometric biometric = PassBiometricFactory.getDefaultFactory().getBiometric(4);
-            if (biometric == null || ((PassFaceRecogManager) biometric).getConfiguration() == null) {
-                PassBiometricConfiguration build = new PassBiometricConfiguration.Builder((Application) sapiConfiguration.context.getApplicationContext()).setProductLineInfo(sapiConfiguration.tpl, sapiConfiguration.appId, sapiConfiguration.appSignKey).sofireSdkConfig(sapiConfiguration.sofireAppKey, sapiConfiguration.sofireSecKey, sapiConfiguration.sofireHostID).setProductLicenseInfo(sapiConfiguration.faceLincenseID, sapiConfiguration.faceLincenseFile).setRuntimeEnvironment(sapiConfiguration.environment == Domain.DOMAIN_QA ? PassBioEnv.PASSPORT_QA_DOMAIN : PassBioEnv.PASSPORT_DOMAIN).debug(sapiConfiguration.debug).setAgreeDangerousProtocol(sapiConfiguration.isAgreeDangerousProtocol()).setFaceResPaths(sapiConfiguration.faceResPaths).build();
-                if (biometric != null) {
-                    biometric.config(build);
-                }
+            if (biometric != null && ((PassFaceRecogManager) biometric).getConfiguration() != null) {
+                return;
+            }
+            if (sapiConfiguration.environment == Domain.DOMAIN_QA) {
+                str = PassBioEnv.PASSPORT_QA_DOMAIN;
+            } else {
+                str = PassBioEnv.PASSPORT_DOMAIN;
+            }
+            PassBiometricConfiguration build = new PassBiometricConfiguration.Builder((Application) sapiConfiguration.context.getApplicationContext()).setProductLineInfo(sapiConfiguration.tpl, sapiConfiguration.appId, sapiConfiguration.appSignKey).sofireSdkConfig(sapiConfiguration.sofireAppKey, sapiConfiguration.sofireSecKey, sapiConfiguration.sofireHostID).setProductLicenseInfo(sapiConfiguration.faceLincenseID, sapiConfiguration.faceLincenseFile).setRuntimeEnvironment(str).debug(sapiConfiguration.debug).setAgreeDangerousProtocol(sapiConfiguration.isAgreeDangerousProtocol()).setFaceResPaths(sapiConfiguration.faceResPaths).build();
+            if (biometric != null) {
+                biometric.config(build);
             }
         }
     }
@@ -48,9 +55,8 @@ public class PassBiometricCall {
     public void setFaceModuleAgreeDangerousProtocol(boolean z) {
         PassBiometric biometric;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (biometric = PassBiometricFactory.getDefaultFactory().getBiometric(4)) == null || ((PassFaceRecogManager) biometric).getConfiguration() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && (biometric = PassBiometricFactory.getDefaultFactory().getBiometric(4)) != null && ((PassFaceRecogManager) biometric).getConfiguration() != null) {
+            biometric.setAgreeDangerousProtocol(z);
         }
-        biometric.setAgreeDangerousProtocol(z);
     }
 }

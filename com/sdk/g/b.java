@@ -31,7 +31,7 @@ import java.util.Iterator;
 import java.util.TreeMap;
 import java.util.concurrent.Executor;
 /* loaded from: classes8.dex */
-public class b<T> {
+public class b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "com.sdk.g.b";
     public static final boolean b;
@@ -39,8 +39,8 @@ public class b<T> {
     public PInfo c;
     public AInfo d;
     public SInfo e;
-    public ArrayList<KInfo> f;
-    public com.sdk.e.a<T> g;
+    public ArrayList f;
+    public com.sdk.e.a g;
     public Context h;
     public String i;
     public c j;
@@ -61,7 +61,7 @@ public class b<T> {
         b = g.b;
     }
 
-    public b(Context context, com.sdk.e.a<T> aVar, c cVar) {
+    public b(Context context, com.sdk.e.a aVar, c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -81,6 +81,136 @@ public class b<T> {
         this.j = cVar;
     }
 
+    public void a(int i, int i2, String str) {
+        com.sdk.e.a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, str) == null) || (aVar = this.g) == null) {
+            return;
+        }
+        aVar.a(i, i2, str);
+        this.g = null;
+    }
+
+    public void a(int i, String str, int i2, Object obj, String str2) {
+        com.sdk.e.a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), obj, str2}) == null) || (aVar = this.g) == null) {
+            return;
+        }
+        aVar.onSuccess(i, str, i2, obj, str2);
+        this.g = null;
+    }
+
+    public e a(String str, String str2, DataInfo dataInfo, com.sdk.e.b bVar, int i, g.a aVar) {
+        InterceptResult invokeCommon;
+        DataInfo dataInfo2;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, dataInfo, bVar, Integer.valueOf(i), aVar})) == null) {
+            e eVar = null;
+            if (com.sdk.n.a.a(str).booleanValue()) {
+                a(1, 101008, "未检测到域名");
+                return null;
+            }
+            if (dataInfo == null) {
+                try {
+                    dataInfo2 = new DataInfo();
+                } catch (Exception e) {
+                    e = e;
+                }
+            } else {
+                dataInfo2 = dataInfo;
+            }
+            TreeMap treeMap = new TreeMap();
+            String a2 = com.sdk.q.a.a(16);
+            String a3 = com.sdk.q.a.a(16);
+            String apiKey = AppUtils.getApiKey(this.h, BaseConfig.apk);
+            String str3 = com.sdk.u.a.b;
+            if ("/st/api/v1.0/ses".equals(str2)) {
+                str3 = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCgdQaZgBcrXGxxD6F1TVVXAzvbB3xpoyk2AFMNj4vOcDWZoH1b3Mx5aVcEd0BZPZR6Icb8yi8ecMUVChGCRe20O8EQWLh1aCwR8JazNL+koD3Tn6TIwVwjVEQWy9w6DeXxMtQuFBL/jAChJcU7aDwMsSD1jYpdET37aB4p8Lvn2QIDAQAB";
+            }
+            int i2 = 2;
+            String[] strArr = {apiKey, str3};
+            int i3 = 0;
+            while (true) {
+                if (i3 < i2) {
+                    String str4 = strArr[i3];
+                    if ((str4 == null || str4.length() < 1) && com.sdk.n.a.a(str4).booleanValue()) {
+                        z = true;
+                        break;
+                    }
+                    i3++;
+                    i2 = 2;
+                } else {
+                    z = false;
+                    break;
+                }
+            }
+            if (z) {
+                a(1, 101004, "ApiKey或PublicKey不能为空");
+                return null;
+            }
+            String a4 = a(dataInfo2, a2, a3);
+            try {
+                f a5 = f.a();
+                String a6 = a5.b.a(a5.c, a2 + a3);
+                treeMap.put("apiKey", apiKey);
+                treeMap.put("params", a4);
+                treeMap.put("paramsKey", a6);
+                treeMap.put("l", Long.valueOf(System.currentTimeMillis()));
+                String a7 = com.sdk.s.a.a(apiKey, str2, treeMap);
+                HashMap hashMap = new HashMap(16);
+                if (com.sdk.n.a.b(a7).booleanValue()) {
+                    treeMap.put("sign", a7);
+                    treeMap.put("sign_Type", com.sdk.u.a.e);
+                    hashMap.put("sign", a7);
+                    hashMap.put("api-protocol", "1.1");
+                }
+                h hVar = new h();
+                hVar.a(aVar.l);
+                hVar.b(str + str2);
+                hVar.j = bVar;
+                hVar.i = i;
+                hVar.f = treeMap;
+                hVar.g = null;
+                hVar.h = hashMap;
+                if ("/dro/netm/v1.0/qc".equals(str2)) {
+                    f.b bVar2 = f.b.b;
+                }
+                com.sdk.a.g gVar = new com.sdk.a.g(this.h, hVar);
+                e eVar2 = new e(gVar);
+                try {
+                    Object[] objArr = {gVar};
+                    Executor executor = com.sdk.d.e.b;
+                    if (!eVar2.g) {
+                        eVar2.g = true;
+                        eVar2.c.a = objArr;
+                        executor.execute(new j(eVar2.i, eVar2.d));
+                        return eVar2;
+                    }
+                    throw new IllegalStateException("Cannot execute task: the task is already executed.");
+                } catch (Exception e2) {
+                    e = e2;
+                    eVar = eVar2;
+                    com.sdk.n.b.c(e.toString());
+                    a(1, 302002, "网络访问异常:" + e.getMessage());
+                    String str5 = a;
+                    com.sdk.n.a.a(str5, e.toString() + "，" + e.getMessage(), Boolean.valueOf(b));
+                    return eVar;
+                }
+            } catch (Exception e3) {
+                a(1, 101006, "公钥出错");
+                String str6 = a;
+                StringBuilder sb = new StringBuilder();
+                sb.append("公钥出错：");
+                sb.append(e3);
+                com.sdk.n.a.a(str6, sb.toString(), Boolean.valueOf(b));
+                return null;
+            }
+        }
+        return (e) invokeCommon.objValue;
+    }
+
     public final String a(DataInfo dataInfo, String str, String str2) {
         String str3;
         InterceptResult invokeLLL;
@@ -97,14 +227,14 @@ public class b<T> {
                     this.f = com.sdk.f.a.a();
                 }
                 ArrayList arrayList = new ArrayList();
-                Iterator<KInfo> it = this.f.iterator();
+                Iterator it = this.f.iterator();
                 while (it.hasNext()) {
-                    KInfo next = it.next();
+                    KInfo kInfo = (KInfo) it.next();
                     MobileKInfo mobileKInfo = new MobileKInfo();
-                    mobileKInfo.setIe(next.getIe());
-                    mobileKInfo.setIs(next.getIs());
-                    mobileKInfo.setM(next.getM());
-                    mobileKInfo.setIdfd(next.isIdfd());
+                    mobileKInfo.setIe(kInfo.getIe());
+                    mobileKInfo.setIs(kInfo.getIs());
+                    mobileKInfo.setM(kInfo.getM());
+                    mobileKInfo.setIdfd(kInfo.isIdfd());
                     arrayList.add(mobileKInfo);
                 }
                 if (this.c == null) {
@@ -127,138 +257,8 @@ public class b<T> {
                 com.sdk.n.a.a(a, e.toString(), Boolean.valueOf(b));
                 str3 = null;
             }
-            return f.a().b.a(str, str2, str3);
+            return com.sdk.q.f.a().b.a(str, str2, str3);
         }
         return (String) invokeLLL.objValue;
-    }
-
-    public void a(int i, int i2, String str) {
-        com.sdk.e.a<T> aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, str) == null) || (aVar = this.g) == null) {
-            return;
-        }
-        aVar.a(i, i2, str);
-        this.g = null;
-    }
-
-    public void a(int i, String str, int i2, T t, String str2) {
-        com.sdk.e.a<T> aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), t, str2}) == null) || (aVar = this.g) == null) {
-            return;
-        }
-        aVar.onSuccess(i, str, i2, t, str2);
-        this.g = null;
-    }
-
-    /* JADX WARN: Type inference failed for: r3v28, types: [Params[], java.lang.Object[]] */
-    public e<T> a(String str, String str2, DataInfo dataInfo, com.sdk.e.b<T> bVar, int i, g.a aVar) {
-        InterceptResult invokeCommon;
-        DataInfo dataInfo2;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, dataInfo, bVar, Integer.valueOf(i), aVar})) == null) {
-            e<T> eVar = null;
-            if (com.sdk.n.a.a(str).booleanValue()) {
-                a(1, 101008, "未检测到域名");
-                return null;
-            }
-            if (dataInfo == null) {
-                try {
-                    dataInfo2 = new DataInfo();
-                } catch (Exception e) {
-                    e = e;
-                }
-            } else {
-                dataInfo2 = dataInfo;
-            }
-            TreeMap<String, Object> treeMap = new TreeMap<>();
-            String a2 = com.sdk.q.a.a(16);
-            String a3 = com.sdk.q.a.a(16);
-            String apiKey = AppUtils.getApiKey(this.h, BaseConfig.apk);
-            String str3 = com.sdk.u.a.b;
-            if ("/st/api/v1.0/ses".equals(str2)) {
-                str3 = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCgdQaZgBcrXGxxD6F1TVVXAzvbB3xpoyk2AFMNj4vOcDWZoH1b3Mx5aVcEd0BZPZR6Icb8yi8ecMUVChGCRe20O8EQWLh1aCwR8JazNL+koD3Tn6TIwVwjVEQWy9w6DeXxMtQuFBL/jAChJcU7aDwMsSD1jYpdET37aB4p8Lvn2QIDAQAB";
-            }
-            int i2 = 2;
-            String[] strArr = {apiKey, str3};
-            int i3 = 0;
-            while (true) {
-                if (i3 >= i2) {
-                    z = false;
-                    break;
-                }
-                String str4 = strArr[i3];
-                if ((str4 == null || str4.length() < 1) && com.sdk.n.a.a(str4).booleanValue()) {
-                    z = true;
-                    break;
-                }
-                i3++;
-                i2 = 2;
-            }
-            if (z) {
-                a(1, 101004, "ApiKey或PublicKey不能为空");
-                return null;
-            }
-            String a4 = a(dataInfo2, a2, a3);
-            try {
-                f a5 = f.a();
-                String a6 = a5.b.a(a5.c, a2 + a3);
-                treeMap.put("apiKey", apiKey);
-                treeMap.put("params", a4);
-                treeMap.put("paramsKey", a6);
-                treeMap.put("l", Long.valueOf(System.currentTimeMillis()));
-                String a7 = com.sdk.s.a.a(apiKey, str2, treeMap);
-                HashMap<String, Object> hashMap = new HashMap<>(16);
-                if (com.sdk.n.a.b(a7).booleanValue()) {
-                    treeMap.put("sign", a7);
-                    treeMap.put("sign_Type", com.sdk.u.a.e);
-                    hashMap.put("sign", a7);
-                    hashMap.put("api-protocol", "1.1");
-                }
-                h hVar = new h();
-                hVar.a(aVar.l);
-                hVar.b(str + str2);
-                hVar.j = bVar;
-                hVar.i = i;
-                hVar.f = treeMap;
-                hVar.g = null;
-                hVar.h = hashMap;
-                if ("/dro/netm/v1.0/qc".equals(str2)) {
-                    f.b bVar2 = f.b.b;
-                }
-                com.sdk.a.g gVar = new com.sdk.a.g(this.h, hVar);
-                e<T> eVar2 = new e<>(gVar);
-                try {
-                    ?? r3 = {gVar};
-                    Executor executor = com.sdk.d.e.b;
-                    if (eVar2.g) {
-                        throw new IllegalStateException("Cannot execute task: the task is already executed.");
-                    }
-                    eVar2.g = true;
-                    eVar2.c.a = r3;
-                    executor.execute(new j(eVar2.i, eVar2.d));
-                    return eVar2;
-                } catch (Exception e2) {
-                    e = e2;
-                    eVar = eVar2;
-                    com.sdk.n.b.c(e.toString());
-                    a(1, 302002, "网络访问异常:" + e.getMessage());
-                    String str5 = a;
-                    com.sdk.n.a.a(str5, e.toString() + "，" + e.getMessage(), Boolean.valueOf(b));
-                    return eVar;
-                }
-            } catch (Exception e3) {
-                a(1, 101006, "公钥出错");
-                String str6 = a;
-                StringBuilder sb = new StringBuilder();
-                sb.append("公钥出错：");
-                sb.append(e3);
-                com.sdk.n.a.a(str6, sb.toString(), Boolean.valueOf(b));
-                return null;
-            }
-        }
-        return (e) invokeCommon.objValue;
     }
 }

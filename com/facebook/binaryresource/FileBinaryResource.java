@@ -54,10 +54,10 @@ public class FileBinaryResource implements BinaryResource {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj == null || !(obj instanceof FileBinaryResource)) {
-                return false;
+            if (obj != null && (obj instanceof FileBinaryResource)) {
+                return this.mFile.equals(((FileBinaryResource) obj).mFile);
             }
-            return this.mFile.equals(((FileBinaryResource) obj).mFile);
+            return false;
         }
         return invokeL.booleanValue;
     }
@@ -65,33 +65,48 @@ public class FileBinaryResource implements BinaryResource {
     public File getFile() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mFile : (File) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mFile;
+        }
+        return (File) invokeV.objValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mFile.hashCode() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mFile.hashCode();
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.facebook.binaryresource.BinaryResource
     public InputStream openStream() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new FileInputStream(this.mFile) : (InputStream) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return new FileInputStream(this.mFile);
+        }
+        return (InputStream) invokeV.objValue;
     }
 
     @Override // com.facebook.binaryresource.BinaryResource
     public byte[] read() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Files.toByteArray(this.mFile) : (byte[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return Files.toByteArray(this.mFile);
+        }
+        return (byte[]) invokeV.objValue;
     }
 
     @Override // com.facebook.binaryresource.BinaryResource
     public long size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mFile.length() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mFile.length();
+        }
+        return invokeV.longValue;
     }
 }

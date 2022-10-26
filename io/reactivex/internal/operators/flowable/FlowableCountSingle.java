@@ -16,20 +16,20 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableCountSingle<T> extends Single<Long> implements FuseToFlowable<Long> {
+public final class FlowableCountSingle extends Single implements FuseToFlowable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Flowable<T> source;
+    public final Flowable source;
 
     /* loaded from: classes8.dex */
-    public static final class CountSubscriber implements FlowableSubscriber<Object>, Disposable {
+    public final class CountSubscriber implements FlowableSubscriber, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver<? super Long> actual;
+        public final SingleObserver actual;
         public long count;
         public Subscription s;
 
-        public CountSubscriber(SingleObserver<? super Long> singleObserver) {
+        public CountSubscriber(SingleObserver singleObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,31 +45,6 @@ public final class FlowableCountSingle<T> extends Single<Long> implements FuseTo
                 }
             }
             this.actual = singleObserver;
-        }
-
-        @Override // io.reactivex.disposables.Disposable
-        public void dispose() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.s.cancel();
-                this.s = SubscriptionHelper.CANCELLED;
-            }
-        }
-
-        @Override // io.reactivex.disposables.Disposable
-        public boolean isDisposed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.s == SubscriptionHelper.CANCELLED : invokeV.booleanValue;
-        }
-
-        @Override // org.reactivestreams.Subscriber
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.s = SubscriptionHelper.CANCELLED;
-                this.actual.onSuccess(Long.valueOf(this.count));
-            }
         }
 
         @Override // org.reactivestreams.Subscriber
@@ -98,9 +73,40 @@ public final class FlowableCountSingle<T> extends Single<Long> implements FuseTo
                 subscription.request(Long.MAX_VALUE);
             }
         }
+
+        @Override // io.reactivex.disposables.Disposable
+        public void dispose() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.s.cancel();
+                this.s = SubscriptionHelper.CANCELLED;
+            }
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public boolean isDisposed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.s == SubscriptionHelper.CANCELLED) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // org.reactivestreams.Subscriber
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.s = SubscriptionHelper.CANCELLED;
+                this.actual.onSuccess(Long.valueOf(this.count));
+            }
+        }
     }
 
-    public FlowableCountSingle(Flowable<T> flowable) {
+    public FlowableCountSingle(Flowable flowable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -118,18 +124,21 @@ public final class FlowableCountSingle<T> extends Single<Long> implements FuseTo
         this.source = flowable;
     }
 
-    @Override // io.reactivex.internal.fuseable.FuseToFlowable
-    public Flowable<Long> fuseToFlowable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? RxJavaPlugins.onAssembly(new FlowableCount(this.source)) : (Flowable) invokeV.objValue;
-    }
-
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver<? super Long> singleObserver) {
+    public void subscribeActual(SingleObserver singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, singleObserver) == null) {
             this.source.subscribe((FlowableSubscriber) new CountSubscriber(singleObserver));
         }
+    }
+
+    @Override // io.reactivex.internal.fuseable.FuseToFlowable
+    public Flowable fuseToFlowable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return RxJavaPlugins.onAssembly(new FlowableCount(this.source));
+        }
+        return (Flowable) invokeV.objValue;
     }
 }

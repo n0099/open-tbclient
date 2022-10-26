@@ -29,7 +29,7 @@ public class DefaultImageDecoder implements ImageDecoder {
     public final ImageDecoder mAnimatedGifDecoder;
     public final ImageDecoder mAnimatedWebPDecoder;
     @Nullable
-    public final Map<ImageFormat, ImageDecoder> mCustomDecoders;
+    public final Map mCustomDecoders;
     public final ImageDecoder mDefaultDecoder;
     public final PlatformDecoder mPlatformDecoder;
 
@@ -54,95 +54,7 @@ public class DefaultImageDecoder implements ImageDecoder {
         }
     }
 
-    private void maybeApplyTransformation(@Nullable BitmapTransformation bitmapTransformation, CloseableReference<Bitmap> closeableReference) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, this, bitmapTransformation, closeableReference) == null) || bitmapTransformation == null) {
-            return;
-        }
-        Bitmap bitmap = closeableReference.get();
-        if (Build.VERSION.SDK_INT >= 12 && bitmapTransformation.modifiesTransparency()) {
-            bitmap.setHasAlpha(true);
-        }
-        bitmapTransformation.transform(bitmap);
-    }
-
-    @Override // com.facebook.imagepipeline.decoder.ImageDecoder
-    public CloseableImage decode(EncodedImage encodedImage, int i, QualityInfo qualityInfo, ImageDecodeOptions imageDecodeOptions) {
-        InterceptResult invokeLILL;
-        ImageDecoder imageDecoder;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048576, this, encodedImage, i, qualityInfo, imageDecodeOptions)) == null) {
-            ImageDecoder imageDecoder2 = imageDecodeOptions.customImageDecoder;
-            if (imageDecoder2 != null) {
-                return imageDecoder2.decode(encodedImage, i, qualityInfo, imageDecodeOptions);
-            }
-            ImageFormat imageFormat = encodedImage.getImageFormat();
-            if (imageFormat == null || imageFormat == ImageFormat.UNKNOWN) {
-                imageFormat = ImageFormatChecker.getImageFormat_WrapIOException(encodedImage.getInputStream());
-                encodedImage.setImageFormat(imageFormat);
-            }
-            Map<ImageFormat, ImageDecoder> map = this.mCustomDecoders;
-            if (map != null && (imageDecoder = map.get(imageFormat)) != null) {
-                return imageDecoder.decode(encodedImage, i, qualityInfo, imageDecodeOptions);
-            }
-            return this.mDefaultDecoder.decode(encodedImage, i, qualityInfo, imageDecodeOptions);
-        }
-        return (CloseableImage) invokeLILL.objValue;
-    }
-
-    public CloseableImage decodeAnimatedWebp(EncodedImage encodedImage, int i, QualityInfo qualityInfo, ImageDecodeOptions imageDecodeOptions) {
-        InterceptResult invokeLILL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLILL = interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, encodedImage, i, qualityInfo, imageDecodeOptions)) == null) ? this.mAnimatedWebPDecoder.decode(encodedImage, i, qualityInfo, imageDecodeOptions) : (CloseableImage) invokeLILL.objValue;
-    }
-
-    public CloseableImage decodeGif(EncodedImage encodedImage, int i, QualityInfo qualityInfo, ImageDecodeOptions imageDecodeOptions) {
-        InterceptResult invokeLILL;
-        ImageDecoder imageDecoder;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, encodedImage, i, qualityInfo, imageDecodeOptions)) == null) {
-            if (encodedImage.getWidth() != -1 && encodedImage.getHeight() != -1) {
-                if (!imageDecodeOptions.forceStaticImage && (imageDecoder = this.mAnimatedGifDecoder) != null) {
-                    return imageDecoder.decode(encodedImage, i, qualityInfo, imageDecodeOptions);
-                }
-                return decodeStaticImage(encodedImage, imageDecodeOptions);
-            }
-            throw new DecodeException("image width or height is incorrect", encodedImage);
-        }
-        return (CloseableImage) invokeLILL.objValue;
-    }
-
-    public CloseableStaticBitmap decodeJpeg(EncodedImage encodedImage, int i, QualityInfo qualityInfo, ImageDecodeOptions imageDecodeOptions) {
-        InterceptResult invokeLILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048579, this, encodedImage, i, qualityInfo, imageDecodeOptions)) == null) {
-            CloseableReference<Bitmap> decodeJPEGFromEncodedImageWithColorSpace = this.mPlatformDecoder.decodeJPEGFromEncodedImageWithColorSpace(encodedImage, imageDecodeOptions.bitmapConfig, null, i, imageDecodeOptions.colorSpace);
-            try {
-                maybeApplyTransformation(imageDecodeOptions.bitmapTransformation, decodeJPEGFromEncodedImageWithColorSpace);
-                return new CloseableStaticBitmap(decodeJPEGFromEncodedImageWithColorSpace, qualityInfo, encodedImage.getRotationAngle(), encodedImage.getExifOrientation());
-            } finally {
-                decodeJPEGFromEncodedImageWithColorSpace.close();
-            }
-        }
-        return (CloseableStaticBitmap) invokeLILL.objValue;
-    }
-
-    public CloseableStaticBitmap decodeStaticImage(EncodedImage encodedImage, ImageDecodeOptions imageDecodeOptions) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, encodedImage, imageDecodeOptions)) == null) {
-            CloseableReference<Bitmap> decodeFromEncodedImageWithColorSpace = this.mPlatformDecoder.decodeFromEncodedImageWithColorSpace(encodedImage, imageDecodeOptions.bitmapConfig, null, imageDecodeOptions.colorSpace);
-            try {
-                maybeApplyTransformation(imageDecodeOptions.bitmapTransformation, decodeFromEncodedImageWithColorSpace);
-                return new CloseableStaticBitmap(decodeFromEncodedImageWithColorSpace, ImmutableQualityInfo.FULL_QUALITY, encodedImage.getRotationAngle(), encodedImage.getExifOrientation());
-            } finally {
-                decodeFromEncodedImageWithColorSpace.close();
-            }
-        }
-        return (CloseableStaticBitmap) invokeLL.objValue;
-    }
-
-    public DefaultImageDecoder(ImageDecoder imageDecoder, ImageDecoder imageDecoder2, PlatformDecoder platformDecoder, @Nullable Map<ImageFormat, ImageDecoder> map) {
+    public DefaultImageDecoder(ImageDecoder imageDecoder, ImageDecoder imageDecoder2, PlatformDecoder platformDecoder, @Nullable Map map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -207,5 +119,96 @@ public class DefaultImageDecoder implements ImageDecoder {
         this.mAnimatedWebPDecoder = imageDecoder2;
         this.mPlatformDecoder = platformDecoder;
         this.mCustomDecoders = map;
+    }
+
+    @Override // com.facebook.imagepipeline.decoder.ImageDecoder
+    public CloseableImage decode(EncodedImage encodedImage, int i, QualityInfo qualityInfo, ImageDecodeOptions imageDecodeOptions) {
+        InterceptResult invokeLILL;
+        ImageDecoder imageDecoder;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048576, this, encodedImage, i, qualityInfo, imageDecodeOptions)) == null) {
+            ImageDecoder imageDecoder2 = imageDecodeOptions.customImageDecoder;
+            if (imageDecoder2 != null) {
+                return imageDecoder2.decode(encodedImage, i, qualityInfo, imageDecodeOptions);
+            }
+            ImageFormat imageFormat = encodedImage.getImageFormat();
+            if (imageFormat == null || imageFormat == ImageFormat.UNKNOWN) {
+                imageFormat = ImageFormatChecker.getImageFormat_WrapIOException(encodedImage.getInputStream());
+                encodedImage.setImageFormat(imageFormat);
+            }
+            Map map = this.mCustomDecoders;
+            if (map != null && (imageDecoder = (ImageDecoder) map.get(imageFormat)) != null) {
+                return imageDecoder.decode(encodedImage, i, qualityInfo, imageDecodeOptions);
+            }
+            return this.mDefaultDecoder.decode(encodedImage, i, qualityInfo, imageDecodeOptions);
+        }
+        return (CloseableImage) invokeLILL.objValue;
+    }
+
+    private void maybeApplyTransformation(@Nullable BitmapTransformation bitmapTransformation, CloseableReference closeableReference) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65538, this, bitmapTransformation, closeableReference) != null) || bitmapTransformation == null) {
+            return;
+        }
+        Bitmap bitmap = (Bitmap) closeableReference.get();
+        if (Build.VERSION.SDK_INT >= 12 && bitmapTransformation.modifiesTransparency()) {
+            bitmap.setHasAlpha(true);
+        }
+        bitmapTransformation.transform(bitmap);
+    }
+
+    public CloseableImage decodeAnimatedWebp(EncodedImage encodedImage, int i, QualityInfo qualityInfo, ImageDecodeOptions imageDecodeOptions) {
+        InterceptResult invokeLILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, encodedImage, i, qualityInfo, imageDecodeOptions)) == null) {
+            return this.mAnimatedWebPDecoder.decode(encodedImage, i, qualityInfo, imageDecodeOptions);
+        }
+        return (CloseableImage) invokeLILL.objValue;
+    }
+
+    public CloseableImage decodeGif(EncodedImage encodedImage, int i, QualityInfo qualityInfo, ImageDecodeOptions imageDecodeOptions) {
+        InterceptResult invokeLILL;
+        ImageDecoder imageDecoder;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, encodedImage, i, qualityInfo, imageDecodeOptions)) == null) {
+            if (encodedImage.getWidth() != -1 && encodedImage.getHeight() != -1) {
+                if (!imageDecodeOptions.forceStaticImage && (imageDecoder = this.mAnimatedGifDecoder) != null) {
+                    return imageDecoder.decode(encodedImage, i, qualityInfo, imageDecodeOptions);
+                }
+                return decodeStaticImage(encodedImage, imageDecodeOptions);
+            }
+            throw new DecodeException("image width or height is incorrect", encodedImage);
+        }
+        return (CloseableImage) invokeLILL.objValue;
+    }
+
+    public CloseableStaticBitmap decodeJpeg(EncodedImage encodedImage, int i, QualityInfo qualityInfo, ImageDecodeOptions imageDecodeOptions) {
+        InterceptResult invokeLILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048579, this, encodedImage, i, qualityInfo, imageDecodeOptions)) == null) {
+            CloseableReference decodeJPEGFromEncodedImageWithColorSpace = this.mPlatformDecoder.decodeJPEGFromEncodedImageWithColorSpace(encodedImage, imageDecodeOptions.bitmapConfig, null, i, imageDecodeOptions.colorSpace);
+            try {
+                maybeApplyTransformation(imageDecodeOptions.bitmapTransformation, decodeJPEGFromEncodedImageWithColorSpace);
+                return new CloseableStaticBitmap(decodeJPEGFromEncodedImageWithColorSpace, qualityInfo, encodedImage.getRotationAngle(), encodedImage.getExifOrientation());
+            } finally {
+                decodeJPEGFromEncodedImageWithColorSpace.close();
+            }
+        }
+        return (CloseableStaticBitmap) invokeLILL.objValue;
+    }
+
+    public CloseableStaticBitmap decodeStaticImage(EncodedImage encodedImage, ImageDecodeOptions imageDecodeOptions) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, encodedImage, imageDecodeOptions)) == null) {
+            CloseableReference decodeFromEncodedImageWithColorSpace = this.mPlatformDecoder.decodeFromEncodedImageWithColorSpace(encodedImage, imageDecodeOptions.bitmapConfig, null, imageDecodeOptions.colorSpace);
+            try {
+                maybeApplyTransformation(imageDecodeOptions.bitmapTransformation, decodeFromEncodedImageWithColorSpace);
+                return new CloseableStaticBitmap(decodeFromEncodedImageWithColorSpace, ImmutableQualityInfo.FULL_QUALITY, encodedImage.getRotationAngle(), encodedImage.getExifOrientation());
+            } finally {
+                decodeFromEncodedImageWithColorSpace.close();
+            }
+        }
+        return (CloseableStaticBitmap) invokeLL.objValue;
     }
 }

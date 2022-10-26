@@ -1,6 +1,5 @@
 package com.baidu.mapsdkplatform.comapi;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.util.Log;
@@ -28,8 +27,8 @@ public class NativeLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "NativeLoader";
     public static Context b;
-    public static final Set<String> c;
-    public static final Set<String> d;
+    public static final Set c;
+    public static final Set d;
     public static NativeLoader e;
     public static a f;
     public static boolean g;
@@ -38,7 +37,7 @@ public class NativeLoader {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public static final class a {
+    public final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
         public static final a b;
@@ -145,7 +144,6 @@ public class NativeLoader {
         }
     }
 
-    @TargetApi(8)
     private String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -205,10 +203,10 @@ public class NativeLoader {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, th) == null) {
             Log.e(a, "loadException", th);
-            Iterator<String> it = d.iterator();
+            Iterator it = d.iterator();
             while (it.hasNext()) {
                 String str = a;
-                Log.e(str, it.next() + " Failed to load.");
+                Log.e(str, ((String) it.next()) + " Failed to load.");
             }
         }
     }
@@ -367,7 +365,6 @@ public class NativeLoader {
         return invokeLL.booleanValue;
     }
 
-    @TargetApi(21)
     public static a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

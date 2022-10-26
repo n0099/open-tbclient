@@ -3,7 +3,6 @@ package com.bumptech.glide.load.data;
 import android.content.ContentResolver;
 import android.net.Uri;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,13 +15,24 @@ import com.bumptech.glide.load.data.DataFetcher;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 /* loaded from: classes7.dex */
-public abstract class LocalUriFetcher<T> implements DataFetcher<T> {
+public abstract class LocalUriFetcher implements DataFetcher {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "LocalUriFetcher";
     public transient /* synthetic */ FieldHolder $fh;
     public final ContentResolver contentResolver;
-    public T data;
+    public Object data;
     public final Uri uri;
+
+    @Override // com.bumptech.glide.load.data.DataFetcher
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    public abstract void close(Object obj) throws IOException;
+
+    public abstract Object loadResource(Uri uri, ContentResolver contentResolver) throws FileNotFoundException;
 
     public LocalUriFetcher(ContentResolver contentResolver, Uri uri) {
         Interceptable interceptable = $ic;
@@ -44,41 +54,33 @@ public abstract class LocalUriFetcher<T> implements DataFetcher<T> {
     }
 
     @Override // com.bumptech.glide.load.data.DataFetcher
-    public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    @Override // com.bumptech.glide.load.data.DataFetcher
     public void cleanup() {
-        T t;
+        Object obj;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (t = this.data) == null) {
-            return;
-        }
-        try {
-            close(t);
-        } catch (IOException unused) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (obj = this.data) != null) {
+            try {
+                close(obj);
+            } catch (IOException unused) {
+            }
         }
     }
 
-    public abstract void close(T t) throws IOException;
-
     @Override // com.bumptech.glide.load.data.DataFetcher
-    @NonNull
     public DataSource getDataSource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? DataSource.LOCAL : (DataSource) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return DataSource.LOCAL;
+        }
+        return (DataSource) invokeV.objValue;
     }
 
     @Override // com.bumptech.glide.load.data.DataFetcher
-    public final void loadData(@NonNull Priority priority, @NonNull DataFetcher.DataCallback<? super T> dataCallback) {
+    public final void loadData(Priority priority, DataFetcher.DataCallback dataCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, priority, dataCallback) == null) {
             try {
-                T loadResource = loadResource(this.uri, this.contentResolver);
+                Object loadResource = loadResource(this.uri, this.contentResolver);
                 this.data = loadResource;
                 dataCallback.onDataReady(loadResource);
             } catch (FileNotFoundException e) {
@@ -89,6 +91,4 @@ public abstract class LocalUriFetcher<T> implements DataFetcher<T> {
             }
         }
     }
-
-    public abstract T loadResource(Uri uri, ContentResolver contentResolver) throws FileNotFoundException;
 }

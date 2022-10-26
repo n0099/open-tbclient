@@ -1,7 +1,7 @@
 package com.baidu.ar.content;
 /* loaded from: classes.dex */
-public interface IRequestCallback<T> {
+public interface IRequestCallback {
     void onFail(int i, String str);
 
-    void onResponse(T t);
+    void onResponse(Object obj);
 }

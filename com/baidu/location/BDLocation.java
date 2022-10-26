@@ -12,7 +12,6 @@ import com.baidu.location.Address;
 import com.baidu.location.e.k;
 import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
 import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -35,7 +34,7 @@ public final class BDLocation implements Parcelable {
     public static final String BDLOCATION_GCJ02_TO_BD09 = "bd09";
     public static final String BDLOCATION_GCJ02_TO_BD09LL = "bd09ll";
     public static final String BDLOCATION_WGS84_TO_GCJ02 = "gps2gcj";
-    public static final Parcelable.Creator<BDLocation> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final int GPS_ACCURACY_BAD = 3;
     public static final int GPS_ACCURACY_GOOD = 1;
     public static final int GPS_ACCURACY_MID = 2;
@@ -88,7 +87,7 @@ public final class BDLocation implements Parcelable {
     public String I;
     public String J;
     public String K;
-    public List<Poi> L;
+    public List L;
     public String M;
     public String N;
     public String O;
@@ -456,7 +455,7 @@ public final class BDLocation implements Parcelable {
         if (bDLocation.L != null) {
             arrayList = new ArrayList();
             for (int i3 = 0; i3 < bDLocation.L.size(); i3++) {
-                Poi poi = bDLocation.L.get(i3);
+                Poi poi = (Poi) bDLocation.L.get(i3);
                 arrayList.add(new Poi(poi.getId(), poi.getName(), poi.getRank()));
             }
         }
@@ -488,7 +487,7 @@ public final class BDLocation implements Parcelable {
     /* JADX WARN: Removed duplicated region for block: B:349:? A[RETURN, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r3v49 */
     /* JADX WARN: Type inference failed for: r3v5 */
-    /* JADX WARN: Type inference failed for: r3v7, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r3v7, types: [boolean, int] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1224,8 +1223,8 @@ public final class BDLocation implements Parcelable {
                     if (jSONObject6.has("indoorflags")) {
                         try {
                             JSONObject jSONObject10 = jSONObject6.getJSONObject("indoorflags");
-                            if (jSONObject10.has(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA)) {
-                                int intValue = Integer.valueOf(jSONObject10.getString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA)).intValue();
+                            if (jSONObject10.has("area")) {
+                                int intValue = Integer.valueOf(jSONObject10.getString("area")).intValue();
                                 if (intValue == 0) {
                                     setIndoorLocationSurpport(2);
                                 } else if (intValue == 1) {
@@ -1590,7 +1589,7 @@ public final class BDLocation implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.C : invokeV.intValue;
     }
 
-    public List<Poi> getPoiList() {
+    public List getPoiList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.L : (List) invokeV.objValue;
@@ -1987,7 +1986,7 @@ public final class BDLocation implements Parcelable {
         }
     }
 
-    public void setPoiList(List<Poi> list) {
+    public void setPoiList(List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048667, this, list) == null) {
             this.L = list;

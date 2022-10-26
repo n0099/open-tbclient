@@ -14,6 +14,13 @@ public class DummyBitmapPool implements BitmapPool {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.facebook.common.memory.MemoryTrimmable
+    public void trim(MemoryTrimType memoryTrimType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, memoryTrimType) == null) {
+        }
+    }
+
     public DummyBitmapPool() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -28,20 +35,15 @@ public class DummyBitmapPool implements BitmapPool {
         }
     }
 
-    @Override // com.facebook.common.memory.MemoryTrimmable
-    public void trim(MemoryTrimType memoryTrimType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, memoryTrimType) == null) {
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.facebook.common.memory.Pool
     public Bitmap get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? Bitmap.createBitmap(1, (int) Math.ceil(i / 2.0d), Bitmap.Config.RGB_565) : (Bitmap) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return Bitmap.createBitmap(1, (int) Math.ceil(i / 2.0d), Bitmap.Config.RGB_565);
+        }
+        return (Bitmap) invokeI.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

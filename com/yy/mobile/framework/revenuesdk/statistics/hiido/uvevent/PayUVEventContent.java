@@ -36,9 +36,25 @@ public final class PayUVEventContent extends AbstractHiidoContent {
     public String mPayChannel;
     public String mPayMethod;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1349931831, "Lcom/yy/mobile/framework/revenuesdk/statistics/hiido/uvevent/PayUVEventContent;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1349931831, "Lcom/yy/mobile/framework/revenuesdk/statistics/hiido/uvevent/PayUVEventContent;");
+                return;
+            }
+        }
+        Companion = new Companion(null);
+    }
+
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\n\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\t\u0010\nR\u0016\u0010\u0002\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0003R\u0016\u0010\u0006\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0006\u0010\u0003R\u0016\u0010\u0007\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0007\u0010\u0003R\u0016\u0010\b\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\b\u0010\u0003¨\u0006\u000b"}, d2 = {"Lcom/yy/mobile/framework/revenuesdk/statistics/hiido/uvevent/PayUVEventContent$Companion;", "", "CHARGE_CONFIGID", "Ljava/lang/String;", "EVENT", "OPENID", "PAY_CHANNEL", "PAY_METHOD", "USER_TYPE", "<init>", "()V", "paycore_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes8.dex */
-    public static final class Companion {
+    public final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -63,7 +79,7 @@ public final class PayUVEventContent extends AbstractHiidoContent {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0002\b\n\u0018\u0000B\u0007¢\u0006\u0004\b\u0010\u0010\u0011J\r\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0002\u0010\u0003J\u0015\u0010\u0006\u001a\u00020\u00002\u0006\u0010\u0005\u001a\u00020\u0004¢\u0006\u0004\b\u0006\u0010\u0007J\u0015\u0010\t\u001a\u00020\u00002\u0006\u0010\u0005\u001a\u00020\b¢\u0006\u0004\b\t\u0010\nJ\u0015\u0010\u000b\u001a\u00020\u00002\u0006\u0010\u0005\u001a\u00020\b¢\u0006\u0004\b\u000b\u0010\nJ\u0015\u0010\f\u001a\u00020\u00002\u0006\u0010\u0005\u001a\u00020\b¢\u0006\u0004\b\f\u0010\nJ\u0015\u0010\r\u001a\u00020\u00002\u0006\u0010\u0005\u001a\u00020\b¢\u0006\u0004\b\r\u0010\nR\u0016\u0010\u000e\u001a\u00020\u00018\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u000e\u0010\u000f¨\u0006\u0012"}, d2 = {"Lcom/yy/mobile/framework/revenuesdk/statistics/hiido/uvevent/PayUVEventContent$ProductEventBuilder;", "Lcom/yy/mobile/framework/revenuesdk/statistics/hiido/uvevent/PayUVEventContent;", "build", "()Lcom/yy/mobile/framework/revenuesdk/statistics/hiido/uvevent/PayUVEventContent;", "Lcom/yy/mobile/framework/revenuesdk/statistics/hiido/BaseHiidoContent;", "content", "setAbstractHiidoContent", "(Lcom/yy/mobile/framework/revenuesdk/statistics/hiido/BaseHiidoContent;)Lcom/yy/mobile/framework/revenuesdk/statistics/hiido/uvevent/PayUVEventContent$ProductEventBuilder;", "", "setChargeConfigId", "(Ljava/lang/String;)Lcom/yy/mobile/framework/revenuesdk/statistics/hiido/uvevent/PayUVEventContent$ProductEventBuilder;", "setEvent", "setPayChannel", "setPayMethod", "mProductEventContent", "Lcom/yy/mobile/framework/revenuesdk/statistics/hiido/uvevent/PayUVEventContent;", "<init>", "()V", "paycore_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes8.dex */
-    public static final class ProductEventBuilder {
+    public final class ProductEventBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public PayUVEventContent mProductEventContent;
@@ -87,74 +103,61 @@ public final class PayUVEventContent extends AbstractHiidoContent {
         public final PayUVEventContent build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mProductEventContent : (PayUVEventContent) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.mProductEventContent;
+            }
+            return (PayUVEventContent) invokeV.objValue;
         }
 
         public final ProductEventBuilder setAbstractHiidoContent(BaseHiidoContent baseHiidoContent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseHiidoContent)) == null) {
-                this.mProductEventContent.mBaseHiidoContent = baseHiidoContent;
-                return this;
+            if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseHiidoContent)) != null) {
+                return (ProductEventBuilder) invokeL.objValue;
             }
-            return (ProductEventBuilder) invokeL.objValue;
+            this.mProductEventContent.mBaseHiidoContent = baseHiidoContent;
+            return this;
         }
 
         public final ProductEventBuilder setChargeConfigId(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.mProductEventContent.mChargeConfigId = str;
-                return this;
+            if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) != null) {
+                return (ProductEventBuilder) invokeL.objValue;
             }
-            return (ProductEventBuilder) invokeL.objValue;
+            this.mProductEventContent.mChargeConfigId = str;
+            return this;
         }
 
         public final ProductEventBuilder setEvent(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.mProductEventContent.mEvent = str;
-                return this;
+            if (interceptable != null && (invokeL = interceptable.invokeL(1048579, this, str)) != null) {
+                return (ProductEventBuilder) invokeL.objValue;
             }
-            return (ProductEventBuilder) invokeL.objValue;
+            this.mProductEventContent.mEvent = str;
+            return this;
         }
 
         public final ProductEventBuilder setPayChannel(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.mProductEventContent.mPayChannel = str;
-                return this;
+            if (interceptable != null && (invokeL = interceptable.invokeL(1048580, this, str)) != null) {
+                return (ProductEventBuilder) invokeL.objValue;
             }
-            return (ProductEventBuilder) invokeL.objValue;
+            this.mProductEventContent.mPayChannel = str;
+            return this;
         }
 
         public final ProductEventBuilder setPayMethod(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                this.mProductEventContent.mPayMethod = str;
-                return this;
+            if (interceptable != null && (invokeL = interceptable.invokeL(1048581, this, str)) != null) {
+                return (ProductEventBuilder) invokeL.objValue;
             }
-            return (ProductEventBuilder) invokeL.objValue;
+            this.mProductEventContent.mPayMethod = str;
+            return this;
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1349931831, "Lcom/yy/mobile/framework/revenuesdk/statistics/hiido/uvevent/PayUVEventContent;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1349931831, "Lcom/yy/mobile/framework/revenuesdk/statistics/hiido/uvevent/PayUVEventContent;");
-                return;
-            }
-        }
-        Companion = new Companion(null);
     }
 
     public PayUVEventContent() {
@@ -174,6 +177,24 @@ public final class PayUVEventContent extends AbstractHiidoContent {
         this.mPayChannel = "";
         this.mPayMethod = "";
         this.mChargeConfigId = "";
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.statistics.hiido.AbstractHiidoContent
+    public String getAct() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            BaseHiidoContent baseHiidoContent = this.mBaseHiidoContent;
+            if (baseHiidoContent != null) {
+                return baseHiidoContent.getAct();
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public /* synthetic */ PayUVEventContent(DefaultConstructorMarker defaultConstructorMarker) {
+        this();
     }
 
     private final String buildContent() {
@@ -222,27 +243,19 @@ public final class PayUVEventContent extends AbstractHiidoContent {
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.statistics.hiido.AbstractHiidoContent
-    public String getAct() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            BaseHiidoContent baseHiidoContent = this.mBaseHiidoContent;
-            if (baseHiidoContent != null) {
-                return baseHiidoContent.getAct();
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.statistics.hiido.AbstractHiidoContent
     public String getContent() {
         InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             StringBuilder sb = new StringBuilder();
             BaseHiidoContent baseHiidoContent = this.mBaseHiidoContent;
-            sb.append(baseHiidoContent != null ? baseHiidoContent.getContent() : null);
+            if (baseHiidoContent != null) {
+                str = baseHiidoContent.getContent();
+            } else {
+                str = null;
+            }
+            sb.append(str);
             sb.append("&");
             sb.append(buildContent());
             return sb.toString();
@@ -251,31 +264,32 @@ public final class PayUVEventContent extends AbstractHiidoContent {
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.statistics.hiido.AbstractHiidoContent
-    public Map<String, String> getMapContent() {
+    public Map getMapContent() {
         InterceptResult invokeV;
+        Map map;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             BaseHiidoContent baseHiidoContent = this.mBaseHiidoContent;
-            Map<String, String> mapContent = baseHiidoContent != null ? baseHiidoContent.getMapContent() : null;
-            if (mapContent == null) {
-                mapContent = new LinkedHashMap<>();
+            if (baseHiidoContent != null) {
+                map = baseHiidoContent.getMapContent();
+            } else {
+                map = null;
             }
-            mapContent.put("event", this.mEvent);
+            if (map == null) {
+                map = new LinkedHashMap();
+            }
+            map.put("event", this.mEvent);
             String str = HiidoConstantContent.mUserType;
             Intrinsics.checkExpressionValueIsNotNull(str, "HiidoConstantContent.mUserType");
-            mapContent.put(USER_TYPE, str);
+            map.put(USER_TYPE, str);
             String str2 = HiidoConstantContent.mOpenId;
             Intrinsics.checkExpressionValueIsNotNull(str2, "HiidoConstantContent.mOpenId");
-            mapContent.put("openid", str2);
-            mapContent.put(PAY_CHANNEL, this.mPayChannel);
-            mapContent.put(PAY_METHOD, this.mPayMethod);
-            mapContent.put(CHARGE_CONFIGID, this.mChargeConfigId);
-            return mapContent;
+            map.put("openid", str2);
+            map.put(PAY_CHANNEL, this.mPayChannel);
+            map.put(PAY_METHOD, this.mPayMethod);
+            map.put(CHARGE_CONFIGID, this.mChargeConfigId);
+            return map;
         }
         return (Map) invokeV.objValue;
-    }
-
-    public /* synthetic */ PayUVEventContent(DefaultConstructorMarker defaultConstructorMarker) {
-        this();
     }
 }

@@ -1,7 +1,5 @@
 package com.baidu.tbadk.util;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.util.SimpleMessageListener;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class OnActivityFinishListener<T> extends SimpleMessageListener {
+public class OnActivityFinishListener extends SimpleMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public OnActivityFinishListener(@NonNull TbPageContext<?> tbPageContext, @NonNull SimpleMessageListener.b<T> bVar) {
+    public OnActivityFinishListener(TbPageContext tbPageContext, SimpleMessageListener.b bVar) {
         super(2001459, false, bVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -35,10 +33,10 @@ public class OnActivityFinishListener<T> extends SimpleMessageListener {
         h(tbPageContext);
     }
 
-    public static <T> void k(@NonNull TbPageContext<?> tbPageContext, @Nullable T t) {
+    public static void k(TbPageContext tbPageContext, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, tbPageContext, t) == null) {
-            SimpleMessageListener.i(2001459, tbPageContext, t);
+        if (interceptable == null || interceptable.invokeLL(65537, null, tbPageContext, obj) == null) {
+            SimpleMessageListener.i(2001459, tbPageContext, obj);
         }
     }
 }

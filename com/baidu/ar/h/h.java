@@ -7,10 +7,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class h<T> {
+public class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile T xY;
+    public volatile Object xY;
     public volatile int xZ;
     public String ya;
 
@@ -33,7 +33,7 @@ public class h<T> {
         this.ya = str;
     }
 
-    public T gA() {
+    public Object gA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -43,19 +43,19 @@ public class h<T> {
             if (isAvailable()) {
                 synchronized (this) {
                     if (this.xY == null) {
-                        this.xY = (T) n.aV(this.ya);
+                        this.xY = n.aV(this.ya);
                     }
                 }
             }
             return this.xY;
         }
-        return (T) invokeV.objValue;
+        return invokeV.objValue;
     }
 
-    public T gB() {
+    public Object gB() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.xY : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.xY : invokeV.objValue;
     }
 
     public boolean isAvailable() {

@@ -1,7 +1,6 @@
 package com.faceunity.encoder;
 
 import android.media.AudioRecord;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -75,31 +74,24 @@ public class AudioRecordWrapper {
     public AudioRecord getAudioRecord() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mAudioRecord : (AudioRecord) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mAudioRecord;
+        }
+        return (AudioRecord) invokeV.objValue;
     }
 
     public boolean isReleased() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mHasReleased : invokeV.booleanValue;
-    }
-
-    public int read(@NonNull ByteBuffer byteBuffer, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, byteBuffer, i)) == null) {
-            AudioRecord audioRecord = this.mAudioRecord;
-            if (audioRecord == null) {
-                return 0;
-            }
-            return audioRecord.read(byteBuffer, i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mHasReleased;
         }
-        return invokeLI.intValue;
+        return invokeV.booleanValue;
     }
 
     public void release() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.mHasReleased) {
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.mHasReleased) {
             return;
         }
         this.mHasReleased = true;
@@ -112,7 +104,7 @@ public class AudioRecordWrapper {
 
     public void startRecording() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.mAudioRecord == null) {
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.mAudioRecord == null) {
             return;
         }
         AudioRecordWrapper audioRecordWrapper = mLastAudioRecordWrapper;
@@ -126,9 +118,22 @@ public class AudioRecordWrapper {
     public void stop() {
         AudioRecord audioRecord;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (audioRecord = this.mAudioRecord) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (audioRecord = this.mAudioRecord) == null) {
             return;
         }
         audioRecord.stop();
+    }
+
+    public int read(ByteBuffer byteBuffer, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, byteBuffer, i)) == null) {
+            AudioRecord audioRecord = this.mAudioRecord;
+            if (audioRecord == null) {
+                return 0;
+            }
+            return audioRecord.read(byteBuffer, i);
+        }
+        return invokeLI.intValue;
     }
 }

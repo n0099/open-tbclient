@@ -8,7 +8,7 @@ public interface MemoryCache {
 
     DecodedResult get(String str);
 
-    Collection<String> keys();
+    Collection keys();
 
     boolean put(String str, DecodedResult decodedResult);
 

@@ -1,35 +1,98 @@
 package com.baidu.tieba;
 
-import android.graphics.Path;
-import android.graphics.RectF;
+import android.app.Activity;
+import android.content.DialogInterface;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class iv4 {
+public abstract class iv4 extends fv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Activity c;
+    public TBAlertBuilder d;
+    public DialogInterface.OnDismissListener e;
 
-    public static Path a(RectF rectF, float[] fArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, rectF, fArr)) == null) {
-            Path path = new Path();
-            path.addRoundRect(rectF, fArr, Path.Direction.CW);
-            return path;
+    public abstract void g(TBAlertBuilder tBAlertBuilder);
+
+    /* loaded from: classes4.dex */
+    public class a implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ iv4 a;
+
+        public a(iv4 iv4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iv4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = iv4Var;
         }
-        return (Path) invokeLL.objValue;
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                this.a.c();
+                if (this.a.e != null) {
+                    this.a.e.onDismiss(dialogInterface);
+                }
+            }
+        }
     }
 
-    public static float[] b(float f) {
-        InterceptResult invokeF;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public iv4(Activity activity) {
+        super(activity);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) {
-            float[] fArr = new float[8];
-            Arrays.fill(fArr, f);
-            return fArr;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (float[]) invokeF.objValue;
+        this.c = activity;
+    }
+
+    @Override // com.baidu.tieba.fv4
+    public void b() {
+        TBAlertBuilder tBAlertBuilder;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (tBAlertBuilder = this.d) != null) {
+            tBAlertBuilder.dismiss();
+        }
+    }
+
+    @Override // com.baidu.tieba.fv4
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.c);
+            this.d = tBAlertBuilder;
+            tBAlertBuilder.q(new a(this));
+            g(this.d);
+            this.d.w();
+        }
     }
 }

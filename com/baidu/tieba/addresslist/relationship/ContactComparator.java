@@ -1,7 +1,7 @@
 package com.baidu.tieba.addresslist.relationship;
 
 import android.text.TextUtils;
-import com.baidu.tieba.v25;
+import com.baidu.tieba.b35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.Comparator;
 /* loaded from: classes3.dex */
-public class ContactComparator implements Comparator<v25>, Serializable {
+public class ContactComparator implements Comparator, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LAST_KEY = "#";
     public static final long serialVersionUID = 5856247139420779621L;
@@ -32,18 +32,18 @@ public class ContactComparator implements Comparator<v25>, Serializable {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Comparator
-    public int compare(v25 v25Var, v25 v25Var2) {
+    public int compare(b35 b35Var, b35 b35Var2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, v25Var, v25Var2)) == null) {
-            if (v25Var == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, b35Var, b35Var2)) == null) {
+            if (b35Var == null) {
                 return -1;
             }
-            if (v25Var2 == null) {
+            if (b35Var2 == null) {
                 return 1;
             }
-            String a = v25Var.a();
-            String a2 = v25Var2.a();
+            String a = b35Var.a();
+            String a2 = b35Var2.a();
             if (!TextUtils.isEmpty(a) && !TextUtils.isEmpty(a2) && !a.equals(a2)) {
                 if ("#".equals(a)) {
                     return 1;
@@ -53,20 +53,20 @@ public class ContactComparator implements Comparator<v25>, Serializable {
                 }
                 return a.compareToIgnoreCase(a2);
             }
-            String e = v25Var.e();
-            String e2 = v25Var2.e();
+            String e = b35Var.e();
+            String e2 = b35Var2.e();
             if (TextUtils.isEmpty(e)) {
                 return -1;
             }
             if (TextUtils.isEmpty(e2)) {
                 return 1;
             }
-            String c = v25Var.c();
-            String c2 = v25Var2.c();
-            if (TextUtils.isEmpty(c) || TextUtils.isEmpty(c2)) {
-                return 0;
+            String c = b35Var.c();
+            String c2 = b35Var2.c();
+            if (!TextUtils.isEmpty(c) && !TextUtils.isEmpty(c2)) {
+                return c.compareToIgnoreCase(c2);
             }
-            return c.compareToIgnoreCase(c2);
+            return 0;
         }
         return invokeLL.intValue;
     }

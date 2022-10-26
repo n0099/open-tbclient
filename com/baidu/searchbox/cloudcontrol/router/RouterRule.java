@@ -31,7 +31,10 @@ public class RouterRule {
     private ICloudControlProcessor getProcessor(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) ? CloudControlManager.getInstance().getProcessor(str) : (ICloudControlProcessor) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) {
+            return CloudControlManager.getInstance().getProcessor(str);
+        }
+        return (ICloudControlProcessor) invokeL.objValue;
     }
 
     public RuleResult apply(String str) {

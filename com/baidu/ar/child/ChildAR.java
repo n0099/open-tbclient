@@ -318,7 +318,7 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
     private void cO() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
-            a("FaceDetector", this.lE, (HashMap<String, Object>) null);
+            a("FaceDetector", this.lE, (HashMap) null);
         }
     }
 
@@ -332,7 +332,7 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
         a("FaceDetector", eVar);
     }
 
-    private void i(HashMap<String, Object> hashMap) {
+    private void i(HashMap hashMap) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65557, this, hashMap) == null) && hashMap.containsKey("case_texture")) {
             String str = (String) hashMap.get("case_texture");
@@ -363,7 +363,7 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
     }
 
     @Override // com.baidu.ar.c
-    public void adjust(HashMap<String, Object> hashMap) {
+    public void adjust(HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap) == null) {
             super.adjust(hashMap);
@@ -371,7 +371,7 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
     }
 
     @Override // com.baidu.ar.lua.LuaMsgListener
-    public List<String> getMsgKeyListened() {
+    public List getMsgKeyListened() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -383,7 +383,7 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
     }
 
     @Override // com.baidu.ar.lua.LuaMsgListener
-    public void onLuaMessage(HashMap<String, Object> hashMap) {
+    public void onLuaMessage(HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, hashMap) == null) || this.lC || hashMap == null || hashMap.keySet().size() < 1) {
             return;
@@ -435,7 +435,7 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
     }
 
     @Override // com.baidu.ar.c
-    public void setup(HashMap<String, Object> hashMap) {
+    public void setup(HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, hashMap) == null) {
             if (this.cb == null) {

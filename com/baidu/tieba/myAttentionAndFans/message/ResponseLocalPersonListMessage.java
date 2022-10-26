@@ -2,17 +2,17 @@ package com.baidu.tieba.myAttentionAndFans.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gt4;
+import com.baidu.tieba.it4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ResponseLocalPersonListMessage extends CustomResponsedMessage<Object> {
+public class ResponseLocalPersonListMessage extends CustomResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gt4 data;
+    public it4 data;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseLocalPersonListMessage() {
@@ -32,20 +32,21 @@ public class ResponseLocalPersonListMessage extends CustomResponsedMessage<Objec
         }
     }
 
-    public void setData(gt4 gt4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gt4Var) == null) {
-            this.data = gt4Var;
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.tieba.gt4' to match base method */
     @Override // com.baidu.adp.framework.message.CustomResponsedMessage
-    /* renamed from: getData */
-    public Object getData2() {
+    public it4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.data : (gt4) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.data;
+        }
+        return (it4) invokeV.objValue;
+    }
+
+    public void setData(it4 it4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, it4Var) == null) {
+            this.data = it4Var;
+        }
     }
 }

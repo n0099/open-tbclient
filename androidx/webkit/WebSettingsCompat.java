@@ -1,9 +1,6 @@
 package androidx.webkit;
 
-import android.annotation.SuppressLint;
 import android.webkit.WebSettings;
-import androidx.annotation.NonNull;
-import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.webkit.internal.WebSettingsAdapter;
 import androidx.webkit.internal.WebViewFeatureInternal;
@@ -20,24 +17,19 @@ import java.lang.annotation.Target;
 /* loaded from: classes.dex */
 public class WebSettingsCompat {
     public static /* synthetic */ Interceptable $ic = null;
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public static final int FORCE_DARK_AUTO = 1;
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public static final int FORCE_DARK_OFF = 0;
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public static final int FORCE_DARK_ON = 2;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Target({ElementType.PARAMETER, ElementType.METHOD})
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface ForceDark {
     }
 
     @Target({ElementType.PARAMETER, ElementType.METHOD})
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface MenuItemFlags {
     }
@@ -59,11 +51,25 @@ public class WebSettingsCompat {
     public static WebSettingsAdapter getAdapter(WebSettings webSettings) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, webSettings)) == null) ? WebViewGlueCommunicator.getCompatConverter().convertSettings(webSettings) : (WebSettingsAdapter) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, webSettings)) == null) {
+            return WebViewGlueCommunicator.getCompatConverter().convertSettings(webSettings);
+        }
+        return (WebSettingsAdapter) invokeL.objValue;
     }
 
-    @SuppressLint({"NewApi"})
-    public static int getDisabledActionModeMenuItems(@NonNull WebSettings webSettings) {
+    public static boolean willSuppressErrorPage(WebSettings webSettings) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, webSettings)) == null) {
+            if (WebViewFeatureInternal.getFeature("SUPPRESS_ERROR_PAGE").isSupportedByWebView()) {
+                return getAdapter(webSettings).willSuppressErrorPage();
+            }
+            throw WebViewFeatureInternal.getUnsupportedOperationException();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static int getDisabledActionModeMenuItems(WebSettings webSettings) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, webSettings)) == null) {
@@ -79,9 +85,7 @@ public class WebSettingsCompat {
         return invokeL.intValue;
     }
 
-    @SuppressLint({"NewApi"})
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    public static int getForceDark(@NonNull WebSettings webSettings) {
+    public static int getForceDark(WebSettings webSettings) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, webSettings)) == null) {
@@ -97,8 +101,7 @@ public class WebSettingsCompat {
         return invokeL.intValue;
     }
 
-    @SuppressLint({"NewApi"})
-    public static boolean getOffscreenPreRaster(@NonNull WebSettings webSettings) {
+    public static boolean getOffscreenPreRaster(WebSettings webSettings) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, webSettings)) == null) {
@@ -114,8 +117,7 @@ public class WebSettingsCompat {
         return invokeL.booleanValue;
     }
 
-    @SuppressLint({"NewApi"})
-    public static boolean getSafeBrowsingEnabled(@NonNull WebSettings webSettings) {
+    public static boolean getSafeBrowsingEnabled(WebSettings webSettings) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, webSettings)) == null) {
@@ -131,8 +133,7 @@ public class WebSettingsCompat {
         return invokeL.booleanValue;
     }
 
-    @SuppressLint({"NewApi"})
-    public static void setDisabledActionModeMenuItems(@NonNull WebSettings webSettings, int i) {
+    public static void setDisabledActionModeMenuItems(WebSettings webSettings, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65542, null, webSettings, i) == null) {
             WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("DISABLED_ACTION_MODE_MENU_ITEMS");
@@ -146,9 +147,7 @@ public class WebSettingsCompat {
         }
     }
 
-    @SuppressLint({"NewApi"})
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    public static void setForceDark(@NonNull WebSettings webSettings, int i) {
+    public static void setForceDark(WebSettings webSettings, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65543, null, webSettings, i) == null) {
             WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("FORCE_DARK");
@@ -162,8 +161,7 @@ public class WebSettingsCompat {
         }
     }
 
-    @SuppressLint({"NewApi"})
-    public static void setOffscreenPreRaster(@NonNull WebSettings webSettings, boolean z) {
+    public static void setOffscreenPreRaster(WebSettings webSettings, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65544, null, webSettings, z) == null) {
             WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("OFF_SCREEN_PRERASTER");
@@ -177,8 +175,7 @@ public class WebSettingsCompat {
         }
     }
 
-    @SuppressLint({"NewApi"})
-    public static void setSafeBrowsingEnabled(@NonNull WebSettings webSettings, boolean z) {
+    public static void setSafeBrowsingEnabled(WebSettings webSettings, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65545, null, webSettings, z) == null) {
             WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("SAFE_BROWSING_ENABLE");
@@ -192,9 +189,7 @@ public class WebSettingsCompat {
         }
     }
 
-    @SuppressLint({"NewApi"})
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public static void setWillSuppressErrorPage(@NonNull WebSettings webSettings, boolean z) {
+    public static void setWillSuppressErrorPage(WebSettings webSettings, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65546, null, webSettings, z) == null) {
             if (WebViewFeatureInternal.getFeature("SUPPRESS_ERROR_PAGE").isSupportedByWebView()) {
@@ -203,19 +198,5 @@ public class WebSettingsCompat {
             }
             throw WebViewFeatureInternal.getUnsupportedOperationException();
         }
-    }
-
-    @SuppressLint({"NewApi"})
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public static boolean willSuppressErrorPage(@NonNull WebSettings webSettings) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, webSettings)) == null) {
-            if (WebViewFeatureInternal.getFeature("SUPPRESS_ERROR_PAGE").isSupportedByWebView()) {
-                return getAdapter(webSettings).willSuppressErrorPage();
-            }
-            throw WebViewFeatureInternal.getUnsupportedOperationException();
-        }
-        return invokeL.booleanValue;
     }
 }

@@ -36,15 +36,14 @@ public class F0 implements ViewTreeObserver.OnScrollChangedListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                if (this.b.b || !this.b.a(this.b.a)) {
-                    return;
+                if (!this.b.b && this.b.a(this.b.a)) {
+                    this.b.e.removeMessages(1101);
+                    this.b.a.getViewTreeObserver().removeOnScrollChangedListener(this);
+                    if (this.a != null) {
+                        this.a.a();
+                    }
+                    this.b.b = true;
                 }
-                this.b.e.removeMessages(1101);
-                this.b.a.getViewTreeObserver().removeOnScrollChangedListener(this);
-                if (this.a != null) {
-                    this.a.a();
-                }
-                this.b.b = true;
             } catch (Exception e) {
                 e.printStackTrace();
             }

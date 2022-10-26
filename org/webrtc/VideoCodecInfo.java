@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.Locale;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class VideoCodecInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String H264_CONSTRAINED_BASELINE_3_1 = "42e01f";
@@ -23,12 +23,32 @@ public class VideoCodecInfo {
     public static final String H264_PROFILE_CONSTRAINED_HIGH = "640c";
     public transient /* synthetic */ FieldHolder $fh;
     public final String name;
-    public final Map<String, String> params;
+    public final Map params;
     @Deprecated
     public final int payload;
 
-    @CalledByNative
-    public VideoCodecInfo(String str, Map<String, String> map) {
+    @Deprecated
+    public VideoCodecInfo(int i, String str, Map map) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, map};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.payload = i;
+        this.name = str;
+        this.params = map;
+    }
+
+    public VideoCodecInfo(String str, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,53 +78,42 @@ public class VideoCodecInfo {
             if (obj == this) {
                 return true;
             }
-            if (obj instanceof VideoCodecInfo) {
-                VideoCodecInfo videoCodecInfo = (VideoCodecInfo) obj;
-                return this.name.equalsIgnoreCase(videoCodecInfo.name) && this.params.equals(videoCodecInfo.params);
+            if (!(obj instanceof VideoCodecInfo)) {
+                return false;
             }
-            return false;
+            VideoCodecInfo videoCodecInfo = (VideoCodecInfo) obj;
+            if (!this.name.equalsIgnoreCase(videoCodecInfo.name) || !this.params.equals(videoCodecInfo.params)) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    @CalledByNative
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.name : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.name;
+        }
+        return (String) invokeV.objValue;
     }
 
-    @CalledByNative
     public Map getParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.params : (Map) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.params;
+        }
+        return (Map) invokeV.objValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Arrays.hashCode(new Object[]{this.name.toUpperCase(Locale.ROOT), this.params}) : invokeV.intValue;
-    }
-
-    @Deprecated
-    public VideoCodecInfo(int i, String str, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, map};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return Arrays.hashCode(new Object[]{this.name.toUpperCase(Locale.ROOT), this.params});
         }
-        this.payload = i;
-        this.name = str;
-        this.params = map;
+        return invokeV.intValue;
     }
 }

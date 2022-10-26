@@ -30,20 +30,23 @@ public final class IsoTypeReaderVariable {
         int readUInt8;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, byteBuffer, i)) == null) {
-            if (i == 1) {
-                readUInt8 = IsoTypeReader.readUInt8(byteBuffer);
-            } else if (i == 2) {
-                readUInt8 = IsoTypeReader.readUInt16(byteBuffer);
-            } else if (i != 3) {
-                if (i != 4) {
-                    if (i == 8) {
-                        return IsoTypeReader.readUInt64(byteBuffer);
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            if (i == 8) {
+                                return IsoTypeReader.readUInt64(byteBuffer);
+                            }
+                            throw new RuntimeException("I don't know how to read " + i + " bytes");
+                        }
+                        return IsoTypeReader.readUInt32(byteBuffer);
                     }
-                    throw new RuntimeException("I don't know how to read " + i + " bytes");
+                    readUInt8 = IsoTypeReader.readUInt24(byteBuffer);
+                } else {
+                    readUInt8 = IsoTypeReader.readUInt16(byteBuffer);
                 }
-                return IsoTypeReader.readUInt32(byteBuffer);
             } else {
-                readUInt8 = IsoTypeReader.readUInt24(byteBuffer);
+                readUInt8 = IsoTypeReader.readUInt8(byteBuffer);
             }
             return readUInt8;
         }

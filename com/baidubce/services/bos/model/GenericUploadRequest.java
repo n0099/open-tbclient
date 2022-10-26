@@ -13,6 +13,8 @@ public abstract class GenericUploadRequest extends GenericObjectRequest {
     public transient /* synthetic */ FieldHolder $fh;
     public String uploadId;
 
+    public abstract GenericUploadRequest withUploadId(String str);
+
     public GenericUploadRequest() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -30,18 +32,11 @@ public abstract class GenericUploadRequest extends GenericObjectRequest {
     public String getUploadId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.uploadId : (String) invokeV.objValue;
-    }
-
-    public void setUploadId(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            CheckUtils.isNotNull(str, "uploadId should not be null.");
-            this.uploadId = str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.uploadId;
         }
+        return (String) invokeV.objValue;
     }
-
-    public abstract GenericUploadRequest withUploadId(String str);
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GenericUploadRequest(String str, String str2, String str3) {
@@ -63,5 +58,13 @@ public abstract class GenericUploadRequest extends GenericObjectRequest {
             }
         }
         setUploadId(str3);
+    }
+
+    public void setUploadId(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            CheckUtils.isNotNull(str, "uploadId should not be null.");
+            this.uploadId = str;
+        }
     }
 }

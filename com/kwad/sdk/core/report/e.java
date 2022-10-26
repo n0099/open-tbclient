@@ -1,22 +1,20 @@
 package com.kwad.sdk.core.report;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 import com.kwad.sdk.service.ServiceProvider;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
-public class e extends b<m, d> {
+public class e extends b {
     public static volatile boolean HJ;
     public static volatile e ZU;
-    public static q<m, d> ZV;
+    public static q ZV;
 
-    /* renamed from: a  reason: avoid collision after fix types in other method */
-    public static void a2(@NonNull m mVar) {
+    public static void a(m mVar) {
         a(mVar, false);
     }
 
-    public static void a(@NonNull m mVar, boolean z) {
+    public static void a(m mVar, boolean z) {
         uu().b(mVar, z);
     }
 
@@ -25,8 +23,8 @@ public class e extends b<m, d> {
     @Override // com.kwad.sdk.core.report.b
     /* renamed from: b */
     public d a(m mVar) {
-        q<m, d> qVar = ZV;
-        return (d) (qVar != null ? qVar.uD() : super.a((e) mVar));
+        q qVar = ZV;
+        return (d) (qVar != null ? qVar.uD() : super.a((c) mVar));
     }
 
     private void b(final m mVar, boolean z) {
@@ -34,7 +32,7 @@ public class e extends b<m, d> {
             return;
         }
         if (z || h(mVar.aai)) {
-            ZU.b(new i<m>() { // from class: com.kwad.sdk.core.report.e.1
+            ZU.b(new i() { // from class: com.kwad.sdk.core.report.e.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: private */
                 @Override // com.kwad.sdk.core.report.i
@@ -44,7 +42,7 @@ public class e extends b<m, d> {
                 }
             });
         } else {
-            ZU.a(new i<m>() { // from class: com.kwad.sdk.core.report.e.2
+            ZU.a(new i() { // from class: com.kwad.sdk.core.report.e.2
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: private */
                 @Override // com.kwad.sdk.core.report.i
@@ -88,9 +86,9 @@ public class e extends b<m, d> {
         return rVar != null && rVar.h(j);
     }
 
-    public static d p(List<m> list) {
-        q<m, d> qVar = ZV;
-        return qVar != null ? qVar.uE() : new d(list);
+    public static d p(List list) {
+        q qVar = ZV;
+        return qVar != null ? (d) qVar.uE() : new d(list);
     }
 
     public static e uu() {
@@ -106,16 +104,14 @@ public class e extends b<m, d> {
     }
 
     @Override // com.kwad.sdk.core.report.b
-    public final Runnable a(Context context, j<m> jVar, AtomicInteger atomicInteger) {
-        v<m, d> uC;
-        q<m, d> qVar = ZV;
+    public final Runnable a(Context context, j jVar, AtomicInteger atomicInteger) {
+        v uC;
+        q qVar = ZV;
         return (qVar == null || (uC = qVar.uC()) == null) ? super.a(context, jVar, atomicInteger) : uC;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.util.List] */
-    /* JADX DEBUG: Return type fixed from 'com.kwad.sdk.core.network.g' to match base method */
     @Override // com.kwad.sdk.core.report.b
-    public final /* synthetic */ d o(List<m> list) {
+    public final /* synthetic */ com.kwad.sdk.core.network.g o(List list) {
         return p(list);
     }
 }

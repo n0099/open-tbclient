@@ -5,8 +5,6 @@ import android.content.ContextWrapper;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.os.Build;
-import androidx.annotation.NonNull;
-import androidx.annotation.RestrictTo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,7 +15,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class TintContextWrapper extends ContextWrapper {
     public static /* synthetic */ Interceptable $ic;
@@ -43,8 +40,42 @@ public class TintContextWrapper extends ContextWrapper {
         CACHE_LOCK = new Object();
     }
 
+    @Override // android.content.ContextWrapper, android.content.Context
+    public AssetManager getAssets() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mResources.getAssets();
+        }
+        return (AssetManager) invokeV.objValue;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public Resources getResources() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mResources;
+        }
+        return (Resources) invokeV.objValue;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public Resources.Theme getTheme() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Resources.Theme theme = this.mTheme;
+            if (theme == null) {
+                return super.getTheme();
+            }
+            return theme;
+        }
+        return (Resources.Theme) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TintContextWrapper(@NonNull Context context) {
+    public TintContextWrapper(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -73,20 +104,24 @@ public class TintContextWrapper extends ContextWrapper {
         this.mTheme = null;
     }
 
-    public static boolean shouldWrap(@NonNull Context context) {
+    public static boolean shouldWrap(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             if ((context instanceof TintContextWrapper) || (context.getResources() instanceof TintResources) || (context.getResources() instanceof VectorEnabledTintResources)) {
                 return false;
             }
-            return Build.VERSION.SDK_INT < 21 || VectorEnabledTintResources.shouldBeUsed();
+            if (Build.VERSION.SDK_INT >= 21 && !VectorEnabledTintResources.shouldBeUsed()) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    public static Context wrap(@NonNull Context context) {
+    public static Context wrap(Context context) {
         InterceptResult invokeL;
+        TintContextWrapper tintContextWrapper;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             if (shouldWrap(context)) {
@@ -102,7 +137,11 @@ public class TintContextWrapper extends ContextWrapper {
                         }
                         for (int size2 = sCache.size() - 1; size2 >= 0; size2--) {
                             WeakReference<TintContextWrapper> weakReference2 = sCache.get(size2);
-                            TintContextWrapper tintContextWrapper = weakReference2 != null ? weakReference2.get() : null;
+                            if (weakReference2 != null) {
+                                tintContextWrapper = weakReference2.get();
+                            } else {
+                                tintContextWrapper = null;
+                            }
                             if (tintContextWrapper != null && tintContextWrapper.getBaseContext() == context) {
                                 return tintContextWrapper;
                             }
@@ -116,31 +155,6 @@ public class TintContextWrapper extends ContextWrapper {
             return context;
         }
         return (Context) invokeL.objValue;
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public AssetManager getAssets() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mResources.getAssets() : (AssetManager) invokeV.objValue;
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public Resources getResources() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mResources : (Resources) invokeV.objValue;
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public Resources.Theme getTheme() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Resources.Theme theme = this.mTheme;
-            return theme == null ? super.getTheme() : theme;
-        }
-        return (Resources.Theme) invokeV.objValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context

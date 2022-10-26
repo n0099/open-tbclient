@@ -28,9 +28,9 @@ public class MainClearCache extends BaseClearCache {
     public static final String EXT_KEY = "main";
     public static final long TIMEOUT = 2;
     public static BaseClearCache sDownloadClearCache;
-    public static final List<BaseClearCache> sSubClearCacheList;
+    public static final List sSubClearCacheList;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<BaseClearCache> mShowClearCacheList;
+    public List mShowClearCacheList;
 
     /* loaded from: classes2.dex */
     public interface MainClearCacheCallback extends BaseClearCache.CacheClearCallback {
@@ -40,6 +40,47 @@ public class MainClearCache extends BaseClearCache {
     /* loaded from: classes2.dex */
     public interface MainClearSizeCallback extends BaseClearCache.CacheSizeCallback {
         void onItemCacheSizeResult(BaseClearCache baseClearCache, long j);
+    }
+
+    @Override // com.baidu.searchbox.download.center.clearcache.BaseClearCache
+    public String getCacheDesc() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.download.center.clearcache.BaseClearCache
+    public String getCacheName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.download.center.clearcache.BaseClearCache
+    public String getUBCExtKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? "main" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.download.center.clearcache.BaseClearCache
+    public boolean isCalculateCacheSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.download.center.clearcache.BaseClearCache
+    public boolean isDefaultSelected() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     static {
@@ -58,6 +99,68 @@ public class MainClearCache extends BaseClearCache {
         sSubClearCacheList = new ArrayList();
         ClearCacheRuntime.getClearCacheContext().addClearCache(sSubClearCacheList);
         sDownloadClearCache = ClearCacheRuntime.getClearCacheContext().getDownloadClearCache();
+    }
+
+    public List getCalculateCacheList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(sDownloadClearCache);
+            for (BaseClearCache baseClearCache : this.mShowClearCacheList) {
+                if (baseClearCache.isCalculateCacheSize()) {
+                    arrayList.add(baseClearCache);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public long getSelectedCacheSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            long j = 0;
+            for (BaseClearCache baseClearCache : sSubClearCacheList) {
+                if (baseClearCache.isSelected() && baseClearCache.getCacheSize() >= 1024) {
+                    j += baseClearCache.getCacheSize();
+                }
+            }
+            return j;
+        }
+        return invokeV.longValue;
+    }
+
+    public List getSelectedClearCacheList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (BaseClearCache baseClearCache : this.mShowClearCacheList) {
+                if (baseClearCache.isSelected()) {
+                    arrayList.add(baseClearCache);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public long getSelectedSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            List<BaseClearCache> selectedClearCacheList = getSelectedClearCacheList();
+            long j = 0;
+            if (selectedClearCacheList != null && selectedClearCacheList.size() > 0) {
+                for (BaseClearCache baseClearCache : selectedClearCacheList) {
+                    j += baseClearCache.getCacheSize();
+                }
+            }
+            return j;
+        }
+        return invokeV.longValue;
     }
 
     public MainClearCache() {
@@ -84,13 +187,13 @@ public class MainClearCache extends BaseClearCache {
                         break;
                     }
                     JSONObject optJSONObject = forceList.optJSONObject(i3);
-                    if (optJSONObject == null || !TextUtils.equals(optJSONObject.optString(UserSettingForceListListener.FORCE_LIST_ITEM_ID_KEY), baseClearCache.getUBCExtKey())) {
-                        i3++;
-                    } else {
+                    if (optJSONObject != null && TextUtils.equals(optJSONObject.optString(UserSettingForceListListener.FORCE_LIST_ITEM_ID_KEY), baseClearCache.getUBCExtKey())) {
                         if ("1".equals(optJSONObject.optString(UserSettingForceListListener.FORCE_LIST_ITEM_SHOW_KEY))) {
                             this.mShowClearCacheList.add(baseClearCache);
                         }
                         z = true;
+                    } else {
+                        i3++;
                     }
                 }
             }
@@ -312,124 +415,30 @@ public class MainClearCache extends BaseClearCache {
         }
     }
 
-    @Override // com.baidu.searchbox.download.center.clearcache.BaseClearCache
-    public String getCacheDesc() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.download.center.clearcache.BaseClearCache
-    public String getCacheName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    public List<BaseClearCache> getCalculateCacheList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(sDownloadClearCache);
-            for (BaseClearCache baseClearCache : this.mShowClearCacheList) {
-                if (baseClearCache.isCalculateCacheSize()) {
-                    arrayList.add(baseClearCache);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
     public long getDownloadSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? sDownloadClearCache.getCacheSize() : invokeV.longValue;
-    }
-
-    public long getSelectedCacheSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            long j = 0;
-            for (BaseClearCache baseClearCache : sSubClearCacheList) {
-                if (baseClearCache.isSelected() && baseClearCache.getCacheSize() >= 1024) {
-                    j += baseClearCache.getCacheSize();
-                }
-            }
-            return j;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return sDownloadClearCache.getCacheSize();
         }
         return invokeV.longValue;
     }
 
-    public List<BaseClearCache> getSelectedClearCacheList() {
+    public List getShowClearCacheList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (BaseClearCache baseClearCache : this.mShowClearCacheList) {
-                if (baseClearCache.isSelected()) {
-                    arrayList.add(baseClearCache);
-                }
-            }
-            return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mShowClearCacheList;
         }
         return (List) invokeV.objValue;
     }
 
-    public long getSelectedSize() {
+    public List getSubClearCacheList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            List<BaseClearCache> selectedClearCacheList = getSelectedClearCacheList();
-            long j = 0;
-            if (selectedClearCacheList != null && selectedClearCacheList.size() > 0) {
-                for (BaseClearCache baseClearCache : selectedClearCacheList) {
-                    j += baseClearCache.getCacheSize();
-                }
-            }
-            return j;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return sSubClearCacheList;
         }
-        return invokeV.longValue;
-    }
-
-    public List<BaseClearCache> getShowClearCacheList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mShowClearCacheList : (List) invokeV.objValue;
-    }
-
-    public List<BaseClearCache> getSubClearCacheList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? sSubClearCacheList : (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.download.center.clearcache.BaseClearCache
-    public String getUBCExtKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? "main" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.download.center.clearcache.BaseClearCache
-    public boolean isCalculateCacheSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.download.center.clearcache.BaseClearCache
-    public boolean isDefaultSelected() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
+        return (List) invokeV.objValue;
     }
 }

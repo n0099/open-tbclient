@@ -1,6 +1,5 @@
 package com.bumptech.glide.manager;
 
-import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -8,7 +7,6 @@ import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -28,7 +26,14 @@ public final class DefaultConnectivityMonitor implements ConnectivityMonitor {
     public boolean isRegistered;
     public final ConnectivityMonitor.ConnectivityListener listener;
 
-    public DefaultConnectivityMonitor(@NonNull Context context, @NonNull ConnectivityMonitor.ConnectivityListener connectivityListener) {
+    @Override // com.bumptech.glide.manager.LifecycleListener
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    public DefaultConnectivityMonitor(Context context, ConnectivityMonitor.ConnectivityListener connectivityListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,7 +72,7 @@ public final class DefaultConnectivityMonitor implements ConnectivityMonitor {
             }
 
             @Override // android.content.BroadcastReceiver
-            public void onReceive(@NonNull Context context2, Intent intent) {
+            public void onReceive(Context context2, Intent intent) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, context2, intent) == null) {
                     DefaultConnectivityMonitor defaultConnectivityMonitor = this.this$0;
@@ -89,7 +94,7 @@ public final class DefaultConnectivityMonitor implements ConnectivityMonitor {
 
     private void register() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || this.isRegistered) {
+        if ((interceptable != null && interceptable.invokeV(65537, this) != null) || this.isRegistered) {
             return;
         }
         this.isConnected = isConnected(this.context);
@@ -105,35 +110,11 @@ public final class DefaultConnectivityMonitor implements ConnectivityMonitor {
 
     private void unregister() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && this.isRegistered) {
-            this.context.unregisterReceiver(this.connectivityReceiver);
-            this.isRegistered = false;
+        if ((interceptable != null && interceptable.invokeV(65538, this) != null) || !this.isRegistered) {
+            return;
         }
-    }
-
-    @SuppressLint({"MissingPermission"})
-    public boolean isConnected(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            try {
-                NetworkInfo activeNetworkInfo = ((ConnectivityManager) Preconditions.checkNotNull((ConnectivityManager) context.getSystemService("connectivity"))).getActiveNetworkInfo();
-                return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-            } catch (RuntimeException e) {
-                if (Log.isLoggable("ConnectivityMonitor", 5)) {
-                    Log.w("ConnectivityMonitor", "Failed to determine connectivity status when connectivity changed", e);
-                }
-                return true;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.bumptech.glide.manager.LifecycleListener
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
+        this.context.unregisterReceiver(this.connectivityReceiver);
+        this.isRegistered = false;
     }
 
     @Override // com.bumptech.glide.manager.LifecycleListener
@@ -150,5 +131,25 @@ public final class DefaultConnectivityMonitor implements ConnectivityMonitor {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             unregister();
         }
+    }
+
+    public boolean isConnected(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            try {
+                NetworkInfo activeNetworkInfo = ((ConnectivityManager) Preconditions.checkNotNull((ConnectivityManager) context.getSystemService("connectivity"))).getActiveNetworkInfo();
+                if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
+                    return true;
+                }
+                return false;
+            } catch (RuntimeException e) {
+                if (Log.isLoggable("ConnectivityMonitor", 5)) {
+                    Log.w("ConnectivityMonitor", "Failed to determine connectivity status when connectivity changed", e);
+                }
+                return true;
+            }
+        }
+        return invokeL.booleanValue;
     }
 }

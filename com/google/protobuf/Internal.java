@@ -17,8 +17,8 @@ public class Internal {
     }
 
     /* loaded from: classes7.dex */
-    public interface EnumLiteMap<T extends EnumLite> {
-        T findValueByNumber(int i);
+    public interface EnumLiteMap {
+        EnumLite findValueByNumber(int i);
     }
 
     public Internal() {
@@ -51,7 +51,10 @@ public class Internal {
     public static boolean isValidUtf8(ByteString byteString) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, byteString)) == null) ? byteString.isValidUtf8() : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, byteString)) == null) {
+            return byteString.isValidUtf8();
+        }
+        return invokeL.booleanValue;
     }
 
     public static String stringDefaultValue(String str) {

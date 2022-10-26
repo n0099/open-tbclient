@@ -20,13 +20,13 @@ public class AlaLiveUserNotifyData {
 
     /* renamed from: com.baidu.ala.notify.AlaLiveUserNotifyData$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes.dex */
-    public static class AlaNotifyContent {
+    public class AlaNotifyContent {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String anchor_id;
@@ -71,7 +71,10 @@ public class AlaLiveUserNotifyData {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             AlaNotifyContent alaNotifyContent = this.notifyContent;
-            return alaNotifyContent != null ? alaNotifyContent.anchor_portrait : "";
+            if (alaNotifyContent != null) {
+                return alaNotifyContent.anchor_portrait;
+            }
+            return "";
         }
         return (String) invokeV.objValue;
     }
@@ -81,7 +84,10 @@ public class AlaLiveUserNotifyData {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             AlaNotifyContent alaNotifyContent = this.notifyContent;
-            return alaNotifyContent != null ? alaNotifyContent.text : "";
+            if (alaNotifyContent != null) {
+                return alaNotifyContent.text;
+            }
+            return "";
         }
         return (String) invokeV.objValue;
     }
@@ -91,14 +97,17 @@ public class AlaLiveUserNotifyData {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             int i = this.notify_type;
-            return i == 1 || i == 2;
+            if (i == 1 || i == 2) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
     public void parseJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         this.user_id = jSONObject.optString("user_id");

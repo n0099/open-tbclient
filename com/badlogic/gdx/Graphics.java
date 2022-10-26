@@ -9,10 +9,21 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public interface Graphics {
+    boolean a(String str);
+
+    boolean b();
+
+    void c();
+
+    boolean d();
+
+    float e();
+
+    a f();
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public static final class GraphicsType {
+    public final class GraphicsType {
         public static final /* synthetic */ GraphicsType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final GraphicsType AndroidGL;
@@ -70,18 +81,24 @@ public interface Graphics {
         public static GraphicsType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (GraphicsType) Enum.valueOf(GraphicsType.class, str) : (GraphicsType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (GraphicsType) Enum.valueOf(GraphicsType.class, str);
+            }
+            return (GraphicsType) invokeL.objValue;
         }
 
         public static GraphicsType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (GraphicsType[]) $VALUES.clone() : (GraphicsType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (GraphicsType[]) $VALUES.clone();
+            }
+            return (GraphicsType[]) invokeV.objValue;
         }
     }
 
     /* loaded from: classes.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int a;
@@ -119,16 +136,4 @@ public interface Graphics {
             return (String) invokeV.objValue;
         }
     }
-
-    boolean a(String str);
-
-    boolean b();
-
-    void c();
-
-    boolean d();
-
-    float e();
-
-    a f();
 }

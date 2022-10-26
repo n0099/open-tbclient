@@ -39,7 +39,10 @@ public class InsideNotificationItem extends UPSNotificationMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             int i = this.mDisplayStyle;
-            return ((i & 32) == 0 && (i & 16) != 0) ? 1 : 0;
+            if ((i & 32) != 0 || (i & 16) == 0) {
+                return 0;
+            }
+            return 1;
         }
         return invokeV.intValue;
     }
@@ -47,49 +50,73 @@ public class InsideNotificationItem extends UPSNotificationMessage {
     public int getAppType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mAppType : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mAppType;
+        }
+        return invokeV.intValue;
     }
 
     public int getDisplayStyle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDisplayStyle : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mDisplayStyle;
+        }
+        return invokeV.intValue;
     }
 
     public int getInnerPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mInnerPriority : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mInnerPriority;
+        }
+        return invokeV.intValue;
     }
 
     public int getMessageType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mMessageType : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mMessageType;
+        }
+        return invokeV.intValue;
     }
 
     public int getNotifyDisplayStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mNotifyDisplayStatus : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mNotifyDisplayStatus;
+        }
+        return invokeV.intValue;
     }
 
     public String getReactPackage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mReactPackage : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mReactPackage;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getSuitReactVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mSuitReactVersion : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mSuitReactVersion;
+        }
+        return (String) invokeV.objValue;
     }
 
     public boolean isShowBigPicOnMobileNet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mIsShowBigPicOnMobileNet : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mIsShowBigPicOnMobileNet;
+        }
+        return invokeV.booleanValue;
     }
 
     public void setAppType(int i) {

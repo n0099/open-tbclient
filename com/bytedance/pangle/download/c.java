@@ -14,10 +14,10 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
     public static volatile c e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, Long> a;
+    public final Map a;
     public final Handler b;
-    public final Map<String, Runnable> c;
-    public final Map<String, Runnable> d;
+    public final Map c;
+    public final Map d;
 
     public c() {
         Interceptable interceptable = $ic;

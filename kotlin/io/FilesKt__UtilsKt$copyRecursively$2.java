@@ -18,20 +18,18 @@ public final class FilesKt__UtilsKt$copyRecursively$2 extends Lambda implements 
         this.$onError = function2;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function2
-    public /* bridge */ /* synthetic */ Unit invoke(File file, IOException iOException) {
-        invoke2(file, iOException);
+    public /* bridge */ /* synthetic */ Object invoke(Object obj, Object obj2) {
+        invoke((File) obj, (IOException) obj2);
         return Unit.INSTANCE;
     }
 
-    /* renamed from: invoke  reason: avoid collision after fix types in other method */
-    public final void invoke2(File f, IOException e) {
+    public final void invoke(File f, IOException e) {
         Intrinsics.checkNotNullParameter(f, "f");
         Intrinsics.checkNotNullParameter(e, "e");
-        if (((OnErrorAction) this.$onError.invoke(f, e)) == OnErrorAction.TERMINATE) {
-            throw new TerminateException(f);
+        if (((OnErrorAction) this.$onError.invoke(f, e)) != OnErrorAction.TERMINATE) {
+            return;
         }
+        throw new TerminateException(f);
     }
 }

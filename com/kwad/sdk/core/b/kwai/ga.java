@@ -3,9 +3,8 @@ package com.kwad.sdk.core.b.kwai;
 import com.kwad.sdk.core.response.model.VideoPlayerStatus;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class ga implements com.kwad.sdk.core.d<VideoPlayerStatus> {
-    /* renamed from: a  reason: avoid collision after fix types in other method */
-    public static void a2(VideoPlayerStatus videoPlayerStatus, JSONObject jSONObject) {
+public final class ga implements com.kwad.sdk.core.d {
+    public static void a(VideoPlayerStatus videoPlayerStatus, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
@@ -13,8 +12,7 @@ public final class ga implements com.kwad.sdk.core.d<VideoPlayerStatus> {
         videoPlayerStatus.mVideoPlayerBehavior = jSONObject.optInt("mVideoPlayerBehavior", new Integer("1").intValue());
     }
 
-    /* renamed from: b  reason: avoid collision after fix types in other method */
-    public static JSONObject b2(VideoPlayerStatus videoPlayerStatus, JSONObject jSONObject) {
+    public static JSONObject b(VideoPlayerStatus videoPlayerStatus, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
@@ -26,15 +24,13 @@ public final class ga implements com.kwad.sdk.core.d<VideoPlayerStatus> {
         return jSONObject;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(VideoPlayerStatus videoPlayerStatus, JSONObject jSONObject) {
-        a2(videoPlayerStatus, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
+        a((VideoPlayerStatus) bVar, jSONObject);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(VideoPlayerStatus videoPlayerStatus, JSONObject jSONObject) {
-        return b2(videoPlayerStatus, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
+        return b((VideoPlayerStatus) bVar, jSONObject);
     }
 }

@@ -10,7 +10,7 @@ public class Constants {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static final class CONFIG {
+    public final class CONFIG {
         public static /* synthetic */ Interceptable $ic;
         public static final boolean DEBUG = false;
         public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public class Constants {
     }
 
     /* loaded from: classes2.dex */
-    public static final class HTTP {
+    public final class HTTP {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CONNECT_TIME_OUT = 4000;
         public static final String GET = "GET";

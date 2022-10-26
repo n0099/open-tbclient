@@ -1,6 +1,5 @@
 package com.baidu.ugc.editvideo.editvideo.addfilter;
 
-import android.annotation.TargetApi;
 import android.opengl.EGL14;
 import android.opengl.EGLConfig;
 import android.opengl.EGLContext;
@@ -9,7 +8,7 @@ import android.opengl.EGLExt;
 import android.opengl.EGLSurface;
 import android.view.Surface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qg9;
+import com.baidu.tieba.ih9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +16,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.MonitorType;
 import org.webrtc.EglBase10;
-@TargetApi(18)
 /* loaded from: classes6.dex */
 public class InputSurface {
     public static /* synthetic */ Interceptable $ic = null;
@@ -63,12 +61,13 @@ public class InputSurface {
                 if (eglGetError == 12288) {
                     break;
                 }
-                qg9.e("InputSurface", str + ": EGL error: 0x" + Integer.toHexString(eglGetError));
+                ih9.e("InputSurface", str + ": EGL error: 0x" + Integer.toHexString(eglGetError));
                 z = true;
             }
-            if (z) {
-                throw new RuntimeException("EGL error encountered (see log)");
+            if (!z) {
+                return;
             }
+            throw new RuntimeException("EGL error encountered (see log)");
         }
     }
 
@@ -79,25 +78,25 @@ public class InputSurface {
             this.mEGLDisplay = eglGetDisplay;
             if (eglGetDisplay != EGL14.EGL_NO_DISPLAY) {
                 int[] iArr = new int[2];
-                if (!EGL14.eglInitialize(eglGetDisplay, iArr, 0, iArr, 1)) {
-                    this.mEGLDisplay = null;
-                    throw new RuntimeException("unable to initialize EGL14");
-                }
-                EGLConfig[] eGLConfigArr = new EGLConfig[1];
-                if (EGL14.eglChooseConfig(this.mEGLDisplay, new int[]{MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 8, MonitorType.MONITOR_TYPE_INIT_WEBKIT, 8, 12322, 8, 12352, 4, 12610, 1, 12344}, 0, eGLConfigArr, 0, 1, new int[1], 0)) {
-                    this.mEGLContext = EGL14.eglCreateContext(this.mEGLDisplay, eGLConfigArr[0], EGL14.EGL_NO_CONTEXT, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, 12344}, 0);
-                    checkEglError("eglCreateContext");
-                    if (this.mEGLContext != null) {
-                        this.mEGLSurface = EGL14.eglCreateWindowSurface(this.mEGLDisplay, eGLConfigArr[0], this.mSurface, new int[]{12344}, 0);
-                        checkEglError("eglCreateWindowSurface");
-                        if (this.mEGLSurface == null) {
+                if (EGL14.eglInitialize(eglGetDisplay, iArr, 0, iArr, 1)) {
+                    EGLConfig[] eGLConfigArr = new EGLConfig[1];
+                    if (EGL14.eglChooseConfig(this.mEGLDisplay, new int[]{MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 8, MonitorType.MONITOR_TYPE_INIT_WEBKIT, 8, 12322, 8, 12352, 4, 12610, 1, 12344}, 0, eGLConfigArr, 0, 1, new int[1], 0)) {
+                        this.mEGLContext = EGL14.eglCreateContext(this.mEGLDisplay, eGLConfigArr[0], EGL14.EGL_NO_CONTEXT, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, 12344}, 0);
+                        checkEglError("eglCreateContext");
+                        if (this.mEGLContext != null) {
+                            this.mEGLSurface = EGL14.eglCreateWindowSurface(this.mEGLDisplay, eGLConfigArr[0], this.mSurface, new int[]{12344}, 0);
+                            checkEglError("eglCreateWindowSurface");
+                            if (this.mEGLSurface != null) {
+                                return;
+                            }
                             throw new RuntimeException("surface was null");
                         }
-                        return;
+                        throw new RuntimeException("null context");
                     }
-                    throw new RuntimeException("null context");
+                    throw new RuntimeException("unable to find RGB888+recordable ES2 EGL config");
                 }
-                throw new RuntimeException("unable to find RGB888+recordable ES2 EGL config");
+                this.mEGLDisplay = null;
+                throw new RuntimeException("unable to initialize EGL14");
             }
             throw new RuntimeException("unable to get EGL14 display");
         }
@@ -106,7 +105,10 @@ public class InputSurface {
     public Surface getSurface() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mSurface : (Surface) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mSurface;
+        }
+        return (Surface) invokeV.objValue;
     }
 
     public void makeCurrent() {
@@ -114,10 +116,20 @@ public class InputSurface {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             EGLDisplay eGLDisplay = this.mEGLDisplay;
             EGLSurface eGLSurface = this.mEGLSurface;
-            if (!EGL14.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface, this.mEGLContext)) {
-                throw new RuntimeException("eglMakeCurrent failed");
+            if (EGL14.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface, this.mEGLContext)) {
+                return;
             }
+            throw new RuntimeException("eglMakeCurrent failed");
         }
+    }
+
+    public boolean swapBuffers() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return EGL14.eglSwapBuffers(this.mEGLDisplay, this.mEGLSurface);
+        }
+        return invokeV.booleanValue;
     }
 
     public void release() {
@@ -143,11 +155,5 @@ public class InputSurface {
         if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
             EGLExt.eglPresentationTimeANDROID(this.mEGLDisplay, this.mEGLSurface, j);
         }
-    }
-
-    public boolean swapBuffers() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? EGL14.eglSwapBuffers(this.mEGLDisplay, this.mEGLSurface) : invokeV.booleanValue;
     }
 }

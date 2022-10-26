@@ -12,6 +12,13 @@ public final class zzt extends zzw {
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ zzu zza;
 
+    @Override // com.google.android.gms.internal.common.zzw
+    public final int zzc(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i + 1 : invokeI.intValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public zzt(zzu zzuVar, zzx zzxVar, CharSequence charSequence) {
         super(zzxVar, charSequence);
@@ -35,13 +42,6 @@ public final class zzt extends zzw {
     }
 
     @Override // com.google.android.gms.internal.common.zzw
-    public final int zzc(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i + 1 : invokeI.intValue;
-    }
-
-    @Override // com.google.android.gms.internal.common.zzw
     public final int zzd(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -51,10 +51,11 @@ public final class zzt extends zzw {
             int length = charSequence.length();
             zzs.zzb(i, length, "index");
             while (i < length) {
-                if (zzoVar.zza(charSequence.charAt(i))) {
+                if (!zzoVar.zza(charSequence.charAt(i))) {
+                    i++;
+                } else {
                     return i;
                 }
-                i++;
             }
             return -1;
         }

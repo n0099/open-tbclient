@@ -22,6 +22,27 @@ public class UpdateServerProtocolMgr {
     public static final String TAG = "UpdateServerProtocolMgr";
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static int translateErrCode(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            return i != 4 ? 8 : 7;
+                        }
+                        return 5;
+                    }
+                    return 6;
+                }
+                return 4;
+            }
+            return 0;
+        }
+        return invokeI.intValue;
+    }
+
     public UpdateServerProtocolMgr() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -61,88 +82,67 @@ public class UpdateServerProtocolMgr {
         return (String[]) invokeLZ.objValue;
     }
 
-    public static int responseProtocol(String str, LinkedHashMap<Integer, UpdateServerInfo> linkedHashMap) {
+    public static int responseProtocol(String str, LinkedHashMap linkedHashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, linkedHashMap)) == null) {
-            if (str == null || linkedHashMap == null) {
-                return 5;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                int translateErrCode = translateErrCode(jSONObject.getInt("s"));
-                int i = jSONObject.getInt("ver");
-                JSONArray jSONArray = jSONObject.getJSONArray("dns");
-                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
-                    int i3 = jSONObject2.getInt("v");
-                    if (!linkedHashMap.containsKey(Integer.valueOf(i3))) {
-                        UpdateServerInfo updateServerInfo = new UpdateServerInfo();
-                        updateServerInfo.setVer(i);
-                        updateServerInfo.setIsp(i3);
-                        linkedHashMap.put(Integer.valueOf(i3), updateServerInfo);
+            if (str != null && linkedHashMap != null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    int translateErrCode = translateErrCode(jSONObject.getInt("s"));
+                    int i = jSONObject.getInt("ver");
+                    JSONArray jSONArray = jSONObject.getJSONArray("dns");
+                    for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                        JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
+                        int i3 = jSONObject2.getInt("v");
+                        if (!linkedHashMap.containsKey(Integer.valueOf(i3))) {
+                            UpdateServerInfo updateServerInfo = new UpdateServerInfo();
+                            updateServerInfo.setVer(i);
+                            updateServerInfo.setIsp(i3);
+                            linkedHashMap.put(Integer.valueOf(i3), updateServerInfo);
+                        }
+                        ((UpdateServerInfo) linkedHashMap.get(Integer.valueOf(i3))).getIps().add(jSONObject2.getString("ip"));
                     }
-                    linkedHashMap.get(Integer.valueOf(i3)).getIps().add(jSONObject2.getString("ip"));
+                    return translateErrCode;
+                } catch (Exception e) {
+                    LogTools.printError(TAG, "UpdateServerProtocolMgr.responseProtocol: " + e.getMessage());
+                    return 3;
                 }
-                return translateErrCode;
-            } catch (Exception e) {
-                LogTools.printError(TAG, "UpdateServerProtocolMgr.responseProtocol: " + e.getMessage());
-                return 3;
             }
+            return 5;
         }
         return invokeLL.intValue;
     }
 
-    public static int responseProtocolV6(String str, LinkedHashMap<Integer, UpdateServerInfo> linkedHashMap) {
+    public static int responseProtocolV6(String str, LinkedHashMap linkedHashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, linkedHashMap)) == null) {
-            if (str == null || linkedHashMap == null) {
-                return 5;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                int translateErrCode = translateErrCode(jSONObject.getInt("s"));
-                int i = jSONObject.getInt("ver");
-                JSONArray jSONArray = jSONObject.getJSONArray("dns_v6");
-                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
-                    int i3 = jSONObject2.getInt("v");
-                    if (!linkedHashMap.containsKey(Integer.valueOf(i3))) {
-                        UpdateServerInfo updateServerInfo = new UpdateServerInfo();
-                        updateServerInfo.setVer(i);
-                        updateServerInfo.setIsp(i3);
-                        linkedHashMap.put(Integer.valueOf(i3), updateServerInfo);
+            if (str != null && linkedHashMap != null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    int translateErrCode = translateErrCode(jSONObject.getInt("s"));
+                    int i = jSONObject.getInt("ver");
+                    JSONArray jSONArray = jSONObject.getJSONArray("dns_v6");
+                    for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                        JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
+                        int i3 = jSONObject2.getInt("v");
+                        if (!linkedHashMap.containsKey(Integer.valueOf(i3))) {
+                            UpdateServerInfo updateServerInfo = new UpdateServerInfo();
+                            updateServerInfo.setVer(i);
+                            updateServerInfo.setIsp(i3);
+                            linkedHashMap.put(Integer.valueOf(i3), updateServerInfo);
+                        }
+                        ((UpdateServerInfo) linkedHashMap.get(Integer.valueOf(i3))).getIps().add(jSONObject2.getString("ip"));
                     }
-                    linkedHashMap.get(Integer.valueOf(i3)).getIps().add(jSONObject2.getString("ip"));
+                    return translateErrCode;
+                } catch (Exception e) {
+                    LogTools.printError(TAG, "UpdateServerProtocolMgr.responseProtocol: " + e.getMessage());
+                    return 3;
                 }
-                return translateErrCode;
-            } catch (Exception e) {
-                LogTools.printError(TAG, "UpdateServerProtocolMgr.responseProtocol: " + e.getMessage());
-                return 3;
             }
+            return 5;
         }
         return invokeLL.intValue;
-    }
-
-    public static int translateErrCode(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            return i != 4 ? 8 : 7;
-                        }
-                        return 5;
-                    }
-                    return 6;
-                }
-                return 4;
-            }
-            return 0;
-        }
-        return invokeI.intValue;
     }
 }

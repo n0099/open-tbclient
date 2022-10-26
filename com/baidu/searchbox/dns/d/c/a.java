@@ -25,12 +25,48 @@ import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import javax.net.ssl.HttpsURLConnection;
 /* loaded from: classes2.dex */
-public abstract class a<T> {
+public abstract class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int aj;
     public boolean ak;
     public int al;
+
+    public abstract void a(Exception exc);
+
+    public abstract void b(HttpURLConnection httpURLConnection);
+
+    public abstract void c(int i);
+
+    public boolean d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) ? 403 == i || 404 == i : invokeI.booleanValue;
+    }
+
+    public abstract Map getParameters();
+
+    public abstract String getUrl();
+
+    public abstract Object m(String str);
+
+    public boolean v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
 
     public a() {
         Interceptable interceptable = $ic;
@@ -50,7 +86,7 @@ public abstract class a<T> {
         this.al = w();
     }
 
-    private T Q() {
+    private Object Q() {
         InterceptResult invokeV;
         HttpURLConnection httpURLConnection;
         Interceptable interceptable = $ic;
@@ -91,7 +127,7 @@ public abstract class a<T> {
             }
             throw new com.baidu.searchbox.dns.d.c.a.b(10002, "request canceled");
         }
-        return (T) invokeV.objValue;
+        return invokeV.objValue;
     }
 
     public String P() {
@@ -122,7 +158,20 @@ public abstract class a<T> {
         return (String) invokeV.objValue;
     }
 
-    public abstract void a(Exception exc);
+    public void a(com.baidu.searchbox.dns.d.c.a.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            int i = this.aj + 1;
+            this.aj = i;
+            if (i <= this.al) {
+                SystemClock.sleep(5000L);
+            } else if (aVar.R() == 10001) {
+                throw new com.baidu.searchbox.dns.d.c.a.b(aVar.R(), aVar.S(), " retry count reach fail ");
+            } else {
+                throw new com.baidu.searchbox.dns.d.c.a.b(" retry count reach fail ");
+            }
+        }
+    }
 
     public void a(HttpURLConnection httpURLConnection) {
         Interceptable interceptable = $ic;
@@ -132,17 +181,15 @@ public abstract class a<T> {
         }
     }
 
-    public abstract void b(HttpURLConnection httpURLConnection);
-
-    public String c(Map<String, Object> map) {
+    public String c(Map map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, map)) == null) {
             StringBuilder sb = new StringBuilder();
-            for (Map.Entry<String, Object> entry : map.entrySet()) {
+            for (Map.Entry entry : map.entrySet()) {
                 String obj = entry.getValue().toString();
                 try {
-                    sb.append(entry.getKey() + "=" + URLEncoder.encode(obj, "UTF-8"));
+                    sb.append(((String) entry.getKey()) + "=" + URLEncoder.encode(obj, "UTF-8"));
                     sb.append("&");
                 } catch (UnsupportedEncodingException unused) {
                     return null;
@@ -156,7 +203,23 @@ public abstract class a<T> {
         return (String) invokeL.objValue;
     }
 
-    public abstract void c(int i);
+    public void c(HttpURLConnection httpURLConnection) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, httpURLConnection) == null) {
+            try {
+                int responseCode = httpURLConnection.getResponseCode();
+                if (responseCode != 200) {
+                    String str = " http response error -> " + responseCode;
+                    if (d(responseCode)) {
+                        throw new com.baidu.searchbox.dns.d.c.a.b(10001, responseCode, str);
+                    }
+                    throw new com.baidu.searchbox.dns.d.c.a.a(10001, responseCode, str);
+                }
+            } catch (IOException e) {
+                throw new com.baidu.searchbox.dns.d.c.a.a(e.getMessage());
+            }
+        }
+    }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x005d */
     /* JADX WARN: Multi-variable type inference failed */
@@ -175,119 +238,90 @@ public abstract class a<T> {
         InterceptResult invokeL;
         BufferedReader bufferedReader;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, httpURLConnection)) != null) {
-            return (String) invokeL.objValue;
-        }
-        InputStream inputStream = null;
-        try {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, httpURLConnection)) == null) {
+            InputStream inputStream = null;
             try {
-                String contentEncoding = httpURLConnection.getContentEncoding();
-                InputStream inputStream2 = httpURLConnection.getInputStream();
                 try {
-                    httpURLConnection = inputStream2;
-                    if (!TextUtils.isEmpty(contentEncoding)) {
+                    String contentEncoding = httpURLConnection.getContentEncoding();
+                    InputStream inputStream2 = httpURLConnection.getInputStream();
+                    try {
                         httpURLConnection = inputStream2;
-                        if (contentEncoding.equals("gzip")) {
-                            httpURLConnection = new GZIPInputStream(inputStream2);
+                        if (!TextUtils.isEmpty(contentEncoding)) {
+                            httpURLConnection = inputStream2;
+                            if (contentEncoding.equals("gzip")) {
+                                httpURLConnection = new GZIPInputStream(inputStream2);
+                            }
+                        }
+                        bufferedReader = new BufferedReader(new InputStreamReader((InputStream) httpURLConnection, IMAudioTransRequest.CHARSET));
+                    } catch (Exception e) {
+                        e = e;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    bufferedReader = null;
+                }
+                try {
+                    StringBuffer stringBuffer = new StringBuffer();
+                    while (true) {
+                        String readLine = bufferedReader.readLine();
+                        if (readLine == null) {
+                            break;
+                        }
+                        stringBuffer.append(new String(readLine.getBytes(IMAudioTransRequest.CHARSET), IMAudioTransRequest.CHARSET));
+                    }
+                    String stringBuffer2 = stringBuffer.toString();
+                    if (httpURLConnection != 0) {
+                        try {
+                            httpURLConnection.close();
+                        } catch (IOException e2) {
+                            e2.printStackTrace();
                         }
                     }
-                    bufferedReader = new BufferedReader(new InputStreamReader((InputStream) httpURLConnection, IMAudioTransRequest.CHARSET));
-                } catch (Exception e) {
-                    e = e;
-                }
-            } catch (Throwable th) {
-                th = th;
-                bufferedReader = null;
-            }
-            try {
-                StringBuffer stringBuffer = new StringBuffer();
-                while (true) {
-                    String readLine = bufferedReader.readLine();
-                    if (readLine == null) {
-                        break;
-                    }
-                    stringBuffer.append(new String(readLine.getBytes(IMAudioTransRequest.CHARSET), IMAudioTransRequest.CHARSET));
-                }
-                String stringBuffer2 = stringBuffer.toString();
-                if (httpURLConnection != 0) {
-                    try {
-                        httpURLConnection.close();
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
-                    }
-                }
-                try {
-                    bufferedReader.close();
-                } catch (IOException e3) {
-                    e3.printStackTrace();
-                }
-                return stringBuffer2;
-            } catch (Exception e4) {
-                e = e4;
-                throw new com.baidu.searchbox.dns.d.c.a.b(e.getMessage());
-            } catch (Throwable th2) {
-                th = th2;
-                inputStream = httpURLConnection;
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
-                    }
-                }
-                if (bufferedReader != null) {
                     try {
                         bufferedReader.close();
-                    } catch (IOException e6) {
-                        e6.printStackTrace();
+                    } catch (IOException e3) {
+                        e3.printStackTrace();
                     }
+                    return stringBuffer2;
+                } catch (Exception e4) {
+                    e = e4;
+                    throw new com.baidu.searchbox.dns.d.c.a.b(e.getMessage());
+                } catch (Throwable th2) {
+                    th = th2;
+                    inputStream = httpURLConnection;
+                    if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                        } catch (IOException e5) {
+                            e5.printStackTrace();
+                        }
+                    }
+                    if (bufferedReader != null) {
+                        try {
+                            bufferedReader.close();
+                        } catch (IOException e6) {
+                            e6.printStackTrace();
+                        }
+                    }
+                    throw th;
+                }
+            } catch (Exception e7) {
+                e = e7;
+            } catch (Throwable th3) {
+                th = th3;
+                bufferedReader = null;
+                if (inputStream != null) {
+                }
+                if (bufferedReader != null) {
                 }
                 throw th;
             }
-        } catch (Exception e7) {
-            e = e7;
-        } catch (Throwable th3) {
-            th = th3;
-            bufferedReader = null;
-            if (inputStream != null) {
-            }
-            if (bufferedReader != null) {
-            }
-            throw th;
+        } else {
+            return (String) invokeL.objValue;
         }
     }
 
-    public boolean d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) ? 403 == i || 404 == i : invokeI.booleanValue;
-    }
-
-    public abstract Map<String, Object> getParameters();
-
-    public abstract String getUrl();
-
-    public abstract T m(String str);
-
-    public boolean v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
-    }
-
-    public T x() {
+    public Object x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
@@ -310,39 +344,6 @@ public abstract class a<T> {
             }
             return null;
         }
-        return (T) invokeV.objValue;
-    }
-
-    public void a(com.baidu.searchbox.dns.d.c.a.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            int i = this.aj + 1;
-            this.aj = i;
-            if (i <= this.al) {
-                SystemClock.sleep(5000L);
-            } else if (aVar.R() == 10001) {
-                throw new com.baidu.searchbox.dns.d.c.a.b(aVar.R(), aVar.S(), " retry count reach fail ");
-            } else {
-                throw new com.baidu.searchbox.dns.d.c.a.b(" retry count reach fail ");
-            }
-        }
-    }
-
-    public void c(HttpURLConnection httpURLConnection) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, httpURLConnection) == null) {
-            try {
-                int responseCode = httpURLConnection.getResponseCode();
-                if (responseCode != 200) {
-                    String str = " http response error -> " + responseCode;
-                    if (d(responseCode)) {
-                        throw new com.baidu.searchbox.dns.d.c.a.b(10001, responseCode, str);
-                    }
-                    throw new com.baidu.searchbox.dns.d.c.a.a(10001, responseCode, str);
-                }
-            } catch (IOException e) {
-                throw new com.baidu.searchbox.dns.d.c.a.a(e.getMessage());
-            }
-        }
+        return invokeV.objValue;
     }
 }

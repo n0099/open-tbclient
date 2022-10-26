@@ -17,7 +17,7 @@ public class TitanConstant {
     public static final String VERIFY_CONFIG_ASSETS_PATH = "titan/verify-config";
 
     /* loaded from: classes6.dex */
-    public static class PatchInfoConstant {
+    public class PatchInfoConstant {
         public static final String KEY_BOOT_LOAD_SYNC_POLICY = "bootLoadSyncPolicy";
         public static final String KEY_HOST_VERSIONCODE = "hostVersionCode";
         public static final String KEY_HOST_VERSIONNAME = "hostVersionName";

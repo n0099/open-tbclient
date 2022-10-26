@@ -14,17 +14,17 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableUnsubscribeOn<T> extends AbstractFlowableWithUpstream<T, T> {
+public final class FlowableUnsubscribeOn extends AbstractFlowableWithUpstream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Scheduler scheduler;
 
     /* loaded from: classes8.dex */
-    public static final class UnsubscribeSubscriber<T> extends AtomicBoolean implements FlowableSubscriber<T>, Subscription {
+    public final class UnsubscribeSubscriber extends AtomicBoolean implements FlowableSubscriber, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1015244841293359600L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber<? super T> actual;
+        public final Subscriber actual;
         public Subscription s;
         public final Scheduler scheduler;
 
@@ -61,7 +61,7 @@ public final class FlowableUnsubscribeOn<T> extends AbstractFlowableWithUpstream
             }
         }
 
-        public UnsubscribeSubscriber(Subscriber<? super T> subscriber, Scheduler scheduler) {
+        public UnsubscribeSubscriber(Subscriber subscriber, Scheduler scheduler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -91,10 +91,9 @@ public final class FlowableUnsubscribeOn<T> extends AbstractFlowableWithUpstream
         @Override // org.reactivestreams.Subscriber
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || get()) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !get()) {
+                this.actual.onComplete();
             }
-            this.actual.onComplete();
         }
 
         @Override // org.reactivestreams.Subscriber
@@ -110,12 +109,11 @@ public final class FlowableUnsubscribeOn<T> extends AbstractFlowableWithUpstream
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(T t) {
+        public void onNext(Object obj) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || get()) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, obj) == null) && !get()) {
+                this.actual.onNext(obj);
             }
-            this.actual.onNext(t);
         }
 
         @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
@@ -137,7 +135,7 @@ public final class FlowableUnsubscribeOn<T> extends AbstractFlowableWithUpstream
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableUnsubscribeOn(Flowable<T> flowable, Scheduler scheduler) {
+    public FlowableUnsubscribeOn(Flowable flowable, Scheduler scheduler) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -158,7 +156,7 @@ public final class FlowableUnsubscribeOn<T> extends AbstractFlowableWithUpstream
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber<? super T> subscriber) {
+    public void subscribeActual(Subscriber subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new UnsubscribeSubscriber(subscriber, this.scheduler));

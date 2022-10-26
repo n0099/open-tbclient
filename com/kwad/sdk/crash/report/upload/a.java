@@ -1,5 +1,5 @@
 package com.kwad.sdk.crash.report.upload;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface a {
     void wU();
 

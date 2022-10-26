@@ -3,65 +3,65 @@ package com.kwad.sdk.core.imageloader.core.assist.deque;
 import java.util.Iterator;
 import java.util.Queue;
 /* loaded from: classes7.dex */
-public interface Deque<E> extends Queue<E> {
+public interface Deque extends Queue {
     @Override // java.util.Queue, java.util.Collection, java.util.concurrent.BlockingQueue
-    boolean add(E e);
+    boolean add(Object obj);
 
-    void addFirst(E e);
+    void addFirst(Object obj);
 
-    void addLast(E e);
+    void addLast(Object obj);
 
     @Override // java.util.Collection, java.util.concurrent.BlockingQueue
     boolean contains(Object obj);
 
-    Iterator<E> descendingIterator();
+    Iterator descendingIterator();
 
     @Override // java.util.Queue
-    E element();
+    Object element();
 
-    E getFirst();
+    Object getFirst();
 
-    E getLast();
+    Object getLast();
 
     @Override // java.util.Collection, java.lang.Iterable
-    Iterator<E> iterator();
+    Iterator iterator();
 
     @Override // java.util.Queue, java.util.concurrent.BlockingQueue
-    boolean offer(E e);
+    boolean offer(Object obj);
 
-    boolean offerFirst(E e);
+    boolean offerFirst(Object obj);
 
-    boolean offerLast(E e);
-
-    @Override // java.util.Queue
-    E peek();
-
-    E peekFirst();
-
-    E peekLast();
+    boolean offerLast(Object obj);
 
     @Override // java.util.Queue
-    E poll();
+    Object peek();
 
-    E pollFirst();
+    Object peekFirst();
 
-    E pollLast();
-
-    E pop();
-
-    void push(E e);
+    Object peekLast();
 
     @Override // java.util.Queue
-    E remove();
+    Object poll();
+
+    Object pollFirst();
+
+    Object pollLast();
+
+    Object pop();
+
+    void push(Object obj);
+
+    @Override // java.util.Queue
+    Object remove();
 
     @Override // java.util.Collection, java.util.concurrent.BlockingQueue
     boolean remove(Object obj);
 
-    E removeFirst();
+    Object removeFirst();
 
     boolean removeFirstOccurrence(Object obj);
 
-    E removeLast();
+    Object removeLast();
 
     boolean removeLastOccurrence(Object obj);
 

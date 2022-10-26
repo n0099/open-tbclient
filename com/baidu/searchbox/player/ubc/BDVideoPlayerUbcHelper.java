@@ -1,8 +1,6 @@
 package com.baidu.searchbox.player.ubc;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.player.helper.NetUtils;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
@@ -32,7 +30,20 @@ public class BDVideoPlayerUbcHelper {
         }
     }
 
-    public static void appendSessionContent(@NonNull JSONObject jSONObject, @NonNull IUbcPlayerStatusFetcher iUbcPlayerStatusFetcher) {
+    public static String getNetType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String networkClass = NetUtils.getNetworkClass();
+            if (networkClass.equals("no") || networkClass.equals("unknown")) {
+                return ImageViewerConfig.FROM_OTHER;
+            }
+            return networkClass;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void appendSessionContent(JSONObject jSONObject, IUbcPlayerStatusFetcher iUbcPlayerStatusFetcher) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, jSONObject, iUbcPlayerStatusFetcher) == null) {
             String sessionId = iUbcPlayerStatusFetcher.getSessionId();
@@ -50,29 +61,19 @@ public class BDVideoPlayerUbcHelper {
         }
     }
 
-    public static void appendUrlContent(@NonNull JSONObject jSONObject, @NonNull IUbcPlayerStatusFetcher iUbcPlayerStatusFetcher) {
+    public static void appendUrlContent(JSONObject jSONObject, IUbcPlayerStatusFetcher iUbcPlayerStatusFetcher) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, jSONObject, iUbcPlayerStatusFetcher) == null) && TextUtils.isEmpty(jSONObject.optString("url"))) {
-            try {
-                jSONObject.put("url", iUbcPlayerStatusFetcher.getPlayUrl());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+        if ((interceptable != null && interceptable.invokeLL(65538, null, jSONObject, iUbcPlayerStatusFetcher) != null) || !TextUtils.isEmpty(jSONObject.optString("url"))) {
+            return;
+        }
+        try {
+            jSONObject.put("url", iUbcPlayerStatusFetcher.getPlayUrl());
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
-    public static String getNetType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String networkClass = NetUtils.getNetworkClass();
-            return (networkClass.equals("no") || networkClass.equals("unknown")) ? ImageViewerConfig.FROM_OTHER : networkClass;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public static String getUbcContent(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, @Nullable JSONObject jSONObject) {
+    public static String getUbcContent(BDVideoPlayerUbcContent bDVideoPlayerUbcContent, JSONObject jSONObject) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bDVideoPlayerUbcContent, jSONObject)) == null) {
@@ -100,14 +101,7 @@ public class BDVideoPlayerUbcHelper {
         return (String) invokeLL.objValue;
     }
 
-    public static int positive(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) ? Math.max(i, 0) : invokeI.intValue;
-    }
-
-    @NonNull
-    public static String getUbcContent(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, @Nullable JSONObject jSONObject, @Nullable String str) {
+    public static String getUbcContent(BDVideoPlayerUbcContent bDVideoPlayerUbcContent, JSONObject jSONObject, String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, bDVideoPlayerUbcContent, jSONObject, str)) == null) {
@@ -139,8 +133,7 @@ public class BDVideoPlayerUbcHelper {
         return (String) invokeLLL.objValue;
     }
 
-    @NonNull
-    public static String getUbcContent(@NonNull JSONObject jSONObject, @NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, @Nullable JSONObject jSONObject2) {
+    public static String getUbcContent(JSONObject jSONObject, BDVideoPlayerUbcContent bDVideoPlayerUbcContent, JSONObject jSONObject2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, jSONObject, bDVideoPlayerUbcContent, jSONObject2)) == null) {
@@ -173,5 +166,14 @@ public class BDVideoPlayerUbcHelper {
             return jSONObject2.toString();
         }
         return (String) invokeLLL.objValue;
+    }
+
+    public static int positive(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
+            return Math.max(i, 0);
+        }
+        return invokeI.intValue;
     }
 }

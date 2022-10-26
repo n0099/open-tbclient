@@ -2,7 +2,6 @@ package com.kwad.components.ad.fullscreen;
 
 import android.os.SystemClock;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,14 +21,14 @@ import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.utils.bd;
 import com.kwad.sdk.utils.q;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes7.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static List<AdTemplate> a(KsScene ksScene, List<AdTemplate> list) {
+    public static List a(KsScene ksScene, List list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, ksScene, list)) == null) {
@@ -37,7 +36,9 @@ public final class c {
             if (list.isEmpty()) {
                 return arrayList;
             }
-            for (AdTemplate adTemplate : list) {
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                AdTemplate adTemplate = (AdTemplate) it.next();
                 if (adTemplate != null) {
                     if (adTemplate.mAdScene == null && (ksScene instanceof SceneImpl)) {
                         adTemplate.mAdScene = (SceneImpl) ksScene;
@@ -52,7 +53,7 @@ public final class c {
         return (List) invokeLL.objValue;
     }
 
-    public static void loadFullScreenVideoAd(KsScene ksScene, @NonNull KsLoadManager.FullScreenVideoAdListener fullScreenVideoAdListener) {
+    public static void loadFullScreenVideoAd(KsScene ksScene, KsLoadManager.FullScreenVideoAdListener fullScreenVideoAdListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, ksScene, fullScreenVideoAdListener) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
@@ -60,7 +61,7 @@ public final class c {
             boolean a = m.oF().a(ksScene, "loadFullScreenVideoAd");
             ksScene.setAdStyle(3);
             KsAdLoadManager.ab();
-            KsAdLoadManager.a(new a.C0575a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new com.kwad.components.core.k.c(fullScreenVideoAdListener, ksScene, elapsedRealtime) { // from class: com.kwad.components.ad.fullscreen.c.1
+            KsAdLoadManager.a(new a.C0571a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new com.kwad.components.core.k.c(fullScreenVideoAdListener, ksScene, elapsedRealtime) { // from class: com.kwad.components.ad.fullscreen.c.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ KsScene cU;
@@ -88,7 +89,7 @@ public final class c {
                 }
 
                 @Override // com.kwad.components.core.k.c, com.kwad.components.core.k.b
-                public final void a(@NonNull AdResultData adResultData, boolean z) {
+                public final void a(AdResultData adResultData, boolean z) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLZ(1048576, this, adResultData, z) == null) {
                         List<AdTemplate> a2 = c.a(this.cU, adResultData.getAdTemplateList());

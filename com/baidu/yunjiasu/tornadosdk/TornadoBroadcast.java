@@ -28,11 +28,31 @@ public final class TornadoBroadcast extends BroadcastReceiver {
     public static final String TAG = "TornadoBroadcast";
     public transient /* synthetic */ FieldHolder $fh;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1293152972, "Lcom/baidu/yunjiasu/tornadosdk/TornadoBroadcast;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1293152972, "Lcom/baidu/yunjiasu/tornadosdk/TornadoBroadcast;");
+                return;
+            }
+        }
+        Companion = new Companion(null);
+    }
+
     @Metadata(d1 = {"\u0000.\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0010\u0010\u0005\u001a\u00020\u00062\b\u0010\u0007\u001a\u0004\u0018\u00010\bJ\u0016\u0010\t\u001a\u00020\u00062\u0006\u0010\n\u001a\u00020\u000b2\u0006\u0010\f\u001a\u00020\rJ\u000e\u0010\u000e\u001a\u00020\u00062\u0006\u0010\n\u001a\u00020\u000bJ\u0016\u0010\u000f\u001a\u00020\u00062\u0006\u0010\n\u001a\u00020\u000b2\u0006\u0010\f\u001a\u00020\rR\u000e\u0010\u0003\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000¨\u0006\u0010"}, d2 = {"Lcom/baidu/yunjiasu/tornadosdk/TornadoBroadcast$Companion;", "", "()V", "TAG", "", "onReceiveT2T", "", IntentData.KEY, "Landroid/content/Intent;", MiPushClient.COMMAND_REGISTER, "c", "Landroid/content/Context;", "broadcastReceiver", "Landroid/content/BroadcastReceiver;", "sendPing", "unRegister", "tornadosdk_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
     /* loaded from: classes7.dex */
     public static final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
 
         public Companion() {
             Interceptable interceptable = $ic;
@@ -48,64 +68,75 @@ public final class TornadoBroadcast extends BroadcastReceiver {
             }
         }
 
-        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
         public final void onReceiveT2T(Intent intent) {
             String action;
-            String string;
-            String str;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, intent) == null) || intent == null || (action = intent.getAction()) == null) {
-                return;
-            }
-            switch (action.hashCode()) {
-                case -1955832654:
-                    if (action.equals(IAction.T2T.EVENT_BOOSTER_START_OK)) {
-                        Bundle extras = intent.getExtras();
-                        string = extras != null ? extras.getString(IAction.EXTRA.VALUE_STRING) : null;
-                        str = string != null ? string : "";
-                        LogTo.INSTANCE.d("*****", "[TornadoBroadcast] EVENT_BOOSTER_START_OK");
-                        Tornado.INSTANCE.onEvent$tornadosdk_release(TornadoEvent.EVENT_BOOSTER_START_OK, str);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, intent) == null) && intent != null && (action = intent.getAction()) != null) {
+                String str = "";
+                String str2 = null;
+                switch (action.hashCode()) {
+                    case -1955832654:
+                        if (action.equals(IAction.T2T.EVENT_BOOSTER_START_OK)) {
+                            Bundle extras = intent.getExtras();
+                            if (extras != null) {
+                                str2 = extras.getString(IAction.EXTRA.VALUE_STRING);
+                            }
+                            if (str2 != null) {
+                                str = str2;
+                            }
+                            LogTo.INSTANCE.d("*****", "[TornadoBroadcast] EVENT_BOOSTER_START_OK");
+                            Tornado.INSTANCE.onEvent$tornadosdk_release(TornadoEvent.EVENT_BOOSTER_START_OK, str);
+                            return;
+                        }
                         return;
-                    }
-                    return;
-                case -728577181:
-                    if (action.equals(IAction.T2T.EVENT_BOOSTER_START_FAIL_WITH_TOKEN_INVALID)) {
-                        Bundle extras2 = intent.getExtras();
-                        string = extras2 != null ? extras2.getString(IAction.EXTRA.VALUE_STRING) : null;
-                        str = string != null ? string : "";
-                        LogTo.INSTANCE.d("*****", "[TornadoBroadcast] EVENT_BOOSTER_START_FAIL_WITH_TOKEN_INVALID");
-                        Tornado.INSTANCE.onEvent$tornadosdk_release(TornadoEvent.EVENT_BOOSTER_START_FAIL_WITH_TOKEN_INVALID, str);
-                        Tornado.INSTANCE.stop();
+                    case -728577181:
+                        if (action.equals(IAction.T2T.EVENT_BOOSTER_START_FAIL_WITH_TOKEN_INVALID)) {
+                            Bundle extras2 = intent.getExtras();
+                            if (extras2 != null) {
+                                str2 = extras2.getString(IAction.EXTRA.VALUE_STRING);
+                            }
+                            if (str2 != null) {
+                                str = str2;
+                            }
+                            LogTo.INSTANCE.d("*****", "[TornadoBroadcast] EVENT_BOOSTER_START_FAIL_WITH_TOKEN_INVALID");
+                            Tornado.INSTANCE.onEvent$tornadosdk_release(TornadoEvent.EVENT_BOOSTER_START_FAIL_WITH_TOKEN_INVALID, str);
+                            Tornado.INSTANCE.stop();
+                            return;
+                        }
                         return;
-                    }
-                    return;
-                case 435945019:
-                    if (action.equals(IAction.T2T.EVENT_BOOSTER_STOP)) {
-                        Bundle extras3 = intent.getExtras();
-                        string = extras3 != null ? extras3.getString(IAction.EXTRA.VALUE_STRING) : null;
-                        str = string != null ? string : "";
-                        LogTo.INSTANCE.d("*****", Intrinsics.stringPlus("[TornadoBroadcast] EVENT_BOOSTER_STOP ", str));
-                        Tornado.INSTANCE.onEvent$tornadosdk_release(TornadoEvent.EVENT_BOOSTER_STOP, str);
-                        Tornado.INSTANCE.stop();
+                    case 435945019:
+                        if (action.equals(IAction.T2T.EVENT_BOOSTER_STOP)) {
+                            Bundle extras3 = intent.getExtras();
+                            if (extras3 != null) {
+                                str2 = extras3.getString(IAction.EXTRA.VALUE_STRING);
+                            }
+                            if (str2 != null) {
+                                str = str2;
+                            }
+                            LogTo.INSTANCE.d("*****", Intrinsics.stringPlus("[TornadoBroadcast] EVENT_BOOSTER_STOP ", str));
+                            Tornado.INSTANCE.onEvent$tornadosdk_release(TornadoEvent.EVENT_BOOSTER_STOP, str);
+                            Tornado.INSTANCE.stop();
+                            return;
+                        }
                         return;
-                    }
-                    return;
-                case 1640219764:
-                    if (action.equals(IAction.T2T.EVENT_BOOSTER_START_FAIL)) {
-                        Bundle extras4 = intent.getExtras();
-                        string = extras4 != null ? extras4.getString(IAction.EXTRA.VALUE_STRING) : null;
-                        str = string != null ? string : "";
-                        LogTo.INSTANCE.d("*****", "[TornadoBroadcast] EVENT_BOOSTER_START_FAIL");
-                        Tornado.INSTANCE.onEvent$tornadosdk_release(TornadoEvent.EVENT_BOOSTER_START_FAIL, str);
-                        Tornado.INSTANCE.stop();
+                    case 1640219764:
+                        if (action.equals(IAction.T2T.EVENT_BOOSTER_START_FAIL)) {
+                            Bundle extras4 = intent.getExtras();
+                            if (extras4 != null) {
+                                str2 = extras4.getString(IAction.EXTRA.VALUE_STRING);
+                            }
+                            if (str2 != null) {
+                                str = str2;
+                            }
+                            LogTo.INSTANCE.d("*****", "[TornadoBroadcast] EVENT_BOOSTER_START_FAIL");
+                            Tornado.INSTANCE.onEvent$tornadosdk_release(TornadoEvent.EVENT_BOOSTER_START_FAIL, str);
+                            Tornado.INSTANCE.stop();
+                            return;
+                        }
                         return;
-                    }
-                    return;
-                default:
-                    return;
+                    default:
+                        return;
+                }
             }
         }
 
@@ -149,22 +180,6 @@ public final class TornadoBroadcast extends BroadcastReceiver {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1293152972, "Lcom/baidu/yunjiasu/tornadosdk/TornadoBroadcast;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1293152972, "Lcom/baidu/yunjiasu/tornadosdk/TornadoBroadcast;");
-                return;
-            }
-        }
-        Companion = new Companion(null);
-    }
-
     public TornadoBroadcast() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -182,7 +197,7 @@ public final class TornadoBroadcast extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) || intent == null) {
             return;
         }
         Collection<String> values = IAction.T2T.INSTANCE.getActionMap().values();

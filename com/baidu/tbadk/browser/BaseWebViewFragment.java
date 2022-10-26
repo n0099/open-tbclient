@@ -38,10 +38,69 @@ public class BaseWebViewFragment extends BaseFragment {
         }
     }
 
+    public boolean t1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return w1(this.a, BaseWebViewActivity.KEY_NO_MENU);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean u1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return w1(this.a, BaseWebViewActivity.KEY_NO_NAVIGATIONBAR);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean v1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return w1(this.a, BaseWebViewActivity.KEY_NO_SHARE);
+        }
+        return invokeV.booleanValue;
+    }
+
     public void A1(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             this.c = str;
+        }
+    }
+
+    public boolean s1(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return w1(str, "blank");
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final String y1(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            if (str != null && !str.startsWith("http://") && !str.startsWith("https://")) {
+                return "http://".concat(str);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void z1(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            if (!StringUtils.isNull(str) && str.startsWith(NewUrlSchemaHelper.Jump.JUMP_TO_TBWEBVIEW)) {
+                this.a = str;
+            } else {
+                this.a = y1(str);
+            }
         }
     }
 
@@ -51,7 +110,7 @@ public class BaseWebViewFragment extends BaseFragment {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4)) == null) {
             ShareItem shareItem = new ShareItem();
             if (StringUtils.isNull(this.c, true)) {
-                shareItem.v = getResources().getString(R.string.obfuscated_res_0x7f0f1156);
+                shareItem.v = getResources().getString(R.string.obfuscated_res_0x7f0f116a);
             } else {
                 shareItem.v = this.c;
             }
@@ -111,30 +170,6 @@ public class BaseWebViewFragment extends BaseFragment {
         return (String) invokeLL.objValue;
     }
 
-    public boolean s1(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? w1(str, "blank") : invokeL.booleanValue;
-    }
-
-    public boolean t1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? w1(this.a, BaseWebViewActivity.KEY_NO_MENU) : invokeV.booleanValue;
-    }
-
-    public boolean u1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? w1(this.a, BaseWebViewActivity.KEY_NO_NAVIGATIONBAR) : invokeV.booleanValue;
-    }
-
-    public boolean v1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? w1(this.a, BaseWebViewActivity.KEY_NO_SHARE) : invokeV.booleanValue;
-    }
-
     public boolean w1(String str, String str2) {
         InterceptResult invokeLL;
         String[] split;
@@ -163,22 +198,5 @@ public class BaseWebViewFragment extends BaseFragment {
             return true;
         }
         return invokeLL.booleanValue;
-    }
-
-    public final String x1(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? (str == null || str.startsWith("http://") || str.startsWith("https://")) ? str : "http://".concat(str) : (String) invokeL.objValue;
-    }
-
-    public void z1(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            if (!StringUtils.isNull(str) && str.startsWith(NewUrlSchemaHelper.Jump.JUMP_TO_TBWEBVIEW)) {
-                this.a = str;
-            } else {
-                this.a = x1(str);
-            }
-        }
     }
 }

@@ -34,6 +34,114 @@ public final class MessageAdapter<M extends Message> {
     public final Map<String, Integer> tagMap;
     public final Wire wire;
 
+    /* loaded from: classes8.dex */
+    public static final class FieldInfo {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Field builderMethod;
+        public final Message.Datatype datatype;
+        public final Class<? extends ProtoEnum> enumType;
+        public final Message.Label label;
+        public final Field messageField;
+        public final Class<? extends Message> messageType;
+        public final String name;
+        public final int tag;
+
+        public FieldInfo(int i, String str, Message.Datatype datatype, Message.Label label, Class<?> cls, Field field, Field field2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), str, datatype, label, cls, field, field2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.tag = i;
+            this.name = str;
+            this.datatype = datatype;
+            this.label = label;
+            if (datatype == Message.Datatype.ENUM) {
+                this.enumType = cls;
+                this.messageType = null;
+            } else if (datatype == Message.Datatype.MESSAGE) {
+                this.messageType = cls;
+                this.enumType = null;
+            } else {
+                this.enumType = null;
+                this.messageType = null;
+            }
+            this.messageField = field;
+            this.builderMethod = field2;
+        }
+
+        public /* synthetic */ FieldInfo(int i, String str, Message.Datatype datatype, Message.Label label, Class cls, Field field, Field field2, FieldInfo fieldInfo) {
+            this(i, str, datatype, label, cls, field, field2);
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class Storage {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Map<Integer, List<Object>> map;
+
+        public Storage() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.map = new LinkedHashMap();
+        }
+
+        public Set<Integer> getTags() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.map.keySet();
+            }
+            return (Set) invokeV.objValue;
+        }
+
+        public /* synthetic */ Storage(Storage storage) {
+            this();
+        }
+
+        public List<Object> get(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return this.map.get(Integer.valueOf(i));
+            }
+            return (List) invokeI.objValue;
+        }
+
+        public void add(int i, Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, obj) == null) {
+                List<Object> list = this.map.get(Integer.valueOf(i));
+                if (list == null) {
+                    list = new ArrayList<>();
+                    this.map.put(Integer.valueOf(i), list);
+                }
+                list.add(obj);
+            }
+        }
+    }
+
     public static /* synthetic */ int[] $SWITCH_TABLE$com$squareup$wire$Message$Datatype() {
         int[] iArr = $SWITCH_TABLE$com$squareup$wire$Message$Datatype;
         if (iArr != null) {
@@ -185,194 +293,6 @@ public final class MessageAdapter<M extends Message> {
         }
     }
 
-    private Field getBuilderMethod(String str, Class<?> cls) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, str, cls)) == null) {
-            try {
-                return this.builderType.getDeclaredField(str);
-            } catch (Exception unused) {
-                throw new AssertionError("No builder Field " + this.builderType.getName() + "." + str + "(" + cls.getName() + SmallTailInfo.EMOTION_SUFFIX);
-            }
-        }
-        return (Field) invokeLL.objValue;
-    }
-
-    private Class<Message.Builder<M>> getBuilderType(Class<M> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, cls)) == null) {
-            try {
-                ClassLoader classLoader = cls.getClassLoader();
-                return (Class<Message.Builder<M>>) classLoader.loadClass(String.valueOf(cls.getName()) + "$Builder");
-            } catch (ClassNotFoundException unused) {
-                throw new IllegalArgumentException("No builder class found for message type " + cls.getName());
-            }
-        }
-        return (Class) invokeL.objValue;
-    }
-
-    private Class<? extends ProtoEnum> getEnumClass(int i) {
-        InterceptResult invokeI;
-        Extension<ExtendableMessage<?>, ?> extension;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i)) == null) {
-            FieldInfo fieldInfo = this.fieldInfoMap.get(Integer.valueOf(i));
-            Class<? extends ProtoEnum> cls = fieldInfo == null ? null : fieldInfo.enumType;
-            return (cls != null || (extension = getExtension(i)) == null) ? cls : extension.getEnumType();
-        }
-        return (Class) invokeI.objValue;
-    }
-
-    private <E extends ProtoEnum> int getEnumSize(E e) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, this, e)) == null) ? WireOutput.varint32Size(this.wire.enumAdapter(e.getClass()).toInt(e)) : invokeL.intValue;
-    }
-
-    private Class<Enum> getEnumType(Field field) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, field)) == null) {
-            Class type = field.getType();
-            if (Enum.class.isAssignableFrom(type)) {
-                return type;
-            }
-            if (List.class.isAssignableFrom(type)) {
-                Type type2 = ((ParameterizedType) field.getGenericType()).getActualTypeArguments()[0];
-                if (type2 instanceof Class) {
-                    Class<Enum> cls = (Class) type2;
-                    if (Enum.class.isAssignableFrom(cls)) {
-                        return cls;
-                    }
-                    return null;
-                }
-                return null;
-            }
-            return null;
-        }
-        return (Class) invokeL.objValue;
-    }
-
-    private Extension<ExtendableMessage<?>, ?> getExtension(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65544, this, i)) == null) {
-            ExtensionRegistry extensionRegistry = this.wire.registry;
-            if (extensionRegistry == null) {
-                return null;
-            }
-            return extensionRegistry.getExtension(this.messageType, i);
-        }
-        return (Extension) invokeI.objValue;
-    }
-
-    private <T extends ExtendableMessage<?>> int getExtensionsSerializedSize(ExtensionMap<T> extensionMap) {
-        InterceptResult invokeL;
-        int serializedSize;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, extensionMap)) == null) {
-            int i = 0;
-            for (Extension<T, ?> extension : extensionMap.getExtensions()) {
-                Object obj = extensionMap.get(extension);
-                int tag = extension.getTag();
-                Message.Datatype datatype = extension.getDatatype();
-                Message.Label label = extension.getLabel();
-                if (label.isRepeated()) {
-                    if (label.isPacked()) {
-                        serializedSize = getPackedSize((List) obj, tag, datatype);
-                    } else {
-                        serializedSize = getRepeatedSize((List) obj, tag, datatype);
-                    }
-                } else {
-                    serializedSize = getSerializedSize(tag, obj, datatype);
-                }
-                i += serializedSize;
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r0v6, resolved type: java.lang.Class<com.squareup.wire.Message> */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v8, resolved type: java.lang.Class<com.squareup.wire.Message> */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v9, resolved type: java.lang.Class<com.squareup.wire.Message> */
-    /* JADX DEBUG: Type inference failed for r0v7. Raw type applied. Possible types: java.lang.Class<? extends com.squareup.wire.Message>, java.lang.Class<com.squareup.wire.Message> */
-    /* JADX WARN: Multi-variable type inference failed */
-    private Class<Message> getMessageClass(int i) {
-        InterceptResult invokeI;
-        Extension<ExtendableMessage<?>, ?> extension;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65546, this, i)) == null) {
-            FieldInfo fieldInfo = this.fieldInfoMap.get(Integer.valueOf(i));
-            Class<Message> cls = fieldInfo == null ? 0 : fieldInfo.messageType;
-            return (cls != 0 || (extension = getExtension(i)) == null) ? cls : extension.getMessageType();
-        }
-        return (Class) invokeI.objValue;
-    }
-
-    private <M extends Message> int getMessageSize(M m) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, m)) == null) {
-            int serializedSize = m.getSerializedSize();
-            return WireOutput.varint32Size(serializedSize) + serializedSize;
-        }
-        return invokeL.intValue;
-    }
-
-    private Class<Message> getMessageType(Field field) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, field)) == null) {
-            Class type = field.getType();
-            if (Message.class.isAssignableFrom(type)) {
-                return type;
-            }
-            if (List.class.isAssignableFrom(type)) {
-                Type type2 = ((ParameterizedType) field.getGenericType()).getActualTypeArguments()[0];
-                if (type2 instanceof Class) {
-                    Class<Message> cls = (Class) type2;
-                    if (Message.class.isAssignableFrom(cls)) {
-                        return cls;
-                    }
-                    return null;
-                }
-                return null;
-            }
-            return null;
-        }
-        return (Class) invokeL.objValue;
-    }
-
-    private int getPackedSize(List<?> list, int i, Message.Datatype datatype) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65549, this, list, i, datatype)) == null) {
-            Iterator<?> it = list.iterator();
-            int i2 = 0;
-            while (it.hasNext()) {
-                i2 += getSerializedSizeNoTag(it.next(), datatype);
-            }
-            return WireOutput.varint32Size(WireOutput.makeTag(i, WireType.LENGTH_DELIMITED)) + WireOutput.varint32Size(i2) + i2;
-        }
-        return invokeLIL.intValue;
-    }
-
-    private int getRepeatedSize(List<?> list, int i, Message.Datatype datatype) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65550, this, list, i, datatype)) == null) {
-            Iterator<?> it = list.iterator();
-            int i2 = 0;
-            while (it.hasNext()) {
-                i2 += getSerializedSize(i, it.next(), datatype);
-            }
-            return i2;
-        }
-        return invokeLIL.intValue;
-    }
-
     /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.squareup.wire.MessageAdapter<M extends com.squareup.wire.Message> */
     /* JADX WARN: Multi-variable type inference failed */
     private int getSerializedSizeNoTag(Object obj, Message.Datatype datatype) {
@@ -423,6 +343,19 @@ public final class MessageAdapter<M extends Message> {
         return invokeLL.intValue;
     }
 
+    private Field getBuilderMethod(String str, Class<?> cls) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, str, cls)) == null) {
+            try {
+                return this.builderType.getDeclaredField(str);
+            } catch (Exception unused) {
+                throw new AssertionError("No builder Field " + this.builderType.getName() + "." + str + "(" + cls.getName() + SmallTailInfo.EMOTION_SUFFIX);
+            }
+        }
+        return (Field) invokeLL.objValue;
+    }
+
     /* JADX DEBUG: Multi-variable search result rejected for r1v5, resolved type: com.squareup.wire.Wire */
     /* JADX WARN: Multi-variable type inference failed */
     private Message readMessage(WireInput wireInput, int i) throws IOException {
@@ -442,6 +375,330 @@ public final class MessageAdapter<M extends Message> {
             throw new IOException("Wire recursion limit exceeded");
         }
         return (Message) invokeLI.objValue;
+    }
+
+    private <T extends ExtendableMessage<?>> void writeExtensions(WireOutput wireOutput, ExtensionMap<T> extensionMap) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65559, this, wireOutput, extensionMap) == null) {
+            for (Extension<T, ?> extension : extensionMap.getExtensions()) {
+                Object obj = extensionMap.get(extension);
+                int tag = extension.getTag();
+                Message.Datatype datatype = extension.getDatatype();
+                Message.Label label = extension.getLabel();
+                if (label.isRepeated()) {
+                    if (label.isPacked()) {
+                        writePacked(wireOutput, (List) obj, tag, datatype);
+                    } else {
+                        writeRepeated(wireOutput, (List) obj, tag, datatype);
+                    }
+                } else {
+                    writeValue(wireOutput, tag, obj, datatype);
+                }
+            }
+        }
+    }
+
+    public void write(M m, WireOutput wireOutput) throws IOException {
+        ExtensionMap<T> extensionMap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, m, wireOutput) == null) {
+            for (FieldInfo fieldInfo : getFields()) {
+                Object fieldValue = getFieldValue(m, fieldInfo);
+                if (fieldValue != null) {
+                    int i = fieldInfo.tag;
+                    Message.Datatype datatype = fieldInfo.datatype;
+                    Message.Label label = fieldInfo.label;
+                    if (label.isRepeated()) {
+                        if (label.isPacked()) {
+                            writePacked(wireOutput, (List) fieldValue, i, datatype);
+                        } else {
+                            writeRepeated(wireOutput, (List) fieldValue, i, datatype);
+                        }
+                    } else {
+                        writeValue(wireOutput, i, fieldValue, datatype);
+                    }
+                }
+            }
+            if ((m instanceof ExtendableMessage) && (extensionMap = ((ExtendableMessage) m).extensionMap) != 0) {
+                writeExtensions(wireOutput, extensionMap);
+            }
+            m.writeUnknownFieldMap(wireOutput);
+        }
+    }
+
+    private Class<Message.Builder<M>> getBuilderType(Class<M> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, cls)) == null) {
+            try {
+                ClassLoader classLoader = cls.getClassLoader();
+                return (Class<Message.Builder<M>>) classLoader.loadClass(String.valueOf(cls.getName()) + "$Builder");
+            } catch (ClassNotFoundException unused) {
+                throw new IllegalArgumentException("No builder class found for message type " + cls.getName());
+            }
+        }
+        return (Class) invokeL.objValue;
+    }
+
+    private <T extends ExtendableMessage<?>> int getExtensionsSerializedSize(ExtensionMap<T> extensionMap) {
+        InterceptResult invokeL;
+        int serializedSize;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, extensionMap)) == null) {
+            int i = 0;
+            for (Extension<T, ?> extension : extensionMap.getExtensions()) {
+                Object obj = extensionMap.get(extension);
+                int tag = extension.getTag();
+                Message.Datatype datatype = extension.getDatatype();
+                Message.Label label = extension.getLabel();
+                if (label.isRepeated()) {
+                    if (label.isPacked()) {
+                        serializedSize = getPackedSize((List) obj, tag, datatype);
+                    } else {
+                        serializedSize = getRepeatedSize((List) obj, tag, datatype);
+                    }
+                } else {
+                    serializedSize = getSerializedSize(tag, obj, datatype);
+                }
+                i += serializedSize;
+            }
+            return i;
+        }
+        return invokeL.intValue;
+    }
+
+    private Class<? extends ProtoEnum> getEnumClass(int i) {
+        InterceptResult invokeI;
+        Class<? extends ProtoEnum> cls;
+        Extension<ExtendableMessage<?>, ?> extension;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i)) == null) {
+            FieldInfo fieldInfo = this.fieldInfoMap.get(Integer.valueOf(i));
+            if (fieldInfo == null) {
+                cls = null;
+            } else {
+                cls = fieldInfo.enumType;
+            }
+            if (cls == null && (extension = getExtension(i)) != null) {
+                return extension.getEnumType();
+            }
+            return cls;
+        }
+        return (Class) invokeI.objValue;
+    }
+
+    private <E extends ProtoEnum> int getEnumSize(E e) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, e)) == null) {
+            return WireOutput.varint32Size(this.wire.enumAdapter(e.getClass()).toInt(e));
+        }
+        return invokeL.intValue;
+    }
+
+    private Extension<ExtendableMessage<?>, ?> getExtension(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65544, this, i)) == null) {
+            ExtensionRegistry extensionRegistry = this.wire.registry;
+            if (extensionRegistry == null) {
+                return null;
+            }
+            return extensionRegistry.getExtension(this.messageType, i);
+        }
+        return (Extension) invokeI.objValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r0v6, resolved type: java.lang.Class<com.squareup.wire.Message> */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v8, resolved type: java.lang.Class<com.squareup.wire.Message> */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v9, resolved type: java.lang.Class<com.squareup.wire.Message> */
+    /* JADX DEBUG: Type inference failed for r0v7. Raw type applied. Possible types: java.lang.Class<? extends com.squareup.wire.Message>, java.lang.Class<com.squareup.wire.Message> */
+    /* JADX WARN: Multi-variable type inference failed */
+    private Class<Message> getMessageClass(int i) {
+        InterceptResult invokeI;
+        Class<Message> cls;
+        Extension<ExtendableMessage<?>, ?> extension;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65546, this, i)) == null) {
+            FieldInfo fieldInfo = this.fieldInfoMap.get(Integer.valueOf(i));
+            if (fieldInfo == null) {
+                cls = 0;
+            } else {
+                cls = fieldInfo.messageType;
+            }
+            if (cls == 0 && (extension = getExtension(i)) != null) {
+                return extension.getMessageType();
+            }
+            return cls;
+        }
+        return (Class) invokeI.objValue;
+    }
+
+    private <M extends Message> int getMessageSize(M m) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, m)) == null) {
+            int serializedSize = m.getSerializedSize();
+            return WireOutput.varint32Size(serializedSize) + serializedSize;
+        }
+        return invokeL.intValue;
+    }
+
+    public FieldInfo getField(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            Integer num = this.tagMap.get(str);
+            if (num == null) {
+                return null;
+            }
+            return this.fieldInfoMap.get(num);
+        }
+        return (FieldInfo) invokeL.objValue;
+    }
+
+    public byte[] toByteArray(M m) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, m)) == null) {
+            byte[] bArr = new byte[getSerializedSize(m)];
+            try {
+                write(m, WireOutput.newInstance(bArr));
+                return bArr;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    private Class<Enum> getEnumType(Field field) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, field)) == null) {
+            Class type = field.getType();
+            if (Enum.class.isAssignableFrom(type)) {
+                return type;
+            }
+            if (List.class.isAssignableFrom(type)) {
+                Type type2 = ((ParameterizedType) field.getGenericType()).getActualTypeArguments()[0];
+                if (type2 instanceof Class) {
+                    Class<Enum> cls = (Class) type2;
+                    if (Enum.class.isAssignableFrom(cls)) {
+                        return cls;
+                    }
+                    return null;
+                }
+                return null;
+            }
+            return null;
+        }
+        return (Class) invokeL.objValue;
+    }
+
+    private Class<Message> getMessageType(Field field) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, field)) == null) {
+            Class type = field.getType();
+            if (Message.class.isAssignableFrom(type)) {
+                return type;
+            }
+            if (List.class.isAssignableFrom(type)) {
+                Type type2 = ((ParameterizedType) field.getGenericType()).getActualTypeArguments()[0];
+                if (type2 instanceof Class) {
+                    Class<Message> cls = (Class) type2;
+                    if (Message.class.isAssignableFrom(cls)) {
+                        return cls;
+                    }
+                    return null;
+                }
+                return null;
+            }
+            return null;
+        }
+        return (Class) invokeL.objValue;
+    }
+
+    private int utf8Length(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65557, this, str)) == null) {
+            int length = str.length();
+            int i = 0;
+            int i2 = 0;
+            while (i < length) {
+                char charAt = str.charAt(i);
+                if (charAt <= 127) {
+                    i2++;
+                } else if (charAt <= 2047) {
+                    i2 += 2;
+                } else if (Character.isHighSurrogate(charAt)) {
+                    i2 += 4;
+                    i++;
+                } else {
+                    i2 += 3;
+                }
+                i++;
+            }
+            return i2;
+        }
+        return invokeL.intValue;
+    }
+
+    private int getPackedSize(List<?> list, int i, Message.Datatype datatype) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65549, this, list, i, datatype)) == null) {
+            Iterator<?> it = list.iterator();
+            int i2 = 0;
+            while (it.hasNext()) {
+                i2 += getSerializedSizeNoTag(it.next(), datatype);
+            }
+            return WireOutput.varint32Size(WireOutput.makeTag(i, WireType.LENGTH_DELIMITED)) + WireOutput.varint32Size(i2) + i2;
+        }
+        return invokeLIL.intValue;
+    }
+
+    private int getRepeatedSize(List<?> list, int i, Message.Datatype datatype) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65550, this, list, i, datatype)) == null) {
+            Iterator<?> it = list.iterator();
+            int i2 = 0;
+            while (it.hasNext()) {
+                i2 += getSerializedSize(i, it.next(), datatype);
+            }
+            return i2;
+        }
+        return invokeLIL.intValue;
+    }
+
+    private int getSerializedSize(int i, Object obj, Message.Datatype datatype) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65551, this, i, obj, datatype)) == null) {
+            return WireOutput.varintTagSize(i) + getSerializedSizeNoTag(obj, datatype);
+        }
+        return invokeILL.intValue;
+    }
+
+    private void setExtension(ExtendableMessage.ExtendableBuilder extendableBuilder, Extension<?, ?> extension, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65556, this, extendableBuilder, extension, obj) == null) {
+            extendableBuilder.setExtension(extension, obj);
+        }
+    }
+
+    public void setBuilderField(Message.Builder<M> builder, int i, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048583, this, builder, i, obj) == null) {
+            try {
+                this.fieldInfoMap.get(Integer.valueOf(i)).builderMethod.set(builder, obj);
+            } catch (Exception e) {
+                throw new AssertionError(e);
+            }
+        }
     }
 
     private void readUnknownField(Message.Builder builder, WireInput wireInput, int i, WireType wireType) throws IOException {
@@ -487,7 +744,10 @@ public final class MessageAdapter<M extends Message> {
                 case 6:
                     return Long.valueOf(WireInput.decodeZigZag64(wireInput.readVarint64()));
                 case 7:
-                    return wireInput.readVarint32() != 0 ? Boolean.TRUE : Boolean.FALSE;
+                    if (wireInput.readVarint32() != 0) {
+                        return Boolean.TRUE;
+                    }
+                    return Boolean.FALSE;
                 case 8:
                     EnumAdapter enumAdapter = this.wire.enumAdapter(getEnumClass(i));
                     int readVarint32 = wireInput.readVarint32();
@@ -517,110 +777,6 @@ public final class MessageAdapter<M extends Message> {
             }
         }
         return invokeLIL.objValue;
-    }
-
-    private void setExtension(ExtendableMessage.ExtendableBuilder extendableBuilder, Extension<?, ?> extension, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65556, this, extendableBuilder, extension, obj) == null) {
-            extendableBuilder.setExtension(extension, obj);
-        }
-    }
-
-    private int utf8Length(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65557, this, str)) == null) {
-            int length = str.length();
-            int i = 0;
-            int i2 = 0;
-            while (i < length) {
-                char charAt = str.charAt(i);
-                if (charAt <= 127) {
-                    i2++;
-                } else if (charAt <= 2047) {
-                    i2 += 2;
-                } else if (Character.isHighSurrogate(charAt)) {
-                    i2 += 4;
-                    i++;
-                } else {
-                    i2 += 3;
-                }
-                i++;
-            }
-            return i2;
-        }
-        return invokeL.intValue;
-    }
-
-    private <E extends ProtoEnum> void writeEnum(E e, WireOutput wireOutput) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65558, this, e, wireOutput) == null) {
-            wireOutput.writeVarint32(this.wire.enumAdapter(e.getClass()).toInt(e));
-        }
-    }
-
-    private <T extends ExtendableMessage<?>> void writeExtensions(WireOutput wireOutput, ExtensionMap<T> extensionMap) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65559, this, wireOutput, extensionMap) == null) {
-            for (Extension<T, ?> extension : extensionMap.getExtensions()) {
-                Object obj = extensionMap.get(extension);
-                int tag = extension.getTag();
-                Message.Datatype datatype = extension.getDatatype();
-                Message.Label label = extension.getLabel();
-                if (label.isRepeated()) {
-                    if (label.isPacked()) {
-                        writePacked(wireOutput, (List) obj, tag, datatype);
-                    } else {
-                        writeRepeated(wireOutput, (List) obj, tag, datatype);
-                    }
-                } else {
-                    writeValue(wireOutput, tag, obj, datatype);
-                }
-            }
-        }
-    }
-
-    private <M extends Message> void writeMessage(M m, WireOutput wireOutput) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65560, this, m, wireOutput) == null) {
-            wireOutput.writeVarint32(m.getSerializedSize());
-            this.wire.messageAdapter(m.getClass()).write(m, wireOutput);
-        }
-    }
-
-    private void writePacked(WireOutput wireOutput, List<?> list, int i, Message.Datatype datatype) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65561, this, wireOutput, list, i, datatype) == null) {
-            Iterator<?> it = list.iterator();
-            int i2 = 0;
-            while (it.hasNext()) {
-                i2 += getSerializedSizeNoTag(it.next(), datatype);
-            }
-            wireOutput.writeTag(i, WireType.LENGTH_DELIMITED);
-            wireOutput.writeVarint32(i2);
-            Iterator<?> it2 = list.iterator();
-            while (it2.hasNext()) {
-                writeValueNoTag(wireOutput, it2.next(), datatype);
-            }
-        }
-    }
-
-    private void writeRepeated(WireOutput wireOutput, List<?> list, int i, Message.Datatype datatype) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65562, this, wireOutput, list, i, datatype) == null) {
-            Iterator<?> it = list.iterator();
-            while (it.hasNext()) {
-                writeValue(wireOutput, i, it.next(), datatype);
-            }
-        }
-    }
-
-    private void writeValue(WireOutput wireOutput, int i, Object obj, Message.Datatype datatype) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(65563, this, wireOutput, i, obj, datatype) == null) {
-            wireOutput.writeTag(i, datatype.wireType());
-            writeValueNoTag(wireOutput, obj, datatype);
-        }
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.squareup.wire.MessageAdapter<M extends com.squareup.wire.Message> */
@@ -684,17 +840,19 @@ public final class MessageAdapter<M extends Message> {
         }
     }
 
-    public FieldInfo getField(String str) {
-        InterceptResult invokeL;
+    private <E extends ProtoEnum> void writeEnum(E e, WireOutput wireOutput) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            Integer num = this.tagMap.get(str);
-            if (num == null) {
-                return null;
-            }
-            return this.fieldInfoMap.get(num);
+        if (interceptable == null || interceptable.invokeLL(65558, this, e, wireOutput) == null) {
+            wireOutput.writeVarint32(this.wire.enumAdapter(e.getClass()).toInt(e));
         }
-        return (FieldInfo) invokeL.objValue;
+    }
+
+    private <M extends Message> void writeMessage(M m, WireOutput wireOutput) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65560, this, m, wireOutput) == null) {
+            wireOutput.writeVarint32(m.getSerializedSize());
+            this.wire.messageAdapter(m.getClass()).write(m, wireOutput);
+        }
     }
 
     public Object getFieldValue(M m, FieldInfo fieldInfo) {
@@ -713,10 +871,76 @@ public final class MessageAdapter<M extends Message> {
         return invokeLL.objValue;
     }
 
+    private void writePacked(WireOutput wireOutput, List<?> list, int i, Message.Datatype datatype) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLIL(65561, this, wireOutput, list, i, datatype) == null) {
+            Iterator<?> it = list.iterator();
+            int i2 = 0;
+            while (it.hasNext()) {
+                i2 += getSerializedSizeNoTag(it.next(), datatype);
+            }
+            wireOutput.writeTag(i, WireType.LENGTH_DELIMITED);
+            wireOutput.writeVarint32(i2);
+            Iterator<?> it2 = list.iterator();
+            while (it2.hasNext()) {
+                writeValueNoTag(wireOutput, it2.next(), datatype);
+            }
+        }
+    }
+
+    private void writeRepeated(WireOutput wireOutput, List<?> list, int i, Message.Datatype datatype) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLIL(65562, this, wireOutput, list, i, datatype) == null) {
+            Iterator<?> it = list.iterator();
+            while (it.hasNext()) {
+                writeValue(wireOutput, i, it.next(), datatype);
+            }
+        }
+    }
+
+    private void writeValue(WireOutput wireOutput, int i, Object obj, Message.Datatype datatype) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(65563, this, wireOutput, i, obj, datatype) == null) {
+            wireOutput.writeTag(i, datatype.wireType());
+            writeValueNoTag(wireOutput, obj, datatype);
+        }
+    }
+
+    public Extension<ExtendableMessage<?>, ?> getExtension(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            ExtensionRegistry extensionRegistry = this.wire.registry;
+            if (extensionRegistry == null) {
+                return null;
+            }
+            return extensionRegistry.getExtension(this.messageType, str);
+        }
+        return (Extension) invokeL.objValue;
+    }
+
     public Collection<FieldInfo> getFields() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.fieldInfoMap.values() : (Collection) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.fieldInfoMap.values();
+        }
+        return (Collection) invokeV.objValue;
+    }
+
+    public Message.Builder<M> newBuilder() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            try {
+                return this.builderType.newInstance();
+            } catch (IllegalAccessException e) {
+                throw new AssertionError(e);
+            } catch (InstantiationException e2) {
+                throw new AssertionError(e2);
+            }
+        }
+        return (Message.Builder) invokeV.objValue;
     }
 
     public int getSerializedSize(M m) {
@@ -752,132 +976,6 @@ public final class MessageAdapter<M extends Message> {
         return invokeL.intValue;
     }
 
-    public Message.Builder<M> newBuilder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            try {
-                return this.builderType.newInstance();
-            } catch (IllegalAccessException e) {
-                throw new AssertionError(e);
-            } catch (InstantiationException e2) {
-                throw new AssertionError(e2);
-            }
-        }
-        return (Message.Builder) invokeV.objValue;
-    }
-
-    public M read(WireInput wireInput) throws IOException {
-        InterceptResult invokeL;
-        Message.Label label;
-        Message.Datatype datatype;
-        Extension<ExtendableMessage<?>, ?> extension;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048582, this, wireInput)) != null) {
-            return (M) invokeL.objValue;
-        }
-        try {
-            Message.Builder<M> newInstance = this.builderType.newInstance();
-            Storage storage = new Storage(null);
-            while (true) {
-                int readTag = wireInput.readTag();
-                int i = readTag >> 3;
-                WireType valueOf = WireType.valueOf(readTag);
-                if (i == 0) {
-                    for (Integer num : storage.getTags()) {
-                        int intValue = num.intValue();
-                        if (this.fieldInfoMap.get(Integer.valueOf(intValue)) != null) {
-                            setBuilderField(newInstance, intValue, storage.get(intValue));
-                        } else {
-                            setExtension((ExtendableMessage.ExtendableBuilder) newInstance, getExtension(intValue), storage.get(intValue));
-                        }
-                    }
-                    return newInstance.build(true);
-                }
-                FieldInfo fieldInfo = this.fieldInfoMap.get(Integer.valueOf(i));
-                if (fieldInfo != null) {
-                    Message.Datatype datatype2 = fieldInfo.datatype;
-                    label = fieldInfo.label;
-                    datatype = datatype2;
-                    extension = null;
-                } else {
-                    Extension<ExtendableMessage<?>, ?> extension2 = getExtension(i);
-                    if (extension2 == null) {
-                        readUnknownField(newInstance, wireInput, i, valueOf);
-                    } else {
-                        Message.Datatype datatype3 = extension2.getDatatype();
-                        extension = extension2;
-                        label = extension2.getLabel();
-                        datatype = datatype3;
-                    }
-                }
-                if (label.isPacked() && valueOf == WireType.LENGTH_DELIMITED) {
-                    int readVarint32 = wireInput.readVarint32();
-                    long position = wireInput.getPosition();
-                    int pushLimit = wireInput.pushLimit(readVarint32);
-                    while (true) {
-                        j = readVarint32 + position;
-                        if (wireInput.getPosition() >= j) {
-                            break;
-                        }
-                        Object readValue = readValue(wireInput, i, datatype);
-                        if (datatype == Message.Datatype.ENUM && (readValue instanceof Integer)) {
-                            newInstance.addVarint(i, ((Integer) readValue).intValue());
-                        } else {
-                            storage.add(i, readValue);
-                        }
-                    }
-                    wireInput.popLimit(pushLimit);
-                    if (wireInput.getPosition() != j) {
-                        throw new IOException("Packed data had wrong length!");
-                    }
-                } else {
-                    Object readValue2 = readValue(wireInput, i, datatype);
-                    if (datatype == Message.Datatype.ENUM && (readValue2 instanceof Integer)) {
-                        newInstance.addVarint(i, ((Integer) readValue2).intValue());
-                    } else if (label.isRepeated()) {
-                        storage.add(i, readValue2);
-                    } else if (extension != null) {
-                        setExtension((ExtendableMessage.ExtendableBuilder) newInstance, extension, readValue2);
-                    } else {
-                        setBuilderField(newInstance, i, readValue2);
-                    }
-                }
-            }
-        } catch (IllegalAccessException e) {
-            throw new RuntimeException(e);
-        } catch (InstantiationException e2) {
-            throw new RuntimeException(e2);
-        }
-    }
-
-    public void setBuilderField(Message.Builder<M> builder, int i, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048583, this, builder, i, obj) == null) {
-            try {
-                this.fieldInfoMap.get(Integer.valueOf(i)).builderMethod.set(builder, obj);
-            } catch (Exception e) {
-                throw new AssertionError(e);
-            }
-        }
-    }
-
-    public byte[] toByteArray(M m) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, m)) == null) {
-            byte[] bArr = new byte[getSerializedSize(m)];
-            try {
-                write(m, WireOutput.newInstance(bArr));
-                return bArr;
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
     public String toString(M m) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -908,152 +1006,89 @@ public final class MessageAdapter<M extends Message> {
         return (String) invokeL.objValue;
     }
 
-    public void write(M m, WireOutput wireOutput) throws IOException {
-        ExtensionMap<T> extensionMap;
+    public M read(WireInput wireInput) throws IOException {
+        InterceptResult invokeL;
+        Message.Label label;
+        Message.Datatype datatype;
+        Extension<ExtendableMessage<?>, ?> extension;
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, m, wireOutput) == null) {
-            for (FieldInfo fieldInfo : getFields()) {
-                Object fieldValue = getFieldValue(m, fieldInfo);
-                if (fieldValue != null) {
-                    int i = fieldInfo.tag;
-                    Message.Datatype datatype = fieldInfo.datatype;
-                    Message.Label label = fieldInfo.label;
-                    if (label.isRepeated()) {
-                        if (label.isPacked()) {
-                            writePacked(wireOutput, (List) fieldValue, i, datatype);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, wireInput)) == null) {
+            try {
+                Message.Builder<M> newInstance = this.builderType.newInstance();
+                Storage storage = new Storage(null);
+                while (true) {
+                    int readTag = wireInput.readTag();
+                    int i = readTag >> 3;
+                    WireType valueOf = WireType.valueOf(readTag);
+                    if (i == 0) {
+                        for (Integer num : storage.getTags()) {
+                            int intValue = num.intValue();
+                            if (this.fieldInfoMap.get(Integer.valueOf(intValue)) != null) {
+                                setBuilderField(newInstance, intValue, storage.get(intValue));
+                            } else {
+                                setExtension((ExtendableMessage.ExtendableBuilder) newInstance, getExtension(intValue), storage.get(intValue));
+                            }
+                        }
+                        return newInstance.build(true);
+                    }
+                    FieldInfo fieldInfo = this.fieldInfoMap.get(Integer.valueOf(i));
+                    if (fieldInfo != null) {
+                        Message.Datatype datatype2 = fieldInfo.datatype;
+                        label = fieldInfo.label;
+                        datatype = datatype2;
+                        extension = null;
+                    } else {
+                        Extension<ExtendableMessage<?>, ?> extension2 = getExtension(i);
+                        if (extension2 == null) {
+                            readUnknownField(newInstance, wireInput, i, valueOf);
                         } else {
-                            writeRepeated(wireOutput, (List) fieldValue, i, datatype);
+                            Message.Datatype datatype3 = extension2.getDatatype();
+                            extension = extension2;
+                            label = extension2.getLabel();
+                            datatype = datatype3;
+                        }
+                    }
+                    if (label.isPacked() && valueOf == WireType.LENGTH_DELIMITED) {
+                        int readVarint32 = wireInput.readVarint32();
+                        long position = wireInput.getPosition();
+                        int pushLimit = wireInput.pushLimit(readVarint32);
+                        while (true) {
+                            j = readVarint32 + position;
+                            if (wireInput.getPosition() >= j) {
+                                break;
+                            }
+                            Object readValue = readValue(wireInput, i, datatype);
+                            if (datatype == Message.Datatype.ENUM && (readValue instanceof Integer)) {
+                                newInstance.addVarint(i, ((Integer) readValue).intValue());
+                            } else {
+                                storage.add(i, readValue);
+                            }
+                        }
+                        wireInput.popLimit(pushLimit);
+                        if (wireInput.getPosition() != j) {
+                            throw new IOException("Packed data had wrong length!");
                         }
                     } else {
-                        writeValue(wireOutput, i, fieldValue, datatype);
+                        Object readValue2 = readValue(wireInput, i, datatype);
+                        if (datatype == Message.Datatype.ENUM && (readValue2 instanceof Integer)) {
+                            newInstance.addVarint(i, ((Integer) readValue2).intValue());
+                        } else if (label.isRepeated()) {
+                            storage.add(i, readValue2);
+                        } else if (extension != null) {
+                            setExtension((ExtendableMessage.ExtendableBuilder) newInstance, extension, readValue2);
+                        } else {
+                            setBuilderField(newInstance, i, readValue2);
+                        }
                     }
                 }
+            } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+            } catch (InstantiationException e2) {
+                throw new RuntimeException(e2);
             }
-            if ((m instanceof ExtendableMessage) && (extensionMap = ((ExtendableMessage) m).extensionMap) != 0) {
-                writeExtensions(wireOutput, extensionMap);
-            }
-            m.writeUnknownFieldMap(wireOutput);
+        } else {
+            return (M) invokeL.objValue;
         }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class Storage {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Map<Integer, List<Object>> map;
-
-        public Storage() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.map = new LinkedHashMap();
-        }
-
-        public void add(int i, Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, obj) == null) {
-                List<Object> list = this.map.get(Integer.valueOf(i));
-                if (list == null) {
-                    list = new ArrayList<>();
-                    this.map.put(Integer.valueOf(i), list);
-                }
-                list.add(obj);
-            }
-        }
-
-        public List<Object> get(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.map.get(Integer.valueOf(i)) : (List) invokeI.objValue;
-        }
-
-        public Set<Integer> getTags() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.map.keySet() : (Set) invokeV.objValue;
-        }
-
-        public /* synthetic */ Storage(Storage storage) {
-            this();
-        }
-    }
-
-    public Extension<ExtendableMessage<?>, ?> getExtension(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            ExtensionRegistry extensionRegistry = this.wire.registry;
-            if (extensionRegistry == null) {
-                return null;
-            }
-            return extensionRegistry.getExtension(this.messageType, str);
-        }
-        return (Extension) invokeL.objValue;
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class FieldInfo {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Field builderMethod;
-        public final Message.Datatype datatype;
-        public final Class<? extends ProtoEnum> enumType;
-        public final Message.Label label;
-        public final Field messageField;
-        public final Class<? extends Message> messageType;
-        public final String name;
-        public final int tag;
-
-        public FieldInfo(int i, String str, Message.Datatype datatype, Message.Label label, Class<?> cls, Field field, Field field2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), str, datatype, label, cls, field, field2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.tag = i;
-            this.name = str;
-            this.datatype = datatype;
-            this.label = label;
-            if (datatype == Message.Datatype.ENUM) {
-                this.enumType = cls;
-                this.messageType = null;
-            } else if (datatype == Message.Datatype.MESSAGE) {
-                this.messageType = cls;
-                this.enumType = null;
-            } else {
-                this.enumType = null;
-                this.messageType = null;
-            }
-            this.messageField = field;
-            this.builderMethod = field2;
-        }
-
-        public /* synthetic */ FieldInfo(int i, String str, Message.Datatype datatype, Message.Label label, Class cls, Field field, Field field2, FieldInfo fieldInfo) {
-            this(i, str, datatype, label, cls, field, field2);
-        }
-    }
-
-    private int getSerializedSize(int i, Object obj, Message.Datatype datatype) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeILL = interceptable.invokeILL(65551, this, i, obj, datatype)) == null) ? WireOutput.varintTagSize(i) + getSerializedSizeNoTag(obj, datatype) : invokeILL.intValue;
     }
 }

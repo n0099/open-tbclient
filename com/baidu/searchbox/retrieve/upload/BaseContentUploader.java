@@ -14,7 +14,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public abstract class BaseContentUploader {
     public static /* synthetic */ Interceptable $ic = null;
@@ -25,6 +24,8 @@ public abstract class BaseContentUploader {
     public static final String TEST_URL = "http://10.26.139.34:8092";
     public static final String UPLOAD_URL_PATH = "/fetchlog/appupstream";
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract void uploadDataRequestASync(String str, String str2, Map map, ResponseCallback responseCallback);
 
     static {
         InterceptResult invokeClinit;
@@ -59,20 +60,26 @@ public abstract class BaseContentUploader {
     public String getUploadUrl(String str) {
         InterceptResult invokeL;
         String str2;
+        String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String str3 = TextUtils.equals(str, "1") ? ACTIVE_UPLOAD_URL_PATH : UPLOAD_URL_PATH;
+            if (TextUtils.equals(str, "1")) {
+                str2 = ACTIVE_UPLOAD_URL_PATH;
+            } else {
+                str2 = UPLOAD_URL_PATH;
+            }
             boolean isDebug = FetchTaskManager.getInstance().isDebug();
             if (DEBUG && isDebug) {
-                str2 = TEST_URL + str3;
+                str3 = TEST_URL + str2;
             } else {
-                str2 = "https://mbd.baidu.com" + str3;
+                str3 = "https://mbd.baidu.com" + str2;
             }
-            String processUrl = CommonUrlParamManager.getInstance().processUrl(str2);
-            return (!DEBUG || TextUtils.isEmpty(processUrl)) ? processUrl : UrlUtil.addParam(processUrl, "debug", "1");
+            String processUrl = CommonUrlParamManager.getInstance().processUrl(str3);
+            if (DEBUG && !TextUtils.isEmpty(processUrl)) {
+                return UrlUtil.addParam(processUrl, "debug", "1");
+            }
+            return processUrl;
         }
         return (String) invokeL.objValue;
     }
-
-    public abstract void uploadDataRequestASync(String str, String str2, Map<String, String> map, ResponseCallback<JSONObject> responseCallback);
 }

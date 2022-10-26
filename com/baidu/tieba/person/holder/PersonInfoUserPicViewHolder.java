@@ -8,9 +8,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.Cdo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.u45;
+import com.baidu.tieba.eo;
+import com.baidu.tieba.z45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
     public TbImageView a;
     public TextView b;
     public View c;
-    public Cdo d;
+    public eo d;
     public int e;
     public View.OnClickListener f;
 
@@ -46,50 +46,53 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.e = 3;
-        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0919c2);
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0919be);
         this.a = tbImageView;
         tbImageView.setDefaultBgResource(R.color.CAM_X0205);
-        this.c = view2.findViewById(R.id.obfuscated_res_0x7f0916f7);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921fd);
+        this.c = view2.findViewById(R.id.obfuscated_res_0x7f0916e9);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921e7);
     }
 
-    public void a(Cdo cdo) {
+    public void a(eo eoVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, cdo) == null) && (cdo instanceof u45)) {
-            this.d = cdo;
-            u45 u45Var = (u45) cdo;
-            if (u45Var.c()) {
-                String b = u45Var.b();
-                this.b.setVisibility(0);
-                if (StringUtils.isNull(b)) {
-                    this.a.setDefaultResource(R.drawable.pic_mycenter_avatar_def_i);
-                } else {
-                    this.a.K(b, 25, false);
-                }
-            } else {
-                this.a.setDefaultResource(R.drawable.obfuscated_res_0x7f080be3);
-                this.b.setVisibility(8);
-                this.a.K(u45Var.b(), 10, false);
-            }
-            getView().setOnClickListener(this.f);
-            c(TbadkCoreApplication.getInst().getSkinType());
+        if ((interceptable != null && interceptable.invokeL(1048576, this, eoVar) != null) || !(eoVar instanceof z45)) {
+            return;
         }
+        this.d = eoVar;
+        z45 z45Var = (z45) eoVar;
+        if (z45Var.c()) {
+            String b = z45Var.b();
+            this.b.setVisibility(0);
+            if (StringUtils.isNull(b)) {
+                this.a.setDefaultResource(R.drawable.pic_mycenter_avatar_def_i);
+            } else {
+                this.a.L(b, 25, false);
+            }
+        } else {
+            this.a.setDefaultResource(R.drawable.obfuscated_res_0x7f080bf3);
+            this.b.setVisibility(8);
+            this.a.L(z45Var.b(), 10, false);
+        }
+        getView().setOnClickListener(this.f);
+        c(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public Cdo b() {
+    public eo b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (Cdo) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (eo) invokeV.objValue;
     }
 
     public void c(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || this.e == i) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && this.e != i) {
+            SkinManager.setViewTextColor(this.b, R.color.CAM_X0111, 1);
+            SkinManager.setBackgroundColor(this.b, R.color.black_alpha50);
+            this.e = i;
         }
-        SkinManager.setViewTextColor(this.b, R.color.CAM_X0111, 1);
-        SkinManager.setBackgroundColor(this.b, R.color.black_alpha50);
-        this.e = i;
     }
 
     public void d(View.OnClickListener onClickListener) {

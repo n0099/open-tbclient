@@ -1,6 +1,5 @@
 package org.apache.commons.codec.binary4util.bdapp;
 
-import android.annotation.SuppressLint;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,7 +13,6 @@ import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import org.apache.commons.codec.binary4util.bdapp.Base64;
-@SuppressLint({"BDThrowableCheck"})
 @Deprecated
 /* loaded from: classes8.dex */
 public class Base64OutputStream extends FilterOutputStream {
@@ -42,6 +40,15 @@ public class Base64OutputStream extends FilterOutputStream {
         EMPTY = new byte[0];
     }
 
+    private void flushBuffer() throws IOException {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && (i = this.bpos) > 0) {
+            internalWrite(this.buffer, 0, i, false);
+            this.bpos = 0;
+        }
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public Base64OutputStream(OutputStream outputStream, int i) {
         this(outputStream, i, true);
@@ -63,20 +70,44 @@ public class Base64OutputStream extends FilterOutputStream {
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public Base64OutputStream(OutputStream outputStream, int i, boolean z) {
+        super(outputStream);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {outputStream, Integer.valueOf(i), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((OutputStream) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.buffer = null;
+        this.bpos = 0;
+        this.flags = i;
+        if (z) {
+            this.coder = new Base64.Encoder(i, null);
+        } else {
+            this.coder = new Base64.Decoder(i, null);
+        }
+    }
+
     private byte[] embiggen(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65539, this, bArr, i)) == null) ? (bArr == null || bArr.length < i) ? new byte[i] : bArr : (byte[]) invokeLI.objValue;
-    }
-
-    private void flushBuffer() throws IOException {
-        int i;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || (i = this.bpos) <= 0) {
-            return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, this, bArr, i)) == null) {
+            if (bArr != null && bArr.length >= i) {
+                return bArr;
+            }
+            return new byte[i];
         }
-        internalWrite(this.buffer, 0, i, false);
-        this.bpos = 0;
+        return (byte[]) invokeLI.objValue;
     }
 
     private void internalWrite(byte[] bArr, int i, int i2, boolean z) throws IOException {
@@ -116,9 +147,10 @@ public class Base64OutputStream extends FilterOutputStream {
                     e = e2;
                 }
             }
-            if (e != null) {
-                throw e;
+            if (e == null) {
+                return;
             }
+            throw e;
         }
     }
 
@@ -142,38 +174,10 @@ public class Base64OutputStream extends FilterOutputStream {
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Base64OutputStream(OutputStream outputStream, int i, boolean z) {
-        super(outputStream);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {outputStream, Integer.valueOf(i), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((OutputStream) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.buffer = null;
-        this.bpos = 0;
-        this.flags = i;
-        if (z) {
-            this.coder = new Base64.Encoder(i, null);
-        } else {
-            this.coder = new Base64.Decoder(i, null);
-        }
-    }
-
     @Override // java.io.FilterOutputStream, java.io.OutputStream
     public void write(byte[] bArr, int i, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2) == null) || i2 <= 0) {
+        if ((interceptable != null && interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2) != null) || i2 <= 0) {
             return;
         }
         flushBuffer();

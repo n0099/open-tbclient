@@ -38,6 +38,9 @@ public final class AnyAIDecoder extends AbstractExpandedDecoder {
     public String parseInformation() throws NotFoundException, FormatException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? getGeneralDecoder().decodeAllCodes(new StringBuilder(), 5) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return getGeneralDecoder().decodeAllCodes(new StringBuilder(), 5);
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -1,6 +1,5 @@
 package com.sina.weibo.sdk.utils;
 
-import android.annotation.SuppressLint;
 import android.content.ContentUris;
 import android.content.Context;
 import android.database.Cursor;
@@ -61,43 +60,44 @@ public class FileUtils {
         InterceptResult invokeLLLL;
         Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLLL = interceptable.invokeLLLL(65537, null, context, uri, str, strArr)) != null) {
-            return (String) invokeLLLL.objValue;
-        }
-        Cursor cursor2 = null;
-        try {
-            cursor = context.getContentResolver().query(uri, new String[]{"_data"}, str, strArr, null);
-            if (cursor != null) {
-                try {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, context, uri, str, strArr)) == null) {
+            Cursor cursor2 = null;
+            try {
+                cursor = context.getContentResolver().query(uri, new String[]{"_data"}, str, strArr, null);
+                if (cursor != null) {
                     try {
-                        if (cursor.moveToFirst()) {
-                            String string = cursor.getString(cursor.getColumnIndexOrThrow("_data"));
-                            if (cursor != null) {
-                                cursor.close();
+                        try {
+                            if (cursor.moveToFirst()) {
+                                String string = cursor.getString(cursor.getColumnIndexOrThrow("_data"));
+                                if (cursor != null) {
+                                    cursor.close();
+                                }
+                                return string;
                             }
-                            return string;
+                        } catch (Exception e) {
+                            e = e;
+                            e.printStackTrace();
                         }
-                    } catch (Exception e) {
-                        e = e;
-                        e.printStackTrace();
+                    } catch (Throwable th) {
+                        th = th;
+                        cursor2 = cursor;
+                        if (cursor2 != null) {
+                            cursor2.close();
+                        }
+                        throw th;
                     }
-                } catch (Throwable th) {
-                    th = th;
-                    cursor2 = cursor;
-                    if (cursor2 != null) {
-                        cursor2.close();
-                    }
-                    throw th;
                 }
+            } catch (Exception e2) {
+                e = e2;
+                cursor = null;
+            } catch (Throwable th2) {
+                th = th2;
+                if (cursor2 != null) {
+                }
+                throw th;
             }
-        } catch (Exception e2) {
-            e = e2;
-            cursor = null;
-        } catch (Throwable th2) {
-            th = th2;
-            if (cursor2 != null) {
-            }
-            throw th;
+        } else {
+            return (String) invokeLLLL.objValue;
         }
     }
 
@@ -111,18 +111,26 @@ public class FileUtils {
                 return "*/*";
             }
             String substring = name.substring(lastIndexOf, name.length());
-            return (!TextUtils.isEmpty(substring) || substring.length() >= 2) ? MimeTypeMap.getSingleton().getMimeTypeFromExtension(substring.substring(1, substring.length()).toLowerCase()) : "*/*";
+            if (TextUtils.isEmpty(substring) && substring.length() < 2) {
+                return "*/*";
+            }
+            return MimeTypeMap.getSingleton().getMimeTypeFromExtension(substring.substring(1, substring.length()).toLowerCase());
         }
         return (String) invokeL.objValue;
     }
 
-    @SuppressLint({"NewApi"})
     public static String getPath(Context context, Uri uri) {
         InterceptResult invokeLL;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, uri)) == null) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                z = true;
+            } else {
+                z = false;
+            }
             Uri uri2 = null;
-            if ((Build.VERSION.SDK_INT >= 19) && DocumentsContract.isDocumentUri(context, uri)) {
+            if (z && DocumentsContract.isDocumentUri(context, uri)) {
                 if (isExternalStorageDocument(uri)) {
                     String[] split = DocumentsContract.getDocumentId(uri).split(":");
                     if (GetCertStatusResult.VALUE_PRIMARY_REAL_NAME.equalsIgnoreCase(split[0])) {
@@ -160,36 +168,60 @@ public class FileUtils {
     public static boolean isDownloadsDocument(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, uri)) == null) ? ImageClipActivity.l.equals(uri.getAuthority()) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, uri)) == null) {
+            return ImageClipActivity.l.equals(uri.getAuthority());
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean isExternalStorageDocument(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, uri)) == null) ? ImageClipActivity.m.equals(uri.getAuthority()) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, uri)) == null) {
+            return ImageClipActivity.m.equals(uri.getAuthority());
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean isGooglePhotosUri(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, uri)) == null) ? "com.google.android.apps.photos.content".equals(uri.getAuthority()) : invokeL.booleanValue;
-    }
-
-    public static boolean isImageFile(Context context, Uri uri) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, uri)) == null) ? getMIMEType(new File(getPath(context, uri))).startsWith(IMAGE_FILE_START) : invokeLL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, uri)) == null) {
+            return "com.google.android.apps.photos.content".equals(uri.getAuthority());
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean isMediaDocument(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, uri)) == null) ? ImageClipActivity.k.equals(uri.getAuthority()) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, uri)) == null) {
+            return ImageClipActivity.k.equals(uri.getAuthority());
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean isImageFile(Context context, Uri uri) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, uri)) == null) {
+            if (getMIMEType(new File(getPath(context, uri))).startsWith(IMAGE_FILE_START)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 
     public static boolean isVideoFile(Context context, Uri uri) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, context, uri)) == null) ? getMIMEType(new File(getPath(context, uri))).startsWith(VIDEO_FILE_START) : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, context, uri)) == null) {
+            if (getMIMEType(new File(getPath(context, uri))).startsWith(VIDEO_FILE_START)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

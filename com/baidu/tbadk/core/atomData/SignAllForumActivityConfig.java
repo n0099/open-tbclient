@@ -33,15 +33,6 @@ public class SignAllForumActivityConfig extends IntentConfig {
         }
     }
 
-    public void setUri(Uri uri) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, uri) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra(IntentConfig.KEY_URI, uri);
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SignAllForumActivityConfig(Context context, boolean z) {
         super(context);
@@ -61,5 +52,13 @@ public class SignAllForumActivityConfig extends IntentConfig {
             }
         }
         getIntent().putExtra(IntentConfig.MEMBER_BUY_SHOW, z);
+    }
+
+    public void setUri(Uri uri) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, uri) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(IntentConfig.KEY_URI, uri);
+        }
     }
 }

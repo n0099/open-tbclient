@@ -10,15 +10,48 @@ import com.facebook.common.executors.StatefulRunnable;
 import java.util.Map;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public abstract class StatefulProducerRunnable<T> extends StatefulRunnable<T> {
+public abstract class StatefulProducerRunnable extends StatefulRunnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Consumer<T> mConsumer;
+    public final Consumer mConsumer;
     public final ProducerContext mProducerContext;
     public final ProducerListener2 mProducerListener;
     public final String mProducerName;
 
-    public StatefulProducerRunnable(Consumer<T> consumer, ProducerListener2 producerListener2, ProducerContext producerContext, String str) {
+    @Override // com.facebook.common.executors.StatefulRunnable
+    public abstract void disposeResult(Object obj);
+
+    @Nullable
+    public Map getExtraMapOnCancellation() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @Nullable
+    public Map getExtraMapOnFailure(Exception exc) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc)) == null) {
+            return null;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    @Nullable
+    public Map getExtraMapOnSuccess(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            return null;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public StatefulProducerRunnable(Consumer consumer, ProducerListener2 producerListener2, ProducerContext producerContext, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -41,71 +74,56 @@ public abstract class StatefulProducerRunnable<T> extends StatefulRunnable<T> {
     }
 
     @Override // com.facebook.common.executors.StatefulRunnable
-    public abstract void disposeResult(T t);
-
-    @Nullable
-    public Map<String, String> getExtraMapOnCancellation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Nullable
-    public Map<String, String> getExtraMapOnFailure(Exception exc) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc)) == null) {
-            return null;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    @Nullable
-    public Map<String, String> getExtraMapOnSuccess(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, t)) == null) {
-            return null;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    @Override // com.facebook.common.executors.StatefulRunnable
     public void onCancellation() {
+        Map map;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             ProducerListener2 producerListener2 = this.mProducerListener;
             ProducerContext producerContext = this.mProducerContext;
             String str = this.mProducerName;
-            producerListener2.onProducerFinishWithCancellation(producerContext, str, producerListener2.requiresExtraMap(producerContext, str) ? getExtraMapOnCancellation() : null);
+            if (producerListener2.requiresExtraMap(producerContext, str)) {
+                map = getExtraMapOnCancellation();
+            } else {
+                map = null;
+            }
+            producerListener2.onProducerFinishWithCancellation(producerContext, str, map);
             this.mConsumer.onCancellation();
         }
     }
 
     @Override // com.facebook.common.executors.StatefulRunnable
     public void onFailure(Exception exc) {
+        Map map;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, exc) == null) {
             ProducerListener2 producerListener2 = this.mProducerListener;
             ProducerContext producerContext = this.mProducerContext;
             String str = this.mProducerName;
-            producerListener2.onProducerFinishWithFailure(producerContext, str, exc, producerListener2.requiresExtraMap(producerContext, str) ? getExtraMapOnFailure(exc) : null);
+            if (producerListener2.requiresExtraMap(producerContext, str)) {
+                map = getExtraMapOnFailure(exc);
+            } else {
+                map = null;
+            }
+            producerListener2.onProducerFinishWithFailure(producerContext, str, exc, map);
             this.mConsumer.onFailure(exc);
         }
     }
 
     @Override // com.facebook.common.executors.StatefulRunnable
-    public void onSuccess(T t) {
+    public void onSuccess(Object obj) {
+        Map map;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
             ProducerListener2 producerListener2 = this.mProducerListener;
             ProducerContext producerContext = this.mProducerContext;
             String str = this.mProducerName;
-            producerListener2.onProducerFinishWithSuccess(producerContext, str, producerListener2.requiresExtraMap(producerContext, str) ? getExtraMapOnSuccess(t) : null);
-            this.mConsumer.onNewResult(t, 1);
+            if (producerListener2.requiresExtraMap(producerContext, str)) {
+                map = getExtraMapOnSuccess(obj);
+            } else {
+                map = null;
+            }
+            producerListener2.onProducerFinishWithSuccess(producerContext, str, map);
+            this.mConsumer.onNewResult(obj, 1);
         }
     }
 }

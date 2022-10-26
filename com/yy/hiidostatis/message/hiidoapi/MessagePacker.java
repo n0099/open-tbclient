@@ -3,6 +3,8 @@ package com.yy.hiidostatis.message.hiidoapi;
 import android.content.Context;
 import android.net.wifi.WifiInfo;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
+import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,12 +43,12 @@ public class MessagePacker implements Packer {
     public static final String KEY_MAGIC = "HiidoData";
     public static final int MESSAGE_CACHE_SIZE = 3000;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentLinkedQueue<StatisContent> cache;
+    public ConcurrentLinkedQueue cache;
     public MessageConfig config;
     public volatile boolean initedFailed;
     public volatile boolean isInited;
     public volatile boolean isRunning;
-    public ConcurrentHashMap<Integer, Packer.OnSavedListener> listens;
+    public ConcurrentHashMap listens;
     public MessageMonitor monitor;
     public AtomicInteger saveCount;
     public Task sender;
@@ -68,17 +70,17 @@ public class MessagePacker implements Packer {
             }
         }
         this.initedFailed = false;
-        this.cache = new ConcurrentLinkedQueue<>();
-        this.listens = new ConcurrentHashMap<>();
+        this.cache = new ConcurrentLinkedQueue();
+        this.listens = new ConcurrentHashMap();
         this.saveCount = new AtomicInteger();
         this.config = messageConfig;
         this.monitor = messageMonitor;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void notifyListeners(List<Packer.OnSavedListener> list) {
+    public void notifyListeners(List list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65547, this, list) == null) || list == null) {
+        if ((interceptable != null && interceptable.invokeL(65547, this, list) != null) || list == null) {
             return;
         }
         ThreadPool.getPool().execute(new Runnable(this, list) { // from class: com.yy.hiidostatis.message.hiidoapi.MessagePacker.2
@@ -119,6 +121,16 @@ public class MessagePacker implements Packer {
         });
     }
 
+    @Override // com.yy.hiidostatis.message.Packer
+    public boolean addMessage(StatisContent statisContent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, statisContent)) == null) {
+            return addMessage(statisContent, null);
+        }
+        return invokeL.booleanValue;
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void packContent(StatisContent statisContent) {
         Interceptable interceptable = $ic;
@@ -150,7 +162,7 @@ public class MessagePacker implements Packer {
             statisContent.put("oaid", OaidController.INSTANCE.oaid());
             statisContent.put(BaseStatisContent.BDCUID, this.config.getBdCuid());
             if (this.config.isGaidEnable()) {
-                statisContent.put("gaid", GAIDClient.getGAID(this.config.getApplicationContext()));
+                statisContent.put(Config.GAID, GAIDClient.getGAID(this.config.getApplicationContext()));
             }
         }
     }
@@ -176,7 +188,7 @@ public class MessagePacker implements Packer {
                         WifiInfo wifiInfo = ArdUtil.getWifiInfo(applicationContext);
                         if (wifiInfo != null) {
                             statisContent.put("bssid", wifiInfo.getBSSID());
-                            statisContent.put("ssid", wifiInfo.getSSID());
+                            statisContent.put(YyLiveRoomConfig.KEY_SSID, wifiInfo.getSSID());
                             statisContent.put("rssi", wifiInfo.getRssi());
                         }
                     } else if (act.equals(Act.MBSDK_DO.toString())) {
@@ -189,12 +201,11 @@ public class MessagePacker implements Packer {
                         statisContent.put("srvtm", GeneralProxy.getGeneralConfigInstance(applicationContext, HdStatisConfig.getConfig(this.config.getAppkey())).getSrvTime());
                     } else if (act.equals(Act.MBSDK_APPLIST.toString())) {
                         String str = statisContent.get("applist");
-                        if (str == null || str.isEmpty()) {
-                            return;
+                        if (str != null && !str.isEmpty()) {
+                            String substring = Coder.encryptMD5(statisContent.get("act") + statisContent.get("time") + "HiidoData").toLowerCase().substring(0, 8);
+                            L.verbose("StatisAPI", "des key is %s", substring);
+                            statisContent.put("applist", Coder.encryptDES(str, substring));
                         }
-                        String substring = Coder.encryptMD5(statisContent.get("act") + statisContent.get("time") + "HiidoData").toLowerCase().substring(0, 8);
-                        L.verbose("StatisAPI", "des key is %s", substring);
-                        statisContent.put("applist", Coder.encryptDES(str, substring));
                     }
                 }
             } catch (Throwable th) {
@@ -297,11 +308,11 @@ public class MessagePacker implements Packer {
                                     sb2.append(",");
                                 }
                             }
-                            if (arrayList.isEmpty()) {
-                                i = 0;
-                            } else {
+                            if (!arrayList.isEmpty()) {
                                 i = this.this$0.store.save(arrayList);
                                 TraceLog.saveMessageLog(sb2.toString());
+                            } else {
+                                i = 0;
                             }
                             if (!arrayList2.isEmpty()) {
                                 i = this.this$0.store.notSave(arrayList2);
@@ -337,12 +348,5 @@ public class MessagePacker implements Packer {
             }
             this.initedFailed = true;
         }
-    }
-
-    @Override // com.yy.hiidostatis.message.Packer
-    public boolean addMessage(StatisContent statisContent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, statisContent)) == null) ? addMessage(statisContent, null) : invokeL.booleanValue;
     }
 }

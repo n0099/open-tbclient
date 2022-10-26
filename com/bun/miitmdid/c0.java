@@ -1,17 +1,14 @@
 package com.bun.miitmdid;
 
 import android.content.Context;
-import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Keep
 /* loaded from: classes7.dex */
 public class c0 extends n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Keep
     public Context l;
 
     public c0(Context context) {
@@ -33,14 +30,11 @@ public class c0 extends n {
     }
 
     @Override // com.bun.miitmdid.n
-    @Keep
     public native g d();
 
     @Override // com.bun.miitmdid.n, com.bun.miitmdid.interfaces.IIdProvider
-    @Keep
     public native void doStart();
 
     @Override // com.bun.miitmdid.n, com.bun.miitmdid.interfaces.IIdProvider
-    @Keep
     public native boolean isSync();
 }

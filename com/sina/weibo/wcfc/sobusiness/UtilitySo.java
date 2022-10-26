@@ -14,6 +14,14 @@ public class UtilitySo {
     public static UtilitySo sInstance;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public native String calculateS(Context context, String str);
+
+    public native String generateCheckToken(Context context, String str, String str2);
+
+    public native String getDecryptionString(Context context, String str);
+
+    public native String getIValue(Context context, String str);
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -63,12 +71,4 @@ public class UtilitySo {
         }
         return (UtilitySo) invokeV.objValue;
     }
-
-    public native String calculateS(Context context, String str);
-
-    public native String generateCheckToken(Context context, String str, String str2);
-
-    public native String getDecryptionString(Context context, String str);
-
-    public native String getIValue(Context context, String str);
 }

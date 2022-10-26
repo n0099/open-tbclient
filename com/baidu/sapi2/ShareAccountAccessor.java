@@ -12,6 +12,24 @@ public abstract class ShareAccountAccessor {
     public static ShareAccountAccessor accessor;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract String getExtra(SapiAccount sapiAccount);
+
+    public abstract String getPtoken(SapiAccount sapiAccount);
+
+    public abstract String getStoken(SapiAccount sapiAccount);
+
+    public abstract void setAccountPkg(SapiAccount sapiAccount, String str);
+
+    public abstract void setExtra(SapiAccount sapiAccount, String str);
+
+    public abstract void setPtoken(SapiAccount sapiAccount, String str);
+
+    public abstract void setStoken(SapiAccount sapiAccount, String str);
+
+    public abstract void updatePtoken(SapiAccount sapiAccount);
+
+    public abstract void updateSession(SapiAccount sapiAccount, SapiAccount sapiAccount2);
+
     public ShareAccountAccessor() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -54,22 +72,4 @@ public abstract class ShareAccountAccessor {
             throw new IllegalStateException();
         }
     }
-
-    public abstract String getExtra(SapiAccount sapiAccount);
-
-    public abstract String getPtoken(SapiAccount sapiAccount);
-
-    public abstract String getStoken(SapiAccount sapiAccount);
-
-    public abstract void setAccountPkg(SapiAccount sapiAccount, String str);
-
-    public abstract void setExtra(SapiAccount sapiAccount, String str);
-
-    public abstract void setPtoken(SapiAccount sapiAccount, String str);
-
-    public abstract void setStoken(SapiAccount sapiAccount, String str);
-
-    public abstract void updatePtoken(SapiAccount sapiAccount);
-
-    public abstract void updateSession(SapiAccount sapiAccount, SapiAccount sapiAccount2);
 }

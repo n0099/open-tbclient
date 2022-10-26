@@ -13,7 +13,6 @@ import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.SingleObserver;
 import io.reactivex.SingleSource;
-import io.reactivex.annotations.Experimental;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Function;
@@ -23,39 +22,38 @@ import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-@Experimental
 /* loaded from: classes8.dex */
-public final class ObservableSwitchMapSingle<T, R> extends Observable<R> {
+public final class ObservableSwitchMapSingle extends Observable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean delayErrors;
-    public final Function<? super T, ? extends SingleSource<? extends R>> mapper;
-    public final Observable<T> source;
+    public final Function mapper;
+    public final Observable source;
 
     /* loaded from: classes8.dex */
-    public static final class SwitchMapSingleMainObserver<T, R> extends AtomicInteger implements Observer<T>, Disposable {
+    public final class SwitchMapSingleMainObserver extends AtomicInteger implements Observer, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final SwitchMapSingleObserver<Object> INNER_DISPOSED;
+        public static final SwitchMapSingleObserver INNER_DISPOSED;
         public static final long serialVersionUID = -5402190102429853762L;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile boolean cancelled;
         public final boolean delayErrors;
         public volatile boolean done;
-        public final Observer<? super R> downstream;
+        public final Observer downstream;
         public final AtomicThrowable errors;
-        public final AtomicReference<SwitchMapSingleObserver<R>> inner;
-        public final Function<? super T, ? extends SingleSource<? extends R>> mapper;
+        public final AtomicReference inner;
+        public final Function mapper;
         public Disposable upstream;
 
         /* loaded from: classes8.dex */
-        public static final class SwitchMapSingleObserver<R> extends AtomicReference<Disposable> implements SingleObserver<R> {
+        public final class SwitchMapSingleObserver extends AtomicReference implements SingleObserver {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 8042919737683345351L;
             public transient /* synthetic */ FieldHolder $fh;
-            public volatile R item;
-            public final SwitchMapSingleMainObserver<?, R> parent;
+            public volatile Object item;
+            public final SwitchMapSingleMainObserver parent;
 
-            public SwitchMapSingleObserver(SwitchMapSingleMainObserver<?, R> switchMapSingleMainObserver) {
+            public SwitchMapSingleObserver(SwitchMapSingleMainObserver switchMapSingleMainObserver) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,13 +69,6 @@ public final class ObservableSwitchMapSingle<T, R> extends Observable<R> {
                     }
                 }
                 this.parent = switchMapSingleMainObserver;
-            }
-
-            public void dispose() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    DisposableHelper.dispose(this);
-                }
             }
 
             @Override // io.reactivex.SingleObserver
@@ -97,11 +88,18 @@ public final class ObservableSwitchMapSingle<T, R> extends Observable<R> {
             }
 
             @Override // io.reactivex.SingleObserver
-            public void onSuccess(R r) {
+            public void onSuccess(Object obj) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048579, this, r) == null) {
-                    this.item = r;
+                if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+                    this.item = obj;
                     this.parent.drain();
+                }
+            }
+
+            public void dispose() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    DisposableHelper.dispose(this);
                 }
             }
         }
@@ -119,10 +117,47 @@ public final class ObservableSwitchMapSingle<T, R> extends Observable<R> {
                     return;
                 }
             }
-            INNER_DISPOSED = new SwitchMapSingleObserver<>(null);
+            INNER_DISPOSED = new SwitchMapSingleObserver(null);
         }
 
-        public SwitchMapSingleMainObserver(Observer<? super R> observer, Function<? super T, ? extends SingleSource<? extends R>> function, boolean z) {
+        @Override // io.reactivex.disposables.Disposable
+        public void dispose() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.cancelled = true;
+                this.upstream.dispose();
+                disposeInner();
+            }
+        }
+
+        public void disposeInner() {
+            SwitchMapSingleObserver switchMapSingleObserver;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (switchMapSingleObserver = (SwitchMapSingleObserver) this.inner.getAndSet(INNER_DISPOSED)) != null && switchMapSingleObserver != INNER_DISPOSED) {
+                switchMapSingleObserver.dispose();
+            }
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public boolean isDisposed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.cancelled;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // io.reactivex.Observer
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                this.done = true;
+                drain();
+            }
+        }
+
+        public SwitchMapSingleMainObserver(Observer observer, Function function, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -141,69 +176,53 @@ public final class ObservableSwitchMapSingle<T, R> extends Observable<R> {
             this.mapper = function;
             this.delayErrors = z;
             this.errors = new AtomicThrowable();
-            this.inner = new AtomicReference<>();
+            this.inner = new AtomicReference();
         }
 
-        @Override // io.reactivex.disposables.Disposable
-        public void dispose() {
+        public void drain() {
+            boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.cancelled = true;
-                this.upstream.dispose();
-                disposeInner();
-            }
-        }
-
-        /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.util.concurrent.atomic.AtomicReference<io.reactivex.internal.operators.mixed.ObservableSwitchMapSingle$SwitchMapSingleMainObserver$SwitchMapSingleObserver<R>> */
-        /* JADX WARN: Multi-variable type inference failed */
-        public void disposeInner() {
-            SwitchMapSingleObserver<Object> switchMapSingleObserver;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (switchMapSingleObserver = (SwitchMapSingleObserver) this.inner.getAndSet(INNER_DISPOSED)) == null || switchMapSingleObserver == INNER_DISPOSED) {
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || getAndIncrement() != 0) {
                 return;
             }
-            switchMapSingleObserver.dispose();
-        }
-
-        /* JADX DEBUG: Type inference failed for r5v5. Raw type applied. Possible types: R, ? super R */
-        public void drain() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && getAndIncrement() == 0) {
-                Observer<? super R> observer = this.downstream;
-                AtomicThrowable atomicThrowable = this.errors;
-                AtomicReference<SwitchMapSingleObserver<R>> atomicReference = this.inner;
-                int i = 1;
-                while (!this.cancelled) {
-                    if (atomicThrowable.get() != null && !this.delayErrors) {
-                        observer.onError(atomicThrowable.terminate());
+            Observer observer = this.downstream;
+            AtomicThrowable atomicThrowable = this.errors;
+            AtomicReference atomicReference = this.inner;
+            int i = 1;
+            while (!this.cancelled) {
+                if (atomicThrowable.get() != null && !this.delayErrors) {
+                    observer.onError(atomicThrowable.terminate());
+                    return;
+                }
+                boolean z2 = this.done;
+                SwitchMapSingleObserver switchMapSingleObserver = (SwitchMapSingleObserver) atomicReference.get();
+                if (switchMapSingleObserver == null) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z2 && z) {
+                    Throwable terminate = atomicThrowable.terminate();
+                    if (terminate != null) {
+                        observer.onError(terminate);
+                        return;
+                    } else {
+                        observer.onComplete();
                         return;
                     }
-                    boolean z = this.done;
-                    SwitchMapSingleObserver<R> switchMapSingleObserver = atomicReference.get();
-                    boolean z2 = switchMapSingleObserver == null;
-                    if (z && z2) {
-                        Throwable terminate = atomicThrowable.terminate();
-                        if (terminate != null) {
-                            observer.onError(terminate);
-                            return;
-                        } else {
-                            observer.onComplete();
-                            return;
-                        }
-                    } else if (!z2 && switchMapSingleObserver.item != null) {
-                        atomicReference.compareAndSet(switchMapSingleObserver, null);
-                        observer.onNext((R) switchMapSingleObserver.item);
-                    } else {
-                        i = addAndGet(-i);
-                        if (i == 0) {
-                            return;
-                        }
+                } else if (!z && switchMapSingleObserver.item != null) {
+                    atomicReference.compareAndSet(switchMapSingleObserver, null);
+                    observer.onNext(switchMapSingleObserver.item);
+                } else {
+                    i = addAndGet(-i);
+                    if (i == 0) {
+                        return;
                     }
                 }
             }
         }
 
-        public void innerError(SwitchMapSingleObserver<R> switchMapSingleObserver, Throwable th) {
+        public void innerError(SwitchMapSingleObserver switchMapSingleObserver, Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048579, this, switchMapSingleObserver, th) == null) {
                 if (this.inner.compareAndSet(switchMapSingleObserver, null) && this.errors.addThrowable(th)) {
@@ -215,22 +234,6 @@ public final class ObservableSwitchMapSingle<T, R> extends Observable<R> {
                     return;
                 }
                 RxJavaPlugins.onError(th);
-            }
-        }
-
-        @Override // io.reactivex.disposables.Disposable
-        public boolean isDisposed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.cancelled : invokeV.booleanValue;
-        }
-
-        @Override // io.reactivex.Observer
-        public void onComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.done = true;
-                drain();
             }
         }
 
@@ -250,22 +253,29 @@ public final class ObservableSwitchMapSingle<T, R> extends Observable<R> {
             }
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r0v6, resolved type: java.util.concurrent.atomic.AtomicReference<io.reactivex.internal.operators.mixed.ObservableSwitchMapSingle$SwitchMapSingleMainObserver$SwitchMapSingleObserver<R>> */
-        /* JADX WARN: Multi-variable type inference failed */
         @Override // io.reactivex.Observer
-        public void onNext(T t) {
-            SwitchMapSingleObserver<R> switchMapSingleObserver;
+        public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
-                SwitchMapSingleObserver<R> switchMapSingleObserver2 = this.inner.get();
+            if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, disposable) == null) && DisposableHelper.validate(this.upstream, disposable)) {
+                this.upstream = disposable;
+                this.downstream.onSubscribe(this);
+            }
+        }
+
+        @Override // io.reactivex.Observer
+        public void onNext(Object obj) {
+            SwitchMapSingleObserver switchMapSingleObserver;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
+                SwitchMapSingleObserver switchMapSingleObserver2 = (SwitchMapSingleObserver) this.inner.get();
                 if (switchMapSingleObserver2 != null) {
                     switchMapSingleObserver2.dispose();
                 }
                 try {
-                    SingleSource singleSource = (SingleSource) ObjectHelper.requireNonNull(this.mapper.apply(t), "The mapper returned a null SingleSource");
-                    SwitchMapSingleObserver<R> switchMapSingleObserver3 = new SwitchMapSingleObserver<>(this);
+                    SingleSource singleSource = (SingleSource) ObjectHelper.requireNonNull(this.mapper.apply(obj), "The mapper returned a null SingleSource");
+                    SwitchMapSingleObserver switchMapSingleObserver3 = new SwitchMapSingleObserver(this);
                     do {
-                        switchMapSingleObserver = this.inner.get();
+                        switchMapSingleObserver = (SwitchMapSingleObserver) this.inner.get();
                         if (switchMapSingleObserver == INNER_DISPOSED) {
                             return;
                         }
@@ -279,18 +289,9 @@ public final class ObservableSwitchMapSingle<T, R> extends Observable<R> {
                 }
             }
         }
-
-        @Override // io.reactivex.Observer
-        public void onSubscribe(Disposable disposable) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, disposable) == null) && DisposableHelper.validate(this.upstream, disposable)) {
-                this.upstream = disposable;
-                this.downstream.onSubscribe(this);
-            }
-        }
     }
 
-    public ObservableSwitchMapSingle(Observable<T> observable, Function<? super T, ? extends SingleSource<? extends R>> function, boolean z) {
+    public ObservableSwitchMapSingle(Observable observable, Function function, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -311,11 +312,10 @@ public final class ObservableSwitchMapSingle<T, R> extends Observable<R> {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer<? super R> observer) {
+    public void subscribeActual(Observer observer) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, observer) == null) || ScalarXMapZHelper.tryAsSingle(this.source, this.mapper, observer)) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, observer) == null) && !ScalarXMapZHelper.tryAsSingle(this.source, this.mapper, observer)) {
+            this.source.subscribe(new SwitchMapSingleMainObserver(observer, this.mapper, this.delayErrors));
         }
-        this.source.subscribe(new SwitchMapSingleMainObserver(observer, this.mapper, this.delayErrors));
     }
 }

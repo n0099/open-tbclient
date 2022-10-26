@@ -37,6 +37,15 @@ public class WbShareHandler {
     public int progressColor;
     public int progressId;
 
+    public boolean supportMulti() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public WbShareHandler(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -101,6 +110,27 @@ public class WbShareHandler {
         }
     }
 
+    public void shareToStory(StoryMessage storyMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, storyMessage) == null) {
+            Uri imageUri = storyMessage.getImageUri();
+            Uri videoUri = storyMessage.getVideoUri();
+            if ((imageUri != null && FileUtils.isImageFile(this.context, imageUri)) || (videoUri != null && FileUtils.isVideoFile(this.context, videoUri))) {
+                Intent intent = new Intent();
+                intent.putExtra(WBConstants.Msg.STORY, storyMessage);
+                intent.putExtra(WBConstants.SHARE_START_ACTIVITY, this.context.getClass().getName());
+                intent.putExtra(WBConstants.SHARE_START_PACKAGE, WeiboAppManager.getInstance(this.context).getWbAppInfo().getPackageName());
+                intent.putExtra(WBConstants.TRANS_PROGRESS_COLOR, this.progressColor);
+                intent.putExtra(WBConstants.TRANS_PROGRESS_ID, this.progressId);
+                intent.putExtra(WBConstants.SHARE_START_FLAG, 0);
+                intent.setClass(this.context, WbShareToStoryActivity.class);
+                this.context.startActivityForResult(intent, 1);
+                return;
+            }
+            throw new IllegalStateException("File only can be Image or Video. ");
+        }
+    }
+
     private void startWebShare(WeiboMultiMessage weiboMultiMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, weiboMultiMessage) == null) {
@@ -130,25 +160,32 @@ public class WbShareHandler {
     public void doResultIntent(Intent intent, WbShareCallback wbShareCallback) {
         Bundle extras;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, intent, wbShareCallback) == null) || wbShareCallback == null || intent == null || (extras = intent.getExtras()) == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, intent, wbShareCallback) != null) || wbShareCallback == null || intent == null || (extras = intent.getExtras()) == null) {
             return;
         }
         int i = extras.getInt(WBConstants.Response.ERRCODE, -1);
-        if (i == 0) {
-            wbShareCallback.onWbShareSuccess();
-        } else if (i == 1) {
+        if (i != 0) {
+            if (i != 1) {
+                if (i == 2) {
+                    wbShareCallback.onWbShareFail();
+                    return;
+                }
+                return;
+            }
             wbShareCallback.onWbShareCancel();
-        } else if (i != 2) {
-        } else {
-            wbShareCallback.onWbShareFail();
+            return;
         }
+        wbShareCallback.onWbShareSuccess();
     }
 
     @Deprecated
     public boolean isWbAppInstalled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? WbSdk.isWbInstall(this.context) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return WbSdk.isWbInstall(this.context);
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean registerApp() {
@@ -180,53 +217,23 @@ public class WbShareHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048581, this, weiboMultiMessage, z) == null) {
             if (this.hasRegister) {
-                if (WbSdk.isWbInstall(this.context) || !z) {
-                    if (z) {
-                        startClientShare(weiboMultiMessage);
-                        return;
-                    }
-                    WbAppInfo wbAppInfo = WeiboAppManager.getInstance(this.context).getWbAppInfo();
-                    if (WbSdk.isWbInstall(this.context) && wbAppInfo != null && wbAppInfo.getSupportVersion() > 10000) {
-                        startClientShare(weiboMultiMessage);
-                        return;
-                    } else {
-                        startWebShare(weiboMultiMessage);
-                        return;
-                    }
+                if (!WbSdk.isWbInstall(this.context) && z) {
+                    return;
                 }
-                return;
+                if (z) {
+                    startClientShare(weiboMultiMessage);
+                    return;
+                }
+                WbAppInfo wbAppInfo = WeiboAppManager.getInstance(this.context).getWbAppInfo();
+                if (WbSdk.isWbInstall(this.context) && wbAppInfo != null && wbAppInfo.getSupportVersion() > 10000) {
+                    startClientShare(weiboMultiMessage);
+                    return;
+                } else {
+                    startWebShare(weiboMultiMessage);
+                    return;
+                }
             }
             throw new RuntimeException("please call WbShareHandler.registerApp(),before use share function");
         }
-    }
-
-    public void shareToStory(StoryMessage storyMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, storyMessage) == null) {
-            Uri imageUri = storyMessage.getImageUri();
-            Uri videoUri = storyMessage.getVideoUri();
-            if ((imageUri != null && FileUtils.isImageFile(this.context, imageUri)) || (videoUri != null && FileUtils.isVideoFile(this.context, videoUri))) {
-                Intent intent = new Intent();
-                intent.putExtra(WBConstants.Msg.STORY, storyMessage);
-                intent.putExtra(WBConstants.SHARE_START_ACTIVITY, this.context.getClass().getName());
-                intent.putExtra(WBConstants.SHARE_START_PACKAGE, WeiboAppManager.getInstance(this.context).getWbAppInfo().getPackageName());
-                intent.putExtra(WBConstants.TRANS_PROGRESS_COLOR, this.progressColor);
-                intent.putExtra(WBConstants.TRANS_PROGRESS_ID, this.progressId);
-                intent.putExtra(WBConstants.SHARE_START_FLAG, 0);
-                intent.setClass(this.context, WbShareToStoryActivity.class);
-                this.context.startActivityForResult(intent, 1);
-                return;
-            }
-            throw new IllegalStateException("File only can be Image or Video. ");
-        }
-    }
-
-    public boolean supportMulti() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

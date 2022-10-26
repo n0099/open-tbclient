@@ -37,47 +37,6 @@ public class e implements Runnable {
         this.b = onGetOaidListener;
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Context context = this.a;
-            f.a aVar = new f.a() { // from class: com.baidu.tieba.eq9
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.fun.openid.sdk.f.a
-                public final void a(boolean z, String str) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeZL(1048576, this, z, str) == null) {
-                        com.fun.openid.sdk.e.this.a(z, str);
-                    }
-                }
-            };
-            synchronized (i.class) {
-                if (context == null) {
-                    throw new RuntimeException("Context is null");
-                }
-                if (Looper.myLooper() == Looper.getMainLooper()) {
-                    throw new IllegalStateException("Cannot be called from the main thread");
-                }
-                if (i.a == null && !i.b) {
-                    synchronized (i.class) {
-                        if (i.a == null && !i.b) {
-                            i.a = b.a();
-                            i.b = true;
-                        }
-                    }
-                }
-                f fVar = i.a;
-                if (fVar != null) {
-                    fVar.a(context, aVar);
-                } else {
-                    aVar.a(false, null);
-                }
-            }
-        }
-    }
-
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
@@ -99,7 +58,16 @@ public class e implements Runnable {
                 if (FunOpenIDSdk.isLogEnabled()) {
                     Log.e(FunOpenIDSdk.TAG, "==========获取oaid失败 已重试 " + i + " 次，最多重试 3 次");
                 }
-                int i2 = i != 0 ? i == 1 ? 4 : i == 2 ? 6 : 0 : 2;
+                int i2 = 2;
+                if (i != 0) {
+                    if (i == 1) {
+                        i2 = 4;
+                    } else if (i == 2) {
+                        i2 = 6;
+                    } else {
+                        i2 = 0;
+                    }
+                }
                 if (i < 3) {
                     try {
                         if (FunOpenIDSdk.isLogEnabled()) {
@@ -130,6 +98,49 @@ public class e implements Runnable {
                 }
             }
             onGetOaidListener.onGetOaid(str);
+        }
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Context context = this.a;
+            f.a aVar = new f.a() { // from class: com.baidu.tieba.wq9
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // com.fun.openid.sdk.f.a
+                public final void a(boolean z, String str) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeZL(1048576, this, z, str) == null) {
+                        com.fun.openid.sdk.e.this.a(z, str);
+                    }
+                }
+            };
+            synchronized (i.class) {
+                if (context != null) {
+                    if (Looper.myLooper() != Looper.getMainLooper()) {
+                        if (i.a == null && !i.b) {
+                            synchronized (i.class) {
+                                if (i.a == null && !i.b) {
+                                    i.a = b.a();
+                                    i.b = true;
+                                }
+                            }
+                        }
+                        f fVar = i.a;
+                        if (fVar != null) {
+                            fVar.a(context, aVar);
+                        } else {
+                            aVar.a(false, null);
+                        }
+                    } else {
+                        throw new IllegalStateException("Cannot be called from the main thread");
+                    }
+                } else {
+                    throw new RuntimeException("Context is null");
+                }
+            }
         }
     }
 }

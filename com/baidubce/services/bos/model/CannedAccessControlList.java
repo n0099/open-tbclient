@@ -63,19 +63,28 @@ public final class CannedAccessControlList {
     public static CannedAccessControlList valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (CannedAccessControlList) Enum.valueOf(CannedAccessControlList.class, str) : (CannedAccessControlList) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (CannedAccessControlList) Enum.valueOf(CannedAccessControlList.class, str);
+        }
+        return (CannedAccessControlList) invokeL.objValue;
     }
 
     public static CannedAccessControlList[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CannedAccessControlList[]) $VALUES.clone() : (CannedAccessControlList[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (CannedAccessControlList[]) $VALUES.clone();
+        }
+        return (CannedAccessControlList[]) invokeV.objValue;
     }
 
     @Override // java.lang.Enum
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.cannedAclHeader : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.cannedAclHeader;
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -15,42 +15,16 @@ public class BitmapCounterConfig {
 
     /* renamed from: com.facebook.imagepipeline.memory.BitmapCounterConfig$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public static class Builder {
+    public class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int mMaxBitmapCount;
-
-        public /* synthetic */ Builder(AnonymousClass1 anonymousClass1) {
-            this();
-        }
-
-        public BitmapCounterConfig build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new BitmapCounterConfig(this) : (BitmapCounterConfig) invokeV.objValue;
-        }
-
-        public int getMaxBitmapCount() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mMaxBitmapCount : invokeV.intValue;
-        }
-
-        public Builder setMaxBitmapCount(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                this.mMaxBitmapCount = i;
-                return this;
-            }
-            return (Builder) invokeI.objValue;
-        }
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -66,6 +40,38 @@ public class BitmapCounterConfig {
                 }
             }
             this.mMaxBitmapCount = 384;
+        }
+
+        public BitmapCounterConfig build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new BitmapCounterConfig(this);
+            }
+            return (BitmapCounterConfig) invokeV.objValue;
+        }
+
+        public int getMaxBitmapCount() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.mMaxBitmapCount;
+            }
+            return invokeV.intValue;
+        }
+
+        public /* synthetic */ Builder(AnonymousClass1 anonymousClass1) {
+            this();
+        }
+
+        public Builder setMaxBitmapCount(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                this.mMaxBitmapCount = i;
+                return this;
+            }
+            return (Builder) invokeI.objValue;
         }
     }
 
@@ -91,13 +97,19 @@ public class BitmapCounterConfig {
     public static Builder newBuilder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new Builder(null) : (Builder) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new Builder(null);
+        }
+        return (Builder) invokeV.objValue;
     }
 
     public int getMaxBitmapCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mMaxBitmapCount : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mMaxBitmapCount;
+        }
+        return invokeV.intValue;
     }
 
     public void setMaxBitmapCount(int i) {

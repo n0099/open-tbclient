@@ -68,7 +68,22 @@ public final class Backend {
     public final String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) ? Tornado.INSTANCE.getDebug$tornadosdk_release() ? CONFIG_BASE_TEST_URL : CONFIG_BASE_PROD_URL : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
+            if (Tornado.INSTANCE.getDebug$tornadosdk_release()) {
+                return CONFIG_BASE_TEST_URL;
+            }
+            return CONFIG_BASE_PROD_URL;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final Object getSClientConfig(Continuation<? super SClientConfig> continuation) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, continuation)) == null) {
+            return BuildersKt.withContext(Dispatchers.getIO(), new Backend$getSClientConfig$2(null), continuation);
+        }
+        return invokeL.objValue;
     }
 
     public final void create(String channel2, String device2, String cuid2, String token2, String clientVersion2, String sdkVersion2) {
@@ -87,11 +102,5 @@ public final class Backend {
             clientVersion = clientVersion2;
             sdkVersion = sdkVersion2;
         }
-    }
-
-    public final Object getSClientConfig(Continuation<? super SClientConfig> continuation) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, continuation)) == null) ? BuildersKt.withContext(Dispatchers.getIO(), new Backend$getSClientConfig$2(null), continuation) : invokeL.objValue;
     }
 }

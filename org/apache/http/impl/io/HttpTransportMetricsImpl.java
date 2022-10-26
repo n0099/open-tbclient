@@ -39,17 +39,17 @@ public class HttpTransportMetricsImpl implements HttpTransportMetrics {
         return invokeV.longValue;
     }
 
-    public void incrementBytesTransferred(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            throw new RuntimeException("Stub!");
-        }
-    }
-
     @Override // org.apache.http.io.HttpTransportMetrics
     public void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            throw new RuntimeException("Stub!");
+        }
+    }
+
+    public void incrementBytesTransferred(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
             throw new RuntimeException("Stub!");
         }
     }

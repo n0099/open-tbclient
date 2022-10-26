@@ -1,9 +1,6 @@
 package androidx.room;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteOpenHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,24 +16,17 @@ public class DatabaseConfiguration {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean allowMainThreadQueries;
-    @Nullable
     public final List<RoomDatabase.Callback> callbacks;
-    @NonNull
     public final Context context;
     public final RoomDatabase.JournalMode journalMode;
     public final Set<Integer> mMigrationNotRequiredFrom;
-    @NonNull
     public final RoomDatabase.MigrationContainer migrationContainer;
-    @Nullable
     public final String name;
-    @NonNull
     public final Executor queryExecutor;
     public final boolean requireMigration;
-    @NonNull
     public final SupportSQLiteOpenHelper.Factory sqliteOpenHelperFactory;
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    public DatabaseConfiguration(@NonNull Context context, @Nullable String str, @NonNull SupportSQLiteOpenHelper.Factory factory, @NonNull RoomDatabase.MigrationContainer migrationContainer, @Nullable List<RoomDatabase.Callback> list, boolean z, RoomDatabase.JournalMode journalMode, @NonNull Executor executor, boolean z2, @Nullable Set<Integer> set) {
+    public DatabaseConfiguration(Context context, String str, SupportSQLiteOpenHelper.Factory factory, RoomDatabase.MigrationContainer migrationContainer, List<RoomDatabase.Callback> list, boolean z, RoomDatabase.JournalMode journalMode, Executor executor, boolean z2, Set<Integer> set) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,6 +57,12 @@ public class DatabaseConfiguration {
         InterceptResult invokeI;
         Set<Integer> set;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.requireMigration && ((set = this.mMigrationNotRequiredFrom) == null || !set.contains(Integer.valueOf(i))) : invokeI.booleanValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (this.requireMigration && ((set = this.mMigrationNotRequiredFrom) == null || !set.contains(Integer.valueOf(i)))) {
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
     }
 }

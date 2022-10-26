@@ -1,27 +1,25 @@
 package com.google.android.gms.common.internal;
 
 import android.util.Log;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public abstract class zzc<TListener> {
+public abstract class zzc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public TListener zza;
+    public Object zza;
     public boolean zzb;
     public final /* synthetic */ BaseGmsClient zzd;
 
-    public zzc(BaseGmsClient baseGmsClient, TListener tlistener) {
+    public zzc(BaseGmsClient baseGmsClient, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseGmsClient, tlistener};
+            Object[] objArr = {baseGmsClient, obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,32 +30,32 @@ public abstract class zzc<TListener> {
             }
         }
         this.zzd = baseGmsClient;
-        this.zza = tlistener;
+        this.zza = obj;
         this.zzb = false;
     }
 
-    public abstract void zza(TListener tlistener);
+    public abstract void zza(Object obj);
 
     public abstract void zzc();
 
     public final void zze() {
-        TListener tlistener;
+        Object obj;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                tlistener = this.zza;
+                obj = this.zza;
                 if (this.zzb) {
-                    String obj = toString();
-                    StringBuilder sb = new StringBuilder(obj.length() + 47);
+                    String obj2 = toString();
+                    StringBuilder sb = new StringBuilder(obj2.length() + 47);
                     sb.append("Callback proxy ");
-                    sb.append(obj);
+                    sb.append(obj2);
                     sb.append(" being reused. This is not safe.");
                     Log.w("GmsClient", sb.toString());
                 }
             }
-            if (tlistener != null) {
+            if (obj != null) {
                 try {
-                    zza(tlistener);
+                    zza(obj);
                 } catch (RuntimeException e) {
                     throw e;
                 }

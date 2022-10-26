@@ -31,13 +31,19 @@ public final class zze implements DynamiteModule.VersionPolicy.IVersions {
     public final int zza(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) ? DynamiteModule.getLocalVersion(context, str) : invokeLL.intValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
+            return DynamiteModule.getLocalVersion(context, str);
+        }
+        return invokeLL.intValue;
     }
 
     @Override // com.google.android.gms.dynamite.DynamiteModule.VersionPolicy.IVersions
     public final int zzb(Context context, String str, boolean z) throws DynamiteModule.LoadingException {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, z)) == null) ? DynamiteModule.zza(context, str, z) : invokeLLZ.intValue;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, z)) == null) {
+            return DynamiteModule.zza(context, str, z);
+        }
+        return invokeLLZ.intValue;
     }
 }

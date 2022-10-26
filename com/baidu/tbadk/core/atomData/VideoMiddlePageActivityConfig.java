@@ -51,23 +51,6 @@ public class VideoMiddlePageActivityConfig extends IntentConfig {
         getIntent().putExtra(PARAM_VIDEO_THREAD_INFO, videoSerializeVideoThreadInfo);
     }
 
-    public void setNid(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || getIntent() == null) {
-            return;
-        }
-        getIntent().putExtra("key_nid", str);
-    }
-
-    public void setUri(Uri uri) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        intent.putExtra(IntentConfig.KEY_URI, uri);
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoMiddlePageActivityConfig(Context context, String str, String str2, String str3, String str4) {
         super(context);
@@ -112,5 +95,20 @@ public class VideoMiddlePageActivityConfig extends IntentConfig {
             }
         }
         getIntent().putExtra(PARAM_VIDEO_THREAD_INFO, videoSerializeVideoThreadInfo);
+    }
+
+    public void setNid(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && getIntent() != null) {
+            getIntent().putExtra("key_nid", str);
+        }
+    }
+
+    public void setUri(Uri uri) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri) == null) && (intent = getIntent()) != null) {
+            intent.putExtra(IntentConfig.KEY_URI, uri);
+        }
     }
 }

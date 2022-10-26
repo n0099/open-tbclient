@@ -32,9 +32,8 @@ public class q1 implements Runnable {
     public void run() {
         s1 s1Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (s1Var = this.a.g) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (s1Var = this.a.g) != null) {
+            s1Var.a();
         }
-        s1Var.a();
     }
 }

@@ -41,20 +41,6 @@ public class d1 {
         this.a = context;
     }
 
-    public d1 a(int i, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
-            try {
-                this.b = e1.b();
-                a("e", "bce").a("timeis", e1.a()).a("co", i).a("dr", j);
-            } catch (JSONException unused) {
-            }
-            return this;
-        }
-        return (d1) invokeCommon.objValue;
-    }
-
     public d1 a(f1 f1Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -237,16 +223,38 @@ public class d1 {
         return (d1) invokeLI.objValue;
     }
 
-    public final boolean a(String str) {
-        InterceptResult invokeL;
+    public d1 a(int i, long j) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            if (Z1.n(this.a) < 0) {
-                return false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            try {
+                this.b = e1.b();
+                a("e", "bce").a("timeis", e1.a()).a("co", i).a("dr", j);
+            } catch (JSONException unused) {
             }
-            return M.a(e1.a, str) ? Z1.n(this.a) < 1 : M.a(e1.b, str) ? Z1.n(this.a) < 2 : M.a(e1.c, str) ? Z1.n(this.a) < 3 : M.a(e1.d, str) && Z1.n(this.a) < 4;
+            return this;
         }
-        return invokeL.booleanValue;
+        return (d1) invokeCommon.objValue;
+    }
+
+    public d1 a(f1 f1Var, String str, int i, int i2) {
+        InterceptResult invokeLLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048585, this, f1Var, str, i, i2)) == null) {
+            try {
+                this.b = e1.a("wdre", f1Var);
+                try {
+                    str = M.a(str);
+                } catch (Exception unused) {
+                }
+                a("pkg", str);
+                a("vsc", i);
+                a("co", i2);
+            } catch (JSONException unused2) {
+            }
+            return this;
+        }
+        return (d1) invokeLLII.objValue;
     }
 
     public void a() {
@@ -271,23 +279,34 @@ public class d1 {
         }
     }
 
-    public d1 a(f1 f1Var, String str, int i, int i2) {
-        InterceptResult invokeLLII;
+    public final boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048585, this, f1Var, str, i, i2)) == null) {
-            try {
-                this.b = e1.a("wdre", f1Var);
-                try {
-                    str = M.a(str);
-                } catch (Exception unused) {
-                }
-                a("pkg", str);
-                a("vsc", i);
-                a("co", i2);
-            } catch (JSONException unused2) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            if (Z1.n(this.a) < 0) {
+                return false;
             }
-            return this;
+            if (M.a(e1.a, str)) {
+                if (Z1.n(this.a) >= 1) {
+                    return false;
+                }
+                return true;
+            } else if (M.a(e1.b, str)) {
+                if (Z1.n(this.a) >= 2) {
+                    return false;
+                }
+                return true;
+            } else if (M.a(e1.c, str)) {
+                if (Z1.n(this.a) >= 3) {
+                    return false;
+                }
+                return true;
+            } else if (!M.a(e1.d, str) || Z1.n(this.a) >= 4) {
+                return false;
+            } else {
+                return true;
+            }
         }
-        return (d1) invokeLLII.objValue;
+        return invokeL.booleanValue;
     }
 }

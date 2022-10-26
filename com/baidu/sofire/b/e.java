@@ -51,11 +51,11 @@ public class e {
     public static int[] f;
     public static Timer g;
     public static Object h;
-    public static List<GzfiCallback> i;
+    public static List i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class a implements Runnable {
+    public final class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -133,53 +133,54 @@ public class e {
                         return;
                     }
                     m.k(this.a);
-                    if (com.baidu.sofire.k.a.a(this.a, true)) {
-                        e.b(this.a);
-                        d a = d.a(this.a);
-                        Context context2 = this.a;
-                        String str = com.baidu.sofire.k.c.a;
-                        com.baidu.sofire.j.a a2 = com.baidu.sofire.j.a.a(context2);
-                        String d = a2.d();
-                        if (!TextUtils.isEmpty(d)) {
-                            String b = com.baidu.sofire.k.a.b(d);
-                            if (!TextUtils.isEmpty(b) && !b.equals(a2.a())) {
-                                a2.d.putString("xyus", b);
-                                a2.d.commit();
-                            }
+                    if (!com.baidu.sofire.k.a.a(this.a, true)) {
+                        return;
+                    }
+                    e.b(this.a);
+                    d a = d.a(this.a);
+                    Context context2 = this.a;
+                    String str = com.baidu.sofire.k.c.a;
+                    com.baidu.sofire.j.a a2 = com.baidu.sofire.j.a.a(context2);
+                    String d = a2.d();
+                    if (!TextUtils.isEmpty(d)) {
+                        String b = com.baidu.sofire.k.a.b(d);
+                        if (!TextUtils.isEmpty(b) && !b.equals(a2.a())) {
+                            a2.d.putString("xyus", b);
+                            a2.d.commit();
                         }
-                        com.baidu.sofire.k.c.a(this.a);
-                        Context context3 = this.a;
-                        com.baidu.sofire.j.a a3 = com.baidu.sofire.j.a.a(context3);
-                        if (!a3.a.getBoolean("s_r_d_l_f", false)) {
-                            com.baidu.sofire.k.d.a(context3);
-                            com.baidu.sofire.k.c.d(context3);
-                            a3.b.putBoolean("s_r_d_l_f", true);
-                            a3.b.commit();
+                    }
+                    com.baidu.sofire.k.c.a(this.a);
+                    Context context3 = this.a;
+                    com.baidu.sofire.j.a a3 = com.baidu.sofire.j.a.a(context3);
+                    if (!a3.a.getBoolean("s_r_d_l_f", false)) {
+                        com.baidu.sofire.k.d.a(context3);
+                        com.baidu.sofire.k.c.d(context3);
+                        a3.b.putBoolean("s_r_d_l_f", true);
+                        a3.b.commit();
+                    }
+                    if (!TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.c)) {
+                        a.c(this.b, this.c);
+                    }
+                    int i = this.e;
+                    if (i > 0) {
+                        Thread.sleep(i * 1000);
+                    }
+                    com.baidu.sofire.j.a a4 = com.baidu.sofire.j.a.a(this.a);
+                    int i2 = this.d;
+                    if (i2 > 0) {
+                        a4.a(i2);
+                    } else {
+                        int[] iArr = e.f;
+                        if (iArr != null && iArr.length > 0) {
+                            a4.a(iArr);
                         }
-                        if (!TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.c)) {
-                            a.c(this.b, this.c);
-                        }
-                        int i = this.e;
-                        if (i > 0) {
-                            Thread.sleep(i * 1000);
-                        }
-                        com.baidu.sofire.j.a a4 = com.baidu.sofire.j.a.a(this.a);
-                        int i2 = this.d;
-                        if (i2 > 0) {
-                            a4.a(i2);
-                        } else {
-                            int[] iArr = e.f;
-                            if (iArr != null && iArr.length > 0) {
-                                a4.a(iArr);
-                            }
-                        }
-                        if (!n.a(this.a)) {
-                            boolean unused4 = e.c = true;
-                            return;
-                        }
+                    }
+                    if (n.a(this.a)) {
                         d.a(1);
                         a.a();
+                        return;
                     }
+                    boolean unused4 = e.c = true;
                 } catch (Throwable unused5) {
                     int i3 = com.baidu.sofire.a.b.a;
                 }
@@ -188,7 +189,7 @@ public class e {
     }
 
     /* loaded from: classes2.dex */
-    public static class b implements Runnable {
+    public final class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Callback a;
@@ -298,15 +299,15 @@ public class e {
                         Callback callback5 = this.a;
                         Class[] clsArr = this.d;
                         Object[] objArr = this.e;
-                        if (!TextUtils.isEmpty(str)) {
-                            p.a(context2).a(new i(callback5, context2, i6, str, clsArr, objArr));
-                            return;
-                        } else if (callback5 != null) {
-                            callback5.onError(1);
-                            return;
-                        } else {
+                        if (TextUtils.isEmpty(str)) {
+                            if (callback5 != null) {
+                                callback5.onError(1);
+                                return;
+                            }
                             return;
                         }
+                        p.a(context2).a(new i(callback5, context2, i6, str, clsArr, objArr));
+                        return;
                     } else {
                         d dVar2 = d.d;
                         if (dVar2 == null) {
@@ -340,7 +341,7 @@ public class e {
     }
 
     /* loaded from: classes2.dex */
-    public static class c implements GzfiCallback {
+    public final class c implements GzfiCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ com.baidu.sofire.d.a a;
@@ -411,404 +412,6 @@ public class e {
         }
     }
 
-    public static Pair<Integer, Object> b(int i2, String str, Class<?>[] clsArr, Object... objArr) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{Integer.valueOf(i2), str, clsArr, objArr})) == null) {
-            try {
-                Context context = d.e;
-                if (context == null) {
-                    return new Pair<>(4, null);
-                }
-                if (!com.baidu.sofire.k.a.a(context, false)) {
-                    return new Pair<>(11, null);
-                }
-                String g2 = com.baidu.sofire.k.a.g(d.e);
-                if (TextUtils.isEmpty(g2)) {
-                    if (com.baidu.sofire.k.a.e(d.e.getPackageName())) {
-                        return new Pair<>(5, null);
-                    }
-                    d.a(context);
-                    return a(str, clsArr, objArr);
-                } else if (com.baidu.sofire.k.a.e(g2)) {
-                    return a(d.e, i2, 1, str, clsArr, objArr);
-                } else {
-                    d.a(context);
-                    return a(str, clsArr, objArr);
-                }
-            } catch (Throwable unused) {
-                int i3 = com.baidu.sofire.a.b.a;
-                return new Pair<>(3, null);
-            }
-        }
-        return (Pair) invokeCommon.objValue;
-    }
-
-    public static String c(Context context) {
-        InterceptResult invokeL;
-        com.baidu.sofire.j.a a2;
-        String string;
-        byte[] re;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, context)) == null) {
-            try {
-                a2 = com.baidu.sofire.j.a.a(context);
-                string = a2.c.getString("xytk", "");
-            } catch (Throwable unused) {
-                int i2 = com.baidu.sofire.a.b.a;
-            }
-            if (!TextUtils.isEmpty(string)) {
-                a = string;
-                return string;
-            }
-            String string2 = a2.c.getString("xytk_m", "");
-            if (!TextUtils.isEmpty(string2)) {
-                a = string2;
-                return string2;
-            }
-            String a3 = com.baidu.sofire.k.c.a(context);
-            if (!TextUtils.isEmpty(a3)) {
-                String[] split = a3.split(WebChromeClient.PARAM_SEPARATOR);
-                if (split != null && split.length == 2 && !TextUtils.isEmpty(split[0]) && !TextUtils.isEmpty(split[1])) {
-                    if (F.getInstance().re(split[1].getBytes(), split[0].getBytes()) != null) {
-                        String str = split[0] + com.baidu.sofire.k.a.a(re);
-                        a2.d.putString("xytk_m", str);
-                        if (Build.VERSION.SDK_INT >= 9) {
-                            a2.d.apply();
-                        } else {
-                            a2.d.commit();
-                        }
-                        a = str;
-                        return str;
-                    }
-                }
-                a = "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
-                return "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
-            }
-            a = "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
-            return "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String a(Context context, String str, int i2, String str2) {
-        InterceptResult invokeLLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65543, null, context, str, i2, str2)) == null) {
-            try {
-            } catch (Throwable th) {
-                com.baidu.sofire.b.c.c = com.baidu.sofire.a.b.a(th);
-                int i3 = com.baidu.sofire.a.b.a;
-            }
-            if (context == null) {
-                com.baidu.sofire.b.c.b = 1001;
-                return "";
-            } else if (!TextUtils.isEmpty(a)) {
-                if (i2 != 0 && n.a(context)) {
-                    if (TextUtils.isEmpty(str2)) {
-                        a(1, "ice", (Callback) null, new Class[]{String.class, Integer.TYPE}, str, Integer.valueOf(i2));
-                    } else {
-                        a(1, "ice", (Callback) null, new Class[]{String.class, Integer.TYPE, String.class}, str, Integer.valueOf(i2), str2);
-                    }
-                }
-                return a;
-            } else if (!com.baidu.sofire.k.a.a(context, false)) {
-                com.baidu.sofire.b.c.b = 1002;
-                com.baidu.sofire.b.c.a = com.baidu.sofire.k.a.a();
-                return "";
-            } else {
-                String g2 = com.baidu.sofire.k.a.g(context);
-                if (TextUtils.isEmpty(g2)) {
-                    if (com.baidu.sofire.k.a.e(context.getPackageName())) {
-                        com.baidu.sofire.b.c.b = 1003;
-                        com.baidu.sofire.b.c.a = com.baidu.sofire.k.a.a();
-                        return "";
-                    }
-                    return b(context, str, i2, str2);
-                } else if (com.baidu.sofire.k.a.e(g2)) {
-                    Pair<Integer, Object> a2 = a(context, 0, 1, "gzfi", (Class<?>[]) null, str, Integer.valueOf(i2), str2);
-                    if (a2 != null) {
-                        if (((Integer) a2.first).intValue() == 0) {
-                            return (String) a2.second;
-                        }
-                        com.baidu.sofire.b.c.b = 1004;
-                        com.baidu.sofire.b.c.a(((Integer) a2.first).intValue());
-                        return "";
-                    }
-                    com.baidu.sofire.b.c.b = 1004;
-                    com.baidu.sofire.b.c.a(-1001);
-                    com.baidu.sofire.b.c.b = 1005;
-                    com.baidu.sofire.b.c.a(-1002);
-                    return "";
-                } else {
-                    return b(context, str, i2, str2);
-                }
-            }
-        }
-        return (String) invokeLLIL.objValue;
-    }
-
-    public static String b(Context context, String str, int i2, String str2) {
-        InterceptResult invokeLLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65554, null, context, str, i2, str2)) == null) {
-            if (context == null) {
-                return "";
-            }
-            if (i2 != 0) {
-                if (TextUtils.isEmpty(str2) && n.a(context)) {
-                    a(1, "ice", (Callback) null, new Class[]{String.class, Integer.TYPE}, str, Integer.valueOf(i2));
-                } else {
-                    a(1, "ice", (Callback) null, new Class[]{String.class, Integer.TYPE, String.class}, str, Integer.valueOf(i2), str2);
-                }
-            }
-            return c(context);
-        }
-        return (String) invokeLLIL.objValue;
-    }
-
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, context)) == null) {
-            try {
-            } catch (Throwable unused) {
-                int i2 = com.baidu.sofire.a.b.a;
-            }
-            if (!TextUtils.isEmpty(a)) {
-                return a;
-            }
-            if (context != null && com.baidu.sofire.k.a.a(context, false)) {
-                String g2 = com.baidu.sofire.k.a.g(context);
-                if (TextUtils.isEmpty(g2)) {
-                    return com.baidu.sofire.k.a.e(context.getPackageName()) ? "" : c(context);
-                } else if (com.baidu.sofire.k.a.e(g2)) {
-                    Pair<Integer, Object> a2 = a(context, 0, 1, "gz", (Class<?>[]) null, new Object[0]);
-                    if (a2 != null) {
-                        return ((Integer) a2.first).intValue() == 0 ? (String) a2.second : "";
-                    }
-                    a = "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
-                    return "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
-                } else {
-                    return c(context);
-                }
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static synchronized void a(Context context, int i2, String str, String str2, int... iArr) {
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{context, Integer.valueOf(i2), str, str2, iArr}) == null) {
-            synchronized (e.class) {
-                if (iArr != null) {
-                    try {
-                        if (iArr.length > 1) {
-                            f = iArr;
-                            i3 = 0;
-                            a(context, i2, str, str2, (BDModuleLoadCallback) null, i3);
-                        }
-                    } catch (Throwable th) {
-                        throw th;
-                    }
-                }
-                if (iArr != null && iArr.length == 1) {
-                    i3 = iArr[0];
-                    a(context, i2, str, str2, (BDModuleLoadCallback) null, i3);
-                }
-                i3 = 0;
-                a(context, i2, str, str2, (BDModuleLoadCallback) null, i3);
-            }
-        }
-    }
-
-    public static synchronized void a(Context context, int i2, String str, String str2, BDModuleLoadCallback bDModuleLoadCallback, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{context, Integer.valueOf(i2), str, str2, bDModuleLoadCallback, Integer.valueOf(i3)}) == null) {
-            synchronized (e.class) {
-                if (context == null) {
-                    return;
-                }
-                try {
-                } catch (Throwable unused) {
-                    int i4 = com.baidu.sofire.a.b.a;
-                }
-                if (b) {
-                    return;
-                }
-                b = true;
-                d.e = context;
-                a(context, i3, bDModuleLoadCallback, false);
-                p.a(context).b(new a(context, str, str2, i3, i2));
-            }
-        }
-    }
-
-    public static Pair<Integer, Object> a(int i2, String str, Class<?>[] clsArr, Object... objArr) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), str, clsArr, objArr})) == null) {
-            try {
-                Context context = d.e;
-                if (context == null) {
-                    return new Pair<>(4, null);
-                }
-                if (!n.a(context)) {
-                    return new Pair<>(12, null);
-                }
-                if (!com.baidu.sofire.k.a.a(d.e, false)) {
-                    return new Pair<>(11, null);
-                }
-                String g2 = com.baidu.sofire.k.a.g(d.e);
-                if (TextUtils.isEmpty(g2)) {
-                    if (com.baidu.sofire.k.a.e(d.e.getPackageName())) {
-                        return new Pair<>(5, null);
-                    }
-                    return d.a(context).a(i2, str, clsArr, objArr);
-                } else if (com.baidu.sofire.k.a.e(g2)) {
-                    return a(d.e, i2, 1, str, clsArr, objArr);
-                } else {
-                    return d.a(context).a(i2, str, clsArr, objArr);
-                }
-            } catch (Throwable unused) {
-                int i3 = com.baidu.sofire.a.b.a;
-                return new Pair<>(3, null);
-            }
-        }
-        return (Pair) invokeCommon.objValue;
-    }
-
-    /* JADX DEBUG: Incorrect args count in method signature: (ILjava/lang/String;[Ljava/lang/Class<*>;[Ljava/lang/Object;)Landroid/util/Pair<Ljava/lang/Integer;Ljava/lang/Object;>; */
-    public static Pair a(String str, Class[] clsArr, Object... objArr) {
-        InterceptResult invokeLLL;
-        k kVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, str, clsArr, objArr)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new Pair(1, null);
-            }
-            try {
-                kVar = k.f;
-            } catch (Throwable unused) {
-                int i2 = com.baidu.sofire.a.b.a;
-            }
-            if (kVar == null) {
-                return new Pair(3, null);
-            }
-            ApkInfo b2 = kVar.b("com.baidu.sofire.x0");
-            if (b2 != null) {
-                Class<?> a2 = ((j) b2.classLoader).a("com.baidu.sofire.engine.EngineImpl");
-                return new Pair(0, com.baidu.sofire.k.a.a(a2.getDeclaredMethod("getInstance", Context.class).invoke(a2, d.e), str, clsArr, objArr));
-            }
-            return new Pair(3, null);
-        }
-        return (Pair) invokeLLL.objValue;
-    }
-
-    public static boolean a(int i2, String str, Callback callback, Class<?>[] clsArr, Object... objArr) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Integer.valueOf(i2), str, callback, clsArr, objArr})) == null) {
-            try {
-                return p.a(d.e).a(new b(callback, i2, str, clsArr, objArr)) == 1;
-            } catch (Throwable unused) {
-                int i3 = com.baidu.sofire.a.b.a;
-                return false;
-            }
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public static synchronized void a(Context context, Bundle bundle) {
-        IBinder iBinder;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, null, context, bundle) == null) {
-            synchronized (e.class) {
-                bundle.setClassLoader(e.class.getClassLoader());
-                String string = bundle.getString("accountId", "");
-                int i2 = bundle.getInt("scene", 0);
-                String string2 = bundle.getString("para", "");
-                int i3 = bundle.getInt("timeout", 20);
-                BinderHolder binderHolder = (BinderHolder) bundle.getParcelable("binderHolder");
-                if (binderHolder != null && (iBinder = binderHolder.a) != null) {
-                    c cVar = new c(a.AbstractBinderC0156a.a(iBinder));
-                    synchronized (e.class) {
-                        try {
-                            if (d.e == null) {
-                                d.e = context.getApplicationContext();
-                            }
-                            Pair<Integer, String> a2 = a(context);
-                            if (a2 != null && ((Integer) a2.first).intValue() == 1) {
-                                cVar.onComplete(((Integer) a2.first).intValue(), a(context, string, i2, string2), "");
-                            } else {
-                                synchronized (i) {
-                                    i.add(cVar);
-                                }
-                                int i4 = i3 > 0 ? i3 : 20;
-                                synchronized (h) {
-                                    if (g == null) {
-                                        Timer timer = new Timer();
-                                        g = timer;
-                                        timer.schedule(new g(context, string, i2, string2, System.currentTimeMillis() + (i4 * 1000)), 100L, 100L);
-                                    }
-                                }
-                            }
-                        } catch (Throwable unused) {
-                            int i5 = com.baidu.sofire.a.b.a;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public static Pair<Integer, String> a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            try {
-            } catch (Throwable unused) {
-                int i2 = com.baidu.sofire.a.b.a;
-            }
-            if (!com.baidu.sofire.k.a.b(1)) {
-                return new Pair<>(-1, "");
-            }
-            if (com.baidu.sofire.k.a.k(context) == 0) {
-                return new Pair<>(-2, "");
-            }
-            Pair<Integer, Object> a2 = a(1, "gcfs", (Class<?>[]) null, new Object[0]);
-            if (a2 != null && ((Integer) a2.first).intValue() == 0) {
-                return (Pair) a2.second;
-            }
-            return new Pair<>(-1, "");
-        }
-        return (Pair) invokeL.objValue;
-    }
-
-    public static void a(int i2, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65544, null, i2, str, str2) == null) {
-            synchronized (i) {
-                try {
-                    for (GzfiCallback gzfiCallback : i) {
-                        if (gzfiCallback != null) {
-                            int i3 = com.baidu.sofire.a.b.a;
-                            gzfiCallback.onComplete(i2, str, str2);
-                        }
-                    }
-                    List<GzfiCallback> list = i;
-                    if (list != null) {
-                        list.clear();
-                    }
-                } catch (Throwable th) {
-                    throw th;
-                }
-            }
-        }
-    }
-
     /* JADX WARN: Removed duplicated region for block: B:21:0x006e  */
     /* JADX WARN: Removed duplicated region for block: B:23:0x0072 A[Catch: all -> 0x008e, TryCatch #2 {all -> 0x0176, blocks: (B:5:0x0010, B:8:0x0026, B:10:0x002b, B:31:0x0094, B:33:0x009e, B:35:0x00a3, B:70:0x014b, B:72:0x0153, B:74:0x0160, B:75:0x0164, B:77:0x0172, B:36:0x00a8, B:38:0x00c1, B:39:0x00c4, B:41:0x00c7, B:43:0x00d1, B:45:0x00d9, B:47:0x00df, B:49:0x00ec, B:48:0x00e2, B:50:0x00ef, B:53:0x00f5, B:55:0x00fe, B:57:0x0107, B:59:0x011c, B:66:0x013e, B:56:0x0103, B:61:0x0123, B:63:0x0133, B:11:0x0030, B:13:0x0041, B:15:0x0046, B:24:0x0077, B:26:0x0081, B:27:0x0085, B:23:0x0072, B:16:0x0054, B:18:0x0057), top: B:86:0x0010 }] */
     /* JADX WARN: Removed duplicated region for block: B:26:0x0081 A[Catch: all -> 0x008e, TryCatch #2 {all -> 0x0176, blocks: (B:5:0x0010, B:8:0x0026, B:10:0x002b, B:31:0x0094, B:33:0x009e, B:35:0x00a3, B:70:0x014b, B:72:0x0153, B:74:0x0160, B:75:0x0164, B:77:0x0172, B:36:0x00a8, B:38:0x00c1, B:39:0x00c4, B:41:0x00c7, B:43:0x00d1, B:45:0x00d9, B:47:0x00df, B:49:0x00ec, B:48:0x00e2, B:50:0x00ef, B:53:0x00f5, B:55:0x00fe, B:57:0x0107, B:59:0x011c, B:66:0x013e, B:56:0x0103, B:61:0x0123, B:63:0x0133, B:11:0x0030, B:13:0x0041, B:15:0x0046, B:24:0x0077, B:26:0x0081, B:27:0x0085, B:23:0x0072, B:16:0x0054, B:18:0x0057), top: B:86:0x0010 }] */
@@ -818,9 +421,10 @@ public class e {
     */
     public static Bundle a(Context context, String str, Bundle bundle) {
         InterceptResult invokeLLL;
-        Pair<Integer, Object> a2;
+        Pair a2;
         String str2;
         String str3;
+        int intValue;
         String b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, str, bundle)) == null) {
@@ -846,7 +450,12 @@ public class e {
                                 num = (Integer) objArr[1];
                                 str3 = str4;
                             }
-                            b2 = b(context, str3, num != null ? 0 : num.intValue(), str2);
+                            if (num != null) {
+                                intValue = 0;
+                            } else {
+                                intValue = num.intValue();
+                            }
+                            b2 = b(context, str3, intValue, str2);
                             if (!TextUtils.isEmpty(b2)) {
                                 bundle2.putInt("status", 8);
                             } else {
@@ -858,7 +467,9 @@ public class e {
                         }
                         str2 = null;
                         str3 = null;
-                        b2 = b(context, str3, num != null ? 0 : num.intValue(), str2);
+                        if (num != null) {
+                        }
+                        b2 = b(context, str3, intValue, str2);
                         if (!TextUtils.isEmpty(b2)) {
                         }
                         return bundle2;
@@ -878,7 +489,7 @@ public class e {
                             for (int i4 = 0; i4 < objArr2.length; i4++) {
                                 String str6 = (String) objArr2[i4];
                                 if (!TextUtils.isEmpty(str6) && str6.contains("@@")) {
-                                    Class<?> a3 = com.baidu.sofire.k.a.a(str6);
+                                    Class a3 = com.baidu.sofire.k.a.a(str6);
                                     if (a3 != null) {
                                         clsArr[i4] = a3;
                                     }
@@ -931,71 +542,419 @@ public class e {
         return (Bundle) invokeLLL.objValue;
     }
 
-    public static Pair<Integer, Object> a(Context context, int i2, int i3, String str, Class<?>[] clsArr, Object... objArr) {
+    public static Pair a(int i2, String str, Class[] clsArr, Object... objArr) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), str, clsArr, objArr})) == null) {
+            try {
+                Context context = d.e;
+                if (context == null) {
+                    return new Pair(4, null);
+                }
+                if (!n.a(context)) {
+                    return new Pair(12, null);
+                }
+                if (!com.baidu.sofire.k.a.a(d.e, false)) {
+                    return new Pair(11, null);
+                }
+                String g2 = com.baidu.sofire.k.a.g(d.e);
+                if (TextUtils.isEmpty(g2)) {
+                    if (com.baidu.sofire.k.a.e(d.e.getPackageName())) {
+                        return new Pair(5, null);
+                    }
+                    return d.a(context).a(i2, str, clsArr, objArr);
+                } else if (com.baidu.sofire.k.a.e(g2)) {
+                    return a(d.e, i2, 1, str, clsArr, objArr);
+                } else {
+                    return d.a(context).a(i2, str, clsArr, objArr);
+                }
+            } catch (Throwable unused) {
+                int i3 = com.baidu.sofire.a.b.a;
+                return new Pair(3, null);
+            }
+        }
+        return (Pair) invokeCommon.objValue;
+    }
+
+    public static Pair b(int i2, String str, Class[] clsArr, Object... objArr) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{Integer.valueOf(i2), str, clsArr, objArr})) == null) {
+            try {
+                Context context = d.e;
+                if (context == null) {
+                    return new Pair(4, null);
+                }
+                if (!com.baidu.sofire.k.a.a(context, false)) {
+                    return new Pair(11, null);
+                }
+                String g2 = com.baidu.sofire.k.a.g(d.e);
+                if (TextUtils.isEmpty(g2)) {
+                    if (com.baidu.sofire.k.a.e(d.e.getPackageName())) {
+                        return new Pair(5, null);
+                    }
+                    d.a(context);
+                    return a(str, clsArr, objArr);
+                } else if (com.baidu.sofire.k.a.e(g2)) {
+                    return a(d.e, i2, 1, str, clsArr, objArr);
+                } else {
+                    d.a(context);
+                    return a(str, clsArr, objArr);
+                }
+            } catch (Throwable unused) {
+                int i3 = com.baidu.sofire.a.b.a;
+                return new Pair(3, null);
+            }
+        }
+        return (Pair) invokeCommon.objValue;
+    }
+
+    public static Pair a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            try {
+            } catch (Throwable unused) {
+                int i2 = com.baidu.sofire.a.b.a;
+            }
+            if (!com.baidu.sofire.k.a.b(1)) {
+                return new Pair(-1, "");
+            }
+            if (com.baidu.sofire.k.a.k(context) == 0) {
+                return new Pair(-2, "");
+            }
+            Pair a2 = a(1, "gcfs", (Class[]) null, new Object[0]);
+            if (a2 != null && ((Integer) a2.first).intValue() == 0) {
+                return (Pair) a2.second;
+            }
+            return new Pair(-1, "");
+        }
+        return (Pair) invokeL.objValue;
+    }
+
+    public static Pair a(Context context, int i2, int i3, String str, Class[] clsArr, Object... objArr) {
         InterceptResult invokeCommon;
         String str2;
+        CallArgs callArgs;
+        Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, Integer.valueOf(i2), Integer.valueOf(i3), str, clsArr, objArr})) != null) {
-            return (Pair) invokeCommon.objValue;
-        }
-        int i4 = 0;
-        try {
-            int i5 = 1;
-            if (TextUtils.isEmpty(str)) {
-                return Pair.create(1, null);
-            }
-            if ("gzfi".equals(str) || "gz".equals(str)) {
-                str2 = str;
-            } else {
-                str2 = "invokeMethod";
-                i5 = 0;
-            }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, Integer.valueOf(i2), Integer.valueOf(i3), str, clsArr, objArr})) == null) {
+            int i4 = 0;
             try {
-                CallArgs callArgs = new CallArgs();
-                callArgs.a = i2;
-                callArgs.c = str;
-                callArgs.b = i3;
-                if (clsArr != null) {
-                    Object[] objArr2 = new Object[clsArr.length];
-                    while (i4 < clsArr.length) {
-                        if (clsArr[i4].isPrimitive()) {
-                            String a2 = com.baidu.sofire.k.a.a(clsArr[i4]);
-                            if (!TextUtils.isEmpty(a2)) {
-                                objArr2[i4] = a2 + "@@";
-                            }
-                        } else {
-                            objArr2[i4] = clsArr[i4].getName();
-                        }
-                        i4++;
-                    }
-                    callArgs.d = objArr2;
+                int i5 = 1;
+                if (TextUtils.isEmpty(str)) {
+                    return Pair.create(1, null);
                 }
-                callArgs.e = objArr;
-                Bundle bundle = new Bundle();
-                bundle.putParcelable("args", callArgs);
-                Bundle a3 = o.a(context, str2, bundle, "sofire");
-                if (a3 == null) {
+                if (!"gzfi".equals(str) && !"gz".equals(str)) {
+                    str2 = "invokeMethod";
+                    i5 = 0;
+                } else {
+                    str2 = str;
+                }
+                try {
+                    CallArgs callArgs2 = new CallArgs();
+                    callArgs2.a = i2;
+                    callArgs2.c = str;
+                    callArgs2.b = i3;
+                    if (clsArr != null) {
+                        Object[] objArr2 = new Object[clsArr.length];
+                        while (i4 < clsArr.length) {
+                            if (clsArr[i4].isPrimitive()) {
+                                String a2 = com.baidu.sofire.k.a.a(clsArr[i4]);
+                                if (!TextUtils.isEmpty(a2)) {
+                                    objArr2[i4] = a2 + "@@";
+                                }
+                            } else {
+                                objArr2[i4] = clsArr[i4].getName();
+                            }
+                            i4++;
+                        }
+                        callArgs2.d = objArr2;
+                    }
+                    callArgs2.e = objArr;
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelable("args", callArgs2);
+                    Bundle a3 = o.a(context, str2, bundle, "sofire");
+                    if (a3 == null) {
+                        return Pair.create(3, null);
+                    }
+                    a3.setClassLoader(CallArgs.class.getClassLoader());
+                    int i6 = a3.getInt("status");
+                    if (i6 == 0) {
+                        callArgs = (CallArgs) a3.getParcelable(TiebaStatic.LogFields.RESULT);
+                    } else {
+                        callArgs = null;
+                    }
+                    Integer valueOf = Integer.valueOf(i6);
+                    if (callArgs == null) {
+                        obj = null;
+                    } else {
+                        obj = callArgs.f;
+                    }
+                    return Pair.create(valueOf, obj);
+                } catch (Throwable th) {
+                    th = th;
+                    i4 = i5;
+                    if (i4 != 0) {
+                        com.baidu.sofire.b.c.c = com.baidu.sofire.a.b.a(th);
+                    }
+                    int i7 = com.baidu.sofire.a.b.a;
                     return Pair.create(3, null);
                 }
-                a3.setClassLoader(CallArgs.class.getClassLoader());
-                int i6 = a3.getInt("status");
-                CallArgs callArgs2 = i6 == 0 ? (CallArgs) a3.getParcelable(TiebaStatic.LogFields.RESULT) : null;
-                return Pair.create(Integer.valueOf(i6), callArgs2 == null ? null : callArgs2.f);
-            } catch (Throwable th) {
-                th = th;
-                i4 = i5;
-                if (i4 != 0) {
-                    com.baidu.sofire.b.c.c = com.baidu.sofire.a.b.a(th);
-                }
-                int i7 = com.baidu.sofire.a.b.a;
-                return Pair.create(3, null);
+            } catch (Throwable th2) {
+                th = th2;
             }
-        } catch (Throwable th2) {
-            th = th2;
+        } else {
+            return (Pair) invokeCommon.objValue;
+        }
+    }
+
+    public static Pair a(String str, Class[] clsArr, Object... objArr) {
+        InterceptResult invokeLLL;
+        k kVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, str, clsArr, objArr)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new Pair(1, null);
+            }
+            try {
+                kVar = k.f;
+            } catch (Throwable unused) {
+                int i2 = com.baidu.sofire.a.b.a;
+            }
+            if (kVar == null) {
+                return new Pair(3, null);
+            }
+            ApkInfo b2 = kVar.b("com.baidu.sofire.x0");
+            if (b2 != null) {
+                Class a2 = ((j) b2.classLoader).a("com.baidu.sofire.engine.EngineImpl");
+                return new Pair(0, com.baidu.sofire.k.a.a(a2.getDeclaredMethod("getInstance", Context.class).invoke(a2, d.e), str, clsArr, objArr));
+            }
+            return new Pair(3, null);
+        }
+        return (Pair) invokeLLL.objValue;
+    }
+
+    public static String a(Context context, String str, int i2, String str2) {
+        InterceptResult invokeLLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65543, null, context, str, i2, str2)) == null) {
+            try {
+            } catch (Throwable th) {
+                com.baidu.sofire.b.c.c = com.baidu.sofire.a.b.a(th);
+                int i3 = com.baidu.sofire.a.b.a;
+            }
+            if (context == null) {
+                com.baidu.sofire.b.c.b = 1001;
+                return "";
+            } else if (!TextUtils.isEmpty(a)) {
+                if (i2 != 0 && n.a(context)) {
+                    if (TextUtils.isEmpty(str2)) {
+                        a(1, "ice", (Callback) null, new Class[]{String.class, Integer.TYPE}, str, Integer.valueOf(i2));
+                    } else {
+                        a(1, "ice", (Callback) null, new Class[]{String.class, Integer.TYPE, String.class}, str, Integer.valueOf(i2), str2);
+                    }
+                }
+                return a;
+            } else if (!com.baidu.sofire.k.a.a(context, false)) {
+                com.baidu.sofire.b.c.b = 1002;
+                com.baidu.sofire.b.c.a = com.baidu.sofire.k.a.a();
+                return "";
+            } else {
+                String g2 = com.baidu.sofire.k.a.g(context);
+                if (TextUtils.isEmpty(g2)) {
+                    if (com.baidu.sofire.k.a.e(context.getPackageName())) {
+                        com.baidu.sofire.b.c.b = 1003;
+                        com.baidu.sofire.b.c.a = com.baidu.sofire.k.a.a();
+                        return "";
+                    }
+                    return b(context, str, i2, str2);
+                } else if (com.baidu.sofire.k.a.e(g2)) {
+                    Pair a2 = a(context, 0, 1, "gzfi", (Class[]) null, str, Integer.valueOf(i2), str2);
+                    if (a2 != null) {
+                        if (((Integer) a2.first).intValue() == 0) {
+                            return (String) a2.second;
+                        }
+                        com.baidu.sofire.b.c.b = 1004;
+                        com.baidu.sofire.b.c.a(((Integer) a2.first).intValue());
+                        return "";
+                    }
+                    com.baidu.sofire.b.c.b = 1004;
+                    com.baidu.sofire.b.c.a(-1001);
+                    com.baidu.sofire.b.c.b = 1005;
+                    com.baidu.sofire.b.c.a(-1002);
+                    return "";
+                } else {
+                    return b(context, str, i2, str2);
+                }
+            }
+        }
+        return (String) invokeLLIL.objValue;
+    }
+
+    public static void a(int i2, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(65544, null, i2, str, str2) == null) {
+            synchronized (i) {
+                try {
+                    for (GzfiCallback gzfiCallback : i) {
+                        if (gzfiCallback != null) {
+                            int i3 = com.baidu.sofire.a.b.a;
+                            gzfiCallback.onComplete(i2, str, str2);
+                        }
+                    }
+                    List list = i;
+                    if (list != null) {
+                        list.clear();
+                    }
+                } catch (Throwable th) {
+                    throw th;
+                }
+            }
+        }
+    }
+
+    public static void a(Context context, int i2, BDModuleLoadCallback bDModuleLoadCallback, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{context, Integer.valueOf(i2), bDModuleLoadCallback, Boolean.valueOf(z)}) == null) && i2 > 0 && bDModuleLoadCallback != null) {
+            if (com.baidu.sofire.k.a.b(i2)) {
+                bDModuleLoadCallback.onSuccess(i2);
+            } else if (System.currentTimeMillis() - e < 10000) {
+                bDModuleLoadCallback.onFailure(i2, 8);
+            } else {
+                e = System.currentTimeMillis();
+                if (com.baidu.sofire.k.a.k(context.getApplicationContext()) == 1) {
+                    if (!n.a(context.getApplicationContext())) {
+                        bDModuleLoadCallback.onFailure(i2, 10);
+                        return;
+                    }
+                    U.addCallback(i2, bDModuleLoadCallback);
+                    if (z && !U.sIsRunning) {
+                        p.a(context).b(new U(context.getApplicationContext(), 7, true));
+                        return;
+                    }
+                    return;
+                }
+                bDModuleLoadCallback.onFailure(i2, 9);
+            }
+        }
+    }
+
+    public static String b(Context context, String str, int i2, String str2) {
+        InterceptResult invokeLLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65554, null, context, str, i2, str2)) == null) {
+            if (context == null) {
+                return "";
+            }
+            if (i2 != 0) {
+                if (TextUtils.isEmpty(str2) && n.a(context)) {
+                    a(1, "ice", (Callback) null, new Class[]{String.class, Integer.TYPE}, str, Integer.valueOf(i2));
+                } else {
+                    a(1, "ice", (Callback) null, new Class[]{String.class, Integer.TYPE, String.class}, str, Integer.valueOf(i2), str2);
+                }
+            }
+            return c(context);
+        }
+        return (String) invokeLLIL.objValue;
+    }
+
+    public static synchronized void a(Context context, int i2, String str, String str2, BDModuleLoadCallback bDModuleLoadCallback, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{context, Integer.valueOf(i2), str, str2, bDModuleLoadCallback, Integer.valueOf(i3)}) == null) {
+            synchronized (e.class) {
+                if (context == null) {
+                    return;
+                }
+                try {
+                } catch (Throwable unused) {
+                    int i4 = com.baidu.sofire.a.b.a;
+                }
+                if (b) {
+                    return;
+                }
+                b = true;
+                d.e = context;
+                a(context, i3, bDModuleLoadCallback, false);
+                p.a(context).b(new a(context, str, str2, i3, i2));
+            }
+        }
+    }
+
+    public static synchronized void a(Context context, int i2, String str, String str2, int... iArr) {
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{context, Integer.valueOf(i2), str, str2, iArr}) == null) {
+            synchronized (e.class) {
+                if (iArr != null) {
+                    try {
+                        if (iArr.length > 1) {
+                            f = iArr;
+                            i3 = 0;
+                            a(context, i2, str, str2, (BDModuleLoadCallback) null, i3);
+                        }
+                    } catch (Throwable th) {
+                        throw th;
+                    }
+                }
+                if (iArr != null && iArr.length == 1) {
+                    i3 = iArr[0];
+                    a(context, i2, str, str2, (BDModuleLoadCallback) null, i3);
+                }
+                i3 = 0;
+                a(context, i2, str, str2, (BDModuleLoadCallback) null, i3);
+            }
+        }
+    }
+
+    public static synchronized void a(Context context, Bundle bundle) {
+        IBinder iBinder;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65548, null, context, bundle) == null) {
+            synchronized (e.class) {
+                bundle.setClassLoader(e.class.getClassLoader());
+                String string = bundle.getString("accountId", "");
+                int i2 = bundle.getInt("scene", 0);
+                String string2 = bundle.getString("para", "");
+                int i3 = 20;
+                int i4 = bundle.getInt("timeout", 20);
+                BinderHolder binderHolder = (BinderHolder) bundle.getParcelable("binderHolder");
+                if (binderHolder != null && (iBinder = binderHolder.a) != null) {
+                    c cVar = new c(a.AbstractBinderC0157a.a(iBinder));
+                    synchronized (e.class) {
+                        try {
+                            if (d.e == null) {
+                                d.e = context.getApplicationContext();
+                            }
+                            Pair a2 = a(context);
+                            if (a2 != null && ((Integer) a2.first).intValue() == 1) {
+                                cVar.onComplete(((Integer) a2.first).intValue(), a(context, string, i2, string2), "");
+                            } else {
+                                synchronized (i) {
+                                    i.add(cVar);
+                                }
+                                if (i4 > 0) {
+                                    i3 = i4;
+                                }
+                                synchronized (h) {
+                                    if (g == null) {
+                                        Timer timer = new Timer();
+                                        g = timer;
+                                        timer.schedule(new g(context, string, i2, string2, System.currentTimeMillis() + (i3 * 1000)), 100L, 100L);
+                                    }
+                                }
+                            }
+                        } catch (Throwable unused) {
+                            int i5 = com.baidu.sofire.a.b.a;
+                        }
+                    }
+                }
+            }
         }
     }
 
     public static synchronized void a(Context context, boolean z) {
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65549, null, context, z) == null) {
             synchronized (e.class) {
@@ -1009,7 +968,12 @@ public class e {
                         bundle.putBoolean("_agree_policy", z);
                         o.a(context, "setAgreePolicy", bundle, "sofire");
                     } else if (k == 1) {
-                        n.a = z ? 1 : 2;
+                        if (z) {
+                            i2 = 1;
+                        } else {
+                            i2 = 2;
+                        }
+                        n.a = i2;
                         com.baidu.sofire.k.a.a(context, ".ffnpp", !z ? 1 : 0);
                         com.baidu.sofire.j.a a2 = com.baidu.sofire.j.a.a(context);
                         a2.d.putBoolean("s_a_pl", z);
@@ -1027,42 +991,116 @@ public class e {
                                         p.a(context).b(new f(context));
                                     }
                                 } catch (Throwable unused) {
-                                    int i2 = com.baidu.sofire.a.b.a;
+                                    int i3 = com.baidu.sofire.a.b.a;
                                 }
                             }
                         }
                     }
                 } catch (Throwable unused2) {
-                    int i3 = com.baidu.sofire.a.b.a;
+                    int i4 = com.baidu.sofire.a.b.a;
                 }
             }
         }
     }
 
-    public static void a(Context context, int i2, BDModuleLoadCallback bDModuleLoadCallback, boolean z) {
+    public static boolean a(int i2, String str, Callback callback, Class[] clsArr, Object... objArr) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{context, Integer.valueOf(i2), bDModuleLoadCallback, Boolean.valueOf(z)}) == null) || i2 <= 0 || bDModuleLoadCallback == null) {
-            return;
-        }
-        if (com.baidu.sofire.k.a.b(i2)) {
-            bDModuleLoadCallback.onSuccess(i2);
-        } else if (System.currentTimeMillis() - e < 10000) {
-            bDModuleLoadCallback.onFailure(i2, 8);
-        } else {
-            e = System.currentTimeMillis();
-            if (com.baidu.sofire.k.a.k(context.getApplicationContext()) == 1) {
-                if (!n.a(context.getApplicationContext())) {
-                    bDModuleLoadCallback.onFailure(i2, 10);
-                    return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Integer.valueOf(i2), str, callback, clsArr, objArr})) == null) {
+            try {
+                if (p.a(d.e).a(new b(callback, i2, str, clsArr, objArr)) != 1) {
+                    return false;
                 }
-                U.addCallback(i2, bDModuleLoadCallback);
-                if (!z || U.sIsRunning) {
-                    return;
-                }
-                p.a(context).b(new U(context.getApplicationContext(), 7, true));
-                return;
+                return true;
+            } catch (Throwable unused) {
+                int i3 = com.baidu.sofire.a.b.a;
+                return false;
             }
-            bDModuleLoadCallback.onFailure(i2, 9);
         }
+        return invokeCommon.booleanValue;
+    }
+
+    public static String b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, context)) == null) {
+            try {
+            } catch (Throwable unused) {
+                int i2 = com.baidu.sofire.a.b.a;
+            }
+            if (!TextUtils.isEmpty(a)) {
+                return a;
+            }
+            if (context == null || !com.baidu.sofire.k.a.a(context, false)) {
+                return "";
+            }
+            String g2 = com.baidu.sofire.k.a.g(context);
+            if (TextUtils.isEmpty(g2)) {
+                if (com.baidu.sofire.k.a.e(context.getPackageName())) {
+                    return "";
+                }
+                return c(context);
+            } else if (com.baidu.sofire.k.a.e(g2)) {
+                Pair a2 = a(context, 0, 1, "gz", (Class[]) null, new Object[0]);
+                if (a2 != null) {
+                    if (((Integer) a2.first).intValue() != 0) {
+                        return "";
+                    }
+                    return (String) a2.second;
+                }
+                a = "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
+                return "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
+            } else {
+                return c(context);
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(Context context) {
+        InterceptResult invokeL;
+        com.baidu.sofire.j.a a2;
+        String string;
+        byte[] re;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, context)) == null) {
+            try {
+                a2 = com.baidu.sofire.j.a.a(context);
+                string = a2.c.getString("xytk", "");
+            } catch (Throwable unused) {
+                int i2 = com.baidu.sofire.a.b.a;
+            }
+            if (!TextUtils.isEmpty(string)) {
+                a = string;
+                return string;
+            }
+            String string2 = a2.c.getString("xytk_m", "");
+            if (!TextUtils.isEmpty(string2)) {
+                a = string2;
+                return string2;
+            }
+            String a3 = com.baidu.sofire.k.c.a(context);
+            if (!TextUtils.isEmpty(a3)) {
+                String[] split = a3.split(WebChromeClient.PARAM_SEPARATOR);
+                if (split != null && split.length == 2 && !TextUtils.isEmpty(split[0]) && !TextUtils.isEmpty(split[1])) {
+                    if (F.getInstance().re(split[1].getBytes(), split[0].getBytes()) != null) {
+                        String str = split[0] + com.baidu.sofire.k.a.a(re);
+                        a2.d.putString("xytk_m", str);
+                        if (Build.VERSION.SDK_INT >= 9) {
+                            a2.d.apply();
+                        } else {
+                            a2.d.commit();
+                        }
+                        a = str;
+                        return str;
+                    }
+                }
+                a = "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
+                return "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
+            }
+            a = "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
+            return "74FFB5E615AA72E0B057EE43E3D5A23A8BA34AAC1672FC9B56A7106C57BA03";
+        }
+        return (String) invokeL.objValue;
     }
 }

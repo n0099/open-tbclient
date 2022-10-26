@@ -28,6 +28,28 @@ public class SendCell {
     public int retry;
     public long timestamp;
 
+    public SendCell(long j, String str, long j2, int i, long j3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), str, Long.valueOf(j2), Integer.valueOf(i), Long.valueOf(j3)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.content = str;
+        this.retry = i;
+        this.expire = j2;
+        this.timestamp = j3;
+        this.id = j == 0 ? createId() : j;
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SendCell(String str, long j) {
         this(0L, str, j, 0, System.currentTimeMillis());
@@ -52,47 +74,107 @@ public class SendCell {
     private long createId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? ((this.timestamp + (this.expire * 1000)) * 10000) + ((long) (Math.random() * 10000.0d)) : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            return ((this.timestamp + (this.expire * 1000)) * 10000) + ((long) (Math.random() * 10000.0d));
+        }
+        return invokeV.longValue;
+    }
+
+    public String getContent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.content;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long getExpire() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.expire;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.id;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getRetry() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.retry;
+        }
+        return invokeV.intValue;
+    }
+
+    public long getTimestamp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.timestamp;
+        }
+        return invokeV.longValue;
+    }
+
+    public int retryIncrease() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            int i = this.retry + 1;
+            this.retry = i;
+            return i;
+        }
+        return invokeV.intValue;
     }
 
     public static SendCell loadFromFile(File file) {
         InterceptResult invokeL;
         FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, file)) != null) {
-            return (SendCell) invokeL.objValue;
-        }
-        try {
-            fileInputStream = new FileInputStream(file);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, file)) == null) {
             try {
-                byte[] readInputStream = Util.readInputStream(fileInputStream);
-                long parseId = parseId(file.getName());
-                long j = NumberUtil.getLong(readInputStream, 0);
-                SendCell sendCell = new SendCell(parseId, new String(new AesCipher((file.getName() + AES_KEY).getBytes()).decrypt(readInputStream, 20, readInputStream.length - 20), IMAudioTransRequest.CHARSET).trim(), NumberUtil.getInt(readInputStream, 8), NumberUtil.getInt(readInputStream, 16), j);
+                fileInputStream = new FileInputStream(file);
                 try {
-                    fileInputStream.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                return sendCell;
-            } catch (Throwable th) {
-                th = th;
-                try {
-                    L.debug("SendCell", th.getMessage(), new Object[0]);
-                    return null;
-                } finally {
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (IOException e2) {
-                            e2.printStackTrace();
+                    byte[] readInputStream = Util.readInputStream(fileInputStream);
+                    long parseId = parseId(file.getName());
+                    long j = NumberUtil.getLong(readInputStream, 0);
+                    SendCell sendCell = new SendCell(parseId, new String(new AesCipher((file.getName() + AES_KEY).getBytes()).decrypt(readInputStream, 20, readInputStream.length - 20), IMAudioTransRequest.CHARSET).trim(), NumberUtil.getInt(readInputStream, 8), NumberUtil.getInt(readInputStream, 16), j);
+                    try {
+                        fileInputStream.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    return sendCell;
+                } catch (Throwable th) {
+                    th = th;
+                    try {
+                        L.debug("SendCell", th.getMessage(), new Object[0]);
+                        return null;
+                    } finally {
+                        if (fileInputStream != null) {
+                            try {
+                                fileInputStream.close();
+                            } catch (IOException e2) {
+                                e2.printStackTrace();
+                            }
                         }
                     }
                 }
+            } catch (Throwable th2) {
+                th = th2;
+                fileInputStream = null;
             }
-        } catch (Throwable th2) {
-            th = th2;
-            fileInputStream = null;
+        } else {
+            return (SendCell) invokeL.objValue;
         }
     }
 
@@ -130,7 +212,7 @@ public class SendCell {
 
     public void deleteFile(File file) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, file) == null) || this.id == 0) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, file) != null) || this.id == 0) {
             return;
         }
         String absolutePath = file.getAbsolutePath();
@@ -142,123 +224,61 @@ public class SendCell {
         new File(sb.toString()).delete();
     }
 
-    public String getContent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.content : (String) invokeV.objValue;
-    }
-
-    public long getExpire() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.expire : invokeV.longValue;
-    }
-
-    public long getId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.id : invokeV.longValue;
-    }
-
-    public int getRetry() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.retry : invokeV.intValue;
-    }
-
-    public long getTimestamp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.timestamp : invokeV.longValue;
-    }
-
-    public int retryIncrease() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int i = this.retry + 1;
-            this.retry = i;
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
     public boolean saveToFile(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048583, this, file)) != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, file)) == null) {
+            File randomFile = randomFile(file);
+            if (randomFile.exists()) {
+                return true;
+            }
+            FileOutputStream fileOutputStream = null;
+            try {
+                byte[] encrypt = new AesCipher((randomFile.getName() + AES_KEY).getBytes()).encrypt(this.content.getBytes(IMAudioTransRequest.CHARSET));
+                FileOutputStream fileOutputStream2 = new FileOutputStream(randomFile);
+                try {
+                    fileOutputStream2.write(NumberUtil.getBytes(this.timestamp));
+                    fileOutputStream2.write(NumberUtil.getBytes(this.expire));
+                    fileOutputStream2.write(NumberUtil.getBytes(this.retry));
+                    fileOutputStream2.write(encrypt);
+                    fileOutputStream2.flush();
+                    try {
+                        fileOutputStream2.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    return true;
+                } catch (Throwable th) {
+                    th = th;
+                    fileOutputStream = fileOutputStream2;
+                    try {
+                        th.printStackTrace();
+                        if (fileOutputStream != null) {
+                            try {
+                                fileOutputStream.close();
+                                return false;
+                            } catch (IOException e2) {
+                                e2.printStackTrace();
+                                return false;
+                            }
+                        }
+                        return false;
+                    } catch (Throwable th2) {
+                        if (fileOutputStream != null) {
+                            try {
+                                fileOutputStream.close();
+                            } catch (IOException e3) {
+                                e3.printStackTrace();
+                            }
+                        }
+                        throw th2;
+                    }
+                }
+            } catch (Throwable th3) {
+                th = th3;
+            }
+        } else {
             return invokeL.booleanValue;
         }
-        File randomFile = randomFile(file);
-        if (randomFile.exists()) {
-            return true;
-        }
-        FileOutputStream fileOutputStream = null;
-        try {
-            byte[] encrypt = new AesCipher((randomFile.getName() + AES_KEY).getBytes()).encrypt(this.content.getBytes(IMAudioTransRequest.CHARSET));
-            FileOutputStream fileOutputStream2 = new FileOutputStream(randomFile);
-            try {
-                fileOutputStream2.write(NumberUtil.getBytes(this.timestamp));
-                fileOutputStream2.write(NumberUtil.getBytes(this.expire));
-                fileOutputStream2.write(NumberUtil.getBytes(this.retry));
-                fileOutputStream2.write(encrypt);
-                fileOutputStream2.flush();
-                try {
-                    fileOutputStream2.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                return true;
-            } catch (Throwable th) {
-                th = th;
-                fileOutputStream = fileOutputStream2;
-                try {
-                    th.printStackTrace();
-                    if (fileOutputStream != null) {
-                        try {
-                            fileOutputStream.close();
-                            return false;
-                        } catch (IOException e2) {
-                            e2.printStackTrace();
-                            return false;
-                        }
-                    }
-                    return false;
-                } catch (Throwable th2) {
-                    if (fileOutputStream != null) {
-                        try {
-                            fileOutputStream.close();
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
-                        }
-                    }
-                    throw th2;
-                }
-            }
-        } catch (Throwable th3) {
-            th = th3;
-        }
-    }
-
-    public SendCell(long j, String str, long j2, int i, long j3) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), str, Long.valueOf(j2), Integer.valueOf(i), Long.valueOf(j3)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.content = str;
-        this.retry = i;
-        this.expire = j2;
-        this.timestamp = j3;
-        this.id = j == 0 ? createId() : j;
     }
 }

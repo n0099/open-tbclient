@@ -45,21 +45,6 @@ public class DressupItemView extends LinearLayout {
         a();
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03da, this);
-            this.b = inflate;
-            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090385);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0918d1);
-            this.d = tbImageView;
-            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081241);
-            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081241);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092443);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09243c);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DressupItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -104,5 +89,20 @@ public class DressupItemView extends LinearLayout {
         }
         this.a = context;
         a();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03d7, this);
+            this.b = inflate;
+            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090384);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0918c4);
+            this.d = tbImageView;
+            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081252);
+            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081252);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09242d);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092426);
+        }
     }
 }

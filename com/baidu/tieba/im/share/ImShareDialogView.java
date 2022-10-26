@@ -10,7 +10,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -32,12 +31,12 @@ import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.hl5;
-import com.baidu.tieba.hv4;
+import com.baidu.tieba.bc7;
+import com.baidu.tieba.e29;
+import com.baidu.tieba.fj;
 import com.baidu.tieba.im.share.ImShareDialogView;
-import com.baidu.tieba.tb7;
-import com.baidu.tieba.y19;
+import com.baidu.tieba.nv4;
+import com.baidu.tieba.ol5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -62,7 +61,7 @@ public class ImShareDialogView extends LinearLayout {
     public SpanGroupEditText m;
     public TextView n;
     public TextView o;
-    public tb7 p;
+    public bc7 p;
     public CustomMessageListener q;
 
     /* loaded from: classes4.dex */
@@ -94,11 +93,12 @@ public class ImShareDialogView extends LinearLayout {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304) {
-                this.a.f();
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2001304) {
+                return;
             }
+            this.a.f();
         }
     }
 
@@ -123,15 +123,101 @@ public class ImShareDialogView extends LinearLayout {
         }
     }
 
+    public final void e(MetaData metaData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, metaData) == null) {
+            String name_show = metaData.getName_show();
+            EMTextView eMTextView = this.a;
+            String string = getResources().getString(R.string.obfuscated_res_0x7f0f08ed);
+            Object[] objArr = new Object[1];
+            if (name_show == null) {
+                name_show = "";
+            }
+            objArr[0] = name_show;
+            eMTextView.setText(String.format(string, objArr));
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public ImShareDialogView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ImShareDialogView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        h(context);
+        g();
+        f();
+    }
+
+    public /* synthetic */ void i(View view2) {
+        bc7 bc7Var = this.p;
+        if (bc7Var != null) {
+            bc7Var.a();
+        }
+    }
+
+    public /* synthetic */ void j(View view2) {
+        String str;
+        if (this.p != null) {
+            if (this.m.getText() != null) {
+                str = this.m.getText().toString();
+            } else {
+                str = "";
+            }
+            this.p.b(str);
+        }
+    }
+
+    public void setShareClickCallBack(bc7 bc7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, bc7Var) == null) {
+            this.p = bc7Var;
+        }
+    }
+
     private void setImage(ThreadData threadData) {
         MediaData mediaData;
-        String picUrl;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, threadData) == null) {
             if (threadData.getThreadType() == 40 && threadData.getThreadVideoInfo() != null) {
-                picUrl = threadData.getThreadVideoInfo().thumbnail_url;
+                str = threadData.getThreadVideoInfo().thumbnail_url;
                 this.e.setVisibility(0);
-                this.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0808cc, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
+                this.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0808c9, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
             } else {
                 new MediaData();
                 if (threadData.isImShareFromPb()) {
@@ -150,24 +236,26 @@ public class ImShareDialogView extends LinearLayout {
                     mediaData = threadData.getMedias().get(0);
                 }
                 if (!TextUtils.isEmpty(mediaData.getSrc_pic())) {
-                    picUrl = mediaData.getSrc_pic();
+                    str = mediaData.getSrc_pic();
+                } else if (!TextUtils.isEmpty(mediaData.getPicUrl())) {
+                    str = mediaData.getPicUrl();
                 } else {
-                    picUrl = !TextUtils.isEmpty(mediaData.getPicUrl()) ? mediaData.getPicUrl() : null;
+                    str = null;
                 }
             }
-            if (TextUtils.isEmpty(picUrl)) {
+            if (TextUtils.isEmpty(str)) {
                 this.c.setVisibility(8);
                 return;
             }
             this.d.setVisibility(0);
-            this.d.j0(picUrl, 38);
+            this.d.k0(str, 38);
         }
     }
 
     private void setInfoText(ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, threadData) == null) {
-            CharSequence string = getContext().getString(R.string.obfuscated_res_0x7f0f08db);
+            CharSequence string = getContext().getString(R.string.obfuscated_res_0x7f0f08e8);
             if (!TextUtils.isEmpty(threadData.getTitleText()) && threadData.getIsNoTitle() == 0) {
                 string = b(threadData, threadData.getTitleText());
             } else if (!TextUtils.isEmpty(threadData.getTitle()) && threadData.getIsNoTitle() == 0) {
@@ -180,10 +268,26 @@ public class ImShareDialogView extends LinearLayout {
                 string = b(threadData, threadData.getAbstract());
                 c(threadData, string);
                 d(threadData, string);
-            } else if (threadData.isImShareFromPb() && threadData.getPbFirstShareData() != null && threadData.getPbFirstShareData().W() != null) {
-                string = threadData.getPbFirstShareData().W().toString();
+            } else if (threadData.isImShareFromPb() && threadData.getPbFirstShareData() != null && threadData.getPbFirstShareData().X() != null) {
+                string = threadData.getPbFirstShareData().X().toString();
             }
             this.f.setText(string);
+        }
+    }
+
+    public final void k(ForumData forumData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, forumData) == null) {
+            this.h.L(forumData.getImage_url(), 10, false);
+            this.i.setText("" + forumData.getName() + getResources().getString(R.string.obfuscated_res_0x7f0f0677));
+            if (!TextUtils.isEmpty(forumData.getSlogan())) {
+                this.j.setVisibility(0);
+                this.j.setText(forumData.getSlogan());
+            } else {
+                this.j.setVisibility(8);
+            }
+            this.k.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0430), StringHelper.numberUniformFormatExtra(forumData.getMember_num())));
+            this.l.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f06e3), StringHelper.numberUniformFormatExtra(forumData.getThread_num())));
         }
     }
 
@@ -191,12 +295,12 @@ public class ImShareDialogView extends LinearLayout {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, threadData, charSequence)) == null) {
-            if (threadData == null || !threadData.isShareThread || threadData.originalThreadData == null) {
-                return charSequence;
+            if (threadData != null && threadData.isShareThread && threadData.originalThreadData != null) {
+                SpannableStringBuilder append = new SpannableStringBuilder(charSequence).append((CharSequence) "//");
+                OriginalThreadInfo originalThreadInfo = threadData.originalThreadData;
+                return new SpannableString(append.append((CharSequence) new SpannableString(ol5.G(originalThreadInfo.s, originalThreadInfo.E, false, threadData, originalThreadInfo.h()))));
             }
-            SpannableStringBuilder append = new SpannableStringBuilder(charSequence).append((CharSequence) "//");
-            OriginalThreadInfo originalThreadInfo = threadData.originalThreadData;
-            return new SpannableString(append.append((CharSequence) new SpannableString(hl5.G(originalThreadInfo.s, originalThreadInfo.E, false, threadData, originalThreadInfo.h()))));
+            return charSequence;
         }
         return (CharSequence) invokeLL.objValue;
     }
@@ -204,73 +308,79 @@ public class ImShareDialogView extends LinearLayout {
     public final void c(ThreadData threadData, CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData, charSequence) == null) && threadData.isVoiceThreadType()) {
-            String str = ((Object) charSequence) + getContext().getString(R.string.obfuscated_res_0x7f0f08e1);
+            String str = ((Object) charSequence) + getContext().getString(R.string.obfuscated_res_0x7f0f08ee);
         }
     }
 
     public final void d(ThreadData threadData, CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, threadData, charSequence) == null) || threadData.getPollData() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, threadData, charSequence) == null) && threadData.getPollData() != null) {
+            String str = ((Object) charSequence) + getContext().getString(R.string.obfuscated_res_0x7f0f08ef);
         }
-        String str = ((Object) charSequence) + getContext().getString(R.string.obfuscated_res_0x7f0f08e2);
     }
 
-    public final void e(MetaData metaData) {
+    public void l(ForumData forumData, MetaData metaData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, metaData) == null) {
-            String name_show = metaData.getName_show();
-            EMTextView eMTextView = this.a;
-            String string = getResources().getString(R.string.obfuscated_res_0x7f0f08e0);
-            Object[] objArr = new Object[1];
-            if (name_show == null) {
-                name_show = "";
-            }
-            objArr[0] = name_show;
-            eMTextView.setText(String.format(string, objArr));
+        if ((interceptable == null || interceptable.invokeLL(1048586, this, forumData, metaData) == null) && forumData != null && !TextUtils.isEmpty(forumData.getId()) && metaData != null) {
+            this.g.setVisibility(0);
+            this.b.setVisibility(8);
+            e(metaData);
+            k(forumData);
+        }
+    }
+
+    public void m(ThreadData threadData, MetaData metaData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048587, this, threadData, metaData) == null) && threadData != null && metaData != null) {
+            this.b.setVisibility(0);
+            this.g.setVisibility(8);
+            this.e.setVisibility(8);
+            e(metaData);
+            setImage(threadData);
+            setInfoText(threadData);
         }
     }
 
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            hv4 d = hv4.d(this);
+            nv4 d = nv4.d(this);
             d.n(R.string.J_X14);
             d.f(R.color.CAM_X0212);
-            hv4.d(this.a).v(R.color.CAM_X0109);
-            hv4 d2 = hv4.d(this.b);
+            nv4.d(this.a).v(R.color.CAM_X0109);
+            nv4 d2 = nv4.d(this.b);
             d2.n(R.string.J_X05);
             d2.f(R.color.CAM_X0207);
-            hv4.d(this.f).v(R.color.CAM_X0107);
-            hv4 d3 = hv4.d(this.g);
+            nv4.d(this.f).v(R.color.CAM_X0107);
+            nv4 d3 = nv4.d(this.g);
             d3.n(R.string.J_X05);
             d3.f(R.color.CAM_X0207);
-            hv4 d4 = hv4.d(this.i);
+            nv4 d4 = nv4.d(this.i);
             d4.v(R.color.CAM_X0105);
             d4.A(R.string.F_X02);
-            hv4.d(this.j).v(R.color.CAM_X0107);
-            hv4.d(this.k).v(R.color.CAM_X0109);
-            hv4.d(this.l).v(R.color.CAM_X0109);
+            nv4.d(this.j).v(R.color.CAM_X0107);
+            nv4.d(this.k).v(R.color.CAM_X0109);
+            nv4.d(this.l).v(R.color.CAM_X0109);
             this.h.setStrokeColorResId(R.color.CAM_X0401);
-            hv4 d5 = hv4.d(this.m);
+            nv4 d5 = nv4.d(this.m);
             d5.n(R.string.J_X05);
             d5.f(R.color.CAM_X0207);
             this.m.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             if (TbadkCoreApplication.getInst().getSkinType() == 0) {
-                y19.l(this.m, R.drawable.obfuscated_res_0x7f0804c2);
+                e29.l(this.m, R.drawable.obfuscated_res_0x7f0804c2);
             } else {
-                y19.l(this.m, R.drawable.obfuscated_res_0x7f0804c3);
+                e29.l(this.m, R.drawable.obfuscated_res_0x7f0804c3);
             }
             this.m.setHintTextColor(SkinManager.getColor(TbadkCoreApplication.getInst().getSkinType(), (int) R.color.CAM_X0109));
-            hv4.d(this.n).x(R.color.CAM_X0107);
-            hv4.d(this.o).x(R.color.CAM_X0304);
+            nv4.d(this.n).x(R.color.CAM_X0107);
+            nv4.d(this.o).x(R.color.CAM_X0304);
         }
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.n.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.rb7
+            this.n.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.zb7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -282,7 +392,7 @@ public class ImShareDialogView extends LinearLayout {
                     }
                 }
             });
-            this.o.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.qb7
+            this.o.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yb7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -295,114 +405,6 @@ public class ImShareDialogView extends LinearLayout {
                 }
             });
         }
-    }
-
-    public final void h(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            setOrientation(1);
-            setLayoutParams(layoutParams);
-            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d03c3, this);
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090e92);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090e8d);
-            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090e8f);
-            GifView gifView = (GifView) findViewById(R.id.obfuscated_res_0x7f090e8e);
-            this.d = gifView;
-            gifView.setConrers(15);
-            this.d.setRadiusById(R.string.J_X04);
-            this.d.setDrawCorner(true);
-            this.d.setDrawBorder(true);
-            this.d.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.L_X01));
-            this.d.setBorderSurroundContent(true);
-            this.d.setAutoPlay(true);
-            this.d.setShowStaticDrawable(false);
-            this.d.setSupportNoImage(false);
-            this.d.setGifIconSupport(true);
-            this.e = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090e91);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090e90);
-            this.g = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090e82);
-            BarImageView barImageView = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090e83);
-            this.h = barImageView;
-            barImageView.setPlaceHolder(1);
-            this.h.setShowOval(true);
-            this.h.setAutoChangeStyle(true);
-            this.h.setShowInnerBorder(true);
-            this.h.setStrokeWith(ej.f(TbadkCoreApplication.getInst(), R.dimen.L_X01));
-            this.h.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090e86);
-            this.j = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090e81);
-            this.k = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090e80);
-            this.l = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090e85);
-            SpanGroupEditText spanGroupEditText = (SpanGroupEditText) findViewById(R.id.obfuscated_res_0x7f090e87);
-            this.m = spanGroupEditText;
-            spanGroupEditText.setHint(R.string.obfuscated_res_0x7f0f08dd);
-            this.m.setMaxLines(3);
-            this.m.setMinLines(3);
-            this.m.setIncludeFontPadding(false);
-            this.m.setGravity(48);
-            this.m.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.T_X06));
-            this.m.setLineSpacing(ej.f(getContext(), R.dimen.M_T_X002), 1.0f);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090e89);
-            this.n = textView;
-            textView.setText(context.getString(R.string.obfuscated_res_0x7f0f0375));
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f090e8c);
-            this.o = textView2;
-            textView2.setText(context.getString(R.string.obfuscated_res_0x7f0f008b));
-        }
-    }
-
-    public /* synthetic */ void i(View view2) {
-        tb7 tb7Var = this.p;
-        if (tb7Var != null) {
-            tb7Var.a();
-        }
-    }
-
-    public /* synthetic */ void j(View view2) {
-        if (this.p != null) {
-            this.p.b(this.m.getText() != null ? this.m.getText().toString() : "");
-        }
-    }
-
-    public final void k(ForumData forumData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, forumData) == null) {
-            this.h.K(forumData.getImage_url(), 10, false);
-            this.i.setText("" + forumData.getName() + getResources().getString(R.string.obfuscated_res_0x7f0f066e));
-            if (!TextUtils.isEmpty(forumData.getSlogan())) {
-                this.j.setVisibility(0);
-                this.j.setText(forumData.getSlogan());
-            } else {
-                this.j.setVisibility(8);
-            }
-            this.k.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0429), StringHelper.numberUniformFormatExtra(forumData.getMember_num())));
-            this.l.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f06d7), StringHelper.numberUniformFormatExtra(forumData.getThread_num())));
-        }
-    }
-
-    public void l(ForumData forumData, MetaData metaData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048586, this, forumData, metaData) == null) || forumData == null || TextUtils.isEmpty(forumData.getId()) || metaData == null) {
-            return;
-        }
-        this.g.setVisibility(0);
-        this.b.setVisibility(8);
-        e(metaData);
-        k(forumData);
-    }
-
-    public void m(ThreadData threadData, MetaData metaData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048587, this, threadData, metaData) == null) || threadData == null || metaData == null) {
-            return;
-        }
-        this.b.setVisibility(0);
-        this.g.setVisibility(8);
-        this.e.setVisibility(8);
-        e(metaData);
-        setImage(threadData);
-        setInfoText(threadData);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -426,55 +428,58 @@ public class ImShareDialogView extends LinearLayout {
         }
     }
 
-    public void setShareClickCallBack(tb7 tb7Var) {
+    public final void h(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, tb7Var) == null) {
-            this.p = tb7Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
+            setOrientation(1);
+            setLayoutParams(layoutParams);
+            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d03c0, this);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090e86);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090e81);
+            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090e83);
+            GifView gifView = (GifView) findViewById(R.id.obfuscated_res_0x7f090e82);
+            this.d = gifView;
+            gifView.setConrers(15);
+            this.d.setRadiusById(R.string.J_X04);
+            this.d.setDrawCorner(true);
+            this.d.setDrawBorder(true);
+            this.d.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.L_X01));
+            this.d.setBorderSurroundContent(true);
+            this.d.setAutoPlay(true);
+            this.d.setShowStaticDrawable(false);
+            this.d.setSupportNoImage(false);
+            this.d.setGifIconSupport(true);
+            this.e = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090e85);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090e84);
+            this.g = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090e76);
+            BarImageView barImageView = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090e77);
+            this.h = barImageView;
+            barImageView.setPlaceHolder(1);
+            this.h.setShowOval(true);
+            this.h.setAutoChangeStyle(true);
+            this.h.setShowInnerBorder(true);
+            this.h.setStrokeWith(fj.f(TbadkCoreApplication.getInst(), R.dimen.L_X01));
+            this.h.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090e7a);
+            this.j = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090e75);
+            this.k = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090e74);
+            this.l = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090e79);
+            SpanGroupEditText spanGroupEditText = (SpanGroupEditText) findViewById(R.id.obfuscated_res_0x7f090e7b);
+            this.m = spanGroupEditText;
+            spanGroupEditText.setHint(R.string.obfuscated_res_0x7f0f08ea);
+            this.m.setMaxLines(3);
+            this.m.setMinLines(3);
+            this.m.setIncludeFontPadding(false);
+            this.m.setGravity(48);
+            this.m.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.T_X06));
+            this.m.setLineSpacing(fj.f(getContext(), R.dimen.M_T_X002), 1.0f);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090e7d);
+            this.n = textView;
+            textView.setText(context.getString(R.string.obfuscated_res_0x7f0f0375));
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f090e80);
+            this.o = textView2;
+            textView2.setText(context.getString(R.string.obfuscated_res_0x7f0f008b));
         }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ImShareDialogView(Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ImShareDialogView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        h(context);
-        g();
-        f();
     }
 }

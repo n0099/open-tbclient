@@ -5,7 +5,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes7.dex */
 public class i {
     public static volatile i Yo;
-    public List<a> Yn = new CopyOnWriteArrayList();
+    public List Yn = new CopyOnWriteArrayList();
 
     /* loaded from: classes7.dex */
     public interface a {

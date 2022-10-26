@@ -61,12 +61,18 @@ public final class ScaleType {
     public static ScaleType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ScaleType) Enum.valueOf(ScaleType.class, str) : (ScaleType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (ScaleType) Enum.valueOf(ScaleType.class, str);
+        }
+        return (ScaleType) invokeL.objValue;
     }
 
     public static ScaleType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ScaleType[]) $VALUES.clone() : (ScaleType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (ScaleType[]) $VALUES.clone();
+        }
+        return (ScaleType[]) invokeV.objValue;
     }
 }

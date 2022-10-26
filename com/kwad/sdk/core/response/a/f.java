@@ -1,16 +1,14 @@
 package com.kwad.sdk.core.response.a;
 
 import android.graphics.Matrix;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.kwad.sdk.core.response.model.PhotoInfo;
 /* loaded from: classes7.dex */
 public final class f {
-    public static String a(@NonNull PhotoInfo photoInfo) {
+    public static String a(PhotoInfo photoInfo) {
         return photoInfo.videoInfo.videoUrl;
     }
 
-    public static boolean a(@Nullable Matrix matrix, int i, int i2, PhotoInfo.VideoInfo videoInfo) {
+    public static boolean a(Matrix matrix, int i, int i2, PhotoInfo.VideoInfo videoInfo) {
         if (matrix != null) {
             matrix.reset();
         }
@@ -56,7 +54,7 @@ public final class f {
         return true;
     }
 
-    public static String b(@NonNull PhotoInfo photoInfo) {
+    public static String b(PhotoInfo photoInfo) {
         return photoInfo.videoInfo.manifest;
     }
 

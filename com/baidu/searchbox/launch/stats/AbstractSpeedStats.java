@@ -19,6 +19,30 @@ public abstract class AbstractSpeedStats {
     public static final String TAG = "AbstractSpeedStats";
     public transient /* synthetic */ FieldHolder $fh;
 
+    public long getStatsEndTimeStamp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return -1L;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getStatsStartTimeStamp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return -1L;
+        }
+        return invokeV.longValue;
+    }
+
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -56,10 +80,17 @@ public abstract class AbstractSpeedStats {
         }
     }
 
-    public void addStatsMap(String str, Map<String, String> map) {
+    public void addStatsMap(String str, Map map) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map) == null) && DEBUG) {
             Log.d(TAG, "addStatsTimeStamp key: " + str + " map " + map.toString());
+        }
+    }
+
+    public void addStatsTimeStamp(int i, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) && DEBUG) {
+            Log.d(TAG, "addStatsTimeStamp key: " + i + " timeStamp " + j);
         }
     }
 
@@ -68,24 +99,6 @@ public abstract class AbstractSpeedStats {
         if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && DEBUG) {
             Log.d(TAG, "addStatsTimeStamp key: " + i);
         }
-    }
-
-    public long getStatsEndTimeStamp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return -1L;
-        }
-        return invokeV.longValue;
-    }
-
-    public long getStatsStartTimeStamp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return -1L;
-        }
-        return invokeV.longValue;
     }
 
     public boolean packData(JSONObject jSONObject) {
@@ -99,18 +112,5 @@ public abstract class AbstractSpeedStats {
             return false;
         }
         return invokeL.booleanValue;
-    }
-
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-        }
-    }
-
-    public void addStatsTimeStamp(int i, long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) && DEBUG) {
-            Log.d(TAG, "addStatsTimeStamp key: " + i + " timeStamp " + j);
-        }
     }
 }

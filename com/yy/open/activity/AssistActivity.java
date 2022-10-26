@@ -1,6 +1,5 @@
 package com.yy.open.activity;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -26,7 +25,7 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vt9;
+import com.baidu.tieba.nu9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -169,11 +168,32 @@ public final class AssistActivity extends Activity {
 
         @Override // android.webkit.WebViewClient
         public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
+            String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048579, this, webView, sslErrorHandler, sslError) == null) {
                 super.onReceivedSslError(webView, sslErrorHandler, sslError);
                 int primaryError = sslError.getPrimaryError();
-                String str = primaryError != 0 ? primaryError != 1 ? primaryError != 2 ? primaryError != 3 ? primaryError != 4 ? "发生SSL一般错误" : "证书日期无效" : "证书颁发机构不受信任" : "证书主机名不匹配" : "证书已过期" : "证书尚未生效";
+                if (primaryError != 0) {
+                    if (primaryError != 1) {
+                        if (primaryError != 2) {
+                            if (primaryError != 3) {
+                                if (primaryError != 4) {
+                                    str = "发生SSL一般错误";
+                                } else {
+                                    str = "证书日期无效";
+                                }
+                            } else {
+                                str = "证书颁发机构不受信任";
+                            }
+                        } else {
+                            str = "证书主机名不匹配";
+                        }
+                    } else {
+                        str = "证书已过期";
+                    }
+                } else {
+                    str = "证书尚未生效";
+                }
                 this.a.d.setVisibility(0);
                 this.a.b.setVisibility(0);
                 this.a.c.setVisibility(8);
@@ -187,7 +207,7 @@ public final class AssistActivity extends Activity {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
-                if (str.startsWith(vt9.g(false))) {
+                if (str.startsWith(nu9.g(false))) {
                     try {
                         Intent intent = new Intent();
                         String queryParameter = Uri.parse(str).getQueryParameter("resCode");
@@ -230,7 +250,9 @@ public final class AssistActivity extends Activity {
                         e.printStackTrace();
                         return true;
                     }
-                } else if (str.startsWith(vt9.g(true))) {
+                } else if (!str.startsWith(nu9.g(true))) {
+                    return false;
+                } else {
                     try {
                         Intent intent2 = new Intent();
                         String queryParameter8 = Uri.parse(str).getQueryParameter("resCode");
@@ -286,8 +308,6 @@ public final class AssistActivity extends Activity {
                         e2.printStackTrace();
                     }
                     return true;
-                } else {
-                    return false;
                 }
             }
             return invokeLL.booleanValue;
@@ -460,7 +480,10 @@ public final class AssistActivity extends Activity {
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? super.toString() : (String) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return super.toString();
+            }
+            return (String) invokeV.objValue;
         }
     }
 
@@ -485,7 +508,10 @@ public final class AssistActivity extends Activity {
     public int a(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) ? (int) ((f2 * getResources().getDisplayMetrics().density) + 0.5f) : invokeF.intValue;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) {
+            return (int) ((f2 * getResources().getDisplayMetrics().density) + 0.5f);
+        }
+        return invokeF.intValue;
     }
 
     public final void b() {
@@ -517,7 +543,7 @@ public final class AssistActivity extends Activity {
             this.a.addView(this.d);
             this.a.addView(this.c);
             ImageView imageView = new ImageView(this);
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f0805e7);
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f0805e8);
             imageView.setOnClickListener(new b(this));
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(a(5.0f), a(5.0f), 0, 0);
@@ -527,7 +553,6 @@ public final class AssistActivity extends Activity {
         }
     }
 
-    @SuppressLint({"SetJavaScriptEnabled"})
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {

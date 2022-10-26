@@ -26,7 +26,7 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<String, String> a;
+    public static HashMap a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,7 +42,7 @@ public class i {
                 return;
             }
         }
-        a = new HashMap<>();
+        a = new HashMap();
     }
 
     public static int a() {
@@ -65,17 +65,17 @@ public class i {
             SharedPreferences sharedPreferences = context.getSharedPreferences("mipush_extra", 0);
             String a2 = a(eVar);
             String string = sharedPreferences.getString(a2, "");
-            String m140c = b.m132a(context).m140c();
+            String m139c = b.m131a(context).m139c();
             String string2 = sharedPreferences.getString("last_check_token", "");
             if (TextUtils.isEmpty(a2)) {
-                com.xiaomi.channel.commonutils.logger.b.m90a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
+                com.xiaomi.channel.commonutils.logger.b.m89a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
                 return 0;
             } else if (TextUtils.isEmpty(string)) {
                 return 1;
             } else {
                 if (string.equals(str)) {
-                    if (TextUtils.equals(m140c, string2)) {
-                        if (m157a(eVar)) {
+                    if (TextUtils.equals(m139c, string2)) {
+                        if (m156a(eVar)) {
                             if (a() != sharedPreferences.getInt(b(eVar), 0)) {
                                 return 4;
                             }
@@ -209,7 +209,7 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
             synchronized (i.class) {
-                str2 = a.get(str);
+                str2 = (String) a.get(str);
                 if (TextUtils.isEmpty(str2)) {
                     str2 = "";
                 }
@@ -248,13 +248,13 @@ public class i {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static HashMap<String, String> m151a(Context context, e eVar) {
+    public static HashMap m150a(Context context, e eVar) {
         InterceptResult invokeLL;
         w.a a2;
         int a3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, eVar)) == null) {
-            HashMap<String, String> hashMap = new HashMap<>();
+            HashMap hashMap = new HashMap();
             String a4 = a(eVar);
             if (TextUtils.isEmpty(a4)) {
                 return hashMap;
@@ -292,7 +292,7 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m152a(Context context) {
+    public static void m151a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
             boolean z = false;
@@ -309,7 +309,7 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m153a(Context context, e eVar) {
+    public static void m152a(Context context, e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65546, null, context, eVar) == null) {
             String a2 = a(eVar);
@@ -321,17 +321,17 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m154a(Context context, e eVar, String str) {
+    public static void m153a(Context context, e eVar, String str) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLL(65547, null, context, eVar, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         int a2 = a(context, eVar, str);
         if (a2 == 0) {
-            com.xiaomi.channel.commonutils.logger.b.m90a("ASSEMBLE_PUSH : do not need to send token");
+            com.xiaomi.channel.commonutils.logger.b.m89a("ASSEMBLE_PUSH : do not need to send token");
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.m90a("ASSEMBLE_PUSH : send token upload, check:" + a2);
+        com.xiaomi.channel.commonutils.logger.b.m89a("ASSEMBLE_PUSH : send token upload, check:" + a2);
         a(eVar, str);
         au a3 = l.a(eVar);
         if (a3 == null) {
@@ -355,9 +355,9 @@ public class i {
             synchronized (i.class) {
                 String a2 = a(eVar);
                 if (TextUtils.isEmpty(a2)) {
-                    com.xiaomi.channel.commonutils.logger.b.m90a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
+                    com.xiaomi.channel.commonutils.logger.b.m89a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
                 } else if (TextUtils.isEmpty(str)) {
-                    com.xiaomi.channel.commonutils.logger.b.m90a("ASSEMBLE_PUSH : token is null");
+                    com.xiaomi.channel.commonutils.logger.b.m89a("ASSEMBLE_PUSH : token is null");
                 } else {
                     a.put(a2, str);
                 }
@@ -373,7 +373,7 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m155a(Context context) {
+    public static boolean m154a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
@@ -386,12 +386,12 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m156a(Context context, e eVar) {
+    public static boolean m155a(Context context, e eVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, context, eVar)) == null) {
-            if (l.m159a(eVar) != null) {
-                return ba.a(context).a(l.m159a(eVar).a(), true);
+            if (l.m158a(eVar) != null) {
+                return ba.a(context).a(l.m158a(eVar).a(), true);
             }
             return false;
         }
@@ -399,7 +399,7 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m157a(e eVar) {
+    public static boolean m156a(e eVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, eVar)) == null) ? eVar == e.d || eVar == e.b : invokeL.booleanValue;
@@ -409,10 +409,10 @@ public class i {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, cif, eVar)) == null) {
-            if (cif == null || cif.m466a() == null || cif.m466a().m433a() == null) {
+            if (cif == null || cif.m465a() == null || cif.m465a().m432a() == null) {
                 return false;
             }
-            return (eVar == e.b ? "FCM" : "").equalsIgnoreCase(cif.m466a().m433a().get("assemble_push_type"));
+            return (eVar == e.b ? "FCM" : "").equalsIgnoreCase((String) cif.m465a().m432a().get("assemble_push_type"));
         }
         return invokeLL.booleanValue;
     }
@@ -422,7 +422,7 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65555, null, context, cif, eVar)) == null) {
             if (a(cif, eVar)) {
-                return bo.m204a(a(context, eVar));
+                return bo.m203a(a(context, eVar));
             }
             return null;
         }
@@ -487,16 +487,16 @@ public class i {
             synchronized (i.class) {
                 String a2 = a(eVar);
                 if (TextUtils.isEmpty(a2)) {
-                    com.xiaomi.channel.commonutils.logger.b.m90a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
+                    com.xiaomi.channel.commonutils.logger.b.m89a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
                     return;
                 }
                 SharedPreferences.Editor edit = context.getSharedPreferences("mipush_extra", 0).edit();
-                edit.putString(a2, str).putString("last_check_token", b.m132a(context).m140c());
-                if (m157a(eVar)) {
+                edit.putString(a2, str).putString("last_check_token", b.m131a(context).m139c());
+                if (m156a(eVar)) {
                     edit.putInt(b(eVar), a());
                 }
                 com.xiaomi.push.t.a(edit);
-                com.xiaomi.channel.commonutils.logger.b.m90a("ASSEMBLE_PUSH : update sp file success!  " + str);
+                com.xiaomi.channel.commonutils.logger.b.m89a("ASSEMBLE_PUSH : update sp file success!  " + str);
             }
         }
     }

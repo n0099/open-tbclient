@@ -36,6 +36,12 @@ public class Patterns {
     public static final Pattern WEB_URL;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static void initClazz() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+        }
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -109,11 +115,5 @@ public class Patterns {
             return sb.toString();
         }
         return (String) invokeL.objValue;
-    }
-
-    public static void initClazz() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-        }
     }
 }

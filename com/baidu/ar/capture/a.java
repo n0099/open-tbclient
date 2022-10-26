@@ -19,7 +19,7 @@ public class a {
 
     /* renamed from: com.baidu.ar.capture.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class HandlerC0055a extends Handler {
+    public final class HandlerC0055a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

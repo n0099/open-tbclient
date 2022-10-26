@@ -1,7 +1,6 @@
 package com.kwad.sdk.crash.model.message;
 
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
 import com.kwad.sdk.core.b;
 import com.kwad.sdk.utils.r;
 import java.io.Serializable;
@@ -10,7 +9,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MemoryInfo implements b, Serializable {
     public static final long serialVersionUID = -4944913077323984734L;
     public int mAvailableMB;
@@ -22,10 +21,10 @@ public class MemoryInfo implements b, Serializable {
     public int mThreadsCount;
     public int mTotalMB;
     public int mVssMB;
-    public List<String> mFds = new ArrayList();
-    public List<ThreadInfo> mJavaThreads = new ArrayList();
-    public List<ThreadInfo> mNativeThreads = new ArrayList();
-    public List<ThreadInfo> mAllThreads = new ArrayList();
+    public List mFds = new ArrayList();
+    public List mJavaThreads = new ArrayList();
+    public List mNativeThreads = new ArrayList();
+    public List mAllThreads = new ArrayList();
 
     public MemoryInfo() {
     }
@@ -42,7 +41,7 @@ public class MemoryInfo implements b, Serializable {
     }
 
     @Override // com.kwad.sdk.core.b
-    public void parseJson(@Nullable JSONObject jSONObject) {
+    public void parseJson(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }

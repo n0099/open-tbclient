@@ -20,6 +20,8 @@ public abstract class LifecycleCoroutineScope implements CoroutineScope {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract Lifecycle getLifecycle$lifecycle_runtime_ktx_release();
+
     public LifecycleCoroutineScope() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -33,8 +35,6 @@ public abstract class LifecycleCoroutineScope implements CoroutineScope {
             }
         }
     }
-
-    public abstract Lifecycle getLifecycle$lifecycle_runtime_ktx_release();
 
     public final Job launchWhenCreated(Function2<? super CoroutineScope, ? super Continuation<? super Unit>, ? extends Object> function2) {
         InterceptResult invokeL;

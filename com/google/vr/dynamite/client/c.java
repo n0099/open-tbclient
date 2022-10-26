@@ -32,10 +32,19 @@ public final class c extends Exception {
     @Override // java.lang.Throwable
     public final String getMessage() {
         InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             int i = this.a;
-            String str = i != 1 ? i != 2 ? "Unknown error" : "Package obsolete" : "Package not available";
+            if (i != 1) {
+                if (i != 2) {
+                    str = "Unknown error";
+                } else {
+                    str = "Package obsolete";
+                }
+            } else {
+                str = "Package not available";
+            }
             StringBuilder sb = new StringBuilder(str.length() + 17);
             sb.append("LoaderException{");
             sb.append(str);

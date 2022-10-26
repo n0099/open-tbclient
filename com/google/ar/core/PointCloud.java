@@ -13,6 +13,14 @@ public class PointCloud implements Closeable {
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
+    private native ByteBuffer nativeGetData(long j, long j2);
+
+    private native ByteBuffer nativeGetIds(long j, long j2);
+
+    private native long nativeGetTimestamp(long j, long j2);
+
+    private native void nativeReleasePointCloud(long j);
+
     public PointCloud() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -29,14 +37,6 @@ public class PointCloud implements Closeable {
         this.a = 0L;
         this.a = 0L;
     }
-
-    private native ByteBuffer nativeGetData(long j, long j2);
-
-    private native ByteBuffer nativeGetIds(long j, long j2);
-
-    private native long nativeGetTimestamp(long j, long j2);
-
-    private native void nativeReleasePointCloud(long j);
 
     public void a() {
         Interceptable interceptable = $ic;

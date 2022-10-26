@@ -43,6 +43,8 @@ public class ChainRun extends WidgetRun {
 
     private void build() {
         ConstraintWidget constraintWidget;
+        boolean z;
+        int verticalChainStyle;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             ConstraintWidget constraintWidget2 = this.widget;
@@ -73,42 +75,22 @@ public class ChainRun extends WidgetRun {
                     next.widget.verticalChainRun = this;
                 }
             }
-            if ((this.orientation == 0 && ((ConstraintWidgetContainer) this.widget.getParent()).isRtl()) && this.widgets.size() > 1) {
+            if (this.orientation == 0 && ((ConstraintWidgetContainer) this.widget.getParent()).isRtl()) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z && this.widgets.size() > 1) {
                 ArrayList<WidgetRun> arrayList = this.widgets;
                 this.widget = arrayList.get(arrayList.size() - 1).widget;
             }
-            this.chainStyle = this.orientation == 0 ? this.widget.getHorizontalChainStyle() : this.widget.getVerticalChainStyle();
-        }
-    }
-
-    private ConstraintWidget getFirstVisibleWidget() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            for (int i = 0; i < this.widgets.size(); i++) {
-                WidgetRun widgetRun = this.widgets.get(i);
-                if (widgetRun.widget.getVisibility() != 8) {
-                    return widgetRun.widget;
-                }
+            if (this.orientation == 0) {
+                verticalChainStyle = this.widget.getHorizontalChainStyle();
+            } else {
+                verticalChainStyle = this.widget.getVerticalChainStyle();
             }
-            return null;
+            this.chainStyle = verticalChainStyle;
         }
-        return (ConstraintWidget) invokeV.objValue;
-    }
-
-    private ConstraintWidget getLastVisibleWidget() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            for (int size = this.widgets.size() - 1; size >= 0; size--) {
-                WidgetRun widgetRun = this.widgets.get(size);
-                if (widgetRun.widget.getVisibility() != 8) {
-                    return widgetRun.widget;
-                }
-            }
-            return null;
-        }
-        return (ConstraintWidget) invokeV.objValue;
     }
 
     @Override // androidx.constraintlayout.solver.widgets.analyzer.WidgetRun
@@ -173,6 +155,52 @@ public class ChainRun extends WidgetRun {
         }
     }
 
+    private ConstraintWidget getFirstVisibleWidget() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            for (int i = 0; i < this.widgets.size(); i++) {
+                WidgetRun widgetRun = this.widgets.get(i);
+                if (widgetRun.widget.getVisibility() != 8) {
+                    return widgetRun.widget;
+                }
+            }
+            return null;
+        }
+        return (ConstraintWidget) invokeV.objValue;
+    }
+
+    private ConstraintWidget getLastVisibleWidget() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            for (int size = this.widgets.size() - 1; size >= 0; size--) {
+                WidgetRun widgetRun = this.widgets.get(size);
+                if (widgetRun.widget.getVisibility() != 8) {
+                    return widgetRun.widget;
+                }
+            }
+            return null;
+        }
+        return (ConstraintWidget) invokeV.objValue;
+    }
+
+    @Override // androidx.constraintlayout.solver.widgets.analyzer.WidgetRun
+    public long getWrapDimension() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            int size = this.widgets.size();
+            long j = 0;
+            for (int i = 0; i < size; i++) {
+                WidgetRun widgetRun = this.widgets.get(i);
+                j = j + widgetRun.start.margin + widgetRun.getWrapDimension() + widgetRun.end.margin;
+            }
+            return j;
+        }
+        return invokeV.longValue;
+    }
+
     @Override // androidx.constraintlayout.solver.widgets.analyzer.WidgetRun
     public void applyToWidget() {
         Interceptable interceptable = $ic;
@@ -193,22 +221,6 @@ public class ChainRun extends WidgetRun {
                 it.next().clear();
             }
         }
-    }
-
-    @Override // androidx.constraintlayout.solver.widgets.analyzer.WidgetRun
-    public long getWrapDimension() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int size = this.widgets.size();
-            long j = 0;
-            for (int i = 0; i < size; i++) {
-                WidgetRun widgetRun = this.widgets.get(i);
-                j = j + widgetRun.start.margin + widgetRun.getWrapDimension() + widgetRun.end.margin;
-            }
-            return j;
-        }
-        return invokeV.longValue;
     }
 
     @Override // androidx.constraintlayout.solver.widgets.analyzer.WidgetRun
@@ -238,12 +250,18 @@ public class ChainRun extends WidgetRun {
 
     public String toString() {
         InterceptResult invokeV;
+        String str;
         Iterator<WidgetRun> it;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("ChainRun ");
-            sb.append(this.orientation == 0 ? "horizontal : " : "vertical : ");
+            if (this.orientation == 0) {
+                str = "horizontal : ";
+            } else {
+                str = "vertical : ";
+            }
+            sb.append(str);
             String sb2 = sb.toString();
             while (this.widgets.iterator().hasNext()) {
                 sb2 = ((sb2 + "<") + it.next()) + "> ";
@@ -277,6 +295,7 @@ public class ChainRun extends WidgetRun {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void update(Dependency dependency) {
+        boolean z;
         int i;
         int i2;
         int i3;
@@ -285,59 +304,78 @@ public class ChainRun extends WidgetRun {
         float f;
         int i6;
         int i7;
+        float verticalBiasPercent;
         int i8;
         int i9;
-        float f2;
         int i10;
+        int i11;
+        int i12;
+        int i13;
+        int i14;
+        float f2;
+        int i15;
+        int i16;
+        int i17;
         int max;
+        int i18;
+        boolean z2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048583, this, dependency) == null) && this.start.resolved && this.end.resolved) {
             ConstraintWidget parent = this.widget.getParent();
-            boolean isRtl = (parent == null || !(parent instanceof ConstraintWidgetContainer)) ? false : ((ConstraintWidgetContainer) parent).isRtl();
-            int i11 = this.end.value - this.start.value;
+            if (parent != null && (parent instanceof ConstraintWidgetContainer)) {
+                z = ((ConstraintWidgetContainer) parent).isRtl();
+            } else {
+                z = false;
+            }
+            int i19 = this.end.value - this.start.value;
             int size = this.widgets.size();
-            int i12 = 0;
+            int i20 = 0;
             while (true) {
                 i = -1;
                 i2 = 8;
-                if (i12 >= size) {
-                    i12 = -1;
+                if (i20 < size) {
+                    if (this.widgets.get(i20).widget.getVisibility() != 8) {
+                        break;
+                    }
+                    i20++;
+                } else {
+                    i20 = -1;
                     break;
-                } else if (this.widgets.get(i12).widget.getVisibility() != 8) {
+                }
+            }
+            int i21 = size - 1;
+            int i22 = i21;
+            while (true) {
+                if (i22 < 0) {
+                    break;
+                } else if (this.widgets.get(i22).widget.getVisibility() != 8) {
+                    i = i22;
                     break;
                 } else {
-                    i12++;
+                    i22--;
                 }
             }
-            int i13 = size - 1;
-            int i14 = i13;
-            while (true) {
-                if (i14 < 0) {
-                    break;
-                }
-                if (this.widgets.get(i14).widget.getVisibility() != 8) {
-                    i = i14;
-                    break;
-                }
-                i14--;
-            }
-            int i15 = 0;
-            while (i15 < 2) {
-                int i16 = 0;
+            int i23 = 0;
+            while (i23 < 2) {
+                int i24 = 0;
                 i4 = 0;
                 i5 = 0;
-                int i17 = 0;
+                int i25 = 0;
                 f = 0.0f;
-                while (i16 < size) {
-                    WidgetRun widgetRun = this.widgets.get(i16);
+                while (i24 < size) {
+                    WidgetRun widgetRun = this.widgets.get(i24);
                     if (widgetRun.widget.getVisibility() != i2) {
-                        i17++;
-                        if (i16 > 0 && i16 >= i12) {
+                        i25++;
+                        if (i24 > 0 && i24 >= i20) {
                             i4 += widgetRun.start.margin;
                         }
-                        int i18 = widgetRun.dimension.value;
-                        boolean z = widgetRun.dimensionBehavior != ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT;
-                        if (z) {
+                        int i26 = widgetRun.dimension.value;
+                        if (widgetRun.dimensionBehavior != ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT) {
+                            z2 = true;
+                        } else {
+                            z2 = false;
+                        }
+                        if (z2) {
                             if (this.orientation == 0 && !widgetRun.widget.horizontalRun.dimension.resolved) {
                                 return;
                             }
@@ -345,263 +383,325 @@ public class ChainRun extends WidgetRun {
                                 return;
                             }
                         } else {
-                            if (widgetRun.matchConstraintsType == 1 && i15 == 0) {
-                                i18 = widgetRun.dimension.wrapValue;
+                            if (widgetRun.matchConstraintsType == 1 && i23 == 0) {
+                                i26 = widgetRun.dimension.wrapValue;
                                 i5++;
                             }
-                            z = true;
+                            z2 = true;
                         }
-                        if (z) {
-                            i4 += i18;
-                        } else {
+                        if (!z2) {
                             i5++;
                             float f3 = widgetRun.widget.mWeight[this.orientation];
                             if (f3 >= 0.0f) {
                                 f += f3;
                             }
+                        } else {
+                            i4 += i26;
                         }
-                        if (i16 < i13 && i16 < i) {
+                        if (i24 < i21 && i24 < i) {
                             i4 += -widgetRun.end.margin;
                         }
                     }
-                    i16++;
+                    i24++;
                     i2 = 8;
                 }
-                if (i4 < i11 || i5 == 0) {
-                    i3 = i17;
-                    break;
-                } else {
-                    i15++;
+                if (i4 >= i19 && i5 != 0) {
+                    i23++;
                     i2 = 8;
+                } else {
+                    i3 = i25;
+                    break;
                 }
             }
             i3 = 0;
             i4 = 0;
             i5 = 0;
             f = 0.0f;
-            int i19 = this.start.value;
-            if (isRtl) {
-                i19 = this.end.value;
+            int i27 = this.start.value;
+            if (z) {
+                i27 = this.end.value;
             }
-            if (i4 > i11) {
-                i19 = isRtl ? i19 + ((int) (((i4 - i11) / 2.0f) + 0.5f)) : i19 - ((int) (((i4 - i11) / 2.0f) + 0.5f));
+            if (i4 > i19) {
+                if (z) {
+                    i27 += (int) (((i4 - i19) / 2.0f) + 0.5f);
+                } else {
+                    i27 -= (int) (((i4 - i19) / 2.0f) + 0.5f);
+                }
             }
             if (i5 > 0) {
-                float f4 = i11 - i4;
-                int i20 = (int) ((f4 / i5) + 0.5f);
-                int i21 = 0;
-                int i22 = 0;
-                while (i21 < size) {
-                    WidgetRun widgetRun2 = this.widgets.get(i21);
-                    int i23 = i20;
-                    if (widgetRun2.widget.getVisibility() == 8 || widgetRun2.dimensionBehavior != ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT || widgetRun2.dimension.resolved) {
-                        i9 = i19;
-                        f2 = f4;
-                        i10 = i4;
-                    } else {
-                        int i24 = f > 0.0f ? (int) (((widgetRun2.widget.mWeight[this.orientation] * f4) / f) + 0.5f) : i23;
+                float f4 = i19 - i4;
+                int i28 = (int) ((f4 / i5) + 0.5f);
+                int i29 = 0;
+                int i30 = 0;
+                while (i29 < size) {
+                    WidgetRun widgetRun2 = this.widgets.get(i29);
+                    int i31 = i28;
+                    if (widgetRun2.widget.getVisibility() != 8 && widgetRun2.dimensionBehavior == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT && !widgetRun2.dimension.resolved) {
+                        if (f > 0.0f) {
+                            i16 = (int) (((widgetRun2.widget.mWeight[this.orientation] * f4) / f) + 0.5f);
+                        } else {
+                            i16 = i31;
+                        }
                         if (this.orientation == 0) {
                             ConstraintWidget constraintWidget = widgetRun2.widget;
                             f2 = f4;
-                            int i25 = constraintWidget.mMatchConstraintMaxWidth;
-                            i10 = i4;
-                            i9 = i19;
-                            max = Math.max(constraintWidget.mMatchConstraintMinWidth, widgetRun2.matchConstraintsType == 1 ? Math.min(i24, widgetRun2.dimension.wrapValue) : i24);
-                            if (i25 > 0) {
-                                max = Math.min(i25, max);
+                            int i32 = constraintWidget.mMatchConstraintMaxWidth;
+                            int i33 = constraintWidget.mMatchConstraintMinWidth;
+                            i15 = i4;
+                            i14 = i27;
+                            if (widgetRun2.matchConstraintsType == 1) {
+                                i18 = Math.min(i16, widgetRun2.dimension.wrapValue);
+                            } else {
+                                i18 = i16;
+                            }
+                            max = Math.max(i33, i18);
+                            if (i32 > 0) {
+                                max = Math.min(i32, max);
                             }
                         } else {
-                            i9 = i19;
+                            i14 = i27;
                             f2 = f4;
-                            i10 = i4;
+                            i15 = i4;
                             ConstraintWidget constraintWidget2 = widgetRun2.widget;
-                            int i26 = constraintWidget2.mMatchConstraintMaxHeight;
-                            max = Math.max(constraintWidget2.mMatchConstraintMinHeight, widgetRun2.matchConstraintsType == 1 ? Math.min(i24, widgetRun2.dimension.wrapValue) : i24);
-                            if (i26 > 0) {
-                                max = Math.min(i26, max);
+                            int i34 = constraintWidget2.mMatchConstraintMaxHeight;
+                            int i35 = constraintWidget2.mMatchConstraintMinHeight;
+                            if (widgetRun2.matchConstraintsType == 1) {
+                                i17 = Math.min(i16, widgetRun2.dimension.wrapValue);
+                            } else {
+                                i17 = i16;
+                            }
+                            max = Math.max(i35, i17);
+                            if (i34 > 0) {
+                                max = Math.min(i34, max);
                             }
                         }
+                    } else {
+                        i14 = i27;
+                        f2 = f4;
+                        i15 = i4;
                     }
-                    i21++;
-                    i20 = i23;
+                    i29++;
+                    i28 = i31;
                     f4 = f2;
-                    i4 = i10;
-                    i19 = i9;
+                    i4 = i15;
+                    i27 = i14;
                 }
-                i6 = i19;
-                int i27 = i4;
-                if (i22 > 0) {
-                    i5 -= i22;
-                    int i28 = 0;
-                    for (int i29 = 0; i29 < size; i29++) {
-                        WidgetRun widgetRun3 = this.widgets.get(i29);
+                i6 = i27;
+                int i36 = i4;
+                if (i30 > 0) {
+                    i5 -= i30;
+                    int i37 = 0;
+                    for (int i38 = 0; i38 < size; i38++) {
+                        WidgetRun widgetRun3 = this.widgets.get(i38);
                         if (widgetRun3.widget.getVisibility() != 8) {
-                            if (i29 > 0 && i29 >= i12) {
-                                i28 += widgetRun3.start.margin;
+                            if (i38 > 0 && i38 >= i20) {
+                                i37 += widgetRun3.start.margin;
                             }
-                            i28 += widgetRun3.dimension.value;
-                            if (i29 < i13 && i29 < i) {
-                                i28 += -widgetRun3.end.margin;
+                            i37 += widgetRun3.dimension.value;
+                            if (i38 < i21 && i38 < i) {
+                                i37 += -widgetRun3.end.margin;
                             }
                         }
                     }
-                    i4 = i28;
+                    i4 = i37;
                 } else {
-                    i4 = i27;
+                    i4 = i36;
                 }
                 i7 = 2;
-                if (this.chainStyle == 2 && i22 == 0) {
+                if (this.chainStyle == 2 && i30 == 0) {
                     this.chainStyle = 0;
                 }
             } else {
-                i6 = i19;
+                i6 = i27;
                 i7 = 2;
             }
-            if (i4 > i11) {
+            if (i4 > i19) {
                 this.chainStyle = i7;
             }
-            if (i3 > 0 && i5 == 0 && i12 == i) {
+            if (i3 > 0 && i5 == 0 && i20 == i) {
                 this.chainStyle = i7;
             }
-            int i30 = this.chainStyle;
-            if (i30 == 1) {
+            int i39 = this.chainStyle;
+            if (i39 == 1) {
                 if (i3 > 1) {
-                    i8 = (i11 - i4) / (i3 - 1);
+                    i12 = (i19 - i4) / (i3 - 1);
+                } else if (i3 == 1) {
+                    i12 = (i19 - i4) / 2;
                 } else {
-                    i8 = i3 == 1 ? (i11 - i4) / 2 : 0;
+                    i12 = 0;
                 }
                 if (i5 > 0) {
-                    i8 = 0;
+                    i12 = 0;
                 }
-                int i31 = i6;
-                for (int i32 = 0; i32 < size; i32++) {
-                    WidgetRun widgetRun4 = this.widgets.get(isRtl ? size - (i32 + 1) : i32);
-                    if (widgetRun4.widget.getVisibility() == 8) {
-                        widgetRun4.start.resolve(i31);
-                        widgetRun4.end.resolve(i31);
+                int i40 = i6;
+                for (int i41 = 0; i41 < size; i41++) {
+                    if (z) {
+                        i13 = size - (i41 + 1);
                     } else {
-                        if (i32 > 0) {
-                            i31 = isRtl ? i31 - i8 : i31 + i8;
-                        }
-                        if (i32 > 0 && i32 >= i12) {
-                            if (isRtl) {
-                                i31 -= widgetRun4.start.margin;
+                        i13 = i41;
+                    }
+                    WidgetRun widgetRun4 = this.widgets.get(i13);
+                    if (widgetRun4.widget.getVisibility() == 8) {
+                        widgetRun4.start.resolve(i40);
+                        widgetRun4.end.resolve(i40);
+                    } else {
+                        if (i41 > 0) {
+                            if (z) {
+                                i40 -= i12;
                             } else {
-                                i31 += widgetRun4.start.margin;
+                                i40 += i12;
                             }
                         }
-                        if (isRtl) {
-                            widgetRun4.end.resolve(i31);
+                        if (i41 > 0 && i41 >= i20) {
+                            if (z) {
+                                i40 -= widgetRun4.start.margin;
+                            } else {
+                                i40 += widgetRun4.start.margin;
+                            }
+                        }
+                        if (z) {
+                            widgetRun4.end.resolve(i40);
                         } else {
-                            widgetRun4.start.resolve(i31);
+                            widgetRun4.start.resolve(i40);
                         }
                         DimensionDependency dimensionDependency = widgetRun4.dimension;
-                        int i33 = dimensionDependency.value;
+                        int i42 = dimensionDependency.value;
                         if (widgetRun4.dimensionBehavior == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT && widgetRun4.matchConstraintsType == 1) {
-                            i33 = dimensionDependency.wrapValue;
+                            i42 = dimensionDependency.wrapValue;
                         }
-                        i31 = isRtl ? i31 - i33 : i31 + i33;
-                        if (isRtl) {
-                            widgetRun4.start.resolve(i31);
+                        if (z) {
+                            i40 -= i42;
                         } else {
-                            widgetRun4.end.resolve(i31);
+                            i40 += i42;
+                        }
+                        if (z) {
+                            widgetRun4.start.resolve(i40);
+                        } else {
+                            widgetRun4.end.resolve(i40);
                         }
                         widgetRun4.resolved = true;
-                        if (i32 < i13 && i32 < i) {
-                            if (isRtl) {
-                                i31 -= -widgetRun4.end.margin;
+                        if (i41 < i21 && i41 < i) {
+                            if (z) {
+                                i40 -= -widgetRun4.end.margin;
                             } else {
-                                i31 += -widgetRun4.end.margin;
+                                i40 += -widgetRun4.end.margin;
                             }
                         }
                     }
                 }
-            } else if (i30 == 0) {
-                int i34 = (i11 - i4) / (i3 + 1);
+            } else if (i39 == 0) {
+                int i43 = (i19 - i4) / (i3 + 1);
                 if (i5 > 0) {
-                    i34 = 0;
+                    i43 = 0;
                 }
-                int i35 = i6;
-                for (int i36 = 0; i36 < size; i36++) {
-                    WidgetRun widgetRun5 = this.widgets.get(isRtl ? size - (i36 + 1) : i36);
-                    if (widgetRun5.widget.getVisibility() == 8) {
-                        widgetRun5.start.resolve(i35);
-                        widgetRun5.end.resolve(i35);
+                int i44 = i6;
+                for (int i45 = 0; i45 < size; i45++) {
+                    if (z) {
+                        i10 = size - (i45 + 1);
                     } else {
-                        int i37 = isRtl ? i35 - i34 : i35 + i34;
-                        if (i36 > 0 && i36 >= i12) {
-                            if (isRtl) {
-                                i37 -= widgetRun5.start.margin;
+                        i10 = i45;
+                    }
+                    WidgetRun widgetRun5 = this.widgets.get(i10);
+                    if (widgetRun5.widget.getVisibility() == 8) {
+                        widgetRun5.start.resolve(i44);
+                        widgetRun5.end.resolve(i44);
+                    } else {
+                        if (z) {
+                            i11 = i44 - i43;
+                        } else {
+                            i11 = i44 + i43;
+                        }
+                        if (i45 > 0 && i45 >= i20) {
+                            if (z) {
+                                i11 -= widgetRun5.start.margin;
                             } else {
-                                i37 += widgetRun5.start.margin;
+                                i11 += widgetRun5.start.margin;
                             }
                         }
-                        if (isRtl) {
-                            widgetRun5.end.resolve(i37);
+                        if (z) {
+                            widgetRun5.end.resolve(i11);
                         } else {
-                            widgetRun5.start.resolve(i37);
+                            widgetRun5.start.resolve(i11);
                         }
                         DimensionDependency dimensionDependency2 = widgetRun5.dimension;
-                        int i38 = dimensionDependency2.value;
+                        int i46 = dimensionDependency2.value;
                         if (widgetRun5.dimensionBehavior == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT && widgetRun5.matchConstraintsType == 1) {
-                            i38 = Math.min(i38, dimensionDependency2.wrapValue);
+                            i46 = Math.min(i46, dimensionDependency2.wrapValue);
                         }
-                        i35 = isRtl ? i37 - i38 : i37 + i38;
-                        if (isRtl) {
-                            widgetRun5.start.resolve(i35);
+                        if (z) {
+                            i44 = i11 - i46;
                         } else {
-                            widgetRun5.end.resolve(i35);
+                            i44 = i11 + i46;
                         }
-                        if (i36 < i13 && i36 < i) {
-                            if (isRtl) {
-                                i35 -= -widgetRun5.end.margin;
+                        if (z) {
+                            widgetRun5.start.resolve(i44);
+                        } else {
+                            widgetRun5.end.resolve(i44);
+                        }
+                        if (i45 < i21 && i45 < i) {
+                            if (z) {
+                                i44 -= -widgetRun5.end.margin;
                             } else {
-                                i35 += -widgetRun5.end.margin;
+                                i44 += -widgetRun5.end.margin;
                             }
                         }
                     }
                 }
-            } else if (i30 == 2) {
-                float horizontalBiasPercent = this.orientation == 0 ? this.widget.getHorizontalBiasPercent() : this.widget.getVerticalBiasPercent();
-                if (isRtl) {
-                    horizontalBiasPercent = 1.0f - horizontalBiasPercent;
+            } else if (i39 == 2) {
+                if (this.orientation == 0) {
+                    verticalBiasPercent = this.widget.getHorizontalBiasPercent();
+                } else {
+                    verticalBiasPercent = this.widget.getVerticalBiasPercent();
                 }
-                int i39 = (((int) ((((float) (i11 - i4)) * horizontalBiasPercent) + 0.5f)) < 0 || i5 > 0) ? 0 : 0;
-                int i40 = isRtl ? i6 - i39 : i6 + i39;
-                for (int i41 = 0; i41 < size; i41++) {
-                    WidgetRun widgetRun6 = this.widgets.get(isRtl ? size - (i41 + 1) : i41);
-                    if (widgetRun6.widget.getVisibility() == 8) {
-                        widgetRun6.start.resolve(i40);
-                        widgetRun6.end.resolve(i40);
+                if (z) {
+                    verticalBiasPercent = 1.0f - verticalBiasPercent;
+                }
+                int i47 = (((int) ((((float) (i19 - i4)) * verticalBiasPercent) + 0.5f)) < 0 || i5 > 0) ? 0 : 0;
+                if (z) {
+                    i8 = i6 - i47;
+                } else {
+                    i8 = i6 + i47;
+                }
+                int i48 = i8;
+                for (int i49 = 0; i49 < size; i49++) {
+                    if (z) {
+                        i9 = size - (i49 + 1);
                     } else {
-                        if (i41 > 0 && i41 >= i12) {
-                            if (isRtl) {
-                                i40 -= widgetRun6.start.margin;
+                        i9 = i49;
+                    }
+                    WidgetRun widgetRun6 = this.widgets.get(i9);
+                    if (widgetRun6.widget.getVisibility() == 8) {
+                        widgetRun6.start.resolve(i48);
+                        widgetRun6.end.resolve(i48);
+                    } else {
+                        if (i49 > 0 && i49 >= i20) {
+                            if (z) {
+                                i48 -= widgetRun6.start.margin;
                             } else {
-                                i40 += widgetRun6.start.margin;
+                                i48 += widgetRun6.start.margin;
                             }
                         }
-                        if (isRtl) {
-                            widgetRun6.end.resolve(i40);
+                        if (z) {
+                            widgetRun6.end.resolve(i48);
                         } else {
-                            widgetRun6.start.resolve(i40);
+                            widgetRun6.start.resolve(i48);
                         }
                         DimensionDependency dimensionDependency3 = widgetRun6.dimension;
-                        int i42 = dimensionDependency3.value;
+                        int i50 = dimensionDependency3.value;
                         if (widgetRun6.dimensionBehavior == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT && widgetRun6.matchConstraintsType == 1) {
-                            i42 = dimensionDependency3.wrapValue;
+                            i50 = dimensionDependency3.wrapValue;
                         }
-                        i40 += i42;
-                        if (isRtl) {
-                            widgetRun6.start.resolve(i40);
+                        i48 += i50;
+                        if (z) {
+                            widgetRun6.start.resolve(i48);
                         } else {
-                            widgetRun6.end.resolve(i40);
+                            widgetRun6.end.resolve(i48);
                         }
-                        if (i41 < i13 && i41 < i) {
-                            if (isRtl) {
-                                i40 -= -widgetRun6.end.margin;
+                        if (i49 < i21 && i49 < i) {
+                            if (z) {
+                                i48 -= -widgetRun6.end.margin;
                             } else {
-                                i40 += -widgetRun6.end.margin;
+                                i48 += -widgetRun6.end.margin;
                             }
                         }
                     }

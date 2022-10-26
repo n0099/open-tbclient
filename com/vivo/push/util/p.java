@@ -35,7 +35,13 @@ public final class p {
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? b && c : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (b && c) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public static void b() {
@@ -45,49 +51,76 @@ public final class p {
         }
     }
 
-    public static int c(String str, String str2) {
+    public static int a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, str2)) == null) ? a.c(str, str2) : invokeLL.intValue;
-    }
-
-    public static int d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, str, str2)) == null) ? a.d(str, str2) : invokeLL.intValue;
-    }
-
-    public static int e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, str, str2)) == null) ? a.e(str, str2) : invokeLL.intValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            return a.a(str, str2);
+        }
+        return invokeLL.intValue;
     }
 
     public static int b(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) ? a.b(str, str2) : invokeLL.intValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) {
+            return a.b(str, str2);
+        }
+        return invokeLL.intValue;
     }
 
-    public static void c(Context context, String str) {
+    public static int c(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65549, null, context, str) == null) {
-            a.c(context, str);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, str2)) == null) {
+            return a.c(str, str2);
         }
+        return invokeLL.intValue;
     }
 
-    public static void a(boolean z) {
+    public static int d(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
-            b();
-            c = z;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, str, str2)) == null) {
+            return a.d(str, str2);
         }
+        return invokeLL.intValue;
+    }
+
+    public static int e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, str, str2)) == null) {
+            return a.e(str, str2);
+        }
+        return invokeLL.intValue;
+    }
+
+    public static int a(String str, String str2, Throwable th) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, th)) == null) {
+            return a.a(str, str2, th);
+        }
+        return invokeLLL.intValue;
     }
 
     public static int b(String str, String str2, Throwable th) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, str, str2, th)) == null) ? a.b(str, str2, th) : invokeLLL.intValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, str, str2, th)) == null) {
+            return a.b(str, str2, th);
+        }
+        return invokeLLL.intValue;
+    }
+
+    public static int a(String str, Throwable th) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, th)) == null) {
+            return a.a(str, th);
+        }
+        return invokeLL.intValue;
     }
 
     public static void b(Context context, String str) {
@@ -97,34 +130,34 @@ public final class p {
         }
     }
 
-    public static int a(String str, String str2) {
-        InterceptResult invokeLL;
+    public static void c(Context context, String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) ? a.a(str, str2) : invokeLL.intValue;
-    }
-
-    public static int a(String str, Throwable th) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, th)) == null) ? a.a(str, th) : invokeLL.intValue;
-    }
-
-    public static int a(String str, String str2, Throwable th) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, th)) == null) ? a.a(str, str2, th) : invokeLLL.intValue;
+        if (interceptable == null || interceptable.invokeLL(65549, null, context, str) == null) {
+            a.c(context, str);
+        }
     }
 
     public static String a(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th)) == null) ? a.a(th) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th)) == null) {
+            return a.a(th);
+        }
+        return (String) invokeL.objValue;
     }
 
     public static void a(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, context, str) == null) {
             a.a(context, str);
+        }
+    }
+
+    public static void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
+            b();
+            c = z;
         }
     }
 }

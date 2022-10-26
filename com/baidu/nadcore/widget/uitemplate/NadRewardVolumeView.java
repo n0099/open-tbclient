@@ -4,8 +4,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
@@ -19,6 +17,11 @@ public class NadRewardVolumeView extends AdImageView {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean d;
     public b e;
+
+    /* loaded from: classes2.dex */
+    public interface b {
+        void a(boolean z);
+    }
 
     /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
@@ -57,13 +60,8 @@ public class NadRewardVolumeView extends AdImageView {
         }
     }
 
-    /* loaded from: classes2.dex */
-    public interface b {
-        void a(boolean z);
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public NadRewardVolumeView(@NonNull Context context) {
+    public NadRewardVolumeView(Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -83,33 +81,8 @@ public class NadRewardVolumeView extends AdImageView {
         }
     }
 
-    public final void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            setVolumeState(this.d);
-            setScaleType(ImageView.ScaleType.CENTER_CROP);
-            setOnClickListener(new a(this));
-        }
-    }
-
-    public void setVolumeListener(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.e = bVar;
-        }
-    }
-
-    public void setVolumeState(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.d = z;
-            setImageDrawable(getContext().getResources().getDrawable(z ? R.drawable.obfuscated_res_0x7f080df2 : R.drawable.obfuscated_res_0x7f080df1));
-            invalidate();
-        }
-    }
-
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public NadRewardVolumeView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public NadRewardVolumeView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -130,7 +103,7 @@ public class NadRewardVolumeView extends AdImageView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NadRewardVolumeView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public NadRewardVolumeView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -150,5 +123,36 @@ public class NadRewardVolumeView extends AdImageView {
         }
         this.d = false;
         init();
+    }
+
+    public void setVolumeListener(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.e = bVar;
+        }
+    }
+
+    public void setVolumeState(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.d = z;
+            if (z) {
+                i = R.drawable.obfuscated_res_0x7f080e03;
+            } else {
+                i = R.drawable.obfuscated_res_0x7f080e02;
+            }
+            setImageDrawable(getContext().getResources().getDrawable(i));
+            invalidate();
+        }
+    }
+
+    public final void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            setVolumeState(this.d);
+            setScaleType(ImageView.ScaleType.CENTER_CROP);
+            setOnClickListener(new a(this));
+        }
     }
 }

@@ -19,22 +19,12 @@ public final class ArraysKt___ArraysJvmKt$asList$2 extends AbstractList<Short> i
         return false;
     }
 
-    @Override // kotlin.collections.AbstractList, kotlin.collections.AbstractCollection
-    public int getSize() {
-        return this.$this_asList.length;
-    }
-
     @Override // kotlin.collections.AbstractList, java.util.List
     public final /* bridge */ int indexOf(Object obj) {
         if (obj instanceof Short) {
             return indexOf(((Number) obj).shortValue());
         }
         return -1;
-    }
-
-    @Override // kotlin.collections.AbstractCollection, java.util.Collection
-    public boolean isEmpty() {
-        return this.$this_asList.length == 0;
     }
 
     @Override // kotlin.collections.AbstractList, java.util.List
@@ -61,5 +51,18 @@ public final class ArraysKt___ArraysJvmKt$asList$2 extends AbstractList<Short> i
 
     public int lastIndexOf(short s) {
         return ArraysKt___ArraysKt.lastIndexOf(this.$this_asList, s);
+    }
+
+    @Override // kotlin.collections.AbstractList, kotlin.collections.AbstractCollection
+    public int getSize() {
+        return this.$this_asList.length;
+    }
+
+    @Override // kotlin.collections.AbstractCollection, java.util.Collection
+    public boolean isEmpty() {
+        if (this.$this_asList.length == 0) {
+            return true;
+        }
+        return false;
     }
 }

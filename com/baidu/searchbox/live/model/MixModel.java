@@ -63,36 +63,6 @@ public final class MixModel {
     public final boolean prefetchEnterSupport;
     public final Lazy roomApi$delegate;
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000<\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010!\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\bf\u0018\u00002\u00020\u0001J'\u0010\b\u001a\u00020\u00072\n\u0010\u0004\u001a\u00060\u0002j\u0002`\u00032\n\b\u0002\u0010\u0006\u001a\u0004\u0018\u00010\u0005H&¢\u0006\u0004\b\b\u0010\tJ-\u0010\u0010\u001a\u00020\u00072\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\f\u001a\u00020\u00052\f\u0010\u000f\u001a\b\u0012\u0004\u0012\u00020\u000e0\rH&¢\u0006\u0004\b\u0010\u0010\u0011J\u000f\u0010\u0012\u001a\u00020\u0007H&¢\u0006\u0004\b\u0012\u0010\u0013J\u0017\u0010\u0016\u001a\u00020\u00072\u0006\u0010\u0015\u001a\u00020\u0014H&¢\u0006\u0004\b\u0016\u0010\u0017¨\u0006\u0018"}, d2 = {"Lcom/baidu/searchbox/live/model/MixModel$OnMixDataLoadedCallBack;", "Lkotlin/Any;", "Ljava/lang/Exception;", "Lkotlin/Exception;", "exception", "", "errorno", "", "onSlideListFail", "(Ljava/lang/Exception;Ljava/lang/Integer;)V", "", "pageSession", "hasMore", "", "Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "data", "onSlideListSuccess", "(Ljava/lang/String;ILjava/util/List;)V", "onTemplateIdFail", "()V", "Lcom/baidu/searchbox/live/data/pojo/LiveTypeData;", "liveType", "onTemplateIdSuccess", "(Lcom/baidu/searchbox/live/data/pojo/LiveTypeData;)V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes2.dex */
-    public interface OnMixDataLoadedCallBack {
-
-        @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
-        /* loaded from: classes2.dex */
-        public static final class DefaultImpls {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public static /* synthetic */ void onSlideListFail$default(OnMixDataLoadedCallBack onMixDataLoadedCallBack, Exception exc, Integer num, int i, Object obj) {
-                if (obj != null) {
-                    throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: onSlideListFail");
-                }
-                if ((i & 2) != 0) {
-                    num = -1;
-                }
-                onMixDataLoadedCallBack.onSlideListFail(exc, num);
-            }
-        }
-
-        void onSlideListFail(Exception exc, Integer num);
-
-        void onSlideListSuccess(String str, int i, List<LiveContainer.LiveItemModel> list);
-
-        void onTemplateIdFail();
-
-        void onTemplateIdSuccess(LiveTypeData liveTypeData);
-    }
-
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -107,36 +77,6 @@ public final class MixModel {
             }
         }
         $$delegatedProperties = new KProperty[]{Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(MixModel.class), "listApi", "getListApi()Lcom/baidu/searchbox/live/model/repository/MixListRepository;")), Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(MixModel.class), "liveTypeApi", "getLiveTypeApi()Lcom/baidu/searchbox/live/model/repository/MixTypeRepository;")), Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(MixModel.class), "roomApi", "getRoomApi()Lcom/baidu/searchbox/live/model/repository/MixRoomRepository;"))};
-    }
-
-    public MixModel(MiniUniqueId miniUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {miniUniqueId};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mixUniqueId = miniUniqueId;
-        this.listApi$delegate = LazyKt__LazyJVMKt.lazy(MixModel$listApi$2.INSTANCE);
-        this.liveTypeApi$delegate = LazyKt__LazyJVMKt.lazy(MixModel$liveTypeApi$2.INSTANCE);
-        this.roomApi$delegate = LazyKt__LazyJVMKt.lazy(MixModel$roomApi$2.INSTANCE);
-        AbConfigService abConfigService = (AbConfigService) ServiceManager.getService(AbConfigService.Companion.getSERVICE_REFERENCE());
-        boolean z = false;
-        if (abConfigService != null ? abConfigService.getSwitch(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, false) : false) {
-            PluginInvokeService pluginMgrService = MiniPluginManager.INSTANCE.getPluginMgrService();
-            if ((pluginMgrService != null ? pluginMgrService.getPluginVersionCode("com.baidu.searchbox.livenps") : 0) >= 603000000) {
-                z = true;
-            }
-        }
-        this.prefetchEnterSupport = z;
     }
 
     private final MixListRepository getListApi() {
@@ -170,6 +110,283 @@ public final class MixModel {
             return (MixRoomRepository) lazy.getValue();
         }
         return (MixRoomRepository) invokeV.objValue;
+    }
+
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000<\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010!\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\bf\u0018\u00002\u00020\u0001J'\u0010\b\u001a\u00020\u00072\n\u0010\u0004\u001a\u00060\u0002j\u0002`\u00032\n\b\u0002\u0010\u0006\u001a\u0004\u0018\u00010\u0005H&¢\u0006\u0004\b\b\u0010\tJ-\u0010\u0010\u001a\u00020\u00072\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\f\u001a\u00020\u00052\f\u0010\u000f\u001a\b\u0012\u0004\u0012\u00020\u000e0\rH&¢\u0006\u0004\b\u0010\u0010\u0011J\u000f\u0010\u0012\u001a\u00020\u0007H&¢\u0006\u0004\b\u0012\u0010\u0013J\u0017\u0010\u0016\u001a\u00020\u00072\u0006\u0010\u0015\u001a\u00020\u0014H&¢\u0006\u0004\b\u0016\u0010\u0017¨\u0006\u0018"}, d2 = {"Lcom/baidu/searchbox/live/model/MixModel$OnMixDataLoadedCallBack;", "Lkotlin/Any;", "Ljava/lang/Exception;", "Lkotlin/Exception;", "exception", "", "errorno", "", "onSlideListFail", "(Ljava/lang/Exception;Ljava/lang/Integer;)V", "", "pageSession", "hasMore", "", "Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "data", "onSlideListSuccess", "(Ljava/lang/String;ILjava/util/List;)V", "onTemplateIdFail", "()V", "Lcom/baidu/searchbox/live/data/pojo/LiveTypeData;", "liveType", "onTemplateIdSuccess", "(Lcom/baidu/searchbox/live/data/pojo/LiveTypeData;)V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    /* loaded from: classes2.dex */
+    public interface OnMixDataLoadedCallBack {
+        void onSlideListFail(Exception exc, Integer num);
+
+        void onSlideListSuccess(String str, int i, List list);
+
+        void onTemplateIdFail();
+
+        void onTemplateIdSuccess(LiveTypeData liveTypeData);
+
+        @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
+        /* loaded from: classes2.dex */
+        public final class DefaultImpls {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public static /* synthetic */ void onSlideListFail$default(OnMixDataLoadedCallBack onMixDataLoadedCallBack, Exception exc, Integer num, int i, Object obj) {
+                if (obj == null) {
+                    if ((i & 2) != 0) {
+                        num = -1;
+                    }
+                    onMixDataLoadedCallBack.onSlideListFail(exc, num);
+                    return;
+                }
+                throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: onSlideListFail");
+            }
+        }
+    }
+
+    public MixModel(MiniUniqueId miniUniqueId) {
+        boolean z;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {miniUniqueId};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mixUniqueId = miniUniqueId;
+        this.listApi$delegate = LazyKt__LazyJVMKt.lazy(MixModel$listApi$2.INSTANCE);
+        this.liveTypeApi$delegate = LazyKt__LazyJVMKt.lazy(MixModel$liveTypeApi$2.INSTANCE);
+        this.roomApi$delegate = LazyKt__LazyJVMKt.lazy(MixModel$roomApi$2.INSTANCE);
+        AbConfigService abConfigService = (AbConfigService) ServiceManager.getService(AbConfigService.Companion.getSERVICE_REFERENCE());
+        boolean z2 = false;
+        if (abConfigService != null) {
+            z = abConfigService.getSwitch(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, false);
+        } else {
+            z = false;
+        }
+        if (z) {
+            PluginInvokeService pluginMgrService = MiniPluginManager.INSTANCE.getPluginMgrService();
+            if (pluginMgrService != null) {
+                i = pluginMgrService.getPluginVersionCode("com.baidu.searchbox.livenps");
+            } else {
+                i = 0;
+            }
+            if (i >= 604000000) {
+                z2 = true;
+            }
+        }
+        this.prefetchEnterSupport = z2;
+    }
+
+    public final void reqLiveType(final OnMixDataLoaded onMixDataLoaded) {
+        IntentData intentData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onMixDataLoaded) == null) {
+            ILiveListState iLiveListState = (ILiveListState) ServiceLocator.Companion.getGlobalService(ILiveListState.class);
+            if (iLiveListState != null) {
+                intentData = iLiveListState.getIntent();
+            } else {
+                intentData = null;
+            }
+            String str = (intentData == null || (r1 = intentData.getId()) == null) ? "" : "";
+            if (this.prefetchEnterSupport && MixRequestServiceLocator.Companion.getGlobalService(MixRequestService.class) != null) {
+                MediaLivePluginLogger.Companion.getInstance().logListGetLiveTypeStartToSendReqNet();
+                MediaLivePlayLogger.Companion.getInstance().logLiveRoomStartGetLiveTypeTime();
+                MixRequestService mixRequestService = (MixRequestService) MixRequestServiceLocator.Companion.getGlobalService(MixRequestService.class);
+                if (mixRequestService != null) {
+                    mixRequestService.requestRoomEnter(new RoomEnterParams(str, "", null, null, "", false, 44, null), true, new OnMixDataLoaded(this, onMixDataLoaded) { // from class: com.baidu.searchbox.live.model.MixModel$reqLiveType$1
+                        public static /* synthetic */ Interceptable $ic;
+                        public final /* synthetic */ OnMixDataLoaded $callback;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ MixModel this$0;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this, onMixDataLoaded};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.this$0 = this;
+                            this.$callback = onMixDataLoaded;
+                        }
+
+                        /* JADX DEBUG: Method merged with bridge method */
+                        /* JADX WARN: Code restructure failed: missing block: B:44:0x009e, code lost:
+                            r7 = r6.this$0.mOnMixDataLoadedCallBack;
+                         */
+                        @Override // com.baidu.searchbox.live.model.res.OnMixDataLoaded
+                        /*
+                            Code decompiled incorrectly, please refer to instructions dump.
+                        */
+                        public void onMixDataLoaded(MixResult mixResult) {
+                            MixModel.OnMixDataLoadedCallBack onMixDataLoadedCallBack;
+                            JSONObject jSONObject;
+                            JSONObject jSONObject2;
+                            String str2;
+                            String str3;
+                            String str4;
+                            JSONObject jSONObject3;
+                            MixModel.OnMixDataLoadedCallBack onMixDataLoadedCallBack2;
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, mixResult) == null) {
+                                MediaLivePluginLogger.Companion.getInstance().logGetLiveTypeNetEndAndStartParse();
+                                if (mixResult instanceof MixResult.MixSuccess) {
+                                    OnMixDataLoaded onMixDataLoaded2 = this.$callback;
+                                    if (onMixDataLoaded2 != null) {
+                                        onMixDataLoaded2.onMixDataLoaded(mixResult);
+                                    }
+                                    JSONObject respJsonObj = ((LiveRoomEnterRespData) ((MixResult.MixSuccess) mixResult).getData()).getRespJsonObj();
+                                    String str5 = null;
+                                    if (respJsonObj != null) {
+                                        jSONObject = respJsonObj.optJSONObject("data");
+                                    } else {
+                                        jSONObject = null;
+                                    }
+                                    if (jSONObject != null) {
+                                        jSONObject2 = jSONObject.optJSONObject("room");
+                                    } else {
+                                        jSONObject2 = null;
+                                    }
+                                    if (jSONObject2 != null) {
+                                        str2 = jSONObject2.optString("room_id");
+                                    } else {
+                                        str2 = null;
+                                    }
+                                    if (jSONObject2 != null) {
+                                        str3 = jSONObject2.optString("template_id");
+                                    } else {
+                                        str3 = null;
+                                    }
+                                    if (jSONObject2 != null) {
+                                        str4 = jSONObject2.optString("room_type");
+                                    } else {
+                                        str4 = null;
+                                    }
+                                    if (TextUtils.isEmpty(str3) || TextUtils.isEmpty(str4)) {
+                                        if (jSONObject != null) {
+                                            jSONObject3 = jSONObject.optJSONObject("room_template_info");
+                                        } else {
+                                            jSONObject3 = null;
+                                        }
+                                        if (jSONObject3 != null) {
+                                            str3 = jSONObject3.optString("template_id");
+                                        } else {
+                                            str3 = null;
+                                        }
+                                        if (jSONObject3 != null) {
+                                            str5 = jSONObject3.optString("live_type");
+                                        }
+                                        str4 = str5;
+                                    }
+                                    LiveTypeData liveTypeData = new LiveTypeData();
+                                    liveTypeData.setRoomId(str2);
+                                    liveTypeData.setTemplateId(str3);
+                                    liveTypeData.setLiveType(str4);
+                                    onMixDataLoadedCallBack2 = this.this$0.mOnMixDataLoadedCallBack;
+                                    if (onMixDataLoadedCallBack2 != null) {
+                                        onMixDataLoadedCallBack2.onTemplateIdSuccess(liveTypeData);
+                                    }
+                                } else if ((mixResult instanceof MixResult.MixError) && onMixDataLoadedCallBack != null) {
+                                    onMixDataLoadedCallBack.onTemplateIdFail();
+                                }
+                            }
+                        }
+                    });
+                    return;
+                }
+                return;
+            }
+            getLiveTypeApi().fetchLiveType(str, new OnMixDataLoaded(this) { // from class: com.baidu.searchbox.live.model.MixModel$reqLiveType$2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ MixModel this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Code restructure failed: missing block: B:11:0x0020, code lost:
+                    r5 = r4.this$0.mOnMixDataLoadedCallBack;
+                 */
+                @Override // com.baidu.searchbox.live.model.res.OnMixDataLoaded
+                /*
+                    Code decompiled incorrectly, please refer to instructions dump.
+                */
+                public void onMixDataLoaded(MixResult mixResult) {
+                    MixModel.OnMixDataLoadedCallBack onMixDataLoadedCallBack;
+                    MixModel.OnMixDataLoadedCallBack onMixDataLoadedCallBack2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, mixResult) == null) {
+                        if (mixResult instanceof MixResult.MixSuccess) {
+                            onMixDataLoadedCallBack2 = this.this$0.mOnMixDataLoadedCallBack;
+                            if (onMixDataLoadedCallBack2 != null) {
+                                onMixDataLoadedCallBack2.onTemplateIdSuccess((LiveTypeData) ((MixResult.MixSuccess) mixResult).getData());
+                            }
+                        } else if ((mixResult instanceof MixResult.MixError) && onMixDataLoadedCallBack != null) {
+                            onMixDataLoadedCallBack.onTemplateIdFail();
+                        }
+                    }
+                }
+            });
+        }
+    }
+
+    public final void removeReqEnterIdCallbacks(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            getRoomApi().removeEnterIdCallbacks(str);
+        }
+    }
+
+    public final void setOnMixDataLoadedCallBack(OnMixDataLoadedCallBack onMixDataLoadedCallBack) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, onMixDataLoadedCallBack) == null) {
+            this.mOnMixDataLoadedCallBack = onMixDataLoadedCallBack;
+        }
+    }
+
+    public final void reqRoomEnter(RoomEnterParams roomEnterParams, OnMixDataLoaded onMixDataLoaded) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, roomEnterParams, onMixDataLoaded) == null) {
+            getRoomApi().fetchRoomEnter(roomEnterParams, onMixDataLoaded);
+        }
+    }
+
+    public final void reqRoomExit(RoomExitParams roomExitParams, OnMixDataLoaded onMixDataLoaded) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, roomExitParams, onMixDataLoaded) == null) {
+            getRoomApi().fetchRoomExit(roomExitParams, onMixDataLoaded);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -226,8 +443,6 @@ public final class MixModel {
         return (LiveContainer.LiveItemModel) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.searchbox.live.model.MixModel */
-    /* JADX WARN: Multi-variable type inference failed */
     public static /* synthetic */ void reqLiveType$default(MixModel mixModel, OnMixDataLoaded onMixDataLoaded, int i, Object obj) {
         if ((i & 1) != 0) {
             onMixDataLoaded = null;
@@ -238,10 +453,21 @@ public final class MixModel {
     public final MiniUniqueId getMixUniqueId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mixUniqueId : (MiniUniqueId) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mixUniqueId;
+        }
+        return (MiniUniqueId) invokeV.objValue;
+    }
+
+    public final void reqLiveType() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            reqLiveType(null);
+        }
     }
 
     public final void queryLiveList() {
+        IntentData intentData;
         String str;
         IntentData.SchemeModel model;
         String source;
@@ -250,26 +476,32 @@ public final class MixModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             ILiveListState iLiveListState = (ILiveListState) ServiceLocator.Companion.getGlobalService(ILiveListState.class);
-            IntentData intent = iLiveListState != null ? iLiveListState.getIntent() : null;
+            ListInfo listInfo = null;
+            if (iLiveListState != null) {
+                intentData = iLiveListState.getIntent();
+            } else {
+                intentData = null;
+            }
             ILiveListState iLiveListState2 = (ILiveListState) ServiceLocator.Companion.getGlobalService(ILiveListState.class);
-            ListInfo listInfo = iLiveListState2 != null ? iLiveListState2.getListInfo() : null;
+            if (iLiveListState2 != null) {
+                listInfo = iLiveListState2.getListInfo();
+            }
             String str2 = "";
-            String str3 = (intent == null || (str3 = intent.getId()) == null) ? "" : "";
+            String str3 = (intentData == null || (str3 = intentData.getId()) == null) ? "" : "";
             String str4 = (listInfo == null || (str4 = listInfo.getPageSession()) == null) ? "" : "";
-            if (intent == null || (model2 = intent.getModel()) == null || (ext = model2.getExt()) == null || (str = ext.toString()) == null) {
+            if (intentData == null || (model2 = intentData.getModel()) == null || (ext = model2.getExt()) == null || (str = ext.toString()) == null) {
                 str = StringUtil.EMPTY_ARRAY;
             }
             Intrinsics.checkExpressionValueIsNotNull(str, "intentData?.model?.ext?.toString() ?: \"{}\"");
-            if (intent != null && (model = intent.getModel()) != null && (source = model.getSource()) != null) {
+            if (intentData != null && (model = intentData.getModel()) != null && (source = model.getSource()) != null) {
                 str2 = source;
             }
             ListLogKt.log("MixLiveCell_fake_list", "queryLiveList");
-            getListApi().fetchLiveSlideList(new LiveListParamsMix(str3, str4, str, str2), new OnMixDataLoaded<MixResult<? extends SlideListInfo>>(this) { // from class: com.baidu.searchbox.live.model.MixModel$queryLiveList$1
+            getListApi().fetchLiveSlideList(new LiveListParamsMix(str3, str4, str, str2), new OnMixDataLoaded(this) { // from class: com.baidu.searchbox.live.model.MixModel$queryLiveList$1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ MixModel this$0;
 
-                /* JADX DEBUG: Incorrect args count in method signature: ()V */
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
@@ -290,7 +522,7 @@ public final class MixModel {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.live.model.res.OnMixDataLoaded
-                public void onMixDataLoaded(MixResult<? extends SlideListInfo> mixResult) {
+                public void onMixDataLoaded(MixResult mixResult) {
                     MixModel.OnMixDataLoadedCallBack onMixDataLoadedCallBack;
                     MixModel.OnMixDataLoadedCallBack onMixDataLoadedCallBack2;
                     LiveContainer.LiveItemModel parseLiveItemModel;
@@ -300,9 +532,9 @@ public final class MixModel {
                             ArrayList arrayList = new ArrayList();
                             MixResult.MixSuccess mixSuccess = (MixResult.MixSuccess) mixResult;
                             if (((SlideListInfo) mixSuccess.getData()).list != null && ((SlideListInfo) mixSuccess.getData()).list.size() > 0) {
-                                Iterator<SlideListInfo.SlideInfo> it = ((SlideListInfo) mixSuccess.getData()).list.iterator();
+                                Iterator it = ((SlideListInfo) mixSuccess.getData()).list.iterator();
                                 while (it.hasNext()) {
-                                    SlideListInfo.SlideInfo item = it.next();
+                                    SlideListInfo.SlideInfo item = (SlideListInfo.SlideInfo) it.next();
                                     MixModel mixModel = this.this$0;
                                     Intrinsics.checkExpressionValueIsNotNull(item, "item");
                                     parseLiveItemModel = mixModel.parseLiveItemModel(item);
@@ -325,190 +557,6 @@ public final class MixModel {
                             if (onMixDataLoadedCallBack != null) {
                                 MixModel.OnMixDataLoadedCallBack.DefaultImpls.onSlideListFail$default(onMixDataLoadedCallBack, ((MixResult.MixError) mixResult).getException(), null, 2, null);
                             }
-                        }
-                    }
-                }
-            });
-        }
-    }
-
-    public final void removeReqEnterIdCallbacks(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            getRoomApi().removeEnterIdCallbacks(str);
-        }
-    }
-
-    public final void reqLiveType() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            reqLiveType(null);
-        }
-    }
-
-    public final void reqRoomEnter(RoomEnterParams roomEnterParams, OnMixDataLoaded<MixResult<LiveRoomEnterRespData>> onMixDataLoaded) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, roomEnterParams, onMixDataLoaded) == null) {
-            getRoomApi().fetchRoomEnter(roomEnterParams, onMixDataLoaded);
-        }
-    }
-
-    public final void reqRoomExit(RoomExitParams roomExitParams, OnMixDataLoaded<MixResult<Boolean>> onMixDataLoaded) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, roomExitParams, onMixDataLoaded) == null) {
-            getRoomApi().fetchRoomExit(roomExitParams, onMixDataLoaded);
-        }
-    }
-
-    public final void setOnMixDataLoadedCallBack(OnMixDataLoadedCallBack onMixDataLoadedCallBack) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, onMixDataLoadedCallBack) == null) {
-            this.mOnMixDataLoadedCallBack = onMixDataLoadedCallBack;
-        }
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r0v5, resolved type: com.baidu.searchbox.live.service.MixRequestService */
-    /* JADX WARN: Multi-variable type inference failed */
-    public final void reqLiveType(final OnMixDataLoaded<MixResult<LiveRoomEnterRespData>> onMixDataLoaded) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onMixDataLoaded) == null) {
-            ILiveListState iLiveListState = (ILiveListState) ServiceLocator.Companion.getGlobalService(ILiveListState.class);
-            IntentData intent = iLiveListState != null ? iLiveListState.getIntent() : null;
-            String str = (intent == null || (r1 = intent.getId()) == null) ? "" : "";
-            if (this.prefetchEnterSupport && MixRequestServiceLocator.Companion.getGlobalService(MixRequestService.class) != null) {
-                MediaLivePluginLogger.Companion.getInstance().logListGetLiveTypeStartToSendReqNet();
-                MediaLivePlayLogger.Companion.getInstance().logLiveRoomStartGetLiveTypeTime();
-                MixRequestService mixRequestService = (MixRequestService) MixRequestServiceLocator.Companion.getGlobalService(MixRequestService.class);
-                if (mixRequestService != 0) {
-                    mixRequestService.requestRoomEnter(new RoomEnterParams(str, "", null, null, "", false, 44, null), true, new OnMixDataLoaded<MixResult<? extends LiveRoomEnterRespData>>(this, onMixDataLoaded) { // from class: com.baidu.searchbox.live.model.MixModel$reqLiveType$1
-                        public static /* synthetic */ Interceptable $ic;
-                        public final /* synthetic */ OnMixDataLoaded $callback;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ MixModel this$0;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, onMixDataLoaded};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                            this.$callback = onMixDataLoaded;
-                        }
-
-                        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-                        @Override // com.baidu.searchbox.live.model.res.OnMixDataLoaded
-                        public /* bridge */ /* synthetic */ void onMixDataLoaded(MixResult<? extends LiveRoomEnterRespData> mixResult) {
-                            onMixDataLoaded2((MixResult<LiveRoomEnterRespData>) mixResult);
-                        }
-
-                        /* JADX WARN: Code restructure failed: missing block: B:44:0x009e, code lost:
-                            r7 = r6.this$0.mOnMixDataLoadedCallBack;
-                         */
-                        /* renamed from: onMixDataLoaded  reason: avoid collision after fix types in other method */
-                        /*
-                            Code decompiled incorrectly, please refer to instructions dump.
-                        */
-                        public void onMixDataLoaded2(MixResult<LiveRoomEnterRespData> mixResult) {
-                            MixModel.OnMixDataLoadedCallBack onMixDataLoadedCallBack;
-                            MixModel.OnMixDataLoadedCallBack onMixDataLoadedCallBack2;
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, mixResult) == null) {
-                                MediaLivePluginLogger.Companion.getInstance().logGetLiveTypeNetEndAndStartParse();
-                                if (mixResult instanceof MixResult.MixSuccess) {
-                                    OnMixDataLoaded onMixDataLoaded2 = this.$callback;
-                                    if (onMixDataLoaded2 != null) {
-                                        onMixDataLoaded2.onMixDataLoaded(mixResult);
-                                    }
-                                    JSONObject respJsonObj = ((LiveRoomEnterRespData) ((MixResult.MixSuccess) mixResult).getData()).getRespJsonObj();
-                                    JSONObject optJSONObject = respJsonObj != null ? respJsonObj.optJSONObject("data") : null;
-                                    JSONObject optJSONObject2 = optJSONObject != null ? optJSONObject.optJSONObject("room") : null;
-                                    String optString = optJSONObject2 != null ? optJSONObject2.optString("room_id") : null;
-                                    String optString2 = optJSONObject2 != null ? optJSONObject2.optString("template_id") : null;
-                                    String optString3 = optJSONObject2 != null ? optJSONObject2.optString("room_type") : null;
-                                    if (TextUtils.isEmpty(optString2) || TextUtils.isEmpty(optString3)) {
-                                        JSONObject optJSONObject3 = optJSONObject != null ? optJSONObject.optJSONObject("room_template_info") : null;
-                                        optString2 = optJSONObject3 != null ? optJSONObject3.optString("template_id") : null;
-                                        optString3 = optJSONObject3 != null ? optJSONObject3.optString("live_type") : null;
-                                    }
-                                    LiveTypeData liveTypeData = new LiveTypeData();
-                                    liveTypeData.setRoomId(optString);
-                                    liveTypeData.setTemplateId(optString2);
-                                    liveTypeData.setLiveType(optString3);
-                                    onMixDataLoadedCallBack2 = this.this$0.mOnMixDataLoadedCallBack;
-                                    if (onMixDataLoadedCallBack2 != null) {
-                                        onMixDataLoadedCallBack2.onTemplateIdSuccess(liveTypeData);
-                                    }
-                                } else if (!(mixResult instanceof MixResult.MixError) || onMixDataLoadedCallBack == null) {
-                                } else {
-                                    onMixDataLoadedCallBack.onTemplateIdFail();
-                                }
-                            }
-                        }
-                    });
-                    return;
-                }
-                return;
-            }
-            getLiveTypeApi().fetchLiveType(str, new OnMixDataLoaded<MixResult<? extends LiveTypeData>>(this) { // from class: com.baidu.searchbox.live.model.MixModel$reqLiveType$2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ MixModel this$0;
-
-                /* JADX DEBUG: Incorrect args count in method signature: ()V */
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-                @Override // com.baidu.searchbox.live.model.res.OnMixDataLoaded
-                public /* bridge */ /* synthetic */ void onMixDataLoaded(MixResult<? extends LiveTypeData> mixResult) {
-                    onMixDataLoaded2((MixResult<LiveTypeData>) mixResult);
-                }
-
-                /* JADX WARN: Code restructure failed: missing block: B:11:0x0020, code lost:
-                    r5 = r4.this$0.mOnMixDataLoadedCallBack;
-                 */
-                /* renamed from: onMixDataLoaded  reason: avoid collision after fix types in other method */
-                /*
-                    Code decompiled incorrectly, please refer to instructions dump.
-                */
-                public void onMixDataLoaded2(MixResult<LiveTypeData> mixResult) {
-                    MixModel.OnMixDataLoadedCallBack onMixDataLoadedCallBack;
-                    MixModel.OnMixDataLoadedCallBack onMixDataLoadedCallBack2;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, mixResult) == null) {
-                        if (mixResult instanceof MixResult.MixSuccess) {
-                            onMixDataLoadedCallBack2 = this.this$0.mOnMixDataLoadedCallBack;
-                            if (onMixDataLoadedCallBack2 != null) {
-                                onMixDataLoadedCallBack2.onTemplateIdSuccess((LiveTypeData) ((MixResult.MixSuccess) mixResult).getData());
-                            }
-                        } else if (!(mixResult instanceof MixResult.MixError) || onMixDataLoadedCallBack == null) {
-                        } else {
-                            onMixDataLoadedCallBack.onTemplateIdFail();
                         }
                     }
                 }

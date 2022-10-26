@@ -18,6 +18,12 @@ public abstract class AbstractSampleEntry extends AbstractContainerBox implement
     public transient /* synthetic */ FieldHolder $fh;
     public int dataReferenceIndex;
 
+    @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
+    public abstract void getBox(WritableByteChannel writableByteChannel) throws IOException;
+
+    @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
+    public abstract void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException;
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AbstractSampleEntry(String str) {
         super(str);
@@ -39,18 +45,15 @@ public abstract class AbstractSampleEntry extends AbstractContainerBox implement
         this.dataReferenceIndex = 1;
     }
 
-    @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
-    public abstract void getBox(WritableByteChannel writableByteChannel) throws IOException;
-
     @Override // com.coremedia.iso.boxes.sampleentry.SampleEntry
     public int getDataReferenceIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.dataReferenceIndex : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.dataReferenceIndex;
+        }
+        return invokeV.intValue;
     }
-
-    @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
-    public abstract void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException;
 
     @Override // com.coremedia.iso.boxes.sampleentry.SampleEntry
     public void setDataReferenceIndex(int i) {

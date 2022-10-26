@@ -47,6 +47,15 @@ public class BdUniqueId implements Serializable {
         this.mId = 0;
     }
 
+    public int getId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mId;
+        }
+        return invokeV.intValue;
+    }
+
     public static synchronized BdUniqueId gen() {
         InterceptResult invokeV;
         BdUniqueId bdUniqueId;
@@ -63,11 +72,5 @@ public class BdUniqueId implements Serializable {
             return bdUniqueId;
         }
         return (BdUniqueId) invokeV.objValue;
-    }
-
-    public int getId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mId : invokeV.intValue;
     }
 }

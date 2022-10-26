@@ -1,8 +1,8 @@
 package com.baidu.tbadk.core.elementsMaven;
 
 import android.text.TextUtils;
-import com.baidu.tieba.fv4;
-import com.baidu.tieba.i86;
+import com.baidu.tieba.lv4;
+import com.baidu.tieba.p86;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,6 +16,15 @@ public class EMABTest {
     public static final String TYPE_DIMEN = "dimen";
     public static final String TYPE_STRING = "string";
     public transient /* synthetic */ FieldHolder $fh;
+
+    private boolean testMethod() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     public EMABTest() {
         Interceptable interceptable = $ic;
@@ -35,25 +44,16 @@ public class EMABTest {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
-            String o = fv4.o(i);
-            if (TextUtils.isEmpty(o)) {
+            String p = lv4.p(i);
+            if (!TextUtils.isEmpty(p)) {
+                String a = p86.a(p);
+                if (!TextUtils.isEmpty(a)) {
+                    return lv4.t(a, str);
+                }
                 return 0;
             }
-            String a = i86.a(o);
-            if (TextUtils.isEmpty(a)) {
-                return 0;
-            }
-            return fv4.s(a, str);
+            return 0;
         }
         return invokeIL.intValue;
-    }
-
-    private boolean testMethod() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

@@ -65,30 +65,6 @@ public class g2 extends WebViewClient {
     }
 
     @Override // android.webkit.WebViewClient
-    public void onPageFinished(WebView webView, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
-            super.onPageFinished(webView, str);
-            this.e.c.removeMessages(11);
-            if (this.a) {
-                return;
-            }
-            d1 a = e1.a(this.b);
-            try {
-                a.b = e1.a("ps", new f1(this.c));
-                a.a("co", 2004);
-                a.a("msg", str);
-            } catch (JSONException unused) {
-            }
-            a.a();
-            Message obtain = Message.obtain();
-            obtain.what = 12;
-            obtain.obj = this.d;
-            this.e.c.sendMessage(obtain);
-        }
-    }
-
-    @Override // android.webkit.WebViewClient
     public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, bitmap) == null) {
@@ -108,5 +84,28 @@ public class g2 extends WebViewClient {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) ? Build.VERSION.SDK_INT < 24 ? a(str) : super.shouldOverrideUrlLoading(webView, str) : invokeLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebViewClient
+    public void onPageFinished(WebView webView, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
+            super.onPageFinished(webView, str);
+            this.e.c.removeMessages(11);
+            if (!this.a) {
+                d1 a = e1.a(this.b);
+                try {
+                    a.b = e1.a("ps", new f1(this.c));
+                    a.a("co", 2004);
+                    a.a("msg", str);
+                } catch (JSONException unused) {
+                }
+                a.a();
+                Message obtain = Message.obtain();
+                obtain.what = 12;
+                obtain.obj = this.d;
+                this.e.c.sendMessage(obtain);
+            }
+        }
     }
 }

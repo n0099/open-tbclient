@@ -70,55 +70,33 @@ public final class SsaDecoder extends SimpleSubtitleDecoder {
         }
     }
 
-    private void parseDialogueLine(String str, List<Cue> list, LongArray longArray) {
-        long j;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public SsaDecoder(List list) {
+        super(TAG);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, this, str, list, longArray) == null) {
-            if (this.formatKeyCount == 0) {
-                Log.w(TAG, "Skipping dialogue line before format: " + str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
                 return;
-            }
-            String[] split = str.substring(10).split(",", this.formatKeyCount);
-            long parseTimecodeUs = parseTimecodeUs(split[this.formatStartIndex]);
-            if (parseTimecodeUs == C.TIME_UNSET) {
-                Log.w(TAG, "Skipping invalid timing: " + str);
-                return;
-            }
-            String str2 = split[this.formatEndIndex];
-            if (str2.trim().isEmpty()) {
-                j = -9223372036854775807L;
-            } else {
-                j = parseTimecodeUs(str2);
-                if (j == C.TIME_UNSET) {
-                    Log.w(TAG, "Skipping invalid timing: " + str);
-                    return;
-                }
-            }
-            list.add(new Cue(split[this.formatTextIndex].replaceAll("\\{.*?\\}", "").replaceAll("\\\\N", "\n").replaceAll("\\\\n", "\n")));
-            longArray.add(parseTimecodeUs);
-            if (j != C.TIME_UNSET) {
-                list.add(null);
-                longArray.add(j);
             }
         }
-    }
-
-    private void parseEventBody(ParsableByteArray parsableByteArray, List<Cue> list, LongArray longArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, parsableByteArray, list, longArray) != null) {
+        if (list != null && !list.isEmpty()) {
+            this.haveInitializationData = true;
+            String str = new String((byte[]) list.get(0));
+            Assertions.checkArgument(str.startsWith(FORMAT_LINE_PREFIX));
+            parseFormatLine(str);
+            parseHeader(new ParsableByteArray((byte[]) list.get(1)));
             return;
         }
-        while (true) {
-            String readLine = parsableByteArray.readLine();
-            if (readLine == null) {
-                return;
-            }
-            if (!this.haveInitializationData && readLine.startsWith(FORMAT_LINE_PREFIX)) {
-                parseFormatLine(readLine);
-            } else if (readLine.startsWith(DIALOGUE_LINE_PREFIX)) {
-                parseDialogueLine(readLine, list, longArray);
-            }
-        }
+        this.haveInitializationData = false;
     }
 
     private void parseFormatLine(String str) {
@@ -133,29 +111,87 @@ public final class SsaDecoder extends SimpleSubtitleDecoder {
             for (int i = 0; i < this.formatKeyCount; i++) {
                 String lowerInvariant = Util.toLowerInvariant(split[i].trim());
                 int hashCode = lowerInvariant.hashCode();
-                if (hashCode == 100571) {
+                if (hashCode != 100571) {
+                    if (hashCode != 3556653) {
+                        if (hashCode == 109757538 && lowerInvariant.equals("start")) {
+                            c = 0;
+                        }
+                        c = 65535;
+                    } else {
+                        if (lowerInvariant.equals("text")) {
+                            c = 2;
+                        }
+                        c = 65535;
+                    }
+                } else {
                     if (lowerInvariant.equals("end")) {
                         c = 1;
                     }
                     c = 65535;
-                } else if (hashCode != 3556653) {
-                    if (hashCode == 109757538 && lowerInvariant.equals("start")) {
-                        c = 0;
+                }
+                if (c != 0) {
+                    if (c != 1) {
+                        if (c == 2) {
+                            this.formatTextIndex = i;
+                        }
+                    } else {
+                        this.formatEndIndex = i;
                     }
-                    c = 65535;
                 } else {
-                    if (lowerInvariant.equals("text")) {
-                        c = 2;
-                    }
-                    c = 65535;
-                }
-                if (c == 0) {
                     this.formatStartIndex = i;
-                } else if (c == 1) {
-                    this.formatEndIndex = i;
-                } else if (c == 2) {
-                    this.formatTextIndex = i;
                 }
+            }
+        }
+    }
+
+    private void parseDialogueLine(String str, List list, LongArray longArray) {
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, this, str, list, longArray) == null) {
+            if (this.formatKeyCount == 0) {
+                Log.w(TAG, "Skipping dialogue line before format: " + str);
+                return;
+            }
+            String[] split = str.substring(10).split(",", this.formatKeyCount);
+            long parseTimecodeUs = parseTimecodeUs(split[this.formatStartIndex]);
+            if (parseTimecodeUs == C.TIME_UNSET) {
+                Log.w(TAG, "Skipping invalid timing: " + str);
+                return;
+            }
+            String str2 = split[this.formatEndIndex];
+            if (!str2.trim().isEmpty()) {
+                j = parseTimecodeUs(str2);
+                if (j == C.TIME_UNSET) {
+                    Log.w(TAG, "Skipping invalid timing: " + str);
+                    return;
+                }
+            } else {
+                j = -9223372036854775807L;
+            }
+            list.add(new Cue(split[this.formatTextIndex].replaceAll("\\{.*?\\}", "").replaceAll("\\\\N", "\n").replaceAll("\\\\n", "\n")));
+            longArray.add(parseTimecodeUs);
+            if (j != C.TIME_UNSET) {
+                list.add(null);
+                longArray.add(j);
+            }
+        }
+    }
+
+    private void parseEventBody(ParsableByteArray parsableByteArray, List list, LongArray longArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, parsableByteArray, list, longArray) != null) {
+            return;
+        }
+        while (true) {
+            String readLine = parsableByteArray.readLine();
+            if (readLine != null) {
+                if (!this.haveInitializationData && readLine.startsWith(FORMAT_LINE_PREFIX)) {
+                    parseFormatLine(readLine);
+                } else if (readLine.startsWith(DIALOGUE_LINE_PREFIX)) {
+                    parseDialogueLine(readLine, list, longArray);
+                }
+            } else {
+                return;
             }
         }
     }
@@ -178,38 +214,12 @@ public final class SsaDecoder extends SimpleSubtitleDecoder {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
             Matcher matcher = SSA_TIMECODE_PATTERN.matcher(str);
-            return !matcher.matches() ? C.TIME_UNSET : (Long.parseLong(matcher.group(1)) * 60 * 60 * 1000000) + (Long.parseLong(matcher.group(2)) * 60 * 1000000) + (Long.parseLong(matcher.group(3)) * 1000000) + (Long.parseLong(matcher.group(4)) * 10000);
+            if (!matcher.matches()) {
+                return C.TIME_UNSET;
+            }
+            return (Long.parseLong(matcher.group(1)) * 60 * 60 * 1000000) + (Long.parseLong(matcher.group(2)) * 60 * 1000000) + (Long.parseLong(matcher.group(3)) * 1000000) + (Long.parseLong(matcher.group(4)) * 10000);
         }
         return invokeL.longValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SsaDecoder(List<byte[]> list) {
-        super(TAG);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        if (list != null && !list.isEmpty()) {
-            this.haveInitializationData = true;
-            String str = new String(list.get(0));
-            Assertions.checkArgument(str.startsWith(FORMAT_LINE_PREFIX));
-            parseFormatLine(str);
-            parseHeader(new ParsableByteArray(list.get(1)));
-            return;
-        }
-        this.haveInitializationData = false;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

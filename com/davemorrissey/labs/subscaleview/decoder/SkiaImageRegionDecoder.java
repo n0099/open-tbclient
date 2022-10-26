@@ -44,6 +44,28 @@ public class SkiaImageRegionDecoder implements ImageRegionDecoder {
     }
 
     @Override // com.davemorrissey.labs.subscaleview.decoder.ImageRegionDecoder
+    public boolean isReady() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            BitmapRegionDecoder bitmapRegionDecoder = this.decoder;
+            if (bitmapRegionDecoder != null && !bitmapRegionDecoder.isRecycled()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.davemorrissey.labs.subscaleview.decoder.ImageRegionDecoder
+    public void recycle() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.decoder.recycle();
+        }
+    }
+
+    @Override // com.davemorrissey.labs.subscaleview.decoder.ImageRegionDecoder
     public Bitmap decodeRegion(Rect rect, int i) {
         InterceptResult invokeLI;
         Bitmap decodeRegion;
@@ -102,24 +124,5 @@ public class SkiaImageRegionDecoder implements ImageRegionDecoder {
             return new Point(this.decoder.getWidth(), this.decoder.getHeight());
         }
         return (Point) invokeLL.objValue;
-    }
-
-    @Override // com.davemorrissey.labs.subscaleview.decoder.ImageRegionDecoder
-    public boolean isReady() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            BitmapRegionDecoder bitmapRegionDecoder = this.decoder;
-            return (bitmapRegionDecoder == null || bitmapRegionDecoder.isRecycled()) ? false : true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.davemorrissey.labs.subscaleview.decoder.ImageRegionDecoder
-    public void recycle() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.decoder.recycle();
-        }
     }
 }

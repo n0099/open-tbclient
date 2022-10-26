@@ -22,13 +22,13 @@ public final class ContentDataSource implements DataSource {
     public AssetFileDescriptor assetFileDescriptor;
     public long bytesRemaining;
     public FileInputStream inputStream;
-    public final TransferListener<? super ContentDataSource> listener;
+    public final TransferListener listener;
     public boolean opened;
     public final ContentResolver resolver;
     public Uri uri;
 
     /* loaded from: classes7.dex */
-    public static class ContentDataSourceException extends IOException {
+    public class ContentDataSourceException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -74,6 +74,25 @@ public final class ContentDataSource implements DataSource {
         }
     }
 
+    public ContentDataSource(Context context, TransferListener transferListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, transferListener};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.resolver = context.getContentResolver();
+        this.listener = transferListener;
+    }
+
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IPUT, IGET]}, finally: {[IPUT, IGET, INVOKE, IF, IPUT, IGET, IF] complete} */
     /* JADX DEBUG: Finally have unexpected throw blocks count: 3, expect 1 */
     @Override // com.google.android.exoplayer2.upstream.DataSource
@@ -99,7 +118,7 @@ public final class ContentDataSource implements DataSource {
                         this.assetFileDescriptor = null;
                         if (this.opened) {
                             this.opened = false;
-                            TransferListener<? super ContentDataSource> transferListener = this.listener;
+                            TransferListener transferListener = this.listener;
                             if (transferListener != null) {
                                 transferListener.onTransferEnd(this);
                             }
@@ -118,7 +137,7 @@ public final class ContentDataSource implements DataSource {
                         this.assetFileDescriptor = null;
                         if (this.opened) {
                             this.opened = false;
-                            TransferListener<? super ContentDataSource> transferListener2 = this.listener;
+                            TransferListener transferListener2 = this.listener;
                             if (transferListener2 != null) {
                                 transferListener2.onTransferEnd(this);
                             }
@@ -131,7 +150,7 @@ public final class ContentDataSource implements DataSource {
                     this.assetFileDescriptor = null;
                     if (this.opened) {
                         this.opened = false;
-                        TransferListener<? super ContentDataSource> transferListener3 = this.listener;
+                        TransferListener transferListener3 = this.listener;
                         if (transferListener3 != null) {
                             transferListener3.onTransferEnd(this);
                         }
@@ -145,7 +164,10 @@ public final class ContentDataSource implements DataSource {
     public Uri getUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.uri : (Uri) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.uri;
+        }
+        return (Uri) invokeV.objValue;
     }
 
     @Override // com.google.android.exoplayer2.upstream.DataSource
@@ -180,7 +202,7 @@ public final class ContentDataSource implements DataSource {
                             }
                         }
                         this.opened = true;
-                        TransferListener<? super ContentDataSource> transferListener = this.listener;
+                        TransferListener transferListener = this.listener;
                         if (transferListener != null) {
                             transferListener.onTransferStart(this, dataSpec);
                         }
@@ -226,31 +248,12 @@ public final class ContentDataSource implements DataSource {
             if (j2 != -1) {
                 this.bytesRemaining = j2 - read;
             }
-            TransferListener<? super ContentDataSource> transferListener = this.listener;
+            TransferListener transferListener = this.listener;
             if (transferListener != null) {
                 transferListener.onBytesTransferred(this, read);
             }
             return read;
         }
         return invokeLII.intValue;
-    }
-
-    public ContentDataSource(Context context, TransferListener<? super ContentDataSource> transferListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, transferListener};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.resolver = context.getContentResolver();
-        this.listener = transferListener;
     }
 }

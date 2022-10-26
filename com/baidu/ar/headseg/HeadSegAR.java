@@ -218,7 +218,7 @@ public class HeadSegAR extends c {
     }
 
     @Override // com.baidu.ar.c
-    public void setup(HashMap<String, Object> hashMap) {
+    public void setup(HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) {
             super.setup(hashMap);
@@ -228,7 +228,7 @@ public class HeadSegAR extends c {
             HeadSegDetector headSegDetector = new HeadSegDetector();
             this.qy = headSegDetector;
             headSegDetector.a(this.cb);
-            HashMap<String, Object> hashMap2 = new HashMap<>();
+            HashMap hashMap2 = new HashMap();
             hashMap2.put("ability_name", this.bD);
             a("FaceDetector", this.lE, hashMap2);
             b(true);

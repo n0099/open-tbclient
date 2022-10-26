@@ -16,16 +16,16 @@ import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes7.dex */
-public class InternalRequest<T extends AbstractBceRequest> {
+public class InternalRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RestartableInputStream content;
     public BceCredentials credentials;
     public boolean expectContinueEnabled;
-    public Map<String, String> headers;
+    public Map headers;
     public HttpMethodName httpMethod;
-    public Map<String, String> parameters;
-    public T request;
+    public Map parameters;
+    public AbstractBceRequest request;
     public SignOptions signOptions;
     public URI uri;
 
@@ -67,55 +67,82 @@ public class InternalRequest<T extends AbstractBceRequest> {
     public RestartableInputStream getContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.content : (RestartableInputStream) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.content;
+        }
+        return (RestartableInputStream) invokeV.objValue;
     }
 
     public BceCredentials getCredentials() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.credentials : (BceCredentials) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.credentials;
+        }
+        return (BceCredentials) invokeV.objValue;
     }
 
-    public Map<String, String> getHeaders() {
+    public Map getHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.headers : (Map) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.headers;
+        }
+        return (Map) invokeV.objValue;
     }
 
     public HttpMethodName getHttpMethod() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.httpMethod : (HttpMethodName) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.httpMethod;
+        }
+        return (HttpMethodName) invokeV.objValue;
     }
 
-    public Map<String, String> getParameters() {
+    public Map getParameters() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.parameters : (Map) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.parameters;
+        }
+        return (Map) invokeV.objValue;
     }
 
-    public T getRequest() {
+    public AbstractBceRequest getRequest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.request : (T) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.request;
+        }
+        return (AbstractBceRequest) invokeV.objValue;
     }
 
     public SignOptions getSignOptions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.signOptions : (SignOptions) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.signOptions;
+        }
+        return (SignOptions) invokeV.objValue;
     }
 
     public URI getUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.uri : (URI) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.uri;
+        }
+        return (URI) invokeV.objValue;
     }
 
     public boolean isExpectContinueEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.expectContinueEnabled : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.expectContinueEnabled;
+        }
+        return invokeV.booleanValue;
     }
 
     public void setContent(RestartableInputStream restartableInputStream) {
@@ -139,7 +166,7 @@ public class InternalRequest<T extends AbstractBceRequest> {
         }
     }
 
-    public void setHeaders(Map<String, String> map) {
+    public void setHeaders(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, map) == null) {
             this.headers.clear();
@@ -147,7 +174,7 @@ public class InternalRequest<T extends AbstractBceRequest> {
         }
     }
 
-    public void setParameters(Map<String, String> map) {
+    public void setParameters(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, map) == null) {
             this.parameters.clear();
@@ -155,10 +182,10 @@ public class InternalRequest<T extends AbstractBceRequest> {
         }
     }
 
-    public void setRequest(T t) {
+    public void setRequest(AbstractBceRequest abstractBceRequest) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, t) == null) {
-            this.request = t;
+        if (interceptable == null || interceptable.invokeL(1048592, this, abstractBceRequest) == null) {
+            this.request = abstractBceRequest;
         }
     }
 

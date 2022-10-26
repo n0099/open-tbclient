@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class RequestSearchPersonHistoryWriteMessage extends CustomMessage<Object> {
+public class RequestSearchPersonHistoryWriteMessage extends CustomMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isclear;
@@ -35,7 +35,10 @@ public class RequestSearchPersonHistoryWriteMessage extends CustomMessage<Object
     public boolean isClear() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.isclear : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.isclear;
+        }
+        return invokeV.booleanValue;
     }
 
     public void setClear(boolean z) {

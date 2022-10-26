@@ -37,21 +37,20 @@ import okhttp3.ConnectionPool;
 import okhttp3.Dns;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
 /* loaded from: classes2.dex */
 public abstract class AbstractHttpManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HttpManager";
     public static String sClientIP;
-    public static List<Class<? extends Interceptor>> sExternalInterceptorClass;
-    public static List<Class<? extends Interceptor>> sExternalNetworkInterceptorClass;
+    public static List sExternalInterceptorClass;
+    public static List sExternalNetworkInterceptorClass;
     public static ProductUserAgentHandler sProductUserAgent;
     public static ProxySelector sProxySelector;
     public transient /* synthetic */ FieldHolder $fh;
     public Context context;
     public Handler deliver;
     public ConnectionPool ipv4OnlyConnectionPool;
-    public NetworkStat<Request> networkStat;
+    public NetworkStat networkStat;
     public OkHttpClient okHttpClient;
     public RequestHandler requestHandler;
     public IHttpDns sHttpDns;
@@ -81,7 +80,19 @@ public abstract class AbstractHttpManager {
         this.okHttpClient = initClient();
     }
 
-    public static void addExternalInterceptorClass(Class<? extends Interceptor> cls) {
+    public void cancelTag(Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) && obj != null) {
+            for (Call call : getOkHttpClient().dispatcher().queuedCalls()) {
+                cancleTagByCall(call, obj);
+            }
+            for (Call call2 : getOkHttpClient().dispatcher().runningCalls()) {
+                cancleTagByCall(call2, obj);
+            }
+        }
+    }
+
+    public static void addExternalInterceptorClass(Class cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, cls) == null) {
             if (sExternalInterceptorClass == null) {
@@ -91,14 +102,13 @@ public abstract class AbstractHttpManager {
                     }
                 }
             }
-            if (cls == null || sExternalInterceptorClass.contains(cls)) {
-                return;
+            if (cls != null && !sExternalInterceptorClass.contains(cls)) {
+                sExternalInterceptorClass.add(cls);
             }
-            sExternalInterceptorClass.add(cls);
         }
     }
 
-    public static void addExternalNetworkInterceptorClass(Class<? extends Interceptor> cls) {
+    public static void addExternalNetworkInterceptorClass(Class cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, cls) == null) {
             if (sExternalNetworkInterceptorClass == null) {
@@ -119,30 +129,79 @@ public abstract class AbstractHttpManager {
     private void addFreeCardProxySelector(OkHttpClient.Builder builder) {
         ProxySelector proxySelector;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, this, builder) == null) || (proxySelector = sProxySelector) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(65539, this, builder) == null) && (proxySelector = sProxySelector) != null) {
+            builder.proxySelector(proxySelector);
         }
-        builder.proxySelector(proxySelector);
+    }
+
+    public static void setGlobalProxySelector(ProxySelector proxySelector) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65544, null, proxySelector) == null) && proxySelector != null) {
+            sProxySelector = proxySelector;
+        }
+    }
+
+    public static void setProductUserAgent(ProductUserAgentHandler productUserAgentHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, productUserAgentHandler) == null) {
+            sProductUserAgent = productUserAgentHandler;
+        }
+    }
+
+    public static void updateClientIP(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65546, null, str) == null) && !TextUtils.isEmpty(str)) {
+            sClientIP = str;
+        }
+    }
+
+    public void setHttpDnsEnable(boolean z) {
+        IHttpDns iHttpDns;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048602, this, z) == null) && (iHttpDns = this.sHttpDns) != null) {
+            iHttpDns.setHttpDnsEnable(z);
+        }
+    }
+
+    public void setNetworkStat(NetworkStat networkStat) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048603, this, networkStat) == null) {
+            this.networkStat = networkStat;
+        }
+    }
+
+    public void setOkHttpClient(OkHttpClient okHttpClient) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048604, this, okHttpClient) == null) {
+            this.okHttpClient = okHttpClient;
+        }
+    }
+
+    public void setRequestHandler(RequestHandler requestHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048605, this, requestHandler) == null) {
+            this.requestHandler = requestHandler;
+        }
     }
 
     private void addStaticInterceptor(OkHttpClient.Builder builder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, builder) == null) {
-            List<Class<? extends Interceptor>> list = sExternalNetworkInterceptorClass;
+            List<Class> list = sExternalNetworkInterceptorClass;
             if (list != null) {
                 try {
-                    for (Class<? extends Interceptor> cls : list) {
-                        builder.addNetworkInterceptor(cls.getConstructor(new Class[0]).newInstance(new Object[0]));
+                    for (Class cls : list) {
+                        builder.addNetworkInterceptor((Interceptor) cls.getConstructor(new Class[0]).newInstance(new Object[0]));
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-            List<Class<? extends Interceptor>> list2 = sExternalInterceptorClass;
+            List<Class> list2 = sExternalInterceptorClass;
             if (list2 != null) {
                 try {
-                    for (Class<? extends Interceptor> cls2 : list2) {
-                        builder.addInterceptor(cls2.getConstructor(new Class[0]).newInstance(new Object[0]));
+                    for (Class cls2 : list2) {
+                        builder.addInterceptor((Interceptor) cls2.getConstructor(new Class[0]).newInstance(new Object[0]));
                     }
                 } catch (Exception e2) {
                     e2.printStackTrace();
@@ -165,36 +224,19 @@ public abstract class AbstractHttpManager {
     public static String getClientIP() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? sClientIP : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return sClientIP;
+        }
+        return (String) invokeV.objValue;
     }
 
     public static ProductUserAgentHandler getProductUserAgent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? sProductUserAgent : (ProductUserAgentHandler) invokeV.objValue;
-    }
-
-    public static void setGlobalProxySelector(ProxySelector proxySelector) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65544, null, proxySelector) == null) || proxySelector == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return sProductUserAgent;
         }
-        sProxySelector = proxySelector;
-    }
-
-    public static void setProductUserAgent(ProductUserAgentHandler productUserAgentHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, productUserAgentHandler) == null) {
-            sProductUserAgent = productUserAgentHandler;
-        }
-    }
-
-    public static void updateClientIP(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65546, null, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        sClientIP = str;
+        return (ProductUserAgentHandler) invokeV.objValue;
     }
 
     public void cancelAll() {
@@ -204,41 +246,31 @@ public abstract class AbstractHttpManager {
         }
     }
 
-    public void cancelTag(Object obj) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) || obj == null) {
-            return;
-        }
-        for (Call call : getOkHttpClient().dispatcher().queuedCalls()) {
-            cancleTagByCall(call, obj);
-        }
-        for (Call call2 : getOkHttpClient().dispatcher().runningCalls()) {
-            cancleTagByCall(call2, obj);
-        }
-    }
-
     public DeleteRequest.DeleteRequestBuilder deleteRequest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new DeleteRequest.DeleteRequestBuilder(this) : (DeleteRequest.DeleteRequestBuilder) invokeV.objValue;
-    }
-
-    public CookieManager getCookieManager(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? HttpRuntime.getHttpContext().getCookieManager(z, z2) : (CookieManager) invokeCommon.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return new DeleteRequest.DeleteRequestBuilder(this);
+        }
+        return (DeleteRequest.DeleteRequestBuilder) invokeV.objValue;
     }
 
     public Handler getDeliver() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.deliver : (Handler) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.deliver;
+        }
+        return (Handler) invokeV.objValue;
     }
 
     public IHttpDns getHttpDns() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.sHttpDns : (IHttpDns) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.sHttpDns;
+        }
+        return (IHttpDns) invokeV.objValue;
     }
 
     public boolean getHttpDnsEnable() {
@@ -252,6 +284,168 @@ public abstract class AbstractHttpManager {
             return false;
         }
         return invokeV.booleanValue;
+    }
+
+    public String getNetworkInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return ConnectManager.getNetworkInfo(this.context);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public NetworkStat getNetworkStat() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.networkStat;
+        }
+        return (NetworkStat) invokeV.objValue;
+    }
+
+    public OkHttpClient getOkHttpClient() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.okHttpClient;
+        }
+        return (OkHttpClient) invokeV.objValue;
+    }
+
+    public GetRequest.GetRequestBuilder getRequest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return new GetRequest.GetRequestBuilder(this);
+        }
+        return (GetRequest.GetRequestBuilder) invokeV.objValue;
+    }
+
+    public RequestHandler getRequestHandler() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.requestHandler;
+        }
+        return (RequestHandler) invokeV.objValue;
+    }
+
+    public HeadRequest.HeadRequestBuilder headerRequest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return new HeadRequest.HeadRequestBuilder(this);
+        }
+        return (HeadRequest.HeadRequestBuilder) invokeV.objValue;
+    }
+
+    public boolean isNetWorkConnected() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return ConnectManager.isNetworkConnected(this.context);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isWifi() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return ConnectManager.isWifi(this.context);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public PatchRequest.PatchRequestBuilder patchRequest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return new PatchRequest.PatchRequestBuilder(this);
+        }
+        return (PatchRequest.PatchRequestBuilder) invokeV.objValue;
+    }
+
+    public PostByteRequest.PostByteRequestBuilder postByteRequest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return new PostByteRequest.PostByteRequestBuilder(this);
+        }
+        return (PostByteRequest.PostByteRequestBuilder) invokeV.objValue;
+    }
+
+    public PostFileRequest.PostFileRequestBuilder postFileRequest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return new PostFileRequest.PostFileRequestBuilder(this);
+        }
+        return (PostFileRequest.PostFileRequestBuilder) invokeV.objValue;
+    }
+
+    public PostFormRequest.PostFormRequestBuilder postFormRequest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return new PostFormRequest.PostFormRequestBuilder(this);
+        }
+        return (PostFormRequest.PostFormRequestBuilder) invokeV.objValue;
+    }
+
+    public PostMultiPartFormRequest.PostMultiPartFormRequestBuilder postMultiPartRequest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return new PostMultiPartFormRequest.PostMultiPartFormRequestBuilder(this);
+        }
+        return (PostMultiPartFormRequest.PostMultiPartFormRequestBuilder) invokeV.objValue;
+    }
+
+    public PostBodyRequest.PostBodyRequestBuilder postRequest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return new PostBodyRequest.PostBodyRequestBuilder(this);
+        }
+        return (PostBodyRequest.PostBodyRequestBuilder) invokeV.objValue;
+    }
+
+    public PostStringRequest.PostStringRequestBuilder postStringRequest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return new PostStringRequest.PostStringRequestBuilder(this);
+        }
+        return (PostStringRequest.PostStringRequestBuilder) invokeV.objValue;
+    }
+
+    public PutFormRequest.PutFormRequestBuilder putFormRequest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return new PutFormRequest.PutFormRequestBuilder(this);
+        }
+        return (PutFormRequest.PutFormRequestBuilder) invokeV.objValue;
+    }
+
+    public PutBodyRequest.PutBodyRequestBuilder putRequest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return new PutBodyRequest.PutBodyRequestBuilder(this);
+        }
+        return (PutBodyRequest.PutBodyRequestBuilder) invokeV.objValue;
+    }
+
+    public CookieManager getCookieManager(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            return HttpRuntime.getHttpContext().getCookieManager(z, z2);
+        }
+        return (CookieManager) invokeCommon.objValue;
     }
 
     public ConnectionPool getIPv4OnlyConnectionPool() {
@@ -268,42 +462,6 @@ public abstract class AbstractHttpManager {
             return this.ipv4OnlyConnectionPool;
         }
         return (ConnectionPool) invokeV.objValue;
-    }
-
-    public String getNetworkInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? ConnectManager.getNetworkInfo(this.context) : (String) invokeV.objValue;
-    }
-
-    public NetworkStat<Request> getNetworkStat() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.networkStat : (NetworkStat) invokeV.objValue;
-    }
-
-    public OkHttpClient getOkHttpClient() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.okHttpClient : (OkHttpClient) invokeV.objValue;
-    }
-
-    public GetRequest.GetRequestBuilder getRequest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? new GetRequest.GetRequestBuilder(this) : (GetRequest.GetRequestBuilder) invokeV.objValue;
-    }
-
-    public RequestHandler getRequestHandler() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.requestHandler : (RequestHandler) invokeV.objValue;
-    }
-
-    public HeadRequest.HeadRequestBuilder headerRequest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? new HeadRequest.HeadRequestBuilder(this) : (HeadRequest.HeadRequestBuilder) invokeV.objValue;
     }
 
     public OkHttpClient initClient() {
@@ -330,101 +488,5 @@ public abstract class AbstractHttpManager {
             return builder.build();
         }
         return (OkHttpClient) invokeV.objValue;
-    }
-
-    public boolean isNetWorkConnected() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? ConnectManager.isNetworkConnected(this.context) : invokeV.booleanValue;
-    }
-
-    public boolean isWifi() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? ConnectManager.isWifi(this.context) : invokeV.booleanValue;
-    }
-
-    public PatchRequest.PatchRequestBuilder patchRequest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? new PatchRequest.PatchRequestBuilder(this) : (PatchRequest.PatchRequestBuilder) invokeV.objValue;
-    }
-
-    public PostByteRequest.PostByteRequestBuilder postByteRequest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? new PostByteRequest.PostByteRequestBuilder(this) : (PostByteRequest.PostByteRequestBuilder) invokeV.objValue;
-    }
-
-    public PostFileRequest.PostFileRequestBuilder postFileRequest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? new PostFileRequest.PostFileRequestBuilder(this) : (PostFileRequest.PostFileRequestBuilder) invokeV.objValue;
-    }
-
-    public PostFormRequest.PostFormRequestBuilder postFormRequest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? new PostFormRequest.PostFormRequestBuilder(this) : (PostFormRequest.PostFormRequestBuilder) invokeV.objValue;
-    }
-
-    public PostMultiPartFormRequest.PostMultiPartFormRequestBuilder postMultiPartRequest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? new PostMultiPartFormRequest.PostMultiPartFormRequestBuilder(this) : (PostMultiPartFormRequest.PostMultiPartFormRequestBuilder) invokeV.objValue;
-    }
-
-    public PostBodyRequest.PostBodyRequestBuilder postRequest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? new PostBodyRequest.PostBodyRequestBuilder(this) : (PostBodyRequest.PostBodyRequestBuilder) invokeV.objValue;
-    }
-
-    public PostStringRequest.PostStringRequestBuilder postStringRequest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? new PostStringRequest.PostStringRequestBuilder(this) : (PostStringRequest.PostStringRequestBuilder) invokeV.objValue;
-    }
-
-    public PutFormRequest.PutFormRequestBuilder putFormRequest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? new PutFormRequest.PutFormRequestBuilder(this) : (PutFormRequest.PutFormRequestBuilder) invokeV.objValue;
-    }
-
-    public PutBodyRequest.PutBodyRequestBuilder putRequest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? new PutBodyRequest.PutBodyRequestBuilder(this) : (PutBodyRequest.PutBodyRequestBuilder) invokeV.objValue;
-    }
-
-    public void setHttpDnsEnable(boolean z) {
-        IHttpDns iHttpDns;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048602, this, z) == null) || (iHttpDns = this.sHttpDns) == null) {
-            return;
-        }
-        iHttpDns.setHttpDnsEnable(z);
-    }
-
-    public void setNetworkStat(NetworkStat<Request> networkStat) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, networkStat) == null) {
-            this.networkStat = networkStat;
-        }
-    }
-
-    public void setOkHttpClient(OkHttpClient okHttpClient) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, okHttpClient) == null) {
-            this.okHttpClient = okHttpClient;
-        }
-    }
-
-    public void setRequestHandler(RequestHandler requestHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, requestHandler) == null) {
-            this.requestHandler = requestHandler;
-        }
     }
 }

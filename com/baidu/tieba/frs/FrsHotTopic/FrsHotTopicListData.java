@@ -11,7 +11,7 @@ public class FrsHotTopicListData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 6224432372313379044L;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsLinkHashMap<String, Long> mSceneMap;
+    public FrsLinkHashMap mSceneMap;
 
     public FrsHotTopicListData() {
         Interceptable interceptable = $ic;
@@ -26,6 +26,6 @@ public class FrsHotTopicListData extends OrmObject implements Serializable {
                 return;
             }
         }
-        this.mSceneMap = new FrsLinkHashMap<>();
+        this.mSceneMap = new FrsLinkHashMap();
     }
 }

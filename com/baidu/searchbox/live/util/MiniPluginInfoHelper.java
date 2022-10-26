@@ -28,6 +28,17 @@ public final class MiniPluginInfoHelper {
     public static final Lazy pluginManagerService$delegate;
     public transient /* synthetic */ FieldHolder $fh;
 
+    private final PluginInvokeService getPluginManagerService() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            Lazy lazy = pluginManagerService$delegate;
+            KProperty kProperty = $$delegatedProperties[0];
+            return (PluginInvokeService) lazy.getValue();
+        }
+        return (PluginInvokeService) invokeV.objValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -60,21 +71,13 @@ public final class MiniPluginInfoHelper {
         }
     }
 
-    private final PluginInvokeService getPluginManagerService() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            Lazy lazy = pluginManagerService$delegate;
-            KProperty kProperty = $$delegatedProperties[0];
-            return (PluginInvokeService) lazy.getValue();
-        }
-        return (PluginInvokeService) invokeV.objValue;
-    }
-
     public final PluginInvokeService getPluginInvokeService() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? getPluginManagerService() : (PluginInvokeService) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return getPluginManagerService();
+        }
+        return (PluginInvokeService) invokeV.objValue;
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r3v1 int), (wrap: char : ?: SGET   com.baidu.android.common.others.IStringUtil.EXTENSION_SEPARATOR char)] */

@@ -14,12 +14,12 @@ import io.reactivex.exceptions.Exceptions;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.Callable;
 /* loaded from: classes8.dex */
-public final class MaybeFromCallable<T> extends Maybe<T> implements Callable<T> {
+public final class MaybeFromCallable extends Maybe implements Callable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Callable<? extends T> callable;
+    public final Callable callable;
 
-    public MaybeFromCallable(Callable<? extends T> callable) {
+    public MaybeFromCallable(Callable callable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -38,37 +38,38 @@ public final class MaybeFromCallable<T> extends Maybe<T> implements Callable<T> 
     }
 
     @Override // java.util.concurrent.Callable
-    public T call() throws Exception {
+    public Object call() throws Exception {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.callable.call() : (T) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.callable.call();
+        }
+        return invokeV.objValue;
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
+    public void subscribeActual(MaybeObserver maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, maybeObserver) == null) {
             Disposable empty = Disposables.empty();
             maybeObserver.onSubscribe(empty);
-            if (empty.isDisposed()) {
-                return;
-            }
-            try {
-                Object obj = (T) this.callable.call();
-                if (empty.isDisposed()) {
-                    return;
-                }
-                if (obj == null) {
-                    maybeObserver.onComplete();
-                } else {
-                    maybeObserver.onSuccess(obj);
-                }
-            } catch (Throwable th) {
-                Exceptions.throwIfFatal(th);
-                if (!empty.isDisposed()) {
-                    maybeObserver.onError(th);
-                } else {
-                    RxJavaPlugins.onError(th);
+            if (!empty.isDisposed()) {
+                try {
+                    Object call = this.callable.call();
+                    if (!empty.isDisposed()) {
+                        if (call == null) {
+                            maybeObserver.onComplete();
+                        } else {
+                            maybeObserver.onSuccess(call);
+                        }
+                    }
+                } catch (Throwable th) {
+                    Exceptions.throwIfFatal(th);
+                    if (!empty.isDisposed()) {
+                        maybeObserver.onError(th);
+                    } else {
+                        RxJavaPlugins.onError(th);
+                    }
                 }
             }
         }

@@ -35,7 +35,10 @@ public class SetPrivilegeRequestMessage extends HttpMessage {
     public int getPropsID() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.propsID : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.propsID;
+        }
+        return invokeV.intValue;
     }
 
     public void setPropsID(int i) {

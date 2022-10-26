@@ -17,7 +17,7 @@ public class HttpRequestPublishModule {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class ImageData {
+    public class ImageData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int height;
@@ -40,7 +40,7 @@ public class HttpRequestPublishModule {
     }
 
     /* loaded from: classes2.dex */
-    public static class PopInfoDaLiBao implements Jsonable {
+    public class PopInfoDaLiBao implements Jsonable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean enabled;
@@ -183,7 +183,13 @@ public class HttpRequestPublishModule {
         public boolean isResultCorrect() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.status != 0 || this.video == null || this.share == null || this.popInfoDaLiBao == null) ? false : true : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.status == 0 && this.video != null && this.share != null && this.popInfoDaLiBao != null) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
     }
 
@@ -271,7 +277,7 @@ public class HttpRequestPublishModule {
     }
 
     /* loaded from: classes2.dex */
-    public static class VideoUploadModel {
+    public class VideoUploadModel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String coverUrl;

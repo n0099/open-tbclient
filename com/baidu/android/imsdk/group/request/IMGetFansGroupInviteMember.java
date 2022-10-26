@@ -31,6 +31,23 @@ public class IMGetFansGroupInviteMember extends FansGroupBaseHttpRequest {
     public String mGroupId;
     public String mKey;
 
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public boolean shouldAbort() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public IMGetFansGroupInviteMember(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -51,13 +68,6 @@ public class IMGetFansGroupInviteMember extends FansGroupBaseHttpRequest {
         this.mKey = str2;
     }
 
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
-    }
-
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public byte[] getRequestParameter() throws NoSuchAlgorithmException {
         InterceptResult invokeV;
@@ -72,7 +82,7 @@ public class IMGetFansGroupInviteMember extends FansGroupBaseHttpRequest {
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+            Pair transErrorCode = transErrorCode(i, bArr, th);
             LogUtils.d(TAG, "onFailure result = " + new String(bArr));
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
             if (removeListener instanceof BIMValueCallBack) {
@@ -91,14 +101,15 @@ public class IMGetFansGroupInviteMember extends FansGroupBaseHttpRequest {
         String str;
         int i2;
         IMListener removeListener;
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) {
-            String str2 = new String(bArr);
-            LogUtils.d(TAG, "onSuccess result = " + str2);
+            String str3 = new String(bArr);
+            LogUtils.d(TAG, "onSuccess result = " + str3);
             ArrayList arrayList = new ArrayList();
             int i3 = 0;
             try {
-                JSONObject jSONObject = new JSONObject(str2);
+                JSONObject jSONObject = new JSONObject(str3);
                 i2 = jSONObject.optInt("error_code");
                 str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
                 if (i2 == 0 && jSONObject.has("response_params")) {
@@ -112,7 +123,13 @@ public class IMGetFansGroupInviteMember extends FansGroupBaseHttpRequest {
                                 long j = jSONObject3.getLong("bd_uid");
                                 String optString = jSONObject3.optString("display_name");
                                 String optString2 = jSONObject3.optString("group_name");
-                                ChatUser chatUser = new ChatUser(0L, j, TextUtils.isEmpty(optString2) ? optString : optString2, jSONObject3.optString("avatar"));
+                                String optString3 = jSONObject3.optString("avatar");
+                                if (TextUtils.isEmpty(optString2)) {
+                                    str2 = optString;
+                                } else {
+                                    str2 = optString2;
+                                }
+                                ChatUser chatUser = new ChatUser(0L, j, str2, optString3);
                                 chatUser.setGroupStatus(jSONObject3.optInt("group_status"));
                                 arrayList.add(chatUser);
                                 i3++;
@@ -127,7 +144,7 @@ public class IMGetFansGroupInviteMember extends FansGroupBaseHttpRequest {
                         new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                         str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                         removeListener = ListenerManager.getInstance().removeListener(this.mKey);
-                        if (removeListener instanceof BIMValueCallBack) {
+                        if (!(removeListener instanceof BIMValueCallBack)) {
                         }
                     }
                 }
@@ -135,20 +152,9 @@ public class IMGetFansGroupInviteMember extends FansGroupBaseHttpRequest {
                 e = e2;
             }
             removeListener = ListenerManager.getInstance().removeListener(this.mKey);
-            if (removeListener instanceof BIMValueCallBack) {
-                return;
+            if (!(removeListener instanceof BIMValueCallBack)) {
+                ((BIMValueCallBack) removeListener).onResult(i2, str, new GroupSortUserList(arrayList, i3));
             }
-            ((BIMValueCallBack) removeListener).onResult(i2, str, new GroupSortUserList(arrayList, i3));
         }
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public boolean shouldAbort() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

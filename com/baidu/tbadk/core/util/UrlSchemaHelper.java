@@ -3,7 +3,6 @@ package com.baidu.tbadk.core.util;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -22,6 +21,7 @@ public class UrlSchemaHelper {
     public static final String AUTO_PAY_MEMBER_SUCC_PARAM = "from=autopay";
     public static final String AUTO_PAY_MEMBER_SUCC_URL = "tieba.baidu.com/mo/q/tbeanrights?";
     public static final String CHANGE_YINJI_SUCCESS = "/changeyinjisuccess";
+    public static final String DEEPLING_GO_TO_JD = "openapp.jdmobile://";
     public static final String FINISH_THIS_WEBVIEW;
     public static final String FROM_ENTER_FORUM = "unidispatch/enterforum";
     public static final String FROM_FORUM_SQUARE = "unidispatch/forumsquare";
@@ -208,32 +208,36 @@ public class UrlSchemaHelper {
         }
     }
 
-    public static boolean checkBaiduboxappSwan(@NonNull String str) {
+    public static boolean checkBaiduboxappSwan(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? str.startsWith(SCHEMA_TYPE_SWAN_BAIDUBOXAPP) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return str.startsWith(SCHEMA_TYPE_SWAN_BAIDUBOXAPP);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String replaceSwanBaiduboxapp2Tiebaclient(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return str.replace(SCHEMA_TYPE_SWAN_BAIDUBOXAPP, SCHEMA_TYPE_SWAN);
+        }
+        return (String) invokeL.objValue;
     }
 
     public static void goToNewPageByScheme(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, str) == null) || TextUtils.isEmpty(str)) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(65539, null, str) == null) && !TextUtils.isEmpty(str)) {
+            if (str.startsWith(SCHEMA_TYPE_SWAN)) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921361, str));
+                return;
+            }
+            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
+            intent.addFlags(805306368);
+            if (UtilHelper.isHaveActivityCanHandleIntent(intent)) {
+                TbadkCoreApplication.getInst().startActivity(intent);
+            }
         }
-        if (str.startsWith(SCHEMA_TYPE_SWAN)) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2921361, str));
-            return;
-        }
-        Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
-        intent.addFlags(805306368);
-        if (UtilHelper.isHaveActivityCanHandleIntent(intent)) {
-            TbadkCoreApplication.getInst().startActivity(intent);
-        }
-    }
-
-    @NonNull
-    public static String replaceSwanBaiduboxapp2Tiebaclient(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? str.replace(SCHEMA_TYPE_SWAN_BAIDUBOXAPP, SCHEMA_TYPE_SWAN) : (String) invokeL.objValue;
     }
 }

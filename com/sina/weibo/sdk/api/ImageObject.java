@@ -19,11 +19,45 @@ import java.io.IOException;
 /* loaded from: classes8.dex */
 public class ImageObject extends BaseMediaObject {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator<ImageObject> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final int DATA_SIZE = 2097152;
     public transient /* synthetic */ FieldHolder $fh;
     public byte[] imageData;
     public String imagePath;
+
+    @Override // com.sina.weibo.sdk.api.BaseMediaObject, android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.sina.weibo.sdk.api.BaseMediaObject
+    public int getObjType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.sina.weibo.sdk.api.BaseMediaObject
+    public BaseMediaObject toExtraMediaObject(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this : (BaseMediaObject) invokeL.objValue;
+    }
+
+    @Override // com.sina.weibo.sdk.api.BaseMediaObject
+    public String toExtraMediaString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "" : (String) invokeV.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +72,7 @@ public class ImageObject extends BaseMediaObject {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator<ImageObject>() { // from class: com.sina.weibo.sdk.api.ImageObject.1
+        CREATOR = new Parcelable.Creator() { // from class: com.sina.weibo.sdk.api.ImageObject.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -57,21 +91,25 @@ public class ImageObject extends BaseMediaObject {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ImageObject createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new ImageObject(parcel) : (ImageObject) invokeL.objValue;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                    return new ImageObject(parcel);
+                }
+                return (ImageObject) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ImageObject[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new ImageObject[i] : (ImageObject[]) invokeI.objValue;
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    return new ImageObject[i];
+                }
+                return (ImageObject[]) invokeI.objValue;
             }
         };
     }
@@ -88,6 +126,25 @@ public class ImageObject extends BaseMediaObject {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    public ImageObject(Parcel parcel) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.imageData = parcel.createByteArray();
+        this.imagePath = parcel.readString();
     }
 
     @Override // com.sina.weibo.sdk.api.BaseMediaObject
@@ -125,26 +182,6 @@ public class ImageObject extends BaseMediaObject {
             }
         }
         return invokeV.booleanValue;
-    }
-
-    @Override // com.sina.weibo.sdk.api.BaseMediaObject, android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.sina.weibo.sdk.api.BaseMediaObject
-    public int getObjType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:15:0x0023 */
@@ -199,20 +236,6 @@ public class ImageObject extends BaseMediaObject {
         }
     }
 
-    @Override // com.sina.weibo.sdk.api.BaseMediaObject
-    public BaseMediaObject toExtraMediaObject(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this : (BaseMediaObject) invokeL.objValue;
-    }
-
-    @Override // com.sina.weibo.sdk.api.BaseMediaObject
-    public String toExtraMediaString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
     @Override // com.sina.weibo.sdk.api.BaseMediaObject, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
@@ -220,24 +243,5 @@ public class ImageObject extends BaseMediaObject {
             parcel.writeByteArray(this.imageData);
             parcel.writeString(this.imagePath);
         }
-    }
-
-    public ImageObject(Parcel parcel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parcel};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.imageData = parcel.createByteArray();
-        this.imagePath = parcel.readString();
     }
 }

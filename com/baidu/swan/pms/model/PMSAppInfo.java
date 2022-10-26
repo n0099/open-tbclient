@@ -5,8 +5,8 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.kc4;
 import com.baidu.tieba.lc4;
+import com.baidu.tieba.mc4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class PMSAppInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator<PMSAppInfo> CREATOR;
+    public static final Parcelable.Creator CREATOR;
     public static final long DEFAULT_SWAN_APP_PKG_MAX_AGE = 432000;
     public static final int ORIENTATION_LANDSCAPE = 1;
     public static final int ORIENTATION_PORTRAIT = 0;
@@ -70,8 +70,18 @@ public class PMSAppInfo implements Parcelable {
     public String webUrl;
     public String webViewDomains;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes3.dex */
-    public static class a implements Parcelable.Creator<PMSAppInfo> {
+    public final class a implements Parcelable.Creator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -95,7 +105,10 @@ public class PMSAppInfo implements Parcelable {
         public PMSAppInfo createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new PMSAppInfo(parcel) : (PMSAppInfo) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+                return new PMSAppInfo(parcel);
+            }
+            return (PMSAppInfo) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -104,7 +117,10 @@ public class PMSAppInfo implements Parcelable {
         public PMSAppInfo[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new PMSAppInfo[i] : (PMSAppInfo[]) invokeI.objValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                return new PMSAppInfo[i];
+            }
+            return (PMSAppInfo[]) invokeI.objValue;
         }
     }
 
@@ -122,6 +138,100 @@ public class PMSAppInfo implements Parcelable {
             }
         }
         CREATOR = new a();
+    }
+
+    public boolean checkValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.isEmpty(this.appKey) && this.appSign > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int getInstallSrc() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.installSrc;
+        }
+        return invokeV.intValue;
+    }
+
+    public long getLastLaunchTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.lastLaunchTime;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getLaunchCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.launchCount;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getOrientation() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.orientation;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean hasPendingErrCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (this.pendingErrCode != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void initMaxAgeInfo() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            if (this.maxAge <= 0) {
+                this.maxAge = DEFAULT_SWAN_APP_PKG_MAX_AGE;
+            }
+            this.createTime = System.currentTimeMillis();
+        }
+    }
+
+    public boolean isForbiddenApp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (this.appStatus != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isMaxAgeExpires() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if ((System.currentTimeMillis() - this.createTime) / 1000 > this.maxAge) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public PMSAppInfo() {
@@ -143,211 +253,6 @@ public class PMSAppInfo implements Parcelable {
         this.launchCount = 0;
         this.installSrc = 0;
         this.webPermit = 0;
-    }
-
-    public boolean checkValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.appKey) && this.appSign > 0 : invokeV.booleanValue;
-    }
-
-    public void copyLocalAppInfoData(PMSAppInfo pMSAppInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSAppInfo) == null) && pMSAppInfo != null && TextUtils.equals(this.appId, pMSAppInfo.appId)) {
-            this.versionCode = pMSAppInfo.versionCode;
-            this.versionName = pMSAppInfo.versionName;
-            this.type = pMSAppInfo.type;
-            this.pkgSize = pMSAppInfo.pkgSize;
-            this.createTime = pMSAppInfo.createTime;
-            updateLastLaunchTime(this.lastLaunchTime);
-            updateLaunchCount(this.launchCount);
-            setOrientation(pMSAppInfo.getOrientation());
-            updateInstallSrc(pMSAppInfo.getInstallSrc());
-        }
-    }
-
-    public void copyMainPkgInfo(kc4 kc4Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kc4Var) == null) || kc4Var == null) {
-            return;
-        }
-        this.appId = kc4Var.g;
-        this.versionCode = kc4Var.i;
-        this.versionName = kc4Var.j;
-        this.type = kc4Var.o;
-        this.pkgSize = kc4Var.k;
-    }
-
-    public void copySubPkgInfo(lc4 lc4Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, lc4Var) == null) || lc4Var == null) {
-            return;
-        }
-        this.appId = lc4Var.o;
-        this.versionCode = lc4Var.i;
-        this.versionName = lc4Var.j;
-        this.type = lc4Var.q;
-        this.pkgSize = lc4Var.k;
-    }
-
-    public void countLaunch(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            if (0 >= j) {
-                j = System.currentTimeMillis();
-            }
-            updateLastLaunchTime(j);
-            this.launchCount++;
-        }
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public int getInstallSrc() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.installSrc : invokeV.intValue;
-    }
-
-    public long getLastLaunchTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.lastLaunchTime : invokeV.longValue;
-    }
-
-    public int getLaunchCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.launchCount : invokeV.intValue;
-    }
-
-    public int getOrientation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.orientation : invokeV.intValue;
-    }
-
-    public boolean hasPendingErrCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.pendingErrCode != 0 : invokeV.booleanValue;
-    }
-
-    public void initMaxAgeInfo() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            if (this.maxAge <= 0) {
-                this.maxAge = DEFAULT_SWAN_APP_PKG_MAX_AGE;
-            }
-            this.createTime = System.currentTimeMillis();
-        }
-    }
-
-    public boolean isForbiddenApp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.appStatus != 0 : invokeV.booleanValue;
-    }
-
-    public boolean isMaxAgeExpires() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? (System.currentTimeMillis() - this.createTime) / 1000 > this.maxAge : invokeV.booleanValue;
-    }
-
-    public void setOrientation(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048590, this, i) == null) || -1 >= i) {
-            return;
-        }
-        this.orientation = i;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return "{appId=" + this.appId + ", appKey=" + this.appKey + ", appSign=" + this.appSign + ", versionCode=" + this.versionCode + ", versionName=" + this.versionName + ", description=" + this.description + ", appStatus=" + this.appStatus + ", statusDetail=" + this.statusDetail + ", statusDesc=" + this.statusDesc + ", resumeDate=" + this.resumeDate + ", iconUrl=" + this.iconUrl + ", appName=" + this.appName + ", serviceCategory=" + this.serviceCategory + ", subjectInfo=" + this.subjectInfo + ", type=" + this.type + ", pkgSize=" + this.pkgSize + ", pendingErrCode=" + this.pendingErrCode + ", appCategory=" + this.appCategory + ", orientation=" + this.orientation + ", maxAge=" + this.maxAge + ", createTime=" + this.createTime + ", webViewDomains=" + this.webViewDomains + ", webAction=" + this.webAction + ", domains=" + this.domains + ", bearInfo=" + this.bearInfo + ", serverExt=" + this.serverExt + ", payProtected=" + this.payProtected + ", customerService=" + this.customerService + ", globalNotice=" + this.globalNotice + ", globalPrivate=" + this.globalPrivate + ", paNumber=" + this.paNumber + ", pluginInfo=" + this.pluginInfo + ", brandsInfo=" + this.brandsInfo + ", lastLaunchTime=" + this.lastLaunchTime + ", launchCount=" + this.launchCount + ", installSrc=" + this.installSrc + ", quickAppKey=" + this.quickAppKey + ", webUrl=" + this.webUrl + ", webPermit=" + this.webPermit + ", csProtocolVersion=" + this.csProtocolVersion + ", userActionApis=" + this.userActionApis + "}";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void updateInstallSrc(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048592, this, i) == null) && this.installSrc == 0 && i > 0) {
-            this.installSrc = i;
-        }
-    }
-
-    public void updateLastLaunchTime(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
-            this.lastLaunchTime = Math.max(j, this.lastLaunchTime);
-        }
-    }
-
-    public void updateLaunchCount(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            this.launchCount = Math.max(i, this.launchCount);
-        }
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048595, this, parcel, i) == null) {
-            parcel.writeString(this.appId);
-            parcel.writeString(this.appKey);
-            parcel.writeLong(this.appSign);
-            parcel.writeLong(this.versionCode);
-            parcel.writeString(this.versionName);
-            parcel.writeString(this.description);
-            parcel.writeInt(this.appStatus);
-            parcel.writeString(this.statusDetail);
-            parcel.writeString(this.statusDesc);
-            parcel.writeString(this.resumeDate);
-            parcel.writeString(this.iconUrl);
-            parcel.writeString(this.appName);
-            parcel.writeString(this.serviceCategory);
-            parcel.writeString(this.subjectInfo);
-            parcel.writeInt(this.type);
-            parcel.writeLong(this.pkgSize);
-            parcel.writeInt(this.pendingErrCode);
-            parcel.writeInt(this.appCategory);
-            parcel.writeInt(getOrientation());
-            parcel.writeLong(this.maxAge);
-            parcel.writeLong(this.createTime);
-            parcel.writeString(this.webViewDomains);
-            parcel.writeString(this.webAction);
-            parcel.writeString(this.domains);
-            parcel.writeString(this.bearInfo);
-            parcel.writeString(this.serverExt);
-            parcel.writeInt(this.payProtected);
-            parcel.writeInt(this.customerService);
-            parcel.writeInt(this.globalNotice);
-            parcel.writeInt(this.globalPrivate);
-            parcel.writeString(this.paNumber);
-            parcel.writeString(this.pluginInfo);
-            parcel.writeString(this.brandsInfo);
-            parcel.writeLong(this.lastLaunchTime);
-            parcel.writeInt(this.launchCount);
-            parcel.writeInt(this.installSrc);
-            parcel.writeString(this.quickAppKey);
-            parcel.writeString(this.webUrl);
-            parcel.writeInt(this.webPermit);
-            parcel.writeInt(this.csProtocolVersion);
-            parcel.writeInt(this.rank);
-            parcel.writeString(this.userActionApis);
-        }
     }
 
     public PMSAppInfo(Parcel parcel) {
@@ -413,5 +318,142 @@ public class PMSAppInfo implements Parcelable {
         this.csProtocolVersion = parcel.readInt();
         this.rank = parcel.readInt();
         this.userActionApis = parcel.readString();
+    }
+
+    public void copyLocalAppInfoData(PMSAppInfo pMSAppInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSAppInfo) != null) || pMSAppInfo == null || !TextUtils.equals(this.appId, pMSAppInfo.appId)) {
+            return;
+        }
+        this.versionCode = pMSAppInfo.versionCode;
+        this.versionName = pMSAppInfo.versionName;
+        this.type = pMSAppInfo.type;
+        this.pkgSize = pMSAppInfo.pkgSize;
+        this.createTime = pMSAppInfo.createTime;
+        updateLastLaunchTime(this.lastLaunchTime);
+        updateLaunchCount(this.launchCount);
+        setOrientation(pMSAppInfo.getOrientation());
+        updateInstallSrc(pMSAppInfo.getInstallSrc());
+    }
+
+    public void copyMainPkgInfo(lc4 lc4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lc4Var) != null) || lc4Var == null) {
+            return;
+        }
+        this.appId = lc4Var.g;
+        this.versionCode = lc4Var.i;
+        this.versionName = lc4Var.j;
+        this.type = lc4Var.o;
+        this.pkgSize = lc4Var.k;
+    }
+
+    public void copySubPkgInfo(mc4 mc4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, mc4Var) != null) || mc4Var == null) {
+            return;
+        }
+        this.appId = mc4Var.o;
+        this.versionCode = mc4Var.i;
+        this.versionName = mc4Var.j;
+        this.type = mc4Var.q;
+        this.pkgSize = mc4Var.k;
+    }
+
+    public void countLaunch(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            if (0 >= j) {
+                j = System.currentTimeMillis();
+            }
+            updateLastLaunchTime(j);
+            this.launchCount++;
+        }
+    }
+
+    public void setOrientation(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048590, this, i) == null) && -1 < i) {
+            this.orientation = i;
+        }
+    }
+
+    public void updateInstallSrc(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048592, this, i) == null) && this.installSrc == 0 && i > 0) {
+            this.installSrc = i;
+        }
+    }
+
+    public void updateLastLaunchTime(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
+            this.lastLaunchTime = Math.max(j, this.lastLaunchTime);
+        }
+    }
+
+    public void updateLaunchCount(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.launchCount = Math.max(i, this.launchCount);
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return "{appId=" + this.appId + ", appKey=" + this.appKey + ", appSign=" + this.appSign + ", versionCode=" + this.versionCode + ", versionName=" + this.versionName + ", description=" + this.description + ", appStatus=" + this.appStatus + ", statusDetail=" + this.statusDetail + ", statusDesc=" + this.statusDesc + ", resumeDate=" + this.resumeDate + ", iconUrl=" + this.iconUrl + ", appName=" + this.appName + ", serviceCategory=" + this.serviceCategory + ", subjectInfo=" + this.subjectInfo + ", type=" + this.type + ", pkgSize=" + this.pkgSize + ", pendingErrCode=" + this.pendingErrCode + ", appCategory=" + this.appCategory + ", orientation=" + this.orientation + ", maxAge=" + this.maxAge + ", createTime=" + this.createTime + ", webViewDomains=" + this.webViewDomains + ", webAction=" + this.webAction + ", domains=" + this.domains + ", bearInfo=" + this.bearInfo + ", serverExt=" + this.serverExt + ", payProtected=" + this.payProtected + ", customerService=" + this.customerService + ", globalNotice=" + this.globalNotice + ", globalPrivate=" + this.globalPrivate + ", paNumber=" + this.paNumber + ", pluginInfo=" + this.pluginInfo + ", brandsInfo=" + this.brandsInfo + ", lastLaunchTime=" + this.lastLaunchTime + ", launchCount=" + this.launchCount + ", installSrc=" + this.installSrc + ", quickAppKey=" + this.quickAppKey + ", webUrl=" + this.webUrl + ", webPermit=" + this.webPermit + ", csProtocolVersion=" + this.csProtocolVersion + ", userActionApis=" + this.userActionApis + "}";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048595, this, parcel, i) == null) {
+            parcel.writeString(this.appId);
+            parcel.writeString(this.appKey);
+            parcel.writeLong(this.appSign);
+            parcel.writeLong(this.versionCode);
+            parcel.writeString(this.versionName);
+            parcel.writeString(this.description);
+            parcel.writeInt(this.appStatus);
+            parcel.writeString(this.statusDetail);
+            parcel.writeString(this.statusDesc);
+            parcel.writeString(this.resumeDate);
+            parcel.writeString(this.iconUrl);
+            parcel.writeString(this.appName);
+            parcel.writeString(this.serviceCategory);
+            parcel.writeString(this.subjectInfo);
+            parcel.writeInt(this.type);
+            parcel.writeLong(this.pkgSize);
+            parcel.writeInt(this.pendingErrCode);
+            parcel.writeInt(this.appCategory);
+            parcel.writeInt(getOrientation());
+            parcel.writeLong(this.maxAge);
+            parcel.writeLong(this.createTime);
+            parcel.writeString(this.webViewDomains);
+            parcel.writeString(this.webAction);
+            parcel.writeString(this.domains);
+            parcel.writeString(this.bearInfo);
+            parcel.writeString(this.serverExt);
+            parcel.writeInt(this.payProtected);
+            parcel.writeInt(this.customerService);
+            parcel.writeInt(this.globalNotice);
+            parcel.writeInt(this.globalPrivate);
+            parcel.writeString(this.paNumber);
+            parcel.writeString(this.pluginInfo);
+            parcel.writeString(this.brandsInfo);
+            parcel.writeLong(this.lastLaunchTime);
+            parcel.writeInt(this.launchCount);
+            parcel.writeInt(this.installSrc);
+            parcel.writeString(this.quickAppKey);
+            parcel.writeString(this.webUrl);
+            parcel.writeInt(this.webPermit);
+            parcel.writeInt(this.csProtocolVersion);
+            parcel.writeInt(this.rank);
+            parcel.writeString(this.userActionApis);
+        }
     }
 }

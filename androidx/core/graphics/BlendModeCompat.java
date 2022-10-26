@@ -1,6 +1,5 @@
 package androidx.core.graphics;
 
-import androidx.annotation.RequiresApi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,38 +13,27 @@ public final class BlendModeCompat {
     public static final /* synthetic */ BlendModeCompat[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
     public static final BlendModeCompat CLEAR;
-    @RequiresApi(29)
     public static final BlendModeCompat COLOR;
-    @RequiresApi(29)
     public static final BlendModeCompat COLOR_BURN;
-    @RequiresApi(29)
     public static final BlendModeCompat COLOR_DODGE;
     public static final BlendModeCompat DARKEN;
-    @RequiresApi(29)
     public static final BlendModeCompat DIFFERENCE;
     public static final BlendModeCompat DST;
     public static final BlendModeCompat DST_ATOP;
     public static final BlendModeCompat DST_IN;
     public static final BlendModeCompat DST_OUT;
     public static final BlendModeCompat DST_OVER;
-    @RequiresApi(29)
     public static final BlendModeCompat EXCLUSION;
-    @RequiresApi(29)
     public static final BlendModeCompat HARD_LIGHT;
-    @RequiresApi(29)
     public static final BlendModeCompat HUE;
     public static final BlendModeCompat LIGHTEN;
-    @RequiresApi(29)
     public static final BlendModeCompat LUMINOSITY;
     public static final BlendModeCompat MODULATE;
-    @RequiresApi(29)
     public static final BlendModeCompat MULTIPLY;
     public static final BlendModeCompat OVERLAY;
     public static final BlendModeCompat PLUS;
-    @RequiresApi(29)
     public static final BlendModeCompat SATURATION;
     public static final BlendModeCompat SCREEN;
-    @RequiresApi(29)
     public static final BlendModeCompat SOFT_LIGHT;
     public static final BlendModeCompat SRC;
     public static final BlendModeCompat SRC_ATOP;
@@ -123,12 +111,18 @@ public final class BlendModeCompat {
     public static BlendModeCompat valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (BlendModeCompat) Enum.valueOf(BlendModeCompat.class, str) : (BlendModeCompat) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (BlendModeCompat) Enum.valueOf(BlendModeCompat.class, str);
+        }
+        return (BlendModeCompat) invokeL.objValue;
     }
 
     public static BlendModeCompat[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (BlendModeCompat[]) $VALUES.clone() : (BlendModeCompat[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (BlendModeCompat[]) $VALUES.clone();
+        }
+        return (BlendModeCompat[]) invokeV.objValue;
     }
 }

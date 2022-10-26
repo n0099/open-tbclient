@@ -44,7 +44,11 @@ public class CurrencySwitchResponseMessage extends JsonHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject != null) {
-                this.isSwitchSuccess = jSONObject.optInt("convert_success", 0) == 1;
+                boolean z = false;
+                if (jSONObject.optInt("convert_success", 0) == 1) {
+                    z = true;
+                }
+                this.isSwitchSuccess = z;
                 this.tipMessage = jSONObject.optString("convert_msg");
                 this.logId = jSONObject.optString("logid");
             }
@@ -54,18 +58,27 @@ public class CurrencySwitchResponseMessage extends JsonHttpResponsedMessage {
     public String getLogId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.logId : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.logId;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String getTipMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.tipMessage : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.tipMessage;
+        }
+        return (String) invokeV.objValue;
     }
 
     public boolean isSwitchSuccess() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.isSwitchSuccess : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.isSwitchSuccess;
+        }
+        return invokeV.booleanValue;
     }
 }

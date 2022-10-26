@@ -16,7 +16,6 @@ import android.support.v4.media.session.MediaSessionCompat;
 import android.support.v4.media.session.PlaybackStateCompat;
 import android.util.Log;
 import android.view.KeyEvent;
-import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media.MediaBrowserServiceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -130,7 +129,38 @@ public class MediaButtonReceiver extends BroadcastReceiver {
         return (PendingIntent) invokeLJ.objValue;
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public static void startForegroundService(Context context, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, context, intent) == null) {
+            if (Build.VERSION.SDK_INT >= 26) {
+                context.startForegroundService(intent);
+            } else {
+                context.startService(intent);
+            }
+        }
+    }
+
+    public static PendingIntent buildMediaButtonPendingIntent(Context context, ComponentName componentName, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, componentName, Long.valueOf(j)})) == null) {
+            if (componentName == null) {
+                Log.w(TAG, "The component name of media button receiver should be provided.");
+                return null;
+            }
+            int keyCode = PlaybackStateCompat.toKeyCode(j);
+            if (keyCode == 0) {
+                Log.w(TAG, "Cannot build a media button pending intent with the given action: " + j);
+                return null;
+            }
+            Intent intent = new Intent("android.intent.action.MEDIA_BUTTON");
+            intent.setComponent(componentName);
+            intent.putExtra("android.intent.extra.KEY_EVENT", new KeyEvent(0, keyCode));
+            return PendingIntent.getBroadcast(context, keyCode, intent, 0);
+        }
+        return (PendingIntent) invokeCommon.objValue;
+    }
+
     public static ComponentName getMediaButtonReceiverComponent(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -171,31 +201,6 @@ public class MediaButtonReceiver extends BroadcastReceiver {
         return (ComponentName) invokeLL.objValue;
     }
 
-    public static KeyEvent handleIntent(MediaSessionCompat mediaSessionCompat, Intent intent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, mediaSessionCompat, intent)) == null) {
-            if (mediaSessionCompat == null || intent == null || !"android.intent.action.MEDIA_BUTTON".equals(intent.getAction()) || !intent.hasExtra("android.intent.extra.KEY_EVENT")) {
-                return null;
-            }
-            KeyEvent keyEvent = (KeyEvent) intent.getParcelableExtra("android.intent.extra.KEY_EVENT");
-            mediaSessionCompat.getController().dispatchMediaButtonEvent(keyEvent);
-            return keyEvent;
-        }
-        return (KeyEvent) invokeLL.objValue;
-    }
-
-    public static void startForegroundService(Context context, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, context, intent) == null) {
-            if (Build.VERSION.SDK_INT >= 26) {
-                context.startForegroundService(intent);
-            } else {
-                context.startService(intent);
-            }
-        }
-    }
-
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         Interceptable interceptable = $ic;
@@ -223,24 +228,17 @@ public class MediaButtonReceiver extends BroadcastReceiver {
         }
     }
 
-    public static PendingIntent buildMediaButtonPendingIntent(Context context, ComponentName componentName, long j) {
-        InterceptResult invokeCommon;
+    public static KeyEvent handleIntent(MediaSessionCompat mediaSessionCompat, Intent intent) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, componentName, Long.valueOf(j)})) == null) {
-            if (componentName == null) {
-                Log.w(TAG, "The component name of media button receiver should be provided.");
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, mediaSessionCompat, intent)) == null) {
+            if (mediaSessionCompat != null && intent != null && "android.intent.action.MEDIA_BUTTON".equals(intent.getAction()) && intent.hasExtra("android.intent.extra.KEY_EVENT")) {
+                KeyEvent keyEvent = (KeyEvent) intent.getParcelableExtra("android.intent.extra.KEY_EVENT");
+                mediaSessionCompat.getController().dispatchMediaButtonEvent(keyEvent);
+                return keyEvent;
             }
-            int keyCode = PlaybackStateCompat.toKeyCode(j);
-            if (keyCode == 0) {
-                Log.w(TAG, "Cannot build a media button pending intent with the given action: " + j);
-                return null;
-            }
-            Intent intent = new Intent("android.intent.action.MEDIA_BUTTON");
-            intent.setComponent(componentName);
-            intent.putExtra("android.intent.extra.KEY_EVENT", new KeyEvent(0, keyCode));
-            return PendingIntent.getBroadcast(context, keyCode, intent, 0);
+            return null;
         }
-        return (PendingIntent) invokeCommon.objValue;
+        return (KeyEvent) invokeLL.objValue;
     }
 }

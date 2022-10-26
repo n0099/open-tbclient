@@ -69,7 +69,7 @@ public class g implements d {
     private void k(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(65539, this, i, i2) == null) {
-            HashMap<String, Object> hashMap = new HashMap<>();
+            HashMap hashMap = new HashMap();
             hashMap.put("id", 4101);
             hashMap.put("guideDirection", Integer.valueOf(i2));
             hashMap.put("switchGuide", Integer.valueOf(i));

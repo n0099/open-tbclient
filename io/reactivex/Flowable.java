@@ -13,15 +13,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.boxes.FreeSpaceBox;
 import io.reactivex.annotations.BackpressureKind;
 import io.reactivex.annotations.BackpressureSupport;
-import io.reactivex.annotations.Beta;
 import io.reactivex.annotations.CheckReturnValue;
-import io.reactivex.annotations.Experimental;
-import io.reactivex.annotations.NonNull;
 import io.reactivex.annotations.SchedulerSupport;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.flowables.ConnectableFlowable;
-import io.reactivex.flowables.GroupedFlowable;
 import io.reactivex.functions.Action;
 import io.reactivex.functions.BiConsumer;
 import io.reactivex.functions.BiFunction;
@@ -199,26 +195,23 @@ import io.reactivex.internal.util.HashMapSupplier;
 import io.reactivex.parallel.ParallelFlowable;
 import io.reactivex.plugins.RxJavaPlugins;
 import io.reactivex.schedulers.Schedulers;
-import io.reactivex.schedulers.Timed;
 import io.reactivex.subscribers.SafeSubscriber;
 import io.reactivex.subscribers.TestSubscriber;
-import java.util.Collection;
 import java.util.Comparator;
 import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
-import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public abstract class Flowable<T> implements Publisher<T> {
+public abstract class Flowable implements Publisher {
     public static /* synthetic */ Interceptable $ic;
     public static final int BUFFER_SIZE;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract void subscribeActual(Subscriber subscriber);
 
     static {
         InterceptResult invokeClinit;
@@ -250,10 +243,557 @@ public abstract class Flowable<T> implements Publisher<T> {
         }
     }
 
+    public static int bufferSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return BUFFER_SIZE;
+        }
+        return invokeV.intValue;
+    }
+
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.PASS_THROUGH)
     @CheckReturnValue
-    public static <T> Flowable<T> amb(Iterable<? extends Publisher<? extends T>> iterable) {
+    public static Flowable empty() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65580, null)) == null) {
+            return RxJavaPlugins.onAssembly(FlowableEmpty.INSTANCE);
+        }
+        return (Flowable) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public static Flowable never() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65632, null)) == null) {
+            return RxJavaPlugins.onAssembly(FlowableNever.INSTANCE);
+        }
+        return (Flowable) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Object blockingFirst() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            BlockingFirstSubscriber blockingFirstSubscriber = new BlockingFirstSubscriber();
+            subscribe((FlowableSubscriber) blockingFirstSubscriber);
+            Object blockingGet = blockingFirstSubscriber.blockingGet();
+            if (blockingGet != null) {
+                return blockingGet;
+            }
+            throw new NoSuchElementException();
+        }
+        return invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Iterable blockingIterable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return blockingIterable(bufferSize());
+        }
+        return (Iterable) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Object blockingLast() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            BlockingLastSubscriber blockingLastSubscriber = new BlockingLastSubscriber();
+            subscribe((FlowableSubscriber) blockingLastSubscriber);
+            Object blockingGet = blockingLastSubscriber.blockingGet();
+            if (blockingGet != null) {
+                return blockingGet;
+            }
+            throw new NoSuchElementException();
+        }
+        return invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Iterable blockingLatest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return new BlockingFlowableLatest(this);
+        }
+        return (Iterable) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Iterable blockingNext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return new BlockingFlowableNext(this);
+        }
+        return (Iterable) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Object blockingSingle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return singleOrError().blockingGet();
+        }
+        return invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    public final void blockingSubscribe() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            FlowableBlockingSubscribe.subscribe(this);
+        }
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable cache() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
+            return cacheWithInitialCapacity(16);
+        }
+        return (Flowable) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Single count() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048652, this)) == null) {
+            return RxJavaPlugins.onAssembly(new FlowableCountSingle(this));
+        }
+        return (Single) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable dematerialize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048666, this)) == null) {
+            return RxJavaPlugins.onAssembly(new FlowableDematerialize(this));
+        }
+        return (Flowable) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable distinct() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048667, this)) == null) {
+            return distinct(Functions.identity(), Functions.createHashSet());
+        }
+        return (Flowable) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable distinctUntilChanged() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048670, this)) == null) {
+            return distinctUntilChanged(Functions.identity());
+        }
+        return (Flowable) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.SPECIAL)
+    @CheckReturnValue
+    public final Maybe firstElement() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048691, this)) == null) {
+            return elementAt(0L);
+        }
+        return (Maybe) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.SPECIAL)
+    @CheckReturnValue
+    public final Single firstOrError() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048692, this)) == null) {
+            return elementAtOrError(0L);
+        }
+        return (Single) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable hide() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048726, this)) == null) {
+            return RxJavaPlugins.onAssembly(new FlowableHide(this));
+        }
+        return (Flowable) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Completable ignoreElements() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048727, this)) == null) {
+            return RxJavaPlugins.onAssembly(new FlowableIgnoreElementsCompletable(this));
+        }
+        return (Completable) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Single isEmpty() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048728, this)) == null) {
+            return all(Functions.alwaysFalse());
+        }
+        return (Single) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Maybe lastElement() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048731, this)) == null) {
+            return RxJavaPlugins.onAssembly(new FlowableLastMaybe(this));
+        }
+        return (Maybe) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Single lastOrError() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048732, this)) == null) {
+            return RxJavaPlugins.onAssembly(new FlowableLastSingle(this, null));
+        }
+        return (Single) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable materialize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048736, this)) == null) {
+            return RxJavaPlugins.onAssembly(new FlowableMaterialize(this));
+        }
+        return (Flowable) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Flowable onBackpressureBuffer() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048745, this)) == null) {
+            return onBackpressureBuffer(bufferSize(), false, true);
+        }
+        return (Flowable) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Flowable onBackpressureDrop() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048753, this)) == null) {
+            return RxJavaPlugins.onAssembly(new FlowableOnBackpressureDrop(this));
+        }
+        return (Flowable) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Flowable onBackpressureLatest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048755, this)) == null) {
+            return RxJavaPlugins.onAssembly(new FlowableOnBackpressureLatest(this));
+        }
+        return (Flowable) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable onTerminateDetach() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048761, this)) == null) {
+            return RxJavaPlugins.onAssembly(new FlowableDetach(this));
+        }
+        return (Flowable) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final ParallelFlowable parallel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048762, this)) == null) {
+            return ParallelFlowable.from(this);
+        }
+        return (ParallelFlowable) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final ConnectableFlowable publish() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048767, this)) == null) {
+            return publish(bufferSize());
+        }
+        return (ConnectableFlowable) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable repeat() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048773, this)) == null) {
+            return repeat(Long.MAX_VALUE);
+        }
+        return (Flowable) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final ConnectableFlowable replay() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048785, this)) == null) {
+            return FlowableReplay.createFrom(this);
+        }
+        return (ConnectableFlowable) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable retry() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048793, this)) == null) {
+            return retry(Long.MAX_VALUE, Functions.alwaysTrue());
+        }
+        return (Flowable) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable serialize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048810, this)) == null) {
+            return RxJavaPlugins.onAssembly(new FlowableSerialized(this));
+        }
+        return (Flowable) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable share() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048811, this)) == null) {
+            return publish().refCount();
+        }
+        return (Flowable) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Maybe singleElement() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048813, this)) == null) {
+            return RxJavaPlugins.onAssembly(new FlowableSingleMaybe(this));
+        }
+        return (Maybe) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Single singleOrError() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048814, this)) == null) {
+            return RxJavaPlugins.onAssembly(new FlowableSingleSingle(this, null));
+        }
+        return (Single) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable sorted() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048826, this)) == null) {
+            return toList().toFlowable().map(Functions.listSorter(Functions.naturalComparator())).flatMapIterable(Functions.identity());
+        }
+        return (Flowable) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    public final Disposable subscribe() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048832, this)) == null) {
+            return subscribe(Functions.emptyConsumer(), Functions.ON_ERROR_MISSING, Functions.EMPTY_ACTION, FlowableInternalHelper.RequestMax.INSTANCE);
+        }
+        return (Disposable) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final TestSubscriber test() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048870, this)) == null) {
+            TestSubscriber testSubscriber = new TestSubscriber();
+            subscribe((FlowableSubscriber) testSubscriber);
+            return testSubscriber;
+        }
+        return (TestSubscriber) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable timeInterval() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048879, this)) == null) {
+            return timeInterval(TimeUnit.MILLISECONDS, Schedulers.computation());
+        }
+        return (Flowable) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable timestamp() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048891, this)) == null) {
+            return timestamp(TimeUnit.MILLISECONDS, Schedulers.computation());
+        }
+        return (Flowable) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Future toFuture() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048896, this)) == null) {
+            return (Future) subscribeWith(new FutureSubscriber());
+        }
+        return (Future) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Single toList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048897, this)) == null) {
+            return RxJavaPlugins.onAssembly(new FlowableToListSingle(this));
+        }
+        return (Single) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.NONE)
+    @CheckReturnValue
+    public final Observable toObservable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048907, this)) == null) {
+            return RxJavaPlugins.onAssembly(new ObservableFromPublisher(this));
+        }
+        return (Observable) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Single toSortedList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048908, this)) == null) {
+            return toSortedList(Functions.naturalComparator());
+        }
+        return (Single) invokeV.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public static Flowable amb(Iterable iterable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, iterable)) == null) {
@@ -264,9 +804,1657 @@ public abstract class Flowable<T> implements Publisher<T> {
     }
 
     @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable concat(Iterable iterable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, iterable)) == null) {
+            ObjectHelper.requireNonNull(iterable, "sources is null");
+            return fromIterable(iterable).concatMapDelayError(Functions.identity(), 2, false);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable concatArrayEager(Publisher... publisherArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, publisherArr)) == null) {
+            return concatArrayEager(bufferSize(), bufferSize(), publisherArr);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable concatDelayError(Iterable iterable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65570, null, iterable)) == null) {
+            ObjectHelper.requireNonNull(iterable, "sources is null");
+            return fromIterable(iterable).concatMapDelayError(Functions.identity());
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable concatEager(Iterable iterable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65573, null, iterable)) == null) {
+            return concatEager(iterable, bufferSize(), bufferSize());
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.PASS_THROUGH)
     @CheckReturnValue
-    public static <T> Flowable<T> ambArray(Publisher<? extends T>... publisherArr) {
+    public static Flowable defer(Callable callable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65578, null, callable)) == null) {
+            ObjectHelper.requireNonNull(callable, "supplier is null");
+            return RxJavaPlugins.onAssembly(new FlowableDefer(callable));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public static Flowable error(Throwable th) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65581, null, th)) == null) {
+            ObjectHelper.requireNonNull(th, "throwable is null");
+            return error(Functions.justCallable(th));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable fromCallable(Callable callable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65584, null, callable)) == null) {
+            ObjectHelper.requireNonNull(callable, "supplier is null");
+            return RxJavaPlugins.onAssembly(new FlowableFromCallable(callable));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable fromFuture(Future future) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65585, null, future)) == null) {
+            ObjectHelper.requireNonNull(future, "future is null");
+            return RxJavaPlugins.onAssembly(new FlowableFromFuture(future, 0L, null));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable fromIterable(Iterable iterable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65589, null, iterable)) == null) {
+            ObjectHelper.requireNonNull(iterable, "source is null");
+            return RxJavaPlugins.onAssembly(new FlowableFromIterable(iterable));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public static Flowable fromPublisher(Publisher publisher) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65590, null, publisher)) == null) {
+            if (publisher instanceof Flowable) {
+                return RxJavaPlugins.onAssembly((Flowable) publisher);
+            }
+            ObjectHelper.requireNonNull(publisher, "publisher is null");
+            return RxJavaPlugins.onAssembly(new FlowableFromPublisher(publisher));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable generate(Consumer consumer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65591, null, consumer)) == null) {
+            ObjectHelper.requireNonNull(consumer, "generator is null");
+            return generate(Functions.nullSupplier(), FlowableInternalHelper.simpleGenerator(consumer), Functions.emptyConsumer());
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable just(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65602, null, obj)) == null) {
+            ObjectHelper.requireNonNull(obj, "item is null");
+            return RxJavaPlugins.onAssembly(new FlowableJust(obj));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable merge(Iterable iterable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65612, null, iterable)) == null) {
+            return fromIterable(iterable).flatMap(Functions.identity());
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable mergeArray(Publisher... publisherArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65621, null, publisherArr)) == null) {
+            return fromArray(publisherArr).flatMap(Functions.identity(), publisherArr.length);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable mergeArrayDelayError(Publisher... publisherArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65623, null, publisherArr)) == null) {
+            return fromArray(publisherArr).flatMap(Functions.identity(), true, publisherArr.length);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable mergeDelayError(Iterable iterable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65624, null, iterable)) == null) {
+            return fromIterable(iterable).flatMap(Functions.identity(), true);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable switchOnNext(Publisher publisher) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65639, null, publisher)) == null) {
+            return fromPublisher(publisher).switchMap(Functions.identity());
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable switchOnNextDelayError(Publisher publisher) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65641, null, publisher)) == null) {
+            return switchOnNextDelayError(publisher, bufferSize());
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.NONE)
+    @CheckReturnValue
+    public static Flowable unsafeCreate(Publisher publisher) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65647, null, publisher)) == null) {
+            ObjectHelper.requireNonNull(publisher, "onSubscribe is null");
+            if (!(publisher instanceof Flowable)) {
+                return RxJavaPlugins.onAssembly(new FlowableFromPublisher(publisher));
+            }
+            throw new IllegalArgumentException("unsafeCreate(Flowable) should be upgraded");
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Single all(Predicate predicate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, predicate)) == null) {
+            ObjectHelper.requireNonNull(predicate, "predicate is null");
+            return RxJavaPlugins.onAssembly(new FlowableAllSingle(this, predicate));
+        }
+        return (Single) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable ambWith(Publisher publisher) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, publisher)) == null) {
+            ObjectHelper.requireNonNull(publisher, "other is null");
+            return ambArray(this, publisher);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Single any(Predicate predicate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, predicate)) == null) {
+            ObjectHelper.requireNonNull(predicate, "predicate is null");
+            return RxJavaPlugins.onAssembly(new FlowableAnySingle(this, predicate));
+        }
+        return (Single) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.SPECIAL)
+    @CheckReturnValue
+    public final Object as(FlowableConverter flowableConverter) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, flowableConverter)) == null) {
+            return ((FlowableConverter) ObjectHelper.requireNonNull(flowableConverter, "converter is null")).apply(this);
+        }
+        return invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Object blockingFirst(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            BlockingFirstSubscriber blockingFirstSubscriber = new BlockingFirstSubscriber();
+            subscribe((FlowableSubscriber) blockingFirstSubscriber);
+            Object blockingGet = blockingFirstSubscriber.blockingGet();
+            if (blockingGet != null) {
+                return blockingGet;
+            }
+            return obj;
+        }
+        return invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Iterable blockingIterable(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            ObjectHelper.verifyPositive(i, "bufferSize");
+            return new BlockingFlowableIterable(this, i);
+        }
+        return (Iterable) invokeI.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Object blockingLast(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, obj)) == null) {
+            BlockingLastSubscriber blockingLastSubscriber = new BlockingLastSubscriber();
+            subscribe((FlowableSubscriber) blockingLastSubscriber);
+            Object blockingGet = blockingLastSubscriber.blockingGet();
+            if (blockingGet != null) {
+                return blockingGet;
+            }
+            return obj;
+        }
+        return invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Iterable blockingMostRecent(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, obj)) == null) {
+            return new BlockingFlowableMostRecent(this, obj);
+        }
+        return (Iterable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Object blockingSingle(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, obj)) == null) {
+            return single(obj).blockingGet();
+        }
+        return invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    public final void blockingSubscribe(Consumer consumer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, consumer) == null) {
+            FlowableBlockingSubscribe.subscribe(this, consumer, Functions.ON_ERROR_MISSING, Functions.EMPTY_ACTION);
+        }
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable buffer(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
+            return buffer(i, i);
+        }
+        return (Flowable) invokeI.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable cacheWithInitialCapacity(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048617, this, i)) == null) {
+            ObjectHelper.verifyPositive(i, "initialCapacity");
+            return RxJavaPlugins.onAssembly(new FlowableCache(this, i));
+        }
+        return (Flowable) invokeI.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable cast(Class cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048618, this, cls)) == null) {
+            ObjectHelper.requireNonNull(cls, "clazz is null");
+            return map(Functions.castFunction(cls));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable compose(FlowableTransformer flowableTransformer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048621, this, flowableTransformer)) == null) {
+            return fromPublisher(((FlowableTransformer) ObjectHelper.requireNonNull(flowableTransformer, "composer is null")).apply(this));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable concatMap(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048622, this, function)) == null) {
+            return concatMap(function, 2);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Completable concatMapCompletable(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048624, this, function)) == null) {
+            return concatMapCompletable(function, 2);
+        }
+        return (Completable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Completable concatMapCompletableDelayError(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048626, this, function)) == null) {
+            return concatMapCompletableDelayError(function, true, 2);
+        }
+        return (Completable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable concatMapDelayError(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048629, this, function)) == null) {
+            return concatMapDelayError(function, 2, true);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable concatMapEager(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048631, this, function)) == null) {
+            return concatMapEager(function, bufferSize(), bufferSize());
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable concatMapIterable(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048635, this, function)) == null) {
+            return concatMapIterable(function, 2);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable concatMapMaybe(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048637, this, function)) == null) {
+            return concatMapMaybe(function, 2);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable concatMapMaybeDelayError(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048639, this, function)) == null) {
+            return concatMapMaybeDelayError(function, true, 2);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable concatMapSingle(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048642, this, function)) == null) {
+            return concatMapSingle(function, 2);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable concatMapSingleDelayError(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048644, this, function)) == null) {
+            return concatMapSingleDelayError(function, true, 2);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable concatWith(CompletableSource completableSource) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048647, this, completableSource)) == null) {
+            ObjectHelper.requireNonNull(completableSource, "other is null");
+            return RxJavaPlugins.onAssembly(new FlowableConcatWithCompletable(this, completableSource));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Single contains(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048651, this, obj)) == null) {
+            ObjectHelper.requireNonNull(obj, "item is null");
+            return any(Functions.equalsWith(obj));
+        }
+        return (Single) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable debounce(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048655, this, function)) == null) {
+            ObjectHelper.requireNonNull(function, "debounceIndicator is null");
+            return RxJavaPlugins.onAssembly(new FlowableDebounce(this, function));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable defaultIfEmpty(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048656, this, obj)) == null) {
+            ObjectHelper.requireNonNull(obj, "item is null");
+            return switchIfEmpty(just(obj));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable delay(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048661, this, function)) == null) {
+            ObjectHelper.requireNonNull(function, "itemDelayIndicator is null");
+            return flatMap(FlowableInternalHelper.itemDelay(function));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable delaySubscription(Publisher publisher) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048665, this, publisher)) == null) {
+            ObjectHelper.requireNonNull(publisher, "subscriptionIndicator is null");
+            return RxJavaPlugins.onAssembly(new FlowableDelaySubscriptionOther(this, publisher));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable distinct(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048668, this, function)) == null) {
+            return distinct(function, Functions.createHashSet());
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable distinctUntilChanged(BiPredicate biPredicate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048671, this, biPredicate)) == null) {
+            ObjectHelper.requireNonNull(biPredicate, "comparer is null");
+            return RxJavaPlugins.onAssembly(new FlowableDistinctUntilChanged(this, Functions.identity(), biPredicate));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable doAfterNext(Consumer consumer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048673, this, consumer)) == null) {
+            ObjectHelper.requireNonNull(consumer, "onAfterNext is null");
+            return RxJavaPlugins.onAssembly(new FlowableDoAfterNext(this, consumer));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable doAfterTerminate(Action action) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048674, this, action)) == null) {
+            return doOnEach(Functions.emptyConsumer(), Functions.emptyConsumer(), Functions.EMPTY_ACTION, action);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable doFinally(Action action) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048675, this, action)) == null) {
+            ObjectHelper.requireNonNull(action, "onFinally is null");
+            return RxJavaPlugins.onAssembly(new FlowableDoFinally(this, action));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable doOnCancel(Action action) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048676, this, action)) == null) {
+            return doOnLifecycle(Functions.emptyConsumer(), Functions.EMPTY_LONG_CONSUMER, action);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable doOnComplete(Action action) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048677, this, action)) == null) {
+            return doOnEach(Functions.emptyConsumer(), Functions.emptyConsumer(), action, Functions.EMPTY_ACTION);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable doOnEach(Consumer consumer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048678, this, consumer)) == null) {
+            ObjectHelper.requireNonNull(consumer, "consumer is null");
+            return doOnEach(Functions.notificationOnNext(consumer), Functions.notificationOnError(consumer), Functions.notificationOnComplete(consumer), Functions.EMPTY_ACTION);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable doOnError(Consumer consumer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048680, this, consumer)) == null) {
+            Consumer emptyConsumer = Functions.emptyConsumer();
+            Action action = Functions.EMPTY_ACTION;
+            return doOnEach(emptyConsumer, consumer, action, action);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable doOnNext(Consumer consumer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048682, this, consumer)) == null) {
+            Consumer emptyConsumer = Functions.emptyConsumer();
+            Action action = Functions.EMPTY_ACTION;
+            return doOnEach(consumer, emptyConsumer, action, action);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable doOnRequest(LongConsumer longConsumer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048683, this, longConsumer)) == null) {
+            return doOnLifecycle(Functions.emptyConsumer(), longConsumer, Functions.EMPTY_ACTION);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable doOnSubscribe(Consumer consumer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048684, this, consumer)) == null) {
+            return doOnLifecycle(consumer, Functions.EMPTY_LONG_CONSUMER, Functions.EMPTY_ACTION);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable doOnTerminate(Action action) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048685, this, action)) == null) {
+            return doOnEach(Functions.emptyConsumer(), Functions.actionConsumer(action), action, Functions.EMPTY_ACTION);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable filter(Predicate predicate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048689, this, predicate)) == null) {
+            ObjectHelper.requireNonNull(predicate, "predicate is null");
+            return RxJavaPlugins.onAssembly(new FlowableFilter(this, predicate));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.SPECIAL)
+    @CheckReturnValue
+    public final Single first(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048690, this, obj)) == null) {
+            return elementAt(0L, obj);
+        }
+        return (Single) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable flatMap(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048693, this, function)) == null) {
+            return flatMap(function, false, bufferSize(), bufferSize());
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Completable flatMapCompletable(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048705, this, function)) == null) {
+            return flatMapCompletable(function, false, Integer.MAX_VALUE);
+        }
+        return (Completable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable flatMapIterable(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048707, this, function)) == null) {
+            return flatMapIterable(function, bufferSize());
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Flowable flatMapMaybe(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048711, this, function)) == null) {
+            return flatMapMaybe(function, false, Integer.MAX_VALUE);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Flowable flatMapSingle(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048713, this, function)) == null) {
+            return flatMapSingle(function, false, Integer.MAX_VALUE);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.NONE)
+    @CheckReturnValue
+    public final Disposable forEach(Consumer consumer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048715, this, consumer)) == null) {
+            return subscribe(consumer);
+        }
+        return (Disposable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.NONE)
+    @CheckReturnValue
+    public final Disposable forEachWhile(Predicate predicate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048716, this, predicate)) == null) {
+            return forEachWhile(predicate, Functions.ON_ERROR_MISSING, Functions.EMPTY_ACTION);
+        }
+        return (Disposable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable groupBy(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048719, this, function)) == null) {
+            return groupBy(function, Functions.identity(), false, bufferSize());
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Single last(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048730, this, obj)) == null) {
+            ObjectHelper.requireNonNull(obj, "defaultItem");
+            return RxJavaPlugins.onAssembly(new FlowableLastSingle(this, obj));
+        }
+        return (Single) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.SPECIAL)
+    @CheckReturnValue
+    public final Flowable lift(FlowableOperator flowableOperator) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048733, this, flowableOperator)) == null) {
+            ObjectHelper.requireNonNull(flowableOperator, "lifter is null");
+            return RxJavaPlugins.onAssembly(new FlowableLift(this, flowableOperator));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable map(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048735, this, function)) == null) {
+            ObjectHelper.requireNonNull(function, "mapper is null");
+            return RxJavaPlugins.onAssembly(new FlowableMap(this, function));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable mergeWith(CompletableSource completableSource) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048737, this, completableSource)) == null) {
+            ObjectHelper.requireNonNull(completableSource, "other is null");
+            return RxJavaPlugins.onAssembly(new FlowableMergeWithCompletable(this, completableSource));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable observeOn(Scheduler scheduler) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048741, this, scheduler)) == null) {
+            return observeOn(scheduler, false, bufferSize());
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable ofType(Class cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048744, this, cls)) == null) {
+            ObjectHelper.requireNonNull(cls, "clazz is null");
+            return filter(Functions.isInstanceOf(cls)).cast(cls);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable onBackpressureBuffer(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048746, this, i)) == null) {
+            return onBackpressureBuffer(i, false, false);
+        }
+        return (Flowable) invokeI.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Flowable onBackpressureDrop(Consumer consumer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048754, this, consumer)) == null) {
+            ObjectHelper.requireNonNull(consumer, "onDrop is null");
+            return RxJavaPlugins.onAssembly(new FlowableOnBackpressureDrop(this, consumer));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable onErrorResumeNext(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048756, this, function)) == null) {
+            ObjectHelper.requireNonNull(function, "resumeFunction is null");
+            return RxJavaPlugins.onAssembly(new FlowableOnErrorNext(this, function, false));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable onErrorReturn(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048758, this, function)) == null) {
+            ObjectHelper.requireNonNull(function, "valueSupplier is null");
+            return RxJavaPlugins.onAssembly(new FlowableOnErrorReturn(this, function));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable onErrorReturnItem(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048759, this, obj)) == null) {
+            ObjectHelper.requireNonNull(obj, "item is null");
+            return onErrorReturn(Functions.justFunction(obj));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable onExceptionResumeNext(Publisher publisher) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048760, this, publisher)) == null) {
+            ObjectHelper.requireNonNull(publisher, "next is null");
+            return RxJavaPlugins.onAssembly(new FlowableOnErrorNext(this, Functions.justFunction(publisher), true));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final ParallelFlowable parallel(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048763, this, i)) == null) {
+            ObjectHelper.verifyPositive(i, "parallelism");
+            return ParallelFlowable.from(this, i);
+        }
+        return (ParallelFlowable) invokeI.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable publish(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048765, this, function)) == null) {
+            return publish(function, bufferSize());
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable rebatchRequests(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048769, this, i)) == null) {
+            return observeOn(ImmediateThinScheduler.INSTANCE, true, i);
+        }
+        return (Flowable) invokeI.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Maybe reduce(BiFunction biFunction) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048770, this, biFunction)) == null) {
+            ObjectHelper.requireNonNull(biFunction, "reducer is null");
+            return RxJavaPlugins.onAssembly(new FlowableReduceMaybe(this, biFunction));
+        }
+        return (Maybe) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable repeatUntil(BooleanSupplier booleanSupplier) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048775, this, booleanSupplier)) == null) {
+            ObjectHelper.requireNonNull(booleanSupplier, "stop is null");
+            return RxJavaPlugins.onAssembly(new FlowableRepeatUntil(this, booleanSupplier));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable repeatWhen(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048776, this, function)) == null) {
+            ObjectHelper.requireNonNull(function, "handler is null");
+            return RxJavaPlugins.onAssembly(new FlowableRepeatWhen(this, function));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable replay(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048777, this, function)) == null) {
+            ObjectHelper.requireNonNull(function, "selector is null");
+            return FlowableReplay.multicastSelector(FlowableInternalHelper.replayCallable(this), function);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable retry(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048794, this, j)) == null) {
+            return retry(j, Functions.alwaysTrue());
+        }
+        return (Flowable) invokeJ.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable retryUntil(BooleanSupplier booleanSupplier) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048798, this, booleanSupplier)) == null) {
+            ObjectHelper.requireNonNull(booleanSupplier, "stop is null");
+            return retry(Long.MAX_VALUE, Functions.predicateReverseFor(booleanSupplier));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable retryWhen(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048799, this, function)) == null) {
+            ObjectHelper.requireNonNull(function, "handler is null");
+            return RxJavaPlugins.onAssembly(new FlowableRetryWhen(this, function));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    public final void safeSubscribe(Subscriber subscriber) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048800, this, subscriber) == null) {
+            ObjectHelper.requireNonNull(subscriber, "s is null");
+            if (subscriber instanceof SafeSubscriber) {
+                subscribe((FlowableSubscriber) ((SafeSubscriber) subscriber));
+            } else {
+                subscribe((FlowableSubscriber) new SafeSubscriber(subscriber));
+            }
+        }
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable sample(Publisher publisher) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048805, this, publisher)) == null) {
+            ObjectHelper.requireNonNull(publisher, "sampler is null");
+            return RxJavaPlugins.onAssembly(new FlowableSamplePublisher(this, publisher, false));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable scan(BiFunction biFunction) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048807, this, biFunction)) == null) {
+            ObjectHelper.requireNonNull(biFunction, "accumulator is null");
+            return RxJavaPlugins.onAssembly(new FlowableScan(this, biFunction));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Single single(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048812, this, obj)) == null) {
+            ObjectHelper.requireNonNull(obj, "defaultItem is null");
+            return RxJavaPlugins.onAssembly(new FlowableSingleSingle(this, obj));
+        }
+        return (Single) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable skip(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048815, this, j)) == null) {
+            if (j <= 0) {
+                return RxJavaPlugins.onAssembly(this);
+            }
+            return RxJavaPlugins.onAssembly(new FlowableSkip(this, j));
+        }
+        return (Flowable) invokeJ.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable skipUntil(Publisher publisher) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048824, this, publisher)) == null) {
+            ObjectHelper.requireNonNull(publisher, "other is null");
+            return RxJavaPlugins.onAssembly(new FlowableSkipUntil(this, publisher));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable skipWhile(Predicate predicate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048825, this, predicate)) == null) {
+            ObjectHelper.requireNonNull(predicate, "predicate is null");
+            return RxJavaPlugins.onAssembly(new FlowableSkipWhile(this, predicate));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable sorted(Comparator comparator) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048827, this, comparator)) == null) {
+            ObjectHelper.requireNonNull(comparator, "sortFunction");
+            return toList().toFlowable().map(Functions.listSorter(comparator)).flatMapIterable(Functions.identity());
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable startWith(Iterable iterable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048828, this, iterable)) == null) {
+            return concatArray(fromIterable(iterable), this);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable startWithArray(Object... objArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048831, this, objArr)) == null) {
+            Flowable fromArray = fromArray(objArr);
+            if (fromArray == empty()) {
+                return RxJavaPlugins.onAssembly(this);
+            }
+            return concatArray(fromArray, this);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Disposable subscribe(Consumer consumer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048833, this, consumer)) == null) {
+            return subscribe(consumer, Functions.ON_ERROR_MISSING, Functions.EMPTY_ACTION, FlowableInternalHelper.RequestMax.INSTANCE);
+        }
+        return (Disposable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable subscribeOn(Scheduler scheduler) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048840, this, scheduler)) == null) {
+            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
+            return subscribeOn(scheduler, !(this instanceof FlowableCreate));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.SPECIAL)
+    @CheckReturnValue
+    public final Subscriber subscribeWith(Subscriber subscriber) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048842, this, subscriber)) == null) {
+            subscribe(subscriber);
+            return subscriber;
+        }
+        return (Subscriber) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable switchIfEmpty(Publisher publisher) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048843, this, publisher)) == null) {
+            ObjectHelper.requireNonNull(publisher, "other is null");
+            return RxJavaPlugins.onAssembly(new FlowableSwitchIfEmpty(this, publisher));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable switchMap(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048844, this, function)) == null) {
+            return switchMap(function, bufferSize());
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Completable switchMapCompletable(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048847, this, function)) == null) {
+            ObjectHelper.requireNonNull(function, "mapper is null");
+            return RxJavaPlugins.onAssembly(new FlowableSwitchMapCompletable(this, function, false));
+        }
+        return (Completable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Completable switchMapCompletableDelayError(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048848, this, function)) == null) {
+            ObjectHelper.requireNonNull(function, "mapper is null");
+            return RxJavaPlugins.onAssembly(new FlowableSwitchMapCompletable(this, function, true));
+        }
+        return (Completable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.SPECIAL)
+    @CheckReturnValue
+    public final Flowable switchMapDelayError(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048849, this, function)) == null) {
+            return switchMapDelayError(function, bufferSize());
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Flowable switchMapMaybe(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048851, this, function)) == null) {
+            ObjectHelper.requireNonNull(function, "mapper is null");
+            return RxJavaPlugins.onAssembly(new FlowableSwitchMapMaybe(this, function, false));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Flowable switchMapMaybeDelayError(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048852, this, function)) == null) {
+            ObjectHelper.requireNonNull(function, "mapper is null");
+            return RxJavaPlugins.onAssembly(new FlowableSwitchMapMaybe(this, function, true));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Flowable switchMapSingle(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048853, this, function)) == null) {
+            ObjectHelper.requireNonNull(function, "mapper is null");
+            return RxJavaPlugins.onAssembly(new FlowableSwitchMapSingle(this, function, false));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Flowable switchMapSingleDelayError(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048854, this, function)) == null) {
+            ObjectHelper.requireNonNull(function, "mapper is null");
+            return RxJavaPlugins.onAssembly(new FlowableSwitchMapSingle(this, function, true));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable takeUntil(Predicate predicate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048867, this, predicate)) == null) {
+            ObjectHelper.requireNonNull(predicate, "stopPredicate is null");
+            return RxJavaPlugins.onAssembly(new FlowableTakeUntilPredicate(this, predicate));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable takeWhile(Predicate predicate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048869, this, predicate)) == null) {
+            ObjectHelper.requireNonNull(predicate, "predicate is null");
+            return RxJavaPlugins.onAssembly(new FlowableTakeWhile(this, predicate));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final TestSubscriber test(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048871, this, j)) == null) {
+            TestSubscriber testSubscriber = new TestSubscriber(j);
+            subscribe((FlowableSubscriber) testSubscriber);
+            return testSubscriber;
+        }
+        return (TestSubscriber) invokeJ.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable timeInterval(Scheduler scheduler) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048880, this, scheduler)) == null) {
+            return timeInterval(TimeUnit.MILLISECONDS, scheduler);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable timeout(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048887, this, function)) == null) {
+            return timeout0(null, function, null);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable timestamp(Scheduler scheduler) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048892, this, scheduler)) == null) {
+            return timestamp(TimeUnit.MILLISECONDS, scheduler);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.SPECIAL)
+    @CheckReturnValue
+    public final Object to(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048895, this, function)) == null) {
+            try {
+                return ((Function) ObjectHelper.requireNonNull(function, "converter is null")).apply(this);
+            } catch (Throwable th) {
+                Exceptions.throwIfFatal(th);
+                throw ExceptionHelper.wrapOrThrow(th);
+            }
+        }
+        return invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Single toList(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048898, this, i)) == null) {
+            ObjectHelper.verifyPositive(i, "capacityHint");
+            return RxJavaPlugins.onAssembly(new FlowableToListSingle(this, Functions.createArrayList(i)));
+        }
+        return (Single) invokeI.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Single toMap(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048900, this, function)) == null) {
+            ObjectHelper.requireNonNull(function, "keySelector is null");
+            return collect(HashMapSupplier.asCallable(), Functions.toMapKeySelector(function));
+        }
+        return (Single) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Single toMultimap(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048903, this, function)) == null) {
+            return toMultimap(function, Functions.identity(), HashMapSupplier.asCallable(), ArrayListSupplier.asFunction());
+        }
+        return (Single) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Single toSortedList(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048909, this, i)) == null) {
+            return toSortedList(Functions.naturalComparator(), i);
+        }
+        return (Single) invokeI.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable unsubscribeOn(Scheduler scheduler) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048912, this, scheduler)) == null) {
+            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
+            return RxJavaPlugins.onAssembly(new FlowableUnsubscribeOn(this, scheduler));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable window(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048913, this, j)) == null) {
+            return window(j, j, bufferSize());
+        }
+        return (Flowable) invokeJ.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public static Flowable ambArray(Publisher... publisherArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, publisherArr)) == null) {
@@ -283,47 +2471,10 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (Flowable) invokeL.objValue;
     }
 
-    public static int bufferSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? BUFFER_SIZE : invokeV.intValue;
-    }
-
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static <T, R> Flowable<R> combineLatest(Publisher<? extends T>[] publisherArr, Function<? super Object[], ? extends R> function) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, publisherArr, function)) == null) ? combineLatest(publisherArr, function, bufferSize()) : (Flowable) invokeLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T, R> Flowable<R> combineLatestDelayError(Publisher<? extends T>[] publisherArr, Function<? super Object[], ? extends R> function) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, publisherArr, function)) == null) ? combineLatestDelayError(publisherArr, function, bufferSize()) : (Flowable) invokeLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> concat(Iterable<? extends Publisher<? extends T>> iterable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, iterable)) == null) {
-            ObjectHelper.requireNonNull(iterable, "sources is null");
-            return fromIterable(iterable).concatMapDelayError(Functions.identity(), 2, false);
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> concatArray(Publisher<? extends T>... publisherArr) {
+    public static Flowable concatArray(Publisher... publisherArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, publisherArr)) == null) {
@@ -341,7 +2492,7 @@ public abstract class Flowable<T> implements Publisher<T> {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static <T> Flowable<T> concatArrayDelayError(Publisher<? extends T>... publisherArr) {
+    public static Flowable concatArrayDelayError(Publisher... publisherArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, publisherArr)) == null) {
@@ -359,503 +2510,28 @@ public abstract class Flowable<T> implements Publisher<T> {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static <T> Flowable<T> concatArrayEager(Publisher<? extends T>... publisherArr) {
+    public static Flowable fromArray(Object... objArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65569, null, publisherArr)) == null) ? concatArrayEager(bufferSize(), bufferSize(), publisherArr) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> concatDelayError(Iterable<? extends Publisher<? extends T>> iterable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65570, null, iterable)) == null) {
-            ObjectHelper.requireNonNull(iterable, "sources is null");
-            return fromIterable(iterable).concatMapDelayError(Functions.identity());
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> concatEager(Publisher<? extends Publisher<? extends T>> publisher) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65575, null, publisher)) == null) ? concatEager(publisher, bufferSize(), bufferSize()) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.SPECIAL)
-    @CheckReturnValue
-    public static <T> Flowable<T> create(FlowableOnSubscribe<T> flowableOnSubscribe, BackpressureStrategy backpressureStrategy) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65577, null, flowableOnSubscribe, backpressureStrategy)) == null) {
-            ObjectHelper.requireNonNull(flowableOnSubscribe, "source is null");
-            ObjectHelper.requireNonNull(backpressureStrategy, "mode is null");
-            return RxJavaPlugins.onAssembly(new FlowableCreate(flowableOnSubscribe, backpressureStrategy));
-        }
-        return (Flowable) invokeLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public static <T> Flowable<T> defer(Callable<? extends Publisher<? extends T>> callable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65578, null, callable)) == null) {
-            ObjectHelper.requireNonNull(callable, "supplier is null");
-            return RxJavaPlugins.onAssembly(new FlowableDefer(callable));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    private Flowable<T> doOnEach(Consumer<? super T> consumer, Consumer<? super Throwable> consumer2, Action action, Action action2) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65579, this, consumer, consumer2, action, action2)) == null) {
-            ObjectHelper.requireNonNull(consumer, "onNext is null");
-            ObjectHelper.requireNonNull(consumer2, "onError is null");
-            ObjectHelper.requireNonNull(action, "onComplete is null");
-            ObjectHelper.requireNonNull(action2, "onAfterTerminate is null");
-            return RxJavaPlugins.onAssembly(new FlowableDoOnEach(this, consumer, consumer2, action, action2));
-        }
-        return (Flowable) invokeLLLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public static <T> Flowable<T> empty() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65580, null)) == null) ? RxJavaPlugins.onAssembly(FlowableEmpty.INSTANCE) : (Flowable) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public static <T> Flowable<T> error(Callable<? extends Throwable> callable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65582, null, callable)) == null) {
-            ObjectHelper.requireNonNull(callable, "errorSupplier is null");
-            return RxJavaPlugins.onAssembly(new FlowableError(callable));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> fromArray(T... tArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65583, null, tArr)) == null) {
-            ObjectHelper.requireNonNull(tArr, "items is null");
-            if (tArr.length == 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65583, null, objArr)) == null) {
+            ObjectHelper.requireNonNull(objArr, "items is null");
+            if (objArr.length == 0) {
                 return empty();
             }
-            if (tArr.length == 1) {
-                return just(tArr[0]);
+            if (objArr.length == 1) {
+                return just(objArr[0]);
             }
-            return RxJavaPlugins.onAssembly(new FlowableFromArray(tArr));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> fromCallable(Callable<? extends T> callable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65584, null, callable)) == null) {
-            ObjectHelper.requireNonNull(callable, "supplier is null");
-            return RxJavaPlugins.onAssembly(new FlowableFromCallable(callable));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> fromFuture(Future<? extends T> future) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65585, null, future)) == null) {
-            ObjectHelper.requireNonNull(future, "future is null");
-            return RxJavaPlugins.onAssembly(new FlowableFromFuture(future, 0L, null));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> fromIterable(Iterable<? extends T> iterable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65589, null, iterable)) == null) {
-            ObjectHelper.requireNonNull(iterable, "source is null");
-            return RxJavaPlugins.onAssembly(new FlowableFromIterable(iterable));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public static <T> Flowable<T> fromPublisher(Publisher<? extends T> publisher) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65590, null, publisher)) == null) {
-            if (publisher instanceof Flowable) {
-                return RxJavaPlugins.onAssembly((Flowable) publisher);
-            }
-            ObjectHelper.requireNonNull(publisher, "publisher is null");
-            return RxJavaPlugins.onAssembly(new FlowableFromPublisher(publisher));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> generate(Consumer<Emitter<T>> consumer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65591, null, consumer)) == null) {
-            ObjectHelper.requireNonNull(consumer, "generator is null");
-            return generate(Functions.nullSupplier(), FlowableInternalHelper.simpleGenerator(consumer), Functions.emptyConsumer());
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport(SchedulerSupport.COMPUTATION)
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public static Flowable<Long> interval(long j, long j2, TimeUnit timeUnit) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65596, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) ? interval(j, j2, timeUnit, Schedulers.computation()) : (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport(SchedulerSupport.COMPUTATION)
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public static Flowable<Long> intervalRange(long j, long j2, long j3, long j4, TimeUnit timeUnit) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65600, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), timeUnit})) == null) ? intervalRange(j, j2, j3, j4, timeUnit, Schedulers.computation()) : (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> just(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65602, null, t)) == null) {
-            ObjectHelper.requireNonNull(t, "item is null");
-            return RxJavaPlugins.onAssembly(new FlowableJust(t));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> merge(Iterable<? extends Publisher<? extends T>> iterable, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(65614, null, iterable, i, i2)) == null) ? fromIterable(iterable).flatMap(Functions.identity(), false, i, i2) : (Flowable) invokeLII.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> mergeArray(int i, int i2, Publisher<? extends T>... publisherArr) {
-        InterceptResult invokeIIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(65620, null, i, i2, publisherArr)) == null) ? fromArray(publisherArr).flatMap(Functions.identity(), false, i, i2) : (Flowable) invokeIIL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> mergeArrayDelayError(int i, int i2, Publisher<? extends T>... publisherArr) {
-        InterceptResult invokeIIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(65622, null, i, i2, publisherArr)) == null) ? fromArray(publisherArr).flatMap(Functions.identity(), true, i, i2) : (Flowable) invokeIIL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> mergeDelayError(Iterable<? extends Publisher<? extends T>> iterable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65624, null, iterable)) == null) ? fromIterable(iterable).flatMap(Functions.identity(), true) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public static <T> Flowable<T> never() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65632, null)) == null) ? RxJavaPlugins.onAssembly(FlowableNever.INSTANCE) : (Flowable) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static Flowable<Integer> range(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65633, null, i, i2)) == null) {
-            if (i2 < 0) {
-                throw new IllegalArgumentException("count >= 0 required but it was " + i2);
-            } else if (i2 == 0) {
-                return empty();
-            } else {
-                if (i2 == 1) {
-                    return just(Integer.valueOf(i));
-                }
-                if (i + (i2 - 1) <= 2147483647L) {
-                    return RxJavaPlugins.onAssembly(new FlowableRange(i, i2));
-                }
-                throw new IllegalArgumentException("Integer overflow");
-            }
-        }
-        return (Flowable) invokeII.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static Flowable<Long> rangeLong(long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65634, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            int i = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
-            if (i < 0) {
-                throw new IllegalArgumentException("count >= 0 required but it was " + j2);
-            } else if (i == 0) {
-                return empty();
-            } else {
-                if (j2 == 1) {
-                    return just(Long.valueOf(j));
-                }
-                long j3 = (j2 - 1) + j;
-                if (j > 0 && j3 < 0) {
-                    throw new IllegalArgumentException("Overflow! start + count is bigger than Long.MAX_VALUE");
-                }
-                return RxJavaPlugins.onAssembly(new FlowableRangeLong(j, j2));
-            }
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Single<Boolean> sequenceEqual(Publisher<? extends T> publisher, Publisher<? extends T> publisher2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65635, null, publisher, publisher2)) == null) ? sequenceEqual(publisher, publisher2, ObjectHelper.equalsPredicate(), bufferSize()) : (Single) invokeLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> switchOnNext(Publisher<? extends Publisher<? extends T>> publisher, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65640, null, publisher, i)) == null) ? fromPublisher(publisher).switchMap(Functions.identity(), i) : (Flowable) invokeLI.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> switchOnNextDelayError(Publisher<? extends Publisher<? extends T>> publisher) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65641, null, publisher)) == null) ? switchOnNextDelayError(publisher, bufferSize()) : (Flowable) invokeL.objValue;
-    }
-
-    private Flowable<T> timeout0(long j, TimeUnit timeUnit, Publisher<? extends T> publisher, Scheduler scheduler) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65643, this, new Object[]{Long.valueOf(j), timeUnit, publisher, scheduler})) == null) {
-            ObjectHelper.requireNonNull(timeUnit, "timeUnit is null");
-            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return RxJavaPlugins.onAssembly(new FlowableTimeoutTimed(this, j, timeUnit, scheduler, publisher));
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport(SchedulerSupport.COMPUTATION)
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public static Flowable<Long> timer(long j, TimeUnit timeUnit) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(65645, null, j, timeUnit)) == null) ? timer(j, timeUnit, Schedulers.computation()) : (Flowable) invokeJL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.NONE)
-    @CheckReturnValue
-    public static <T> Flowable<T> unsafeCreate(Publisher<T> publisher) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65647, null, publisher)) == null) {
-            ObjectHelper.requireNonNull(publisher, "onSubscribe is null");
-            if (!(publisher instanceof Flowable)) {
-                return RxJavaPlugins.onAssembly(new FlowableFromPublisher(publisher));
-            }
-            throw new IllegalArgumentException("unsafeCreate(Flowable) should be upgraded");
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public static <T, D> Flowable<T> using(Callable<? extends D> callable, Function<? super D, ? extends Publisher<? extends T>> function, Consumer<? super D> consumer) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65648, null, callable, function, consumer)) == null) ? using(callable, function, consumer, true) : (Flowable) invokeLLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T, R> Flowable<R> zip(Iterable<? extends Publisher<? extends T>> iterable, Function<? super Object[], ? extends R> function) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65650, null, iterable, function)) == null) {
-            ObjectHelper.requireNonNull(function, "zipper is null");
-            ObjectHelper.requireNonNull(iterable, "sources is null");
-            return RxJavaPlugins.onAssembly(new FlowableZip(null, iterable, function, bufferSize(), false));
-        }
-        return (Flowable) invokeLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T, R> Flowable<R> zipArray(Function<? super Object[], ? extends R> function, boolean z, int i, Publisher<? extends T>... publisherArr) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65662, null, new Object[]{function, Boolean.valueOf(z), Integer.valueOf(i), publisherArr})) == null) {
-            if (publisherArr.length == 0) {
-                return empty();
-            }
-            ObjectHelper.requireNonNull(function, "zipper is null");
-            ObjectHelper.verifyPositive(i, "bufferSize");
-            return RxJavaPlugins.onAssembly(new FlowableZip(publisherArr, null, function, i, z));
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T, R> Flowable<R> zipIterable(Iterable<? extends Publisher<? extends T>> iterable, Function<? super Object[], ? extends R> function, boolean z, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65663, null, new Object[]{iterable, function, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
-            ObjectHelper.requireNonNull(function, "zipper is null");
-            ObjectHelper.requireNonNull(iterable, "sources is null");
-            ObjectHelper.verifyPositive(i, "bufferSize");
-            return RxJavaPlugins.onAssembly(new FlowableZip(null, iterable, function, i, z));
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Single<Boolean> all(Predicate<? super T> predicate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, predicate)) == null) {
-            ObjectHelper.requireNonNull(predicate, "predicate is null");
-            return RxJavaPlugins.onAssembly(new FlowableAllSingle(this, predicate));
-        }
-        return (Single) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> ambWith(Publisher<? extends T> publisher) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, publisher)) == null) {
-            ObjectHelper.requireNonNull(publisher, "other is null");
-            return ambArray(this, publisher);
+            return RxJavaPlugins.onAssembly(new FlowableFromArray(objArr));
         }
         return (Flowable) invokeL.objValue;
     }
 
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Single<Boolean> any(Predicate<? super T> predicate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, predicate)) == null) {
-            ObjectHelper.requireNonNull(predicate, "predicate is null");
-            return RxJavaPlugins.onAssembly(new FlowableAnySingle(this, predicate));
-        }
-        return (Single) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.SPECIAL)
-    @CheckReturnValue
-    @Experimental
-    public final <R> R as(@NonNull FlowableConverter<T, ? extends R> flowableConverter) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, flowableConverter)) == null) ? (R) ((FlowableConverter) ObjectHelper.requireNonNull(flowableConverter, "converter is null")).apply(this) : (R) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final T blockingFirst() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            BlockingFirstSubscriber blockingFirstSubscriber = new BlockingFirstSubscriber();
-            subscribe((FlowableSubscriber) blockingFirstSubscriber);
-            T blockingGet = blockingFirstSubscriber.blockingGet();
-            if (blockingGet != null) {
-                return blockingGet;
-            }
-            throw new NoSuchElementException();
-        }
-        return (T) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    public final void blockingForEach(Consumer<? super T> consumer) {
+    public final void blockingForEach(Consumer consumer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, consumer) == null) {
-            Iterator<T> it = blockingIterable().iterator();
+            Iterator it = blockingIterable().iterator();
             while (it.hasNext()) {
                 try {
                     consumer.accept(it.next());
@@ -869,503 +2545,9 @@ public abstract class Flowable<T> implements Publisher<T> {
     }
 
     @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Iterable<T> blockingIterable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? blockingIterable(bufferSize()) : (Iterable) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
     @CheckReturnValue
-    public final T blockingLast() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            BlockingLastSubscriber blockingLastSubscriber = new BlockingLastSubscriber();
-            subscribe((FlowableSubscriber) blockingLastSubscriber);
-            T blockingGet = blockingLastSubscriber.blockingGet();
-            if (blockingGet != null) {
-                return blockingGet;
-            }
-            throw new NoSuchElementException();
-        }
-        return (T) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Iterable<T> blockingLatest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? new BlockingFlowableLatest(this) : (Iterable) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Iterable<T> blockingMostRecent(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, t)) == null) ? new BlockingFlowableMostRecent(this, t) : (Iterable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Iterable<T> blockingNext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? new BlockingFlowableNext(this) : (Iterable) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final T blockingSingle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? singleOrError().blockingGet() : (T) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    public final void blockingSubscribe() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            FlowableBlockingSubscribe.subscribe(this);
-        }
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<List<T>> buffer(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) ? buffer(i, i) : (Flowable) invokeI.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> cache() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? cacheWithInitialCapacity(16) : (Flowable) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> cacheWithInitialCapacity(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048617, this, i)) == null) {
-            ObjectHelper.verifyPositive(i, "initialCapacity");
-            return RxJavaPlugins.onAssembly(new FlowableCache(this, i));
-        }
-        return (Flowable) invokeI.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final <U> Flowable<U> cast(Class<U> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048618, this, cls)) == null) {
-            ObjectHelper.requireNonNull(cls, "clazz is null");
-            return (Flowable<U>) map(Functions.castFunction(cls));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final <U> Single<U> collect(Callable<? extends U> callable, BiConsumer<? super U, ? super T> biConsumer) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048619, this, callable, biConsumer)) == null) {
-            ObjectHelper.requireNonNull(callable, "initialItemSupplier is null");
-            ObjectHelper.requireNonNull(biConsumer, "collector is null");
-            return RxJavaPlugins.onAssembly(new FlowableCollectSingle(this, callable, biConsumer));
-        }
-        return (Single) invokeLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final <U> Single<U> collectInto(U u, BiConsumer<? super U, ? super T> biConsumer) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048620, this, u, biConsumer)) == null) {
-            ObjectHelper.requireNonNull(u, "initialItem is null");
-            return collect(Functions.justCallable(u), biConsumer);
-        }
-        return (Single) invokeLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final <R> Flowable<R> compose(FlowableTransformer<? super T, ? extends R> flowableTransformer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048621, this, flowableTransformer)) == null) ? fromPublisher(((FlowableTransformer) ObjectHelper.requireNonNull(flowableTransformer, "composer is null")).apply(this)) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <R> Flowable<R> concatMap(Function<? super T, ? extends Publisher<? extends R>> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048622, this, function)) == null) ? concatMap(function, 2) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    @Experimental
-    public final Completable concatMapCompletable(Function<? super T, ? extends CompletableSource> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048624, this, function)) == null) ? concatMapCompletable(function, 2) : (Completable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    @Experimental
-    public final Completable concatMapCompletableDelayError(Function<? super T, ? extends CompletableSource> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048626, this, function)) == null) ? concatMapCompletableDelayError(function, true, 2) : (Completable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <R> Flowable<R> concatMapDelayError(Function<? super T, ? extends Publisher<? extends R>> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048629, this, function)) == null) ? concatMapDelayError(function, 2, true) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <R> Flowable<R> concatMapEager(Function<? super T, ? extends Publisher<? extends R>> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048631, this, function)) == null) ? concatMapEager(function, bufferSize(), bufferSize()) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <R> Flowable<R> concatMapEagerDelayError(Function<? super T, ? extends Publisher<? extends R>> function, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048634, this, function, z)) == null) ? concatMapEagerDelayError(function, bufferSize(), bufferSize(), z) : (Flowable) invokeLZ.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <U> Flowable<U> concatMapIterable(Function<? super T, ? extends Iterable<? extends U>> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048635, this, function)) == null) ? concatMapIterable(function, 2) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    @Experimental
-    public final <R> Flowable<R> concatMapMaybe(Function<? super T, ? extends MaybeSource<? extends R>> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048637, this, function)) == null) ? concatMapMaybe(function, 2) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    @Experimental
-    public final <R> Flowable<R> concatMapMaybeDelayError(Function<? super T, ? extends MaybeSource<? extends R>> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048639, this, function)) == null) ? concatMapMaybeDelayError(function, true, 2) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    @Experimental
-    public final <R> Flowable<R> concatMapSingle(Function<? super T, ? extends SingleSource<? extends R>> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048642, this, function)) == null) ? concatMapSingle(function, 2) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    @Experimental
-    public final <R> Flowable<R> concatMapSingleDelayError(Function<? super T, ? extends SingleSource<? extends R>> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048644, this, function)) == null) ? concatMapSingleDelayError(function, true, 2) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> concatWith(Publisher<? extends T> publisher) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048650, this, publisher)) == null) {
-            ObjectHelper.requireNonNull(publisher, "other is null");
-            return concat(this, publisher);
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Single<Boolean> contains(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048651, this, obj)) == null) {
-            ObjectHelper.requireNonNull(obj, "item is null");
-            return any(Functions.equalsWith(obj));
-        }
-        return (Single) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Single<Long> count() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048652, this)) == null) ? RxJavaPlugins.onAssembly(new FlowableCountSingle(this)) : (Single) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final <U> Flowable<T> debounce(Function<? super T, ? extends Publisher<U>> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048655, this, function)) == null) {
-            ObjectHelper.requireNonNull(function, "debounceIndicator is null");
-            return RxJavaPlugins.onAssembly(new FlowableDebounce(this, function));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> defaultIfEmpty(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048656, this, t)) == null) {
-            ObjectHelper.requireNonNull(t, "item is null");
-            return switchIfEmpty(just(t));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <U> Flowable<T> delay(Function<? super T, ? extends Publisher<U>> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048661, this, function)) == null) {
-            ObjectHelper.requireNonNull(function, "itemDelayIndicator is null");
-            return (Flowable<T>) flatMap(FlowableInternalHelper.itemDelay(function));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <U> Flowable<T> delaySubscription(Publisher<U> publisher) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048665, this, publisher)) == null) {
-            ObjectHelper.requireNonNull(publisher, "subscriptionIndicator is null");
-            return RxJavaPlugins.onAssembly(new FlowableDelaySubscriptionOther(this, publisher));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <T2> Flowable<T2> dematerialize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048666, this)) == null) ? RxJavaPlugins.onAssembly(new FlowableDematerialize(this)) : (Flowable) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> distinct() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048667, this)) == null) ? distinct(Functions.identity(), Functions.createHashSet()) : (Flowable) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> distinctUntilChanged() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048670, this)) == null) ? distinctUntilChanged(Functions.identity()) : (Flowable) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final Flowable<T> doAfterNext(Consumer<? super T> consumer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048673, this, consumer)) == null) {
-            ObjectHelper.requireNonNull(consumer, "onAfterNext is null");
-            return RxJavaPlugins.onAssembly(new FlowableDoAfterNext(this, consumer));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final Flowable<T> doAfterTerminate(Action action) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048674, this, action)) == null) ? doOnEach(Functions.emptyConsumer(), Functions.emptyConsumer(), Functions.EMPTY_ACTION, action) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final Flowable<T> doFinally(Action action) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048675, this, action)) == null) {
-            ObjectHelper.requireNonNull(action, "onFinally is null");
-            return RxJavaPlugins.onAssembly(new FlowableDoFinally(this, action));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final Flowable<T> doOnCancel(Action action) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048676, this, action)) == null) ? doOnLifecycle(Functions.emptyConsumer(), Functions.EMPTY_LONG_CONSUMER, action) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final Flowable<T> doOnComplete(Action action) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048677, this, action)) == null) ? doOnEach(Functions.emptyConsumer(), Functions.emptyConsumer(), action, Functions.EMPTY_ACTION) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final Flowable<T> doOnError(Consumer<? super Throwable> consumer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048680, this, consumer)) == null) {
-            Consumer<? super T> emptyConsumer = Functions.emptyConsumer();
-            Action action = Functions.EMPTY_ACTION;
-            return doOnEach(emptyConsumer, consumer, action, action);
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final Flowable<T> doOnLifecycle(Consumer<? super Subscription> consumer, LongConsumer longConsumer, Action action) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048681, this, consumer, longConsumer, action)) == null) {
-            ObjectHelper.requireNonNull(consumer, "onSubscribe is null");
-            ObjectHelper.requireNonNull(longConsumer, "onRequest is null");
-            ObjectHelper.requireNonNull(action, "onCancel is null");
-            return RxJavaPlugins.onAssembly(new FlowableDoOnLifecycle(this, consumer, longConsumer, action));
-        }
-        return (Flowable) invokeLLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final Flowable<T> doOnNext(Consumer<? super T> consumer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048682, this, consumer)) == null) {
-            Consumer<? super Throwable> emptyConsumer = Functions.emptyConsumer();
-            Action action = Functions.EMPTY_ACTION;
-            return doOnEach(consumer, emptyConsumer, action, action);
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final Flowable<T> doOnRequest(LongConsumer longConsumer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048683, this, longConsumer)) == null) ? doOnLifecycle(Functions.emptyConsumer(), longConsumer, Functions.EMPTY_ACTION) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final Flowable<T> doOnSubscribe(Consumer<? super Subscription> consumer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048684, this, consumer)) == null) ? doOnLifecycle(consumer, Functions.EMPTY_LONG_CONSUMER, Functions.EMPTY_ACTION) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final Flowable<T> doOnTerminate(Action action) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048685, this, action)) == null) ? doOnEach(Functions.emptyConsumer(), Functions.actionConsumer(action), action, Functions.EMPTY_ACTION) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Maybe<T> elementAt(long j) {
+    public final Maybe elementAt(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048686, this, j)) == null) {
@@ -1380,7 +2562,7 @@ public abstract class Flowable<T> implements Publisher<T> {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
     @CheckReturnValue
-    public final Single<T> elementAtOrError(long j) {
+    public final Single elementAtOrError(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048688, this, j)) == null) {
@@ -1393,225 +2575,9 @@ public abstract class Flowable<T> implements Publisher<T> {
     }
 
     @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final Flowable<T> filter(Predicate<? super T> predicate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048689, this, predicate)) == null) {
-            ObjectHelper.requireNonNull(predicate, "predicate is null");
-            return RxJavaPlugins.onAssembly(new FlowableFilter(this, predicate));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.SPECIAL)
     @CheckReturnValue
-    public final Single<T> first(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048690, this, t)) == null) ? elementAt(0L, t) : (Single) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.SPECIAL)
-    @CheckReturnValue
-    public final Maybe<T> firstElement() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048691, this)) == null) ? elementAt(0L) : (Maybe) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.SPECIAL)
-    @CheckReturnValue
-    public final Single<T> firstOrError() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048692, this)) == null) ? elementAtOrError(0L) : (Single) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <R> Flowable<R> flatMap(Function<? super T, ? extends Publisher<? extends R>> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048693, this, function)) == null) ? flatMap((Function) function, false, bufferSize(), bufferSize()) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Completable flatMapCompletable(Function<? super T, ? extends CompletableSource> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048705, this, function)) == null) ? flatMapCompletable(function, false, Integer.MAX_VALUE) : (Completable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <U> Flowable<U> flatMapIterable(Function<? super T, ? extends Iterable<? extends U>> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048707, this, function)) == null) ? flatMapIterable(function, bufferSize()) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final <R> Flowable<R> flatMapMaybe(Function<? super T, ? extends MaybeSource<? extends R>> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048711, this, function)) == null) ? flatMapMaybe(function, false, Integer.MAX_VALUE) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final <R> Flowable<R> flatMapSingle(Function<? super T, ? extends SingleSource<? extends R>> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048713, this, function)) == null) ? flatMapSingle(function, false, Integer.MAX_VALUE) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.NONE)
-    @CheckReturnValue
-    public final Disposable forEach(Consumer<? super T> consumer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048715, this, consumer)) == null) ? subscribe(consumer) : (Disposable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.NONE)
-    @CheckReturnValue
-    public final Disposable forEachWhile(Predicate<? super T> predicate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048716, this, predicate)) == null) ? forEachWhile(predicate, Functions.ON_ERROR_MISSING, Functions.EMPTY_ACTION) : (Disposable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <K> Flowable<GroupedFlowable<K, T>> groupBy(Function<? super T, ? extends K> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048719, this, function)) == null) ? (Flowable<GroupedFlowable<K, T>>) groupBy(function, Functions.identity(), false, bufferSize()) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final <TRight, TLeftEnd, TRightEnd, R> Flowable<R> groupJoin(Publisher<? extends TRight> publisher, Function<? super T, ? extends Publisher<TLeftEnd>> function, Function<? super TRight, ? extends Publisher<TRightEnd>> function2, BiFunction<? super T, ? super Flowable<TRight>, ? extends R> biFunction) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048725, this, publisher, function, function2, biFunction)) == null) {
-            ObjectHelper.requireNonNull(publisher, "other is null");
-            ObjectHelper.requireNonNull(function, "leftEnd is null");
-            ObjectHelper.requireNonNull(function2, "rightEnd is null");
-            ObjectHelper.requireNonNull(biFunction, "resultSelector is null");
-            return RxJavaPlugins.onAssembly(new FlowableGroupJoin(this, publisher, function, function2, biFunction));
-        }
-        return (Flowable) invokeLLLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final Flowable<T> hide() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048726, this)) == null) ? RxJavaPlugins.onAssembly(new FlowableHide(this)) : (Flowable) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Completable ignoreElements() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048727, this)) == null) ? RxJavaPlugins.onAssembly(new FlowableIgnoreElementsCompletable(this)) : (Completable) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Single<Boolean> isEmpty() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048728, this)) == null) ? all(Functions.alwaysFalse()) : (Single) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final <TRight, TLeftEnd, TRightEnd, R> Flowable<R> join(Publisher<? extends TRight> publisher, Function<? super T, ? extends Publisher<TLeftEnd>> function, Function<? super TRight, ? extends Publisher<TRightEnd>> function2, BiFunction<? super T, ? super TRight, ? extends R> biFunction) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048729, this, publisher, function, function2, biFunction)) == null) {
-            ObjectHelper.requireNonNull(publisher, "other is null");
-            ObjectHelper.requireNonNull(function, "leftEnd is null");
-            ObjectHelper.requireNonNull(function2, "rightEnd is null");
-            ObjectHelper.requireNonNull(biFunction, "resultSelector is null");
-            return RxJavaPlugins.onAssembly(new FlowableJoin(this, publisher, function, function2, biFunction));
-        }
-        return (Flowable) invokeLLLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Single<T> last(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048730, this, t)) == null) {
-            ObjectHelper.requireNonNull(t, "defaultItem");
-            return RxJavaPlugins.onAssembly(new FlowableLastSingle(this, t));
-        }
-        return (Single) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Maybe<T> lastElement() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048731, this)) == null) ? RxJavaPlugins.onAssembly(new FlowableLastMaybe(this)) : (Maybe) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Single<T> lastOrError() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048732, this)) == null) ? RxJavaPlugins.onAssembly(new FlowableLastSingle(this, null)) : (Single) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.SPECIAL)
-    @CheckReturnValue
-    public final <R> Flowable<R> lift(FlowableOperator<? extends R, ? super T> flowableOperator) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048733, this, flowableOperator)) == null) {
-            ObjectHelper.requireNonNull(flowableOperator, "lifter is null");
-            return RxJavaPlugins.onAssembly(new FlowableLift(this, flowableOperator));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.SPECIAL)
-    @CheckReturnValue
-    @Experimental
-    public final Flowable<T> limit(long j) {
+    public final Flowable limit(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048734, this, j)) == null) {
@@ -1624,1445 +2590,9 @@ public abstract class Flowable<T> implements Publisher<T> {
     }
 
     @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final <R> Flowable<R> map(Function<? super T, ? extends R> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048735, this, function)) == null) {
-            ObjectHelper.requireNonNull(function, "mapper is null");
-            return RxJavaPlugins.onAssembly(new FlowableMap(this, function));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<Notification<T>> materialize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048736, this)) == null) ? RxJavaPlugins.onAssembly(new FlowableMaterialize(this)) : (Flowable) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> mergeWith(Publisher<? extends T> publisher) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048740, this, publisher)) == null) {
-            ObjectHelper.requireNonNull(publisher, "other is null");
-            return merge(this, publisher);
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> observeOn(Scheduler scheduler) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048741, this, scheduler)) == null) ? observeOn(scheduler, false, bufferSize()) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final <U> Flowable<U> ofType(Class<U> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048744, this, cls)) == null) {
-            ObjectHelper.requireNonNull(cls, "clazz is null");
-            return filter(Functions.isInstanceOf(cls)).cast(cls);
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Flowable<T> onBackpressureBuffer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048745, this)) == null) ? onBackpressureBuffer(bufferSize(), false, true) : (Flowable) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Flowable<T> onBackpressureDrop() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048753, this)) == null) ? RxJavaPlugins.onAssembly(new FlowableOnBackpressureDrop(this)) : (Flowable) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Flowable<T> onBackpressureLatest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048755, this)) == null) ? RxJavaPlugins.onAssembly(new FlowableOnBackpressureLatest(this)) : (Flowable) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> onErrorResumeNext(Function<? super Throwable, ? extends Publisher<? extends T>> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048756, this, function)) == null) {
-            ObjectHelper.requireNonNull(function, "resumeFunction is null");
-            return RxJavaPlugins.onAssembly(new FlowableOnErrorNext(this, function, false));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> onErrorReturn(Function<? super Throwable, ? extends T> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048758, this, function)) == null) {
-            ObjectHelper.requireNonNull(function, "valueSupplier is null");
-            return RxJavaPlugins.onAssembly(new FlowableOnErrorReturn(this, function));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> onErrorReturnItem(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048759, this, t)) == null) {
-            ObjectHelper.requireNonNull(t, "item is null");
-            return onErrorReturn(Functions.justFunction(t));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> onExceptionResumeNext(Publisher<? extends T> publisher) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048760, this, publisher)) == null) {
-            ObjectHelper.requireNonNull(publisher, "next is null");
-            return RxJavaPlugins.onAssembly(new FlowableOnErrorNext(this, Functions.justFunction(publisher), true));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final Flowable<T> onTerminateDetach() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048761, this)) == null) ? RxJavaPlugins.onAssembly(new FlowableDetach(this)) : (Flowable) invokeV.objValue;
-    }
-
-    @Beta
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final ParallelFlowable<T> parallel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048762, this)) == null) ? ParallelFlowable.from(this) : (ParallelFlowable) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final ConnectableFlowable<T> publish() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048767, this)) == null) ? publish(bufferSize()) : (ConnectableFlowable) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> rebatchRequests(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048769, this, i)) == null) ? observeOn(ImmediateThinScheduler.INSTANCE, true, i) : (Flowable) invokeI.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Maybe<T> reduce(BiFunction<T, T, T> biFunction) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048770, this, biFunction)) == null) {
-            ObjectHelper.requireNonNull(biFunction, "reducer is null");
-            return RxJavaPlugins.onAssembly(new FlowableReduceMaybe(this, biFunction));
-        }
-        return (Maybe) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final <R> Single<R> reduceWith(Callable<R> callable, BiFunction<R, ? super T, R> biFunction) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048772, this, callable, biFunction)) == null) {
-            ObjectHelper.requireNonNull(callable, "seedSupplier is null");
-            ObjectHelper.requireNonNull(biFunction, "reducer is null");
-            return RxJavaPlugins.onAssembly(new FlowableReduceWithSingle(this, callable, biFunction));
-        }
-        return (Single) invokeLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> repeat() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048773, this)) == null) ? repeat(Long.MAX_VALUE) : (Flowable) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> repeatUntil(BooleanSupplier booleanSupplier) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048775, this, booleanSupplier)) == null) {
-            ObjectHelper.requireNonNull(booleanSupplier, "stop is null");
-            return RxJavaPlugins.onAssembly(new FlowableRepeatUntil(this, booleanSupplier));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> repeatWhen(Function<? super Flowable<Object>, ? extends Publisher<?>> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048776, this, function)) == null) {
-            ObjectHelper.requireNonNull(function, "handler is null");
-            return RxJavaPlugins.onAssembly(new FlowableRepeatWhen(this, function));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final ConnectableFlowable<T> replay() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048785, this)) == null) ? FlowableReplay.createFrom(this) : (ConnectableFlowable) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> retry() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048793, this)) == null) ? retry(Long.MAX_VALUE, Functions.alwaysTrue()) : (Flowable) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> retryUntil(BooleanSupplier booleanSupplier) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048798, this, booleanSupplier)) == null) {
-            ObjectHelper.requireNonNull(booleanSupplier, "stop is null");
-            return retry(Long.MAX_VALUE, Functions.predicateReverseFor(booleanSupplier));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> retryWhen(Function<? super Flowable<Throwable>, ? extends Publisher<?>> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048799, this, function)) == null) {
-            ObjectHelper.requireNonNull(function, "handler is null");
-            return RxJavaPlugins.onAssembly(new FlowableRetryWhen(this, function));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    public final void safeSubscribe(Subscriber<? super T> subscriber) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048800, this, subscriber) == null) {
-            ObjectHelper.requireNonNull(subscriber, "s is null");
-            if (subscriber instanceof SafeSubscriber) {
-                subscribe((FlowableSubscriber) ((SafeSubscriber) subscriber));
-            } else {
-                subscribe((FlowableSubscriber) new SafeSubscriber(subscriber));
-            }
-        }
-    }
-
-    @SchedulerSupport(SchedulerSupport.COMPUTATION)
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final Flowable<T> sample(long j, TimeUnit timeUnit) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048801, this, j, timeUnit)) == null) ? sample(j, timeUnit, Schedulers.computation()) : (Flowable) invokeJL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> scan(BiFunction<T, T, T> biFunction) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048807, this, biFunction)) == null) {
-            ObjectHelper.requireNonNull(biFunction, "accumulator is null");
-            return RxJavaPlugins.onAssembly(new FlowableScan(this, biFunction));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <R> Flowable<R> scanWith(Callable<R> callable, BiFunction<R, ? super T, R> biFunction) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048809, this, callable, biFunction)) == null) {
-            ObjectHelper.requireNonNull(callable, "seedSupplier is null");
-            ObjectHelper.requireNonNull(biFunction, "accumulator is null");
-            return RxJavaPlugins.onAssembly(new FlowableScanSeed(this, callable, biFunction));
-        }
-        return (Flowable) invokeLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final Flowable<T> serialize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048810, this)) == null) ? RxJavaPlugins.onAssembly(new FlowableSerialized(this)) : (Flowable) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> share() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048811, this)) == null) ? publish().refCount() : (Flowable) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Single<T> single(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048812, this, t)) == null) {
-            ObjectHelper.requireNonNull(t, "defaultItem is null");
-            return RxJavaPlugins.onAssembly(new FlowableSingleSingle(this, t));
-        }
-        return (Single) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Maybe<T> singleElement() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048813, this)) == null) ? RxJavaPlugins.onAssembly(new FlowableSingleMaybe(this)) : (Maybe) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Single<T> singleOrError() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048814, this)) == null) ? RxJavaPlugins.onAssembly(new FlowableSingleSingle(this, null)) : (Single) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> skip(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048815, this, j)) == null) {
-            if (j <= 0) {
-                return RxJavaPlugins.onAssembly(this);
-            }
-            return RxJavaPlugins.onAssembly(new FlowableSkip(this, j));
-        }
-        return (Flowable) invokeJ.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> skipLast(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048818, this, i)) == null) {
-            if (i >= 0) {
-                if (i == 0) {
-                    return RxJavaPlugins.onAssembly(this);
-                }
-                return RxJavaPlugins.onAssembly(new FlowableSkipLast(this, i));
-            }
-            throw new IndexOutOfBoundsException("count >= 0 required but it was " + i);
-        }
-        return (Flowable) invokeI.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <U> Flowable<T> skipUntil(Publisher<U> publisher) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048824, this, publisher)) == null) {
-            ObjectHelper.requireNonNull(publisher, "other is null");
-            return RxJavaPlugins.onAssembly(new FlowableSkipUntil(this, publisher));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> skipWhile(Predicate<? super T> predicate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048825, this, predicate)) == null) {
-            ObjectHelper.requireNonNull(predicate, "predicate is null");
-            return RxJavaPlugins.onAssembly(new FlowableSkipWhile(this, predicate));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> sorted() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048826, this)) == null) ? toList().toFlowable().map(Functions.listSorter(Functions.naturalComparator())).flatMapIterable(Functions.identity()) : (Flowable) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> startWith(Iterable<? extends T> iterable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048828, this, iterable)) == null) ? concatArray(fromIterable(iterable), this) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> startWithArray(T... tArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048831, this, tArr)) == null) {
-            Flowable fromArray = fromArray(tArr);
-            if (fromArray == empty()) {
-                return RxJavaPlugins.onAssembly(this);
-            }
-            return concatArray(fromArray, this);
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    public final Disposable subscribe() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048832, this)) == null) ? subscribe(Functions.emptyConsumer(), Functions.ON_ERROR_MISSING, Functions.EMPTY_ACTION, FlowableInternalHelper.RequestMax.INSTANCE) : (Disposable) invokeV.objValue;
-    }
-
-    public abstract void subscribeActual(Subscriber<? super T> subscriber);
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final Flowable<T> subscribeOn(@NonNull Scheduler scheduler) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048840, this, scheduler)) == null) {
-            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return subscribeOn(scheduler, !(this instanceof FlowableCreate));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.SPECIAL)
-    @CheckReturnValue
-    public final <E extends Subscriber<? super T>> E subscribeWith(E e) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048842, this, e)) == null) {
-            subscribe(e);
-            return e;
-        }
-        return (E) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> switchIfEmpty(Publisher<? extends T> publisher) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048843, this, publisher)) == null) {
-            ObjectHelper.requireNonNull(publisher, "other is null");
-            return RxJavaPlugins.onAssembly(new FlowableSwitchIfEmpty(this, publisher));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <R> Flowable<R> switchMap(Function<? super T, ? extends Publisher<? extends R>> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048844, this, function)) == null) ? switchMap(function, bufferSize()) : (Flowable) invokeL.objValue;
-    }
-
-    public <R> Flowable<R> switchMap0(Function<? super T, ? extends Publisher<? extends R>> function, int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048846, this, new Object[]{function, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            ObjectHelper.requireNonNull(function, "mapper is null");
-            ObjectHelper.verifyPositive(i, "bufferSize");
-            if (this instanceof ScalarCallable) {
-                Object call = ((ScalarCallable) this).call();
-                if (call == null) {
-                    return empty();
-                }
-                return FlowableScalarXMap.scalarXMap(call, function);
-            }
-            return RxJavaPlugins.onAssembly(new FlowableSwitchMap(this, function, i, z));
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    @Experimental
-    public final Completable switchMapCompletable(@NonNull Function<? super T, ? extends CompletableSource> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048847, this, function)) == null) {
-            ObjectHelper.requireNonNull(function, "mapper is null");
-            return RxJavaPlugins.onAssembly(new FlowableSwitchMapCompletable(this, function, false));
-        }
-        return (Completable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    @Experimental
-    public final Completable switchMapCompletableDelayError(@NonNull Function<? super T, ? extends CompletableSource> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048848, this, function)) == null) {
-            ObjectHelper.requireNonNull(function, "mapper is null");
-            return RxJavaPlugins.onAssembly(new FlowableSwitchMapCompletable(this, function, true));
-        }
-        return (Completable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.SPECIAL)
-    @CheckReturnValue
-    public final <R> Flowable<R> switchMapDelayError(Function<? super T, ? extends Publisher<? extends R>> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048849, this, function)) == null) ? switchMapDelayError(function, bufferSize()) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    @Experimental
-    public final <R> Flowable<R> switchMapMaybe(@NonNull Function<? super T, ? extends MaybeSource<? extends R>> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048851, this, function)) == null) {
-            ObjectHelper.requireNonNull(function, "mapper is null");
-            return RxJavaPlugins.onAssembly(new FlowableSwitchMapMaybe(this, function, false));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    @Experimental
-    public final <R> Flowable<R> switchMapMaybeDelayError(@NonNull Function<? super T, ? extends MaybeSource<? extends R>> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048852, this, function)) == null) {
-            ObjectHelper.requireNonNull(function, "mapper is null");
-            return RxJavaPlugins.onAssembly(new FlowableSwitchMapMaybe(this, function, true));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    @Experimental
-    public final <R> Flowable<R> switchMapSingle(@NonNull Function<? super T, ? extends SingleSource<? extends R>> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048853, this, function)) == null) {
-            ObjectHelper.requireNonNull(function, "mapper is null");
-            return RxJavaPlugins.onAssembly(new FlowableSwitchMapSingle(this, function, false));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    @Experimental
-    public final <R> Flowable<R> switchMapSingleDelayError(@NonNull Function<? super T, ? extends SingleSource<? extends R>> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048854, this, function)) == null) {
-            ObjectHelper.requireNonNull(function, "mapper is null");
-            return RxJavaPlugins.onAssembly(new FlowableSwitchMapSingle(this, function, true));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.SPECIAL)
-    @CheckReturnValue
-    public final Flowable<T> take(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048855, this, j)) == null) {
-            if (j >= 0) {
-                return RxJavaPlugins.onAssembly(new FlowableTake(this, j));
-            }
-            throw new IllegalArgumentException("count >= 0 required but it was " + j);
-        }
-        return (Flowable) invokeJ.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> takeLast(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048858, this, i)) == null) {
-            if (i < 0) {
-                throw new IndexOutOfBoundsException("count >= 0 required but it was " + i);
-            } else if (i == 0) {
-                return RxJavaPlugins.onAssembly(new FlowableIgnoreElements(this));
-            } else {
-                if (i == 1) {
-                    return RxJavaPlugins.onAssembly(new FlowableTakeLastOne(this));
-                }
-                return RxJavaPlugins.onAssembly(new FlowableTakeLast(this, i));
-            }
-        }
-        return (Flowable) invokeI.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final Flowable<T> takeUntil(Predicate<? super T> predicate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048867, this, predicate)) == null) {
-            ObjectHelper.requireNonNull(predicate, "stopPredicate is null");
-            return RxJavaPlugins.onAssembly(new FlowableTakeUntilPredicate(this, predicate));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final Flowable<T> takeWhile(Predicate<? super T> predicate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048869, this, predicate)) == null) {
-            ObjectHelper.requireNonNull(predicate, "predicate is null");
-            return RxJavaPlugins.onAssembly(new FlowableTakeWhile(this, predicate));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final TestSubscriber<T> test() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048870, this)) == null) {
-            TestSubscriber<T> testSubscriber = new TestSubscriber<>();
-            subscribe((FlowableSubscriber) testSubscriber);
-            return testSubscriber;
-        }
-        return (TestSubscriber) invokeV.objValue;
-    }
-
-    @SchedulerSupport(SchedulerSupport.COMPUTATION)
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final Flowable<T> throttleFirst(long j, TimeUnit timeUnit) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048873, this, j, timeUnit)) == null) ? throttleFirst(j, timeUnit, Schedulers.computation()) : (Flowable) invokeJL.objValue;
-    }
-
-    @SchedulerSupport(SchedulerSupport.COMPUTATION)
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final Flowable<T> throttleLast(long j, TimeUnit timeUnit) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048875, this, j, timeUnit)) == null) ? sample(j, timeUnit) : (Flowable) invokeJL.objValue;
-    }
-
-    @SchedulerSupport(SchedulerSupport.COMPUTATION)
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final Flowable<T> throttleWithTimeout(long j, TimeUnit timeUnit) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048877, this, j, timeUnit)) == null) ? debounce(j, timeUnit) : (Flowable) invokeJL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final Flowable<Timed<T>> timeInterval() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048879, this)) == null) ? timeInterval(TimeUnit.MILLISECONDS, Schedulers.computation()) : (Flowable) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final <V> Flowable<T> timeout(Function<? super T, ? extends Publisher<V>> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048887, this, function)) == null) ? timeout0(null, function, null) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final Flowable<Timed<T>> timestamp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048891, this)) == null) ? timestamp(TimeUnit.MILLISECONDS, Schedulers.computation()) : (Flowable) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.SPECIAL)
-    @CheckReturnValue
-    public final <R> R to(Function<? super Flowable<T>, R> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048895, this, function)) == null) {
-            try {
-                return (R) ((Function) ObjectHelper.requireNonNull(function, "converter is null")).apply(this);
-            } catch (Throwable th) {
-                Exceptions.throwIfFatal(th);
-                throw ExceptionHelper.wrapOrThrow(th);
-            }
-        }
-        return (R) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Future<T> toFuture() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048896, this)) == null) ? (Future) subscribeWith(new FutureSubscriber()) : (Future) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Single<List<T>> toList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048897, this)) == null) ? RxJavaPlugins.onAssembly(new FlowableToListSingle(this)) : (Single) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final <K> Single<Map<K, T>> toMap(Function<? super T, ? extends K> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048900, this, function)) == null) {
-            ObjectHelper.requireNonNull(function, "keySelector is null");
-            return (Single<Map<K, T>>) collect(HashMapSupplier.asCallable(), Functions.toMapKeySelector(function));
-        }
-        return (Single) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final <K> Single<Map<K, Collection<T>>> toMultimap(Function<? super T, ? extends K> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048903, this, function)) == null) ? (Single<Map<K, Collection<T>>>) toMultimap(function, Functions.identity(), HashMapSupplier.asCallable(), ArrayListSupplier.asFunction()) : (Single) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.NONE)
-    @CheckReturnValue
-    public final Observable<T> toObservable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048907, this)) == null) ? RxJavaPlugins.onAssembly(new ObservableFromPublisher(this)) : (Observable) invokeV.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Single<List<T>> toSortedList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048908, this)) == null) ? toSortedList(Functions.naturalComparator()) : (Single) invokeV.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final Flowable<T> unsubscribeOn(Scheduler scheduler) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048912, this, scheduler)) == null) {
-            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return RxJavaPlugins.onAssembly(new FlowableUnsubscribeOn(this, scheduler));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<Flowable<T>> window(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048913, this, j)) == null) ? window(j, j, bufferSize()) : (Flowable) invokeJ.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final <U, R> Flowable<R> withLatestFrom(Publisher<? extends U> publisher, BiFunction<? super T, ? super U, ? extends R> biFunction) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048933, this, publisher, biFunction)) == null) {
-            ObjectHelper.requireNonNull(publisher, "other is null");
-            ObjectHelper.requireNonNull(biFunction, "combiner is null");
-            return RxJavaPlugins.onAssembly(new FlowableWithLatestFrom(this, biFunction, publisher));
-        }
-        return (Flowable) invokeLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <U, R> Flowable<R> zipWith(Iterable<U> iterable, BiFunction<? super T, ? super U, ? extends R> biFunction) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048938, this, iterable, biFunction)) == null) {
-            ObjectHelper.requireNonNull(iterable, "other is null");
-            ObjectHelper.requireNonNull(biFunction, "zipper is null");
-            return RxJavaPlugins.onAssembly(new FlowableZipIterable(this, iterable, biFunction));
-        }
-        return (Flowable) invokeLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T, R> Flowable<R> combineLatest(Function<? super Object[], ? extends R> function, Publisher<? extends T>... publisherArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, function, publisherArr)) == null) ? combineLatest(publisherArr, function, bufferSize()) : (Flowable) invokeLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T, R> Flowable<R> combineLatestDelayError(Function<? super Object[], ? extends R> function, Publisher<? extends T>... publisherArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65555, null, function, publisherArr)) == null) ? combineLatestDelayError(publisherArr, function, bufferSize()) : (Flowable) invokeLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> concatArrayEager(int i, int i2, Publisher<? extends T>... publisherArr) {
-        InterceptResult invokeIIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65568, null, i, i2, publisherArr)) == null) {
-            ObjectHelper.requireNonNull(publisherArr, "sources is null");
-            ObjectHelper.verifyPositive(i, "maxConcurrency");
-            ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
-            return RxJavaPlugins.onAssembly(new FlowableConcatMapEager(new FlowableFromArray(publisherArr), Functions.identity(), i, i2, ErrorMode.IMMEDIATE));
-        }
-        return (Flowable) invokeIIL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> concatEager(Publisher<? extends Publisher<? extends T>> publisher, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65576, null, publisher, i, i2)) == null) {
-            ObjectHelper.requireNonNull(publisher, "sources is null");
-            ObjectHelper.verifyPositive(i, "maxConcurrency");
-            ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
-            return RxJavaPlugins.onAssembly(new FlowableConcatMapEagerPublisher(publisher, Functions.identity(), i, i2, ErrorMode.IMMEDIATE));
-        }
-        return (Flowable) invokeLII.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public static Flowable<Long> interval(long j, long j2, TimeUnit timeUnit, Scheduler scheduler) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65597, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), timeUnit, scheduler})) == null) {
-            ObjectHelper.requireNonNull(timeUnit, "unit is null");
-            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return RxJavaPlugins.onAssembly(new FlowableInterval(Math.max(0L, j), Math.max(0L, j2), timeUnit, scheduler));
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public static Flowable<Long> intervalRange(long j, long j2, long j3, long j4, TimeUnit timeUnit, Scheduler scheduler) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65601, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), timeUnit, scheduler})) == null) {
-            int i = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
-            if (i < 0) {
-                throw new IllegalArgumentException("count >= 0 required but it was " + j2);
-            } else if (i == 0) {
-                return empty().delay(j3, timeUnit, scheduler);
-            } else {
-                long j5 = j + (j2 - 1);
-                if (j > 0 && j5 < 0) {
-                    throw new IllegalArgumentException("Overflow! start + count is bigger than Long.MAX_VALUE");
-                }
-                ObjectHelper.requireNonNull(timeUnit, "unit is null");
-                ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-                return RxJavaPlugins.onAssembly(new FlowableIntervalRange(j, j5, Math.max(0L, j3), Math.max(0L, j4), timeUnit, scheduler));
-            }
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> merge(Iterable<? extends Publisher<? extends T>> iterable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65612, null, iterable)) == null) ? fromIterable(iterable).flatMap(Functions.identity()) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> mergeArray(Publisher<? extends T>... publisherArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65621, null, publisherArr)) == null) ? fromArray(publisherArr).flatMap(Functions.identity(), publisherArr.length) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> mergeArrayDelayError(Publisher<? extends T>... publisherArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65623, null, publisherArr)) == null) ? fromArray(publisherArr).flatMap(Functions.identity(), true, publisherArr.length) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> mergeDelayError(Iterable<? extends Publisher<? extends T>> iterable, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(65626, null, iterable, i, i2)) == null) ? fromIterable(iterable).flatMap(Functions.identity(), true, i, i2) : (Flowable) invokeLII.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Single<Boolean> sequenceEqual(Publisher<? extends T> publisher, Publisher<? extends T> publisher2, BiPredicate<? super T, ? super T> biPredicate) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65637, null, publisher, publisher2, biPredicate)) == null) ? sequenceEqual(publisher, publisher2, biPredicate, bufferSize()) : (Single) invokeLLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> switchOnNext(Publisher<? extends Publisher<? extends T>> publisher) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65639, null, publisher)) == null) ? fromPublisher(publisher).switchMap(Functions.identity()) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> switchOnNextDelayError(Publisher<? extends Publisher<? extends T>> publisher, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65642, null, publisher, i)) == null) ? fromPublisher(publisher).switchMapDelayError(Functions.identity(), i) : (Flowable) invokeLI.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public static Flowable<Long> timer(long j, TimeUnit timeUnit, Scheduler scheduler) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65646, null, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
-            ObjectHelper.requireNonNull(timeUnit, "unit is null");
-            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return RxJavaPlugins.onAssembly(new FlowableTimer(Math.max(0L, j), timeUnit, scheduler));
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public static <T, D> Flowable<T> using(Callable<? extends D> callable, Function<? super D, ? extends Publisher<? extends T>> function, Consumer<? super D> consumer, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65649, null, new Object[]{callable, function, consumer, Boolean.valueOf(z)})) == null) {
-            ObjectHelper.requireNonNull(callable, "resourceSupplier is null");
-            ObjectHelper.requireNonNull(function, "sourceSupplier is null");
-            ObjectHelper.requireNonNull(consumer, "disposer is null");
-            return RxJavaPlugins.onAssembly(new FlowableUsing(callable, function, consumer, z));
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Iterable<T> blockingIterable(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            ObjectHelper.verifyPositive(i, "bufferSize");
-            return new BlockingFlowableIterable(this, i);
-        }
-        return (Iterable) invokeI.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final T blockingSingle(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, t)) == null) ? single(t).blockingGet() : (T) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    public final void blockingSubscribe(Consumer<? super T> consumer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, consumer) == null) {
-            FlowableBlockingSubscribe.subscribe(this, consumer, Functions.ON_ERROR_MISSING, Functions.EMPTY_ACTION);
-        }
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<List<T>> buffer(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(1048598, this, i, i2)) == null) ? (Flowable<List<T>>) buffer(i, i2, ArrayListSupplier.asCallable()) : (Flowable) invokeII.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <R> Flowable<R> concatMap(Function<? super T, ? extends Publisher<? extends R>> function, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048623, this, function, i)) == null) {
-            ObjectHelper.requireNonNull(function, "mapper is null");
-            ObjectHelper.verifyPositive(i, PrefetchEvent.MODULE);
-            if (this instanceof ScalarCallable) {
-                Object call = ((ScalarCallable) this).call();
-                if (call == null) {
-                    return empty();
-                }
-                return FlowableScalarXMap.scalarXMap(call, function);
-            }
-            return RxJavaPlugins.onAssembly(new FlowableConcatMap(this, function, i, ErrorMode.IMMEDIATE));
-        }
-        return (Flowable) invokeLI.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    @Experimental
-    public final Completable concatMapCompletable(Function<? super T, ? extends CompletableSource> function, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048625, this, function, i)) == null) {
-            ObjectHelper.requireNonNull(function, "mapper is null");
-            ObjectHelper.verifyPositive(i, PrefetchEvent.MODULE);
-            return RxJavaPlugins.onAssembly(new FlowableConcatMapCompletable(this, function, ErrorMode.IMMEDIATE, i));
-        }
-        return (Completable) invokeLI.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    @Experimental
-    public final Completable concatMapCompletableDelayError(Function<? super T, ? extends CompletableSource> function, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048627, this, function, z)) == null) ? concatMapCompletableDelayError(function, z, 2) : (Completable) invokeLZ.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <R> Flowable<R> concatMapDelayError(Function<? super T, ? extends Publisher<? extends R>> function, int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048630, this, new Object[]{function, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            ObjectHelper.requireNonNull(function, "mapper is null");
-            ObjectHelper.verifyPositive(i, PrefetchEvent.MODULE);
-            if (this instanceof ScalarCallable) {
-                Object call = ((ScalarCallable) this).call();
-                if (call == null) {
-                    return empty();
-                }
-                return FlowableScalarXMap.scalarXMap(call, function);
-            }
-            return RxJavaPlugins.onAssembly(new FlowableConcatMap(this, function, i, z ? ErrorMode.END : ErrorMode.BOUNDARY));
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <R> Flowable<R> concatMapEager(Function<? super T, ? extends Publisher<? extends R>> function, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048632, this, function, i, i2)) == null) {
-            ObjectHelper.requireNonNull(function, "mapper is null");
-            ObjectHelper.verifyPositive(i, "maxConcurrency");
-            ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
-            return RxJavaPlugins.onAssembly(new FlowableConcatMapEager(this, function, i, i2, ErrorMode.IMMEDIATE));
-        }
-        return (Flowable) invokeLII.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <R> Flowable<R> concatMapEagerDelayError(Function<? super T, ? extends Publisher<? extends R>> function, int i, int i2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048633, this, new Object[]{function, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            ObjectHelper.requireNonNull(function, "mapper is null");
-            ObjectHelper.verifyPositive(i, "maxConcurrency");
-            ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
-            return RxJavaPlugins.onAssembly(new FlowableConcatMapEager(this, function, i, i2, z ? ErrorMode.END : ErrorMode.BOUNDARY));
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <U> Flowable<U> concatMapIterable(Function<? super T, ? extends Iterable<? extends U>> function, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048636, this, function, i)) == null) {
-            ObjectHelper.requireNonNull(function, "mapper is null");
-            ObjectHelper.verifyPositive(i, PrefetchEvent.MODULE);
-            return RxJavaPlugins.onAssembly(new FlowableFlattenIterable(this, function, i));
-        }
-        return (Flowable) invokeLI.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    @Experimental
-    public final <R> Flowable<R> concatMapMaybe(Function<? super T, ? extends MaybeSource<? extends R>> function, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048638, this, function, i)) == null) {
-            ObjectHelper.requireNonNull(function, "mapper is null");
-            ObjectHelper.verifyPositive(i, PrefetchEvent.MODULE);
-            return RxJavaPlugins.onAssembly(new FlowableConcatMapMaybe(this, function, ErrorMode.IMMEDIATE, i));
-        }
-        return (Flowable) invokeLI.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    @Experimental
-    public final <R> Flowable<R> concatMapMaybeDelayError(Function<? super T, ? extends MaybeSource<? extends R>> function, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048640, this, function, z)) == null) ? concatMapMaybeDelayError(function, z, 2) : (Flowable) invokeLZ.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    @Experimental
-    public final <R> Flowable<R> concatMapSingle(Function<? super T, ? extends SingleSource<? extends R>> function, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048643, this, function, i)) == null) {
-            ObjectHelper.requireNonNull(function, "mapper is null");
-            ObjectHelper.verifyPositive(i, PrefetchEvent.MODULE);
-            return RxJavaPlugins.onAssembly(new FlowableConcatMapSingle(this, function, ErrorMode.IMMEDIATE, i));
-        }
-        return (Flowable) invokeLI.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    @Experimental
-    public final <R> Flowable<R> concatMapSingleDelayError(Function<? super T, ? extends SingleSource<? extends R>> function, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048645, this, function, z)) == null) ? concatMapSingleDelayError(function, z, 2) : (Flowable) invokeLZ.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <K> Flowable<T> distinct(Function<? super T, K> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048668, this, function)) == null) ? distinct(function, Functions.createHashSet()) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <K> Flowable<T> distinctUntilChanged(Function<? super T, K> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048672, this, function)) == null) {
-            ObjectHelper.requireNonNull(function, "keySelector is null");
-            return RxJavaPlugins.onAssembly(new FlowableDistinctUntilChanged(this, function, ObjectHelper.equalsPredicate()));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <R> Flowable<R> flatMap(Function<? super T, ? extends Publisher<? extends R>> function, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048702, this, function, z)) == null) ? flatMap(function, z, bufferSize(), bufferSize()) : (Flowable) invokeLZ.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Completable flatMapCompletable(Function<? super T, ? extends CompletableSource> function, boolean z, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048706, this, new Object[]{function, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
-            ObjectHelper.requireNonNull(function, "mapper is null");
-            ObjectHelper.verifyPositive(i, "maxConcurrency");
-            return RxJavaPlugins.onAssembly(new FlowableFlatMapCompletableCompletable(this, function, z, i));
-        }
-        return (Completable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <U> Flowable<U> flatMapIterable(Function<? super T, ? extends Iterable<? extends U>> function, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048708, this, function, i)) == null) {
-            ObjectHelper.requireNonNull(function, "mapper is null");
-            ObjectHelper.verifyPositive(i, "bufferSize");
-            return RxJavaPlugins.onAssembly(new FlowableFlattenIterable(this, function, i));
-        }
-        return (Flowable) invokeLI.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final <R> Flowable<R> flatMapMaybe(Function<? super T, ? extends MaybeSource<? extends R>> function, boolean z, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048712, this, new Object[]{function, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
-            ObjectHelper.requireNonNull(function, "mapper is null");
-            ObjectHelper.verifyPositive(i, "maxConcurrency");
-            return RxJavaPlugins.onAssembly(new FlowableFlatMapMaybe(this, function, z, i));
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final <R> Flowable<R> flatMapSingle(Function<? super T, ? extends SingleSource<? extends R>> function, boolean z, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048714, this, new Object[]{function, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
-            ObjectHelper.requireNonNull(function, "mapper is null");
-            ObjectHelper.verifyPositive(i, "maxConcurrency");
-            return RxJavaPlugins.onAssembly(new FlowableFlatMapSingle(this, function, z, i));
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.NONE)
-    @CheckReturnValue
-    public final Disposable forEachWhile(Predicate<? super T> predicate, Consumer<? super Throwable> consumer) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048717, this, predicate, consumer)) == null) ? forEachWhile(predicate, consumer, Functions.EMPTY_ACTION) : (Disposable) invokeLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <K> Flowable<GroupedFlowable<K, T>> groupBy(Function<? super T, ? extends K> function, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048724, this, function, z)) == null) ? (Flowable<GroupedFlowable<K, T>>) groupBy(function, Functions.identity(), z, bufferSize()) : (Flowable) invokeLZ.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> observeOn(Scheduler scheduler, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048742, this, scheduler, z)) == null) ? observeOn(scheduler, z, bufferSize()) : (Flowable) invokeLZ.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Flowable<T> onBackpressureBuffer(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048752, this, z)) == null) ? onBackpressureBuffer(bufferSize(), z, true) : (Flowable) invokeZ.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Flowable<T> onBackpressureDrop(Consumer<? super T> consumer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048754, this, consumer)) == null) {
-            ObjectHelper.requireNonNull(consumer, "onDrop is null");
-            return RxJavaPlugins.onAssembly(new FlowableOnBackpressureDrop(this, consumer));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @Beta
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final ParallelFlowable<T> parallel(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048763, this, i)) == null) {
-            ObjectHelper.verifyPositive(i, "parallelism");
-            return ParallelFlowable.from(this, i);
-        }
-        return (ParallelFlowable) invokeI.objValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: io.reactivex.functions.Function<? super io.reactivex.Flowable<T>, ? extends org.reactivestreams.Publisher<R>> */
-    /* JADX WARN: Multi-variable type inference failed */
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <R> Flowable<R> publish(Function<? super Flowable<T>, ? extends Publisher<R>> function) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048765, this, function)) == null) ? publish(function, bufferSize()) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final Flowable<T> repeat(long j) {
+    public final Flowable repeat(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048774, this, j)) == null) {
@@ -3081,271 +2611,66 @@ public abstract class Flowable<T> implements Publisher<T> {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final <R> Flowable<R> replay(Function<? super Flowable<T>, ? extends Publisher<R>> function) {
-        InterceptResult invokeL;
+    public final Flowable skipLast(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048777, this, function)) == null) {
-            ObjectHelper.requireNonNull(function, "selector is null");
-            return FlowableReplay.multicastSelector(FlowableInternalHelper.replayCallable(this), function);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048818, this, i)) == null) {
+            if (i >= 0) {
+                if (i == 0) {
+                    return RxJavaPlugins.onAssembly(this);
+                }
+                return RxJavaPlugins.onAssembly(new FlowableSkipLast(this, i));
+            }
+            throw new IndexOutOfBoundsException("count >= 0 required but it was " + i);
         }
-        return (Flowable) invokeL.objValue;
+        return (Flowable) invokeI.objValue;
     }
 
     @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> retry(BiPredicate<? super Integer, ? super Throwable> biPredicate) {
-        InterceptResult invokeL;
+    @BackpressureSupport(BackpressureKind.SPECIAL)
+    public final void subscribe(FlowableSubscriber flowableSubscriber) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048796, this, biPredicate)) == null) {
-            ObjectHelper.requireNonNull(biPredicate, "predicate is null");
-            return RxJavaPlugins.onAssembly(new FlowableRetryBiPredicate(this, biPredicate));
+        if (interceptable == null || interceptable.invokeL(1048837, this, flowableSubscriber) == null) {
+            ObjectHelper.requireNonNull(flowableSubscriber, "s is null");
+            try {
+                Subscriber onSubscribe = RxJavaPlugins.onSubscribe(this, flowableSubscriber);
+                ObjectHelper.requireNonNull(onSubscribe, "Plugin returned null Subscriber");
+                subscribeActual(onSubscribe);
+            } catch (NullPointerException e) {
+                throw e;
+            } catch (Throwable th) {
+                Exceptions.throwIfFatal(th);
+                RxJavaPlugins.onError(th);
+                NullPointerException nullPointerException = new NullPointerException("Actually not, but can't throw other exceptions due to RS");
+                nullPointerException.initCause(th);
+                throw nullPointerException;
+            }
         }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport(SchedulerSupport.COMPUTATION)
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final Flowable<T> sample(long j, TimeUnit timeUnit, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048804, this, new Object[]{Long.valueOf(j), timeUnit, Boolean.valueOf(z)})) == null) ? sample(j, timeUnit, Schedulers.computation(), z) : (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> sorted(Comparator<? super T> comparator) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048827, this, comparator)) == null) {
-            ObjectHelper.requireNonNull(comparator, "sortFunction");
-            return toList().toFlowable().map(Functions.listSorter(comparator)).flatMapIterable(Functions.identity());
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> startWith(Publisher<? extends T> publisher) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048830, this, publisher)) == null) {
-            ObjectHelper.requireNonNull(publisher, "other is null");
-            return concatArray(publisher, this);
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Disposable subscribe(Consumer<? super T> consumer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048833, this, consumer)) == null) ? subscribe(consumer, Functions.ON_ERROR_MISSING, Functions.EMPTY_ACTION, FlowableInternalHelper.RequestMax.INSTANCE) : (Disposable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <R> Flowable<R> switchMap(Function<? super T, ? extends Publisher<? extends R>> function, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048845, this, function, i)) == null) ? switchMap0(function, i, false) : (Flowable) invokeLI.objValue;
     }
 
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.SPECIAL)
     @CheckReturnValue
-    public final <R> Flowable<R> switchMapDelayError(Function<? super T, ? extends Publisher<? extends R>> function, int i) {
-        InterceptResult invokeLI;
+    public final Flowable take(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048850, this, function, i)) == null) ? switchMap0(function, i, true) : (Flowable) invokeLI.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final Flowable<T> throttleFirst(long j, TimeUnit timeUnit, Scheduler scheduler) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048874, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
-            ObjectHelper.requireNonNull(timeUnit, "unit is null");
-            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return RxJavaPlugins.onAssembly(new FlowableThrottleFirstTimed(this, j, timeUnit, scheduler));
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final Flowable<T> throttleLast(long j, TimeUnit timeUnit, Scheduler scheduler) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048876, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) ? sample(j, timeUnit, scheduler) : (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final Flowable<T> throttleWithTimeout(long j, TimeUnit timeUnit, Scheduler scheduler) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048878, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) ? debounce(j, timeUnit, scheduler) : (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final Flowable<Timed<T>> timeInterval(Scheduler scheduler) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048880, this, scheduler)) == null) ? timeInterval(TimeUnit.MILLISECONDS, scheduler) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <V> Flowable<T> timeout(Function<? super T, ? extends Publisher<V>> function, Flowable<? extends T> flowable) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048888, this, function, flowable)) == null) {
-            ObjectHelper.requireNonNull(flowable, "other is null");
-            return timeout0(null, function, flowable);
-        }
-        return (Flowable) invokeLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final Flowable<Timed<T>> timestamp(Scheduler scheduler) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048892, this, scheduler)) == null) ? timestamp(TimeUnit.MILLISECONDS, scheduler) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Single<List<T>> toList(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048898, this, i)) == null) {
-            ObjectHelper.verifyPositive(i, "capacityHint");
-            return RxJavaPlugins.onAssembly(new FlowableToListSingle(this, Functions.createArrayList(i)));
-        }
-        return (Single) invokeI.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Single<List<T>> toSortedList(Comparator<? super T> comparator) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048910, this, comparator)) == null) {
-            ObjectHelper.requireNonNull(comparator, "comparator is null");
-            return (Single<List<T>>) toList().map(Functions.listSorter(comparator));
-        }
-        return (Single) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<Flowable<T>> window(long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048914, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? window(j, j2, bufferSize()) : (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T, R> Flowable<R> combineLatest(Publisher<? extends T>[] publisherArr, Function<? super Object[], ? extends R> function, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65553, null, publisherArr, function, i)) == null) {
-            ObjectHelper.requireNonNull(publisherArr, "sources is null");
-            if (publisherArr.length == 0) {
-                return empty();
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048855, this, j)) == null) {
+            if (j >= 0) {
+                return RxJavaPlugins.onAssembly(new FlowableTake(this, j));
             }
-            ObjectHelper.requireNonNull(function, "combiner is null");
-            ObjectHelper.verifyPositive(i, "bufferSize");
-            return RxJavaPlugins.onAssembly(new FlowableCombineLatest((Publisher[]) publisherArr, (Function) function, i, false));
+            throw new IllegalArgumentException("count >= 0 required but it was " + j);
         }
-        return (Flowable) invokeLLI.objValue;
+        return (Flowable) invokeJ.objValue;
     }
 
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static <T, R> Flowable<R> combineLatestDelayError(Function<? super Object[], ? extends R> function, int i, Publisher<? extends T>... publisherArr) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(65554, null, function, i, publisherArr)) == null) ? combineLatestDelayError(publisherArr, function, i) : (Flowable) invokeLIL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> concat(Publisher<? extends Publisher<? extends T>> publisher) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65561, null, publisher)) == null) ? concat(publisher, bufferSize()) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> concatDelayError(Publisher<? extends Publisher<? extends T>> publisher) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65571, null, publisher)) == null) ? concatDelayError(publisher, bufferSize(), true) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public static <T> Flowable<T> error(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65581, null, th)) == null) {
-            ObjectHelper.requireNonNull(th, "throwable is null");
-            return error(Functions.justCallable(th));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> fromFuture(Future<? extends T> future, long j, TimeUnit timeUnit) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65586, null, new Object[]{future, Long.valueOf(j), timeUnit})) == null) {
-            ObjectHelper.requireNonNull(future, "future is null");
-            ObjectHelper.requireNonNull(timeUnit, "unit is null");
-            return RxJavaPlugins.onAssembly(new FlowableFromFuture(future, j, timeUnit));
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> just(T t, T t2) {
+    public static Flowable combineLatest(Function function, Publisher... publisherArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65603, null, t, t2)) == null) {
-            ObjectHelper.requireNonNull(t, "The first item is null");
-            ObjectHelper.requireNonNull(t2, "The second item is null");
-            return fromArray(t, t2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, function, publisherArr)) == null) {
+            return combineLatest(publisherArr, function, bufferSize());
         }
         return (Flowable) invokeLL.objValue;
     }
@@ -3353,40 +2678,182 @@ public abstract class Flowable<T> implements Publisher<T> {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static <T> Flowable<T> merge(Iterable<? extends Publisher<? extends T>> iterable, int i) {
-        InterceptResult invokeLI;
+    public static Flowable combineLatestDelayError(Function function, Publisher... publisherArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65613, null, iterable, i)) == null) ? fromIterable(iterable).flatMap(Functions.identity(), i) : (Flowable) invokeLI.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> mergeDelayError(Iterable<? extends Publisher<? extends T>> iterable, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65625, null, iterable, i)) == null) ? fromIterable(iterable).flatMap(Functions.identity(), true, i) : (Flowable) invokeLI.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Single<Boolean> sequenceEqual(Publisher<? extends T> publisher, Publisher<? extends T> publisher2, BiPredicate<? super T, ? super T> biPredicate, int i) {
-        InterceptResult invokeLLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65638, null, publisher, publisher2, biPredicate, i)) == null) {
-            ObjectHelper.requireNonNull(publisher, "source1 is null");
-            ObjectHelper.requireNonNull(publisher2, "source2 is null");
-            ObjectHelper.requireNonNull(biPredicate, "isEqual is null");
-            ObjectHelper.verifyPositive(i, "bufferSize");
-            return RxJavaPlugins.onAssembly(new FlowableSequenceEqualSingle(publisher, publisher2, biPredicate, i));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65555, null, function, publisherArr)) == null) {
+            return combineLatestDelayError(publisherArr, function, bufferSize());
         }
-        return (Single) invokeLLLI.objValue;
+        return (Flowable) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable concat(Publisher publisher, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65562, null, publisher, i)) == null) {
+            return fromPublisher(publisher).concatMap(Functions.identity(), i);
+        }
+        return (Flowable) invokeLI.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.SPECIAL)
+    @CheckReturnValue
+    public static Flowable create(FlowableOnSubscribe flowableOnSubscribe, BackpressureStrategy backpressureStrategy) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65577, null, flowableOnSubscribe, backpressureStrategy)) == null) {
+            ObjectHelper.requireNonNull(flowableOnSubscribe, "source is null");
+            ObjectHelper.requireNonNull(backpressureStrategy, "mode is null");
+            return RxJavaPlugins.onAssembly(new FlowableCreate(flowableOnSubscribe, backpressureStrategy));
+        }
+        return (Flowable) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable fromFuture(Future future, Scheduler scheduler) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65588, null, future, scheduler)) == null) {
+            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
+            return fromFuture(future).subscribeOn(scheduler);
+        }
+        return (Flowable) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable generate(Callable callable, BiConsumer biConsumer) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65592, null, callable, biConsumer)) == null) {
+            ObjectHelper.requireNonNull(biConsumer, "generator is null");
+            return generate(callable, FlowableInternalHelper.simpleBiGenerator(biConsumer), Functions.emptyConsumer());
+        }
+        return (Flowable) invokeLL.objValue;
+    }
+
+    @SchedulerSupport(SchedulerSupport.COMPUTATION)
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public static Flowable interval(long j, TimeUnit timeUnit) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65598, null, j, timeUnit)) == null) {
+            return interval(j, j, timeUnit, Schedulers.computation());
+        }
+        return (Flowable) invokeJL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable just(Object obj, Object obj2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65603, null, obj, obj2)) == null) {
+            ObjectHelper.requireNonNull(obj, "The first item is null");
+            ObjectHelper.requireNonNull(obj2, "The second item is null");
+            return fromArray(obj, obj2);
+        }
+        return (Flowable) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable merge(Iterable iterable, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65613, null, iterable, i)) == null) {
+            return fromIterable(iterable).flatMap(Functions.identity(), i);
+        }
+        return (Flowable) invokeLI.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable mergeDelayError(Iterable iterable, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65625, null, iterable, i)) == null) {
+            return fromIterable(iterable).flatMap(Functions.identity(), true, i);
+        }
+        return (Flowable) invokeLI.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Single sequenceEqual(Publisher publisher, Publisher publisher2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65635, null, publisher, publisher2)) == null) {
+            return sequenceEqual(publisher, publisher2, ObjectHelper.equalsPredicate(), bufferSize());
+        }
+        return (Single) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable switchOnNext(Publisher publisher, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65640, null, publisher, i)) == null) {
+            return fromPublisher(publisher).switchMap(Functions.identity(), i);
+        }
+        return (Flowable) invokeLI.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable switchOnNextDelayError(Publisher publisher, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65642, null, publisher, i)) == null) {
+            return fromPublisher(publisher).switchMapDelayError(Functions.identity(), i);
+        }
+        return (Flowable) invokeLI.objValue;
+    }
+
+    @SchedulerSupport(SchedulerSupport.COMPUTATION)
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public static Flowable timer(long j, TimeUnit timeUnit) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65645, null, j, timeUnit)) == null) {
+            return timer(j, timeUnit, Schedulers.computation());
+        }
+        return (Flowable) invokeJL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable zip(Iterable iterable, Function function) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65650, null, iterable, function)) == null) {
+            ObjectHelper.requireNonNull(function, "zipper is null");
+            ObjectHelper.requireNonNull(iterable, "sources is null");
+            return RxJavaPlugins.onAssembly(new FlowableZip(null, iterable, function, bufferSize(), false));
+        }
+        return (Flowable) invokeLL.objValue;
     }
 
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    public final void blockingSubscribe(Consumer<? super T> consumer, Consumer<? super Throwable> consumer2) {
+    public final void blockingSubscribe(Consumer consumer, Consumer consumer2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048594, this, consumer, consumer2) == null) {
             FlowableBlockingSubscribe.subscribe(this, consumer, consumer2, Functions.EMPTY_ACTION);
@@ -3396,108 +2863,186 @@ public abstract class Flowable<T> implements Publisher<T> {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final <U extends Collection<? super T>> Flowable<U> buffer(int i, int i2, Callable<U> callable) {
-        InterceptResult invokeIIL;
+    public final Flowable buffer(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048599, this, i, i2, callable)) == null) {
-            ObjectHelper.verifyPositive(i, "count");
-            ObjectHelper.verifyPositive(i2, FreeSpaceBox.TYPE);
-            ObjectHelper.requireNonNull(callable, "bufferSupplier is null");
-            return RxJavaPlugins.onAssembly(new FlowableBuffer(this, i, i2, callable));
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048598, this, i, i2)) == null) {
+            return buffer(i, i2, ArrayListSupplier.asCallable());
         }
-        return (Flowable) invokeIIL.objValue;
+        return (Flowable) invokeII.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Single collect(Callable callable, BiConsumer biConsumer) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048619, this, callable, biConsumer)) == null) {
+            ObjectHelper.requireNonNull(callable, "initialItemSupplier is null");
+            ObjectHelper.requireNonNull(biConsumer, "collector is null");
+            return RxJavaPlugins.onAssembly(new FlowableCollectSingle(this, callable, biConsumer));
+        }
+        return (Single) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Single collectInto(Object obj, BiConsumer biConsumer) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048620, this, obj, biConsumer)) == null) {
+            ObjectHelper.requireNonNull(obj, "initialItem is null");
+            return collect(Functions.justCallable(obj), biConsumer);
+        }
+        return (Single) invokeLL.objValue;
     }
 
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    @Experimental
-    public final Completable concatMapCompletableDelayError(Function<? super T, ? extends CompletableSource> function, boolean z, int i) {
-        InterceptResult invokeCommon;
+    public final Completable concatMapCompletable(Function function, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048628, this, new Object[]{function, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048625, this, function, i)) == null) {
             ObjectHelper.requireNonNull(function, "mapper is null");
             ObjectHelper.verifyPositive(i, PrefetchEvent.MODULE);
-            return RxJavaPlugins.onAssembly(new FlowableConcatMapCompletable(this, function, z ? ErrorMode.END : ErrorMode.BOUNDARY, i));
+            return RxJavaPlugins.onAssembly(new FlowableConcatMapCompletable(this, function, ErrorMode.IMMEDIATE, i));
         }
-        return (Completable) invokeCommon.objValue;
+        return (Completable) invokeLI.objValue;
     }
 
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    @Experimental
-    public final <R> Flowable<R> concatMapMaybeDelayError(Function<? super T, ? extends MaybeSource<? extends R>> function, boolean z, int i) {
-        InterceptResult invokeCommon;
+    public final Completable concatMapCompletableDelayError(Function function, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048641, this, new Object[]{function, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048627, this, function, z)) == null) {
+            return concatMapCompletableDelayError(function, z, 2);
+        }
+        return (Completable) invokeLZ.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable concatMapEagerDelayError(Function function, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048634, this, function, z)) == null) {
+            return concatMapEagerDelayError(function, bufferSize(), bufferSize(), z);
+        }
+        return (Flowable) invokeLZ.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable concatMapIterable(Function function, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048636, this, function, i)) == null) {
             ObjectHelper.requireNonNull(function, "mapper is null");
             ObjectHelper.verifyPositive(i, PrefetchEvent.MODULE);
-            return RxJavaPlugins.onAssembly(new FlowableConcatMapMaybe(this, function, z ? ErrorMode.END : ErrorMode.BOUNDARY, i));
+            return RxJavaPlugins.onAssembly(new FlowableFlattenIterable(this, function, i));
         }
-        return (Flowable) invokeCommon.objValue;
+        return (Flowable) invokeLI.objValue;
     }
 
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    @Experimental
-    public final <R> Flowable<R> concatMapSingleDelayError(Function<? super T, ? extends SingleSource<? extends R>> function, boolean z, int i) {
-        InterceptResult invokeCommon;
+    public final Flowable concatMapMaybe(Function function, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048646, this, new Object[]{function, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048638, this, function, i)) == null) {
             ObjectHelper.requireNonNull(function, "mapper is null");
             ObjectHelper.verifyPositive(i, PrefetchEvent.MODULE);
-            return RxJavaPlugins.onAssembly(new FlowableConcatMapSingle(this, function, z ? ErrorMode.END : ErrorMode.BOUNDARY, i));
+            return RxJavaPlugins.onAssembly(new FlowableConcatMapMaybe(this, function, ErrorMode.IMMEDIATE, i));
         }
-        return (Flowable) invokeCommon.objValue;
+        return (Flowable) invokeLI.objValue;
     }
 
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    @Experimental
-    public final Flowable<T> concatWith(@NonNull SingleSource<? extends T> singleSource) {
-        InterceptResult invokeL;
+    public final Flowable concatMapMaybeDelayError(Function function, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048649, this, singleSource)) == null) {
-            ObjectHelper.requireNonNull(singleSource, "other is null");
-            return RxJavaPlugins.onAssembly(new FlowableConcatWithSingle(this, singleSource));
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048640, this, function, z)) == null) {
+            return concatMapMaybeDelayError(function, z, 2);
         }
-        return (Flowable) invokeL.objValue;
+        return (Flowable) invokeLZ.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable concatMapSingle(Function function, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048643, this, function, i)) == null) {
+            ObjectHelper.requireNonNull(function, "mapper is null");
+            ObjectHelper.verifyPositive(i, PrefetchEvent.MODULE);
+            return RxJavaPlugins.onAssembly(new FlowableConcatMapSingle(this, function, ErrorMode.IMMEDIATE, i));
+        }
+        return (Flowable) invokeLI.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable concatMapSingleDelayError(Function function, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048645, this, function, z)) == null) {
+            return concatMapSingleDelayError(function, z, 2);
+        }
+        return (Flowable) invokeLZ.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @BackpressureSupport(BackpressureKind.ERROR)
     @CheckReturnValue
-    public final Flowable<T> debounce(long j, TimeUnit timeUnit) {
+    public final Flowable debounce(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048653, this, j, timeUnit)) == null) ? debounce(j, timeUnit, Schedulers.computation()) : (Flowable) invokeJL.objValue;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048653, this, j, timeUnit)) == null) {
+            return debounce(j, timeUnit, Schedulers.computation());
+        }
+        return (Flowable) invokeJL.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final Flowable<T> delay(long j, TimeUnit timeUnit) {
+    public final Flowable delay(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048657, this, j, timeUnit)) == null) ? delay(j, timeUnit, Schedulers.computation(), false) : (Flowable) invokeJL.objValue;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048657, this, j, timeUnit)) == null) {
+            return delay(j, timeUnit, Schedulers.computation(), false);
+        }
+        return (Flowable) invokeJL.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final Flowable<T> delaySubscription(long j, TimeUnit timeUnit) {
+    public final Flowable delaySubscription(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048663, this, j, timeUnit)) == null) ? delaySubscription(j, timeUnit, Schedulers.computation()) : (Flowable) invokeJL.objValue;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048663, this, j, timeUnit)) == null) {
+            return delaySubscription(j, timeUnit, Schedulers.computation());
+        }
+        return (Flowable) invokeJL.objValue;
     }
 
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final <K> Flowable<T> distinct(Function<? super T, K> function, Callable<? extends Collection<? super K>> callable) {
+    public final Flowable distinct(Function function, Callable callable) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048669, this, function, callable)) == null) {
@@ -3509,34 +3054,909 @@ public abstract class Flowable<T> implements Publisher<T> {
     }
 
     @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final Single<T> elementAt(long j, T t) {
-        InterceptResult invokeJL;
+    public final Flowable flatMap(Function function, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048687, this, j, t)) == null) {
-            if (j >= 0) {
-                ObjectHelper.requireNonNull(t, "defaultItem is null");
-                return RxJavaPlugins.onAssembly(new FlowableElementAtSingle(this, j, t));
-            }
-            throw new IndexOutOfBoundsException("index >= 0 required but it was " + j);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048694, this, function, i)) == null) {
+            return flatMap(function, false, i, bufferSize());
         }
-        return (Single) invokeJL.objValue;
+        return (Flowable) invokeLI.objValue;
     }
 
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final <R> Flowable<R> flatMap(Function<? super T, ? extends Publisher<? extends R>> function, int i) {
+    public final Flowable flatMapIterable(Function function, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048694, this, function, i)) == null) ? flatMap((Function) function, false, i, bufferSize()) : (Flowable) invokeLI.objValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048708, this, function, i)) == null) {
+            ObjectHelper.requireNonNull(function, "mapper is null");
+            ObjectHelper.verifyPositive(i, "bufferSize");
+            return RxJavaPlugins.onAssembly(new FlowableFlattenIterable(this, function, i));
+        }
+        return (Flowable) invokeLI.objValue;
     }
 
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.NONE)
     @CheckReturnValue
-    public final Disposable forEachWhile(Predicate<? super T> predicate, Consumer<? super Throwable> consumer, Action action) {
+    public final Disposable forEachWhile(Predicate predicate, Consumer consumer) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048717, this, predicate, consumer)) == null) {
+            return forEachWhile(predicate, consumer, Functions.EMPTY_ACTION);
+        }
+        return (Disposable) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable groupBy(Function function, Function function2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048720, this, function, function2)) == null) {
+            return groupBy(function, function2, false, bufferSize());
+        }
+        return (Flowable) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable observeOn(Scheduler scheduler, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048742, this, scheduler, z)) == null) {
+            return observeOn(scheduler, z, bufferSize());
+        }
+        return (Flowable) invokeLZ.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable onBackpressureBuffer(int i, Action action) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048747, this, i, action)) == null) {
+            return onBackpressureBuffer(i, false, false, action);
+        }
+        return (Flowable) invokeIL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final ParallelFlowable parallel(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048764, this, i, i2)) == null) {
+            ObjectHelper.verifyPositive(i, "parallelism");
+            ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
+            return ParallelFlowable.from(this, i, i2);
+        }
+        return (ParallelFlowable) invokeII.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable publish(Function function, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048766, this, function, i)) == null) {
+            ObjectHelper.requireNonNull(function, "selector is null");
+            ObjectHelper.verifyPositive(i, PrefetchEvent.MODULE);
+            return RxJavaPlugins.onAssembly(new FlowablePublishMulticast(this, function, i, false));
+        }
+        return (Flowable) invokeLI.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Single reduce(Object obj, BiFunction biFunction) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048771, this, obj, biFunction)) == null) {
+            ObjectHelper.requireNonNull(obj, "seed is null");
+            ObjectHelper.requireNonNull(biFunction, "reducer is null");
+            return RxJavaPlugins.onAssembly(new FlowableReduceSeedSingle(this, obj, biFunction));
+        }
+        return (Single) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Single reduceWith(Callable callable, BiFunction biFunction) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048772, this, callable, biFunction)) == null) {
+            ObjectHelper.requireNonNull(callable, "seedSupplier is null");
+            ObjectHelper.requireNonNull(biFunction, "reducer is null");
+            return RxJavaPlugins.onAssembly(new FlowableReduceWithSingle(this, callable, biFunction));
+        }
+        return (Single) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable replay(Function function, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048778, this, function, i)) == null) {
+            ObjectHelper.requireNonNull(function, "selector is null");
+            ObjectHelper.verifyPositive(i, "bufferSize");
+            return FlowableReplay.multicastSelector(FlowableInternalHelper.replayCallable(this, i), function);
+        }
+        return (Flowable) invokeLI.objValue;
+    }
+
+    @SchedulerSupport(SchedulerSupport.COMPUTATION)
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable sample(long j, TimeUnit timeUnit) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048801, this, j, timeUnit)) == null) {
+            return sample(j, timeUnit, Schedulers.computation());
+        }
+        return (Flowable) invokeJL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable scan(Object obj, BiFunction biFunction) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048808, this, obj, biFunction)) == null) {
+            ObjectHelper.requireNonNull(obj, "seed is null");
+            return scanWith(Functions.justCallable(obj), biFunction);
+        }
+        return (Flowable) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable scanWith(Callable callable, BiFunction biFunction) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048809, this, callable, biFunction)) == null) {
+            ObjectHelper.requireNonNull(callable, "seedSupplier is null");
+            ObjectHelper.requireNonNull(biFunction, "accumulator is null");
+            return RxJavaPlugins.onAssembly(new FlowableScanSeed(this, callable, biFunction));
+        }
+        return (Flowable) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable skip(long j, TimeUnit timeUnit) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048816, this, j, timeUnit)) == null) {
+            return skipUntil(timer(j, timeUnit));
+        }
+        return (Flowable) invokeJL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Flowable skipLast(long j, TimeUnit timeUnit) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048819, this, j, timeUnit)) == null) {
+            return skipLast(j, timeUnit, Schedulers.computation(), false, bufferSize());
+        }
+        return (Flowable) invokeJL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Disposable subscribe(Consumer consumer, Consumer consumer2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048834, this, consumer, consumer2)) == null) {
+            return subscribe(consumer, consumer2, Functions.EMPTY_ACTION, FlowableInternalHelper.RequestMax.INSTANCE);
+        }
+        return (Disposable) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable subscribeOn(Scheduler scheduler, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048841, this, scheduler, z)) == null) {
+            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
+            return RxJavaPlugins.onAssembly(new FlowableSubscribeOn(this, scheduler, z));
+        }
+        return (Flowable) invokeLZ.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable switchMap(Function function, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048845, this, function, i)) == null) {
+            return switchMap0(function, i, false);
+        }
+        return (Flowable) invokeLI.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.SPECIAL)
+    @CheckReturnValue
+    public final Flowable switchMapDelayError(Function function, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048850, this, function, i)) == null) {
+            return switchMap0(function, i, true);
+        }
+        return (Flowable) invokeLI.objValue;
+    }
+
+    @SchedulerSupport(SchedulerSupport.COMPUTATION)
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable take(long j, TimeUnit timeUnit) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048856, this, j, timeUnit)) == null) {
+            return takeUntil(timer(j, timeUnit));
+        }
+        return (Flowable) invokeJL.objValue;
+    }
+
+    @SchedulerSupport(SchedulerSupport.COMPUTATION)
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable takeLast(long j, TimeUnit timeUnit) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048862, this, j, timeUnit)) == null) {
+            return takeLast(j, timeUnit, Schedulers.computation(), false, bufferSize());
+        }
+        return (Flowable) invokeJL.objValue;
+    }
+
+    @SchedulerSupport(SchedulerSupport.COMPUTATION)
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable throttleFirst(long j, TimeUnit timeUnit) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048873, this, j, timeUnit)) == null) {
+            return throttleFirst(j, timeUnit, Schedulers.computation());
+        }
+        return (Flowable) invokeJL.objValue;
+    }
+
+    @SchedulerSupport(SchedulerSupport.COMPUTATION)
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable throttleLast(long j, TimeUnit timeUnit) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048875, this, j, timeUnit)) == null) {
+            return sample(j, timeUnit);
+        }
+        return (Flowable) invokeJL.objValue;
+    }
+
+    @SchedulerSupport(SchedulerSupport.COMPUTATION)
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable throttleWithTimeout(long j, TimeUnit timeUnit) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048877, this, j, timeUnit)) == null) {
+            return debounce(j, timeUnit);
+        }
+        return (Flowable) invokeJL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable timeInterval(TimeUnit timeUnit, Scheduler scheduler) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048882, this, timeUnit, scheduler)) == null) {
+            ObjectHelper.requireNonNull(timeUnit, "unit is null");
+            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
+            return RxJavaPlugins.onAssembly(new FlowableTimeInterval(this, timeUnit, scheduler));
+        }
+        return (Flowable) invokeLL.objValue;
+    }
+
+    @SchedulerSupport(SchedulerSupport.COMPUTATION)
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable timeout(long j, TimeUnit timeUnit) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048883, this, j, timeUnit)) == null) {
+            return timeout0(j, timeUnit, null, Schedulers.computation());
+        }
+        return (Flowable) invokeJL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable timestamp(TimeUnit timeUnit, Scheduler scheduler) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048894, this, timeUnit, scheduler)) == null) {
+            ObjectHelper.requireNonNull(timeUnit, "unit is null");
+            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
+            return map(Functions.timestampWith(timeUnit, scheduler));
+        }
+        return (Flowable) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Single toMap(Function function, Function function2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048901, this, function, function2)) == null) {
+            ObjectHelper.requireNonNull(function, "keySelector is null");
+            ObjectHelper.requireNonNull(function2, "valueSelector is null");
+            return collect(HashMapSupplier.asCallable(), Functions.toMapKeyValueSelector(function, function2));
+        }
+        return (Single) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Single toMultimap(Function function, Function function2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048904, this, function, function2)) == null) {
+            return toMultimap(function, function2, HashMapSupplier.asCallable(), ArrayListSupplier.asFunction());
+        }
+        return (Single) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Single toSortedList(Comparator comparator, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048911, this, comparator, i)) == null) {
+            ObjectHelper.requireNonNull(comparator, "comparator is null");
+            return toList(i).map(Functions.listSorter(comparator));
+        }
+        return (Single) invokeLI.objValue;
+    }
+
+    @SchedulerSupport(SchedulerSupport.COMPUTATION)
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable window(long j, TimeUnit timeUnit) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048919, this, j, timeUnit)) == null) {
+            return window(j, timeUnit, Schedulers.computation(), Long.MAX_VALUE, false);
+        }
+        return (Flowable) invokeJL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable withLatestFrom(Iterable iterable, Function function) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048932, this, iterable, function)) == null) {
+            ObjectHelper.requireNonNull(iterable, "others is null");
+            ObjectHelper.requireNonNull(function, "combiner is null");
+            return RxJavaPlugins.onAssembly(new FlowableWithLatestFromMany(this, iterable, function));
+        }
+        return (Flowable) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable zipWith(Iterable iterable, BiFunction biFunction) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048938, this, iterable, biFunction)) == null) {
+            ObjectHelper.requireNonNull(iterable, "other is null");
+            ObjectHelper.requireNonNull(biFunction, "zipper is null");
+            return RxJavaPlugins.onAssembly(new FlowableZipIterable(this, iterable, biFunction));
+        }
+        return (Flowable) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable combineLatest(Iterable iterable, Function function) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, iterable, function)) == null) {
+            return combineLatest(iterable, function, bufferSize());
+        }
+        return (Flowable) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable combineLatestDelayError(Iterable iterable, Function function) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, iterable, function)) == null) {
+            return combineLatestDelayError(iterable, function, bufferSize());
+        }
+        return (Flowable) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable concat(Publisher publisher, Publisher publisher2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65563, null, publisher, publisher2)) == null) {
+            ObjectHelper.requireNonNull(publisher, "source1 is null");
+            ObjectHelper.requireNonNull(publisher2, "source2 is null");
+            return concatArray(publisher, publisher2);
+        }
+        return (Flowable) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable generate(Callable callable, BiFunction biFunction) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65594, null, callable, biFunction)) == null) {
+            return generate(callable, biFunction, Functions.emptyConsumer());
+        }
+        return (Flowable) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable merge(Publisher publisher, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65616, null, publisher, i)) == null) {
+            return fromPublisher(publisher).flatMap(Functions.identity(), i);
+        }
+        return (Flowable) invokeLI.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable mergeDelayError(Publisher publisher, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65628, null, publisher, i)) == null) {
+            return fromPublisher(publisher).flatMap(Functions.identity(), true, i);
+        }
+        return (Flowable) invokeLI.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable zip(Publisher publisher, Function function) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65651, null, publisher, function)) == null) {
+            ObjectHelper.requireNonNull(function, "zipper is null");
+            return fromPublisher(publisher).toList().flatMapPublisher(FlowableInternalHelper.zipIterable(function));
+        }
+        return (Flowable) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable buffer(int i, Callable callable) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048600, this, i, callable)) == null) {
+            return buffer(i, i, callable);
+        }
+        return (Flowable) invokeIL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable delay(Publisher publisher, Function function) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048662, this, publisher, function)) == null) {
+            return delaySubscription(publisher).delay(function);
+        }
+        return (Flowable) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable flatMap(Function function, BiFunction biFunction) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048695, this, function, biFunction)) == null) {
+            return flatMap(function, biFunction, false, bufferSize(), bufferSize());
+        }
+        return (Flowable) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable flatMapIterable(Function function, BiFunction biFunction) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048709, this, function, biFunction)) == null) {
+            ObjectHelper.requireNonNull(function, "mapper is null");
+            ObjectHelper.requireNonNull(biFunction, "resultSelector is null");
+            return flatMap(FlowableInternalHelper.flatMapIntoIterable(function), biFunction, false, bufferSize(), bufferSize());
+        }
+        return (Flowable) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable groupBy(Function function, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048724, this, function, z)) == null) {
+            return groupBy(function, Functions.identity(), z, bufferSize());
+        }
+        return (Flowable) invokeLZ.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable onBackpressureBuffer(int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048748, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            return onBackpressureBuffer(i, z, false);
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable replay(Function function, Scheduler scheduler) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048784, this, function, scheduler)) == null) {
+            ObjectHelper.requireNonNull(function, "selector is null");
+            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
+            return FlowableReplay.multicastSelector(FlowableInternalHelper.replayCallable(this), FlowableInternalHelper.replayFunction(function, scheduler));
+        }
+        return (Flowable) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable sample(Publisher publisher, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048806, this, publisher, z)) == null) {
+            ObjectHelper.requireNonNull(publisher, "sampler is null");
+            return RxJavaPlugins.onAssembly(new FlowableSamplePublisher(this, publisher, z));
+        }
+        return (Flowable) invokeLZ.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable timeout(Function function, Flowable flowable) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048888, this, function, flowable)) == null) {
+            ObjectHelper.requireNonNull(flowable, "other is null");
+            return timeout0(null, function, flowable);
+        }
+        return (Flowable) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable window(Callable callable, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048927, this, callable, i)) == null) {
+            ObjectHelper.requireNonNull(callable, "boundaryIndicatorSupplier is null");
+            ObjectHelper.verifyPositive(i, "bufferSize");
+            return RxJavaPlugins.onAssembly(new FlowableWindowBoundarySupplier(this, callable, i));
+        }
+        return (Flowable) invokeLI.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable withLatestFrom(Publisher publisher, BiFunction biFunction) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048933, this, publisher, biFunction)) == null) {
+            ObjectHelper.requireNonNull(publisher, "other is null");
+            ObjectHelper.requireNonNull(biFunction, "combiner is null");
+            return RxJavaPlugins.onAssembly(new FlowableWithLatestFrom(this, biFunction, publisher));
+        }
+        return (Flowable) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable zipWith(Publisher publisher, BiFunction biFunction) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048939, this, publisher, biFunction)) == null) {
+            ObjectHelper.requireNonNull(publisher, "other is null");
+            return zip(this, publisher, biFunction);
+        }
+        return (Flowable) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable combineLatest(Iterable iterable, Function function, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65543, null, iterable, function, i)) == null) {
+            ObjectHelper.requireNonNull(iterable, "sources is null");
+            ObjectHelper.requireNonNull(function, "combiner is null");
+            ObjectHelper.verifyPositive(i, "bufferSize");
+            return RxJavaPlugins.onAssembly(new FlowableCombineLatest(iterable, function, i, false));
+        }
+        return (Flowable) invokeLLI.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable combineLatestDelayError(Function function, int i, Publisher... publisherArr) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65554, null, function, i, publisherArr)) == null) {
+            return combineLatestDelayError(publisherArr, function, i);
+        }
+        return (Flowable) invokeLIL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable generate(Callable callable, BiConsumer biConsumer, Consumer consumer) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65593, null, callable, biConsumer, consumer)) == null) {
+            ObjectHelper.requireNonNull(biConsumer, "generator is null");
+            return generate(callable, FlowableInternalHelper.simpleBiGenerator(biConsumer), consumer);
+        }
+        return (Flowable) invokeLLL.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public static Flowable interval(long j, TimeUnit timeUnit, Scheduler scheduler) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65599, null, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
+            return interval(j, j, timeUnit, scheduler);
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable merge(Iterable iterable, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65614, null, iterable, i, i2)) == null) {
+            return fromIterable(iterable).flatMap(Functions.identity(), false, i, i2);
+        }
+        return (Flowable) invokeLII.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable mergeArray(int i, int i2, Publisher... publisherArr) {
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65620, null, i, i2, publisherArr)) == null) {
+            return fromArray(publisherArr).flatMap(Functions.identity(), false, i, i2);
+        }
+        return (Flowable) invokeIIL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable mergeArrayDelayError(int i, int i2, Publisher... publisherArr) {
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65622, null, i, i2, publisherArr)) == null) {
+            return fromArray(publisherArr).flatMap(Functions.identity(), true, i, i2);
+        }
+        return (Flowable) invokeIIL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable mergeDelayError(Iterable iterable, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65626, null, iterable, i, i2)) == null) {
+            return fromIterable(iterable).flatMap(Functions.identity(), true, i, i2);
+        }
+        return (Flowable) invokeLII.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Single sequenceEqual(Publisher publisher, Publisher publisher2, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65636, null, publisher, publisher2, i)) == null) {
+            return sequenceEqual(publisher, publisher2, ObjectHelper.equalsPredicate(), i);
+        }
+        return (Single) invokeLLI.objValue;
+    }
+
+    private Flowable timeout0(Publisher publisher, Function function, Publisher publisher2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65644, this, publisher, function, publisher2)) == null) {
+            ObjectHelper.requireNonNull(function, "itemTimeoutIndicator is null");
+            return RxJavaPlugins.onAssembly(new FlowableTimeout(this, publisher, function, publisher2));
+        }
+        return (Flowable) invokeLLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public static Flowable using(Callable callable, Function function, Consumer consumer) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65648, null, callable, function, consumer)) == null) {
+            return using(callable, function, consumer, true);
+        }
+        return (Flowable) invokeLLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    public final void blockingSubscribe(Consumer consumer, Consumer consumer2, Action action) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048595, this, consumer, consumer2, action) == null) {
+            FlowableBlockingSubscribe.subscribe(this, consumer, consumer2, action);
+        }
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable buffer(int i, int i2, Callable callable) {
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048599, this, i, i2, callable)) == null) {
+            ObjectHelper.verifyPositive(i, "count");
+            ObjectHelper.verifyPositive(i2, FreeSpaceBox.TYPE);
+            ObjectHelper.requireNonNull(callable, "bufferSupplier is null");
+            return RxJavaPlugins.onAssembly(new FlowableBuffer(this, i, i2, callable));
+        }
+        return (Flowable) invokeIIL.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable delay(long j, TimeUnit timeUnit, Scheduler scheduler) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048658, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
+            return delay(j, timeUnit, scheduler, false);
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable delaySubscription(long j, TimeUnit timeUnit, Scheduler scheduler) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048664, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
+            return delaySubscription(timer(j, timeUnit, scheduler));
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable doOnLifecycle(Consumer consumer, LongConsumer longConsumer, Action action) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048681, this, consumer, longConsumer, action)) == null) {
+            ObjectHelper.requireNonNull(consumer, "onSubscribe is null");
+            ObjectHelper.requireNonNull(longConsumer, "onRequest is null");
+            ObjectHelper.requireNonNull(action, "onCancel is null");
+            return RxJavaPlugins.onAssembly(new FlowableDoOnLifecycle(this, consumer, longConsumer, action));
+        }
+        return (Flowable) invokeLLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable flatMap(Function function, BiFunction biFunction, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048696, this, function, biFunction, i)) == null) {
+            return flatMap(function, biFunction, false, i, bufferSize());
+        }
+        return (Flowable) invokeLLI.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable flatMapIterable(Function function, BiFunction biFunction, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048710, this, function, biFunction, i)) == null) {
+            ObjectHelper.requireNonNull(function, "mapper is null");
+            ObjectHelper.requireNonNull(biFunction, "resultSelector is null");
+            return flatMap(FlowableInternalHelper.flatMapIntoIterable(function), biFunction, false, bufferSize(), i);
+        }
+        return (Flowable) invokeLLI.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.NONE)
+    @CheckReturnValue
+    public final Disposable forEachWhile(Predicate predicate, Consumer consumer, Action action) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048718, this, predicate, consumer, action)) == null) {
@@ -3553,546 +3973,147 @@ public abstract class Flowable<T> implements Publisher<T> {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final <K, V> Flowable<GroupedFlowable<K, V>> groupBy(Function<? super T, ? extends K> function, Function<? super T, ? extends V> function2) {
-        InterceptResult invokeLL;
+    public final Flowable groupBy(Function function, Function function2, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048720, this, function, function2)) == null) ? groupBy(function, function2, false, bufferSize()) : (Flowable) invokeLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    @Experimental
-    public final Flowable<T> mergeWith(@NonNull SingleSource<? extends T> singleSource) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048739, this, singleSource)) == null) {
-            ObjectHelper.requireNonNull(singleSource, "other is null");
-            return RxJavaPlugins.onAssembly(new FlowableMergeWithSingle(this, singleSource));
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048721, this, function, function2, z)) == null) {
+            return groupBy(function, function2, z, bufferSize());
         }
-        return (Flowable) invokeL.objValue;
+        return (Flowable) invokeLLZ.objValue;
     }
 
     @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final Flowable<T> observeOn(Scheduler scheduler, boolean z, int i) {
-        InterceptResult invokeCommon;
+    public final Flowable replay(Function function, int i, Scheduler scheduler) {
+        InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048743, this, new Object[]{scheduler, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048781, this, function, i, scheduler)) == null) {
+            ObjectHelper.requireNonNull(function, "selector is null");
             ObjectHelper.requireNonNull(scheduler, "scheduler is null");
             ObjectHelper.verifyPositive(i, "bufferSize");
-            return RxJavaPlugins.onAssembly(new FlowableObserveOn(this, scheduler, z, i));
+            return FlowableReplay.multicastSelector(FlowableInternalHelper.replayCallable(this, i), FlowableInternalHelper.replayFunction(function, scheduler));
         }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final Flowable<T> onBackpressureBuffer(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048746, this, i)) == null) ? onBackpressureBuffer(i, false, false) : (Flowable) invokeI.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> onErrorResumeNext(Publisher<? extends T> publisher) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048757, this, publisher)) == null) {
-            ObjectHelper.requireNonNull(publisher, "next is null");
-            return onErrorResumeNext(Functions.justFunction(publisher));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <R> Flowable<R> publish(Function<? super Flowable<T>, ? extends Publisher<? extends R>> function, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048766, this, function, i)) == null) {
-            ObjectHelper.requireNonNull(function, "selector is null");
-            ObjectHelper.verifyPositive(i, PrefetchEvent.MODULE);
-            return RxJavaPlugins.onAssembly(new FlowablePublishMulticast(this, function, i, false));
-        }
-        return (Flowable) invokeLI.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final <R> Single<R> reduce(R r, BiFunction<R, ? super T, R> biFunction) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048771, this, r, biFunction)) == null) {
-            ObjectHelper.requireNonNull(r, "seed is null");
-            ObjectHelper.requireNonNull(biFunction, "reducer is null");
-            return RxJavaPlugins.onAssembly(new FlowableReduceSeedSingle(this, r, biFunction));
-        }
-        return (Single) invokeLL.objValue;
+        return (Flowable) invokeLIL.objValue;
     }
 
     @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.ERROR)
+    @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final Flowable<T> sample(long j, TimeUnit timeUnit, Scheduler scheduler) {
+    public final Flowable skip(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048802, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
-            ObjectHelper.requireNonNull(timeUnit, "unit is null");
-            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return RxJavaPlugins.onAssembly(new FlowableSampleTimed(this, j, timeUnit, scheduler, false));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048817, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
+            return skipUntil(timer(j, timeUnit, scheduler));
         }
         return (Flowable) invokeCommon.objValue;
     }
 
     @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <R> Flowable<R> scan(R r, BiFunction<R, ? super T, R> biFunction) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048808, this, r, biFunction)) == null) {
-            ObjectHelper.requireNonNull(r, "seed is null");
-            return scanWith(Functions.justCallable(r), biFunction);
-        }
-        return (Flowable) invokeLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> skip(long j, TimeUnit timeUnit) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048816, this, j, timeUnit)) == null) ? skipUntil(timer(j, timeUnit)) : (Flowable) invokeJL.objValue;
-    }
-
-    @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
     @CheckReturnValue
-    public final Disposable subscribe(Consumer<? super T> consumer, Consumer<? super Throwable> consumer2) {
-        InterceptResult invokeLL;
+    public final Disposable subscribe(Consumer consumer, Consumer consumer2, Action action) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048834, this, consumer, consumer2)) == null) ? subscribe(consumer, consumer2, Functions.EMPTY_ACTION, FlowableInternalHelper.RequestMax.INSTANCE) : (Disposable) invokeLL.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048835, this, consumer, consumer2, action)) == null) {
+            return subscribe(consumer, consumer2, action, FlowableInternalHelper.RequestMax.INSTANCE);
+        }
+        return (Disposable) invokeLLL.objValue;
     }
 
     @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.PASS_THROUGH)
     @CheckReturnValue
-    @Experimental
-    public final Flowable<T> subscribeOn(@NonNull Scheduler scheduler, boolean z) {
-        InterceptResult invokeLZ;
+    public final Flowable take(long j, TimeUnit timeUnit, Scheduler scheduler) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048841, this, scheduler, z)) == null) {
-            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return RxJavaPlugins.onAssembly(new FlowableSubscribeOn(this, scheduler, z));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048857, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
+            return takeUntil(timer(j, timeUnit, scheduler));
         }
-        return (Flowable) invokeLZ.objValue;
+        return (Flowable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.COMPUTATION)
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.ERROR)
     @CheckReturnValue
-    public final Flowable<T> take(long j, TimeUnit timeUnit) {
-        InterceptResult invokeJL;
+    public final Flowable throttleLast(long j, TimeUnit timeUnit, Scheduler scheduler) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048856, this, j, timeUnit)) == null) ? takeUntil(timer(j, timeUnit)) : (Flowable) invokeJL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final <U> Flowable<T> takeUntil(Publisher<U> publisher) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048868, this, publisher)) == null) {
-            ObjectHelper.requireNonNull(publisher, "other is null");
-            return RxJavaPlugins.onAssembly(new FlowableTakeUntil(this, publisher));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048876, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
+            return sample(j, timeUnit, scheduler);
         }
-        return (Flowable) invokeL.objValue;
+        return (Flowable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.ERROR)
     @CheckReturnValue
-    public final TestSubscriber<T> test(long j) {
-        InterceptResult invokeJ;
+    public final Flowable throttleWithTimeout(long j, TimeUnit timeUnit, Scheduler scheduler) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048871, this, j)) == null) {
-            TestSubscriber<T> testSubscriber = new TestSubscriber<>(j);
-            subscribe((FlowableSubscriber) testSubscriber);
-            return testSubscriber;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048878, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
+            return debounce(j, timeUnit, scheduler);
         }
-        return (TestSubscriber) invokeJ.objValue;
+        return (Flowable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport("none")
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.PASS_THROUGH)
     @CheckReturnValue
-    public final Flowable<Timed<T>> timeInterval(TimeUnit timeUnit) {
-        InterceptResult invokeL;
+    public final Flowable timeout(long j, TimeUnit timeUnit, Scheduler scheduler) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048881, this, timeUnit)) == null) ? timeInterval(timeUnit, Schedulers.computation()) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final Flowable<Timed<T>> timestamp(TimeUnit timeUnit) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048893, this, timeUnit)) == null) ? timestamp(timeUnit, Schedulers.computation()) : (Flowable) invokeL.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048884, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
+            return timeout0(j, timeUnit, null, scheduler);
+        }
+        return (Flowable) invokeCommon.objValue;
     }
 
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
     @CheckReturnValue
-    public final <K, V> Single<Map<K, V>> toMap(Function<? super T, ? extends K> function, Function<? super T, ? extends V> function2) {
-        InterceptResult invokeLL;
+    public final Single toMap(Function function, Function function2, Callable callable) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048901, this, function, function2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048902, this, function, function2, callable)) == null) {
             ObjectHelper.requireNonNull(function, "keySelector is null");
             ObjectHelper.requireNonNull(function2, "valueSelector is null");
-            return (Single<Map<K, V>>) collect(HashMapSupplier.asCallable(), Functions.toMapKeyValueSelector(function, function2));
+            return collect(callable, Functions.toMapKeyValueSelector(function, function2));
         }
-        return (Single) invokeLL.objValue;
+        return (Single) invokeLLL.objValue;
     }
 
     @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
     @CheckReturnValue
-    public final Flowable<Flowable<T>> window(long j, long j2, int i) {
-        InterceptResult invokeCommon;
+    public final Single toMultimap(Function function, Function function2, Callable callable) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048915, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)})) == null) {
-            ObjectHelper.verifyPositive(j2, FreeSpaceBox.TYPE);
-            ObjectHelper.verifyPositive(j, "count");
-            ObjectHelper.verifyPositive(i, "bufferSize");
-            return RxJavaPlugins.onAssembly(new FlowableWindow(this, j, j2, i));
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048905, this, function, function2, callable)) == null) {
+            return toMultimap(function, function2, callable, ArrayListSupplier.asFunction());
         }
-        return (Flowable) invokeCommon.objValue;
+        return (Single) invokeLLL.objValue;
     }
 
     @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
+    @BackpressureSupport(BackpressureKind.ERROR)
     @CheckReturnValue
-    public static <T, R> Flowable<R> combineLatestDelayError(Publisher<? extends T>[] publisherArr, Function<? super Object[], ? extends R> function, int i) {
+    public final Flowable window(Publisher publisher, Function function, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65559, null, publisherArr, function, i)) == null) {
-            ObjectHelper.requireNonNull(publisherArr, "sources is null");
-            ObjectHelper.requireNonNull(function, "combiner is null");
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048931, this, publisher, function, i)) == null) {
+            ObjectHelper.requireNonNull(publisher, "openingIndicator is null");
+            ObjectHelper.requireNonNull(function, "closingIndicator is null");
             ObjectHelper.verifyPositive(i, "bufferSize");
-            if (publisherArr.length == 0) {
-                return empty();
-            }
-            return RxJavaPlugins.onAssembly(new FlowableCombineLatest((Publisher[]) publisherArr, (Function) function, i, true));
+            return RxJavaPlugins.onAssembly(new FlowableWindowBoundarySelector(this, publisher, function, i));
         }
         return (Flowable) invokeLLI.objValue;
     }
 
     @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> concat(Publisher<? extends Publisher<? extends T>> publisher, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65562, null, publisher, i)) == null) ? fromPublisher(publisher).concatMap(Functions.identity(), i) : (Flowable) invokeLI.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> concatDelayError(Publisher<? extends Publisher<? extends T>> publisher, int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65572, null, new Object[]{publisher, Integer.valueOf(i), Boolean.valueOf(z)})) == null) ? fromPublisher(publisher).concatMapDelayError(Functions.identity(), i, z) : (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> merge(Publisher<? extends Publisher<? extends T>> publisher) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65615, null, publisher)) == null) ? merge(publisher, bufferSize()) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> mergeDelayError(Publisher<? extends Publisher<? extends T>> publisher) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65627, null, publisher)) == null) ? mergeDelayError(publisher, bufferSize()) : (Flowable) invokeL.objValue;
-    }
-
-    private <U, V> Flowable<T> timeout0(Publisher<U> publisher, Function<? super T, ? extends Publisher<V>> function, Publisher<? extends T> publisher2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65644, this, publisher, function, publisher2)) == null) {
-            ObjectHelper.requireNonNull(function, "itemTimeoutIndicator is null");
-            return RxJavaPlugins.onAssembly(new FlowableTimeout(this, publisher, function, publisher2));
-        }
-        return (Flowable) invokeLLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T, R> Flowable<R> zip(Publisher<? extends Publisher<? extends T>> publisher, Function<? super Object[], ? extends R> function) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65651, null, publisher, function)) == null) {
-            ObjectHelper.requireNonNull(function, "zipper is null");
-            return fromPublisher(publisher).toList().flatMapPublisher(FlowableInternalHelper.zipIterable(function));
-        }
-        return (Flowable) invokeLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    public final void blockingSubscribe(Consumer<? super T> consumer, Consumer<? super Throwable> consumer2, Action action) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048595, this, consumer, consumer2, action) == null) {
-            FlowableBlockingSubscribe.subscribe(this, consumer, consumer2, action);
-        }
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final Flowable<T> debounce(long j, TimeUnit timeUnit, Scheduler scheduler) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048654, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
-            ObjectHelper.requireNonNull(timeUnit, "unit is null");
-            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return RxJavaPlugins.onAssembly(new FlowableDebounceTimed(this, j, timeUnit, scheduler));
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport(SchedulerSupport.COMPUTATION)
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> delay(long j, TimeUnit timeUnit, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048660, this, new Object[]{Long.valueOf(j), timeUnit, Boolean.valueOf(z)})) == null) ? delay(j, timeUnit, Schedulers.computation(), z) : (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> delaySubscription(long j, TimeUnit timeUnit, Scheduler scheduler) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048664, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) ? delaySubscription(timer(j, timeUnit, scheduler)) : (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> distinctUntilChanged(BiPredicate<? super T, ? super T> biPredicate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048671, this, biPredicate)) == null) {
-            ObjectHelper.requireNonNull(biPredicate, "comparer is null");
-            return RxJavaPlugins.onAssembly(new FlowableDistinctUntilChanged(this, Functions.identity(), biPredicate));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <R> Flowable<R> flatMap(Function<? super T, ? extends Publisher<? extends R>> function, boolean z, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048703, this, new Object[]{function, Boolean.valueOf(z), Integer.valueOf(i)})) == null) ? flatMap(function, z, i, bufferSize()) : (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <K, V> Flowable<GroupedFlowable<K, V>> groupBy(Function<? super T, ? extends K> function, Function<? super T, ? extends V> function2, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048721, this, function, function2, z)) == null) ? groupBy(function, function2, z, bufferSize()) : (Flowable) invokeLLZ.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final Flowable<T> onBackpressureBuffer(int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048748, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) ? onBackpressureBuffer(i, z, false) : (Flowable) invokeCommon.objValue;
-    }
-
-    @Beta
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final ParallelFlowable<T> parallel(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048764, this, i, i2)) == null) {
-            ObjectHelper.verifyPositive(i, "parallelism");
-            ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
-            return ParallelFlowable.from(this, i, i2);
-        }
-        return (ParallelFlowable) invokeII.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <R> Flowable<R> replay(Function<? super Flowable<T>, ? extends Publisher<R>> function, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048778, this, function, i)) == null) {
-            ObjectHelper.requireNonNull(function, "selector is null");
-            ObjectHelper.verifyPositive(i, "bufferSize");
-            return FlowableReplay.multicastSelector(FlowableInternalHelper.replayCallable(this, i), function);
-        }
-        return (Flowable) invokeLI.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> retry(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048794, this, j)) == null) ? retry(j, Functions.alwaysTrue()) : (Flowable) invokeJ.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> skip(long j, TimeUnit timeUnit, Scheduler scheduler) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048817, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) ? skipUntil(timer(j, timeUnit, scheduler)) : (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Flowable<T> skipLast(long j, TimeUnit timeUnit) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048819, this, j, timeUnit)) == null) ? skipLast(j, timeUnit, Schedulers.computation(), false, bufferSize()) : (Flowable) invokeJL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> startWith(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048829, this, t)) == null) {
-            ObjectHelper.requireNonNull(t, "item is null");
-            return concatArray(just(t), this);
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Disposable subscribe(Consumer<? super T> consumer, Consumer<? super Throwable> consumer2, Action action) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048835, this, consumer, consumer2, action)) == null) ? subscribe(consumer, consumer2, action, FlowableInternalHelper.RequestMax.INSTANCE) : (Disposable) invokeLLL.objValue;
-    }
-
-    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.PASS_THROUGH)
     @CheckReturnValue
-    public final Flowable<T> take(long j, TimeUnit timeUnit, Scheduler scheduler) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048857, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) ? takeUntil(timer(j, timeUnit, scheduler)) : (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final Flowable<Timed<T>> timeInterval(TimeUnit timeUnit, Scheduler scheduler) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048882, this, timeUnit, scheduler)) == null) {
-            ObjectHelper.requireNonNull(timeUnit, "unit is null");
-            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return RxJavaPlugins.onAssembly(new FlowableTimeInterval(this, timeUnit, scheduler));
-        }
-        return (Flowable) invokeLL.objValue;
-    }
-
-    @SchedulerSupport(SchedulerSupport.COMPUTATION)
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final Flowable<T> timeout(long j, TimeUnit timeUnit) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048883, this, j, timeUnit)) == null) ? timeout0(j, timeUnit, null, Schedulers.computation()) : (Flowable) invokeJL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final Flowable<Timed<T>> timestamp(TimeUnit timeUnit, Scheduler scheduler) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048894, this, timeUnit, scheduler)) == null) {
-            ObjectHelper.requireNonNull(timeUnit, "unit is null");
-            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return (Flowable<Timed<T>>) map(Functions.timestampWith(timeUnit, scheduler));
-        }
-        return (Flowable) invokeLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final <U extends Collection<? super T>> Single<U> toList(Callable<U> callable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048899, this, callable)) == null) {
-            ObjectHelper.requireNonNull(callable, "collectionSupplier is null");
-            return RxJavaPlugins.onAssembly(new FlowableToListSingle(this, callable));
-        }
-        return (Single) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Single<List<T>> toSortedList(Comparator<? super T> comparator, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048911, this, comparator, i)) == null) {
-            ObjectHelper.requireNonNull(comparator, "comparator is null");
-            return (Single<List<T>>) toList(i).map(Functions.listSorter(comparator));
-        }
-        return (Single) invokeLI.objValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: io.reactivex.Flowable<T> */
-    /* JADX WARN: Multi-variable type inference failed */
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final <T1, T2, R> Flowable<R> withLatestFrom(Publisher<T1> publisher, Publisher<T2> publisher2, Function3<? super T, ? super T1, ? super T2, R> function3) {
+    public final Flowable withLatestFrom(Publisher publisher, Publisher publisher2, Function3 function3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048934, this, publisher, publisher2, function3)) == null) {
@@ -4106,796 +4127,25 @@ public abstract class Flowable<T> implements Publisher<T> {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final <U, R> Flowable<R> zipWith(Publisher<? extends U> publisher, BiFunction<? super T, ? super U, ? extends R> biFunction) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048939, this, publisher, biFunction)) == null) {
-            ObjectHelper.requireNonNull(publisher, "other is null");
-            return zip(this, publisher, biFunction);
-        }
-        return (Flowable) invokeLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> concat(Publisher<? extends T> publisher, Publisher<? extends T> publisher2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65563, null, publisher, publisher2)) == null) {
-            ObjectHelper.requireNonNull(publisher, "source1 is null");
-            ObjectHelper.requireNonNull(publisher2, "source2 is null");
-            return concatArray(publisher, publisher2);
-        }
-        return (Flowable) invokeLL.objValue;
-    }
-
-    @SchedulerSupport(SchedulerSupport.COMPUTATION)
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public static Flowable<Long> interval(long j, TimeUnit timeUnit) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(65598, null, j, timeUnit)) == null) ? interval(j, j, timeUnit, Schedulers.computation()) : (Flowable) invokeJL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> merge(Publisher<? extends Publisher<? extends T>> publisher, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65616, null, publisher, i)) == null) ? fromPublisher(publisher).flatMap(Functions.identity(), i) : (Flowable) invokeLI.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> mergeDelayError(Publisher<? extends Publisher<? extends T>> publisher, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65628, null, publisher, i)) == null) ? fromPublisher(publisher).flatMap(Functions.identity(), true, i) : (Flowable) invokeLI.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final T blockingFirst(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, t)) == null) {
-            BlockingFirstSubscriber blockingFirstSubscriber = new BlockingFirstSubscriber();
-            subscribe((FlowableSubscriber) blockingFirstSubscriber);
-            T blockingGet = blockingFirstSubscriber.blockingGet();
-            return blockingGet != null ? blockingGet : t;
-        }
-        return (T) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final T blockingLast(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, t)) == null) {
-            BlockingLastSubscriber blockingLastSubscriber = new BlockingLastSubscriber();
-            subscribe((FlowableSubscriber) blockingLastSubscriber);
-            T blockingGet = blockingLastSubscriber.blockingGet();
-            return blockingGet != null ? blockingGet : t;
-        }
-        return (T) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.SPECIAL)
-    public final void blockingSubscribe(Subscriber<? super T> subscriber) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, subscriber) == null) {
-            FlowableBlockingSubscribe.subscribe(this, subscriber);
-        }
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    @Experimental
-    public final Flowable<T> concatWith(@NonNull MaybeSource<? extends T> maybeSource) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048648, this, maybeSource)) == null) {
-            ObjectHelper.requireNonNull(maybeSource, "other is null");
-            return RxJavaPlugins.onAssembly(new FlowableConcatWithMaybe(this, maybeSource));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> delay(long j, TimeUnit timeUnit, Scheduler scheduler) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048658, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) ? delay(j, timeUnit, scheduler, false) : (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <R> Flowable<R> flatMap(Function<? super T, ? extends Publisher<? extends R>> function, boolean z, int i, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048704, this, new Object[]{function, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            ObjectHelper.requireNonNull(function, "mapper is null");
-            ObjectHelper.verifyPositive(i, "maxConcurrency");
-            ObjectHelper.verifyPositive(i2, "bufferSize");
-            if (this instanceof ScalarCallable) {
-                Object call = ((ScalarCallable) this).call();
-                if (call == null) {
-                    return empty();
-                }
-                return FlowableScalarXMap.scalarXMap(call, function);
-            }
-            return RxJavaPlugins.onAssembly(new FlowableFlatMap(this, function, z, i, i2));
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r9v0, resolved type: io.reactivex.functions.BiFunction<? super T, ? super U, ? extends V> */
-    /* JADX WARN: Multi-variable type inference failed */
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <U, V> Flowable<V> flatMapIterable(Function<? super T, ? extends Iterable<? extends U>> function, BiFunction<? super T, ? super U, ? extends V> biFunction) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048709, this, function, biFunction)) == null) {
-            ObjectHelper.requireNonNull(function, "mapper is null");
-            ObjectHelper.requireNonNull(biFunction, "resultSelector is null");
-            return (Flowable<V>) flatMap(FlowableInternalHelper.flatMapIntoIterable(function), biFunction, false, bufferSize(), bufferSize());
-        }
-        return (Flowable) invokeLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <K, V> Flowable<GroupedFlowable<K, V>> groupBy(Function<? super T, ? extends K> function, Function<? super T, ? extends V> function2, boolean z, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048722, this, new Object[]{function, function2, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
-            ObjectHelper.requireNonNull(function, "keySelector is null");
-            ObjectHelper.requireNonNull(function2, "valueSelector is null");
-            ObjectHelper.verifyPositive(i, "bufferSize");
-            return RxJavaPlugins.onAssembly(new FlowableGroupBy(this, function, function2, i, z, null));
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    @Experimental
-    public final Flowable<T> mergeWith(@NonNull MaybeSource<? extends T> maybeSource) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048738, this, maybeSource)) == null) {
-            ObjectHelper.requireNonNull(maybeSource, "other is null");
-            return RxJavaPlugins.onAssembly(new FlowableMergeWithMaybe(this, maybeSource));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.SPECIAL)
-    @CheckReturnValue
-    public final Flowable<T> onBackpressureBuffer(int i, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048749, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            ObjectHelper.verifyPositive(i, "bufferSize");
-            return RxJavaPlugins.onAssembly(new FlowableOnBackpressureBuffer(this, i, z2, z, Functions.EMPTY_ACTION));
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> retry(long j, Predicate<? super Throwable> predicate) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048795, this, j, predicate)) == null) {
-            if (j >= 0) {
-                ObjectHelper.requireNonNull(predicate, "predicate is null");
-                return RxJavaPlugins.onAssembly(new FlowableRetryPredicate(this, j, predicate));
-            }
-            throw new IllegalArgumentException("times >= 0 required but it was " + j);
-        }
-        return (Flowable) invokeJL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Flowable<T> skipLast(long j, TimeUnit timeUnit, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048823, this, new Object[]{Long.valueOf(j), timeUnit, Boolean.valueOf(z)})) == null) ? skipLast(j, timeUnit, Schedulers.computation(), z, bufferSize()) : (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.SPECIAL)
-    @CheckReturnValue
-    public final Disposable subscribe(Consumer<? super T> consumer, Consumer<? super Throwable> consumer2, Action action, Consumer<? super Subscription> consumer3) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048836, this, consumer, consumer2, action, consumer3)) == null) {
-            ObjectHelper.requireNonNull(consumer, "onNext is null");
-            ObjectHelper.requireNonNull(consumer2, "onError is null");
-            ObjectHelper.requireNonNull(action, "onComplete is null");
-            ObjectHelper.requireNonNull(consumer3, "onSubscribe is null");
-            LambdaSubscriber lambdaSubscriber = new LambdaSubscriber(consumer, consumer2, action, consumer3);
-            subscribe((FlowableSubscriber) lambdaSubscriber);
-            return lambdaSubscriber;
-        }
-        return (Disposable) invokeLLLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> takeLast(long j, long j2, TimeUnit timeUnit) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048859, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) ? takeLast(j, j2, timeUnit, Schedulers.computation(), false, bufferSize()) : (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final TestSubscriber<T> test(long j, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048872, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)})) == null) {
-            TestSubscriber<T> testSubscriber = new TestSubscriber<>(j);
-            if (z) {
-                testSubscriber.cancel();
-            }
-            subscribe((FlowableSubscriber) testSubscriber);
-            return testSubscriber;
-        }
-        return (TestSubscriber) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport(SchedulerSupport.COMPUTATION)
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> timeout(long j, TimeUnit timeUnit, Publisher<? extends T> publisher) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048886, this, new Object[]{Long.valueOf(j), timeUnit, publisher})) == null) {
-            ObjectHelper.requireNonNull(publisher, "other is null");
-            return timeout0(j, timeUnit, publisher, Schedulers.computation());
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final <K, V> Single<Map<K, Collection<V>>> toMultimap(Function<? super T, ? extends K> function, Function<? super T, ? extends V> function2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048904, this, function, function2)) == null) ? toMultimap(function, function2, HashMapSupplier.asCallable(), ArrayListSupplier.asFunction()) : (Single) invokeLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> concatEager(Iterable<? extends Publisher<? extends T>> iterable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65573, null, iterable)) == null) ? concatEager(iterable, bufferSize(), bufferSize()) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> fromFuture(Future<? extends T> future, long j, TimeUnit timeUnit, Scheduler scheduler) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65587, null, new Object[]{future, Long.valueOf(j), timeUnit, scheduler})) == null) {
-            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return fromFuture(future, j, timeUnit).subscribeOn(scheduler);
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T, S> Flowable<T> generate(Callable<S> callable, BiConsumer<S, Emitter<T>> biConsumer) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65592, null, callable, biConsumer)) == null) {
-            ObjectHelper.requireNonNull(biConsumer, "generator is null");
-            return generate(callable, FlowableInternalHelper.simpleBiGenerator(biConsumer), Functions.emptyConsumer());
-        }
-        return (Flowable) invokeLL.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public static Flowable<Long> interval(long j, TimeUnit timeUnit, Scheduler scheduler) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65599, null, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) ? interval(j, j, timeUnit, scheduler) : (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> just(T t, T t2, T t3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65604, null, t, t2, t3)) == null) {
-            ObjectHelper.requireNonNull(t, "The first item is null");
-            ObjectHelper.requireNonNull(t2, "The second item is null");
-            ObjectHelper.requireNonNull(t3, "The third item is null");
-            return fromArray(t, t2, t3);
-        }
-        return (Flowable) invokeLLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> merge(Publisher<? extends T> publisher, Publisher<? extends T> publisher2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65617, null, publisher, publisher2)) == null) {
-            ObjectHelper.requireNonNull(publisher, "source1 is null");
-            ObjectHelper.requireNonNull(publisher2, "source2 is null");
-            return fromArray(publisher, publisher2).flatMap(Functions.identity(), false, 2);
-        }
-        return (Flowable) invokeLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> mergeDelayError(Publisher<? extends T> publisher, Publisher<? extends T> publisher2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65629, null, publisher, publisher2)) == null) {
-            ObjectHelper.requireNonNull(publisher, "source1 is null");
-            ObjectHelper.requireNonNull(publisher2, "source2 is null");
-            return fromArray(publisher, publisher2).flatMap(Functions.identity(), true, 2);
-        }
-        return (Flowable) invokeLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T1, T2, R> Flowable<R> zip(Publisher<? extends T1> publisher, Publisher<? extends T2> publisher2, BiFunction<? super T1, ? super T2, ? extends R> biFunction) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65652, null, publisher, publisher2, biFunction)) == null) {
-            ObjectHelper.requireNonNull(publisher, "source1 is null");
-            ObjectHelper.requireNonNull(publisher2, "source2 is null");
-            return zipArray(Functions.toFunction(biFunction), false, bufferSize(), publisher, publisher2);
-        }
-        return (Flowable) invokeLLL.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> delay(long j, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048659, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, Boolean.valueOf(z)})) == null) {
-            ObjectHelper.requireNonNull(timeUnit, "unit is null");
-            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return RxJavaPlugins.onAssembly(new FlowableDelay(this, Math.max(0L, j), timeUnit, scheduler, z));
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final Flowable<T> doOnEach(Consumer<? super Notification<T>> consumer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048678, this, consumer)) == null) {
-            ObjectHelper.requireNonNull(consumer, "consumer is null");
-            return doOnEach(Functions.notificationOnNext(consumer), Functions.notificationOnError(consumer), Functions.notificationOnComplete(consumer), Functions.EMPTY_ACTION);
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final ConnectableFlowable<T> publish(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048768, this, i)) == null) {
-            ObjectHelper.verifyPositive(i, "bufferSize");
-            return FlowablePublish.create(this, i);
-        }
-        return (ConnectableFlowable) invokeI.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final Flowable<T> sample(long j, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048803, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, Boolean.valueOf(z)})) == null) {
-            ObjectHelper.requireNonNull(timeUnit, "unit is null");
-            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return RxJavaPlugins.onAssembly(new FlowableSampleTimed(this, j, timeUnit, scheduler, z));
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Flowable<T> skipLast(long j, TimeUnit timeUnit, Scheduler scheduler) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048820, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) ? skipLast(j, timeUnit, scheduler, false, bufferSize()) : (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> takeLast(long j, long j2, TimeUnit timeUnit, Scheduler scheduler) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048860, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), timeUnit, scheduler})) == null) ? takeLast(j, j2, timeUnit, scheduler, false, bufferSize()) : (Flowable) invokeCommon.objValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r7v0, resolved type: java.util.concurrent.Callable<? extends java.util.Map<K, V>> */
-    /* JADX WARN: Multi-variable type inference failed */
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final <K, V> Single<Map<K, V>> toMap(Function<? super T, ? extends K> function, Function<? super T, ? extends V> function2, Callable<? extends Map<K, V>> callable) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048902, this, function, function2, callable)) == null) {
-            ObjectHelper.requireNonNull(function, "keySelector is null");
-            ObjectHelper.requireNonNull(function2, "valueSelector is null");
-            return (Single<Map<K, V>>) collect(callable, Functions.toMapKeyValueSelector(function, function2));
-        }
-        return (Single) invokeLLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Single<List<T>> toSortedList(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048909, this, i)) == null) ? toSortedList(Functions.naturalComparator(), i) : (Single) invokeI.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <U, R> Flowable<R> zipWith(Publisher<? extends U> publisher, BiFunction<? super T, ? super U, ? extends R> biFunction, boolean z) {
+    public final Flowable zipWith(Publisher publisher, BiFunction biFunction, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048940, this, publisher, biFunction, z)) == null) ? zip(this, publisher, biFunction, z) : (Flowable) invokeLLZ.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> concatEager(Iterable<? extends Publisher<? extends T>> iterable, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65574, null, iterable, i, i2)) == null) {
-            ObjectHelper.requireNonNull(iterable, "sources is null");
-            ObjectHelper.verifyPositive(i, "maxConcurrency");
-            ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
-            return RxJavaPlugins.onAssembly(new FlowableConcatMapEager(new FlowableFromIterable(iterable), Functions.identity(), i, i2, ErrorMode.IMMEDIATE));
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048940, this, publisher, biFunction, z)) == null) {
+            return zip(this, publisher, biFunction, z);
         }
-        return (Flowable) invokeLII.objValue;
+        return (Flowable) invokeLLZ.objValue;
     }
 
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final <U extends Collection<? super T>> Flowable<U> buffer(int i, Callable<U> callable) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048600, this, i, callable)) == null) ? buffer(i, i, callable) : (Flowable) invokeIL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    @Experimental
-    public final Flowable<T> concatWith(@NonNull CompletableSource completableSource) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048647, this, completableSource)) == null) {
-            ObjectHelper.requireNonNull(completableSource, "other is null");
-            return RxJavaPlugins.onAssembly(new FlowableConcatWithCompletable(this, completableSource));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    @Experimental
-    public final Flowable<T> mergeWith(@NonNull CompletableSource completableSource) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048737, this, completableSource)) == null) {
-            ObjectHelper.requireNonNull(completableSource, "other is null");
-            return RxJavaPlugins.onAssembly(new FlowableMergeWithCompletable(this, completableSource));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.SPECIAL)
-    @CheckReturnValue
-    public final Flowable<T> onBackpressureBuffer(int i, boolean z, boolean z2, Action action) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048750, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), action})) == null) {
-            ObjectHelper.requireNonNull(action, "onOverflow is null");
-            ObjectHelper.verifyPositive(i, "capacity");
-            return RxJavaPlugins.onAssembly(new FlowableOnBackpressureBuffer(this, i, z2, z, action));
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport(SchedulerSupport.COMPUTATION)
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <R> Flowable<R> replay(Function<? super Flowable<T>, ? extends Publisher<R>> function, int i, long j, TimeUnit timeUnit) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048779, this, new Object[]{function, Integer.valueOf(i), Long.valueOf(j), timeUnit})) == null) ? replay(function, i, j, timeUnit, Schedulers.computation()) : (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Flowable<T> skipLast(long j, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048821, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, Boolean.valueOf(z)})) == null) ? skipLast(j, timeUnit, scheduler, z, bufferSize()) : (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> takeLast(long j, long j2, TimeUnit timeUnit, Scheduler scheduler, boolean z, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048861, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), timeUnit, scheduler, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
-            ObjectHelper.requireNonNull(timeUnit, "unit is null");
-            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            ObjectHelper.verifyPositive(i, "bufferSize");
-            if (j >= 0) {
-                return RxJavaPlugins.onAssembly(new FlowableTakeLastTimed(this, j, j2, timeUnit, scheduler, i, z));
-            }
-            throw new IndexOutOfBoundsException("count >= 0 required but it was " + j);
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> timeout(long j, TimeUnit timeUnit, Scheduler scheduler, Publisher<? extends T> publisher) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048885, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, publisher})) == null) {
-            ObjectHelper.requireNonNull(publisher, "other is null");
-            return timeout0(j, timeUnit, publisher, scheduler);
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport(SchedulerSupport.COMPUTATION)
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final Flowable<Flowable<T>> window(long j, long j2, TimeUnit timeUnit) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048916, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) ? window(j, j2, timeUnit, Schedulers.computation(), bufferSize()) : (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <U, R> Flowable<R> zipWith(Publisher<? extends U> publisher, BiFunction<? super T, ? super U, ? extends R> biFunction, boolean z, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048941, this, new Object[]{publisher, biFunction, Boolean.valueOf(z), Integer.valueOf(i)})) == null) ? zip(this, publisher, biFunction, z, i) : (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> concat(Publisher<? extends T> publisher, Publisher<? extends T> publisher2, Publisher<? extends T> publisher3) {
+    public static Flowable combineLatest(Publisher publisher, Publisher publisher2, BiFunction biFunction) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65564, null, publisher, publisher2, publisher3)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, publisher, publisher2, biFunction)) == null) {
             ObjectHelper.requireNonNull(publisher, "source1 is null");
             ObjectHelper.requireNonNull(publisher2, "source2 is null");
-            ObjectHelper.requireNonNull(publisher3, "source3 is null");
-            return concatArray(publisher, publisher2, publisher3);
-        }
-        return (Flowable) invokeLLL.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> fromFuture(Future<? extends T> future, Scheduler scheduler) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65588, null, future, scheduler)) == null) {
-            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return fromFuture(future).subscribeOn(scheduler);
-        }
-        return (Flowable) invokeLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Single<Boolean> sequenceEqual(Publisher<? extends T> publisher, Publisher<? extends T> publisher2, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65636, null, publisher, publisher2, i)) == null) ? sequenceEqual(publisher, publisher2, ObjectHelper.equalsPredicate(), i) : (Single) invokeLLI.objValue;
-    }
-
-    @SchedulerSupport(SchedulerSupport.COMPUTATION)
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final Flowable<List<T>> buffer(long j, long j2, TimeUnit timeUnit) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) ? (Flowable<List<T>>) buffer(j, j2, timeUnit, Schedulers.computation(), ArrayListSupplier.asCallable()) : (Flowable) invokeCommon.objValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r9v0, resolved type: io.reactivex.functions.BiFunction<? super T, ? super U, ? extends V> */
-    /* JADX WARN: Multi-variable type inference failed */
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <U, V> Flowable<V> flatMapIterable(Function<? super T, ? extends Iterable<? extends U>> function, BiFunction<? super T, ? super U, ? extends V> biFunction, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048710, this, function, biFunction, i)) == null) {
-            ObjectHelper.requireNonNull(function, "mapper is null");
-            ObjectHelper.requireNonNull(biFunction, "resultSelector is null");
-            return (Flowable<V>) flatMap(FlowableInternalHelper.flatMapIntoIterable(function), biFunction, false, bufferSize(), i);
-        }
-        return (Flowable) invokeLLI.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <R> Flowable<R> replay(Function<? super Flowable<T>, ? extends Publisher<R>> function, int i, long j, TimeUnit timeUnit, Scheduler scheduler) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048780, this, new Object[]{function, Integer.valueOf(i), Long.valueOf(j), timeUnit, scheduler})) == null) {
-            ObjectHelper.requireNonNull(function, "selector is null");
-            ObjectHelper.requireNonNull(timeUnit, "unit is null");
-            ObjectHelper.verifyPositive(i, "bufferSize");
-            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return FlowableReplay.multicastSelector(FlowableInternalHelper.replayCallable(this, i, j, timeUnit, scheduler), function);
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> retry(Predicate<? super Throwable> predicate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048797, this, predicate)) == null) ? retry(Long.MAX_VALUE, predicate) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final Flowable<T> skipLast(long j, TimeUnit timeUnit, Scheduler scheduler, boolean z, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048822, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
-            ObjectHelper.requireNonNull(timeUnit, "unit is null");
-            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            ObjectHelper.verifyPositive(i, "bufferSize");
-            return RxJavaPlugins.onAssembly(new FlowableSkipLastTimed(this, j, timeUnit, scheduler, i << 1, z));
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r7v0, resolved type: java.util.concurrent.Callable<? extends java.util.Map<K, java.util.Collection<V>>> */
-    /* JADX WARN: Multi-variable type inference failed */
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
-    @CheckReturnValue
-    public final <K, V> Single<Map<K, Collection<V>>> toMultimap(Function<? super T, ? extends K> function, Function<? super T, ? extends V> function2, Callable<? extends Map<K, Collection<V>>> callable, Function<? super K, ? extends Collection<? super V>> function3) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048906, this, function, function2, callable, function3)) == null) {
-            ObjectHelper.requireNonNull(function, "keySelector is null");
-            ObjectHelper.requireNonNull(function2, "valueSelector is null");
-            ObjectHelper.requireNonNull(callable, "mapSupplier is null");
-            ObjectHelper.requireNonNull(function3, "collectionFactory is null");
-            return (Single<Map<K, Collection<V>>>) collect(callable, Functions.toMultimapKeyValueSelector(function, function2, function3));
-        }
-        return (Single) invokeLLLL.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final Flowable<Flowable<T>> window(long j, long j2, TimeUnit timeUnit, Scheduler scheduler) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048917, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), timeUnit, scheduler})) == null) ? window(j, j2, timeUnit, scheduler, bufferSize()) : (Flowable) invokeCommon.objValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: io.reactivex.Flowable<T> */
-    /* JADX WARN: Multi-variable type inference failed */
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final <T1, T2, T3, R> Flowable<R> withLatestFrom(Publisher<T1> publisher, Publisher<T2> publisher2, Publisher<T3> publisher3, Function4<? super T, ? super T1, ? super T2, ? super T3, R> function4) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048935, this, publisher, publisher2, publisher3, function4)) == null) {
-            ObjectHelper.requireNonNull(publisher, "source1 is null");
-            ObjectHelper.requireNonNull(publisher2, "source2 is null");
-            ObjectHelper.requireNonNull(publisher3, "source3 is null");
-            return withLatestFrom(new Publisher[]{publisher, publisher2, publisher3}, Functions.toFunction(function4));
-        }
-        return (Flowable) invokeLLLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T, R> Flowable<R> combineLatest(Iterable<? extends Publisher<? extends T>> iterable, Function<? super Object[], ? extends R> function) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, iterable, function)) == null) ? combineLatest(iterable, function, bufferSize()) : (Flowable) invokeLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> merge(Publisher<? extends T> publisher, Publisher<? extends T> publisher2, Publisher<? extends T> publisher3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65618, null, publisher, publisher2, publisher3)) == null) {
-            ObjectHelper.requireNonNull(publisher, "source1 is null");
-            ObjectHelper.requireNonNull(publisher2, "source2 is null");
-            ObjectHelper.requireNonNull(publisher3, "source3 is null");
-            return fromArray(publisher, publisher2, publisher3).flatMap(Functions.identity(), false, 3);
+            return combineLatest(Functions.toFunction(biFunction), publisher, publisher2);
         }
         return (Flowable) invokeLLL.objValue;
     }
@@ -4903,334 +4153,22 @@ public abstract class Flowable<T> implements Publisher<T> {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static <T> Flowable<T> mergeDelayError(Publisher<? extends T> publisher, Publisher<? extends T> publisher2, Publisher<? extends T> publisher3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65630, null, publisher, publisher2, publisher3)) == null) {
-            ObjectHelper.requireNonNull(publisher, "source1 is null");
-            ObjectHelper.requireNonNull(publisher2, "source2 is null");
-            ObjectHelper.requireNonNull(publisher3, "source3 is null");
-            return fromArray(publisher, publisher2, publisher3).flatMap(Functions.identity(), true, 3);
-        }
-        return (Flowable) invokeLLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T1, T2, R> Flowable<R> zip(Publisher<? extends T1> publisher, Publisher<? extends T2> publisher2, BiFunction<? super T1, ? super T2, ? extends R> biFunction, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65653, null, new Object[]{publisher, publisher2, biFunction, Boolean.valueOf(z)})) == null) {
-            ObjectHelper.requireNonNull(publisher, "source1 is null");
-            ObjectHelper.requireNonNull(publisher2, "source2 is null");
-            return zipArray(Functions.toFunction(biFunction), z, bufferSize(), publisher, publisher2);
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final Flowable<List<T>> buffer(long j, long j2, TimeUnit timeUnit, Scheduler scheduler) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048602, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), timeUnit, scheduler})) == null) ? (Flowable<List<T>>) buffer(j, j2, timeUnit, scheduler, ArrayListSupplier.asCallable()) : (Flowable) invokeCommon.objValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: io.reactivex.functions.Function<? super T, ? extends org.reactivestreams.Publisher<V>> */
-    /* JADX WARN: Multi-variable type inference failed */
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <U, V> Flowable<T> delay(Publisher<U> publisher, Function<? super T, ? extends Publisher<V>> function) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048662, this, publisher, function)) == null) ? delaySubscription(publisher).delay(function) : (Flowable) invokeLL.objValue;
-    }
-
-    @Beta
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <K, V> Flowable<GroupedFlowable<K, V>> groupBy(Function<? super T, ? extends K> function, Function<? super T, ? extends V> function2, boolean z, int i, Function<? super Consumer<Object>, ? extends Map<K, Object>> function3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048723, this, new Object[]{function, function2, Boolean.valueOf(z), Integer.valueOf(i), function3})) == null) {
-            ObjectHelper.requireNonNull(function, "keySelector is null");
-            ObjectHelper.requireNonNull(function2, "valueSelector is null");
-            ObjectHelper.verifyPositive(i, "bufferSize");
-            ObjectHelper.requireNonNull(function3, "evictingMapFactory is null");
-            return RxJavaPlugins.onAssembly(new FlowableGroupBy(this, function, function2, i, z, function3));
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final <U> Flowable<T> sample(Publisher<U> publisher) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048805, this, publisher)) == null) {
-            ObjectHelper.requireNonNull(publisher, "sampler is null");
-            return RxJavaPlugins.onAssembly(new FlowableSamplePublisher(this, publisher, false));
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final Flowable<T> timeout(long j, TimeUnit timeUnit, Scheduler scheduler) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048884, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) ? timeout0(j, timeUnit, null, scheduler) : (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final Flowable<Flowable<T>> window(long j, long j2, TimeUnit timeUnit, Scheduler scheduler, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048918, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), timeUnit, scheduler, Integer.valueOf(i)})) == null) {
-            ObjectHelper.verifyPositive(i, "bufferSize");
-            ObjectHelper.verifyPositive(j, "timespan");
-            ObjectHelper.verifyPositive(j2, "timeskip");
-            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            ObjectHelper.requireNonNull(timeUnit, "unit is null");
-            return RxJavaPlugins.onAssembly(new FlowableWindowTimed(this, j, j2, timeUnit, scheduler, Long.MAX_VALUE, i, false));
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T, R> Flowable<R> combineLatest(Iterable<? extends Publisher<? extends T>> iterable, Function<? super Object[], ? extends R> function, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65543, null, iterable, function, i)) == null) {
-            ObjectHelper.requireNonNull(iterable, "sources is null");
-            ObjectHelper.requireNonNull(function, "combiner is null");
-            ObjectHelper.verifyPositive(i, "bufferSize");
-            return RxJavaPlugins.onAssembly(new FlowableCombineLatest((Iterable) iterable, (Function) function, i, false));
-        }
-        return (Flowable) invokeLLI.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T, R> Flowable<R> combineLatestDelayError(Iterable<? extends Publisher<? extends T>> iterable, Function<? super Object[], ? extends R> function) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, iterable, function)) == null) ? combineLatestDelayError(iterable, function, bufferSize()) : (Flowable) invokeLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T, S> Flowable<T> generate(Callable<S> callable, BiConsumer<S, Emitter<T>> biConsumer, Consumer<? super S> consumer) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65593, null, callable, biConsumer, consumer)) == null) {
-            ObjectHelper.requireNonNull(biConsumer, "generator is null");
-            return generate(callable, FlowableInternalHelper.simpleBiGenerator(biConsumer), consumer);
-        }
-        return (Flowable) invokeLLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> just(T t, T t2, T t3, T t4) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65605, null, t, t2, t3, t4)) == null) {
-            ObjectHelper.requireNonNull(t, "The first item is null");
-            ObjectHelper.requireNonNull(t2, "The second item is null");
-            ObjectHelper.requireNonNull(t3, "The third item is null");
-            ObjectHelper.requireNonNull(t4, "The fourth item is null");
-            return fromArray(t, t2, t3, t4);
-        }
-        return (Flowable) invokeLLLL.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final <U extends Collection<? super T>> Flowable<U> buffer(long j, long j2, TimeUnit timeUnit, Scheduler scheduler, Callable<U> callable) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048603, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), timeUnit, scheduler, callable})) == null) {
-            ObjectHelper.requireNonNull(timeUnit, "unit is null");
-            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            ObjectHelper.requireNonNull(callable, "bufferSupplier is null");
-            return RxJavaPlugins.onAssembly(new FlowableBufferTimed(this, j, j2, timeUnit, scheduler, callable, Integer.MAX_VALUE, false));
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final Flowable<T> onBackpressureBuffer(int i, Action action) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048747, this, i, action)) == null) ? onBackpressureBuffer(i, false, false, action) : (Flowable) invokeIL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final <U, V> Flowable<T> timeout(Publisher<U> publisher, Function<? super T, ? extends Publisher<V>> function) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048889, this, publisher, function)) == null) {
-            ObjectHelper.requireNonNull(publisher, "firstTimeoutIndicator is null");
-            return timeout0(publisher, function, null);
-        }
-        return (Flowable) invokeLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T, R> Flowable<R> combineLatestDelayError(Iterable<? extends Publisher<? extends T>> iterable, Function<? super Object[], ? extends R> function, int i) {
+    public static Flowable combineLatestDelayError(Iterable iterable, Function function, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65557, null, iterable, function, i)) == null) {
             ObjectHelper.requireNonNull(iterable, "sources is null");
             ObjectHelper.requireNonNull(function, "combiner is null");
             ObjectHelper.verifyPositive(i, "bufferSize");
-            return RxJavaPlugins.onAssembly(new FlowableCombineLatest((Iterable) iterable, (Function) function, i, true));
+            return RxJavaPlugins.onAssembly(new FlowableCombineLatest(iterable, function, i, true));
         }
         return (Flowable) invokeLLI.objValue;
     }
 
     @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final Flowable<T> doOnEach(Subscriber<? super T> subscriber) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048679, this, subscriber)) == null) {
-            ObjectHelper.requireNonNull(subscriber, "subscriber is null");
-            return doOnEach(FlowableInternalHelper.subscriberOnNext(subscriber), FlowableInternalHelper.subscriberOnError(subscriber), FlowableInternalHelper.subscriberOnComplete(subscriber), Functions.EMPTY_ACTION);
-        }
-        return (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.SPECIAL)
-    @CheckReturnValue
-    public final Flowable<T> onBackpressureBuffer(long j, Action action, BackpressureOverflowStrategy backpressureOverflowStrategy) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048751, this, new Object[]{Long.valueOf(j), action, backpressureOverflowStrategy})) == null) {
-            ObjectHelper.requireNonNull(backpressureOverflowStrategy, "strategy is null");
-            ObjectHelper.verifyPositive(j, "capacity");
-            return RxJavaPlugins.onAssembly(new FlowableOnBackpressureBufferStrategy(this, j, action, backpressureOverflowStrategy));
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final <U> Flowable<T> sample(Publisher<U> publisher, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048806, this, publisher, z)) == null) {
-            ObjectHelper.requireNonNull(publisher, "sampler is null");
-            return RxJavaPlugins.onAssembly(new FlowableSamplePublisher(this, publisher, z));
-        }
-        return (Flowable) invokeLZ.objValue;
-    }
-
-    @Override // org.reactivestreams.Publisher
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.SPECIAL)
-    public final void subscribe(Subscriber<? super T> subscriber) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048838, this, subscriber) == null) {
-            if (subscriber instanceof FlowableSubscriber) {
-                subscribe((FlowableSubscriber) ((FlowableSubscriber) subscriber));
-                return;
-            }
-            ObjectHelper.requireNonNull(subscriber, "s is null");
-            subscribe((FlowableSubscriber) new StrictSubscriber(subscriber));
-        }
-    }
-
-    @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static <T> Flowable<T> concat(Publisher<? extends T> publisher, Publisher<? extends T> publisher2, Publisher<? extends T> publisher3, Publisher<? extends T> publisher4) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65565, null, publisher, publisher2, publisher3, publisher4)) == null) {
-            ObjectHelper.requireNonNull(publisher, "source1 is null");
-            ObjectHelper.requireNonNull(publisher2, "source2 is null");
-            ObjectHelper.requireNonNull(publisher3, "source3 is null");
-            ObjectHelper.requireNonNull(publisher4, "source4 is null");
-            return concatArray(publisher, publisher2, publisher3, publisher4);
-        }
-        return (Flowable) invokeLLLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T, S> Flowable<T> generate(Callable<S> callable, BiFunction<S, Emitter<T>, S> biFunction) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65594, null, callable, biFunction)) == null) ? generate(callable, biFunction, Functions.emptyConsumer()) : (Flowable) invokeLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T1, T2, R> Flowable<R> zip(Publisher<? extends T1> publisher, Publisher<? extends T2> publisher2, BiFunction<? super T1, ? super T2, ? extends R> biFunction, boolean z, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65654, null, new Object[]{publisher, publisher2, biFunction, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
-            ObjectHelper.requireNonNull(publisher, "source1 is null");
-            ObjectHelper.requireNonNull(publisher2, "source2 is null");
-            return zipArray(Functions.toFunction(biFunction), z, i, publisher, publisher2);
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport(SchedulerSupport.COMPUTATION)
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> takeLast(long j, TimeUnit timeUnit) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048862, this, j, timeUnit)) == null) ? takeLast(j, timeUnit, Schedulers.computation(), false, bufferSize()) : (Flowable) invokeJL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <U, V> Flowable<T> timeout(Publisher<U> publisher, Function<? super T, ? extends Publisher<V>> function, Publisher<? extends T> publisher2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048890, this, publisher, function, publisher2)) == null) {
-            ObjectHelper.requireNonNull(publisher, "firstTimeoutSelector is null");
-            ObjectHelper.requireNonNull(publisher2, "other is null");
-            return timeout0(publisher, function, publisher2);
-        }
-        return (Flowable) invokeLLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T, S> Flowable<T> generate(Callable<S> callable, BiFunction<S, Emitter<T>, S> biFunction, Consumer<? super S> consumer) {
+    public static Flowable generate(Callable callable, BiFunction biFunction, Consumer consumer) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65595, null, callable, biFunction, consumer)) == null) {
@@ -5245,7 +4183,136 @@ public abstract class Flowable<T> implements Publisher<T> {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static <T> Flowable<T> merge(Publisher<? extends T> publisher, Publisher<? extends T> publisher2, Publisher<? extends T> publisher3, Publisher<? extends T> publisher4) {
+    public static Single sequenceEqual(Publisher publisher, Publisher publisher2, BiPredicate biPredicate) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65637, null, publisher, publisher2, biPredicate)) == null) {
+            return sequenceEqual(publisher, publisher2, biPredicate, bufferSize());
+        }
+        return (Single) invokeLLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable buffer(Flowable flowable, Function function, Callable callable) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048610, this, flowable, function, callable)) == null) {
+            ObjectHelper.requireNonNull(flowable, "openingIndicator is null");
+            ObjectHelper.requireNonNull(function, "closingIndicator is null");
+            ObjectHelper.requireNonNull(callable, "bufferSupplier is null");
+            return RxJavaPlugins.onAssembly(new FlowableBufferBoundary(this, flowable, function, callable));
+        }
+        return (Flowable) invokeLLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable flatMap(Function function, BiFunction biFunction, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048697, this, function, biFunction, z)) == null) {
+            return flatMap(function, biFunction, z, bufferSize(), bufferSize());
+        }
+        return (Flowable) invokeLLZ.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable timeout(Publisher publisher, Function function, Publisher publisher2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048890, this, publisher, function, publisher2)) == null) {
+            ObjectHelper.requireNonNull(publisher, "firstTimeoutSelector is null");
+            ObjectHelper.requireNonNull(publisher2, "other is null");
+            return timeout0(publisher, function, publisher2);
+        }
+        return (Flowable) invokeLLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable combineLatest(Publisher publisher, Publisher publisher2, Publisher publisher3, Function3 function3) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65545, null, publisher, publisher2, publisher3, function3)) == null) {
+            ObjectHelper.requireNonNull(publisher, "source1 is null");
+            ObjectHelper.requireNonNull(publisher2, "source2 is null");
+            ObjectHelper.requireNonNull(publisher3, "source3 is null");
+            return combineLatest(Functions.toFunction(function3), publisher, publisher2, publisher3);
+        }
+        return (Flowable) invokeLLLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable concat(Publisher publisher, Publisher publisher2, Publisher publisher3, Publisher publisher4) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65565, null, publisher, publisher2, publisher3, publisher4)) == null) {
+            ObjectHelper.requireNonNull(publisher, "source1 is null");
+            ObjectHelper.requireNonNull(publisher2, "source2 is null");
+            ObjectHelper.requireNonNull(publisher3, "source3 is null");
+            ObjectHelper.requireNonNull(publisher4, "source4 is null");
+            return concatArray(publisher, publisher2, publisher3, publisher4);
+        }
+        return (Flowable) invokeLLLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    private Flowable doOnEach(Consumer consumer, Consumer consumer2, Action action, Action action2) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65579, this, consumer, consumer2, action, action2)) == null) {
+            ObjectHelper.requireNonNull(consumer, "onNext is null");
+            ObjectHelper.requireNonNull(consumer2, "onError is null");
+            ObjectHelper.requireNonNull(action, "onComplete is null");
+            ObjectHelper.requireNonNull(action2, "onAfterTerminate is null");
+            return RxJavaPlugins.onAssembly(new FlowableDoOnEach(this, consumer, consumer2, action, action2));
+        }
+        return (Flowable) invokeLLLL.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable fromFuture(Future future, long j, TimeUnit timeUnit, Scheduler scheduler) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65587, null, new Object[]{future, Long.valueOf(j), timeUnit, scheduler})) == null) {
+            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
+            return fromFuture(future, j, timeUnit).subscribeOn(scheduler);
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable just(Object obj, Object obj2, Object obj3, Object obj4) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65605, null, obj, obj2, obj3, obj4)) == null) {
+            ObjectHelper.requireNonNull(obj, "The first item is null");
+            ObjectHelper.requireNonNull(obj2, "The second item is null");
+            ObjectHelper.requireNonNull(obj3, "The third item is null");
+            ObjectHelper.requireNonNull(obj4, "The fourth item is null");
+            return fromArray(obj, obj2, obj3, obj4);
+        }
+        return (Flowable) invokeLLLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable merge(Publisher publisher, Publisher publisher2, Publisher publisher3, Publisher publisher4) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65619, null, publisher, publisher2, publisher3, publisher4)) == null) {
@@ -5261,7 +4328,7 @@ public abstract class Flowable<T> implements Publisher<T> {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static <T> Flowable<T> mergeDelayError(Publisher<? extends T> publisher, Publisher<? extends T> publisher2, Publisher<? extends T> publisher3, Publisher<? extends T> publisher4) {
+    public static Flowable mergeDelayError(Publisher publisher, Publisher publisher2, Publisher publisher3, Publisher publisher4) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65631, null, publisher, publisher2, publisher3, publisher4)) == null) {
@@ -5277,42 +4344,257 @@ public abstract class Flowable<T> implements Publisher<T> {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final <R> Flowable<R> flatMap(Function<? super T, ? extends Publisher<? extends R>> function, Function<? super Throwable, ? extends Publisher<? extends R>> function2, Callable<? extends Publisher<? extends R>> callable) {
-        InterceptResult invokeLLL;
+    public static Single sequenceEqual(Publisher publisher, Publisher publisher2, BiPredicate biPredicate, int i) {
+        InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048700, this, function, function2, callable)) == null) {
-            ObjectHelper.requireNonNull(function, "onNextMapper is null");
-            ObjectHelper.requireNonNull(function2, "onErrorMapper is null");
-            ObjectHelper.requireNonNull(callable, "onCompleteSupplier is null");
-            return merge(new FlowableMapNotification(this, function, function2, callable));
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65638, null, publisher, publisher2, biPredicate, i)) == null) {
+            ObjectHelper.requireNonNull(publisher, "source1 is null");
+            ObjectHelper.requireNonNull(publisher2, "source2 is null");
+            ObjectHelper.requireNonNull(biPredicate, "isEqual is null");
+            ObjectHelper.verifyPositive(i, "bufferSize");
+            return RxJavaPlugins.onAssembly(new FlowableSequenceEqualSingle(publisher, publisher2, biPredicate, i));
         }
-        return (Flowable) invokeLLL.objValue;
+        return (Single) invokeLLLI.objValue;
+    }
+
+    private Flowable timeout0(long j, TimeUnit timeUnit, Publisher publisher, Scheduler scheduler) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65643, this, new Object[]{Long.valueOf(j), timeUnit, publisher, scheduler})) == null) {
+            ObjectHelper.requireNonNull(timeUnit, "timeUnit is null");
+            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
+            return RxJavaPlugins.onAssembly(new FlowableTimeoutTimed(this, j, timeUnit, scheduler, publisher));
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public static Flowable using(Callable callable, Function function, Consumer consumer, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65649, null, new Object[]{callable, function, consumer, Boolean.valueOf(z)})) == null) {
+            ObjectHelper.requireNonNull(callable, "resourceSupplier is null");
+            ObjectHelper.requireNonNull(function, "sourceSupplier is null");
+            ObjectHelper.requireNonNull(consumer, "disposer is null");
+            return RxJavaPlugins.onAssembly(new FlowableUsing(callable, function, consumer, z));
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable zip(Publisher publisher, Publisher publisher2, Publisher publisher3, Function3 function3) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65655, null, publisher, publisher2, publisher3, function3)) == null) {
+            ObjectHelper.requireNonNull(publisher, "source1 is null");
+            ObjectHelper.requireNonNull(publisher2, "source2 is null");
+            ObjectHelper.requireNonNull(publisher3, "source3 is null");
+            return zipArray(Functions.toFunction(function3), false, bufferSize(), publisher, publisher2, publisher3);
+        }
+        return (Flowable) invokeLLLL.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable buffer(long j, long j2, TimeUnit timeUnit, Scheduler scheduler) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048602, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), timeUnit, scheduler})) == null) {
+            return buffer(j, j2, timeUnit, scheduler, ArrayListSupplier.asCallable());
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable flatMap(Function function, BiFunction biFunction, boolean z, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048698, this, new Object[]{function, biFunction, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            return flatMap(function, biFunction, z, i, bufferSize());
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable groupJoin(Publisher publisher, Function function, Function function2, BiFunction biFunction) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048725, this, publisher, function, function2, biFunction)) == null) {
+            ObjectHelper.requireNonNull(publisher, "other is null");
+            ObjectHelper.requireNonNull(function, "leftEnd is null");
+            ObjectHelper.requireNonNull(function2, "rightEnd is null");
+            ObjectHelper.requireNonNull(biFunction, "resultSelector is null");
+            return RxJavaPlugins.onAssembly(new FlowableGroupJoin(this, publisher, function, function2, biFunction));
+        }
+        return (Flowable) invokeLLLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable join(Publisher publisher, Function function, Function function2, BiFunction biFunction) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048729, this, publisher, function, function2, biFunction)) == null) {
+            ObjectHelper.requireNonNull(publisher, "other is null");
+            ObjectHelper.requireNonNull(function, "leftEnd is null");
+            ObjectHelper.requireNonNull(function2, "rightEnd is null");
+            ObjectHelper.requireNonNull(biFunction, "resultSelector is null");
+            return RxJavaPlugins.onAssembly(new FlowableJoin(this, publisher, function, function2, biFunction));
+        }
+        return (Flowable) invokeLLLL.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final Flowable<T> takeLast(long j, TimeUnit timeUnit, boolean z) {
+    public final Flowable replay(Function function, int i, long j, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048866, this, new Object[]{Long.valueOf(j), timeUnit, Boolean.valueOf(z)})) == null) ? takeLast(j, timeUnit, Schedulers.computation(), z, bufferSize()) : (Flowable) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048779, this, new Object[]{function, Integer.valueOf(i), Long.valueOf(j), timeUnit})) == null) {
+            return replay(function, i, j, timeUnit, Schedulers.computation());
+        }
+        return (Flowable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport("none")
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
     @CheckReturnValue
-    public final <K, V> Single<Map<K, Collection<V>>> toMultimap(Function<? super T, ? extends K> function, Function<? super T, ? extends V> function2, Callable<Map<K, Collection<V>>> callable) {
-        InterceptResult invokeLLL;
+    public final Flowable skipLast(long j, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048905, this, function, function2, callable)) == null) ? toMultimap(function, function2, callable, ArrayListSupplier.asFunction()) : (Single) invokeLLL.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048821, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, Boolean.valueOf(z)})) == null) {
+            return skipLast(j, timeUnit, scheduler, z, bufferSize());
+        }
+        return (Flowable) invokeCommon.objValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: io.reactivex.Flowable<T> */
-    /* JADX WARN: Multi-variable type inference failed */
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable takeLast(long j, long j2, TimeUnit timeUnit, Scheduler scheduler) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048860, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), timeUnit, scheduler})) == null) {
+            return takeLast(j, j2, timeUnit, scheduler, false, bufferSize());
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable timeout(long j, TimeUnit timeUnit, Scheduler scheduler, Publisher publisher) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048885, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, publisher})) == null) {
+            ObjectHelper.requireNonNull(publisher, "other is null");
+            return timeout0(j, timeUnit, publisher, scheduler);
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable window(long j, long j2, TimeUnit timeUnit, Scheduler scheduler) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048917, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), timeUnit, scheduler})) == null) {
+            return window(j, j2, timeUnit, scheduler, bufferSize());
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.PASS_THROUGH)
     @CheckReturnValue
-    public final <T1, T2, T3, T4, R> Flowable<R> withLatestFrom(Publisher<T1> publisher, Publisher<T2> publisher2, Publisher<T3> publisher3, Publisher<T4> publisher4, Function5<? super T, ? super T1, ? super T2, ? super T3, ? super T4, R> function5) {
+    public final Flowable withLatestFrom(Publisher publisher, Publisher publisher2, Publisher publisher3, Function4 function4) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048935, this, publisher, publisher2, publisher3, function4)) == null) {
+            ObjectHelper.requireNonNull(publisher, "source1 is null");
+            ObjectHelper.requireNonNull(publisher2, "source2 is null");
+            ObjectHelper.requireNonNull(publisher3, "source3 is null");
+            return withLatestFrom(new Publisher[]{publisher, publisher2, publisher3}, Functions.toFunction(function4));
+        }
+        return (Flowable) invokeLLLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable zipWith(Publisher publisher, BiFunction biFunction, boolean z, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048941, this, new Object[]{publisher, biFunction, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            return zip(this, publisher, biFunction, z, i);
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable combineLatest(Publisher publisher, Publisher publisher2, Publisher publisher3, Publisher publisher4, Function4 function4) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65546, null, publisher, publisher2, publisher3, publisher4, function4)) == null) {
+            ObjectHelper.requireNonNull(publisher, "source1 is null");
+            ObjectHelper.requireNonNull(publisher2, "source2 is null");
+            ObjectHelper.requireNonNull(publisher3, "source3 is null");
+            ObjectHelper.requireNonNull(publisher4, "source4 is null");
+            return combineLatest(Functions.toFunction(function4), publisher, publisher2, publisher3, publisher4);
+        }
+        return (Flowable) invokeLLLLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable just(Object obj, Object obj2, Object obj3, Object obj4, Object obj5) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65606, null, obj, obj2, obj3, obj4, obj5)) == null) {
+            ObjectHelper.requireNonNull(obj, "The first item is null");
+            ObjectHelper.requireNonNull(obj2, "The second item is null");
+            ObjectHelper.requireNonNull(obj3, "The third item is null");
+            ObjectHelper.requireNonNull(obj4, "The fourth item is null");
+            ObjectHelper.requireNonNull(obj5, "The fifth item is null");
+            return fromArray(obj, obj2, obj3, obj4, obj5);
+        }
+        return (Flowable) invokeLLLLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable zip(Publisher publisher, Publisher publisher2, Publisher publisher3, Publisher publisher4, Function4 function4) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65656, null, publisher, publisher2, publisher3, publisher4, function4)) == null) {
+            ObjectHelper.requireNonNull(publisher, "source1 is null");
+            ObjectHelper.requireNonNull(publisher2, "source2 is null");
+            ObjectHelper.requireNonNull(publisher3, "source3 is null");
+            ObjectHelper.requireNonNull(publisher4, "source4 is null");
+            return zipArray(Functions.toFunction(function4), false, bufferSize(), publisher, publisher2, publisher3, publisher4);
+        }
+        return (Flowable) invokeLLLLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable withLatestFrom(Publisher publisher, Publisher publisher2, Publisher publisher3, Publisher publisher4, Function5 function5) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048936, this, publisher, publisher2, publisher3, publisher4, function5)) == null) {
@@ -5328,479 +4610,7 @@ public abstract class Flowable<T> implements Publisher<T> {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static <T1, T2, R> Flowable<R> combineLatest(Publisher<? extends T1> publisher, Publisher<? extends T2> publisher2, BiFunction<? super T1, ? super T2, ? extends R> biFunction) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, publisher, publisher2, biFunction)) == null) {
-            ObjectHelper.requireNonNull(publisher, "source1 is null");
-            ObjectHelper.requireNonNull(publisher2, "source2 is null");
-            return combineLatest(Functions.toFunction(biFunction), publisher, publisher2);
-        }
-        return (Flowable) invokeLLL.objValue;
-    }
-
-    @SchedulerSupport(SchedulerSupport.COMPUTATION)
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final Flowable<List<T>> buffer(long j, TimeUnit timeUnit) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048604, this, j, timeUnit)) == null) ? buffer(j, timeUnit, Schedulers.computation(), Integer.MAX_VALUE) : (Flowable) invokeJL.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <R> Flowable<R> replay(Function<? super Flowable<T>, ? extends Publisher<R>> function, int i, Scheduler scheduler) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048781, this, function, i, scheduler)) == null) {
-            ObjectHelper.requireNonNull(function, "selector is null");
-            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            ObjectHelper.verifyPositive(i, "bufferSize");
-            return FlowableReplay.multicastSelector(FlowableInternalHelper.replayCallable(this, i), FlowableInternalHelper.replayFunction(function, scheduler));
-        }
-        return (Flowable) invokeLIL.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> takeLast(long j, TimeUnit timeUnit, Scheduler scheduler) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048863, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) ? takeLast(j, timeUnit, scheduler, false, bufferSize()) : (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> just(T t, T t2, T t3, T t4, T t5) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65606, null, t, t2, t3, t4, t5)) == null) {
-            ObjectHelper.requireNonNull(t, "The first item is null");
-            ObjectHelper.requireNonNull(t2, "The second item is null");
-            ObjectHelper.requireNonNull(t3, "The third item is null");
-            ObjectHelper.requireNonNull(t4, "The fourth item is null");
-            ObjectHelper.requireNonNull(t5, "The fifth item is null");
-            return fromArray(t, t2, t3, t4, t5);
-        }
-        return (Flowable) invokeLLLLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T1, T2, T3, R> Flowable<R> zip(Publisher<? extends T1> publisher, Publisher<? extends T2> publisher2, Publisher<? extends T3> publisher3, Function3<? super T1, ? super T2, ? super T3, ? extends R> function3) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65655, null, publisher, publisher2, publisher3, function3)) == null) {
-            ObjectHelper.requireNonNull(publisher, "source1 is null");
-            ObjectHelper.requireNonNull(publisher2, "source2 is null");
-            ObjectHelper.requireNonNull(publisher3, "source3 is null");
-            return zipArray(Functions.toFunction(function3), false, bufferSize(), publisher, publisher2, publisher3);
-        }
-        return (Flowable) invokeLLLL.objValue;
-    }
-
-    @SchedulerSupport(SchedulerSupport.COMPUTATION)
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final Flowable<List<T>> buffer(long j, TimeUnit timeUnit, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048605, this, new Object[]{Long.valueOf(j), timeUnit, Integer.valueOf(i)})) == null) ? buffer(j, timeUnit, Schedulers.computation(), i) : (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.SPECIAL)
-    @Beta
-    public final void subscribe(FlowableSubscriber<? super T> flowableSubscriber) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048837, this, flowableSubscriber) == null) {
-            ObjectHelper.requireNonNull(flowableSubscriber, "s is null");
-            try {
-                Subscriber<? super T> onSubscribe = RxJavaPlugins.onSubscribe(this, flowableSubscriber);
-                ObjectHelper.requireNonNull(onSubscribe, "Plugin returned null Subscriber");
-                subscribeActual(onSubscribe);
-            } catch (NullPointerException e) {
-                throw e;
-            } catch (Throwable th) {
-                Exceptions.throwIfFatal(th);
-                RxJavaPlugins.onError(th);
-                NullPointerException nullPointerException = new NullPointerException("Actually not, but can't throw other exceptions due to RS");
-                nullPointerException.initCause(th);
-                throw nullPointerException;
-            }
-        }
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> takeLast(long j, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048864, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, Boolean.valueOf(z)})) == null) ? takeLast(j, timeUnit, scheduler, z, bufferSize()) : (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport(SchedulerSupport.COMPUTATION)
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final Flowable<Flowable<T>> window(long j, TimeUnit timeUnit) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048919, this, j, timeUnit)) == null) ? window(j, timeUnit, Schedulers.computation(), Long.MAX_VALUE, false) : (Flowable) invokeJL.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final Flowable<List<T>> buffer(long j, TimeUnit timeUnit, Scheduler scheduler, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048607, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, Integer.valueOf(i)})) == null) ? (Flowable<List<T>>) buffer(j, timeUnit, scheduler, i, ArrayListSupplier.asCallable(), false) : (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final Flowable<T> takeLast(long j, TimeUnit timeUnit, Scheduler scheduler, boolean z, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048865, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, Boolean.valueOf(z), Integer.valueOf(i)})) == null) ? takeLast(Long.MAX_VALUE, j, timeUnit, scheduler, z, i) : (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport(SchedulerSupport.COMPUTATION)
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final Flowable<Flowable<T>> window(long j, TimeUnit timeUnit, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048920, this, new Object[]{Long.valueOf(j), timeUnit, Long.valueOf(j2)})) == null) ? window(j, timeUnit, Schedulers.computation(), j2, false) : (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final <U extends Collection<? super T>> Flowable<U> buffer(long j, TimeUnit timeUnit, Scheduler scheduler, int i, Callable<U> callable, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048608, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, Integer.valueOf(i), callable, Boolean.valueOf(z)})) == null) {
-            ObjectHelper.requireNonNull(timeUnit, "unit is null");
-            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            ObjectHelper.requireNonNull(callable, "bufferSupplier is null");
-            ObjectHelper.verifyPositive(i, "count");
-            return RxJavaPlugins.onAssembly(new FlowableBufferTimed(this, j, j, timeUnit, scheduler, callable, i, z));
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <R> Flowable<R> flatMap(Function<? super T, ? extends Publisher<? extends R>> function, Function<Throwable, ? extends Publisher<? extends R>> function2, Callable<? extends Publisher<? extends R>> callable, int i) {
-        InterceptResult invokeLLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048701, this, function, function2, callable, i)) == null) {
-            ObjectHelper.requireNonNull(function, "onNextMapper is null");
-            ObjectHelper.requireNonNull(function2, "onErrorMapper is null");
-            ObjectHelper.requireNonNull(callable, "onCompleteSupplier is null");
-            return merge(new FlowableMapNotification(this, function, function2, callable), i);
-        }
-        return (Flowable) invokeLLLI.objValue;
-    }
-
-    @SchedulerSupport(SchedulerSupport.COMPUTATION)
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final Flowable<Flowable<T>> window(long j, TimeUnit timeUnit, long j2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048921, this, new Object[]{Long.valueOf(j), timeUnit, Long.valueOf(j2), Boolean.valueOf(z)})) == null) ? window(j, timeUnit, Schedulers.computation(), j2, z) : (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T1, T2, T3, R> Flowable<R> combineLatest(Publisher<? extends T1> publisher, Publisher<? extends T2> publisher2, Publisher<? extends T3> publisher3, Function3<? super T1, ? super T2, ? super T3, ? extends R> function3) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65545, null, publisher, publisher2, publisher3, function3)) == null) {
-            ObjectHelper.requireNonNull(publisher, "source1 is null");
-            ObjectHelper.requireNonNull(publisher2, "source2 is null");
-            ObjectHelper.requireNonNull(publisher3, "source3 is null");
-            return combineLatest(Functions.toFunction(function3), publisher, publisher2, publisher3);
-        }
-        return (Flowable) invokeLLLL.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final Flowable<Flowable<T>> window(long j, TimeUnit timeUnit, Scheduler scheduler) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048922, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) ? window(j, timeUnit, scheduler, Long.MAX_VALUE, false) : (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T1, T2, T3, T4, R> Flowable<R> zip(Publisher<? extends T1> publisher, Publisher<? extends T2> publisher2, Publisher<? extends T3> publisher3, Publisher<? extends T4> publisher4, Function4<? super T1, ? super T2, ? super T3, ? super T4, ? extends R> function4) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65656, null, publisher, publisher2, publisher3, publisher4, function4)) == null) {
-            ObjectHelper.requireNonNull(publisher, "source1 is null");
-            ObjectHelper.requireNonNull(publisher2, "source2 is null");
-            ObjectHelper.requireNonNull(publisher3, "source3 is null");
-            ObjectHelper.requireNonNull(publisher4, "source4 is null");
-            return zipArray(Functions.toFunction(function4), false, bufferSize(), publisher, publisher2, publisher3, publisher4);
-        }
-        return (Flowable) invokeLLLLL.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final Flowable<Flowable<T>> window(long j, TimeUnit timeUnit, Scheduler scheduler, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048923, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, Long.valueOf(j2)})) == null) ? window(j, timeUnit, scheduler, j2, false) : (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final <R> Flowable<R> withLatestFrom(Publisher<?>[] publisherArr, Function<? super Object[], R> function) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048937, this, publisherArr, function)) == null) {
-            ObjectHelper.requireNonNull(publisherArr, "others is null");
-            ObjectHelper.requireNonNull(function, "combiner is null");
-            return RxJavaPlugins.onAssembly(new FlowableWithLatestFromMany(this, publisherArr, function));
-        }
-        return (Flowable) invokeLL.objValue;
-    }
-
-    @SchedulerSupport(SchedulerSupport.COMPUTATION)
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <R> Flowable<R> replay(Function<? super Flowable<T>, ? extends Publisher<R>> function, long j, TimeUnit timeUnit) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048782, this, new Object[]{function, Long.valueOf(j), timeUnit})) == null) ? replay(function, j, timeUnit, Schedulers.computation()) : (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final Flowable<Flowable<T>> window(long j, TimeUnit timeUnit, Scheduler scheduler, long j2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048924, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, Long.valueOf(j2), Boolean.valueOf(z)})) == null) ? window(j, timeUnit, scheduler, j2, z, bufferSize()) : (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> just(T t, T t2, T t3, T t4, T t5, T t6) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65607, null, new Object[]{t, t2, t3, t4, t5, t6})) == null) {
-            ObjectHelper.requireNonNull(t, "The first item is null");
-            ObjectHelper.requireNonNull(t2, "The second item is null");
-            ObjectHelper.requireNonNull(t3, "The third item is null");
-            ObjectHelper.requireNonNull(t4, "The fourth item is null");
-            ObjectHelper.requireNonNull(t5, "The fifth item is null");
-            ObjectHelper.requireNonNull(t6, "The sixth item is null");
-            return fromArray(t, t2, t3, t4, t5, t6);
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <U, R> Flowable<R> flatMap(Function<? super T, ? extends Publisher<? extends U>> function, BiFunction<? super T, ? super U, ? extends R> biFunction) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048695, this, function, biFunction)) == null) ? flatMap(function, biFunction, false, bufferSize(), bufferSize()) : (Flowable) invokeLL.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <R> Flowable<R> replay(Function<? super Flowable<T>, ? extends Publisher<R>> function, long j, TimeUnit timeUnit, Scheduler scheduler) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048783, this, new Object[]{function, Long.valueOf(j), timeUnit, scheduler})) == null) {
-            ObjectHelper.requireNonNull(function, "selector is null");
-            ObjectHelper.requireNonNull(timeUnit, "unit is null");
-            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return FlowableReplay.multicastSelector(FlowableInternalHelper.replayCallable(this, j, timeUnit, scheduler), function);
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final Flowable<Flowable<T>> window(long j, TimeUnit timeUnit, Scheduler scheduler, long j2, boolean z, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048925, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, Long.valueOf(j2), Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
-            ObjectHelper.verifyPositive(i, "bufferSize");
-            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            ObjectHelper.requireNonNull(timeUnit, "unit is null");
-            ObjectHelper.verifyPositive(j2, "count");
-            return RxJavaPlugins.onAssembly(new FlowableWindowTimed(this, j, j, timeUnit, scheduler, j2, i, z));
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T1, T2, T3, T4, R> Flowable<R> combineLatest(Publisher<? extends T1> publisher, Publisher<? extends T2> publisher2, Publisher<? extends T3> publisher3, Publisher<? extends T4> publisher4, Function4<? super T1, ? super T2, ? super T3, ? super T4, ? extends R> function4) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65546, null, publisher, publisher2, publisher3, publisher4, function4)) == null) {
-            ObjectHelper.requireNonNull(publisher, "source1 is null");
-            ObjectHelper.requireNonNull(publisher2, "source2 is null");
-            ObjectHelper.requireNonNull(publisher3, "source3 is null");
-            ObjectHelper.requireNonNull(publisher4, "source4 is null");
-            return combineLatest(Functions.toFunction(function4), publisher, publisher2, publisher3, publisher4);
-        }
-        return (Flowable) invokeLLLLL.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final Flowable<List<T>> buffer(long j, TimeUnit timeUnit, Scheduler scheduler) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048606, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) ? (Flowable<List<T>>) buffer(j, timeUnit, scheduler, Integer.MAX_VALUE, ArrayListSupplier.asCallable(), false) : (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <U, R> Flowable<R> flatMap(Function<? super T, ? extends Publisher<? extends U>> function, BiFunction<? super T, ? super U, ? extends R> biFunction, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048697, this, function, biFunction, z)) == null) ? flatMap(function, biFunction, z, bufferSize(), bufferSize()) : (Flowable) invokeLLZ.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
-    @CheckReturnValue
-    public final <R> Flowable<R> withLatestFrom(Iterable<? extends Publisher<?>> iterable, Function<? super Object[], R> function) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048932, this, iterable, function)) == null) {
-            ObjectHelper.requireNonNull(iterable, "others is null");
-            ObjectHelper.requireNonNull(function, "combiner is null");
-            return RxJavaPlugins.onAssembly(new FlowableWithLatestFromMany(this, iterable, function));
-        }
-        return (Flowable) invokeLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final <TOpening, TClosing> Flowable<List<T>> buffer(Flowable<? extends TOpening> flowable, Function<? super TOpening, ? extends Publisher<? extends TClosing>> function) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048609, this, flowable, function)) == null) ? (Flowable<List<T>>) buffer(flowable, function, ArrayListSupplier.asCallable()) : (Flowable) invokeLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <U, R> Flowable<R> flatMap(Function<? super T, ? extends Publisher<? extends U>> function, BiFunction<? super T, ? super U, ? extends R> biFunction, boolean z, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048698, this, new Object[]{function, biFunction, Boolean.valueOf(z), Integer.valueOf(i)})) == null) ? flatMap(function, biFunction, z, i, bufferSize()) : (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T1, T2, T3, T4, T5, R> Flowable<R> zip(Publisher<? extends T1> publisher, Publisher<? extends T2> publisher2, Publisher<? extends T3> publisher3, Publisher<? extends T4> publisher4, Publisher<? extends T5> publisher5, Function5<? super T1, ? super T2, ? super T3, ? super T4, ? super T5, ? extends R> function5) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65657, null, new Object[]{publisher, publisher2, publisher3, publisher4, publisher5, function5})) == null) {
-            ObjectHelper.requireNonNull(publisher, "source1 is null");
-            ObjectHelper.requireNonNull(publisher2, "source2 is null");
-            ObjectHelper.requireNonNull(publisher3, "source3 is null");
-            ObjectHelper.requireNonNull(publisher4, "source4 is null");
-            ObjectHelper.requireNonNull(publisher5, "source5 is null");
-            return zipArray(Functions.toFunction(function5), false, bufferSize(), publisher, publisher2, publisher3, publisher4, publisher5);
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final <TOpening, TClosing, U extends Collection<? super T>> Flowable<U> buffer(Flowable<? extends TOpening> flowable, Function<? super TOpening, ? extends Publisher<? extends TClosing>> function, Callable<U> callable) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048610, this, flowable, function, callable)) == null) {
-            ObjectHelper.requireNonNull(flowable, "openingIndicator is null");
-            ObjectHelper.requireNonNull(function, "closingIndicator is null");
-            ObjectHelper.requireNonNull(callable, "bufferSupplier is null");
-            return RxJavaPlugins.onAssembly(new FlowableBufferBoundary(this, flowable, function, callable));
-        }
-        return (Flowable) invokeLLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <U, R> Flowable<R> flatMap(Function<? super T, ? extends Publisher<? extends U>> function, BiFunction<? super T, ? super U, ? extends R> biFunction, boolean z, int i, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048699, this, new Object[]{function, biFunction, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            ObjectHelper.requireNonNull(function, "mapper is null");
-            ObjectHelper.requireNonNull(biFunction, "combiner is null");
-            ObjectHelper.verifyPositive(i, "maxConcurrency");
-            ObjectHelper.verifyPositive(i2, "bufferSize");
-            return flatMap(FlowableInternalHelper.flatMapWithCombiner(function, biFunction), z, i, i2);
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final <R> Flowable<R> replay(Function<? super Flowable<T>, ? extends Publisher<R>> function, Scheduler scheduler) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048784, this, function, scheduler)) == null) {
-            ObjectHelper.requireNonNull(function, "selector is null");
-            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return FlowableReplay.multicastSelector(FlowableInternalHelper.replayCallable(this), FlowableInternalHelper.replayFunction(function, scheduler));
-        }
-        return (Flowable) invokeLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final <B> Flowable<Flowable<T>> window(Publisher<B> publisher) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048928, this, publisher)) == null) ? window(publisher, bufferSize()) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T1, T2, T3, T4, T5, R> Flowable<R> combineLatest(Publisher<? extends T1> publisher, Publisher<? extends T2> publisher2, Publisher<? extends T3> publisher3, Publisher<? extends T4> publisher4, Publisher<? extends T5> publisher5, Function5<? super T1, ? super T2, ? super T3, ? super T4, ? super T5, ? extends R> function5) {
+    public static Flowable combineLatest(Publisher publisher, Publisher publisher2, Publisher publisher3, Publisher publisher4, Publisher publisher5, Function5 function5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{publisher, publisher2, publisher3, publisher4, publisher5, function5})) == null) {
@@ -5815,73 +4625,46 @@ public abstract class Flowable<T> implements Publisher<T> {
     }
 
     @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final <B> Flowable<Flowable<T>> window(Publisher<B> publisher, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048929, this, publisher, i)) == null) {
-            ObjectHelper.requireNonNull(publisher, "boundaryIndicator is null");
-            ObjectHelper.verifyPositive(i, "bufferSize");
-            return RxJavaPlugins.onAssembly(new FlowableWindowBoundary(this, publisher, i));
-        }
-        return (Flowable) invokeLI.objValue;
-    }
-
-    @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static <T> Flowable<T> just(T t, T t2, T t3, T t4, T t5, T t6, T t7) {
+    public static Flowable combineLatest(Publisher publisher, Publisher publisher2, Publisher publisher3, Publisher publisher4, Publisher publisher5, Publisher publisher6, Function6 function6) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65608, null, new Object[]{t, t2, t3, t4, t5, t6, t7})) == null) {
-            ObjectHelper.requireNonNull(t, "The first item is null");
-            ObjectHelper.requireNonNull(t2, "The second item is null");
-            ObjectHelper.requireNonNull(t3, "The third item is null");
-            ObjectHelper.requireNonNull(t4, "The fourth item is null");
-            ObjectHelper.requireNonNull(t5, "The fifth item is null");
-            ObjectHelper.requireNonNull(t6, "The sixth item is null");
-            ObjectHelper.requireNonNull(t7, "The seventh item is null");
-            return fromArray(t, t2, t3, t4, t5, t6, t7);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{publisher, publisher2, publisher3, publisher4, publisher5, publisher6, function6})) == null) {
+            ObjectHelper.requireNonNull(publisher, "source1 is null");
+            ObjectHelper.requireNonNull(publisher2, "source2 is null");
+            ObjectHelper.requireNonNull(publisher3, "source3 is null");
+            ObjectHelper.requireNonNull(publisher4, "source4 is null");
+            ObjectHelper.requireNonNull(publisher5, "source5 is null");
+            ObjectHelper.requireNonNull(publisher6, "source6 is null");
+            return combineLatest(Functions.toFunction(function6), publisher, publisher2, publisher3, publisher4, publisher5, publisher6);
         }
         return (Flowable) invokeCommon.objValue;
     }
 
     @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.ERROR)
+    @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final <B> Flowable<List<T>> buffer(Publisher<B> publisher) {
-        InterceptResult invokeL;
+    public static Flowable just(Object obj, Object obj2, Object obj3, Object obj4, Object obj5, Object obj6, Object obj7) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, publisher)) == null) ? (Flowable<List<T>>) buffer(publisher, ArrayListSupplier.asCallable()) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final <B> Flowable<List<T>> buffer(Publisher<B> publisher, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048614, this, publisher, i)) == null) {
-            ObjectHelper.verifyPositive(i, "initialCapacity");
-            return (Flowable<List<T>>) buffer(publisher, Functions.createArrayList(i));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65608, null, new Object[]{obj, obj2, obj3, obj4, obj5, obj6, obj7})) == null) {
+            ObjectHelper.requireNonNull(obj, "The first item is null");
+            ObjectHelper.requireNonNull(obj2, "The second item is null");
+            ObjectHelper.requireNonNull(obj3, "The third item is null");
+            ObjectHelper.requireNonNull(obj4, "The fourth item is null");
+            ObjectHelper.requireNonNull(obj5, "The fifth item is null");
+            ObjectHelper.requireNonNull(obj6, "The sixth item is null");
+            ObjectHelper.requireNonNull(obj7, "The seventh item is null");
+            return fromArray(obj, obj2, obj3, obj4, obj5, obj6, obj7);
         }
-        return (Flowable) invokeLI.objValue;
+        return (Flowable) invokeCommon.objValue;
     }
 
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final <U, R> Flowable<R> flatMap(Function<? super T, ? extends Publisher<? extends U>> function, BiFunction<? super T, ? super U, ? extends R> biFunction, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048696, this, function, biFunction, i)) == null) ? flatMap(function, biFunction, false, i, bufferSize()) : (Flowable) invokeLLI.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T1, T2, T3, T4, T5, T6, R> Flowable<R> zip(Publisher<? extends T1> publisher, Publisher<? extends T2> publisher2, Publisher<? extends T3> publisher3, Publisher<? extends T4> publisher4, Publisher<? extends T5> publisher5, Publisher<? extends T6> publisher6, Function6<? super T1, ? super T2, ? super T3, ? super T4, ? super T5, ? super T6, ? extends R> function6) {
+    public static Flowable zip(Publisher publisher, Publisher publisher2, Publisher publisher3, Publisher publisher4, Publisher publisher5, Publisher publisher6, Function6 function6) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65658, null, new Object[]{publisher, publisher2, publisher3, publisher4, publisher5, publisher6, function6})) == null) {
@@ -5899,199 +4682,7 @@ public abstract class Flowable<T> implements Publisher<T> {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final ConnectableFlowable<T> replay(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048786, this, i)) == null) {
-            ObjectHelper.verifyPositive(i, "bufferSize");
-            return FlowableReplay.create(this, i);
-        }
-        return (ConnectableFlowable) invokeI.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final <U, V> Flowable<Flowable<T>> window(Publisher<U> publisher, Function<? super U, ? extends Publisher<V>> function) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048930, this, publisher, function)) == null) ? window(publisher, function, bufferSize()) : (Flowable) invokeLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final <B, U extends Collection<? super T>> Flowable<U> buffer(Publisher<B> publisher, Callable<U> callable) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048615, this, publisher, callable)) == null) {
-            ObjectHelper.requireNonNull(publisher, "boundaryIndicator is null");
-            ObjectHelper.requireNonNull(callable, "bufferSupplier is null");
-            return RxJavaPlugins.onAssembly(new FlowableBufferExactBoundary(this, publisher, callable));
-        }
-        return (Flowable) invokeLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final <U, V> Flowable<Flowable<T>> window(Publisher<U> publisher, Function<? super U, ? extends Publisher<V>> function, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048931, this, publisher, function, i)) == null) {
-            ObjectHelper.requireNonNull(publisher, "openingIndicator is null");
-            ObjectHelper.requireNonNull(function, "closingIndicator is null");
-            ObjectHelper.verifyPositive(i, "bufferSize");
-            return RxJavaPlugins.onAssembly(new FlowableWindowBoundarySelector(this, publisher, function, i));
-        }
-        return (Flowable) invokeLLI.objValue;
-    }
-
-    @SchedulerSupport(SchedulerSupport.COMPUTATION)
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final ConnectableFlowable<T> replay(int i, long j, TimeUnit timeUnit) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048787, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), timeUnit})) == null) ? replay(i, j, timeUnit, Schedulers.computation()) : (ConnectableFlowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T1, T2, T3, T4, T5, T6, R> Flowable<R> combineLatest(Publisher<? extends T1> publisher, Publisher<? extends T2> publisher2, Publisher<? extends T3> publisher3, Publisher<? extends T4> publisher4, Publisher<? extends T5> publisher5, Publisher<? extends T6> publisher6, Function6<? super T1, ? super T2, ? super T3, ? super T4, ? super T5, ? super T6, ? extends R> function6) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{publisher, publisher2, publisher3, publisher4, publisher5, publisher6, function6})) == null) {
-            ObjectHelper.requireNonNull(publisher, "source1 is null");
-            ObjectHelper.requireNonNull(publisher2, "source2 is null");
-            ObjectHelper.requireNonNull(publisher3, "source3 is null");
-            ObjectHelper.requireNonNull(publisher4, "source4 is null");
-            ObjectHelper.requireNonNull(publisher5, "source5 is null");
-            ObjectHelper.requireNonNull(publisher6, "source6 is null");
-            return combineLatest(Functions.toFunction(function6), publisher, publisher2, publisher3, publisher4, publisher5, publisher6);
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final ConnectableFlowable<T> replay(int i, long j, TimeUnit timeUnit, Scheduler scheduler) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048788, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), timeUnit, scheduler})) == null) {
-            ObjectHelper.verifyPositive(i, "bufferSize");
-            ObjectHelper.requireNonNull(timeUnit, "unit is null");
-            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            ObjectHelper.verifyPositive(i, "bufferSize");
-            return FlowableReplay.create(this, j, timeUnit, scheduler, i);
-        }
-        return (ConnectableFlowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final <B> Flowable<List<T>> buffer(Callable<? extends Publisher<B>> callable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, callable)) == null) ? (Flowable<List<T>>) buffer(callable, ArrayListSupplier.asCallable()) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final <B, U extends Collection<? super T>> Flowable<U> buffer(Callable<? extends Publisher<B>> callable, Callable<U> callable2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048612, this, callable, callable2)) == null) {
-            ObjectHelper.requireNonNull(callable, "boundaryIndicatorSupplier is null");
-            ObjectHelper.requireNonNull(callable2, "bufferSupplier is null");
-            return RxJavaPlugins.onAssembly(new FlowableBufferBoundarySupplier(this, callable, callable2));
-        }
-        return (Flowable) invokeLL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final <B> Flowable<Flowable<T>> window(Callable<? extends Publisher<B>> callable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048926, this, callable)) == null) ? window(callable, bufferSize()) : (Flowable) invokeL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T> Flowable<T> just(T t, T t2, T t3, T t4, T t5, T t6, T t7, T t8) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65609, null, new Object[]{t, t2, t3, t4, t5, t6, t7, t8})) == null) {
-            ObjectHelper.requireNonNull(t, "The first item is null");
-            ObjectHelper.requireNonNull(t2, "The second item is null");
-            ObjectHelper.requireNonNull(t3, "The third item is null");
-            ObjectHelper.requireNonNull(t4, "The fourth item is null");
-            ObjectHelper.requireNonNull(t5, "The fifth item is null");
-            ObjectHelper.requireNonNull(t6, "The sixth item is null");
-            ObjectHelper.requireNonNull(t7, "The seventh item is null");
-            ObjectHelper.requireNonNull(t8, "The eighth item is null");
-            return fromArray(t, t2, t3, t4, t5, t6, t7, t8);
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.ERROR)
-    @CheckReturnValue
-    public final <B> Flowable<Flowable<T>> window(Callable<? extends Publisher<B>> callable, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048927, this, callable, i)) == null) {
-            ObjectHelper.requireNonNull(callable, "boundaryIndicatorSupplier is null");
-            ObjectHelper.verifyPositive(i, "bufferSize");
-            return RxJavaPlugins.onAssembly(new FlowableWindowBoundarySupplier(this, callable, i));
-        }
-        return (Flowable) invokeLI.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T1, T2, T3, T4, T5, T6, T7, R> Flowable<R> zip(Publisher<? extends T1> publisher, Publisher<? extends T2> publisher2, Publisher<? extends T3> publisher3, Publisher<? extends T4> publisher4, Publisher<? extends T5> publisher5, Publisher<? extends T6> publisher6, Publisher<? extends T7> publisher7, Function7<? super T1, ? super T2, ? super T3, ? super T4, ? super T5, ? super T6, ? super T7, ? extends R> function7) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65659, null, new Object[]{publisher, publisher2, publisher3, publisher4, publisher5, publisher6, publisher7, function7})) == null) {
-            ObjectHelper.requireNonNull(publisher, "source1 is null");
-            ObjectHelper.requireNonNull(publisher2, "source2 is null");
-            ObjectHelper.requireNonNull(publisher3, "source3 is null");
-            ObjectHelper.requireNonNull(publisher4, "source4 is null");
-            ObjectHelper.requireNonNull(publisher5, "source5 is null");
-            ObjectHelper.requireNonNull(publisher6, "source6 is null");
-            ObjectHelper.requireNonNull(publisher7, "source7 is null");
-            return zipArray(Functions.toFunction(function7), false, bufferSize(), publisher, publisher2, publisher3, publisher4, publisher5, publisher6, publisher7);
-        }
-        return (Flowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final ConnectableFlowable<T> replay(int i, Scheduler scheduler) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048789, this, i, scheduler)) == null) {
-            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return FlowableReplay.observeOn(replay(i), scheduler);
-        }
-        return (ConnectableFlowable) invokeIL.objValue;
-    }
-
-    @SchedulerSupport("none")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public static <T1, T2, T3, T4, T5, T6, T7, R> Flowable<R> combineLatest(Publisher<? extends T1> publisher, Publisher<? extends T2> publisher2, Publisher<? extends T3> publisher3, Publisher<? extends T4> publisher4, Publisher<? extends T5> publisher5, Publisher<? extends T6> publisher6, Publisher<? extends T7> publisher7, Function7<? super T1, ? super T2, ? super T3, ? super T4, ? super T5, ? super T6, ? super T7, ? extends R> function7) {
+    public static Flowable combineLatest(Publisher publisher, Publisher publisher2, Publisher publisher3, Publisher publisher4, Publisher publisher5, Publisher publisher6, Publisher publisher7, Function7 function7) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{publisher, publisher2, publisher3, publisher4, publisher5, publisher6, publisher7, function7})) == null) {
@@ -6107,59 +4698,22 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (Flowable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.COMPUTATION)
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final ConnectableFlowable<T> replay(long j, TimeUnit timeUnit) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048790, this, j, timeUnit)) == null) ? replay(j, timeUnit, Schedulers.computation()) : (ConnectableFlowable) invokeJL.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final ConnectableFlowable<T> replay(long j, TimeUnit timeUnit, Scheduler scheduler) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048791, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
-            ObjectHelper.requireNonNull(timeUnit, "unit is null");
-            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return FlowableReplay.create(this, j, timeUnit, scheduler);
-        }
-        return (ConnectableFlowable) invokeCommon.objValue;
-    }
-
-    @SchedulerSupport("custom")
-    @BackpressureSupport(BackpressureKind.FULL)
-    @CheckReturnValue
-    public final ConnectableFlowable<T> replay(Scheduler scheduler) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048792, this, scheduler)) == null) {
-            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return FlowableReplay.observeOn(replay(), scheduler);
-        }
-        return (ConnectableFlowable) invokeL.objValue;
-    }
-
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static <T> Flowable<T> just(T t, T t2, T t3, T t4, T t5, T t6, T t7, T t8, T t9) {
+    public static Flowable just(Object obj, Object obj2, Object obj3, Object obj4, Object obj5, Object obj6, Object obj7, Object obj8) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65610, null, new Object[]{t, t2, t3, t4, t5, t6, t7, t8, t9})) == null) {
-            ObjectHelper.requireNonNull(t, "The first item is null");
-            ObjectHelper.requireNonNull(t2, "The second item is null");
-            ObjectHelper.requireNonNull(t3, "The third item is null");
-            ObjectHelper.requireNonNull(t4, "The fourth item is null");
-            ObjectHelper.requireNonNull(t5, "The fifth item is null");
-            ObjectHelper.requireNonNull(t6, "The sixth item is null");
-            ObjectHelper.requireNonNull(t7, "The seventh item is null");
-            ObjectHelper.requireNonNull(t8, "The eighth item is null");
-            ObjectHelper.requireNonNull(t9, "The ninth is null");
-            return fromArray(t, t2, t3, t4, t5, t6, t7, t8, t9);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65609, null, new Object[]{obj, obj2, obj3, obj4, obj5, obj6, obj7, obj8})) == null) {
+            ObjectHelper.requireNonNull(obj, "The first item is null");
+            ObjectHelper.requireNonNull(obj2, "The second item is null");
+            ObjectHelper.requireNonNull(obj3, "The third item is null");
+            ObjectHelper.requireNonNull(obj4, "The fourth item is null");
+            ObjectHelper.requireNonNull(obj5, "The fifth item is null");
+            ObjectHelper.requireNonNull(obj6, "The sixth item is null");
+            ObjectHelper.requireNonNull(obj7, "The seventh item is null");
+            ObjectHelper.requireNonNull(obj8, "The eighth item is null");
+            return fromArray(obj, obj2, obj3, obj4, obj5, obj6, obj7, obj8);
         }
         return (Flowable) invokeCommon.objValue;
     }
@@ -6167,10 +4721,10 @@ public abstract class Flowable<T> implements Publisher<T> {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static <T1, T2, T3, T4, T5, T6, T7, T8, R> Flowable<R> zip(Publisher<? extends T1> publisher, Publisher<? extends T2> publisher2, Publisher<? extends T3> publisher3, Publisher<? extends T4> publisher4, Publisher<? extends T5> publisher5, Publisher<? extends T6> publisher6, Publisher<? extends T7> publisher7, Publisher<? extends T8> publisher8, Function8<? super T1, ? super T2, ? super T3, ? super T4, ? super T5, ? super T6, ? super T7, ? super T8, ? extends R> function8) {
+    public static Flowable zip(Publisher publisher, Publisher publisher2, Publisher publisher3, Publisher publisher4, Publisher publisher5, Publisher publisher6, Publisher publisher7, Function7 function7) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65660, null, new Object[]{publisher, publisher2, publisher3, publisher4, publisher5, publisher6, publisher7, publisher8, function8})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65659, null, new Object[]{publisher, publisher2, publisher3, publisher4, publisher5, publisher6, publisher7, function7})) == null) {
             ObjectHelper.requireNonNull(publisher, "source1 is null");
             ObjectHelper.requireNonNull(publisher2, "source2 is null");
             ObjectHelper.requireNonNull(publisher3, "source3 is null");
@@ -6178,8 +4732,7 @@ public abstract class Flowable<T> implements Publisher<T> {
             ObjectHelper.requireNonNull(publisher5, "source5 is null");
             ObjectHelper.requireNonNull(publisher6, "source6 is null");
             ObjectHelper.requireNonNull(publisher7, "source7 is null");
-            ObjectHelper.requireNonNull(publisher8, "source8 is null");
-            return zipArray(Functions.toFunction(function8), false, bufferSize(), publisher, publisher2, publisher3, publisher4, publisher5, publisher6, publisher7, publisher8);
+            return zipArray(Functions.toFunction(function7), false, bufferSize(), publisher, publisher2, publisher3, publisher4, publisher5, publisher6, publisher7);
         }
         return (Flowable) invokeCommon.objValue;
     }
@@ -6187,7 +4740,7 @@ public abstract class Flowable<T> implements Publisher<T> {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static <T1, T2, T3, T4, T5, T6, T7, T8, R> Flowable<R> combineLatest(Publisher<? extends T1> publisher, Publisher<? extends T2> publisher2, Publisher<? extends T3> publisher3, Publisher<? extends T4> publisher4, Publisher<? extends T5> publisher5, Publisher<? extends T6> publisher6, Publisher<? extends T7> publisher7, Publisher<? extends T8> publisher8, Function8<? super T1, ? super T2, ? super T3, ? super T4, ? super T5, ? super T6, ? super T7, ? super T8, ? extends R> function8) {
+    public static Flowable combineLatest(Publisher publisher, Publisher publisher2, Publisher publisher3, Publisher publisher4, Publisher publisher5, Publisher publisher6, Publisher publisher7, Publisher publisher8, Function8 function8) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{publisher, publisher2, publisher3, publisher4, publisher5, publisher6, publisher7, publisher8, function8})) == null) {
@@ -6207,7 +4760,1474 @@ public abstract class Flowable<T> implements Publisher<T> {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static <T1, T2, T3, T4, T5, T6, T7, T8, T9, R> Flowable<R> zip(Publisher<? extends T1> publisher, Publisher<? extends T2> publisher2, Publisher<? extends T3> publisher3, Publisher<? extends T4> publisher4, Publisher<? extends T5> publisher5, Publisher<? extends T6> publisher6, Publisher<? extends T7> publisher7, Publisher<? extends T8> publisher8, Publisher<? extends T9> publisher9, Function9<? super T1, ? super T2, ? super T3, ? super T4, ? super T5, ? super T6, ? super T7, ? super T8, ? super T9, ? extends R> function9) {
+    public static Flowable just(Object obj, Object obj2, Object obj3, Object obj4, Object obj5, Object obj6, Object obj7, Object obj8, Object obj9) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65610, null, new Object[]{obj, obj2, obj3, obj4, obj5, obj6, obj7, obj8, obj9})) == null) {
+            ObjectHelper.requireNonNull(obj, "The first item is null");
+            ObjectHelper.requireNonNull(obj2, "The second item is null");
+            ObjectHelper.requireNonNull(obj3, "The third item is null");
+            ObjectHelper.requireNonNull(obj4, "The fourth item is null");
+            ObjectHelper.requireNonNull(obj5, "The fifth item is null");
+            ObjectHelper.requireNonNull(obj6, "The sixth item is null");
+            ObjectHelper.requireNonNull(obj7, "The seventh item is null");
+            ObjectHelper.requireNonNull(obj8, "The eighth item is null");
+            ObjectHelper.requireNonNull(obj9, "The ninth is null");
+            return fromArray(obj, obj2, obj3, obj4, obj5, obj6, obj7, obj8, obj9);
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable zip(Publisher publisher, Publisher publisher2, Publisher publisher3, Publisher publisher4, Publisher publisher5, Publisher publisher6, Publisher publisher7, Publisher publisher8, Function8 function8) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65660, null, new Object[]{publisher, publisher2, publisher3, publisher4, publisher5, publisher6, publisher7, publisher8, function8})) == null) {
+            ObjectHelper.requireNonNull(publisher, "source1 is null");
+            ObjectHelper.requireNonNull(publisher2, "source2 is null");
+            ObjectHelper.requireNonNull(publisher3, "source3 is null");
+            ObjectHelper.requireNonNull(publisher4, "source4 is null");
+            ObjectHelper.requireNonNull(publisher5, "source5 is null");
+            ObjectHelper.requireNonNull(publisher6, "source6 is null");
+            ObjectHelper.requireNonNull(publisher7, "source7 is null");
+            ObjectHelper.requireNonNull(publisher8, "source8 is null");
+            return zipArray(Functions.toFunction(function8), false, bufferSize(), publisher, publisher2, publisher3, publisher4, publisher5, publisher6, publisher7, publisher8);
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable combineLatest(Publisher publisher, Publisher publisher2, Publisher publisher3, Publisher publisher4, Publisher publisher5, Publisher publisher6, Publisher publisher7, Publisher publisher8, Publisher publisher9, Function9 function9) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{publisher, publisher2, publisher3, publisher4, publisher5, publisher6, publisher7, publisher8, publisher9, function9})) == null) {
+            ObjectHelper.requireNonNull(publisher, "source1 is null");
+            ObjectHelper.requireNonNull(publisher2, "source2 is null");
+            ObjectHelper.requireNonNull(publisher3, "source3 is null");
+            ObjectHelper.requireNonNull(publisher4, "source4 is null");
+            ObjectHelper.requireNonNull(publisher5, "source5 is null");
+            ObjectHelper.requireNonNull(publisher6, "source6 is null");
+            ObjectHelper.requireNonNull(publisher7, "source7 is null");
+            ObjectHelper.requireNonNull(publisher8, "source8 is null");
+            ObjectHelper.requireNonNull(publisher9, "source9 is null");
+            return combineLatest(Functions.toFunction(function9), publisher, publisher2, publisher3, publisher4, publisher5, publisher6, publisher7, publisher8, publisher9);
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable combineLatest(Publisher[] publisherArr, Function function) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, publisherArr, function)) == null) {
+            return combineLatest(publisherArr, function, bufferSize());
+        }
+        return (Flowable) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable combineLatestDelayError(Publisher[] publisherArr, Function function) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, publisherArr, function)) == null) {
+            return combineLatestDelayError(publisherArr, function, bufferSize());
+        }
+        return (Flowable) invokeLL.objValue;
+    }
+
+    @SchedulerSupport(SchedulerSupport.COMPUTATION)
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable buffer(long j, TimeUnit timeUnit) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048604, this, j, timeUnit)) == null) {
+            return buffer(j, timeUnit, Schedulers.computation(), Integer.MAX_VALUE);
+        }
+        return (Flowable) invokeJL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable flatMap(Function function, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048702, this, function, z)) == null) {
+            return flatMap(function, z, bufferSize(), bufferSize());
+        }
+        return (Flowable) invokeLZ.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final ConnectableFlowable replay(int i, Scheduler scheduler) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048789, this, i, scheduler)) == null) {
+            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
+            return FlowableReplay.observeOn(replay(i), scheduler);
+        }
+        return (ConnectableFlowable) invokeIL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable timeout(Publisher publisher, Function function) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048889, this, publisher, function)) == null) {
+            ObjectHelper.requireNonNull(publisher, "firstTimeoutIndicator is null");
+            return timeout0(publisher, function, null);
+        }
+        return (Flowable) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable window(Publisher publisher, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048929, this, publisher, i)) == null) {
+            ObjectHelper.requireNonNull(publisher, "boundaryIndicator is null");
+            ObjectHelper.verifyPositive(i, "bufferSize");
+            return RxJavaPlugins.onAssembly(new FlowableWindowBoundary(this, publisher, i));
+        }
+        return (Flowable) invokeLI.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable withLatestFrom(Publisher[] publisherArr, Function function) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048937, this, publisherArr, function)) == null) {
+            ObjectHelper.requireNonNull(publisherArr, "others is null");
+            ObjectHelper.requireNonNull(function, "combiner is null");
+            return RxJavaPlugins.onAssembly(new FlowableWithLatestFromMany(this, publisherArr, function));
+        }
+        return (Flowable) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable combineLatest(Publisher[] publisherArr, Function function, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65553, null, publisherArr, function, i)) == null) {
+            ObjectHelper.requireNonNull(publisherArr, "sources is null");
+            if (publisherArr.length == 0) {
+                return empty();
+            }
+            ObjectHelper.requireNonNull(function, "combiner is null");
+            ObjectHelper.verifyPositive(i, "bufferSize");
+            return RxJavaPlugins.onAssembly(new FlowableCombineLatest(publisherArr, function, i, false));
+        }
+        return (Flowable) invokeLLI.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable combineLatestDelayError(Publisher[] publisherArr, Function function, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65559, null, publisherArr, function, i)) == null) {
+            ObjectHelper.requireNonNull(publisherArr, "sources is null");
+            ObjectHelper.requireNonNull(function, "combiner is null");
+            ObjectHelper.verifyPositive(i, "bufferSize");
+            if (publisherArr.length == 0) {
+                return empty();
+            }
+            return RxJavaPlugins.onAssembly(new FlowableCombineLatest(publisherArr, function, i, true));
+        }
+        return (Flowable) invokeLLI.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable concat(Publisher publisher, Publisher publisher2, Publisher publisher3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65564, null, publisher, publisher2, publisher3)) == null) {
+            ObjectHelper.requireNonNull(publisher, "source1 is null");
+            ObjectHelper.requireNonNull(publisher2, "source2 is null");
+            ObjectHelper.requireNonNull(publisher3, "source3 is null");
+            return concatArray(publisher, publisher2, publisher3);
+        }
+        return (Flowable) invokeLLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable concatArrayEager(int i, int i2, Publisher... publisherArr) {
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65568, null, i, i2, publisherArr)) == null) {
+            ObjectHelper.requireNonNull(publisherArr, "sources is null");
+            ObjectHelper.verifyPositive(i, "maxConcurrency");
+            ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
+            return RxJavaPlugins.onAssembly(new FlowableConcatMapEager(new FlowableFromArray(publisherArr), Functions.identity(), i, i2, ErrorMode.IMMEDIATE));
+        }
+        return (Flowable) invokeIIL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable concatDelayError(Publisher publisher, int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65572, null, new Object[]{publisher, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            return fromPublisher(publisher).concatMapDelayError(Functions.identity(), i, z);
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable concatEager(Iterable iterable, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65574, null, iterable, i, i2)) == null) {
+            ObjectHelper.requireNonNull(iterable, "sources is null");
+            ObjectHelper.verifyPositive(i, "maxConcurrency");
+            ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
+            return RxJavaPlugins.onAssembly(new FlowableConcatMapEager(new FlowableFromIterable(iterable), Functions.identity(), i, i2, ErrorMode.IMMEDIATE));
+        }
+        return (Flowable) invokeLII.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable fromFuture(Future future, long j, TimeUnit timeUnit) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65586, null, new Object[]{future, Long.valueOf(j), timeUnit})) == null) {
+            ObjectHelper.requireNonNull(future, "future is null");
+            ObjectHelper.requireNonNull(timeUnit, "unit is null");
+            return RxJavaPlugins.onAssembly(new FlowableFromFuture(future, j, timeUnit));
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport(SchedulerSupport.COMPUTATION)
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public static Flowable interval(long j, long j2, TimeUnit timeUnit) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65596, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) {
+            return interval(j, j2, timeUnit, Schedulers.computation());
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable just(Object obj, Object obj2, Object obj3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65604, null, obj, obj2, obj3)) == null) {
+            ObjectHelper.requireNonNull(obj, "The first item is null");
+            ObjectHelper.requireNonNull(obj2, "The second item is null");
+            ObjectHelper.requireNonNull(obj3, "The third item is null");
+            return fromArray(obj, obj2, obj3);
+        }
+        return (Flowable) invokeLLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable merge(Publisher publisher, Publisher publisher2, Publisher publisher3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65618, null, publisher, publisher2, publisher3)) == null) {
+            ObjectHelper.requireNonNull(publisher, "source1 is null");
+            ObjectHelper.requireNonNull(publisher2, "source2 is null");
+            ObjectHelper.requireNonNull(publisher3, "source3 is null");
+            return fromArray(publisher, publisher2, publisher3).flatMap(Functions.identity(), false, 3);
+        }
+        return (Flowable) invokeLLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable mergeDelayError(Publisher publisher, Publisher publisher2, Publisher publisher3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65630, null, publisher, publisher2, publisher3)) == null) {
+            ObjectHelper.requireNonNull(publisher, "source1 is null");
+            ObjectHelper.requireNonNull(publisher2, "source2 is null");
+            ObjectHelper.requireNonNull(publisher3, "source3 is null");
+            return fromArray(publisher, publisher2, publisher3).flatMap(Functions.identity(), true, 3);
+        }
+        return (Flowable) invokeLLL.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public static Flowable timer(long j, TimeUnit timeUnit, Scheduler scheduler) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65646, null, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
+            ObjectHelper.requireNonNull(timeUnit, "unit is null");
+            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
+            return RxJavaPlugins.onAssembly(new FlowableTimer(Math.max(0L, j), timeUnit, scheduler));
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable zip(Publisher publisher, Publisher publisher2, BiFunction biFunction) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65652, null, publisher, publisher2, biFunction)) == null) {
+            ObjectHelper.requireNonNull(publisher, "source1 is null");
+            ObjectHelper.requireNonNull(publisher2, "source2 is null");
+            return zipArray(Functions.toFunction(biFunction), false, bufferSize(), publisher, publisher2);
+        }
+        return (Flowable) invokeLLL.objValue;
+    }
+
+    @SchedulerSupport(SchedulerSupport.COMPUTATION)
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable buffer(long j, long j2, TimeUnit timeUnit) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) {
+            return buffer(j, j2, timeUnit, Schedulers.computation(), ArrayListSupplier.asCallable());
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Completable concatMapCompletableDelayError(Function function, boolean z, int i) {
+        InterceptResult invokeCommon;
+        ErrorMode errorMode;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048628, this, new Object[]{function, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            ObjectHelper.requireNonNull(function, "mapper is null");
+            ObjectHelper.verifyPositive(i, PrefetchEvent.MODULE);
+            if (z) {
+                errorMode = ErrorMode.END;
+            } else {
+                errorMode = ErrorMode.BOUNDARY;
+            }
+            return RxJavaPlugins.onAssembly(new FlowableConcatMapCompletable(this, function, errorMode, i));
+        }
+        return (Completable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable concatMapEager(Function function, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048632, this, function, i, i2)) == null) {
+            ObjectHelper.requireNonNull(function, "mapper is null");
+            ObjectHelper.verifyPositive(i, "maxConcurrency");
+            ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
+            return RxJavaPlugins.onAssembly(new FlowableConcatMapEager(this, function, i, i2, ErrorMode.IMMEDIATE));
+        }
+        return (Flowable) invokeLII.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable concatMapMaybeDelayError(Function function, boolean z, int i) {
+        InterceptResult invokeCommon;
+        ErrorMode errorMode;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048641, this, new Object[]{function, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            ObjectHelper.requireNonNull(function, "mapper is null");
+            ObjectHelper.verifyPositive(i, PrefetchEvent.MODULE);
+            if (z) {
+                errorMode = ErrorMode.END;
+            } else {
+                errorMode = ErrorMode.BOUNDARY;
+            }
+            return RxJavaPlugins.onAssembly(new FlowableConcatMapMaybe(this, function, errorMode, i));
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable concatMapSingleDelayError(Function function, boolean z, int i) {
+        InterceptResult invokeCommon;
+        ErrorMode errorMode;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048646, this, new Object[]{function, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            ObjectHelper.requireNonNull(function, "mapper is null");
+            ObjectHelper.verifyPositive(i, PrefetchEvent.MODULE);
+            if (z) {
+                errorMode = ErrorMode.END;
+            } else {
+                errorMode = ErrorMode.BOUNDARY;
+            }
+            return RxJavaPlugins.onAssembly(new FlowableConcatMapSingle(this, function, errorMode, i));
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable debounce(long j, TimeUnit timeUnit, Scheduler scheduler) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048654, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
+            ObjectHelper.requireNonNull(timeUnit, "unit is null");
+            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
+            return RxJavaPlugins.onAssembly(new FlowableDebounceTimed(this, j, timeUnit, scheduler));
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport(SchedulerSupport.COMPUTATION)
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable delay(long j, TimeUnit timeUnit, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048660, this, new Object[]{Long.valueOf(j), timeUnit, Boolean.valueOf(z)})) == null) {
+            return delay(j, timeUnit, Schedulers.computation(), z);
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable flatMap(Function function, boolean z, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048703, this, new Object[]{function, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            return flatMap(function, z, i, bufferSize());
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Completable flatMapCompletable(Function function, boolean z, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048706, this, new Object[]{function, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            ObjectHelper.requireNonNull(function, "mapper is null");
+            ObjectHelper.verifyPositive(i, "maxConcurrency");
+            return RxJavaPlugins.onAssembly(new FlowableFlatMapCompletableCompletable(this, function, z, i));
+        }
+        return (Completable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Flowable flatMapMaybe(Function function, boolean z, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048712, this, new Object[]{function, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            ObjectHelper.requireNonNull(function, "mapper is null");
+            ObjectHelper.verifyPositive(i, "maxConcurrency");
+            return RxJavaPlugins.onAssembly(new FlowableFlatMapMaybe(this, function, z, i));
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Flowable flatMapSingle(Function function, boolean z, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048714, this, new Object[]{function, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            ObjectHelper.requireNonNull(function, "mapper is null");
+            ObjectHelper.verifyPositive(i, "maxConcurrency");
+            return RxJavaPlugins.onAssembly(new FlowableFlatMapSingle(this, function, z, i));
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable observeOn(Scheduler scheduler, boolean z, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048743, this, new Object[]{scheduler, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
+            ObjectHelper.verifyPositive(i, "bufferSize");
+            return RxJavaPlugins.onAssembly(new FlowableObserveOn(this, scheduler, z, i));
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.SPECIAL)
+    @CheckReturnValue
+    public final Flowable onBackpressureBuffer(int i, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048749, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            ObjectHelper.verifyPositive(i, "bufferSize");
+            return RxJavaPlugins.onAssembly(new FlowableOnBackpressureBuffer(this, i, z2, z, Functions.EMPTY_ACTION));
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport(SchedulerSupport.COMPUTATION)
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable replay(Function function, long j, TimeUnit timeUnit) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048782, this, new Object[]{function, Long.valueOf(j), timeUnit})) == null) {
+            return replay(function, j, timeUnit, Schedulers.computation());
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable sample(long j, TimeUnit timeUnit, Scheduler scheduler) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048802, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
+            ObjectHelper.requireNonNull(timeUnit, "unit is null");
+            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
+            return RxJavaPlugins.onAssembly(new FlowableSampleTimed(this, j, timeUnit, scheduler, false));
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Flowable skipLast(long j, TimeUnit timeUnit, Scheduler scheduler) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048820, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
+            return skipLast(j, timeUnit, scheduler, false, bufferSize());
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable takeLast(long j, long j2, TimeUnit timeUnit) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048859, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) {
+            return takeLast(j, j2, timeUnit, Schedulers.computation(), false, bufferSize());
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable throttleFirst(long j, TimeUnit timeUnit, Scheduler scheduler) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048874, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
+            ObjectHelper.requireNonNull(timeUnit, "unit is null");
+            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
+            return RxJavaPlugins.onAssembly(new FlowableThrottleFirstTimed(this, j, timeUnit, scheduler));
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport(SchedulerSupport.COMPUTATION)
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable timeout(long j, TimeUnit timeUnit, Publisher publisher) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048886, this, new Object[]{Long.valueOf(j), timeUnit, publisher})) == null) {
+            ObjectHelper.requireNonNull(publisher, "other is null");
+            return timeout0(j, timeUnit, publisher, Schedulers.computation());
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport(SchedulerSupport.COMPUTATION)
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable window(long j, long j2, TimeUnit timeUnit) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048916, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) {
+            return window(j, j2, timeUnit, Schedulers.computation(), bufferSize());
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable concat(Publisher publisher) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, publisher)) == null) {
+            return concat(publisher, bufferSize());
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable concatDelayError(Publisher publisher) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65571, null, publisher)) == null) {
+            return concatDelayError(publisher, bufferSize(), true);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable concatEager(Publisher publisher) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, publisher)) == null) {
+            return concatEager(publisher, bufferSize(), bufferSize());
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public static Flowable error(Callable callable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65582, null, callable)) == null) {
+            ObjectHelper.requireNonNull(callable, "errorSupplier is null");
+            return RxJavaPlugins.onAssembly(new FlowableError(callable));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable merge(Publisher publisher) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65615, null, publisher)) == null) {
+            return merge(publisher, bufferSize());
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable mergeDelayError(Publisher publisher) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65627, null, publisher)) == null) {
+            return mergeDelayError(publisher, bufferSize());
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.SPECIAL)
+    public final void blockingSubscribe(Subscriber subscriber) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, subscriber) == null) {
+            FlowableBlockingSubscribe.subscribe(this, subscriber);
+        }
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable buffer(Callable callable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, callable)) == null) {
+            return buffer(callable, ArrayListSupplier.asCallable());
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable concatWith(MaybeSource maybeSource) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048648, this, maybeSource)) == null) {
+            ObjectHelper.requireNonNull(maybeSource, "other is null");
+            return RxJavaPlugins.onAssembly(new FlowableConcatWithMaybe(this, maybeSource));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable distinctUntilChanged(Function function) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048672, this, function)) == null) {
+            ObjectHelper.requireNonNull(function, "keySelector is null");
+            return RxJavaPlugins.onAssembly(new FlowableDistinctUntilChanged(this, function, ObjectHelper.equalsPredicate()));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable doOnEach(Subscriber subscriber) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048679, this, subscriber)) == null) {
+            ObjectHelper.requireNonNull(subscriber, "subscriber is null");
+            return doOnEach(FlowableInternalHelper.subscriberOnNext(subscriber), FlowableInternalHelper.subscriberOnError(subscriber), FlowableInternalHelper.subscriberOnComplete(subscriber), Functions.EMPTY_ACTION);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable mergeWith(MaybeSource maybeSource) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048738, this, maybeSource)) == null) {
+            ObjectHelper.requireNonNull(maybeSource, "other is null");
+            return RxJavaPlugins.onAssembly(new FlowableMergeWithMaybe(this, maybeSource));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Flowable onBackpressureBuffer(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048752, this, z)) == null) {
+            return onBackpressureBuffer(bufferSize(), z, true);
+        }
+        return (Flowable) invokeZ.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable onErrorResumeNext(Publisher publisher) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048757, this, publisher)) == null) {
+            ObjectHelper.requireNonNull(publisher, "next is null");
+            return onErrorResumeNext(Functions.justFunction(publisher));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final ConnectableFlowable publish(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048768, this, i)) == null) {
+            ObjectHelper.verifyPositive(i, "bufferSize");
+            return FlowablePublish.create(this, i);
+        }
+        return (ConnectableFlowable) invokeI.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final ConnectableFlowable replay(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048786, this, i)) == null) {
+            ObjectHelper.verifyPositive(i, "bufferSize");
+            return FlowableReplay.create(this, i);
+        }
+        return (ConnectableFlowable) invokeI.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable retry(BiPredicate biPredicate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048796, this, biPredicate)) == null) {
+            ObjectHelper.requireNonNull(biPredicate, "predicate is null");
+            return RxJavaPlugins.onAssembly(new FlowableRetryBiPredicate(this, biPredicate));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable startWith(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048829, this, obj)) == null) {
+            ObjectHelper.requireNonNull(obj, "item is null");
+            return concatArray(just(obj), this);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @Override // org.reactivestreams.Publisher
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.SPECIAL)
+    public final void subscribe(Subscriber subscriber) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048838, this, subscriber) == null) {
+            if (subscriber instanceof FlowableSubscriber) {
+                subscribe((FlowableSubscriber) subscriber);
+                return;
+            }
+            ObjectHelper.requireNonNull(subscriber, "s is null");
+            subscribe((FlowableSubscriber) new StrictSubscriber(subscriber));
+        }
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable takeUntil(Publisher publisher) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048868, this, publisher)) == null) {
+            ObjectHelper.requireNonNull(publisher, "other is null");
+            return RxJavaPlugins.onAssembly(new FlowableTakeUntil(this, publisher));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable timeInterval(TimeUnit timeUnit) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048881, this, timeUnit)) == null) {
+            return timeInterval(timeUnit, Schedulers.computation());
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.PASS_THROUGH)
+    @CheckReturnValue
+    public final Flowable timestamp(TimeUnit timeUnit) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048893, this, timeUnit)) == null) {
+            return timestamp(timeUnit, Schedulers.computation());
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Single toList(Callable callable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048899, this, callable)) == null) {
+            ObjectHelper.requireNonNull(callable, "collectionSupplier is null");
+            return RxJavaPlugins.onAssembly(new FlowableToListSingle(this, callable));
+        }
+        return (Single) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Single toSortedList(Comparator comparator) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048910, this, comparator)) == null) {
+            ObjectHelper.requireNonNull(comparator, "comparator is null");
+            return toList().map(Functions.listSorter(comparator));
+        }
+        return (Single) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable window(Callable callable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048926, this, callable)) == null) {
+            return window(callable, bufferSize());
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable concatEager(Publisher publisher, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65576, null, publisher, i, i2)) == null) {
+            ObjectHelper.requireNonNull(publisher, "sources is null");
+            ObjectHelper.verifyPositive(i, "maxConcurrency");
+            ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
+            return RxJavaPlugins.onAssembly(new FlowableConcatMapEagerPublisher(publisher, Functions.identity(), i, i2, ErrorMode.IMMEDIATE));
+        }
+        return (Flowable) invokeLII.objValue;
+    }
+
+    @SchedulerSupport(SchedulerSupport.COMPUTATION)
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable buffer(long j, TimeUnit timeUnit, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048605, this, new Object[]{Long.valueOf(j), timeUnit, Integer.valueOf(i)})) == null) {
+            return buffer(j, timeUnit, Schedulers.computation(), i);
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.SPECIAL)
+    @CheckReturnValue
+    public final Flowable onBackpressureBuffer(long j, Action action, BackpressureOverflowStrategy backpressureOverflowStrategy) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048751, this, new Object[]{Long.valueOf(j), action, backpressureOverflowStrategy})) == null) {
+            ObjectHelper.requireNonNull(backpressureOverflowStrategy, "strategy is null");
+            ObjectHelper.verifyPositive(j, "capacity");
+            return RxJavaPlugins.onAssembly(new FlowableOnBackpressureBufferStrategy(this, j, action, backpressureOverflowStrategy));
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport(SchedulerSupport.COMPUTATION)
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final ConnectableFlowable replay(int i, long j, TimeUnit timeUnit) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048787, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), timeUnit})) == null) {
+            return replay(i, j, timeUnit, Schedulers.computation());
+        }
+        return (ConnectableFlowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport(SchedulerSupport.COMPUTATION)
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable sample(long j, TimeUnit timeUnit, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048804, this, new Object[]{Long.valueOf(j), timeUnit, Boolean.valueOf(z)})) == null) {
+            return sample(j, timeUnit, Schedulers.computation(), z);
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Flowable skipLast(long j, TimeUnit timeUnit, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048823, this, new Object[]{Long.valueOf(j), timeUnit, Boolean.valueOf(z)})) == null) {
+            return skipLast(j, timeUnit, Schedulers.computation(), z, bufferSize());
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable takeLast(long j, TimeUnit timeUnit, Scheduler scheduler) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048863, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
+            return takeLast(j, timeUnit, scheduler, false, bufferSize());
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport(SchedulerSupport.COMPUTATION)
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable window(long j, TimeUnit timeUnit, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048920, this, new Object[]{Long.valueOf(j), timeUnit, Long.valueOf(j2)})) == null) {
+            return window(j, timeUnit, Schedulers.computation(), j2, false);
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public static Flowable interval(long j, long j2, TimeUnit timeUnit, Scheduler scheduler) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65597, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), timeUnit, scheduler})) == null) {
+            ObjectHelper.requireNonNull(timeUnit, "unit is null");
+            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
+            return RxJavaPlugins.onAssembly(new FlowableInterval(Math.max(0L, j), Math.max(0L, j2), timeUnit, scheduler));
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable zip(Publisher publisher, Publisher publisher2, BiFunction biFunction, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65653, null, new Object[]{publisher, publisher2, biFunction, Boolean.valueOf(z)})) == null) {
+            ObjectHelper.requireNonNull(publisher, "source1 is null");
+            ObjectHelper.requireNonNull(publisher2, "source2 is null");
+            return zipArray(Functions.toFunction(biFunction), z, bufferSize(), publisher, publisher2);
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable zipArray(Function function, boolean z, int i, Publisher... publisherArr) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65662, null, new Object[]{function, Boolean.valueOf(z), Integer.valueOf(i), publisherArr})) == null) {
+            if (publisherArr.length == 0) {
+                return empty();
+            }
+            ObjectHelper.requireNonNull(function, "zipper is null");
+            ObjectHelper.verifyPositive(i, "bufferSize");
+            return RxJavaPlugins.onAssembly(new FlowableZip(publisherArr, null, function, i, z));
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable zipIterable(Iterable iterable, Function function, boolean z, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65663, null, new Object[]{iterable, function, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            ObjectHelper.requireNonNull(function, "zipper is null");
+            ObjectHelper.requireNonNull(iterable, "sources is null");
+            ObjectHelper.verifyPositive(i, "bufferSize");
+            return RxJavaPlugins.onAssembly(new FlowableZip(null, iterable, function, i, z));
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable concatMapEagerDelayError(Function function, int i, int i2, boolean z) {
+        InterceptResult invokeCommon;
+        ErrorMode errorMode;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048633, this, new Object[]{function, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            ObjectHelper.requireNonNull(function, "mapper is null");
+            ObjectHelper.verifyPositive(i, "maxConcurrency");
+            ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
+            if (z) {
+                errorMode = ErrorMode.END;
+            } else {
+                errorMode = ErrorMode.BOUNDARY;
+            }
+            return RxJavaPlugins.onAssembly(new FlowableConcatMapEager(this, function, i, i2, errorMode));
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable delay(long j, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048659, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, Boolean.valueOf(z)})) == null) {
+            ObjectHelper.requireNonNull(timeUnit, "unit is null");
+            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
+            return RxJavaPlugins.onAssembly(new FlowableDelay(this, Math.max(0L, j), timeUnit, scheduler, z));
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable groupBy(Function function, Function function2, boolean z, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048722, this, new Object[]{function, function2, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            ObjectHelper.requireNonNull(function, "keySelector is null");
+            ObjectHelper.requireNonNull(function2, "valueSelector is null");
+            ObjectHelper.verifyPositive(i, "bufferSize");
+            return RxJavaPlugins.onAssembly(new FlowableGroupBy(this, function, function2, i, z, null));
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.SPECIAL)
+    @CheckReturnValue
+    public final Flowable onBackpressureBuffer(int i, boolean z, boolean z2, Action action) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048750, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), action})) == null) {
+            ObjectHelper.requireNonNull(action, "onOverflow is null");
+            ObjectHelper.verifyPositive(i, "capacity");
+            return RxJavaPlugins.onAssembly(new FlowableOnBackpressureBuffer(this, i, z2, z, action));
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final ConnectableFlowable replay(int i, long j, TimeUnit timeUnit, Scheduler scheduler) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048788, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), timeUnit, scheduler})) == null) {
+            ObjectHelper.verifyPositive(i, "bufferSize");
+            ObjectHelper.requireNonNull(timeUnit, "unit is null");
+            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
+            ObjectHelper.verifyPositive(i, "bufferSize");
+            return FlowableReplay.create(this, j, timeUnit, scheduler, i);
+        }
+        return (ConnectableFlowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable sample(long j, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048803, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, Boolean.valueOf(z)})) == null) {
+            ObjectHelper.requireNonNull(timeUnit, "unit is null");
+            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
+            return RxJavaPlugins.onAssembly(new FlowableSampleTimed(this, j, timeUnit, scheduler, z));
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport(SchedulerSupport.COMPUTATION)
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public static Flowable intervalRange(long j, long j2, long j3, long j4, TimeUnit timeUnit) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65600, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), timeUnit})) == null) {
+            return intervalRange(j, j2, j3, j4, timeUnit, Schedulers.computation());
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable zip(Publisher publisher, Publisher publisher2, BiFunction biFunction, boolean z, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65654, null, new Object[]{publisher, publisher2, biFunction, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            ObjectHelper.requireNonNull(publisher, "source1 is null");
+            ObjectHelper.requireNonNull(publisher2, "source2 is null");
+            return zipArray(Functions.toFunction(biFunction), z, i, publisher, publisher2);
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable buffer(long j, long j2, TimeUnit timeUnit, Scheduler scheduler, Callable callable) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048603, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), timeUnit, scheduler, callable})) == null) {
+            ObjectHelper.requireNonNull(timeUnit, "unit is null");
+            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
+            ObjectHelper.requireNonNull(callable, "bufferSupplier is null");
+            return RxJavaPlugins.onAssembly(new FlowableBufferTimed(this, j, j2, timeUnit, scheduler, callable, Integer.MAX_VALUE, false));
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable flatMap(Function function, BiFunction biFunction, boolean z, int i, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048699, this, new Object[]{function, biFunction, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            ObjectHelper.requireNonNull(function, "mapper is null");
+            ObjectHelper.requireNonNull(biFunction, "combiner is null");
+            ObjectHelper.verifyPositive(i, "maxConcurrency");
+            ObjectHelper.verifyPositive(i2, "bufferSize");
+            return flatMap(FlowableInternalHelper.flatMapWithCombiner(function, biFunction), z, i, i2);
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable groupBy(Function function, Function function2, boolean z, int i, Function function3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048723, this, new Object[]{function, function2, Boolean.valueOf(z), Integer.valueOf(i), function3})) == null) {
+            ObjectHelper.requireNonNull(function, "keySelector is null");
+            ObjectHelper.requireNonNull(function2, "valueSelector is null");
+            ObjectHelper.verifyPositive(i, "bufferSize");
+            ObjectHelper.requireNonNull(function3, "evictingMapFactory is null");
+            return RxJavaPlugins.onAssembly(new FlowableGroupBy(this, function, function2, i, z, function3));
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable replay(Function function, int i, long j, TimeUnit timeUnit, Scheduler scheduler) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048780, this, new Object[]{function, Integer.valueOf(i), Long.valueOf(j), timeUnit, scheduler})) == null) {
+            ObjectHelper.requireNonNull(function, "selector is null");
+            ObjectHelper.requireNonNull(timeUnit, "unit is null");
+            ObjectHelper.verifyPositive(i, "bufferSize");
+            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
+            return FlowableReplay.multicastSelector(FlowableInternalHelper.replayCallable(this, i, j, timeUnit, scheduler), function);
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Flowable skipLast(long j, TimeUnit timeUnit, Scheduler scheduler, boolean z, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048822, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            ObjectHelper.requireNonNull(timeUnit, "unit is null");
+            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
+            ObjectHelper.verifyPositive(i, "bufferSize");
+            return RxJavaPlugins.onAssembly(new FlowableSkipLastTimed(this, j, timeUnit, scheduler, i << 1, z));
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable takeLast(long j, TimeUnit timeUnit, Scheduler scheduler, boolean z, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048865, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            return takeLast(Long.MAX_VALUE, j, timeUnit, scheduler, z, i);
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable window(long j, TimeUnit timeUnit, Scheduler scheduler, long j2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048924, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
+            return window(j, timeUnit, scheduler, j2, z, bufferSize());
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public static Flowable intervalRange(long j, long j2, long j3, long j4, TimeUnit timeUnit, Scheduler scheduler) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65601, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), timeUnit, scheduler})) == null) {
+            int i = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
+            if (i >= 0) {
+                if (i == 0) {
+                    return empty().delay(j3, timeUnit, scheduler);
+                }
+                long j5 = j + (j2 - 1);
+                if (j > 0 && j5 < 0) {
+                    throw new IllegalArgumentException("Overflow! start + count is bigger than Long.MAX_VALUE");
+                }
+                ObjectHelper.requireNonNull(timeUnit, "unit is null");
+                ObjectHelper.requireNonNull(scheduler, "scheduler is null");
+                return RxJavaPlugins.onAssembly(new FlowableIntervalRange(j, j5, Math.max(0L, j3), Math.max(0L, j4), timeUnit, scheduler));
+            }
+            throw new IllegalArgumentException("count >= 0 required but it was " + j2);
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable just(Object obj, Object obj2, Object obj3, Object obj4, Object obj5, Object obj6) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65607, null, new Object[]{obj, obj2, obj3, obj4, obj5, obj6})) == null) {
+            ObjectHelper.requireNonNull(obj, "The first item is null");
+            ObjectHelper.requireNonNull(obj2, "The second item is null");
+            ObjectHelper.requireNonNull(obj3, "The third item is null");
+            ObjectHelper.requireNonNull(obj4, "The fourth item is null");
+            ObjectHelper.requireNonNull(obj5, "The fifth item is null");
+            ObjectHelper.requireNonNull(obj6, "The sixth item is null");
+            return fromArray(obj, obj2, obj3, obj4, obj5, obj6);
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable zip(Publisher publisher, Publisher publisher2, Publisher publisher3, Publisher publisher4, Publisher publisher5, Function5 function5) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65657, null, new Object[]{publisher, publisher2, publisher3, publisher4, publisher5, function5})) == null) {
+            ObjectHelper.requireNonNull(publisher, "source1 is null");
+            ObjectHelper.requireNonNull(publisher2, "source2 is null");
+            ObjectHelper.requireNonNull(publisher3, "source3 is null");
+            ObjectHelper.requireNonNull(publisher4, "source4 is null");
+            ObjectHelper.requireNonNull(publisher5, "source5 is null");
+            return zipArray(Functions.toFunction(function5), false, bufferSize(), publisher, publisher2, publisher3, publisher4, publisher5);
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable buffer(long j, TimeUnit timeUnit, Scheduler scheduler, int i, Callable callable, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048608, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, Integer.valueOf(i), callable, Boolean.valueOf(z)})) == null) {
+            ObjectHelper.requireNonNull(timeUnit, "unit is null");
+            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
+            ObjectHelper.requireNonNull(callable, "bufferSupplier is null");
+            ObjectHelper.verifyPositive(i, "count");
+            return RxJavaPlugins.onAssembly(new FlowableBufferTimed(this, j, j, timeUnit, scheduler, callable, i, z));
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable takeLast(long j, long j2, TimeUnit timeUnit, Scheduler scheduler, boolean z, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048861, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), timeUnit, scheduler, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            ObjectHelper.requireNonNull(timeUnit, "unit is null");
+            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
+            ObjectHelper.verifyPositive(i, "bufferSize");
+            if (j >= 0) {
+                return RxJavaPlugins.onAssembly(new FlowableTakeLastTimed(this, j, j2, timeUnit, scheduler, i, z));
+            }
+            throw new IndexOutOfBoundsException("count >= 0 required but it was " + j);
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable window(long j, TimeUnit timeUnit, Scheduler scheduler, long j2, boolean z, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048925, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, Long.valueOf(j2), Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            ObjectHelper.verifyPositive(i, "bufferSize");
+            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
+            ObjectHelper.requireNonNull(timeUnit, "unit is null");
+            ObjectHelper.verifyPositive(j2, "count");
+            return RxJavaPlugins.onAssembly(new FlowableWindowTimed(this, j, j, timeUnit, scheduler, j2, i, z));
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable just(Object obj, Object obj2, Object obj3, Object obj4, Object obj5, Object obj6, Object obj7, Object obj8, Object obj9, Object obj10) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65611, null, new Object[]{obj, obj2, obj3, obj4, obj5, obj6, obj7, obj8, obj9, obj10})) == null) {
+            ObjectHelper.requireNonNull(obj, "The first item is null");
+            ObjectHelper.requireNonNull(obj2, "The second item is null");
+            ObjectHelper.requireNonNull(obj3, "The third item is null");
+            ObjectHelper.requireNonNull(obj4, "The fourth item is null");
+            ObjectHelper.requireNonNull(obj5, "The fifth item is null");
+            ObjectHelper.requireNonNull(obj6, "The sixth item is null");
+            ObjectHelper.requireNonNull(obj7, "The seventh item is null");
+            ObjectHelper.requireNonNull(obj8, "The eighth item is null");
+            ObjectHelper.requireNonNull(obj9, "The ninth item is null");
+            ObjectHelper.requireNonNull(obj10, "The tenth item is null");
+            return fromArray(obj, obj2, obj3, obj4, obj5, obj6, obj7, obj8, obj9, obj10);
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable zip(Publisher publisher, Publisher publisher2, Publisher publisher3, Publisher publisher4, Publisher publisher5, Publisher publisher6, Publisher publisher7, Publisher publisher8, Publisher publisher9, Function9 function9) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65661, null, new Object[]{publisher, publisher2, publisher3, publisher4, publisher5, publisher6, publisher7, publisher8, publisher9, function9})) == null) {
@@ -6228,21 +6248,109 @@ public abstract class Flowable<T> implements Publisher<T> {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static <T> Flowable<T> just(T t, T t2, T t3, T t4, T t5, T t6, T t7, T t8, T t9, T t10) {
+    public static Flowable merge(Publisher publisher, Publisher publisher2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65617, null, publisher, publisher2)) == null) {
+            ObjectHelper.requireNonNull(publisher, "source1 is null");
+            ObjectHelper.requireNonNull(publisher2, "source2 is null");
+            return fromArray(publisher, publisher2).flatMap(Functions.identity(), false, 2);
+        }
+        return (Flowable) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable mergeDelayError(Publisher publisher, Publisher publisher2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65629, null, publisher, publisher2)) == null) {
+            ObjectHelper.requireNonNull(publisher, "source1 is null");
+            ObjectHelper.requireNonNull(publisher2, "source2 is null");
+            return fromArray(publisher, publisher2).flatMap(Functions.identity(), true, 2);
+        }
+        return (Flowable) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable concatMap(Function function, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048623, this, function, i)) == null) {
+            ObjectHelper.requireNonNull(function, "mapper is null");
+            ObjectHelper.verifyPositive(i, PrefetchEvent.MODULE);
+            if (this instanceof ScalarCallable) {
+                Object call = ((ScalarCallable) this).call();
+                if (call == null) {
+                    return empty();
+                }
+                return FlowableScalarXMap.scalarXMap(call, function);
+            }
+            return RxJavaPlugins.onAssembly(new FlowableConcatMap(this, function, i, ErrorMode.IMMEDIATE));
+        }
+        return (Flowable) invokeLI.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Single elementAt(long j, Object obj) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048687, this, j, obj)) == null) {
+            if (j >= 0) {
+                ObjectHelper.requireNonNull(obj, "defaultItem is null");
+                return RxJavaPlugins.onAssembly(new FlowableElementAtSingle(this, j, obj));
+            }
+            throw new IndexOutOfBoundsException("index >= 0 required but it was " + j);
+        }
+        return (Single) invokeJL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable retry(long j, Predicate predicate) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048795, this, j, predicate)) == null) {
+            if (j >= 0) {
+                ObjectHelper.requireNonNull(predicate, "predicate is null");
+                return RxJavaPlugins.onAssembly(new FlowableRetryPredicate(this, j, predicate));
+            }
+            throw new IllegalArgumentException("times >= 0 required but it was " + j);
+        }
+        return (Flowable) invokeJL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final TestSubscriber test(long j, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65611, null, new Object[]{t, t2, t3, t4, t5, t6, t7, t8, t9, t10})) == null) {
-            ObjectHelper.requireNonNull(t, "The first item is null");
-            ObjectHelper.requireNonNull(t2, "The second item is null");
-            ObjectHelper.requireNonNull(t3, "The third item is null");
-            ObjectHelper.requireNonNull(t4, "The fourth item is null");
-            ObjectHelper.requireNonNull(t5, "The fifth item is null");
-            ObjectHelper.requireNonNull(t6, "The sixth item is null");
-            ObjectHelper.requireNonNull(t7, "The seventh item is null");
-            ObjectHelper.requireNonNull(t8, "The eighth item is null");
-            ObjectHelper.requireNonNull(t9, "The ninth item is null");
-            ObjectHelper.requireNonNull(t10, "The tenth item is null");
-            return fromArray(t, t2, t3, t4, t5, t6, t7, t8, t9, t10);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048872, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+            TestSubscriber testSubscriber = new TestSubscriber(j);
+            if (z) {
+                testSubscriber.cancel();
+            }
+            subscribe((FlowableSubscriber) testSubscriber);
+            return testSubscriber;
+        }
+        return (TestSubscriber) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable window(long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048914, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return window(j, j2, bufferSize());
         }
         return (Flowable) invokeCommon.objValue;
     }
@@ -6250,20 +6358,537 @@ public abstract class Flowable<T> implements Publisher<T> {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static <T1, T2, T3, T4, T5, T6, T7, T8, T9, R> Flowable<R> combineLatest(Publisher<? extends T1> publisher, Publisher<? extends T2> publisher2, Publisher<? extends T3> publisher3, Publisher<? extends T4> publisher4, Publisher<? extends T5> publisher5, Publisher<? extends T6> publisher6, Publisher<? extends T7> publisher7, Publisher<? extends T8> publisher8, Publisher<? extends T9> publisher9, Function9<? super T1, ? super T2, ? super T3, ? super T4, ? super T5, ? super T6, ? super T7, ? super T8, ? super T9, ? extends R> function9) {
+    public static Flowable range(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65633, null, i, i2)) == null) {
+            if (i2 >= 0) {
+                if (i2 == 0) {
+                    return empty();
+                }
+                if (i2 == 1) {
+                    return just(Integer.valueOf(i));
+                }
+                if (i + (i2 - 1) <= 2147483647L) {
+                    return RxJavaPlugins.onAssembly(new FlowableRange(i, i2));
+                }
+                throw new IllegalArgumentException("Integer overflow");
+            }
+            throw new IllegalArgumentException("count >= 0 required but it was " + i2);
+        }
+        return (Flowable) invokeII.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public static Flowable rangeLong(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{publisher, publisher2, publisher3, publisher4, publisher5, publisher6, publisher7, publisher8, publisher9, function9})) == null) {
-            ObjectHelper.requireNonNull(publisher, "source1 is null");
-            ObjectHelper.requireNonNull(publisher2, "source2 is null");
-            ObjectHelper.requireNonNull(publisher3, "source3 is null");
-            ObjectHelper.requireNonNull(publisher4, "source4 is null");
-            ObjectHelper.requireNonNull(publisher5, "source5 is null");
-            ObjectHelper.requireNonNull(publisher6, "source6 is null");
-            ObjectHelper.requireNonNull(publisher7, "source7 is null");
-            ObjectHelper.requireNonNull(publisher8, "source8 is null");
-            ObjectHelper.requireNonNull(publisher9, "source9 is null");
-            return combineLatest(Functions.toFunction(function9), publisher, publisher2, publisher3, publisher4, publisher5, publisher6, publisher7, publisher8, publisher9);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65634, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            int i = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
+            if (i >= 0) {
+                if (i == 0) {
+                    return empty();
+                }
+                if (j2 == 1) {
+                    return just(Long.valueOf(j));
+                }
+                long j3 = (j2 - 1) + j;
+                if (j > 0 && j3 < 0) {
+                    throw new IllegalArgumentException("Overflow! start + count is bigger than Long.MAX_VALUE");
+                }
+                return RxJavaPlugins.onAssembly(new FlowableRangeLong(j, j2));
+            }
+            throw new IllegalArgumentException("count >= 0 required but it was " + j2);
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable buffer(long j, TimeUnit timeUnit, Scheduler scheduler) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048606, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
+            return buffer(j, timeUnit, scheduler, Integer.MAX_VALUE, ArrayListSupplier.asCallable(), false);
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final ConnectableFlowable replay(long j, TimeUnit timeUnit, Scheduler scheduler) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048791, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
+            ObjectHelper.requireNonNull(timeUnit, "unit is null");
+            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
+            return FlowableReplay.create(this, j, timeUnit, scheduler);
+        }
+        return (ConnectableFlowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport(SchedulerSupport.COMPUTATION)
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable takeLast(long j, TimeUnit timeUnit, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048866, this, new Object[]{Long.valueOf(j), timeUnit, Boolean.valueOf(z)})) == null) {
+            return takeLast(j, timeUnit, Schedulers.computation(), z, bufferSize());
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable window(long j, TimeUnit timeUnit, Scheduler scheduler) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048922, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
+            return window(j, timeUnit, scheduler, Long.MAX_VALUE, false);
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable buffer(long j, TimeUnit timeUnit, Scheduler scheduler, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048607, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, Integer.valueOf(i)})) == null) {
+            return buffer(j, timeUnit, scheduler, i, ArrayListSupplier.asCallable(), false);
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable replay(Function function, long j, TimeUnit timeUnit, Scheduler scheduler) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048783, this, new Object[]{function, Long.valueOf(j), timeUnit, scheduler})) == null) {
+            ObjectHelper.requireNonNull(function, "selector is null");
+            ObjectHelper.requireNonNull(timeUnit, "unit is null");
+            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
+            return FlowableReplay.multicastSelector(FlowableInternalHelper.replayCallable(this, j, timeUnit, scheduler), function);
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable takeLast(long j, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048864, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, Boolean.valueOf(z)})) == null) {
+            return takeLast(j, timeUnit, scheduler, z, bufferSize());
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport(SchedulerSupport.COMPUTATION)
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable window(long j, TimeUnit timeUnit, long j2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048921, this, new Object[]{Long.valueOf(j), timeUnit, Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
+            return window(j, timeUnit, Schedulers.computation(), j2, z);
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable buffer(Flowable flowable, Function function) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048609, this, flowable, function)) == null) {
+            return buffer(flowable, function, ArrayListSupplier.asCallable());
+        }
+        return (Flowable) invokeLL.objValue;
+    }
+
+    @SchedulerSupport(SchedulerSupport.COMPUTATION)
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final ConnectableFlowable replay(long j, TimeUnit timeUnit) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048790, this, j, timeUnit)) == null) {
+            return replay(j, timeUnit, Schedulers.computation());
+        }
+        return (ConnectableFlowable) invokeJL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable window(Publisher publisher, Function function) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048930, this, publisher, function)) == null) {
+            return window(publisher, function, bufferSize());
+        }
+        return (Flowable) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable buffer(Callable callable, Callable callable2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048612, this, callable, callable2)) == null) {
+            ObjectHelper.requireNonNull(callable, "boundaryIndicatorSupplier is null");
+            ObjectHelper.requireNonNull(callable2, "bufferSupplier is null");
+            return RxJavaPlugins.onAssembly(new FlowableBufferBoundarySupplier(this, callable, callable2));
+        }
+        return (Flowable) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable buffer(Publisher publisher) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, publisher)) == null) {
+            return buffer(publisher, ArrayListSupplier.asCallable());
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable concatWith(SingleSource singleSource) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048649, this, singleSource)) == null) {
+            ObjectHelper.requireNonNull(singleSource, "other is null");
+            return RxJavaPlugins.onAssembly(new FlowableConcatWithSingle(this, singleSource));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable mergeWith(SingleSource singleSource) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048739, this, singleSource)) == null) {
+            ObjectHelper.requireNonNull(singleSource, "other is null");
+            return RxJavaPlugins.onAssembly(new FlowableMergeWithSingle(this, singleSource));
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final ConnectableFlowable replay(Scheduler scheduler) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048792, this, scheduler)) == null) {
+            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
+            return FlowableReplay.observeOn(replay(), scheduler);
+        }
+        return (ConnectableFlowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable retry(Predicate predicate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048797, this, predicate)) == null) {
+            return retry(Long.MAX_VALUE, predicate);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable startWith(Publisher publisher) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048830, this, publisher)) == null) {
+            ObjectHelper.requireNonNull(publisher, "other is null");
+            return concatArray(publisher, this);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable window(Publisher publisher) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048928, this, publisher)) == null) {
+            return window(publisher, bufferSize());
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable buffer(Publisher publisher, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048614, this, publisher, i)) == null) {
+            ObjectHelper.verifyPositive(i, "initialCapacity");
+            return buffer(publisher, Functions.createArrayList(i));
+        }
+        return (Flowable) invokeLI.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable buffer(Publisher publisher, Callable callable) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048615, this, publisher, callable)) == null) {
+            ObjectHelper.requireNonNull(publisher, "boundaryIndicator is null");
+            ObjectHelper.requireNonNull(callable, "bufferSupplier is null");
+            return RxJavaPlugins.onAssembly(new FlowableBufferExactBoundary(this, publisher, callable));
+        }
+        return (Flowable) invokeLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable concatMapDelayError(Function function, int i, boolean z) {
+        InterceptResult invokeCommon;
+        ErrorMode errorMode;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048630, this, new Object[]{function, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            ObjectHelper.requireNonNull(function, "mapper is null");
+            ObjectHelper.verifyPositive(i, PrefetchEvent.MODULE);
+            if (this instanceof ScalarCallable) {
+                Object call = ((ScalarCallable) this).call();
+                if (call == null) {
+                    return empty();
+                }
+                return FlowableScalarXMap.scalarXMap(call, function);
+            }
+            if (z) {
+                errorMode = ErrorMode.END;
+            } else {
+                errorMode = ErrorMode.BOUNDARY;
+            }
+            return RxJavaPlugins.onAssembly(new FlowableConcatMap(this, function, i, errorMode));
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    public Flowable switchMap0(Function function, int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048846, this, new Object[]{function, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            ObjectHelper.requireNonNull(function, "mapper is null");
+            ObjectHelper.verifyPositive(i, "bufferSize");
+            if (this instanceof ScalarCallable) {
+                Object call = ((ScalarCallable) this).call();
+                if (call == null) {
+                    return empty();
+                }
+                return FlowableScalarXMap.scalarXMap(call, function);
+            }
+            return RxJavaPlugins.onAssembly(new FlowableSwitchMap(this, function, i, z));
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable window(long j, long j2, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048915, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)})) == null) {
+            ObjectHelper.verifyPositive(j2, FreeSpaceBox.TYPE);
+            ObjectHelper.verifyPositive(j, "count");
+            ObjectHelper.verifyPositive(i, "bufferSize");
+            return RxJavaPlugins.onAssembly(new FlowableWindow(this, j, j2, i));
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable concatWith(Publisher publisher) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048650, this, publisher)) == null) {
+            ObjectHelper.requireNonNull(publisher, "other is null");
+            return concat(this, publisher);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable mergeWith(Publisher publisher) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048740, this, publisher)) == null) {
+            ObjectHelper.requireNonNull(publisher, "other is null");
+            return merge(this, publisher);
+        }
+        return (Flowable) invokeL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable flatMap(Function function, Function function2, Callable callable) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048700, this, function, function2, callable)) == null) {
+            ObjectHelper.requireNonNull(function, "onNextMapper is null");
+            ObjectHelper.requireNonNull(function2, "onErrorMapper is null");
+            ObjectHelper.requireNonNull(callable, "onCompleteSupplier is null");
+            return merge(new FlowableMapNotification(this, function, function2, callable));
+        }
+        return (Flowable) invokeLLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable flatMap(Function function, Function function2, Callable callable, int i) {
+        InterceptResult invokeLLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048701, this, function, function2, callable, i)) == null) {
+            ObjectHelper.requireNonNull(function, "onNextMapper is null");
+            ObjectHelper.requireNonNull(function2, "onErrorMapper is null");
+            ObjectHelper.requireNonNull(callable, "onCompleteSupplier is null");
+            return merge(new FlowableMapNotification(this, function, function2, callable), i);
+        }
+        return (Flowable) invokeLLLI.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.SPECIAL)
+    @CheckReturnValue
+    public final Disposable subscribe(Consumer consumer, Consumer consumer2, Action action, Consumer consumer3) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048836, this, consumer, consumer2, action, consumer3)) == null) {
+            ObjectHelper.requireNonNull(consumer, "onNext is null");
+            ObjectHelper.requireNonNull(consumer2, "onError is null");
+            ObjectHelper.requireNonNull(action, "onComplete is null");
+            ObjectHelper.requireNonNull(consumer3, "onSubscribe is null");
+            LambdaSubscriber lambdaSubscriber = new LambdaSubscriber(consumer, consumer2, action, consumer3);
+            subscribe((FlowableSubscriber) lambdaSubscriber);
+            return lambdaSubscriber;
+        }
+        return (Disposable) invokeLLLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
+    @CheckReturnValue
+    public final Single toMultimap(Function function, Function function2, Callable callable, Function function3) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048906, this, function, function2, callable, function3)) == null) {
+            ObjectHelper.requireNonNull(function, "keySelector is null");
+            ObjectHelper.requireNonNull(function2, "valueSelector is null");
+            ObjectHelper.requireNonNull(callable, "mapSupplier is null");
+            ObjectHelper.requireNonNull(function3, "collectionFactory is null");
+            return collect(callable, Functions.toMultimapKeyValueSelector(function, function2, function3));
+        }
+        return (Single) invokeLLLL.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable flatMap(Function function, boolean z, int i, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048704, this, new Object[]{function, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            ObjectHelper.requireNonNull(function, "mapper is null");
+            ObjectHelper.verifyPositive(i, "maxConcurrency");
+            ObjectHelper.verifyPositive(i2, "bufferSize");
+            if (this instanceof ScalarCallable) {
+                Object call = ((ScalarCallable) this).call();
+                if (call == null) {
+                    return empty();
+                }
+                return FlowableScalarXMap.scalarXMap(call, function);
+            }
+            return RxJavaPlugins.onAssembly(new FlowableFlatMap(this, function, z, i, i2));
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("none")
+    @BackpressureSupport(BackpressureKind.FULL)
+    @CheckReturnValue
+    public final Flowable takeLast(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048858, this, i)) == null) {
+            if (i >= 0) {
+                if (i == 0) {
+                    return RxJavaPlugins.onAssembly(new FlowableIgnoreElements(this));
+                }
+                if (i == 1) {
+                    return RxJavaPlugins.onAssembly(new FlowableTakeLastOne(this));
+                }
+                return RxJavaPlugins.onAssembly(new FlowableTakeLast(this, i));
+            }
+            throw new IndexOutOfBoundsException("count >= 0 required but it was " + i);
+        }
+        return (Flowable) invokeI.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable window(long j, long j2, TimeUnit timeUnit, Scheduler scheduler, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048918, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), timeUnit, scheduler, Integer.valueOf(i)})) == null) {
+            ObjectHelper.verifyPositive(i, "bufferSize");
+            ObjectHelper.verifyPositive(j, "timespan");
+            ObjectHelper.verifyPositive(j2, "timeskip");
+            ObjectHelper.requireNonNull(scheduler, "scheduler is null");
+            ObjectHelper.requireNonNull(timeUnit, "unit is null");
+            return RxJavaPlugins.onAssembly(new FlowableWindowTimed(this, j, j2, timeUnit, scheduler, Long.MAX_VALUE, i, false));
+        }
+        return (Flowable) invokeCommon.objValue;
+    }
+
+    @SchedulerSupport("custom")
+    @BackpressureSupport(BackpressureKind.ERROR)
+    @CheckReturnValue
+    public final Flowable window(long j, TimeUnit timeUnit, Scheduler scheduler, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048923, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, Long.valueOf(j2)})) == null) {
+            return window(j, timeUnit, scheduler, j2, false);
         }
         return (Flowable) invokeCommon.objValue;
     }

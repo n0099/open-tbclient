@@ -49,63 +49,10 @@ public class Placeholder extends View {
         init(null);
     }
 
-    private void init(AttributeSet attributeSet) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, attributeSet) == null) {
-            super.setVisibility(this.mEmptyVisibility);
-            this.mContentId = -1;
-            if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.ConstraintLayout_placeholder);
-                int indexCount = obtainStyledAttributes.getIndexCount();
-                for (int i = 0; i < indexCount; i++) {
-                    int index = obtainStyledAttributes.getIndex(i);
-                    if (index == 0) {
-                        this.mContentId = obtainStyledAttributes.getResourceId(index, this.mContentId);
-                    } else if (index == 1) {
-                        this.mEmptyVisibility = obtainStyledAttributes.getInt(index, this.mEmptyVisibility);
-                    }
-                }
-                obtainStyledAttributes.recycle();
-            }
-        }
-    }
-
-    public View getContent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mContent : (View) invokeV.objValue;
-    }
-
-    public int getEmptyVisibility() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mEmptyVisibility : invokeV.intValue;
-    }
-
-    @Override // android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) && isInEditMode()) {
-            canvas.drawRGB(223, 223, 223);
-            Paint paint = new Paint();
-            paint.setARGB(255, 210, 210, 210);
-            paint.setTextAlign(Paint.Align.CENTER);
-            paint.setTypeface(Typeface.create(Typeface.DEFAULT, 0));
-            Rect rect = new Rect();
-            canvas.getClipBounds(rect);
-            paint.setTextSize(rect.height());
-            int height = rect.height();
-            int width = rect.width();
-            paint.setTextAlign(Paint.Align.LEFT);
-            paint.getTextBounds("?", 0, 1, rect);
-            canvas.drawText("?", ((width / 2.0f) - (rect.width() / 2.0f)) - rect.left, ((height / 2.0f) + (rect.height() / 2.0f)) - rect.bottom, paint);
-        }
-    }
-
     public void setContentId(int i) {
         View findViewById;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || this.mContentId == i) {
+        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || this.mContentId == i) {
             return;
         }
         View view2 = this.mContent;
@@ -115,34 +62,9 @@ public class Placeholder extends View {
             this.mContent = null;
         }
         this.mContentId = i;
-        if (i == -1 || (findViewById = ((View) getParent()).findViewById(i)) == null) {
-            return;
+        if (i != -1 && (findViewById = ((View) getParent()).findViewById(i)) != null) {
+            findViewById.setVisibility(8);
         }
-        findViewById.setVisibility(8);
-    }
-
-    public void setEmptyVisibility(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.mEmptyVisibility = i;
-        }
-    }
-
-    public void updatePostMeasure(ConstraintLayout constraintLayout) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, constraintLayout) == null) || this.mContent == null) {
-            return;
-        }
-        ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) getLayoutParams();
-        ConstraintLayout.LayoutParams layoutParams2 = (ConstraintLayout.LayoutParams) this.mContent.getLayoutParams();
-        layoutParams2.widget.setVisibility(0);
-        if (layoutParams.widget.getHorizontalDimensionBehaviour() != ConstraintWidget.DimensionBehaviour.FIXED) {
-            layoutParams.widget.setWidth(layoutParams2.widget.getWidth());
-        }
-        if (layoutParams.widget.getVerticalDimensionBehaviour() != ConstraintWidget.DimensionBehaviour.FIXED) {
-            layoutParams.widget.setHeight(layoutParams2.widget.getHeight());
-        }
-        layoutParams2.widget.setVisibility(8);
     }
 
     public void updatePreLayout(ConstraintLayout constraintLayout) {
@@ -234,5 +156,88 @@ public class Placeholder extends View {
         this.mContent = null;
         this.mEmptyVisibility = 4;
         init(attributeSet);
+    }
+
+    private void init(AttributeSet attributeSet) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, attributeSet) == null) {
+            super.setVisibility(this.mEmptyVisibility);
+            this.mContentId = -1;
+            if (attributeSet != null) {
+                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.ConstraintLayout_placeholder);
+                int indexCount = obtainStyledAttributes.getIndexCount();
+                for (int i = 0; i < indexCount; i++) {
+                    int index = obtainStyledAttributes.getIndex(i);
+                    if (index == 0) {
+                        this.mContentId = obtainStyledAttributes.getResourceId(index, this.mContentId);
+                    } else if (index == 1) {
+                        this.mEmptyVisibility = obtainStyledAttributes.getInt(index, this.mEmptyVisibility);
+                    }
+                }
+                obtainStyledAttributes.recycle();
+            }
+        }
+    }
+
+    public void updatePostMeasure(ConstraintLayout constraintLayout) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, constraintLayout) != null) || this.mContent == null) {
+            return;
+        }
+        ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) getLayoutParams();
+        ConstraintLayout.LayoutParams layoutParams2 = (ConstraintLayout.LayoutParams) this.mContent.getLayoutParams();
+        layoutParams2.widget.setVisibility(0);
+        if (layoutParams.widget.getHorizontalDimensionBehaviour() != ConstraintWidget.DimensionBehaviour.FIXED) {
+            layoutParams.widget.setWidth(layoutParams2.widget.getWidth());
+        }
+        if (layoutParams.widget.getVerticalDimensionBehaviour() != ConstraintWidget.DimensionBehaviour.FIXED) {
+            layoutParams.widget.setHeight(layoutParams2.widget.getHeight());
+        }
+        layoutParams2.widget.setVisibility(8);
+    }
+
+    public View getContent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mContent;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public int getEmptyVisibility() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mEmptyVisibility;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) && isInEditMode()) {
+            canvas.drawRGB(223, 223, 223);
+            Paint paint = new Paint();
+            paint.setARGB(255, 210, 210, 210);
+            paint.setTextAlign(Paint.Align.CENTER);
+            paint.setTypeface(Typeface.create(Typeface.DEFAULT, 0));
+            Rect rect = new Rect();
+            canvas.getClipBounds(rect);
+            paint.setTextSize(rect.height());
+            int height = rect.height();
+            int width = rect.width();
+            paint.setTextAlign(Paint.Align.LEFT);
+            paint.getTextBounds("?", 0, 1, rect);
+            canvas.drawText("?", ((width / 2.0f) - (rect.width() / 2.0f)) - rect.left, ((height / 2.0f) + (rect.height() / 2.0f)) - rect.bottom, paint);
+        }
+    }
+
+    public void setEmptyVisibility(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.mEmptyVisibility = i;
+        }
     }
 }

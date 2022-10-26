@@ -9,7 +9,7 @@ public interface ComplianceInfo {
 
     String getDeveloperName();
 
-    Map<String, String> getPermissionsMap();
+    Map getPermissionsMap();
 
     String getPrivacyUrl();
 }

@@ -15,6 +15,16 @@ public class ContextHolderImpl extends ContextHolder {
     public static ContextHolderImpl sInstance;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.nps.stub.context.ContextHolder
+    public String getPackageName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -64,16 +74,9 @@ public class ContextHolderImpl extends ContextHolder {
     public static ContextHolderImpl getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? sInstance : (ContextHolderImpl) invokeV.objValue;
-    }
-
-    @Override // com.baidu.nps.stub.context.ContextHolder
-    public String getPackageName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return sInstance;
         }
-        return (String) invokeV.objValue;
+        return (ContextHolderImpl) invokeV.objValue;
     }
 }

@@ -1,6 +1,5 @@
 package androidx.appcompat.widget;
 
-import android.annotation.SuppressLint;
 import android.app.PendingIntent;
 import android.app.SearchableInfo;
 import android.content.ActivityNotFoundException;
@@ -39,9 +38,6 @@ import android.widget.AdapterView;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.appcompat.view.CollapsibleActionView;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -145,7 +141,6 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         public Method mDoBeforeTextChanged;
         public Method mEnsureImeVisible;
 
-        @SuppressLint({"DiscouragedPrivateApi", "SoonBlockedPrivateApi"})
         public PreQAutoCompleteTextViewReflector() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -185,9 +180,10 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
 
         public static void preApi29Check() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(65537, null) == null) && Build.VERSION.SDK_INT >= 29) {
-                throw new UnsupportedClassVersionError("This function can only be used for API Level < 29.");
+            if ((interceptable != null && interceptable.invokeV(65537, null) != null) || Build.VERSION.SDK_INT < 29) {
+                return;
             }
+            throw new UnsupportedClassVersionError("This function can only be used for API Level < 29.");
         }
 
         public void doAfterTextChanged(AutoCompleteTextView autoCompleteTextView) {
@@ -273,10 +269,24 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // android.os.Parcelable.Creator
+                public SavedState createFromParcel(Parcel parcel) {
+                    InterceptResult invokeL;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
+                        return new SavedState(parcel, null);
+                    }
+                    return (SavedState) invokeL.objValue;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // android.os.Parcelable.Creator
                 public SavedState[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048580, this, i)) == null) ? new SavedState[i] : (SavedState[]) invokeI.objValue;
+                    if (interceptable2 == null || (invokeI = interceptable2.invokeI(1048580, this, i)) == null) {
+                        return new SavedState[i];
+                    }
+                    return (SavedState[]) invokeI.objValue;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -285,17 +295,34 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                 public SavedState createFromParcel(Parcel parcel, ClassLoader classLoader) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, classLoader)) == null) ? new SavedState(parcel, classLoader) : (SavedState) invokeLL.objValue;
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // android.os.Parcelable.Creator
-                public SavedState createFromParcel(Parcel parcel) {
-                    InterceptResult invokeL;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new SavedState(parcel, null) : (SavedState) invokeL.objValue;
+                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, classLoader)) == null) {
+                        return new SavedState(parcel, classLoader);
+                    }
+                    return (SavedState) invokeLL.objValue;
                 }
             };
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SavedState(Parcel parcel, ClassLoader classLoader) {
+            super(parcel, classLoader);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {parcel, classLoader};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Parcel) objArr2[0], (ClassLoader) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.isIconified = ((Boolean) parcel.readValue(null)).booleanValue();
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -335,31 +362,8 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                 parcel.writeValue(Boolean.valueOf(this.isIconified));
             }
         }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SavedState(Parcel parcel, ClassLoader classLoader) {
-            super(parcel, classLoader);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {parcel, classLoader};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Parcel) objArr2[0], (ClassLoader) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.isIconified = ((Boolean) parcel.readValue(null)).booleanValue();
-        }
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public static class SearchAutoComplete extends AppCompatAutoCompleteTextView {
         public static /* synthetic */ Interceptable $ic;
@@ -368,6 +372,20 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         public final Runnable mRunShowSoftInputIfNecessary;
         public SearchView mSearchView;
         public int mThreshold;
+
+        @Override // android.widget.AutoCompleteTextView
+        public void performCompletion() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            }
+        }
+
+        @Override // android.widget.AutoCompleteTextView
+        public void replaceText(CharSequence charSequence) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048585, this, charSequence) == null) {
+            }
+        }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public SearchAutoComplete(Context context) {
@@ -390,82 +408,56 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
             }
         }
 
-        private int getSearchViewTextMinWidthDp() {
-            InterceptResult invokeV;
+        @Override // android.widget.AutoCompleteTextView, android.widget.TextView, android.view.View
+        public void onWindowFocusChanged(boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-                Configuration configuration = getResources().getConfiguration();
-                int i = configuration.screenWidthDp;
-                int i2 = configuration.screenHeightDp;
-                if (i < 960 || i2 < 720 || configuration.orientation != 2) {
-                    if (i < 600) {
-                        return (i < 640 || i2 < 480) ? 160 : 192;
+            if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+                super.onWindowFocusChanged(z);
+                if (z && this.mSearchView.hasFocus() && getVisibility() == 0) {
+                    this.mHasPendingShowSoftInputRequest = true;
+                    if (SearchView.isLandscapeMode(getContext())) {
+                        ensureImeVisible();
                     }
-                    return 192;
                 }
-                return 256;
             }
-            return invokeV.intValue;
         }
 
-        @Override // android.widget.AutoCompleteTextView
-        public boolean enoughToFilter() {
-            InterceptResult invokeV;
+        public void setImeVisibility(boolean z) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mThreshold <= 0 || super.enoughToFilter() : invokeV.booleanValue;
+            if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+                InputMethodManager inputMethodManager = (InputMethodManager) getContext().getSystemService("input_method");
+                if (!z) {
+                    this.mHasPendingShowSoftInputRequest = false;
+                    removeCallbacks(this.mRunShowSoftInputIfNecessary);
+                    inputMethodManager.hideSoftInputFromWindow(getWindowToken(), 0);
+                } else if (inputMethodManager.isActive(this)) {
+                    this.mHasPendingShowSoftInputRequest = false;
+                    removeCallbacks(this.mRunShowSoftInputIfNecessary);
+                    inputMethodManager.showSoftInput(this, 0);
+                } else {
+                    this.mHasPendingShowSoftInputRequest = true;
+                }
+            }
         }
 
-        public void ensureImeVisible() {
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+        public SearchAutoComplete(Context context, AttributeSet attributeSet) {
+            this(context, attributeSet, R.attr.obfuscated_res_0x7f0400a5);
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (Build.VERSION.SDK_INT >= 29) {
-                    setInputMethodMode(1);
-                    if (enoughToFilter()) {
-                        showDropDown();
-                        return;
-                    }
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, attributeSet};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
-                SearchView.PRE_API_29_HIDDEN_METHOD_INVOKER.ensureImeVisible(this);
-            }
-        }
-
-        public boolean isEmpty() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TextUtils.getTrimmedLength(getText()) == 0 : invokeV.booleanValue;
-        }
-
-        @Override // androidx.appcompat.widget.AppCompatAutoCompleteTextView, android.widget.TextView, android.view.View
-        public InputConnection onCreateInputConnection(EditorInfo editorInfo) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, editorInfo)) == null) {
-                InputConnection onCreateInputConnection = super.onCreateInputConnection(editorInfo);
-                if (this.mHasPendingShowSoftInputRequest) {
-                    removeCallbacks(this.mRunShowSoftInputIfNecessary);
-                    post(this.mRunShowSoftInputIfNecessary);
-                }
-                return onCreateInputConnection;
-            }
-            return (InputConnection) invokeL.objValue;
-        }
-
-        @Override // android.view.View
-        public void onFinishInflate() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                super.onFinishInflate();
-                setMinWidth((int) TypedValue.applyDimension(1, getSearchViewTextMinWidthDp(), getResources().getDisplayMetrics()));
-            }
-        }
-
-        @Override // android.widget.AutoCompleteTextView, android.widget.TextView, android.view.View
-        public void onFocusChanged(boolean z, int i, Rect rect) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), rect}) == null) {
-                super.onFocusChanged(z, i, rect);
-                this.mSearchView.onTextFocusChanged();
             }
         }
 
@@ -496,97 +488,6 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                 return super.onKeyPreIme(i, keyEvent);
             }
             return invokeIL.booleanValue;
-        }
-
-        @Override // android.widget.AutoCompleteTextView, android.widget.TextView, android.view.View
-        public void onWindowFocusChanged(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-                super.onWindowFocusChanged(z);
-                if (z && this.mSearchView.hasFocus() && getVisibility() == 0) {
-                    this.mHasPendingShowSoftInputRequest = true;
-                    if (SearchView.isLandscapeMode(getContext())) {
-                        ensureImeVisible();
-                    }
-                }
-            }
-        }
-
-        @Override // android.widget.AutoCompleteTextView
-        public void performCompletion() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            }
-        }
-
-        @Override // android.widget.AutoCompleteTextView
-        public void replaceText(CharSequence charSequence) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, charSequence) == null) {
-            }
-        }
-
-        public void setImeVisibility(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-                InputMethodManager inputMethodManager = (InputMethodManager) getContext().getSystemService("input_method");
-                if (!z) {
-                    this.mHasPendingShowSoftInputRequest = false;
-                    removeCallbacks(this.mRunShowSoftInputIfNecessary);
-                    inputMethodManager.hideSoftInputFromWindow(getWindowToken(), 0);
-                } else if (inputMethodManager.isActive(this)) {
-                    this.mHasPendingShowSoftInputRequest = false;
-                    removeCallbacks(this.mRunShowSoftInputIfNecessary);
-                    inputMethodManager.showSoftInput(this, 0);
-                } else {
-                    this.mHasPendingShowSoftInputRequest = true;
-                }
-            }
-        }
-
-        public void setSearchView(SearchView searchView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048587, this, searchView) == null) {
-                this.mSearchView = searchView;
-            }
-        }
-
-        @Override // android.widget.AutoCompleteTextView
-        public void setThreshold(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-                super.setThreshold(i);
-                this.mThreshold = i;
-            }
-        }
-
-        public void showSoftInputIfNecessary() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && this.mHasPendingShowSoftInputRequest) {
-                ((InputMethodManager) getContext().getSystemService("input_method")).showSoftInput(this, 0);
-                this.mHasPendingShowSoftInputRequest = false;
-            }
-        }
-
-        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public SearchAutoComplete(Context context, AttributeSet attributeSet) {
-            this(context, attributeSet, R.attr.obfuscated_res_0x7f0400a5);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, attributeSet};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -641,6 +542,124 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
             };
             this.mThreshold = getThreshold();
         }
+
+        private int getSearchViewTextMinWidthDp() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+                Configuration configuration = getResources().getConfiguration();
+                int i = configuration.screenWidthDp;
+                int i2 = configuration.screenHeightDp;
+                if (i >= 960 && i2 >= 720 && configuration.orientation == 2) {
+                    return 256;
+                }
+                if (i < 600) {
+                    if (i < 640 || i2 < 480) {
+                        return 160;
+                    }
+                    return 192;
+                }
+                return 192;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // android.widget.AutoCompleteTextView
+        public boolean enoughToFilter() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.mThreshold > 0 && !super.enoughToFilter()) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public void ensureImeVisible() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                if (Build.VERSION.SDK_INT >= 29) {
+                    setInputMethodMode(1);
+                    if (enoughToFilter()) {
+                        showDropDown();
+                        return;
+                    }
+                    return;
+                }
+                SearchView.PRE_API_29_HIDDEN_METHOD_INVOKER.ensureImeVisible(this);
+            }
+        }
+
+        public boolean isEmpty() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                if (TextUtils.getTrimmedLength(getText()) == 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // android.view.View
+        public void onFinishInflate() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                super.onFinishInflate();
+                setMinWidth((int) TypedValue.applyDimension(1, getSearchViewTextMinWidthDp(), getResources().getDisplayMetrics()));
+            }
+        }
+
+        public void showSoftInputIfNecessary() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && this.mHasPendingShowSoftInputRequest) {
+                ((InputMethodManager) getContext().getSystemService("input_method")).showSoftInput(this, 0);
+                this.mHasPendingShowSoftInputRequest = false;
+            }
+        }
+
+        @Override // androidx.appcompat.widget.AppCompatAutoCompleteTextView, android.widget.TextView, android.view.View
+        public InputConnection onCreateInputConnection(EditorInfo editorInfo) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, editorInfo)) == null) {
+                InputConnection onCreateInputConnection = super.onCreateInputConnection(editorInfo);
+                if (this.mHasPendingShowSoftInputRequest) {
+                    removeCallbacks(this.mRunShowSoftInputIfNecessary);
+                    post(this.mRunShowSoftInputIfNecessary);
+                }
+                return onCreateInputConnection;
+            }
+            return (InputConnection) invokeL.objValue;
+        }
+
+        public void setSearchView(SearchView searchView) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048587, this, searchView) == null) {
+                this.mSearchView = searchView;
+            }
+        }
+
+        @Override // android.widget.AutoCompleteTextView
+        public void setThreshold(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+                super.setThreshold(i);
+                this.mThreshold = i;
+            }
+        }
+
+        @Override // android.widget.AutoCompleteTextView, android.widget.TextView, android.view.View
+        public void onFocusChanged(boolean z, int i, Rect rect) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), rect}) == null) {
+                super.onFocusChanged(z, i, rect);
+                this.mSearchView.onTextFocusChanged();
+            }
+        }
     }
 
     /* loaded from: classes.dex */
@@ -693,19 +712,19 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                 int action = motionEvent.getAction();
                 boolean z3 = true;
                 if (action != 0) {
-                    if (action == 1 || action == 2) {
-                        z2 = this.mDelegateTargeted;
-                        if (z2 && !this.mSlopBounds.contains(x, y)) {
-                            z3 = z2;
-                            z = false;
-                        }
-                    } else {
+                    if (action != 1 && action != 2) {
                         if (action == 3) {
                             z2 = this.mDelegateTargeted;
                             this.mDelegateTargeted = false;
                         }
                         z = true;
                         z3 = false;
+                    } else {
+                        z2 = this.mDelegateTargeted;
+                        if (z2 && !this.mSlopBounds.contains(x, y)) {
+                            z3 = z2;
+                            z = false;
+                        }
                     }
                     z3 = z2;
                     z = true;
@@ -717,16 +736,16 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                     z = true;
                     z3 = false;
                 }
-                if (z3) {
-                    if (z && !this.mActualBounds.contains(x, y)) {
-                        motionEvent.setLocation(this.mDelegateView.getWidth() / 2, this.mDelegateView.getHeight() / 2);
-                    } else {
-                        Rect rect = this.mActualBounds;
-                        motionEvent.setLocation(x - rect.left, y - rect.top);
-                    }
-                    return this.mDelegateView.dispatchTouchEvent(motionEvent);
+                if (!z3) {
+                    return false;
                 }
-                return false;
+                if (z && !this.mActualBounds.contains(x, y)) {
+                    motionEvent.setLocation(this.mDelegateView.getWidth() / 2, this.mDelegateView.getHeight() / 2);
+                } else {
+                    Rect rect = this.mActualBounds;
+                    motionEvent.setLocation(x - rect.left, y - rect.top);
+                }
+                return this.mDelegateView.dispatchTouchEvent(motionEvent);
             }
             return invokeL.booleanValue;
         }
@@ -746,6 +765,7 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
 
     static {
         InterceptResult invokeClinit;
+        PreQAutoCompleteTextViewReflector preQAutoCompleteTextViewReflector;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
         if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(926928457, "Landroidx/appcompat/widget/SearchView;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
@@ -757,137 +777,12 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                 return;
             }
         }
-        PRE_API_29_HIDDEN_METHOD_INVOKER = Build.VERSION.SDK_INT < 29 ? new PreQAutoCompleteTextViewReflector() : null;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SearchView(@NonNull Context context) {
-        this(context, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (Build.VERSION.SDK_INT < 29) {
+            preQAutoCompleteTextViewReflector = new PreQAutoCompleteTextViewReflector();
+        } else {
+            preQAutoCompleteTextViewReflector = null;
         }
-    }
-
-    private Intent createIntent(String str, Uri uri, String str2, String str3, int i, String str4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{str, uri, str2, str3, Integer.valueOf(i), str4})) == null) {
-            Intent intent = new Intent(str);
-            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-            if (uri != null) {
-                intent.setData(uri);
-            }
-            intent.putExtra("user_query", this.mUserQuery);
-            if (str3 != null) {
-                intent.putExtra("query", str3);
-            }
-            if (str2 != null) {
-                intent.putExtra("intent_extra_data_key", str2);
-            }
-            Bundle bundle = this.mAppSearchData;
-            if (bundle != null) {
-                intent.putExtra("app_data", bundle);
-            }
-            if (i != 0) {
-                intent.putExtra("action_key", i);
-                intent.putExtra("action_msg", str4);
-            }
-            intent.setComponent(this.mSearchable.getSearchActivity());
-            return intent;
-        }
-        return (Intent) invokeCommon.objValue;
-    }
-
-    private Intent createIntentFromSuggestion(Cursor cursor, int i, String str) {
-        InterceptResult invokeLIL;
-        int i2;
-        String columnString;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65541, this, cursor, i, str)) == null) {
-            try {
-                String columnString2 = SuggestionsAdapter.getColumnString(cursor, "suggest_intent_action");
-                if (columnString2 == null) {
-                    columnString2 = this.mSearchable.getSuggestIntentAction();
-                }
-                if (columnString2 == null) {
-                    columnString2 = "android.intent.action.SEARCH";
-                }
-                String str2 = columnString2;
-                String columnString3 = SuggestionsAdapter.getColumnString(cursor, "suggest_intent_data");
-                if (columnString3 == null) {
-                    columnString3 = this.mSearchable.getSuggestIntentData();
-                }
-                if (columnString3 != null && (columnString = SuggestionsAdapter.getColumnString(cursor, "suggest_intent_data_id")) != null) {
-                    columnString3 = columnString3 + "/" + Uri.encode(columnString);
-                }
-                return createIntent(str2, columnString3 == null ? null : Uri.parse(columnString3), SuggestionsAdapter.getColumnString(cursor, "suggest_intent_extra_data"), SuggestionsAdapter.getColumnString(cursor, "suggest_intent_query"), i, str);
-            } catch (RuntimeException e) {
-                try {
-                    i2 = cursor.getPosition();
-                } catch (RuntimeException unused) {
-                    i2 = -1;
-                }
-                Log.w(LOG_TAG, "Search suggestions cursor at row " + i2 + " returned exception.", e);
-                return null;
-            }
-        }
-        return (Intent) invokeLIL.objValue;
-    }
-
-    private Intent createVoiceAppSearchIntent(Intent intent, SearchableInfo searchableInfo) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, intent, searchableInfo)) == null) {
-            ComponentName searchActivity = searchableInfo.getSearchActivity();
-            Intent intent2 = new Intent("android.intent.action.SEARCH");
-            intent2.setComponent(searchActivity);
-            PendingIntent activity = PendingIntent.getActivity(getContext(), 0, intent2, 1073741824);
-            Bundle bundle = new Bundle();
-            Bundle bundle2 = this.mAppSearchData;
-            if (bundle2 != null) {
-                bundle.putParcelable("app_data", bundle2);
-            }
-            Intent intent3 = new Intent(intent);
-            Resources resources = getResources();
-            String string = searchableInfo.getVoiceLanguageModeId() != 0 ? resources.getString(searchableInfo.getVoiceLanguageModeId()) : "free_form";
-            String string2 = searchableInfo.getVoicePromptTextId() != 0 ? resources.getString(searchableInfo.getVoicePromptTextId()) : null;
-            String string3 = searchableInfo.getVoiceLanguageId() != 0 ? resources.getString(searchableInfo.getVoiceLanguageId()) : null;
-            int voiceMaxResults = searchableInfo.getVoiceMaxResults() != 0 ? searchableInfo.getVoiceMaxResults() : 1;
-            intent3.putExtra("android.speech.extra.LANGUAGE_MODEL", string);
-            intent3.putExtra("android.speech.extra.PROMPT", string2);
-            intent3.putExtra("android.speech.extra.LANGUAGE", string3);
-            intent3.putExtra("android.speech.extra.MAX_RESULTS", voiceMaxResults);
-            intent3.putExtra("calling_package", searchActivity != null ? searchActivity.flattenToShortString() : null);
-            intent3.putExtra("android.speech.extra.RESULTS_PENDINGINTENT", activity);
-            intent3.putExtra("android.speech.extra.RESULTS_PENDINGINTENT_BUNDLE", bundle);
-            return intent3;
-        }
-        return (Intent) invokeLL.objValue;
-    }
-
-    private Intent createVoiceWebSearchIntent(Intent intent, SearchableInfo searchableInfo) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, intent, searchableInfo)) == null) {
-            Intent intent2 = new Intent(intent);
-            ComponentName searchActivity = searchableInfo.getSearchActivity();
-            intent2.putExtra("calling_package", searchActivity == null ? null : searchActivity.flattenToShortString());
-            return intent2;
-        }
-        return (Intent) invokeLL.objValue;
+        PRE_API_29_HIDDEN_METHOD_INVOKER = preQAutoCompleteTextViewReflector;
     }
 
     private void dismissSuggestions() {
@@ -897,148 +792,40 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         }
     }
 
-    private void getChildBoundsWithinSearchView(View view2, Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, this, view2, rect) == null) {
-            view2.getLocationInWindow(this.mTemp);
-            getLocationInWindow(this.mTemp2);
-            int[] iArr = this.mTemp;
-            int i = iArr[1];
-            int[] iArr2 = this.mTemp2;
-            int i2 = i - iArr2[1];
-            int i3 = iArr[0] - iArr2[0];
-            rect.set(i3, i2, view2.getWidth() + i3, view2.getHeight() + i2);
-        }
-    }
-
-    private CharSequence getDecoratedHint(CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, charSequence)) == null) {
-            if (!this.mIconifiedByDefault || this.mSearchHintIcon == null) {
-                return charSequence;
-            }
-            int textSize = (int) (this.mSearchSrcTextView.getTextSize() * 1.25d);
-            this.mSearchHintIcon.setBounds(0, 0, textSize, textSize);
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder("   ");
-            spannableStringBuilder.setSpan(new ImageSpan(this.mSearchHintIcon), 1, 2, 33);
-            spannableStringBuilder.append(charSequence);
-            return spannableStringBuilder;
-        }
-        return (CharSequence) invokeL.objValue;
-    }
-
     private int getPreferredHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) ? getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700c1) : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
+            return getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700c1);
+        }
+        return invokeV.intValue;
     }
 
     private int getPreferredWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) ? getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700c2) : invokeV.intValue;
-    }
-
-    private boolean hasVoiceSearch() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
-            SearchableInfo searchableInfo = this.mSearchable;
-            if (searchableInfo == null || !searchableInfo.getVoiceSearchEnabled()) {
-                return false;
-            }
-            Intent intent = null;
-            if (this.mSearchable.getVoiceSearchLaunchWebSearch()) {
-                intent = this.mVoiceWebSearchIntent;
-            } else if (this.mSearchable.getVoiceSearchLaunchRecognizer()) {
-                intent = this.mVoiceAppSearchIntent;
-            }
-            return (intent == null || getContext().getPackageManager().resolveActivity(intent, 65536) == null) ? false : true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
+            return getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700c2);
         }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean isLandscapeMode(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) ? context.getResources().getConfiguration().orientation == 2 : invokeL.booleanValue;
+        return invokeV.intValue;
     }
 
     private boolean isSubmitAreaEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) ? (this.mSubmitButtonEnabled || this.mVoiceButtonEnabled) && !isIconified() : invokeV.booleanValue;
-    }
-
-    private void launchIntent(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65552, this, intent) == null) || intent == null) {
-            return;
-        }
-        try {
-            getContext().startActivity(intent);
-        } catch (RuntimeException e) {
-            Log.e(LOG_TAG, "Failed launch activity: " + intent, e);
-        }
-    }
-
-    private boolean launchSuggestion(int i, int i2, String str) {
-        InterceptResult invokeIIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65553, this, i, i2, str)) == null) {
-            Cursor cursor = this.mSuggestionsAdapter.getCursor();
-            if (cursor == null || !cursor.moveToPosition(i)) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) {
+            if ((this.mSubmitButtonEnabled || this.mVoiceButtonEnabled) && !isIconified()) {
+                return true;
             }
-            launchIntent(createIntentFromSuggestion(cursor, i2, str));
-            return true;
+            return false;
         }
-        return invokeIIL.booleanValue;
+        return invokeV.booleanValue;
     }
 
     private void postUpdateFocusedState() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65554, this) == null) {
             post(this.mUpdateDrawableStateRunnable);
-        }
-    }
-
-    private void rewriteQueryFromSuggestion(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65555, this, i) == null) {
-            Editable text = this.mSearchSrcTextView.getText();
-            Cursor cursor = this.mSuggestionsAdapter.getCursor();
-            if (cursor == null) {
-                return;
-            }
-            if (cursor.moveToPosition(i)) {
-                CharSequence convertToString = this.mSuggestionsAdapter.convertToString(cursor);
-                if (convertToString != null) {
-                    setQuery(convertToString);
-                    return;
-                } else {
-                    setQuery(text);
-                    return;
-                }
-            }
-            setQuery(text);
-        }
-    }
-
-    private void updateCloseButton() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65557, this) == null) {
-            boolean z = true;
-            boolean z2 = !TextUtils.isEmpty(this.mSearchSrcTextView.getText());
-            if (!z2 && (!this.mIconifiedByDefault || this.mExpandedInActionView)) {
-                z = false;
-            }
-            this.mCloseButton.setVisibility(z ? 0 : 8);
-            Drawable drawable = this.mCloseButton.getDrawable();
-            if (drawable != null) {
-                drawable.setState(z2 ? ViewGroup.ENABLED_STATE_SET : ViewGroup.EMPTY_STATE_SET);
-            }
         }
     }
 
@@ -1054,94 +841,17 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         }
     }
 
-    private void updateSearchAutoComplete() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65559, this) == null) {
-            this.mSearchSrcTextView.setThreshold(this.mSearchable.getSuggestThreshold());
-            this.mSearchSrcTextView.setImeOptions(this.mSearchable.getImeOptions());
-            int inputType = this.mSearchable.getInputType();
-            if ((inputType & 15) == 1) {
-                inputType &= -65537;
-                if (this.mSearchable.getSuggestAuthority() != null) {
-                    inputType = inputType | 65536 | 524288;
-                }
-            }
-            this.mSearchSrcTextView.setInputType(inputType);
-            CursorAdapter cursorAdapter = this.mSuggestionsAdapter;
-            if (cursorAdapter != null) {
-                cursorAdapter.changeCursor(null);
-            }
-            if (this.mSearchable.getSuggestAuthority() != null) {
-                SuggestionsAdapter suggestionsAdapter = new SuggestionsAdapter(getContext(), this, this.mSearchable, this.mOutsideDrawablesCache);
-                this.mSuggestionsAdapter = suggestionsAdapter;
-                this.mSearchSrcTextView.setAdapter(suggestionsAdapter);
-                ((SuggestionsAdapter) this.mSuggestionsAdapter).setQueryRefinement(this.mQueryRefinement ? 2 : 1);
-            }
-        }
-    }
-
     private void updateSubmitArea() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65560, this) == null) {
-            this.mSubmitArea.setVisibility((isSubmitAreaEnabled() && (this.mGoButton.getVisibility() == 0 || this.mVoiceButton.getVisibility() == 0)) ? 0 : 8);
-        }
-    }
-
-    private void updateSubmitButton(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65561, this, z) == null) {
-            this.mGoButton.setVisibility((this.mSubmitButtonEnabled && isSubmitAreaEnabled() && hasFocus() && (z || !this.mVoiceButtonEnabled)) ? 0 : 8);
-        }
-    }
-
-    private void updateViewsVisibility(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65562, this, z) == null) {
-            this.mIconified = z;
-            int i = 0;
-            int i2 = z ? 0 : 8;
-            boolean z2 = !TextUtils.isEmpty(this.mSearchSrcTextView.getText());
-            this.mSearchButton.setVisibility(i2);
-            updateSubmitButton(z2);
-            this.mSearchEditFrame.setVisibility(z ? 8 : 0);
-            this.mCollapsedIcon.setVisibility((this.mCollapsedIcon.getDrawable() == null || this.mIconifiedByDefault) ? 8 : 8);
-            updateCloseButton();
-            updateVoiceButton(!z2);
-            updateSubmitArea();
-        }
-    }
-
-    private void updateVoiceButton(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65563, this, z) == null) {
-            int i = 8;
-            if (this.mVoiceButtonEnabled && !isIconified() && z) {
-                this.mGoButton.setVisibility(8);
-                i = 0;
-            }
-            this.mVoiceButton.setVisibility(i);
-        }
-    }
-
-    public void adjustDropDownSizeAndPosition() {
         int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.mDropDownAnchor.getWidth() <= 1) {
-            return;
+        if (interceptable == null || interceptable.invokeV(65560, this) == null) {
+            if (isSubmitAreaEnabled() && (this.mGoButton.getVisibility() == 0 || this.mVoiceButton.getVisibility() == 0)) {
+                i = 0;
+            } else {
+                i = 8;
+            }
+            this.mSubmitArea.setVisibility(i);
         }
-        Resources resources = getContext().getResources();
-        int paddingLeft = this.mSearchPlate.getPaddingLeft();
-        Rect rect = new Rect();
-        boolean isLayoutRtl = ViewUtils.isLayoutRtl(this);
-        int dimensionPixelSize = this.mIconifiedByDefault ? resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700b4) + resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700b5) : 0;
-        this.mSearchSrcTextView.getDropDownBackground().getPadding(rect);
-        if (isLayoutRtl) {
-            i = -rect.left;
-        } else {
-            i = paddingLeft - (rect.left + dimensionPixelSize);
-        }
-        this.mSearchSrcTextView.setDropDownHorizontalOffset(i);
-        this.mSearchSrcTextView.setDropDownWidth((((this.mDropDownAnchor.getWidth() + rect.left) + rect.right) + dimensionPixelSize) - paddingLeft);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -1171,41 +881,35 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
     public int getImeOptions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mSearchSrcTextView.getImeOptions() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mSearchSrcTextView.getImeOptions();
+        }
+        return invokeV.intValue;
     }
 
     public int getInputType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mSearchSrcTextView.getInputType() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.mSearchSrcTextView.getInputType();
+        }
+        return invokeV.intValue;
     }
 
     public int getMaxWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mMaxWidth : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mMaxWidth;
+        }
+        return invokeV.intValue;
     }
 
     public CharSequence getQuery() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mSearchSrcTextView.getText() : (CharSequence) invokeV.objValue;
-    }
-
-    @Nullable
-    public CharSequence getQueryHint() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            CharSequence charSequence = this.mQueryHint;
-            if (charSequence != null) {
-                return charSequence;
-            }
-            SearchableInfo searchableInfo = this.mSearchable;
-            if (searchableInfo != null && searchableInfo.getHintId() != 0) {
-                return getContext().getText(this.mSearchable.getHintId());
-            }
-            return this.mDefaultQueryHint;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mSearchSrcTextView.getText();
         }
         return (CharSequence) invokeV.objValue;
     }
@@ -1213,50 +917,64 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
     public int getSuggestionCommitIconResId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mSuggestionCommitIconResId : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.mSuggestionCommitIconResId;
+        }
+        return invokeV.intValue;
     }
 
     public int getSuggestionRowLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mSuggestionRowLayout : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.mSuggestionRowLayout;
+        }
+        return invokeV.intValue;
     }
 
     public CursorAdapter getSuggestionsAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mSuggestionsAdapter : (CursorAdapter) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.mSuggestionsAdapter;
+        }
+        return (CursorAdapter) invokeV.objValue;
     }
 
     public boolean isIconfiedByDefault() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mIconifiedByDefault : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.mIconifiedByDefault;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isIconified() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mIconified : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.mIconified;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isQueryRefinementEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mQueryRefinement : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.mQueryRefinement;
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean isSubmitButtonEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mSubmitButtonEnabled : invokeV.booleanValue;
-    }
-
-    public void launchQuerySearch(int i, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048591, this, i, str, str2) == null) {
-            getContext().startActivity(createIntent("android.intent.action.SEARCH", null, null, str2, i, str));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.mSubmitButtonEnabled;
         }
+        return invokeV.booleanValue;
     }
 
     @Override // androidx.appcompat.view.CollapsibleActionView
@@ -1271,41 +989,6 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         }
     }
 
-    @Override // androidx.appcompat.view.CollapsibleActionView
-    public void onActionViewExpanded() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || this.mExpandedInActionView) {
-            return;
-        }
-        this.mExpandedInActionView = true;
-        int imeOptions = this.mSearchSrcTextView.getImeOptions();
-        this.mCollapsedImeOptions = imeOptions;
-        this.mSearchSrcTextView.setImeOptions(imeOptions | 33554432);
-        this.mSearchSrcTextView.setText("");
-        setIconified(false);
-    }
-
-    public void onCloseClicked() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            if (TextUtils.isEmpty(this.mSearchSrcTextView.getText())) {
-                if (this.mIconifiedByDefault) {
-                    OnCloseListener onCloseListener = this.mOnCloseListener;
-                    if (onCloseListener == null || !onCloseListener.onClose()) {
-                        clearFocus();
-                        updateViewsVisibility(true);
-                        return;
-                    }
-                    return;
-                }
-                return;
-            }
-            this.mSearchSrcTextView.setText("");
-            this.mSearchSrcTextView.requestFocus();
-            this.mSearchSrcTextView.setImeVisibility(true);
-        }
-    }
-
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
@@ -1313,113 +996,6 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
             removeCallbacks(this.mUpdateDrawableStateRunnable);
             post(this.mReleaseCursorRunnable);
             super.onDetachedFromWindow();
-        }
-    }
-
-    public boolean onItemClicked(int i, int i2, String str) {
-        InterceptResult invokeIIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048596, this, i, i2, str)) == null) {
-            OnSuggestionListener onSuggestionListener = this.mOnSuggestionListener;
-            if (onSuggestionListener == null || !onSuggestionListener.onSuggestionClick(i)) {
-                launchSuggestion(i, 0, null);
-                this.mSearchSrcTextView.setImeVisibility(false);
-                dismissSuggestions();
-                return true;
-            }
-            return false;
-        }
-        return invokeIIL.booleanValue;
-    }
-
-    public boolean onItemSelected(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
-            OnSuggestionListener onSuggestionListener = this.mOnSuggestionListener;
-            if (onSuggestionListener == null || !onSuggestionListener.onSuggestionSelect(i)) {
-                rewriteQueryFromSuggestion(i);
-                return true;
-            }
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    @Override // androidx.appcompat.widget.LinearLayoutCompat, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            super.onLayout(z, i, i2, i3, i4);
-            if (z) {
-                getChildBoundsWithinSearchView(this.mSearchSrcTextView, this.mSearchSrcTextViewBounds);
-                Rect rect = this.mSearchSrtTextViewBoundsExpanded;
-                Rect rect2 = this.mSearchSrcTextViewBounds;
-                rect.set(rect2.left, 0, rect2.right, i4 - i2);
-                UpdatableTouchDelegate updatableTouchDelegate = this.mTouchDelegate;
-                if (updatableTouchDelegate == null) {
-                    UpdatableTouchDelegate updatableTouchDelegate2 = new UpdatableTouchDelegate(this.mSearchSrtTextViewBoundsExpanded, this.mSearchSrcTextViewBounds, this.mSearchSrcTextView);
-                    this.mTouchDelegate = updatableTouchDelegate2;
-                    setTouchDelegate(updatableTouchDelegate2);
-                    return;
-                }
-                updatableTouchDelegate.setBounds(this.mSearchSrtTextViewBoundsExpanded, this.mSearchSrcTextViewBounds);
-            }
-        }
-    }
-
-    @Override // androidx.appcompat.widget.LinearLayoutCompat, android.view.View
-    public void onMeasure(int i, int i2) {
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048599, this, i, i2) == null) {
-            if (isIconified()) {
-                super.onMeasure(i, i2);
-                return;
-            }
-            int mode = View.MeasureSpec.getMode(i);
-            int size = View.MeasureSpec.getSize(i);
-            if (mode == Integer.MIN_VALUE) {
-                int i4 = this.mMaxWidth;
-                size = i4 > 0 ? Math.min(i4, size) : Math.min(getPreferredWidth(), size);
-            } else if (mode == 0) {
-                size = this.mMaxWidth;
-                if (size <= 0) {
-                    size = getPreferredWidth();
-                }
-            } else if (mode == 1073741824 && (i3 = this.mMaxWidth) > 0) {
-                size = Math.min(i3, size);
-            }
-            int mode2 = View.MeasureSpec.getMode(i2);
-            int size2 = View.MeasureSpec.getSize(i2);
-            if (mode2 == Integer.MIN_VALUE) {
-                size2 = Math.min(getPreferredHeight(), size2);
-            } else if (mode2 == 0) {
-                size2 = getPreferredHeight();
-            }
-            super.onMeasure(View.MeasureSpec.makeMeasureSpec(size, 1073741824), View.MeasureSpec.makeMeasureSpec(size2, 1073741824));
-        }
-    }
-
-    public void onQueryRefine(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, charSequence) == null) {
-            setQuery(charSequence);
-        }
-    }
-
-    @Override // android.view.View
-    public void onRestoreInstanceState(Parcelable parcelable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, parcelable) == null) {
-            if (!(parcelable instanceof SavedState)) {
-                super.onRestoreInstanceState(parcelable);
-                return;
-            }
-            SavedState savedState = (SavedState) parcelable;
-            super.onRestoreInstanceState(savedState.getSuperState());
-            updateViewsVisibility(savedState.isIconified);
-            requestLayout();
         }
     }
 
@@ -1448,64 +1024,6 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         }
     }
 
-    public void onSubmitQuery() {
-        Editable text;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048604, this) == null) || (text = this.mSearchSrcTextView.getText()) == null || TextUtils.getTrimmedLength(text) <= 0) {
-            return;
-        }
-        OnQueryTextListener onQueryTextListener = this.mOnQueryChangeListener;
-        if (onQueryTextListener == null || !onQueryTextListener.onQueryTextSubmit(text.toString())) {
-            if (this.mSearchable != null) {
-                launchQuerySearch(0, null, text.toString());
-            }
-            this.mSearchSrcTextView.setImeVisibility(false);
-            dismissSuggestions();
-        }
-    }
-
-    public boolean onSuggestionsKey(View view2, int i, KeyEvent keyEvent) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048605, this, view2, i, keyEvent)) == null) {
-            if (this.mSearchable != null && this.mSuggestionsAdapter != null && keyEvent.getAction() == 0 && keyEvent.hasNoModifiers()) {
-                if (i == 66 || i == 84 || i == 61) {
-                    return onItemClicked(this.mSearchSrcTextView.getListSelection(), 0, null);
-                }
-                if (i != 21 && i != 22) {
-                    if (i != 19 || this.mSearchSrcTextView.getListSelection() == 0) {
-                        return false;
-                    }
-                } else {
-                    this.mSearchSrcTextView.setSelection(i == 21 ? 0 : this.mSearchSrcTextView.length());
-                    this.mSearchSrcTextView.setListSelection(0);
-                    this.mSearchSrcTextView.clearListSelection();
-                    this.mSearchSrcTextView.ensureImeVisible();
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeLIL.booleanValue;
-    }
-
-    public void onTextChanged(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, charSequence) == null) {
-            Editable text = this.mSearchSrcTextView.getText();
-            this.mUserQuery = text;
-            boolean z = !TextUtils.isEmpty(text);
-            updateSubmitButton(z);
-            updateVoiceButton(!z);
-            updateCloseButton();
-            updateSubmitArea();
-            if (this.mOnQueryChangeListener != null && !TextUtils.equals(charSequence, this.mOldQueryText)) {
-                this.mOnQueryChangeListener.onQueryTextChange(charSequence.toString());
-            }
-            this.mOldQueryText = charSequence.toString();
-        }
-    }
-
     public void onTextFocusChanged() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
@@ -1517,224 +1035,51 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         }
     }
 
-    public void onVoiceClicked() {
-        SearchableInfo searchableInfo;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public SearchView(Context context) {
+        this(context, null);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048608, this) == null) || (searchableInfo = this.mSearchable) == null) {
-            return;
-        }
-        try {
-            if (searchableInfo.getVoiceSearchLaunchWebSearch()) {
-                getContext().startActivity(createVoiceWebSearchIntent(this.mVoiceWebSearchIntent, searchableInfo));
-            } else if (searchableInfo.getVoiceSearchLaunchRecognizer()) {
-                getContext().startActivity(createVoiceAppSearchIntent(this.mVoiceAppSearchIntent, searchableInfo));
-            }
-        } catch (ActivityNotFoundException unused) {
-            Log.w(LOG_TAG, "Could not find voice search activity");
-        }
-    }
-
-    @Override // android.view.View
-    public void onWindowFocusChanged(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048609, this, z) == null) {
-            super.onWindowFocusChanged(z);
-            postUpdateFocusedState();
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public boolean requestFocus(int i, Rect rect) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048610, this, i, rect)) == null) {
-            if (!this.mClearingFocus && isFocusable()) {
-                if (!isIconified()) {
-                    boolean requestFocus = this.mSearchSrcTextView.requestFocus(i, rect);
-                    if (requestFocus) {
-                        updateViewsVisibility(false);
-                    }
-                    return requestFocus;
-                }
-                return super.requestFocus(i, rect);
-            }
-            return false;
-        }
-        return invokeIL.booleanValue;
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void setAppSearchData(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, bundle) == null) {
-            this.mAppSearchData = bundle;
-        }
-    }
-
-    public void setIconified(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048612, this, z) == null) {
-            if (z) {
-                onCloseClicked();
-            } else {
-                onSearchClicked();
-            }
-        }
-    }
-
-    public void setIconifiedByDefault(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048613, this, z) == null) || this.mIconifiedByDefault == z) {
-            return;
-        }
-        this.mIconifiedByDefault = z;
-        updateViewsVisibility(z);
-        updateQueryHint();
-    }
-
-    public void setImeOptions(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
-            this.mSearchSrcTextView.setImeOptions(i);
-        }
-    }
-
-    public void setInputType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
-            this.mSearchSrcTextView.setInputType(i);
-        }
-    }
-
-    public void setMaxWidth(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048616, this, i) == null) {
-            this.mMaxWidth = i;
-            requestLayout();
-        }
-    }
-
-    public void setOnCloseListener(OnCloseListener onCloseListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, onCloseListener) == null) {
-            this.mOnCloseListener = onCloseListener;
-        }
-    }
-
-    public void setOnQueryTextFocusChangeListener(View.OnFocusChangeListener onFocusChangeListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, onFocusChangeListener) == null) {
-            this.mOnQueryTextFocusChangeListener = onFocusChangeListener;
-        }
-    }
-
-    public void setOnQueryTextListener(OnQueryTextListener onQueryTextListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048619, this, onQueryTextListener) == null) {
-            this.mOnQueryChangeListener = onQueryTextListener;
-        }
-    }
-
-    public void setOnSearchClickListener(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048620, this, onClickListener) == null) {
-            this.mOnSearchClickListener = onClickListener;
-        }
-    }
-
-    public void setOnSuggestionListener(OnSuggestionListener onSuggestionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048621, this, onSuggestionListener) == null) {
-            this.mOnSuggestionListener = onSuggestionListener;
-        }
-    }
-
-    public void setQuery(CharSequence charSequence, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048622, this, charSequence, z) == null) {
-            this.mSearchSrcTextView.setText(charSequence);
-            if (charSequence != null) {
-                SearchAutoComplete searchAutoComplete = this.mSearchSrcTextView;
-                searchAutoComplete.setSelection(searchAutoComplete.length());
-                this.mUserQuery = charSequence;
-            }
-            if (!z || TextUtils.isEmpty(charSequence)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            onSubmitQuery();
         }
     }
 
-    public void setQueryHint(@Nullable CharSequence charSequence) {
+    private void rewriteQueryFromSuggestion(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048623, this, charSequence) == null) {
-            this.mQueryHint = charSequence;
-            updateQueryHint();
-        }
-    }
-
-    public void setQueryRefinementEnabled(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048624, this, z) == null) {
-            this.mQueryRefinement = z;
-            CursorAdapter cursorAdapter = this.mSuggestionsAdapter;
-            if (cursorAdapter instanceof SuggestionsAdapter) {
-                ((SuggestionsAdapter) cursorAdapter).setQueryRefinement(z ? 2 : 1);
+        if (interceptable == null || interceptable.invokeI(65555, this, i) == null) {
+            Editable text = this.mSearchSrcTextView.getText();
+            Cursor cursor = this.mSuggestionsAdapter.getCursor();
+            if (cursor == null) {
+                return;
             }
-        }
-    }
-
-    public void setSearchableInfo(SearchableInfo searchableInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048625, this, searchableInfo) == null) {
-            this.mSearchable = searchableInfo;
-            if (searchableInfo != null) {
-                updateSearchAutoComplete();
-                updateQueryHint();
+            if (cursor.moveToPosition(i)) {
+                CharSequence convertToString = this.mSuggestionsAdapter.convertToString(cursor);
+                if (convertToString != null) {
+                    setQuery(convertToString);
+                    return;
+                } else {
+                    setQuery(text);
+                    return;
+                }
             }
-            boolean hasVoiceSearch = hasVoiceSearch();
-            this.mVoiceButtonEnabled = hasVoiceSearch;
-            if (hasVoiceSearch) {
-                this.mSearchSrcTextView.setPrivateImeOptions(IME_OPTION_NO_MICROPHONE);
-            }
-            updateViewsVisibility(isIconified());
-        }
-    }
-
-    public void setSubmitButtonEnabled(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048626, this, z) == null) {
-            this.mSubmitButtonEnabled = z;
-            updateViewsVisibility(isIconified());
-        }
-    }
-
-    public void setSuggestionsAdapter(CursorAdapter cursorAdapter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048627, this, cursorAdapter) == null) {
-            this.mSuggestionsAdapter = cursorAdapter;
-            this.mSearchSrcTextView.setAdapter(cursorAdapter);
-        }
-    }
-
-    public void updateFocusedState() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048628, this) == null) {
-            int[] iArr = this.mSearchSrcTextView.hasFocus() ? ViewGroup.FOCUSED_STATE_SET : ViewGroup.EMPTY_STATE_SET;
-            Drawable background = this.mSearchPlate.getBackground();
-            if (background != null) {
-                background.setState(iArr);
-            }
-            Drawable background2 = this.mSubmitArea.getBackground();
-            if (background2 != null) {
-                background2.setState(iArr);
-            }
-            invalidate();
+            setQuery(text);
         }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SearchView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+    public SearchView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.obfuscated_res_0x7f040602);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1755,7 +1100,7 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SearchView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+    public SearchView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1920,13 +1265,13 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                     if (searchView.mSearchSrcTextView.isPopupShowing() && this.this$0.mSearchSrcTextView.getListSelection() != -1) {
                         return this.this$0.onSuggestionsKey(view2, i4, keyEvent);
                     }
-                    if (!this.this$0.mSearchSrcTextView.isEmpty() && keyEvent.hasNoModifiers() && keyEvent.getAction() == 1 && i4 == 66) {
-                        view2.cancelLongPress();
-                        SearchView searchView2 = this.this$0;
-                        searchView2.launchQuerySearch(0, null, searchView2.mSearchSrcTextView.getText().toString());
-                        return true;
+                    if (this.this$0.mSearchSrcTextView.isEmpty() || !keyEvent.hasNoModifiers() || keyEvent.getAction() != 1 || i4 != 66) {
+                        return false;
                     }
-                    return false;
+                    view2.cancelLongPress();
+                    SearchView searchView2 = this.this$0;
+                    searchView2.launchQuerySearch(0, null, searchView2.mSearchSrcTextView.getText().toString());
+                    return true;
                 }
                 return invokeLIL.booleanValue;
             }
@@ -2001,6 +1346,13 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SearchView this$0;
 
+            @Override // android.widget.AdapterView.OnItemSelectedListener
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adapterView) == null) {
+                }
+            }
+
             {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null) {
@@ -2026,18 +1378,25 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                     this.this$0.onItemSelected(i4);
                 }
             }
-
-            @Override // android.widget.AdapterView.OnItemSelectedListener
-            public void onNothingSelected(AdapterView<?> adapterView) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adapterView) == null) {
-                }
-            }
         };
         this.mTextWatcher = new TextWatcher(this) { // from class: androidx.appcompat.widget.SearchView.10
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SearchView this$0;
+
+            @Override // android.text.TextWatcher
+            public void afterTextChanged(Editable editable) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, editable) == null) {
+                }
+            }
+
+            @Override // android.text.TextWatcher
+            public void beforeTextChanged(CharSequence charSequence, int i4, int i5, int i6) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i4, i5, i6) == null) {
+                }
+            }
 
             {
                 Interceptable interceptable2 = $ic;
@@ -2058,20 +1417,6 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
             }
 
             @Override // android.text.TextWatcher
-            public void afterTextChanged(Editable editable) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, editable) == null) {
-                }
-            }
-
-            @Override // android.text.TextWatcher
-            public void beforeTextChanged(CharSequence charSequence, int i4, int i5, int i6) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i4, i5, i6) == null) {
-                }
-            }
-
-            @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i4, int i5, int i6) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i4, i5, i6) == null) {
@@ -2081,17 +1426,17 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         };
         TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, androidx.appcompat.R.styleable.SearchView, i, 0);
         LayoutInflater.from(context).inflate(obtainStyledAttributes.getResourceId(9, R.layout.obfuscated_res_0x7f0d0019), (ViewGroup) this, true);
-        SearchAutoComplete searchAutoComplete = (SearchAutoComplete) findViewById(R.id.obfuscated_res_0x7f091e10);
+        SearchAutoComplete searchAutoComplete = (SearchAutoComplete) findViewById(R.id.obfuscated_res_0x7f091e0c);
         this.mSearchSrcTextView = searchAutoComplete;
         searchAutoComplete.setSearchView(this);
-        this.mSearchEditFrame = findViewById(R.id.obfuscated_res_0x7f091dea);
-        this.mSearchPlate = findViewById(R.id.obfuscated_res_0x7f091e07);
-        this.mSubmitArea = findViewById(R.id.obfuscated_res_0x7f091fa7);
-        this.mSearchButton = (ImageView) findViewById(R.id.obfuscated_res_0x7f091de6);
-        this.mGoButton = (ImageView) findViewById(R.id.obfuscated_res_0x7f091df5);
-        this.mCloseButton = (ImageView) findViewById(R.id.obfuscated_res_0x7f091de7);
-        this.mVoiceButton = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e1a);
-        this.mCollapsedIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e05);
+        this.mSearchEditFrame = findViewById(R.id.obfuscated_res_0x7f091de6);
+        this.mSearchPlate = findViewById(R.id.obfuscated_res_0x7f091e03);
+        this.mSubmitArea = findViewById(R.id.obfuscated_res_0x7f091fa6);
+        this.mSearchButton = (ImageView) findViewById(R.id.obfuscated_res_0x7f091de2);
+        this.mGoButton = (ImageView) findViewById(R.id.obfuscated_res_0x7f091df1);
+        this.mCloseButton = (ImageView) findViewById(R.id.obfuscated_res_0x7f091de3);
+        this.mVoiceButton = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e16);
+        this.mCollapsedIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e01);
         ViewCompat.setBackground(this.mSearchPlate, obtainStyledAttributes.getDrawable(10));
         ViewCompat.setBackground(this.mSubmitArea, obtainStyledAttributes.getDrawable(14));
         this.mSearchButton.setImageDrawable(obtainStyledAttributes.getDrawable(13));
@@ -2141,10 +1486,9 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                 SearchView searchView;
                 View.OnFocusChangeListener onFocusChangeListener;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeLZ(1048576, this, view2, z) == null) || (onFocusChangeListener = (searchView = this.this$0).mOnQueryTextFocusChangeListener) == null) {
-                    return;
+                if ((interceptable2 == null || interceptable2.invokeLZ(1048576, this, view2, z) == null) && (onFocusChangeListener = (searchView = this.this$0).mOnQueryTextFocusChangeListener) != null) {
+                    onFocusChangeListener.onFocusChange(searchView, z);
                 }
-                onFocusChangeListener.onFocusChange(searchView, z);
             }
         });
         setIconifiedByDefault(obtainStyledAttributes.getBoolean(8, true));
@@ -2210,11 +1554,851 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         updateQueryHint();
     }
 
+    private Intent createIntent(String str, Uri uri, String str2, String str3, int i, String str4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{str, uri, str2, str3, Integer.valueOf(i), str4})) == null) {
+            Intent intent = new Intent(str);
+            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+            if (uri != null) {
+                intent.setData(uri);
+            }
+            intent.putExtra("user_query", this.mUserQuery);
+            if (str3 != null) {
+                intent.putExtra("query", str3);
+            }
+            if (str2 != null) {
+                intent.putExtra("intent_extra_data_key", str2);
+            }
+            Bundle bundle = this.mAppSearchData;
+            if (bundle != null) {
+                intent.putExtra("app_data", bundle);
+            }
+            if (i != 0) {
+                intent.putExtra("action_key", i);
+                intent.putExtra("action_msg", str4);
+            }
+            intent.setComponent(this.mSearchable.getSearchActivity());
+            return intent;
+        }
+        return (Intent) invokeCommon.objValue;
+    }
+
+    private Intent createIntentFromSuggestion(Cursor cursor, int i, String str) {
+        InterceptResult invokeLIL;
+        int i2;
+        Uri parse;
+        String columnString;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65541, this, cursor, i, str)) == null) {
+            try {
+                String columnString2 = SuggestionsAdapter.getColumnString(cursor, "suggest_intent_action");
+                if (columnString2 == null) {
+                    columnString2 = this.mSearchable.getSuggestIntentAction();
+                }
+                if (columnString2 == null) {
+                    columnString2 = "android.intent.action.SEARCH";
+                }
+                String str2 = columnString2;
+                String columnString3 = SuggestionsAdapter.getColumnString(cursor, "suggest_intent_data");
+                if (columnString3 == null) {
+                    columnString3 = this.mSearchable.getSuggestIntentData();
+                }
+                if (columnString3 != null && (columnString = SuggestionsAdapter.getColumnString(cursor, "suggest_intent_data_id")) != null) {
+                    columnString3 = columnString3 + "/" + Uri.encode(columnString);
+                }
+                if (columnString3 == null) {
+                    parse = null;
+                } else {
+                    parse = Uri.parse(columnString3);
+                }
+                return createIntent(str2, parse, SuggestionsAdapter.getColumnString(cursor, "suggest_intent_extra_data"), SuggestionsAdapter.getColumnString(cursor, "suggest_intent_query"), i, str);
+            } catch (RuntimeException e) {
+                try {
+                    i2 = cursor.getPosition();
+                } catch (RuntimeException unused) {
+                    i2 = -1;
+                }
+                Log.w(LOG_TAG, "Search suggestions cursor at row " + i2 + " returned exception.", e);
+                return null;
+            }
+        }
+        return (Intent) invokeLIL.objValue;
+    }
+
+    private Intent createVoiceAppSearchIntent(Intent intent, SearchableInfo searchableInfo) {
+        InterceptResult invokeLL;
+        String str;
+        String str2;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, intent, searchableInfo)) == null) {
+            ComponentName searchActivity = searchableInfo.getSearchActivity();
+            Intent intent2 = new Intent("android.intent.action.SEARCH");
+            intent2.setComponent(searchActivity);
+            PendingIntent activity = PendingIntent.getActivity(getContext(), 0, intent2, 1073741824);
+            Bundle bundle = new Bundle();
+            Bundle bundle2 = this.mAppSearchData;
+            if (bundle2 != null) {
+                bundle.putParcelable("app_data", bundle2);
+            }
+            Intent intent3 = new Intent(intent);
+            int i = 1;
+            Resources resources = getResources();
+            if (searchableInfo.getVoiceLanguageModeId() != 0) {
+                str = resources.getString(searchableInfo.getVoiceLanguageModeId());
+            } else {
+                str = "free_form";
+            }
+            String str4 = null;
+            if (searchableInfo.getVoicePromptTextId() != 0) {
+                str2 = resources.getString(searchableInfo.getVoicePromptTextId());
+            } else {
+                str2 = null;
+            }
+            if (searchableInfo.getVoiceLanguageId() != 0) {
+                str3 = resources.getString(searchableInfo.getVoiceLanguageId());
+            } else {
+                str3 = null;
+            }
+            if (searchableInfo.getVoiceMaxResults() != 0) {
+                i = searchableInfo.getVoiceMaxResults();
+            }
+            intent3.putExtra("android.speech.extra.LANGUAGE_MODEL", str);
+            intent3.putExtra("android.speech.extra.PROMPT", str2);
+            intent3.putExtra("android.speech.extra.LANGUAGE", str3);
+            intent3.putExtra("android.speech.extra.MAX_RESULTS", i);
+            if (searchActivity != null) {
+                str4 = searchActivity.flattenToShortString();
+            }
+            intent3.putExtra("calling_package", str4);
+            intent3.putExtra("android.speech.extra.RESULTS_PENDINGINTENT", activity);
+            intent3.putExtra("android.speech.extra.RESULTS_PENDINGINTENT_BUNDLE", bundle);
+            return intent3;
+        }
+        return (Intent) invokeLL.objValue;
+    }
+
+    private Intent createVoiceWebSearchIntent(Intent intent, SearchableInfo searchableInfo) {
+        InterceptResult invokeLL;
+        String flattenToShortString;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, intent, searchableInfo)) == null) {
+            Intent intent2 = new Intent(intent);
+            ComponentName searchActivity = searchableInfo.getSearchActivity();
+            if (searchActivity == null) {
+                flattenToShortString = null;
+            } else {
+                flattenToShortString = searchActivity.flattenToShortString();
+            }
+            intent2.putExtra("calling_package", flattenToShortString);
+            return intent2;
+        }
+        return (Intent) invokeLL.objValue;
+    }
+
+    public void setQuery(CharSequence charSequence, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048622, this, charSequence, z) == null) {
+            this.mSearchSrcTextView.setText(charSequence);
+            if (charSequence != null) {
+                SearchAutoComplete searchAutoComplete = this.mSearchSrcTextView;
+                searchAutoComplete.setSelection(searchAutoComplete.length());
+                this.mUserQuery = charSequence;
+            }
+            if (z && !TextUtils.isEmpty(charSequence)) {
+                onSubmitQuery();
+            }
+        }
+    }
+
+    private void getChildBoundsWithinSearchView(View view2, Rect rect) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65545, this, view2, rect) == null) {
+            view2.getLocationInWindow(this.mTemp);
+            getLocationInWindow(this.mTemp2);
+            int[] iArr = this.mTemp;
+            int i = iArr[1];
+            int[] iArr2 = this.mTemp2;
+            int i2 = i - iArr2[1];
+            int i3 = iArr[0] - iArr2[0];
+            rect.set(i3, i2, view2.getWidth() + i3, view2.getHeight() + i2);
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public boolean requestFocus(int i, Rect rect) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048610, this, i, rect)) == null) {
+            if (this.mClearingFocus || !isFocusable()) {
+                return false;
+            }
+            if (!isIconified()) {
+                boolean requestFocus = this.mSearchSrcTextView.requestFocus(i, rect);
+                if (requestFocus) {
+                    updateViewsVisibility(false);
+                }
+                return requestFocus;
+            }
+            return super.requestFocus(i, rect);
+        }
+        return invokeIL.booleanValue;
+    }
+
+    private CharSequence getDecoratedHint(CharSequence charSequence) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, charSequence)) == null) {
+            if (this.mIconifiedByDefault && this.mSearchHintIcon != null) {
+                int textSize = (int) (this.mSearchSrcTextView.getTextSize() * 1.25d);
+                this.mSearchHintIcon.setBounds(0, 0, textSize, textSize);
+                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder("   ");
+                spannableStringBuilder.setSpan(new ImageSpan(this.mSearchHintIcon), 1, 2, 33);
+                spannableStringBuilder.append(charSequence);
+                return spannableStringBuilder;
+            }
+            return charSequence;
+        }
+        return (CharSequence) invokeL.objValue;
+    }
+
+    private void updateViewsVisibility(boolean z) {
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65562, this, z) == null) {
+            this.mIconified = z;
+            int i3 = 0;
+            if (z) {
+                i = 0;
+            } else {
+                i = 8;
+            }
+            boolean z2 = !TextUtils.isEmpty(this.mSearchSrcTextView.getText());
+            this.mSearchButton.setVisibility(i);
+            updateSubmitButton(z2);
+            View view2 = this.mSearchEditFrame;
+            if (z) {
+                i2 = 8;
+            } else {
+                i2 = 0;
+            }
+            view2.setVisibility(i2);
+            this.mCollapsedIcon.setVisibility((this.mCollapsedIcon.getDrawable() == null || this.mIconifiedByDefault) ? 8 : 8);
+            updateCloseButton();
+            updateVoiceButton(!z2);
+            updateSubmitArea();
+        }
+    }
+
+    public void onTextChanged(CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, charSequence) == null) {
+            Editable text = this.mSearchSrcTextView.getText();
+            this.mUserQuery = text;
+            boolean z = !TextUtils.isEmpty(text);
+            updateSubmitButton(z);
+            updateVoiceButton(!z);
+            updateCloseButton();
+            updateSubmitArea();
+            if (this.mOnQueryChangeListener != null && !TextUtils.equals(charSequence, this.mOldQueryText)) {
+                this.mOnQueryChangeListener.onQueryTextChange(charSequence.toString());
+            }
+            this.mOldQueryText = charSequence.toString();
+        }
+    }
+
+    private boolean hasVoiceSearch() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
+            SearchableInfo searchableInfo = this.mSearchable;
+            if (searchableInfo == null || !searchableInfo.getVoiceSearchEnabled()) {
+                return false;
+            }
+            Intent intent = null;
+            if (this.mSearchable.getVoiceSearchLaunchWebSearch()) {
+                intent = this.mVoiceWebSearchIntent;
+            } else if (this.mSearchable.getVoiceSearchLaunchRecognizer()) {
+                intent = this.mVoiceAppSearchIntent;
+            }
+            if (intent == null || getContext().getPackageManager().resolveActivity(intent, 65536) == null) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    private void updateCloseButton() {
+        int[] iArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65557, this) == null) {
+            boolean z = true;
+            boolean z2 = !TextUtils.isEmpty(this.mSearchSrcTextView.getText());
+            int i = 0;
+            if (!z2 && (!this.mIconifiedByDefault || this.mExpandedInActionView)) {
+                z = false;
+            }
+            ImageView imageView = this.mCloseButton;
+            if (!z) {
+                i = 8;
+            }
+            imageView.setVisibility(i);
+            Drawable drawable = this.mCloseButton.getDrawable();
+            if (drawable != null) {
+                if (z2) {
+                    iArr = ViewGroup.ENABLED_STATE_SET;
+                } else {
+                    iArr = ViewGroup.EMPTY_STATE_SET;
+                }
+                drawable.setState(iArr);
+            }
+        }
+    }
+
+    public CharSequence getQueryHint() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            CharSequence charSequence = this.mQueryHint;
+            if (charSequence == null) {
+                SearchableInfo searchableInfo = this.mSearchable;
+                if (searchableInfo != null && searchableInfo.getHintId() != 0) {
+                    return getContext().getText(this.mSearchable.getHintId());
+                }
+                return this.mDefaultQueryHint;
+            }
+            return charSequence;
+        }
+        return (CharSequence) invokeV.objValue;
+    }
+
+    @Override // androidx.appcompat.view.CollapsibleActionView
+    public void onActionViewExpanded() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048593, this) != null) || this.mExpandedInActionView) {
+            return;
+        }
+        this.mExpandedInActionView = true;
+        int imeOptions = this.mSearchSrcTextView.getImeOptions();
+        this.mCollapsedImeOptions = imeOptions;
+        this.mSearchSrcTextView.setImeOptions(imeOptions | 33554432);
+        this.mSearchSrcTextView.setText("");
+        setIconified(false);
+    }
+
+    public void onCloseClicked() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            if (TextUtils.isEmpty(this.mSearchSrcTextView.getText())) {
+                if (this.mIconifiedByDefault) {
+                    OnCloseListener onCloseListener = this.mOnCloseListener;
+                    if (onCloseListener == null || !onCloseListener.onClose()) {
+                        clearFocus();
+                        updateViewsVisibility(true);
+                        return;
+                    }
+                    return;
+                }
+                return;
+            }
+            this.mSearchSrcTextView.setText("");
+            this.mSearchSrcTextView.requestFocus();
+            this.mSearchSrcTextView.setImeVisibility(true);
+        }
+    }
+
+    public void onSubmitQuery() {
+        Editable text;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048604, this) == null) && (text = this.mSearchSrcTextView.getText()) != null && TextUtils.getTrimmedLength(text) > 0) {
+            OnQueryTextListener onQueryTextListener = this.mOnQueryChangeListener;
+            if (onQueryTextListener == null || !onQueryTextListener.onQueryTextSubmit(text.toString())) {
+                if (this.mSearchable != null) {
+                    launchQuerySearch(0, null, text.toString());
+                }
+                this.mSearchSrcTextView.setImeVisibility(false);
+                dismissSuggestions();
+            }
+        }
+    }
+
+    public void onVoiceClicked() {
+        SearchableInfo searchableInfo;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048608, this) != null) || (searchableInfo = this.mSearchable) == null) {
+            return;
+        }
+        try {
+            if (searchableInfo.getVoiceSearchLaunchWebSearch()) {
+                getContext().startActivity(createVoiceWebSearchIntent(this.mVoiceWebSearchIntent, searchableInfo));
+            } else if (searchableInfo.getVoiceSearchLaunchRecognizer()) {
+                getContext().startActivity(createVoiceAppSearchIntent(this.mVoiceAppSearchIntent, searchableInfo));
+            }
+        } catch (ActivityNotFoundException unused) {
+            Log.w(LOG_TAG, "Could not find voice search activity");
+        }
+    }
+
+    public void updateFocusedState() {
+        int[] iArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048628, this) == null) {
+            if (this.mSearchSrcTextView.hasFocus()) {
+                iArr = ViewGroup.FOCUSED_STATE_SET;
+            } else {
+                iArr = ViewGroup.EMPTY_STATE_SET;
+            }
+            Drawable background = this.mSearchPlate.getBackground();
+            if (background != null) {
+                background.setState(iArr);
+            }
+            Drawable background2 = this.mSubmitArea.getBackground();
+            if (background2 != null) {
+                background2.setState(iArr);
+            }
+            invalidate();
+        }
+    }
+
+    public static boolean isLandscapeMode(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
+            if (context.getResources().getConfiguration().orientation == 2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    private void launchIntent(Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65552, this, intent) != null) || intent == null) {
+            return;
+        }
+        try {
+            getContext().startActivity(intent);
+        } catch (RuntimeException e) {
+            Log.e(LOG_TAG, "Failed launch activity: " + intent, e);
+        }
+    }
+
     private void setQuery(CharSequence charSequence) {
+        int length;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65556, this, charSequence) == null) {
             this.mSearchSrcTextView.setText(charSequence);
-            this.mSearchSrcTextView.setSelection(TextUtils.isEmpty(charSequence) ? 0 : charSequence.length());
+            SearchAutoComplete searchAutoComplete = this.mSearchSrcTextView;
+            if (TextUtils.isEmpty(charSequence)) {
+                length = 0;
+            } else {
+                length = charSequence.length();
+            }
+            searchAutoComplete.setSelection(length);
         }
+    }
+
+    private void updateSubmitButton(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65561, this, z) == null) {
+            if (this.mSubmitButtonEnabled && isSubmitAreaEnabled() && hasFocus() && (z || !this.mVoiceButtonEnabled)) {
+                i = 0;
+            } else {
+                i = 8;
+            }
+            this.mGoButton.setVisibility(i);
+        }
+    }
+
+    private void updateVoiceButton(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65563, this, z) == null) {
+            int i = 8;
+            if (this.mVoiceButtonEnabled && !isIconified() && z) {
+                this.mGoButton.setVisibility(8);
+                i = 0;
+            }
+            this.mVoiceButton.setVisibility(i);
+        }
+    }
+
+    public boolean onItemSelected(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
+            OnSuggestionListener onSuggestionListener = this.mOnSuggestionListener;
+            if (onSuggestionListener != null && onSuggestionListener.onSuggestionSelect(i)) {
+                return false;
+            }
+            rewriteQueryFromSuggestion(i);
+            return true;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void onQueryRefine(CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, charSequence) == null) {
+            setQuery(charSequence);
+        }
+    }
+
+    @Override // android.view.View
+    public void onRestoreInstanceState(Parcelable parcelable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, parcelable) == null) {
+            if (!(parcelable instanceof SavedState)) {
+                super.onRestoreInstanceState(parcelable);
+                return;
+            }
+            SavedState savedState = (SavedState) parcelable;
+            super.onRestoreInstanceState(savedState.getSuperState());
+            updateViewsVisibility(savedState.isIconified);
+            requestLayout();
+        }
+    }
+
+    @Override // android.view.View
+    public void onWindowFocusChanged(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048609, this, z) == null) {
+            super.onWindowFocusChanged(z);
+            postUpdateFocusedState();
+        }
+    }
+
+    public void setAppSearchData(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048611, this, bundle) == null) {
+            this.mAppSearchData = bundle;
+        }
+    }
+
+    public void setIconified(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048612, this, z) == null) {
+            if (z) {
+                onCloseClicked();
+            } else {
+                onSearchClicked();
+            }
+        }
+    }
+
+    public void setIconifiedByDefault(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(1048613, this, z) != null) || this.mIconifiedByDefault == z) {
+            return;
+        }
+        this.mIconifiedByDefault = z;
+        updateViewsVisibility(z);
+        updateQueryHint();
+    }
+
+    public void setImeOptions(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
+            this.mSearchSrcTextView.setImeOptions(i);
+        }
+    }
+
+    public void setInputType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
+            this.mSearchSrcTextView.setInputType(i);
+        }
+    }
+
+    public void setMaxWidth(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048616, this, i) == null) {
+            this.mMaxWidth = i;
+            requestLayout();
+        }
+    }
+
+    public void setOnCloseListener(OnCloseListener onCloseListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048617, this, onCloseListener) == null) {
+            this.mOnCloseListener = onCloseListener;
+        }
+    }
+
+    public void setOnQueryTextFocusChangeListener(View.OnFocusChangeListener onFocusChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048618, this, onFocusChangeListener) == null) {
+            this.mOnQueryTextFocusChangeListener = onFocusChangeListener;
+        }
+    }
+
+    public void setOnQueryTextListener(OnQueryTextListener onQueryTextListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048619, this, onQueryTextListener) == null) {
+            this.mOnQueryChangeListener = onQueryTextListener;
+        }
+    }
+
+    public void setOnSearchClickListener(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048620, this, onClickListener) == null) {
+            this.mOnSearchClickListener = onClickListener;
+        }
+    }
+
+    public void setOnSuggestionListener(OnSuggestionListener onSuggestionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048621, this, onSuggestionListener) == null) {
+            this.mOnSuggestionListener = onSuggestionListener;
+        }
+    }
+
+    public void setQueryHint(CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048623, this, charSequence) == null) {
+            this.mQueryHint = charSequence;
+            updateQueryHint();
+        }
+    }
+
+    public void setQueryRefinementEnabled(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048624, this, z) == null) {
+            this.mQueryRefinement = z;
+            CursorAdapter cursorAdapter = this.mSuggestionsAdapter;
+            if (cursorAdapter instanceof SuggestionsAdapter) {
+                SuggestionsAdapter suggestionsAdapter = (SuggestionsAdapter) cursorAdapter;
+                if (z) {
+                    i = 2;
+                } else {
+                    i = 1;
+                }
+                suggestionsAdapter.setQueryRefinement(i);
+            }
+        }
+    }
+
+    public void setSearchableInfo(SearchableInfo searchableInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048625, this, searchableInfo) == null) {
+            this.mSearchable = searchableInfo;
+            if (searchableInfo != null) {
+                updateSearchAutoComplete();
+                updateQueryHint();
+            }
+            boolean hasVoiceSearch = hasVoiceSearch();
+            this.mVoiceButtonEnabled = hasVoiceSearch;
+            if (hasVoiceSearch) {
+                this.mSearchSrcTextView.setPrivateImeOptions(IME_OPTION_NO_MICROPHONE);
+            }
+            updateViewsVisibility(isIconified());
+        }
+    }
+
+    public void setSubmitButtonEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048626, this, z) == null) {
+            this.mSubmitButtonEnabled = z;
+            updateViewsVisibility(isIconified());
+        }
+    }
+
+    public void setSuggestionsAdapter(CursorAdapter cursorAdapter) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048627, this, cursorAdapter) == null) {
+            this.mSuggestionsAdapter = cursorAdapter;
+            this.mSearchSrcTextView.setAdapter(cursorAdapter);
+        }
+    }
+
+    private boolean launchSuggestion(int i, int i2, String str) {
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65553, this, i, i2, str)) == null) {
+            Cursor cursor = this.mSuggestionsAdapter.getCursor();
+            if (cursor != null && cursor.moveToPosition(i)) {
+                launchIntent(createIntentFromSuggestion(cursor, i2, str));
+                return true;
+            }
+            return false;
+        }
+        return invokeIIL.booleanValue;
+    }
+
+    public void launchQuerySearch(int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048591, this, i, str, str2) == null) {
+            getContext().startActivity(createIntent("android.intent.action.SEARCH", null, null, str2, i, str));
+        }
+    }
+
+    public boolean onItemClicked(int i, int i2, String str) {
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048596, this, i, i2, str)) == null) {
+            OnSuggestionListener onSuggestionListener = this.mOnSuggestionListener;
+            if (onSuggestionListener != null && onSuggestionListener.onSuggestionClick(i)) {
+                return false;
+            }
+            launchSuggestion(i, 0, null);
+            this.mSearchSrcTextView.setImeVisibility(false);
+            dismissSuggestions();
+            return true;
+        }
+        return invokeIIL.booleanValue;
+    }
+
+    private void updateSearchAutoComplete() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65559, this) == null) {
+            this.mSearchSrcTextView.setThreshold(this.mSearchable.getSuggestThreshold());
+            this.mSearchSrcTextView.setImeOptions(this.mSearchable.getImeOptions());
+            int inputType = this.mSearchable.getInputType();
+            int i = 1;
+            if ((inputType & 15) == 1) {
+                inputType &= -65537;
+                if (this.mSearchable.getSuggestAuthority() != null) {
+                    inputType = inputType | 65536 | 524288;
+                }
+            }
+            this.mSearchSrcTextView.setInputType(inputType);
+            CursorAdapter cursorAdapter = this.mSuggestionsAdapter;
+            if (cursorAdapter != null) {
+                cursorAdapter.changeCursor(null);
+            }
+            if (this.mSearchable.getSuggestAuthority() != null) {
+                SuggestionsAdapter suggestionsAdapter = new SuggestionsAdapter(getContext(), this, this.mSearchable, this.mOutsideDrawablesCache);
+                this.mSuggestionsAdapter = suggestionsAdapter;
+                this.mSearchSrcTextView.setAdapter(suggestionsAdapter);
+                SuggestionsAdapter suggestionsAdapter2 = (SuggestionsAdapter) this.mSuggestionsAdapter;
+                if (this.mQueryRefinement) {
+                    i = 2;
+                }
+                suggestionsAdapter2.setQueryRefinement(i);
+            }
+        }
+    }
+
+    public void adjustDropDownSizeAndPosition() {
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.mDropDownAnchor.getWidth() > 1) {
+            Resources resources = getContext().getResources();
+            int paddingLeft = this.mSearchPlate.getPaddingLeft();
+            Rect rect = new Rect();
+            boolean isLayoutRtl = ViewUtils.isLayoutRtl(this);
+            if (this.mIconifiedByDefault) {
+                i = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700b4) + resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700b5);
+            } else {
+                i = 0;
+            }
+            this.mSearchSrcTextView.getDropDownBackground().getPadding(rect);
+            if (isLayoutRtl) {
+                i2 = -rect.left;
+            } else {
+                i2 = paddingLeft - (rect.left + i);
+            }
+            this.mSearchSrcTextView.setDropDownHorizontalOffset(i2);
+            this.mSearchSrcTextView.setDropDownWidth((((this.mDropDownAnchor.getWidth() + rect.left) + rect.right) + i) - paddingLeft);
+        }
+    }
+
+    @Override // androidx.appcompat.widget.LinearLayoutCompat, android.view.ViewGroup, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.onLayout(z, i, i2, i3, i4);
+            if (z) {
+                getChildBoundsWithinSearchView(this.mSearchSrcTextView, this.mSearchSrcTextViewBounds);
+                Rect rect = this.mSearchSrtTextViewBoundsExpanded;
+                Rect rect2 = this.mSearchSrcTextViewBounds;
+                rect.set(rect2.left, 0, rect2.right, i4 - i2);
+                UpdatableTouchDelegate updatableTouchDelegate = this.mTouchDelegate;
+                if (updatableTouchDelegate == null) {
+                    UpdatableTouchDelegate updatableTouchDelegate2 = new UpdatableTouchDelegate(this.mSearchSrtTextViewBoundsExpanded, this.mSearchSrcTextViewBounds, this.mSearchSrcTextView);
+                    this.mTouchDelegate = updatableTouchDelegate2;
+                    setTouchDelegate(updatableTouchDelegate2);
+                    return;
+                }
+                updatableTouchDelegate.setBounds(this.mSearchSrtTextViewBoundsExpanded, this.mSearchSrcTextViewBounds);
+            }
+        }
+    }
+
+    @Override // androidx.appcompat.widget.LinearLayoutCompat, android.view.View
+    public void onMeasure(int i, int i2) {
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048599, this, i, i2) == null) {
+            if (isIconified()) {
+                super.onMeasure(i, i2);
+                return;
+            }
+            int mode = View.MeasureSpec.getMode(i);
+            int size = View.MeasureSpec.getSize(i);
+            if (mode != Integer.MIN_VALUE) {
+                if (mode != 0) {
+                    if (mode == 1073741824 && (i3 = this.mMaxWidth) > 0) {
+                        size = Math.min(i3, size);
+                    }
+                } else {
+                    size = this.mMaxWidth;
+                    if (size <= 0) {
+                        size = getPreferredWidth();
+                    }
+                }
+            } else {
+                int i4 = this.mMaxWidth;
+                size = i4 > 0 ? Math.min(i4, size) : Math.min(getPreferredWidth(), size);
+            }
+            int mode2 = View.MeasureSpec.getMode(i2);
+            int size2 = View.MeasureSpec.getSize(i2);
+            if (mode2 != Integer.MIN_VALUE) {
+                if (mode2 == 0) {
+                    size2 = getPreferredHeight();
+                }
+            } else {
+                size2 = Math.min(getPreferredHeight(), size2);
+            }
+            super.onMeasure(View.MeasureSpec.makeMeasureSpec(size, 1073741824), View.MeasureSpec.makeMeasureSpec(size2, 1073741824));
+        }
+    }
+
+    public boolean onSuggestionsKey(View view2, int i, KeyEvent keyEvent) {
+        InterceptResult invokeLIL;
+        int length;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048605, this, view2, i, keyEvent)) == null) {
+            if (this.mSearchable != null && this.mSuggestionsAdapter != null && keyEvent.getAction() == 0 && keyEvent.hasNoModifiers()) {
+                if (i != 66 && i != 84 && i != 61) {
+                    if (i != 21 && i != 22) {
+                        if (i != 19 || this.mSearchSrcTextView.getListSelection() == 0) {
+                            return false;
+                        }
+                    } else {
+                        if (i == 21) {
+                            length = 0;
+                        } else {
+                            length = this.mSearchSrcTextView.length();
+                        }
+                        this.mSearchSrcTextView.setSelection(length);
+                        this.mSearchSrcTextView.setListSelection(0);
+                        this.mSearchSrcTextView.clearListSelection();
+                        this.mSearchSrcTextView.ensureImeVisible();
+                        return true;
+                    }
+                } else {
+                    return onItemClicked(this.mSearchSrcTextView.getListSelection(), 0, null);
+                }
+            }
+            return false;
+        }
+        return invokeLIL.booleanValue;
     }
 }

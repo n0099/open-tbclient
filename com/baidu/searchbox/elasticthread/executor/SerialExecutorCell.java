@@ -24,6 +24,13 @@ public class SerialExecutorCell extends BaseExecutorCell {
     public transient /* synthetic */ FieldHolder $fh;
     public int dredgeCountInRecordLifeCycle;
 
+    @Override // com.baidu.searchbox.elasticthread.executor.BaseExecutorCell
+    public String getTag() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "SerialElasticExecutorCell" : (String) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SerialExecutorCell(int i) {
         super(i);
@@ -94,7 +101,7 @@ public class SerialExecutorCell extends BaseExecutorCell {
                 if (this.mWorkingTasks.isEmpty()) {
                     return null;
                 }
-                return this.mWorkingTasks.get(0);
+                return (ElasticTask) this.mWorkingTasks.get(0);
             }
         }
         return (ElasticTask) invokeV.objValue;
@@ -104,36 +111,13 @@ public class SerialExecutorCell extends BaseExecutorCell {
     public boolean available() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? getWorkingThreadNum() < 1 : invokeV.booleanValue;
-    }
-
-    public synchronized boolean checkBlockAndDredge() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                if (ElasticConfig.ENABLE_SERIAL_DREDGE) {
-                    ElasticTask currentWorkingTask = getCurrentWorkingTask();
-                    if (currentWorkingTask == null) {
-                        return false;
-                    }
-                    if (currentWorkingTask.getRawWorkTime() >= ElasticConfig.SERIAL_BLOCK_TIME_THRESHOLD) {
-                        applyDredge(currentWorkingTask);
-                        return true;
-                    }
-                    return false;
-                }
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (getWorkingThreadNum() < 1) {
+                return true;
             }
+            return false;
         }
         return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.elasticthread.executor.BaseExecutorCell
-    public String getTag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "SerialElasticExecutorCell" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.searchbox.elasticthread.executor.BaseExecutorCell, com.baidu.searchbox.elasticthread.statistic.Recordable
@@ -143,6 +127,28 @@ public class SerialExecutorCell extends BaseExecutorCell {
             super.onRecordBegin();
             this.dredgeCountInRecordLifeCycle = 0;
         }
+    }
+
+    public synchronized boolean checkBlockAndDredge() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                if (!ElasticConfig.ENABLE_SERIAL_DREDGE) {
+                    return false;
+                }
+                ElasticTask currentWorkingTask = getCurrentWorkingTask();
+                if (currentWorkingTask == null) {
+                    return false;
+                }
+                if (currentWorkingTask.getRawWorkTime() < ElasticConfig.SERIAL_BLOCK_TIME_THRESHOLD) {
+                    return false;
+                }
+                applyDredge(currentWorkingTask);
+                return true;
+            }
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.searchbox.elasticthread.executor.BaseExecutorCell

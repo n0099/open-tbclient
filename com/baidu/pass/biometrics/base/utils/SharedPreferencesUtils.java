@@ -54,7 +54,7 @@ public final class SharedPreferencesUtils {
 
     public static void setParam(Context context, String str, String str2, Object obj) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(65538, null, context, str, str2, obj) == null) || obj == null) {
+        if ((interceptable != null && interceptable.invokeLLLL(65538, null, context, str, str2, obj) != null) || obj == null) {
             return;
         }
         String simpleName = obj.getClass().getSimpleName();

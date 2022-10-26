@@ -1,6 +1,6 @@
 package com.baidu.tieba.danmu.ecs;
 
-import com.baidu.tieba.q46;
+import com.baidu.tieba.x46;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +15,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\f\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\n"}, d2 = {"<anonymous>", "", AdvanceSetting.NETWORK_TYPE, "Lcom/baidu/tieba/danmu/data/DanmakuItem;"}, k = 3, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes3.dex */
-public final class DanmakuContext$updateSlice$endIndex$1 extends Lambda implements Function1<q46, Long> {
+public final class DanmakuContext$updateSlice$endIndex$1 extends Lambda implements Function1 {
     public static /* synthetic */ Interceptable $ic;
     public static final DanmakuContext$updateSlice$endIndex$1 INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +56,7 @@ public final class DanmakuContext$updateSlice$endIndex$1 extends Lambda implemen
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.functions.Function1
-    public final Long invoke(q46 it) {
+    public final Long invoke(x46 it) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, it)) == null) {

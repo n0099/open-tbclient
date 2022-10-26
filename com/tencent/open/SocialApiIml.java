@@ -1,6 +1,5 @@
 package com.tencent.open;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -132,93 +131,6 @@ public class SocialApiIml extends BaseApi {
         }
     }
 
-    public void ask(Activity activity, Bundle bundle, IUiListener iUiListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, bundle, iUiListener) == null) {
-            a(activity, SocialConstants.ACTION_ASK, bundle, iUiListener);
-        }
-    }
-
-    @Override // com.tencent.connect.common.BaseApi
-    public Intent b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            Intent intent = new Intent();
-            intent.setClassName(com.tencent.connect.common.Constants.PACKAGE_QZONE, str);
-            Intent intent2 = new Intent();
-            intent2.setClassName("com.tencent.mobileqq", str);
-            Intent intent3 = new Intent();
-            intent3.setClassName(com.tencent.connect.common.Constants.PACKAGE_QQ_PAD, str);
-            if (l.c(f.a()) && i.a(f.a(), intent3)) {
-                return intent3;
-            }
-            if (!i.a(f.a(), intent2) || i.c(f.a(), "4.7") < 0) {
-                if (i.a(f.a(), intent) && i.a(i.a(f.a(), com.tencent.connect.common.Constants.PACKAGE_QZONE), "4.2") >= 0 && i.a(f.a(), intent.getComponent().getPackageName(), com.tencent.connect.common.Constants.SIGNATRUE_QZONE)) {
-                    return intent;
-                }
-                return null;
-            }
-            return intent2;
-        }
-        return (Intent) invokeL.objValue;
-    }
-
-    public void gift(Activity activity, Bundle bundle, IUiListener iUiListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, bundle, iUiListener) == null) {
-            a(activity, SocialConstants.ACTION_GIFT, bundle, iUiListener);
-        }
-    }
-
-    public void invite(Activity activity, Bundle bundle, IUiListener iUiListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, activity, bundle, iUiListener) == null) {
-            this.a = activity;
-            Intent c = c(SocialConstants.ACTIVITY_FRIEND_CHOOSER);
-            if (c == null) {
-                SLog.i("openSDK_LOG.SocialApiIml", "--invite--friend chooser not found");
-                c = c(SocialConstants.ACTIVITY_INVITE);
-            }
-            bundle.putAll(b());
-            a(activity, c, SocialConstants.ACTION_INVITE, bundle, h.a().a(f.a(), "https://login.imgcache.qq.com/open/mobile/invite/sdk_invite.html?"), iUiListener, false);
-        }
-    }
-
-    public void story(Activity activity, Bundle bundle, IUiListener iUiListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, activity, bundle, iUiListener) == null) {
-            this.a = activity;
-            Intent c = c(SocialConstants.ACTIVITY_STORY);
-            bundle.putAll(b());
-            a(activity, c, SocialConstants.ACTION_STORY, bundle, h.a().a(f.a(), "https://login.imgcache.qq.com/open/mobile/sendstory/sdk_sendstory_v1.3.html?"), iUiListener, false);
-        }
-    }
-
-    @SuppressLint({"SetJavaScriptEnabled"})
-    public void writeEncryToken(Context context) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            String accessToken = this.c.getAccessToken();
-            String appId = this.c.getAppId();
-            String openId = this.c.getOpenId();
-            if (accessToken == null || accessToken.length() <= 0 || appId == null || appId.length() <= 0 || openId == null || openId.length() <= 0) {
-                str = null;
-            } else {
-                str = l.f("tencent&sdk&qazxc***14969%%" + accessToken + appId + openId + "qzone3.4");
-            }
-            com.tencent.open.b.b bVar = new com.tencent.open.b.b(context);
-            WebSettings settings = bVar.getSettings();
-            settings.setDomStorageEnabled(true);
-            settings.setJavaScriptEnabled(true);
-            settings.setDatabaseEnabled(true);
-            settings.setSavePassword(false);
-            String a2 = h.a().a(context, "https://login.imgcache.qq.com");
-            bVar.loadDataWithBaseURL(a2, "<!DOCTYPE HTML><html lang=\"en-US\"><head><meta charset=\"UTF-8\"><title>localStorage Test</title><script type=\"text/javascript\">document.domain = 'qq.com';localStorage[\"" + this.c.getOpenId() + "_" + this.c.getAppId() + "\"]=\"" + str + "\";</script></head><body></body></html>", SapiWebView.DATA_MIME_TYPE, IMAudioTransRequest.CHARSET, a2);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SocialApiIml(com.tencent.connect.auth.c cVar, QQToken qQToken) {
         super(cVar, qQToken);
@@ -240,6 +152,49 @@ public class SocialApiIml extends BaseApi {
         }
     }
 
+    private void a(Activity activity, Intent intent, String str, Bundle bundle, IUiListener iUiListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65539, this, activity, intent, str, bundle, iUiListener) == null) {
+            SLog.i("openSDK_LOG.SocialApiIml", "-->handleIntentWithAgent action = " + str);
+            intent.putExtra(com.tencent.connect.common.Constants.KEY_ACTION, str);
+            intent.putExtra(com.tencent.connect.common.Constants.KEY_PARAMS, bundle);
+            UIListenerManager.getInstance().setListenerWithRequestcode(com.tencent.connect.common.Constants.REQUEST_SOCIAL_API, iUiListener);
+            a(activity, intent, com.tencent.connect.common.Constants.REQUEST_SOCIAL_API);
+        }
+    }
+
+    private void a(Activity activity, Intent intent, String str, Bundle bundle, String str2, IUiListener iUiListener, boolean z) {
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{activity, intent, str, bundle, str2, iUiListener, Boolean.valueOf(z)}) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("-->handleIntent action = ");
+            sb.append(str);
+            sb.append(", activityIntent = null ? ");
+            boolean z3 = true;
+            if (intent == null) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            sb.append(z2);
+            SLog.i("openSDK_LOG.SocialApiIml", sb.toString());
+            if (intent != null) {
+                a(activity, intent, str, bundle, iUiListener);
+                return;
+            }
+            g a2 = g.a(f.a(), this.c.getAppId());
+            if (!z && !a2.b("C_LoginH5")) {
+                z3 = false;
+            }
+            if (z3) {
+                a(activity, str, bundle, str2, iUiListener);
+            } else {
+                a(activity, bundle, iUiListener);
+            }
+        }
+    }
+
     private void a(Activity activity, String str, Bundle bundle, IUiListener iUiListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65541, this, activity, str, bundle, iUiListener) == null) {
@@ -257,43 +212,6 @@ public class SocialApiIml extends BaseApi {
                 bundle.putString("type", SocialConstants.TYPE_FREEGIFT);
             }
             a(activity, intent, str, bundle, h.a().a(f.a(), "https://login.imgcache.qq.com/open/mobile/request/sdk_request.html?"), iUiListener, false);
-        }
-    }
-
-    private void a(Activity activity, Intent intent, String str, Bundle bundle, String str2, IUiListener iUiListener, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{activity, intent, str, bundle, str2, iUiListener, Boolean.valueOf(z)}) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("-->handleIntent action = ");
-            sb.append(str);
-            sb.append(", activityIntent = null ? ");
-            boolean z2 = true;
-            sb.append(intent == null);
-            SLog.i("openSDK_LOG.SocialApiIml", sb.toString());
-            if (intent != null) {
-                a(activity, intent, str, bundle, iUiListener);
-                return;
-            }
-            g a2 = g.a(f.a(), this.c.getAppId());
-            if (!z && !a2.b("C_LoginH5")) {
-                z2 = false;
-            }
-            if (z2) {
-                a(activity, str, bundle, str2, iUiListener);
-            } else {
-                a(activity, bundle, iUiListener);
-            }
-        }
-    }
-
-    private void a(Activity activity, Intent intent, String str, Bundle bundle, IUiListener iUiListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65539, this, activity, intent, str, bundle, iUiListener) == null) {
-            SLog.i("openSDK_LOG.SocialApiIml", "-->handleIntentWithAgent action = " + str);
-            intent.putExtra(com.tencent.connect.common.Constants.KEY_ACTION, str);
-            intent.putExtra(com.tencent.connect.common.Constants.KEY_PARAMS, bundle);
-            UIListenerManager.getInstance().setListenerWithRequestcode(com.tencent.connect.common.Constants.REQUEST_SOCIAL_API, iUiListener);
-            a(activity, intent, com.tencent.connect.common.Constants.REQUEST_SOCIAL_API);
         }
     }
 
@@ -357,6 +275,92 @@ public class SocialApiIml extends BaseApi {
             }
             SLog.d("openSDK_LOG.SocialApiIml", "OpenUi, showDialog PKDialog");
             new c(this.a, str, str3, iUiListener, this.c).show();
+        }
+    }
+
+    public void ask(Activity activity, Bundle bundle, IUiListener iUiListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, bundle, iUiListener) == null) {
+            a(activity, SocialConstants.ACTION_ASK, bundle, iUiListener);
+        }
+    }
+
+    public void gift(Activity activity, Bundle bundle, IUiListener iUiListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, bundle, iUiListener) == null) {
+            a(activity, SocialConstants.ACTION_GIFT, bundle, iUiListener);
+        }
+    }
+
+    @Override // com.tencent.connect.common.BaseApi
+    public Intent b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            Intent intent = new Intent();
+            intent.setClassName(com.tencent.connect.common.Constants.PACKAGE_QZONE, str);
+            Intent intent2 = new Intent();
+            intent2.setClassName("com.tencent.mobileqq", str);
+            Intent intent3 = new Intent();
+            intent3.setClassName(com.tencent.connect.common.Constants.PACKAGE_QQ_PAD, str);
+            if (l.c(f.a()) && i.a(f.a(), intent3)) {
+                return intent3;
+            }
+            if (i.a(f.a(), intent2) && i.c(f.a(), "4.7") >= 0) {
+                return intent2;
+            }
+            if (!i.a(f.a(), intent) || i.a(i.a(f.a(), com.tencent.connect.common.Constants.PACKAGE_QZONE), "4.2") < 0 || !i.a(f.a(), intent.getComponent().getPackageName(), com.tencent.connect.common.Constants.SIGNATRUE_QZONE)) {
+                return null;
+            }
+            return intent;
+        }
+        return (Intent) invokeL.objValue;
+    }
+
+    public void invite(Activity activity, Bundle bundle, IUiListener iUiListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, activity, bundle, iUiListener) == null) {
+            this.a = activity;
+            Intent c = c(SocialConstants.ACTIVITY_FRIEND_CHOOSER);
+            if (c == null) {
+                SLog.i("openSDK_LOG.SocialApiIml", "--invite--friend chooser not found");
+                c = c(SocialConstants.ACTIVITY_INVITE);
+            }
+            bundle.putAll(b());
+            a(activity, c, SocialConstants.ACTION_INVITE, bundle, h.a().a(f.a(), "https://login.imgcache.qq.com/open/mobile/invite/sdk_invite.html?"), iUiListener, false);
+        }
+    }
+
+    public void story(Activity activity, Bundle bundle, IUiListener iUiListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, activity, bundle, iUiListener) == null) {
+            this.a = activity;
+            Intent c = c(SocialConstants.ACTIVITY_STORY);
+            bundle.putAll(b());
+            a(activity, c, SocialConstants.ACTION_STORY, bundle, h.a().a(f.a(), "https://login.imgcache.qq.com/open/mobile/sendstory/sdk_sendstory_v1.3.html?"), iUiListener, false);
+        }
+    }
+
+    public void writeEncryToken(Context context) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
+            String accessToken = this.c.getAccessToken();
+            String appId = this.c.getAppId();
+            String openId = this.c.getOpenId();
+            if (accessToken != null && accessToken.length() > 0 && appId != null && appId.length() > 0 && openId != null && openId.length() > 0) {
+                str = l.f("tencent&sdk&qazxc***14969%%" + accessToken + appId + openId + "qzone3.4");
+            } else {
+                str = null;
+            }
+            com.tencent.open.b.b bVar = new com.tencent.open.b.b(context);
+            WebSettings settings = bVar.getSettings();
+            settings.setDomStorageEnabled(true);
+            settings.setJavaScriptEnabled(true);
+            settings.setDatabaseEnabled(true);
+            settings.setSavePassword(false);
+            String a2 = h.a().a(context, "https://login.imgcache.qq.com");
+            bVar.loadDataWithBaseURL(a2, "<!DOCTYPE HTML><html lang=\"en-US\"><head><meta charset=\"UTF-8\"><title>localStorage Test</title><script type=\"text/javascript\">document.domain = 'qq.com';localStorage[\"" + this.c.getOpenId() + "_" + this.c.getAppId() + "\"]=\"" + str + "\";</script></head><body></body></html>", SapiWebView.DATA_MIME_TYPE, IMAudioTransRequest.CHARSET, a2);
         }
     }
 }

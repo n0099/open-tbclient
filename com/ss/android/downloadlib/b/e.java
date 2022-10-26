@@ -2,21 +2,16 @@ package com.ss.android.downloadlib.b;
 
 import com.ss.android.socialbase.downloader.a.a;
 /* loaded from: classes8.dex */
-public class e implements a.InterfaceC0670a {
+public class e implements a.InterfaceC0666a {
     public long a;
 
-    /* loaded from: classes8.dex */
-    public static class a {
-        public static e a = new e();
-    }
-
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0670a
-    public void b() {
-        this.a = System.currentTimeMillis();
-    }
-
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0670a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0666a
     public void c() {
+    }
+
+    /* loaded from: classes8.dex */
+    public class a {
+        public static e a = new e();
     }
 
     public e() {
@@ -28,12 +23,25 @@ public class e implements a.InterfaceC0670a {
         return a.a;
     }
 
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0666a
+    public void b() {
+        this.a = System.currentTimeMillis();
+    }
+
     public void b(d dVar) {
         if (dVar == null) {
             return;
         }
+        int i = 1200;
         int optInt = com.ss.android.downloadlib.addownload.j.i().optInt("check_an_result_delay", 1200);
-        a(dVar, optInt > 0 ? optInt : 1200);
+        if (optInt > 0) {
+            i = optInt;
+        }
+        a(dVar, i);
+    }
+
+    public void a(d dVar) {
+        a(dVar, 5000L);
     }
 
     public void a(final d dVar, final long j) {
@@ -50,9 +58,5 @@ public class e implements a.InterfaceC0670a {
                 }
             }
         }, j);
-    }
-
-    public void a(d dVar) {
-        a(dVar, 5000L);
     }
 }

@@ -7,15 +7,13 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatRatingBar;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mp0;
 import com.baidu.tieba.np0;
+import com.baidu.tieba.op0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -29,7 +27,7 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
     public TextView k;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SimpleFeedAdInfoView(@NonNull Context context) {
+    public SimpleFeedAdInfoView(Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -54,11 +52,66 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, attributeSet) == null) {
             super.a(attributeSet);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091609);
-            this.j = (AppCompatRatingBar) findViewById(R.id.obfuscated_res_0x7f09160a);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f09160b);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0915fb);
+            this.j = (AppCompatRatingBar) findViewById(R.id.obfuscated_res_0x7f0915fc);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0915fd);
             c();
-            setRatingBarViewLP(R.drawable.obfuscated_res_0x7f080dca);
+            setRatingBarViewLP(R.drawable.obfuscated_res_0x7f080ddb);
+        }
+    }
+
+    public void setRatingBarViewLP(int i) {
+        Drawable drawable;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || this.j == null || (drawable = getResources().getDrawable(i)) == null) {
+            return;
+        }
+        int intrinsicHeight = drawable.getIntrinsicHeight();
+        ViewGroup.LayoutParams layoutParams = this.j.getLayoutParams();
+        layoutParams.width = -2;
+        layoutParams.height = intrinsicHeight;
+        this.j.setLayoutParams(layoutParams);
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public SimpleFeedAdInfoView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public SimpleFeedAdInfoView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
     }
 
@@ -97,13 +150,13 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
     }
 
     @Override // com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView
-    public void setAdInfo(np0 np0Var) {
+    public void setAdInfo(op0 op0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, np0Var) == null) {
-            super.setAdInfo(np0Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, op0Var) == null) {
+            super.setAdInfo(op0Var);
             if (this.i != null) {
-                if (!TextUtils.isEmpty(np0Var.c)) {
-                    this.i.setText(np0Var.c);
+                if (!TextUtils.isEmpty(op0Var.c)) {
+                    this.i.setText(op0Var.c);
                     this.i.setVisibility(0);
                 } else {
                     this.i.setVisibility(8);
@@ -111,7 +164,7 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
             }
             TextView textView = this.k;
             if (textView != null) {
-                double d = np0Var.e;
+                double d = op0Var.e;
                 if (d != -1.0d) {
                     textView.setText(String.valueOf(d));
                     this.k.setVisibility(0);
@@ -121,7 +174,7 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
             }
             AppCompatRatingBar appCompatRatingBar = this.j;
             if (appCompatRatingBar != null) {
-                double d2 = np0Var.e;
+                double d2 = op0Var.e;
                 if (d2 != -1.0d) {
                     appCompatRatingBar.setRating((float) d2);
                     this.j.setVisibility(0);
@@ -132,74 +185,17 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
         }
     }
 
-    public void setRatingBarViewLP(int i) {
-        Drawable drawable;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || this.j == null || (drawable = getResources().getDrawable(i)) == null) {
-            return;
-        }
-        int intrinsicHeight = drawable.getIntrinsicHeight();
-        ViewGroup.LayoutParams layoutParams = this.j.getLayoutParams();
-        layoutParams.width = -2;
-        layoutParams.height = intrinsicHeight;
-        this.j.setLayoutParams(layoutParams);
-    }
-
     public void update(AdBaseModel adBaseModel) {
-        np0 np0Var;
-        mp0.a aVar;
+        op0 op0Var;
+        np0.a aVar;
         int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, adBaseModel) == null) || adBaseModel == null || (np0Var = adBaseModel.i) == null) {
-            return;
-        }
-        setAdInfo(np0Var);
-        c();
-        mp0 mp0Var = adBaseModel.p;
-        if (mp0Var == null || (aVar = mp0Var.j) == null || (i = aVar.h) == 0) {
-            return;
-        }
-        setRatingBarViewLP(i);
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SimpleFeedAdInfoView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SimpleFeedAdInfoView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, adBaseModel) == null) && adBaseModel != null && (op0Var = adBaseModel.i) != null) {
+            setAdInfo(op0Var);
+            c();
+            np0 np0Var = adBaseModel.p;
+            if (np0Var != null && (aVar = np0Var.j) != null && (i = aVar.h) != 0) {
+                setRatingBarViewLP(i);
             }
         }
     }

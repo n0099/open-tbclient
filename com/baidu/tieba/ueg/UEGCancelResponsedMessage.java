@@ -40,14 +40,10 @@ public class UEGCancelResponsedMessage extends TbHttpResponsedMessage {
     public BlockPopInfoData getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.info : (BlockPopInfoData) invokeV.objValue;
-    }
-
-    public void setData(BlockPopInfoData blockPopInfoData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, blockPopInfoData) == null) {
-            this.info = blockPopInfoData;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.info;
         }
+        return (BlockPopInfoData) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,7 +53,7 @@ public class UEGCancelResponsedMessage extends TbHttpResponsedMessage {
         String str;
         Integer num;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || bArr == null || (queryBlockAndAppealInfoResIdl = (QueryBlockAndAppealInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryBlockAndAppealInfoResIdl.class)) == null) {
+        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) != null) || bArr == null || (queryBlockAndAppealInfoResIdl = (QueryBlockAndAppealInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryBlockAndAppealInfoResIdl.class)) == null) {
             return;
         }
         Error error = queryBlockAndAppealInfoResIdl.error;
@@ -80,5 +76,12 @@ public class UEGCancelResponsedMessage extends TbHttpResponsedMessage {
         blockPopInfoData.win_type = dataRes.win_type.intValue();
         blockPopInfoData.block_id_code = queryBlockAndAppealInfoResIdl.data.block_id_code;
         setData(blockPopInfoData);
+    }
+
+    public void setData(BlockPopInfoData blockPopInfoData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, blockPopInfoData) == null) {
+            this.info = blockPopInfoData;
+        }
     }
 }

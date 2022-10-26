@@ -35,9 +35,10 @@ public final class CompositeSequenceableLoader implements SequenceableLoader {
         InterceptResult invokeJ;
         SequenceableLoader[] sequenceableLoaderArr;
         boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            boolean z2 = false;
+            boolean z3 = false;
             do {
                 long nextLoadPositionUs = getNextLoadPositionUs();
                 if (nextLoadPositionUs == Long.MIN_VALUE) {
@@ -46,14 +47,18 @@ public final class CompositeSequenceableLoader implements SequenceableLoader {
                 z = false;
                 for (SequenceableLoader sequenceableLoader : this.loaders) {
                     long nextLoadPositionUs2 = sequenceableLoader.getNextLoadPositionUs();
-                    boolean z3 = nextLoadPositionUs2 != Long.MIN_VALUE && nextLoadPositionUs2 <= j;
-                    if (nextLoadPositionUs2 == nextLoadPositionUs || z3) {
+                    if (nextLoadPositionUs2 != Long.MIN_VALUE && nextLoadPositionUs2 <= j) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
+                    if (nextLoadPositionUs2 == nextLoadPositionUs || z2) {
                         z |= sequenceableLoader.continueLoading(j);
                     }
                 }
-                z2 |= z;
+                z3 |= z;
             } while (z);
-            return z2;
+            return z3;
         }
         return invokeJ.booleanValue;
     }

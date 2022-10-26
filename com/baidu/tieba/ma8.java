@@ -1,32 +1,63 @@
 package com.baidu.tieba;
 
-import android.widget.MediaController;
-import com.baidu.tieba.play.TbVideoViewContainer;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface ma8 extends MediaController.MediaPlayerControl {
-    void a(long j, long j2, long j3);
+public class ma8 extends nx {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public rb8 z;
 
-    int getCurrentPositionSync();
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ma8(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
 
-    na8 getMediaProgressObserver();
+    @Override // com.baidu.tieba.nx, com.baidu.tieba.bz
+    public pb8 t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            rb8 rb8Var = new rb8(this.b, this.i);
+            this.z = rb8Var;
+            return rb8Var;
+        }
+        return (pb8) invokeV.objValue;
+    }
 
-    int getPcdnState();
+    @Override // com.baidu.tieba.bz
+    public void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.v();
+        }
+    }
 
-    void setLooping(boolean z);
-
-    void setOnSurfaceDestroyedListener(TbVideoViewContainer.a aVar);
-
-    void setOperableVideoContainer(fb8 fb8Var);
-
-    void setPlayMode(String str);
-
-    void setStageType(String str);
-
-    void setVideoPath(String str, String str2);
-
-    void setVideoStatData(ab8 ab8Var);
-
-    void setVolume(float f, float f2);
-
-    void stopPlayback();
+    @Override // com.baidu.tieba.bz
+    public void w() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.w();
+        }
+    }
 }

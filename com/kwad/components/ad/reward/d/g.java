@@ -1,6 +1,5 @@
 package com.kwad.components.ad.reward.d;
 
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,7 +26,7 @@ public class g implements f {
     }
 
     @Override // com.kwad.components.ad.reward.d.f
-    public void a(PlayableSource playableSource, @Nullable j jVar) {
+    public void a(PlayableSource playableSource, j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, playableSource, jVar) == null) {
         }

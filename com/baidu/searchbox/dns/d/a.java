@@ -17,6 +17,13 @@ public class a extends com.baidu.searchbox.dns.d.b.a {
     public c G;
     public int H;
 
+    @Override // com.baidu.searchbox.dns.d.b.a
+    public String n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "DNS_TASK" : (String) invokeV.objValue;
+    }
+
     public a(boolean z, String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -40,16 +47,16 @@ public class a extends com.baidu.searchbox.dns.d.b.a {
     private void a(com.baidu.searchbox.dns.d.a.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, bVar) == null) {
-            Map<String, com.baidu.searchbox.dns.d.a.a> B = bVar.B();
+            Map B = bVar.B();
             if (B != null && !B.isEmpty()) {
-                for (Map.Entry<String, com.baidu.searchbox.dns.d.a.a> entry : B.entrySet()) {
-                    com.baidu.searchbox.dns.a.a.e().a(entry.getKey(), entry.getValue());
+                for (Map.Entry entry : B.entrySet()) {
+                    com.baidu.searchbox.dns.a.a.e().a((String) entry.getKey(), (com.baidu.searchbox.dns.d.a.a) entry.getValue());
                 }
             }
-            Map<String, com.baidu.searchbox.dns.d.a.a> C = bVar.C();
+            Map C = bVar.C();
             if (C != null && !C.isEmpty()) {
-                for (Map.Entry<String, com.baidu.searchbox.dns.d.a.a> entry2 : C.entrySet()) {
-                    com.baidu.searchbox.dns.a.a.e().b(entry2.getKey(), entry2.getValue());
+                for (Map.Entry entry2 : C.entrySet()) {
+                    com.baidu.searchbox.dns.a.a.e().b((String) entry2.getKey(), (com.baidu.searchbox.dns.d.a.a) entry2.getValue());
                 }
             }
             String D = bVar.D();
@@ -92,13 +99,6 @@ public class a extends com.baidu.searchbox.dns.d.b.a {
             }
             b.o().j(this.F);
         }
-    }
-
-    @Override // com.baidu.searchbox.dns.d.b.a
-    public String n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "DNS_TASK" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.searchbox.dns.d.b.a

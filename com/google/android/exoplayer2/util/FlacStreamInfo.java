@@ -19,6 +19,31 @@ public final class FlacStreamInfo {
     public final int sampleRate;
     public final long totalSamples;
 
+    public FlacStreamInfo(int i, int i2, int i3, int i4, int i5, int i6, int i7, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Long.valueOf(j)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i8 = newInitContext.flag;
+            if ((i8 & 1) != 0) {
+                int i9 = i8 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.minBlockSize = i;
+        this.maxBlockSize = i2;
+        this.minFrameSize = i3;
+        this.maxFrameSize = i4;
+        this.sampleRate = i5;
+        this.channels = i6;
+        this.bitsPerSample = i7;
+        this.totalSamples = j;
+    }
+
     public FlacStreamInfo(byte[] bArr, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -49,43 +74,27 @@ public final class FlacStreamInfo {
     public int bitRate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.bitsPerSample * this.sampleRate : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.bitsPerSample * this.sampleRate;
+        }
+        return invokeV.intValue;
     }
 
     public long durationUs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.totalSamples * 1000000) / this.sampleRate : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return (this.totalSamples * 1000000) / this.sampleRate;
+        }
+        return invokeV.longValue;
     }
 
     public int maxDecodedFrameSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.maxBlockSize * this.channels * (this.bitsPerSample / 8) : invokeV.intValue;
-    }
-
-    public FlacStreamInfo(int i, int i2, int i3, int i4, int i5, int i6, int i7, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Long.valueOf(j)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i8 = newInitContext.flag;
-            if ((i8 & 1) != 0) {
-                int i9 = i8 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.maxBlockSize * this.channels * (this.bitsPerSample / 8);
         }
-        this.minBlockSize = i;
-        this.maxBlockSize = i2;
-        this.minFrameSize = i3;
-        this.maxFrameSize = i4;
-        this.sampleRate = i5;
-        this.channels = i6;
-        this.bitsPerSample = i7;
-        this.totalSamples = j;
+        return invokeV.intValue;
     }
 }

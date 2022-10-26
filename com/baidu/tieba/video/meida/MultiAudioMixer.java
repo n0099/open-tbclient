@@ -19,7 +19,24 @@ public abstract class MultiAudioMixer {
     public c a;
 
     /* loaded from: classes6.dex */
-    public static class AudioMixException extends IOException {
+    public /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public interface c {
+        void onMixComplete();
+
+        void onMixError(int i);
+
+        void onMixing(byte[] bArr) throws IOException;
+    }
+
+    public abstract byte[] c(byte[][] bArr);
+
+    /* loaded from: classes6.dex */
+    public class AudioMixException extends IOException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1344782236320621800L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -46,13 +63,7 @@ public abstract class MultiAudioMixer {
     }
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b extends MultiAudioMixer {
+    public class b extends MultiAudioMixer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -68,6 +79,10 @@ public abstract class MultiAudioMixer {
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
         }
 
         @Override // com.baidu.tieba.video.meida.MultiAudioMixer
@@ -114,19 +129,6 @@ public abstract class MultiAudioMixer {
             }
             return (byte[]) invokeL.objValue;
         }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface c {
-        void onMixComplete();
-
-        void onMixError(int i);
-
-        void onMixing(byte[] bArr) throws IOException;
     }
 
     public MultiAudioMixer() {
@@ -146,7 +148,10 @@ public abstract class MultiAudioMixer {
     public static MultiAudioMixer a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new b(null) : (MultiAudioMixer) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new b(null);
+        }
+        return (MultiAudioMixer) invokeV.objValue;
     }
 
     public void b(File[] fileArr) {
@@ -231,8 +236,6 @@ public abstract class MultiAudioMixer {
             }
         }
     }
-
-    public abstract byte[] c(byte[][] bArr);
 
     public void d(c cVar) {
         Interceptable interceptable = $ic;

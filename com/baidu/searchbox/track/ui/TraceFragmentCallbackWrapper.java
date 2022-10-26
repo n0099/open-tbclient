@@ -1,7 +1,6 @@
 package com.baidu.searchbox.track.ui;
 
 import android.app.Activity;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,33 +40,45 @@ public class TraceFragmentCallbackWrapper implements ITraceFragmentCallback {
     }
 
     @Override // com.baidu.searchbox.track.ui.ITraceFragmentCallback
-    public boolean register(@Nullable Activity activity) {
+    public boolean register(Activity activity) {
         InterceptResult invokeL;
         TraceFragmentNativeCallback traceFragmentNativeCallback;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
+            boolean z = false;
             if (activity == null) {
                 return false;
             }
             TraceFragmentXCallback traceFragmentXCallback = this.mTraceFragmentXCallback;
-            boolean register = traceFragmentXCallback != null ? traceFragmentXCallback.register(activity) : false;
-            return (register || (traceFragmentNativeCallback = this.mTraceFragmentNativeCallback) == null) ? register : traceFragmentNativeCallback.register(activity);
+            if (traceFragmentXCallback != null) {
+                z = traceFragmentXCallback.register(activity);
+            }
+            if (!z && (traceFragmentNativeCallback = this.mTraceFragmentNativeCallback) != null) {
+                return traceFragmentNativeCallback.register(activity);
+            }
+            return z;
         }
         return invokeL.booleanValue;
     }
 
     @Override // com.baidu.searchbox.track.ui.ITraceFragmentCallback
-    public boolean unregister(@Nullable Activity activity) {
+    public boolean unregister(Activity activity) {
         InterceptResult invokeL;
         TraceFragmentNativeCallback traceFragmentNativeCallback;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
+            boolean z = false;
             if (activity == null) {
                 return false;
             }
             TraceFragmentXCallback traceFragmentXCallback = this.mTraceFragmentXCallback;
-            boolean unregister = traceFragmentXCallback != null ? traceFragmentXCallback.unregister(activity) : false;
-            return (unregister || (traceFragmentNativeCallback = this.mTraceFragmentNativeCallback) == null) ? unregister : traceFragmentNativeCallback.unregister(activity);
+            if (traceFragmentXCallback != null) {
+                z = traceFragmentXCallback.unregister(activity);
+            }
+            if (!z && (traceFragmentNativeCallback = this.mTraceFragmentNativeCallback) != null) {
+                return traceFragmentNativeCallback.unregister(activity);
+            }
+            return z;
         }
         return invokeL.booleanValue;
     }

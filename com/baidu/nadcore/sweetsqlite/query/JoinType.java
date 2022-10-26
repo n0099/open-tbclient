@@ -61,12 +61,18 @@ public final class JoinType {
     public static JoinType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (JoinType) Enum.valueOf(JoinType.class, str) : (JoinType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (JoinType) Enum.valueOf(JoinType.class, str);
+        }
+        return (JoinType) invokeL.objValue;
     }
 
     public static JoinType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (JoinType[]) $VALUES.clone() : (JoinType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (JoinType[]) $VALUES.clone();
+        }
+        return (JoinType[]) invokeV.objValue;
     }
 }

@@ -34,13 +34,13 @@ public final class LoginParams {
 
     /* renamed from: com.baidu.searchbox.account.params.LoginParams$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public static class Builder {
+    public class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String mCustomLoginCss;
@@ -86,22 +86,6 @@ public final class LoginParams {
             this.mCustomLoginCss = "";
             this.mNormalAccountTitle = "";
             this.mNormalAccountSubTitle = "";
-        }
-
-        public LoginParams build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.mLoginSrc == null) {
-                    this.mLoginSrc = new UserAccountActionItem(UserAccountActionItem.UserAccountAction.LOGIN, UserAccountActionItem.UserAccountType.NATIVE, "unknown");
-                }
-                int i = this.mLoginPageAnim;
-                if (i != 10 && i != 11) {
-                    this.mLoginPageAnim = 11;
-                }
-                return new LoginParams(this, null);
-            }
-            return (LoginParams) invokeV.objValue;
         }
 
         public Builder setCustomLoginCss(String str) {
@@ -194,17 +178,6 @@ public final class LoginParams {
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder setNormalAccountTitle(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, str2)) == null) {
-                this.mNormalAccountTitle = str;
-                this.mNormalAccountSubTitle = str2;
-                return this;
-            }
-            return (Builder) invokeLL.objValue;
-        }
-
         public Builder setOauthParam(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -254,16 +227,33 @@ public final class LoginParams {
             }
             return (Builder) invokeZ.objValue;
         }
-    }
 
-    public /* synthetic */ LoginParams(Builder builder, AnonymousClass1 anonymousClass1) {
-        this(builder);
-    }
+        public LoginParams build() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.mLoginSrc == null) {
+                    this.mLoginSrc = new UserAccountActionItem(UserAccountActionItem.UserAccountAction.LOGIN, UserAccountActionItem.UserAccountType.NATIVE, "unknown");
+                }
+                int i = this.mLoginPageAnim;
+                if (i != 10 && i != 11) {
+                    this.mLoginPageAnim = 11;
+                }
+                return new LoginParams(this, null);
+            }
+            return (LoginParams) invokeV.objValue;
+        }
 
-    public static LoginParams getDefaultParams() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new Builder().setLoginSrc(new UserAccountActionItem(UserAccountActionItem.UserAccountAction.LOGIN, UserAccountActionItem.UserAccountType.NATIVE, AccountConstants.LOGOUT_TYPE_NATIVE_SRC_OTHERS)).build() : (LoginParams) invokeV.objValue;
+        public Builder setNormalAccountTitle(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, str2)) == null) {
+                this.mNormalAccountTitle = str;
+                this.mNormalAccountSubTitle = str2;
+                return this;
+            }
+            return (Builder) invokeLL.objValue;
+        }
     }
 
     public LoginParams(Builder builder) {
@@ -297,5 +287,18 @@ public final class LoginParams {
         this.mCustomLoginCss = builder.mCustomLoginCss;
         this.mNormalAccountTitle = builder.mNormalAccountTitle;
         this.mNormalAccountSubTitle = builder.mNormalAccountSubTitle;
+    }
+
+    public /* synthetic */ LoginParams(Builder builder, AnonymousClass1 anonymousClass1) {
+        this(builder);
+    }
+
+    public static LoginParams getDefaultParams() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new Builder().setLoginSrc(new UserAccountActionItem(UserAccountActionItem.UserAccountAction.LOGIN, UserAccountActionItem.UserAccountType.NATIVE, AccountConstants.LOGOUT_TYPE_NATIVE_SRC_OTHERS)).build();
+        }
+        return (LoginParams) invokeV.objValue;
     }
 }

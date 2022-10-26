@@ -59,11 +59,18 @@ public final class MultiDetector extends Detector {
         }
     }
 
-    public DetectorResult[] detectMulti(Map<DecodeHintType, ?> map) throws NotFoundException {
+    public DetectorResult[] detectMulti(Map map) throws NotFoundException {
         InterceptResult invokeL;
+        ResultPointCallback resultPointCallback;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
-            FinderPatternInfo[] findMulti = new MultiFinderPatternFinder(getImage(), map == null ? null : (ResultPointCallback) map.get(DecodeHintType.NEED_RESULT_POINT_CALLBACK)).findMulti(map);
+            BitMatrix image = getImage();
+            if (map == null) {
+                resultPointCallback = null;
+            } else {
+                resultPointCallback = (ResultPointCallback) map.get(DecodeHintType.NEED_RESULT_POINT_CALLBACK);
+            }
+            FinderPatternInfo[] findMulti = new MultiFinderPatternFinder(image, resultPointCallback).findMulti(map);
             if (findMulti.length != 0) {
                 ArrayList arrayList = new ArrayList();
                 for (FinderPatternInfo finderPatternInfo : findMulti) {

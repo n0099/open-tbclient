@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.protobuf.ByteString;
-import java.util.Iterator;
 import java.util.NoSuchElementException;
 /* loaded from: classes7.dex */
 public class BoundedByteString extends LiteralByteString {
@@ -20,7 +19,7 @@ public class BoundedByteString extends LiteralByteString {
 
     /* renamed from: com.google.protobuf.BoundedByteString$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -33,6 +32,27 @@ public class BoundedByteString extends LiteralByteString {
         public int position;
         public final /* synthetic */ BoundedByteString this$0;
 
+        public BoundedByteIterator(BoundedByteString boundedByteString) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {boundedByteString};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = boundedByteString;
+            int offsetIntoBytes = boundedByteString.getOffsetIntoBytes();
+            this.position = offsetIntoBytes;
+            this.limit = offsetIntoBytes + boundedByteString.size();
+        }
+
         public /* synthetic */ BoundedByteIterator(BoundedByteString boundedByteString, AnonymousClass1 anonymousClass1) {
             this(boundedByteString);
         }
@@ -41,7 +61,24 @@ public class BoundedByteString extends LiteralByteString {
         public boolean hasNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.position < this.limit : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.position < this.limit) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Iterator
+        public Byte next() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return Byte.valueOf(nextByte());
+            }
+            return (Byte) invokeV.objValue;
         }
 
         @Override // com.google.protobuf.ByteString.ByteIterator
@@ -67,36 +104,6 @@ public class BoundedByteString extends LiteralByteString {
                 throw new UnsupportedOperationException();
             }
         }
-
-        public BoundedByteIterator(BoundedByteString boundedByteString) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {boundedByteString};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = boundedByteString;
-            int offsetIntoBytes = boundedByteString.getOffsetIntoBytes();
-            this.position = offsetIntoBytes;
-            this.limit = offsetIntoBytes + boundedByteString.size();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // java.util.Iterator
-        public Byte next() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Byte.valueOf(nextByte()) : (Byte) invokeV.objValue;
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -117,18 +124,18 @@ public class BoundedByteString extends LiteralByteString {
                 return;
             }
         }
-        if (i < 0) {
-            throw new IllegalArgumentException("Offset too small: " + i);
-        } else if (i2 >= 0) {
-            if (i + i2 <= bArr.length) {
-                this.bytesOffset = i;
-                this.bytesLength = i2;
-                return;
+        if (i >= 0) {
+            if (i2 >= 0) {
+                if (i + i2 <= bArr.length) {
+                    this.bytesOffset = i;
+                    this.bytesLength = i2;
+                    return;
+                }
+                throw new IllegalArgumentException("Offset+Length too large: " + i + BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX + i2);
             }
-            throw new IllegalArgumentException("Offset+Length too large: " + i + BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX + i2);
-        } else {
             throw new IllegalArgumentException("Length too small: " + i);
         }
+        throw new IllegalArgumentException("Offset too small: " + i);
     }
 
     @Override // com.google.protobuf.LiteralByteString, com.google.protobuf.ByteString
@@ -159,23 +166,30 @@ public class BoundedByteString extends LiteralByteString {
     public int getOffsetIntoBytes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.bytesOffset : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.bytesOffset;
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.google.protobuf.LiteralByteString, com.google.protobuf.ByteString, java.lang.Iterable
+    public ByteString.ByteIterator iterator() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return new BoundedByteIterator(this, null);
+        }
+        return (ByteString.ByteIterator) invokeV.objValue;
     }
 
     @Override // com.google.protobuf.LiteralByteString, com.google.protobuf.ByteString
     public int size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.bytesLength : invokeV.intValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Return type fixed from 'com.google.protobuf.ByteString$ByteIterator' to match base method */
-    @Override // com.google.protobuf.LiteralByteString, com.google.protobuf.ByteString, java.lang.Iterable
-    /* renamed from: iterator */
-    public Iterator<Byte> iterator2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new BoundedByteIterator(this, null) : (ByteString.ByteIterator) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.bytesLength;
+        }
+        return invokeV.intValue;
     }
 }

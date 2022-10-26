@@ -12,8 +12,6 @@ import android.graphics.Shader;
 import android.os.SystemClock;
 import android.util.AttributeSet;
 import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.widget.TooltipCompatHandler;
 /* loaded from: classes8.dex */
 public class DownloadProgressBar extends View {
@@ -36,11 +34,11 @@ public class DownloadProgressBar extends View {
         this(context, null, 0);
     }
 
-    public DownloadProgressBar(Context context, @Nullable AttributeSet attributeSet) {
+    public DownloadProgressBar(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
     }
 
-    public DownloadProgressBar(Context context, @Nullable AttributeSet attributeSet, int i) {
+    public DownloadProgressBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.yU = new Runnable() { // from class: com.kwad.sdk.widget.DownloadProgressBar.1
             @Override // java.lang.Runnable
@@ -124,7 +122,7 @@ public class DownloadProgressBar extends View {
     }
 
     @Override // android.view.View
-    public void onVisibilityChanged(@NonNull View view2, int i) {
+    public void onVisibilityChanged(View view2, int i) {
         super.onVisibilityChanged(view2, i);
     }
 

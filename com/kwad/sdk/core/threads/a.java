@@ -3,21 +3,20 @@ package com.kwad.sdk.core.threads;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes7.dex */
 public final class a {
-    public static Map<String, WeakReference<C0609a>> adw = new ConcurrentHashMap();
+    public static Map adw = new ConcurrentHashMap();
 
     /* renamed from: com.kwad.sdk.core.threads.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0609a {
+    public final class C0605a {
         public HandlerThread adx;
         public Handler mHandler;
 
-        public C0609a(String str) {
+        public C0605a(String str) {
             String str2;
             if (TextUtils.isEmpty(str)) {
                 str2 = "ksad-HT";
@@ -35,15 +34,14 @@ public final class a {
         }
     }
 
-    @NonNull
-    public static C0609a cv(String str) {
-        WeakReference<C0609a> weakReference = adw.get(str);
+    public static C0605a cv(String str) {
+        WeakReference weakReference = (WeakReference) adw.get(str);
         if (weakReference == null || weakReference.get() == null) {
-            C0609a c0609a = new C0609a(str);
-            adw.put(str, new WeakReference<>(c0609a));
-            return c0609a;
+            C0605a c0605a = new C0605a(str);
+            adw.put(str, new WeakReference(c0605a));
+            return c0605a;
         }
-        return weakReference.get();
+        return (C0605a) weakReference.get();
     }
 
     public static synchronized Handler vf() {

@@ -85,9 +85,9 @@ public class LoadExternalWebViewActivity extends BaseActivity {
             }
 
             @Override // com.baidu.sapi2.shell.result.WebAuthResult
-            public void finishActivity() {
+            public void finishActivity(boolean z) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                if (interceptable2 == null || interceptable2.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
                     super.finishActivity();
                     this.a.finish();
                     CoreViewRouter.getInstance().release();
@@ -95,9 +95,9 @@ public class LoadExternalWebViewActivity extends BaseActivity {
             }
 
             @Override // com.baidu.sapi2.shell.result.WebAuthResult
-            public void finishActivity(boolean z) {
+            public void finishActivity() {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     super.finishActivity();
                     this.a.finish();
                     CoreViewRouter.getInstance().release();
@@ -174,6 +174,59 @@ public class LoadExternalWebViewActivity extends BaseActivity {
         };
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            SapiWebView sapiWebView = this.sapiWebView;
+            if (sapiWebView != null && sapiWebView.canGoBack()) {
+                this.sapiWebView.goBack();
+            } else {
+                finish();
+            }
+        }
+    }
+
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public SapiWebDTO getWebDTO() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return CoreViewRouter.getInstance().getWebLoginDTO();
+        }
+        return (SapiWebDTO) invokeV.objValue;
+    }
+
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public void onBottomBackBtnClick() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onBottomBackBtnClick();
+            a();
+        }
+    }
+
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public void onClose() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.onClose();
+            finish();
+        }
+    }
+
+    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
+    public void onLeftBtnClick() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.onLeftBtnClick();
+            if (!this.executeSubClassMethod) {
+                return;
+            }
+            a();
+        }
+    }
+
     @Override // com.baidu.sapi2.activity.TitleActivity, android.app.Activity
     public void finish() {
         Interceptable interceptable = $ic;
@@ -186,13 +239,6 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                 CoreViewRouter.getInstance().getExtendSysWebViewMethodCallback().onFinish(extendSysWebViewMethodResult);
             }
         }
-    }
-
-    @Override // com.baidu.sapi2.activity.TitleActivity
-    public SapiWebDTO getWebDTO() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? CoreViewRouter.getInstance().getWebLoginDTO() : (SapiWebDTO) invokeV.objValue;
     }
 
     @Override // com.baidu.sapi2.activity.TitleActivity
@@ -223,21 +269,11 @@ public class LoadExternalWebViewActivity extends BaseActivity {
         }
     }
 
-    @Override // com.baidu.sapi2.activity.TitleActivity
-    public void onBottomBackBtnClick() {
+    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
+    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onBottomBackBtnClick();
-            a();
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.TitleActivity
-    public void onClose() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.onClose();
-            finish();
+        if (interceptable == null || interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, strArr, iArr) == null) {
+            super.onRequestPermissionsResult(i, strArr, iArr);
         }
     }
 
@@ -247,7 +283,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d0508);
+                setContentView(R.layout.obfuscated_res_0x7f0d0505);
                 this.w = CoreViewRouter.getInstance().getOneKeyLoginCallback();
                 CoreViewRouter.getInstance().releaseOneKeyLoginCallback();
                 init();
@@ -256,25 +292,6 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                 reportWebviewError(th);
                 finish();
             }
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
-    public void onLeftBtnClick() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.onLeftBtnClick();
-            if (this.executeSubClassMethod) {
-                a();
-            }
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
-    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, strArr, iArr) == null) {
-            super.onRequestPermissionsResult(i, strArr, iArr);
         }
     }
 
@@ -411,10 +428,9 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                 public void onCoverBduss(String str, SapiWebView.CoverWebBdussResult coverWebBdussResult) {
                     SapiAccount currentAccount;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLL(1048576, this, str, coverWebBdussResult) == null) || (currentAccount = SapiContext.getInstance().getCurrentAccount()) == null || TextUtils.isEmpty(str) || str.equals(currentAccount.bduss)) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeLL(1048576, this, str, coverWebBdussResult) == null) && (currentAccount = SapiContext.getInstance().getCurrentAccount()) != null && !TextUtils.isEmpty(str) && !str.equals(currentAccount.bduss)) {
+                        coverWebBdussResult.setWebBduss(currentAccount.bduss);
                     }
-                    coverWebBdussResult.setWebBduss(currentAccount.bduss);
                 }
             });
             this.sapiWebView.setSwitchAccountCallback(new SapiWebView.SwitchAccountCallback(this) { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.7
@@ -559,12 +575,11 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                 @Override // com.baidu.sapi2.SapiJsCallBacks.WebviewPageFinishCallback
                 public void onFinish(String str) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) || CoreViewRouter.getInstance().getExtendSysWebViewMethodCallback() == null) {
-                        return;
+                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) && CoreViewRouter.getInstance().getExtendSysWebViewMethodCallback() != null) {
+                        ExtendSysWebViewMethodResult extendSysWebViewMethodResult = new ExtendSysWebViewMethodResult();
+                        extendSysWebViewMethodResult.params.put(TiebaStatic.LogFields.RESULT, str);
+                        CoreViewRouter.getInstance().getExtendSysWebViewMethodCallback().onFinish(extendSysWebViewMethodResult);
                     }
-                    ExtendSysWebViewMethodResult extendSysWebViewMethodResult = new ExtendSysWebViewMethodResult();
-                    extendSysWebViewMethodResult.params.put(TiebaStatic.LogFields.RESULT, str);
-                    CoreViewRouter.getInstance().getExtendSysWebViewMethodCallback().onFinish(extendSysWebViewMethodResult);
                 }
             });
             ArrayList arrayList = new ArrayList();
@@ -573,19 +588,6 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                 arrayList.add(new PassNameValuePair("extrajson", webLoginDTO.statExtra));
             }
             this.sapiWebView.loadExternalUrl(this.u, arrayList);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            SapiWebView sapiWebView = this.sapiWebView;
-            if (sapiWebView != null && sapiWebView.canGoBack()) {
-                this.sapiWebView.goBack();
-            } else {
-                finish();
-            }
         }
     }
 }

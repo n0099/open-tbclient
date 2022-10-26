@@ -11,10 +11,7 @@ public class DeepLink {
     public String mWebUrl;
     public String packageName;
 
-    public DeepLink(String str, String str2, String str3) {
-        this.mOpenUrl = str;
-        this.mWebUrl = str2;
-        this.mWebTitle = str3;
+    public DeepLink() {
     }
 
     public String getCloudGameUrl() {
@@ -45,6 +42,12 @@ public class DeepLink {
         return this.mWebUrl;
     }
 
+    public DeepLink(String str, String str2, String str3) {
+        this.mOpenUrl = str;
+        this.mWebUrl = str2;
+        this.mWebTitle = str3;
+    }
+
     public void setCloudGameUrl(String str) {
         this.mCloudGameUrl = str;
     }
@@ -71,8 +74,5 @@ public class DeepLink {
 
     public void setWebUrl(String str) {
         this.mWebUrl = str;
-    }
-
-    public DeepLink() {
     }
 }

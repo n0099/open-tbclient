@@ -30,7 +30,7 @@ public class PayMemberInfoData extends OrmObject {
 
     public void parseJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         jSONObject.optInt("props_id");
@@ -41,7 +41,7 @@ public class PayMemberInfoData extends OrmObject {
 
     public void z(PayMemberInfo payMemberInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, payMemberInfo) == null) || payMemberInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, payMemberInfo) != null) || payMemberInfo == null) {
             return;
         }
         Integer num = payMemberInfo.props_id;

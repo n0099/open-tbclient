@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes7.dex */
 public class LargestLimitedMemoryCache extends LimitedMemoryCache {
-    public final Map<DecodedResult, Integer> valueSizes;
+    public final Map valueSizes;
 
     public LargestLimitedMemoryCache(int i) {
         super(i);
@@ -24,7 +24,7 @@ public class LargestLimitedMemoryCache extends LimitedMemoryCache {
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.BaseMemoryCache
-    public Reference<DecodedResult> createReference(DecodedResult decodedResult) {
+    public Reference createReference(DecodedResult decodedResult) {
         return new WeakReference(decodedResult);
     }
 
@@ -54,19 +54,19 @@ public class LargestLimitedMemoryCache extends LimitedMemoryCache {
     @Override // com.kwad.sdk.core.imageloader.cache.memory.LimitedMemoryCache
     public DecodedResult removeNext() {
         DecodedResult decodedResult;
-        Set<Map.Entry<DecodedResult, Integer>> entrySet = this.valueSizes.entrySet();
+        Set<Map.Entry> entrySet = this.valueSizes.entrySet();
         synchronized (this.valueSizes) {
             decodedResult = null;
             Integer num = null;
-            for (Map.Entry<DecodedResult, Integer> entry : entrySet) {
+            for (Map.Entry entry : entrySet) {
                 if (decodedResult == null) {
-                    decodedResult = entry.getKey();
-                    num = entry.getValue();
+                    decodedResult = (DecodedResult) entry.getKey();
+                    num = (Integer) entry.getValue();
                 } else {
-                    Integer value = entry.getValue();
-                    if (value.intValue() > num.intValue()) {
-                        decodedResult = entry.getKey();
-                        num = value;
+                    Integer num2 = (Integer) entry.getValue();
+                    if (num2.intValue() > num.intValue()) {
+                        decodedResult = (DecodedResult) entry.getKey();
+                        num = num2;
                     }
                 }
             }

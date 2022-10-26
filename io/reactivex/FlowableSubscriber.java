@@ -1,12 +1,9 @@
 package io.reactivex;
 
-import io.reactivex.annotations.Beta;
-import io.reactivex.annotations.NonNull;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-@Beta
 /* loaded from: classes8.dex */
-public interface FlowableSubscriber<T> extends Subscriber<T> {
+public interface FlowableSubscriber extends Subscriber {
     @Override // org.reactivestreams.Subscriber
-    void onSubscribe(@NonNull Subscription subscription);
+    void onSubscribe(Subscription subscription);
 }

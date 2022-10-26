@@ -55,7 +55,10 @@ public class MediaScannerClient implements MediaScannerConnection.MediaScannerCo
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) {
             String lowerCase = str.toLowerCase();
-            return (lowerCase.endsWith("mp4") || lowerCase.endsWith("mpeg4") || !lowerCase.endsWith("3gp")) ? MimeTypes.VIDEO_MP4 : "video/3gp";
+            if (lowerCase.endsWith("mp4") || lowerCase.endsWith("mpeg4") || !lowerCase.endsWith("3gp")) {
+                return MimeTypes.VIDEO_MP4;
+            }
+            return "video/3gp";
         }
         return (String) invokeL.objValue;
     }
@@ -69,12 +72,11 @@ public class MediaScannerClient implements MediaScannerConnection.MediaScannerCo
                 this.mConnection.scanFile(this.mPath, this.mMimeType);
             }
             String[] strArr2 = this.mPaths;
-            if (strArr2 == null || (strArr = this.mMimeTypes) == null || strArr2.length != strArr.length) {
-                return;
-            }
-            int length = strArr2.length;
-            for (int i = 0; i < length; i++) {
-                this.mConnection.scanFile(this.mPaths[i], this.mMimeTypes[i]);
+            if (strArr2 != null && (strArr = this.mMimeTypes) != null && strArr2.length == strArr.length) {
+                int length = strArr2.length;
+                for (int i = 0; i < length; i++) {
+                    this.mConnection.scanFile(this.mPaths[i], this.mMimeTypes[i]);
+                }
             }
         }
     }
@@ -107,10 +109,9 @@ public class MediaScannerClient implements MediaScannerConnection.MediaScannerCo
                     }
                 }
             }
-            if (!this.completed || (onscancompletedlistener = this.mListener) == null) {
-                return;
+            if (this.completed && (onscancompletedlistener = this.mListener) != null) {
+                onscancompletedlistener.onScanCompeted();
             }
-            onscancompletedlistener.onScanCompeted();
         }
     }
 
@@ -133,6 +134,13 @@ public class MediaScannerClient implements MediaScannerConnection.MediaScannerCo
             this.mPath = str;
             this.mMimeType = getVideoMimeType(str);
             this.mConnection.connect();
+        }
+    }
+
+    public void setOnScanCompletedListener(onScanCompletedListener onscancompletedlistener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, onscancompletedlistener) == null) {
+            this.mListener = onscancompletedlistener;
         }
     }
 
@@ -163,13 +171,6 @@ public class MediaScannerClient implements MediaScannerConnection.MediaScannerCo
             this.mPaths = null;
             this.mMimeTypes = null;
             this.length = 0;
-        }
-    }
-
-    public void setOnScanCompletedListener(onScanCompletedListener onscancompletedlistener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, onscancompletedlistener) == null) {
-            this.mListener = onscancompletedlistener;
         }
     }
 }

@@ -33,7 +33,7 @@ public class MediaCodecUtils {
 
     /* renamed from: org.webrtc.MediaCodecUtils$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$webrtc$VideoCodecType;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,6 +101,15 @@ public class MediaCodecUtils {
         }
     }
 
+    public static int[] getTextureColorFormats() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return Build.VERSION.SDK_INT >= 18 ? new int[]{2130708361} : new int[0];
+        }
+        return (int[]) invokeV.objValue;
+    }
+
     public static boolean codecSupportsType(MediaCodecInfo mediaCodecInfo, VideoCodecType videoCodecType) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -115,26 +124,20 @@ public class MediaCodecUtils {
         return invokeLL.booleanValue;
     }
 
-    public static Map<String, String> getCodecProperties(VideoCodecType videoCodecType, boolean z) {
+    public static Map getCodecProperties(VideoCodecType videoCodecType, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, videoCodecType, z)) == null) {
             int i = AnonymousClass1.$SwitchMap$org$webrtc$VideoCodecType[videoCodecType.ordinal()];
-            if (i == 1 || i == 2) {
-                return new HashMap();
+            if (i != 1 && i != 2) {
+                if (i == 3) {
+                    return H264Utils.getDefaultH264Params(z);
+                }
+                throw new IllegalArgumentException("Unsupported codec: " + videoCodecType);
             }
-            if (i == 3) {
-                return H264Utils.getDefaultH264Params(z);
-            }
-            throw new IllegalArgumentException("Unsupported codec: " + videoCodecType);
+            return new HashMap();
         }
         return (Map) invokeLZ.objValue;
-    }
-
-    public static int[] getTextureColorFormats() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? Build.VERSION.SDK_INT >= 18 ? new int[]{2130708361} : new int[0] : (int[]) invokeV.objValue;
     }
 
     @Nullable

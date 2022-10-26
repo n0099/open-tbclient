@@ -9,16 +9,16 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class ShapeGroup implements ContentModel {
     public final boolean hidden;
-    public final List<ContentModel> items;
+    public final List items;
     public final String name;
 
-    public ShapeGroup(String str, List<ContentModel> list, boolean z) {
+    public ShapeGroup(String str, List list, boolean z) {
         this.name = str;
         this.items = list;
         this.hidden = z;
     }
 
-    public List<ContentModel> getItems() {
+    public List getItems() {
         return this.items;
     }
 
@@ -30,12 +30,12 @@ public class ShapeGroup implements ContentModel {
         return this.hidden;
     }
 
+    public String toString() {
+        return "ShapeGroup{name='" + this.name + "' Shapes: " + Arrays.toString(this.items.toArray()) + '}';
+    }
+
     @Override // com.airbnb.lottie.model.content.ContentModel
     public Content toContent(LottieDrawable lottieDrawable, BaseLayer baseLayer) {
         return new ContentGroup(lottieDrawable, baseLayer, this);
-    }
-
-    public String toString() {
-        return "ShapeGroup{name='" + this.name + "' Shapes: " + Arrays.toString(this.items.toArray()) + '}';
     }
 }

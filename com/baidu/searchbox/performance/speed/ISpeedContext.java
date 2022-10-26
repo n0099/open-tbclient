@@ -15,20 +15,6 @@ public interface ISpeedContext {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
         @Override // com.baidu.searchbox.performance.speed.ISpeedContext
         public void checkSendStatisticData() {
             Interceptable interceptable = $ic;
@@ -137,7 +123,7 @@ public interface ISpeedContext {
         }
 
         @Override // com.baidu.searchbox.performance.speed.ISpeedContext
-        public void launchData(HashMap<String, String> hashMap) {
+        public void launchData(HashMap hashMap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048587, this, hashMap) == null) {
             }
@@ -147,6 +133,20 @@ public interface ISpeedContext {
         public void launchTime(boolean z, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+            }
+        }
+
+        {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
     };
@@ -173,7 +173,7 @@ public interface ISpeedContext {
 
     boolean isSplashActivity(Activity activity);
 
-    void launchData(HashMap<String, String> hashMap);
+    void launchData(HashMap hashMap);
 
     void launchTime(boolean z, long j);
 }

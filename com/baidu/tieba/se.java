@@ -1,50 +1,78 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 /* loaded from: classes5.dex */
 public class se {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Type[] a;
+    public Type b;
+    public Class c;
 
-    public static final boolean a(tc tcVar, od odVar) {
-        InterceptResult invokeLL;
-        bd a;
+    public se(Type type) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tcVar, odVar)) == null) {
-            if (tcVar == null || odVar == null) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {type};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            for (Field field : rc.b(tcVar.getClass())) {
-                if (field != null && !Modifier.isTransient(field.getModifiers()) && !Modifier.isStatic(field.getModifiers())) {
-                    String name = field.getName();
-                    if (!TextUtils.isEmpty(name) && (a = ue.a(rc.d(tcVar, name))) != null) {
-                        Object obj = null;
-                        if (odVar instanceof qd) {
-                            obj = a.f(new re(field.getGenericType()));
-                        } else if (odVar instanceof md) {
-                            obj = a.d(new re(field.getGenericType()));
-                        } else if (odVar instanceof pd) {
-                            obj = a.e(new re(field.getGenericType()));
-                        } else if (odVar instanceof rd) {
-                            obj = a.b(new re(field.getGenericType()));
-                        } else if (odVar instanceof nd) {
-                            obj = a.a(new re(field.getGenericType()));
-                        } else if (odVar instanceof sd) {
-                            obj = a.c(new re(field.getGenericType()));
-                        }
-                        if (obj != null) {
-                            odVar.a(name, obj);
-                        }
-                    }
+        }
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        if (type instanceof ParameterizedType) {
+            ParameterizedType parameterizedType = (ParameterizedType) type;
+            this.a = parameterizedType.getActualTypeArguments();
+            Type rawType = parameterizedType.getRawType();
+            this.b = rawType;
+            Type[] typeArr = this.a;
+            if (typeArr != null && typeArr.length > 0) {
+                try {
+                    this.c = (Class) rawType;
+                    return;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return;
                 }
             }
-            return true;
+            return;
         }
-        return invokeLL.booleanValue;
+        try {
+            this.c = (Class) type;
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    public Class a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (Class) invokeV.objValue;
+    }
+
+    public Type[] b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (Type[]) invokeV.objValue;
     }
 }

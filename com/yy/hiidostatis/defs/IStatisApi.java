@@ -88,7 +88,7 @@ public interface IStatisApi extends IStatisAPI {
 
     void reportDo5(long j);
 
-    void reportDoShort(long j, Map<String, String> map);
+    void reportDoShort(long j, Map map);
 
     void reportError(long j, String str, String str2, String str3);
 
@@ -128,11 +128,11 @@ public interface IStatisApi extends IStatisAPI {
     @Override // com.yy.hiidostatis.defs.interf.IStatisAPI
     void reportRecentAppList(long j, String str, String str2);
 
-    void reportReg(String str, String str2, String str3, Map<String, String> map);
+    void reportReg(String str, String str2, String str3, Map map);
 
-    void reportReturnCode(int i, String str, long j, String str2, Map<String, String> map);
+    void reportReturnCode(int i, String str, long j, String str2, Map map);
 
-    void reportReturnCode(String str, int i, String str2, long j, String str3, Map<String, String> map);
+    void reportReturnCode(String str, int i, String str2, long j, String str3, Map map);
 
     void reportRun(long j);
 
@@ -141,9 +141,9 @@ public interface IStatisApi extends IStatisAPI {
 
     void reportShare(String str, int i, String str2, ShareType shareType, String str3, String str4, String str5);
 
-    void reportSrcData(int i, String str, String str2, long j, Map<String, String> map);
+    void reportSrcData(int i, String str, String str2, long j, Map map);
 
-    void reportSrcData(String str, int i, String str2, String str3, long j, Map<String, String> map);
+    void reportSrcData(String str, int i, String str2, String str3, long j, Map map);
 
     void reportStatisticContent(String str, StatisContent statisContent, boolean z, boolean z2);
 

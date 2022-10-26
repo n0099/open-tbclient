@@ -19,6 +19,32 @@ public final class InflaterSource implements Source {
     public final Inflater inflater;
     public final BufferedSource source;
 
+    public InflaterSource(BufferedSource bufferedSource, Inflater inflater) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bufferedSource, inflater};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        if (bufferedSource != null) {
+            if (inflater != null) {
+                this.source = bufferedSource;
+                this.inflater = inflater;
+                return;
+            }
+            throw new IllegalArgumentException("inflater == null");
+        }
+        throw new IllegalArgumentException("source == null");
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public InflaterSource(Source source, Inflater inflater) {
         this(Okio.buffer(source), inflater);
@@ -43,7 +69,7 @@ public final class InflaterSource implements Source {
     private void releaseInflatedBytes() throws IOException {
         int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (i = this.bufferBytesHeldByInflater) == 0) {
+        if ((interceptable != null && interceptable.invokeV(65538, this) != null) || (i = this.bufferBytesHeldByInflater) == 0) {
             return;
         }
         int remaining = i - this.inflater.getRemaining();
@@ -54,12 +80,22 @@ public final class InflaterSource implements Source {
     @Override // okio.Source, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.closed) {
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.closed) {
             return;
         }
         this.inflater.end();
         this.closed = true;
         this.source.close();
+    }
+
+    @Override // okio.Source
+    public Timeout timeout() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.source.timeout();
+        }
+        return (Timeout) invokeV.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:24:0x0058, code lost:
@@ -85,38 +121,40 @@ public final class InflaterSource implements Source {
     public long read(Buffer buffer, long j) throws IOException {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) != null) {
-            return invokeLJ.longValue;
-        }
-        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-        if (i >= 0) {
-            if (this.closed) {
-                throw new IllegalStateException("closed");
-            }
-            if (i == 0) {
-                return 0L;
-            }
-            while (true) {
-                boolean refill = refill();
-                try {
-                    Segment writableSegment = buffer.writableSegment(1);
-                    int inflate = this.inflater.inflate(writableSegment.data, writableSegment.limit, (int) Math.min(j, 8192 - writableSegment.limit));
-                    if (inflate > 0) {
-                        writableSegment.limit += inflate;
-                        long j2 = inflate;
-                        buffer.size += j2;
-                        return j2;
-                    } else if (this.inflater.finished() || this.inflater.needsDictionary()) {
-                        break;
-                    } else if (refill) {
-                        throw new EOFException("source exhausted prematurely");
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) == null) {
+            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (i >= 0) {
+                if (!this.closed) {
+                    if (i == 0) {
+                        return 0L;
                     }
-                } catch (DataFormatException e) {
-                    throw new IOException(e);
+                    while (true) {
+                        boolean refill = refill();
+                        try {
+                            Segment writableSegment = buffer.writableSegment(1);
+                            int inflate = this.inflater.inflate(writableSegment.data, writableSegment.limit, (int) Math.min(j, 8192 - writableSegment.limit));
+                            if (inflate > 0) {
+                                writableSegment.limit += inflate;
+                                long j2 = inflate;
+                                buffer.size += j2;
+                                return j2;
+                            } else if (this.inflater.finished() || this.inflater.needsDictionary()) {
+                                break;
+                            } else if (refill) {
+                                throw new EOFException("source exhausted prematurely");
+                            }
+                        } catch (DataFormatException e) {
+                            throw new IOException(e);
+                        }
+                    }
+                } else {
+                    throw new IllegalStateException("closed");
                 }
+            } else {
+                throw new IllegalArgumentException("byteCount < 0: " + j);
             }
         } else {
-            throw new IllegalArgumentException("byteCount < 0: " + j);
+            return invokeLJ.longValue;
         }
     }
 
@@ -124,57 +162,24 @@ public final class InflaterSource implements Source {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.inflater.needsInput()) {
-                releaseInflatedBytes();
-                if (this.inflater.getRemaining() == 0) {
-                    if (this.source.exhausted()) {
-                        return true;
-                    }
-                    Segment segment = this.source.buffer().head;
-                    int i = segment.limit;
-                    int i2 = segment.pos;
-                    int i3 = i - i2;
-                    this.bufferBytesHeldByInflater = i3;
-                    this.inflater.setInput(segment.data, i2, i3);
-                    return false;
-                }
-                throw new IllegalStateException("?");
+            if (!this.inflater.needsInput()) {
+                return false;
             }
-            return false;
+            releaseInflatedBytes();
+            if (this.inflater.getRemaining() == 0) {
+                if (this.source.exhausted()) {
+                    return true;
+                }
+                Segment segment = this.source.buffer().head;
+                int i = segment.limit;
+                int i2 = segment.pos;
+                int i3 = i - i2;
+                this.bufferBytesHeldByInflater = i3;
+                this.inflater.setInput(segment.data, i2, i3);
+                return false;
+            }
+            throw new IllegalStateException("?");
         }
         return invokeV.booleanValue;
-    }
-
-    @Override // okio.Source
-    public Timeout timeout() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.source.timeout() : (Timeout) invokeV.objValue;
-    }
-
-    public InflaterSource(BufferedSource bufferedSource, Inflater inflater) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bufferedSource, inflater};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        if (bufferedSource == null) {
-            throw new IllegalArgumentException("source == null");
-        }
-        if (inflater != null) {
-            this.source = bufferedSource;
-            this.inflater = inflater;
-            return;
-        }
-        throw new IllegalArgumentException("inflater == null");
     }
 }

@@ -5,7 +5,7 @@ import java.util.Map;
 /* loaded from: classes7.dex */
 public final class a implements b {
     @Override // com.kwad.sdk.core.videocache.a.b
-    public final Map<String, String> vZ() {
+    public final Map vZ() {
         return new HashMap();
     }
 }

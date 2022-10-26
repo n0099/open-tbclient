@@ -15,6 +15,48 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static JSONObject a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("resultCode", "103000");
+                jSONObject.put("desc", "true");
+                jSONObject.put("securityphone", str);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static JSONObject a(String str, com.cmic.sso.sdk.a aVar, JSONObject jSONObject) {
+        InterceptResult invokeLLL;
+        String b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, aVar, jSONObject)) == null) {
+            String[] strArr = {FileUtils.UNKNOW, "移动", "联通", "电信"};
+            try {
+                b = aVar.b("operatortype", "0");
+            } catch (Exception e) {
+                Log.e("AuthnResult", "JSONException", e);
+            }
+            if (!"0".equals(b) && !TextUtils.isEmpty(b)) {
+                jSONObject.put("operatorType", strArr[Integer.parseInt(b)]);
+                return jSONObject;
+            }
+            if ("103000".equals(str)) {
+                jSONObject.put("operatorType", strArr[1]);
+            } else {
+                jSONObject.put("operatorType", strArr[0]);
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeLLL.objValue;
+    }
+
     public static JSONObject a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -45,48 +87,6 @@ public class c {
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;
-    }
-
-    public static JSONObject a(String str, com.cmic.sso.sdk.a aVar, JSONObject jSONObject) {
-        InterceptResult invokeLLL;
-        String b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, aVar, jSONObject)) == null) {
-            String[] strArr = {FileUtils.UNKNOW, "移动", "联通", "电信"};
-            try {
-                b = aVar.b("operatortype", "0");
-            } catch (Exception e) {
-                Log.e("AuthnResult", "JSONException", e);
-            }
-            if (!"0".equals(b) && !TextUtils.isEmpty(b)) {
-                jSONObject.put("operatorType", strArr[Integer.parseInt(b)]);
-                return jSONObject;
-            }
-            if ("103000".equals(str)) {
-                jSONObject.put("operatorType", strArr[1]);
-            } else {
-                jSONObject.put("operatorType", strArr[0]);
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeLLL.objValue;
-    }
-
-    public static JSONObject a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("resultCode", "103000");
-                jSONObject.put("desc", "true");
-                jSONObject.put("securityphone", str);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
     }
 
     public static JSONObject a(String str, String str2, com.cmic.sso.sdk.a aVar, JSONObject jSONObject) {

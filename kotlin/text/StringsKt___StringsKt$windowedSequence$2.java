@@ -18,6 +18,11 @@ public final class StringsKt___StringsKt$windowedSequence$2 extends Lambda imple
         this.$transform = function1;
     }
 
+    @Override // kotlin.jvm.functions.Function1
+    public /* bridge */ /* synthetic */ Object invoke(Object obj) {
+        return invoke(((Number) obj).intValue());
+    }
+
     /* JADX WARN: Type inference failed for: r4v2, types: [R, java.lang.Object] */
     public final R invoke(int i) {
         int i2 = this.$size + i;
@@ -25,11 +30,5 @@ public final class StringsKt___StringsKt$windowedSequence$2 extends Lambda imple
             i2 = this.$this_windowedSequence.length();
         }
         return this.$transform.invoke(this.$this_windowedSequence.subSequence(i, i2));
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // kotlin.jvm.functions.Function1
-    public /* bridge */ /* synthetic */ Object invoke(Integer num) {
-        return invoke(num.intValue());
     }
 }

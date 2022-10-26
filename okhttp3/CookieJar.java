@@ -14,6 +14,13 @@ public interface CookieJar {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
+        @Override // okhttp3.CookieJar
+        public void saveFromResponse(HttpUrl httpUrl, List<Cookie> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpUrl, list) == null) {
+            }
+        }
+
         {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -32,14 +39,10 @@ public interface CookieJar {
         public List<Cookie> loadForRequest(HttpUrl httpUrl) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, httpUrl)) == null) ? Collections.emptyList() : (List) invokeL.objValue;
-        }
-
-        @Override // okhttp3.CookieJar
-        public void saveFromResponse(HttpUrl httpUrl, List<Cookie> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpUrl, list) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, httpUrl)) == null) {
+                return Collections.emptyList();
             }
+            return (List) invokeL.objValue;
         }
     };
 

@@ -71,7 +71,10 @@ public class IMSyncDialog extends Message {
     public static IMSyncDialog newInstance(Context context, Intent intent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, intent)) == null) ? new IMSyncDialog(context, intent.getLongExtra(Constants.EXTRA_CLIENT_MAX_MSGID, 0L)) : (IMSyncDialog) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, intent)) == null) {
+            return new IMSyncDialog(context, intent.getLongExtra(Constants.EXTRA_CLIENT_MAX_MSGID, 0L));
+        }
+        return (IMSyncDialog) invokeLL.objValue;
     }
 
     @Override // com.baidu.android.imsdk.request.Message
